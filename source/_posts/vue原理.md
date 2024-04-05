@@ -15,7 +15,7 @@ tags:
 
 创建代理对象（用于收集依赖）
 
-![image-20240123164938769](C:\Users\44676\Desktop\md\assets\vue1.png)
+![/images/image-20240123164938769](/images/vue1.png)
 
 **需要注意的是：当使用代理对象的this时，其this指向普通对象，导致的结果就是后续使用代理对象收集不到使用this指定的函数，解决方法是通过Reflect反射。**
 
@@ -27,31 +27,31 @@ tags:
 
 首先通过reactiveEffect类创建副作用实例：通过实例的run方法可以执行里面的函数
 
-![image-20240123164938769](C:\Users\44676\Desktop\md\assets\vue2.png)
+![/images/image-20240123164938769](/images/vue2.png)
 
 通过track函数收集依赖。**（在Proxy对象的getter中执行）**
 
-![image-20240123164938769](C:\Users\44676\Desktop\md\assets\vue3.png)
+![/images/image-20240123164938769](/images/vue3.png)
 
 通过trigger函数触发依赖  **（在Proxy对象的setter中执行）**
 
-![image-20240123164938769](C:\Users\44676\Desktop\md\assets\vue4.png)
+![/images/image-20240123164938769](/images/vue4.png)
 
 #### ref函数：
 
-![image-20240123164938769](C:\Users\44676\Desktop\md\assets\vue5.png)
+![/images/image-20240123164938769](/images/vue5.png)
 
 #### computed函数：
 
-![image-20240123164938769](C:\Users\44676\Desktop\md\assets\vue7.png)
+![/images/image-20240123164938769](/images/vue7.png)
 
 ### scheduler调度器：
 
-![image-20240123164938769](C:\Users\44676\Desktop\md\assets\vue8.png)
+![/images/image-20240123164938769](/images/vue8.png)
 
 ### watch函数：
 
-![image-20240123164938769](C:\Users\44676\Desktop\md\assets\vue9.png)
+![/images/image-20240123164938769](/images/vue9.png)
 
 # 二、运行时runtime：
 
@@ -59,35 +59,35 @@ tags:
 
 
 
-![image-20240123164938769](C:\Users\44676\Desktop\md\assets\vue10.png)
+![/images/image-20240123164938769](/images/vue10.png)
 
 #### h函数：
 
-![image-20240123164938769](C:\Users\44676\Desktop\md\assets\vue11.png)
+![/images/image-20240123164938769](/images/vue11.png)
 
 #### nodeOps对象：
 
 封装dom元素操作
 
-![image-20240123164938769](C:\Users\44676\Desktop\md\assets\vue13.png)
+![/images/image-20240123164938769](/images/vue13.png)
 
 #### patchProp函数：
 
 根据元素类型（class属性，style属性，事件，dom Properties和其他属性），进行不同的patch打补丁操作
 
-![image-20240123164938769](C:\Users\44676\Desktop\md\assets\vue14.png)
+![/images/image-20240123164938769](/images/vue14.png)
 
 #### render函数：
 
-![image-20240123164938769](C:\Users\44676\Desktop\md\assets\vue12.png)
+![/images/image-20240123164938769](/images/vue12.png)
 
 #### 组件渲染：
 
-![image-20240123164938769](C:\Users\44676\Desktop\md\assets\vue16.png)
+![/images/image-20240123164938769](/images/vue16.png)
 
 ### patch函数（diff算法）：
 
-![image-20240123164938769](C:\Users\44676\Desktop\md\assets\vue15.png)
+![/images/image-20240123164938769](/images/vue15.png)
 
 
 

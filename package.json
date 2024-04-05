@@ -6,8 +6,10 @@
     "build": "hexo generate",
     "clean": "hexo clean",
     "deploy": "hexo deploy",
+    "clean-deploy": "hexo c && hexo g && hexo deploy",
+    "clean-algolia-deploy": "hexo c && hexo g && hexo deploy && set HEXO_ALGOLIA_INDEXING_KEY=bfa5090f87840ffa546f9e1cb4bc1ef0 && hexo algolia",
     "server": "hexo server",
-    "algolia": "hexo algolia"
+    "algolia": "set HEXO_ALGOLIA_INDEXING_KEY=bfa5090f87840ffa546f9e1cb4bc1ef0 && hexo algolia"
   },
   "hexo": {
     "version": "6.3.0"

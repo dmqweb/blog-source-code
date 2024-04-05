@@ -149,7 +149,7 @@ Windows的优势：
 
 1. GNOME[[官方地址]](https://www.gnome.org/)
 
-   ![image-20190602081017634](./assets/image-20190602081017634.png)
+   ![/images/image-20190602081017634](./assets/image-20190602081017634.png)
 
    > centos6.x 上默认是gnome2，7.x默认gnome3
 
@@ -207,7 +207,7 @@ Windows的优势：
 
 1. 下载镜像
 
-   ![image-20190602095157756](./assets/image-20190602095157756.png)
+   ![/images/image-20190602095157756](./assets/image-20190602095157756.png)
 
    按需选择下载：
 
@@ -277,7 +277,7 @@ Ubuntu官网推荐：
 
 1. 格式化U盘
 
-   ![image-20190602094231784](./assets/image-20190602094231784.png)
+   ![/images/image-20190602094231784](./assets/image-20190602094231784.png)
 
 2. 使用 `diskutil list` 查看U的设备名
 
@@ -1497,7 +1497,7 @@ nginxs配置说明：
 
 请求信息包括：请求行、请求头、空行还有其他消息体
 
-![image-20190605153656594](./assets/image-20190605153656594.png)
+![/images/image-20190605153656594](./assets/image-20190605153656594.png)
 
 HTTP的特点：
 
@@ -1565,7 +1565,7 @@ SSL握手过程：
 
 1. [Let's Encrypt](https://letsencrypt.org/)组织介绍
 
-   ![image-20190605160738126](./assets/image-20190605160738126.png)
+   ![/images/image-20190605160738126](./assets/image-20190605160738126.png)
 
 2. acme来自动化申请
 
@@ -1750,7 +1750,7 @@ SSL握手过程：
 
    使用阿里云的工具进行筛选，需要登录，链接：[ECS 实例规格可购买地域总览](https://ecs-buy.aliyun.com/instanceTypes)
 
-   ![image-20190604221840417](./assets/image-20190604221840417.png)
+   ![/images/image-20190604221840417](./assets/image-20190604221840417.png)
 
 2. 从网络
 
@@ -1836,11 +1836,11 @@ SSL握手过程：
 
    阿里云：https://cn.aliyun.com/product/rds
 
-   ![image-20190605084317131](./assets/image-20190605084317131.png)
+   ![/images/image-20190605084317131](./assets/image-20190605084317131.png)
 
    亚马逊：https://aws.amazon.com/cn/rds/
 
-   ![image-20190605084341568](./assets/image-20190605084341568.png)
+   ![/images/image-20190605084341568](./assets/image-20190605084341568.png)
 
 2. 操作面板介绍(以亚马逊为主)
 

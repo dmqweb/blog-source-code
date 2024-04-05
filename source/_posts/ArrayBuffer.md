@@ -8,7 +8,7 @@ tags:
 - ArrayBuffer
 ---
 
-#ArrayBuffer:
+# ArrayBuffer:
 ArrayBuffer 是 JavaScript 中用于表示通用的固定长度的二进制数据缓冲区的对象。它可以在内存中分配一块连续的内存空间，用于存储二进制数据。
 
 ArrayBuffer 对象本身只是一个占用了一定字节数的内存块，它没有提供直接的方法来读取或写入数据。为了操作 ArrayBuffer 中的数据，我们需要使用不同的视图（如 TypedArray 或 DataView）来读取、写入和操作底层的二进制数据。

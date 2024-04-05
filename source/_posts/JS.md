@@ -261,11 +261,11 @@ JS中<span style="color:red">内存</span>的分配和回收都是<span style="c
 
 两种常见的浏览器<span style="color:red">垃圾回收算法</span>  :  <span style="color:red">引用计数法</span>和<span style="color:red">标记清除法</span> 
 
-![image-20230222143512473](./assets/3a6a0d0eb00f0fc93da43bef340def09fb852cfd.png)
+![/images/image-20230222143512473](./assets/3a6a0d0eb00f0fc93da43bef340def09fb852cfd.png)
 
-![image-20230222143950850](./assets/8bd6f7f95a204d6ebf00baf191f18ea65c0274a3.png)
+![/images/image-20230222143950850](./assets/8bd6f7f95a204d6ebf00baf191f18ea65c0274a3.png)
 
-![image-20230222144237548](./assets/431107ef8e51bc1dfe39c9ecd525c5c85874e645.png)
+![/images/image-20230222144237548](./assets/431107ef8e51bc1dfe39c9ecd525c5c85874e645.png)
 
 ### 闭包
 
@@ -786,7 +786,7 @@ filter() 方法创建一个新的数组，新数组中的元素是通过检查�
 
 创建对象有三种方式: 
 
-![image-20230224115719324](./assets/f5ecf72264886ba2724b6a413d1aee2bf5e148c3.png)
+![/images/image-20230224115719324](./assets/f5ecf72264886ba2724b6a413d1aee2bf5e148c3.png)
 
 ### 构造函数
 
@@ -1306,7 +1306,7 @@ console.log(num.toString()) //=>'10'
 
   
 
-  ![image-20230312190839380](./assets/a5d69da6775129eaeb31b57fd0576ef586fc9c1d.png)
+  ![/images/image-20230312190839380](./assets/a5d69da6775129eaeb31b57fd0576ef586fc9c1d.png)
 
 ## 构造函数
 
@@ -1452,7 +1452,7 @@ console.log(num.toString()) //=>'10'
 
 **作用：**该属性<span style="color:red">指向</span>该原型对象的<span style="color:red">构造函数， 简单理解，就是指向我的爸爸，我是有爸爸的孩子</span>
 
-![image-20230313133307629](./assets/10b6985c6b63efeb93ebed57e6af7b5d9ffec8d4.png)
+![/images/image-20230313133307629](./assets/10b6985c6b63efeb93ebed57e6af7b5d9ffec8d4.png)
 
 **使用场景：**
 
@@ -1492,7 +1492,7 @@ console.log(Star.prototype)
 
 ### 对象原型
 
-![image-20230313134524527](./assets/184b0e68c0d40752b14cd1dc98a00b23f9c3d0ae.png)
+![/images/image-20230313134524527](./assets/184b0e68c0d40752b14cd1dc98a00b23f9c3d0ae.png)
 
 <span style="color:red">对象都会有一个属性 `__proto__`</span> 指向构造函数的 prototype 原型对象，之所以我们对象可以使用构造函数 prototype 原型对象的属性和方法，就是因为对象有 `__proto__` 原型的存在。
 
@@ -1503,7 +1503,7 @@ console.log(Star.prototype)
 - 用来表明当前实例对象指向哪个原型对象prototype
 - `__proto__`对象原型里面也有一个 constructor属性，<span style="color:red">指向创建该实例对象的构造函数</span>
 
-![image-20230313140005994](./assets/b68304e0222a56ad4b7b10a992a782ac66f6e434.png)
+![/images/image-20230313140005994](./assets/b68304e0222a56ad4b7b10a992a782ac66f6e434.png)
 
 ### 原型继承
 
@@ -2115,7 +2115,7 @@ console.log(Array instanceof Object)  //=>true
 
 所谓防抖，就是指触发事件后在 n 秒内函数只能执行一次，如果在 n 秒内又触发了事件，则会重新计算函数执行时间
 
-![image-20230314171133289](./assets/17e1df201247e0e8932960349141428cedc4a0a3.png)
+![/images/image-20230314171133289](./assets/17e1df201247e0e8932960349141428cedc4a0a3.png)
 
 **利用lodash实现防抖**
 
@@ -2273,7 +2273,7 @@ console.log(Array instanceof Object)  //=>true
 </body>
 ```
 
-![image-20230315000258205](./assets/6f9421c1f81e9a4f171f98cc467654db79381b38.png)
+![/images/image-20230315000258205](./assets/6f9421c1f81e9a4f171f98cc467654db79381b38.png)
 
 
 

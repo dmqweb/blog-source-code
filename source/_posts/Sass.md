@@ -52,7 +52,7 @@ Stylus (.styl)。于2010年诞生，出自Node.js社区，主要用来给Node项
 
 ### 三、SCSS和SASS之间的关系
 
-![image-20200706194107318](H:\record\前端\css预编译器\scss\sources.assets\image-20200706194107318.png)
+![/images/image-20200706194107318](H:\record\前端\css预编译器\scss\sources.assets\image-20200706194107318.png)
 
 
 
@@ -162,9 +162,9 @@ b. 编辑器代表：vscode   安装Easy Sass（编译）和Sass（代码提示�
 4. 检查是否安装成功$node-sass -v
 ~~~
 
-![image-20200706124420782](H:\record\前端\css预编译器\scss\sources.assets\image-20200706124420782.png)
+![/images/image-20200706124420782](H:\record\前端\css预编译器\scss\sources.assets\image-20200706124420782.png)
 
-![image-20200706132832305](H:\record\前端\css预编译器\scss\sources.assets\image-20200706132832305.png)
+![/images/image-20200706132832305](H:\record\前端\css预编译器\scss\sources.assets\image-20200706132832305.png)
 
 ###### b.使用
 
@@ -201,7 +201,7 @@ b. 编辑器代表：vscode   安装Easy Sass（编译）和Sass（代码提示�
    # 效果：编译进程不结束，监听文件内容
    ~~~
 
-   ![image-20200706134612609](H:\record\前端\css预编译器\scss\sources.assets\image-20200706134612609.png)
+   ![/images/image-20200706134612609](H:\record\前端\css预编译器\scss\sources.assets\image-20200706134612609.png)
 
 
 
@@ -251,7 +251,7 @@ const result = sass.renderSync({file: scss_filename});
 5.检查是否安装成功 $sass -v
 ~~~
 
-![image-20200706141653304](H:\record\前端\css预编译器\scss\sources.assets\image-20200706141653304.png)
+![/images/image-20200706141653304](H:\record\前端\css预编译器\scss\sources.assets\image-20200706141653304.png)
 
 ~~~shell
 #注：如果出现了SSL错误，修改 ~/.gemrc 文件，增加 ssl_verify_mode: 0 配置
@@ -263,7 +263,7 @@ const result = sass.renderSync({file: scss_filename});
 :ssl_verify_mode: 0
 ~~~
 
-![image-20200706142100322](H:\record\前端\css预编译器\scss\sources.assets\image-20200706142100322.png)
+![/images/image-20200706142100322](H:\record\前端\css预编译器\scss\sources.assets\image-20200706142100322.png)
 
 ##### b.使用
 
@@ -300,9 +300,9 @@ const result = sass.renderSync({file: scss_filename});
    # 效果：编译进程不结束，监听文件内容
    ~~~
 
-   ![image-20200706143409397](H:\record\前端\css预编译器\scss\sources.assets\image-20200706143409397.png)
+   ![/images/image-20200706143409397](H:\record\前端\css预编译器\scss\sources.assets\image-20200706143409397.png)
 
-   ![image-20200706164519533](H:\record\前端\css预编译器\scss\sources.assets\image-20200706164519533.png)
+   ![/images/image-20200706164519533](H:\record\前端\css预编译器\scss\sources.assets\image-20200706164519533.png)
 
 
 
@@ -326,9 +326,9 @@ Linux键入$echo 'export PUB_HOSTED_URL="https://pub.flutter-io.cn"' >> ~/.bashr
 5.检查是否安装成功$sass -v
 ~~~
 
-![image-20200706152755791](H:\record\前端\css预编译器\scss\sources.assets\image-20200706152755791.png)
+![/images/image-20200706152755791](H:\record\前端\css预编译器\scss\sources.assets\image-20200706152755791.png)
 
-![image-20200706153705517](H:\record\前端\css预编译器\scss\sources.assets\image-20200706153705517.png)
+![/images/image-20200706153705517](H:\record\前端\css预编译器\scss\sources.assets\image-20200706153705517.png)
 
 ##### b.使用
 
@@ -365,7 +365,7 @@ Linux键入$echo 'export PUB_HOSTED_URL="https://pub.flutter-io.cn"' >> ~/.bashr
    # 效果：编译进程不结束，监听文件内容
    ~~~
 
-![image-20200706160732312](H:\record\前端\css预编译器\scss\sources.assets\image-20200706160732312.png)
+![/images/image-20200706160732312](H:\record\前端\css预编译器\scss\sources.assets\image-20200706160732312.png)
 
 ###### 局部安装模式
 
@@ -419,11 +419,11 @@ void main(List<String> args) {
 - 点击插件右下角的设置图标后点击"扩展设置"，最后点击"在settings.json中编辑"，开始设置关于Easy Sass的配置
 - 会自动生成下方图片内的配置
 
-![image-20200706185328878](H:\record\前端\css预编译器\scss\sources.assets\image-20200706185328878.png)
+![/images/image-20200706185328878](H:\record\前端\css预编译器\scss\sources.assets\image-20200706185328878.png)
 
 - 添加*"easysass.targetDir": $path*，可将编译后的css文件放入*$path*路径下(默认为当前路径)。例如生成到css文件下内
 
-![image-20200706185722811](H:\record\前端\css预编译器\scss\sources.assets\image-20200706185722811.png)
+![/images/image-20200706185722811](H:\record\前端\css预编译器\scss\sources.assets\image-20200706185722811.png)
 
 
 

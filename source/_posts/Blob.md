@@ -8,7 +8,7 @@ tags:
 - Blob
 ---
 
-#Blob:
+# Blob:
 Blob（Binary Large Object）对象是 JavaScript 中用来表示二进制数据的对象，通常用于存储和操作文件或其他类型的二进制数据。Blob 对象可以表示大型数据对象，比如图像、视频、音频文件等。
 
 Blob 对象通常由两部分组成：数据和数据的类型。数据部分包含实际的二进制数据，而类型部分描述了数据的 MIME 类型，例如 “image/png” 或 “application/pdf”。

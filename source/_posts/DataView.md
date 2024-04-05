@@ -8,7 +8,7 @@ tags:
 - DataView
 ---
 
-#DataView视图：
+# DataView视图：
 DataView 是 JavaScript 中的一个类型化数组视图，用于以不同的字节序（如大端序或小端序）和不同的数据类型（如整数、浮点数等）来读取和写入 ArrayBuffer 中的二进制数据。与 TypedArray 不同，DataView 可以指定任意的字节偏移量和长度，可以更加灵活地操作二进制数据。
 
 以下是一个使用 DataView 读取 ArrayBuffer 中的二进制数据的示例：

@@ -1,3 +1,11 @@
+---
+title: typeScript笔记
+date: 2023-12-11 12:24:4
+categories:
+- typeScript
+tags:
+- typeScript
+---
 # TS
 
 ### 定义数据类型

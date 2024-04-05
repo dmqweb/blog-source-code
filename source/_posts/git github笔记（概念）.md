@@ -12,7 +12,7 @@ tags:
 
 
 
-![image-20220202212355012](https://gitee.com/meng-xuemeng/git-and---github-notes/raw/master/img/20220203003049.png)
+![/images/image-20220202212355012](https://gitee.com/meng-xuemeng/git-and---github-notes/raw/master/img/20220203003049.png)
 
 # 一、用于版本控制
 
@@ -20,7 +20,7 @@ tags:
 
    协同修改、数据备份、版本管理、权限控制、历史记录、分支管理
 
-   ![image-20220130110013784](D:\AMYCode\220202testGithub\images\image-20220130110013784.png)
+   ![/images/image-20220130110013784](D:\AMYCode\220202testGithub\images\image-20220130110013784.png)
 
 2. 分布式版本控制 vs 集中式版本控制
 
@@ -33,7 +33,7 @@ tags:
 
 # 二、Git简介
 
-1. ![image-20220130112357773](https://gitee.com/meng-xuemeng/git-and---github-notes/raw/master/img/20220203003455.png)
+1. ![/images/image-20220130112357773](https://gitee.com/meng-xuemeng/git-and---github-notes/raw/master/img/20220203003455.png)
 
 
 
@@ -47,13 +47,13 @@ tags:
 
    - 想找不是团队内的成员 东方不败 来帮忙，那就需要他fork一下，这样对于修改可以进行pull request，经过审核后可以merge到原来的远程仓库
 
-     ![image-20220130113228007](https://gitee.com/meng-xuemeng/git-and---github-notes/raw/master/img/20220203003535.png)
+     ![/images/image-20220130113228007](https://gitee.com/meng-xuemeng/git-and---github-notes/raw/master/img/20220203003535.png)
 
    
 
 # 三、Git命令行操作
 
-主体内容：![image-20220130120329440](https://gitee.com/meng-xuemeng/git-and---github-notes/raw/master/img/20220203003525.png)
+主体内容：![/images/image-20220130120329440](https://gitee.com/meng-xuemeng/git-and---github-notes/raw/master/img/20220203003525.png)
 
 ##  本地库初始化
 
@@ -61,7 +61,7 @@ tags:
 
 - 初始化后效果：会生成一个.git隐藏文件。使用ll .git/可以查看
 
-  ![image-20220130120928612](https://gitee.com/meng-xuemeng/git-and---github-notes/raw/master/img/20220203003546.png)
+  ![/images/image-20220130120928612](https://gitee.com/meng-xuemeng/git-and---github-notes/raw/master/img/20220203003546.png)
 
 - 注意：.git目录中存放的是本地库相关的子目录和文件，不要删除，也不能胡乱修改
 
@@ -87,7 +87,7 @@ tags:
 
     - 设置后，信息会保存到 .git/config [下面用cat命令查看这个文件]
 
-      ![image-20220130123501964](https://gitee.com/meng-xuemeng/git-and---github-notes/raw/master/img/20220203003600.png)
+      ![/images/image-20220130123501964](https://gitee.com/meng-xuemeng/git-and---github-notes/raw/master/img/20220203003600.png)
 
   - 系统用户级别：登录当前操作系统的用户范围
 
@@ -117,7 +117,7 @@ tags:
 
   因为使用的是vim编辑器，可以i键进入编辑模式，ESC进入命令模式，命令模式下输入：wq进行保存并退出
 
-![image-20220130125343078](https://gitee.com/meng-xuemeng/git-and---github-notes/raw/master/img/20220203003720.png)
+![/images/image-20220130125343078](https://gitee.com/meng-xuemeng/git-and---github-notes/raw/master/img/20220203003720.png)
 
  图片展示中的2 insertions代表两行，新加的good.txt文件确实里边只有两行文字。
 
@@ -129,7 +129,7 @@ tags:
 
    `git log` 
 
-   - 查看历史操作![image-20220130131345836](https://gitee.com/meng-xuemeng/git-and---github-notes/raw/master/img/20220203003738.png)
+   - 查看历史操作![/images/image-20220130131345836](https://gitee.com/meng-xuemeng/git-and---github-notes/raw/master/img/20220203003738.png)
 
    - 如果提交次数特别多，历史记录会一屏放不下。多屏显示控制方式
 
@@ -139,15 +139,15 @@ tags:
 
      `git log --pretty=oneline` 显示一行
 
-     ![image-20220130132306271](https://gitee.com/meng-xuemeng/git-and---github-notes/raw/master/img/20220203003846.png)
+     ![/images/image-20220130132306271](https://gitee.com/meng-xuemeng/git-and---github-notes/raw/master/img/20220203003846.png)
 
    - `git log --oneline` 也是每次提交仅显示一行，与上面的命令相比，hash值会变短
 
-     ![image-20220130132333516](https://gitee.com/meng-xuemeng/git-and---github-notes/raw/master/img/20220203003854.png)
+     ![/images/image-20220130132333516](https://gitee.com/meng-xuemeng/git-and---github-notes/raw/master/img/20220203003854.png)
 
    - `git reflog` 可以增加显示要移动几次指针来回复到对应版本
 
-     ![image-20220130132048569](https://gitee.com/meng-xuemeng/git-and---github-notes/raw/master/img/20220203003822.png)
+     ![/images/image-20220130132048569](https://gitee.com/meng-xuemeng/git-and---github-notes/raw/master/img/20220203003822.png)
 
 5. 版本前进和后退
 
@@ -237,7 +237,7 @@ tags:
 
       - 冲突的表现
 
-        ![image-20220202183828366](https://gitee.com/meng-xuemeng/git-and---github-notes/raw/master/img/20220203003919.png)
+        ![/images/image-20220202183828366](https://gitee.com/meng-xuemeng/git-and---github-notes/raw/master/img/20220203003919.png)
 
       - 冲突的解决
         - 第一步：编辑文件，删除特殊符号
@@ -250,11 +250,11 @@ tags:
 
    1. Hash
 
-      ![image-20220202184334597](https://gitee.com/meng-xuemeng/git-and---github-notes/raw/master/img/20220203003934.png)
+      ![/images/image-20220202184334597](https://gitee.com/meng-xuemeng/git-and---github-notes/raw/master/img/20220203003934.png)
 
       
       
-      ![image-20220202184638546](https://gitee.com/meng-xuemeng/git-and---github-notes/raw/master/img/20220203003941.png)
+      ![/images/image-20220202184638546](https://gitee.com/meng-xuemeng/git-and---github-notes/raw/master/img/20220203003941.png)
 
    2.创建分支--->创建指针；
 
@@ -267,7 +267,7 @@ tags:
       - 这里初始化仓库 `git init`
       - 添加远程仓库，`之后可以使用别名origin指代该仓库
 
-      ![image-20220202192116825](https://gitee.com/meng-xuemeng/git-and---github-notes/raw/master/img/20220203003953.png)
+      ![/images/image-20220202192116825](https://gitee.com/meng-xuemeng/git-and---github-notes/raw/master/img/20220203003953.png)
 
       - 向该仓库推送  `git push origin master` 格式：git push 仓库地址（名） 分支名
 
@@ -305,7 +305,7 @@ tags:
 
 # 六、Git工作流
 
-![image-20220202210632324](https://gitee.com/meng-xuemeng/git-and---github-notes/raw/master/img/20220203003050.png)
+![/images/image-20220202210632324](https://gitee.com/meng-xuemeng/git-and---github-notes/raw/master/img/20220203003050.png)
 
 这里安装Gitlab为啥？？？？
 
@@ -313,4 +313,4 @@ tags:
 
 # 七、Gitee
 
-![image-20220203000544636](https://gitee.com/meng-xuemeng/git-and---github-notes/raw/master/img/20220203003051.png)
+![/images/image-20220203000544636](https://gitee.com/meng-xuemeng/git-and---github-notes/raw/master/img/20220203003051.png)

@@ -51,7 +51,7 @@ func.__proto__--------Function.prototype-------Object.prototype----------null
 arr.__proto__ -------------Array.prototype---------Object.prototype---------null
 ```
 
-![image-20240123164938769](C:\Users\44676\Desktop\md\assets\链表.png)
+![/images/image-20240123164938769](/images/链表.png)
 
 ## [运算符优先级](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/Operator_precedence)
 
@@ -198,47 +198,47 @@ forEach回调函数中不传参数，默认将item项作为变量进行传递
 
 dialog弹窗
 
-![image-20240122101335456](C:\Users\44676\AppData\Roaming\Typora\typora-user-images\image-20240122101335456.png)
+![/images/image-20240122101335456](C:\Users\44676\AppData\Roaming\Typora\typora-user-images\image-20240122101335456.png)
 
 details详细
 
-![image-20240122101339487](C:\Users\44676\AppData\Roaming\Typora\typora-user-images\image-20240122101339487.png)
+![/images/image-20240122101339487](C:\Users\44676\AppData\Roaming\Typora\typora-user-images\image-20240122101339487.png)
 
 刻度尺
 
-![image-20240122101344976](C:\Users\44676\AppData\Roaming\Typora\typora-user-images\image-20240122101344976.png)
+![/images/image-20240122101344976](C:\Users\44676\AppData\Roaming\Typora\typora-user-images\image-20240122101344976.png)
 
 进度条
 
-![image-20240122101352284](C:\Users\44676\AppData\Roaming\Typora\typora-user-images\image-20240122101352284.png)
+![/images/image-20240122101352284](C:\Users\44676\AppData\Roaming\Typora\typora-user-images\image-20240122101352284.png)
 
 时间
 
-![image-20240122101359606](C:\Users\44676\AppData\Roaming\Typora\typora-user-images\image-20240122101359606.png)
+![/images/image-20240122101359606](C:\Users\44676\AppData\Roaming\Typora\typora-user-images\image-20240122101359606.png)
 
 高亮文本
 
-![image-20240122102818128](C:\Users\44676\AppData\Roaming\Typora\typora-user-images\image-20240122102818128.png)
+![/images/image-20240122102818128](C:\Users\44676\AppData\Roaming\Typora\typora-user-images\image-20240122102818128.png)
 
 注解发音
 
-![image-20240122102837759](C:\Users\44676\AppData\Roaming\Typora\typora-user-images\image-20240122102837759.png)
+![/images/image-20240122102837759](C:\Users\44676\AppData\Roaming\Typora\typora-user-images\image-20240122102837759.png)
 
 数据列表
 
-![image-20240122102908520](C:\Users\44676\AppData\Roaming\Typora\typora-user-images\image-20240122102908520.png)
+![/images/image-20240122102908520](C:\Users\44676\AppData\Roaming\Typora\typora-user-images\image-20240122102908520.png)
 
 上标，下标
 
-![image-20240122102926938](C:\Users\44676\AppData\Roaming\Typora\typora-user-images\image-20240122102926938.png)
+![/images/image-20240122102926938](C:\Users\44676\AppData\Roaming\Typora\typora-user-images\image-20240122102926938.png)
 
 虚线标识的
 
-![image-20240122102943236](C:\Users\44676\AppData\Roaming\Typora\typora-user-images\image-20240122102943236.png)
+![/images/image-20240122102943236](C:\Users\44676\AppData\Roaming\Typora\typora-user-images\image-20240122102943236.png)
 
 地图标签
 
-![image-20240122103024494](C:\Users\44676\AppData\Roaming\Typora\typora-user-images\image-20240122103024494.png)
+![/images/image-20240122103024494](C:\Users\44676\AppData\Roaming\Typora\typora-user-images\image-20240122103024494.png)
 
 # vue3中通过位运算进行类型判断
 
