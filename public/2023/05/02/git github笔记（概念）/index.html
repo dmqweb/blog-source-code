@@ -1,0 +1,910 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#FFF">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="icon" type="image/ico" sizes="32x32" href="/images/favicon.ico">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+<link rel="alternate" type="application/rss+xml" title="杜明清的个人博客" href="https://dmqweb.cn/rss.xml" />
+<link rel="alternate" type="application/atom+xml" title="杜明清的个人博客" href="https://dmqweb.cn/atom.xml" />
+<link rel="alternate" type="application/json" title="杜明清的个人博客" href="https://dmqweb.cn/feed.json" />
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Mulish:300,300italic,400,400italic,700,700italic%7CFredericka%20the%20Great:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20JP:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CInconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="/css/app.css?v=0.2.5">
+
+  
+  <meta name="keywords" content="git,github" />
+
+
+<link rel="canonical" href="https://dmqweb.cn/2023/05/02/git%20github%E7%AC%94%E8%AE%B0%EF%BC%88%E6%A6%82%E5%BF%B5%EF%BC%89/">
+
+
+
+  <title>
+git笔记 - git |
+Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
+<meta name="generator" content="Hexo 6.3.0"></head>
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div id="loading">
+    <div class="cat">
+      <div class="body"></div>
+      <div class="head">
+        <div class="face"></div>
+      </div>
+      <div class="foot">
+        <div class="tummy-end"></div>
+        <div class="bottom"></div>
+        <div class="legs left"></div>
+        <div class="legs right"></div>
+      </div>
+      <div class="paw">
+        <div class="hands left"></div>
+        <div class="hands right"></div>
+      </div>
+    </div>
+  </div>
+  <div id="container">
+    <header id="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="inner">
+        <div id="brand">
+          <div class="pjax">
+          
+  <h1 itemprop="name headline">git笔记
+  </h1>
+  
+<div class="meta">
+  <span class="item" title="创建时间：2023-05-02 12:24:04">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <span class="text">发表于</span>
+    <time itemprop="dateCreated datePublished" datetime="2023-05-02T12:24:04+08:00">2023-05-02</time>
+  </span>
+</div>
+
+
+          </div>
+        </div>
+        <nav id="nav">
+  <div class="inner">
+    <div class="toggle">
+      <div class="lines" aria-label="切换导航栏">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </div>
+    </div>
+    <ul class="menu">
+      <li class="item title"><a href="/" rel="start">Web blog</a></li>
+    </ul>
+    <ul class="right">
+      <li class="item theme">
+        <i class="ic i-sun"></i>
+      </li>
+      <li class="item search">
+        <i class="ic i-search"></i>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+      </div>
+      <div id="imgs" class="pjax">
+        <ul>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/05/d389418a13d92e24.jpg"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/12/f63f09ff2084b1f3.jpg"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/15/9d4994abd78e2f72.jpg"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/05/d3c578870618de4e.webp"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/12/65788b6548e9e58f.jpg"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/05/9c07b3ea7f1e2a1c.jpg"></li>
+        </ul>
+      </div>
+    </header>
+    <div id="waves">
+      <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+        <defs>
+          <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+        </defs>
+        <g class="parallax">
+          <use xlink:href="#gentle-wave" x="48" y="0" />
+          <use xlink:href="#gentle-wave" x="48" y="3" />
+          <use xlink:href="#gentle-wave" x="48" y="5" />
+          <use xlink:href="#gentle-wave" x="48" y="7" />
+        </g>
+      </svg>
+    </div>
+    <main>
+      <div class="inner">
+        <div id="main" class="pjax">
+          
+  <div class="article wrap">
+    
+<div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+<i class="ic i-home"></i>
+<span><a href="/">首页</a></span><i class="ic i-angle-right"></i>
+<span  class="current" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/categories/git/" itemprop="item" rel="index" title="分类于 git"><span itemprop="name">git</span></a>
+<meta itemprop="position" content="1" /></span>
+</div>
+
+    <article itemscope itemtype="http://schema.org/Article" class="post block" lang="zh-CN">
+  <link itemprop="mainEntityOfPage" href="https://dmqweb.cn/2023/05/02/git%20github%E7%AC%94%E8%AE%B0%EF%BC%88%E6%A6%82%E5%BF%B5%EF%BC%89/">
+
+  <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="image" content="/images/avatar.jpg">
+    <meta itemprop="name" content="dmq">
+    <meta itemprop="description" content="👻欢迎一起交流学习👻, ">
+  </span>
+
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="杜明清的个人博客">
+  </span>
+
+  <div class="body md" itemprop="articleBody">
+    
+
+    <p>&lt;!--Ctrl+[ 提升列表等级；Ctrl+1 一级标题 --&gt;</p>
+<p><img data-src="https://gitee.com/meng-xuemeng/git-and---github-notes/raw/master/img/20220203003049.png" alt="/images/image-20220202212355012" /></p>
+<h1 id="一-用于版本控制"><a class="anchor" href="#一-用于版本控制">#</a> 一、用于版本控制</h1>
+<ol>
+<li>
+<p>版本控制工具需要的功能</p>
+<p>协同修改、数据备份、版本管理、权限控制、历史记录、分支管理</p>
+<p><img data-src="D:%5CAMYCode%5C220202testGithub%5Cimages%5Cimage-20220130110013784.png" alt="/images/image-20220130110013784" /></p>
+</li>
+<li>
+<p>分布式版本控制 vs 集中式版本控制</p>
+<p>集中式版本控制需联网才能需要</p>
+<p><img data-src="https://gitee.com/meng-xuemeng/git-and---github-notes/raw/master/img/20220203003434.png" alt="" /></p>
+</li>
+</ol>
+<h1 id="二-git简介"><a class="anchor" href="#二-git简介">#</a> 二、Git 简介</h1>
+<ol>
+<li>
+<p><img data-src="https://gitee.com/meng-xuemeng/git-and---github-notes/raw/master/img/20220203003455.png" alt="/images/image-20220130112357773" /></p>
+</li>
+<li>
+<p>本地库和远程库</p>
+<ul>
+<li>
+<p><img data-src="https://gitee.com/meng-xuemeng/git-and---github-notes/raw/master/img/20220203003509.png" alt="" /></p>
+<p>团队内成员操作</p>
+</li>
+<li>
+<p>想找不是团队内的成员 东方不败 来帮忙，那就需要他 fork 一下，这样对于修改可以进行 pull request，经过审核后可以 merge 到原来的远程仓库</p>
+<p><img data-src="https://gitee.com/meng-xuemeng/git-and---github-notes/raw/master/img/20220203003535.png" alt="/images/image-20220130113228007" /></p>
+</li>
+</ul>
+</li>
+</ol>
+<h1 id="三-git命令行操作"><a class="anchor" href="#三-git命令行操作">#</a> 三、Git 命令行操作</h1>
+<p>主体内容：<img data-src="https://gitee.com/meng-xuemeng/git-and---github-notes/raw/master/img/20220203003525.png" alt="/images/image-20220130120329440" /></p>
+<h2 id="本地库初始化"><a class="anchor" href="#本地库初始化">#</a> 本地库初始化</h2>
+<ul>
+<li>
+<p>git init</p>
+</li>
+<li>
+<p>初始化后效果：会生成一个.git 隐藏文件。使用 ll .git/ 可以查看</p>
+<p><img data-src="https://gitee.com/meng-xuemeng/git-and---github-notes/raw/master/img/20220203003546.png" alt="/images/image-20220130120928612" /></p>
+</li>
+<li>
+<p>注意：.git 目录中存放的是本地库相关的子目录和文件，不要删除，也不能胡乱修改</p>
+</li>
+</ul>
+<h2 id="设置签名"><a class="anchor" href="#设置签名">#</a> 设置签名</h2>
+<ul>
+<li>
+<p>形式  例如：</p>
+<p>用户名：tom</p>
+<p>Email 地址：git@bala.com</p>
+</li>
+<li>
+<p>作用：区分不同开发人员的身份</p>
+</li>
+<li>
+<p>辨析：这里设置的签名和登录远程库（代码托管中心）的账户、密码没有任何关系</p>
+</li>
+<li>
+<p>命令</p>
+<ul>
+<li>
+<p>项目级别 / 仓库级别：仅在当前本地库范围内有效</p>
+<ul>
+<li>
+<p>git config <span class="exturl" data-url="aHR0cDovL3VzZXIubmFtZQ==">user.name</span> tom</p>
+</li>
+<li>
+<p>git config user.email <span class="exturl" data-url="bWFpbHRvOnRvbUBiYWxhLmNvbQ==">tom@bala.com</span></p>
+</li>
+<li>
+<p>设置后，信息会保存到 .git/config [下面用 cat 命令查看这个文件]</p>
+<p><img data-src="https://gitee.com/meng-xuemeng/git-and---github-notes/raw/master/img/20220203003600.png" alt="/images/image-20220130123501964" /></p>
+</li>
+</ul>
+</li>
+<li>
+<p>系统用户级别：登录当前操作系统的用户范围</p>
+<ul>
+<li>git config --global <span class="exturl" data-url="aHR0cDovL3VzZXIubmFtZQ==">user.name</span> tom</li>
+<li>git config --global user.email <span class="exturl" data-url="bWFpbHRvOnRvbUBiYWxhLmNvbQ==">tom@bala.com</span></li>
+<li>信息保存位置：./.git/config 文件</li>
+</ul>
+</li>
+<li>
+<p>级别优先级</p>
+<ul>
+<li>就近原则：项目级别优先于用户级别，二者都有时采用项目级别的签名</li>
+<li>如果只有系统用户级别的签名，就以系统用户级别的签名为准</li>
+<li>二者都没有不允许</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="操作命令"><a class="anchor" href="#操作命令">#</a> 操作命令</h2>
+<ol>
+<li>
+<p>状态查看操作 <strong>git</strong> <strong>status</strong> 【该命令特别常用】</p>
+</li>
+<li>
+<p>添加操作 <strong>git add 文件名</strong></p>
+<p>把 untrack 的文件加入到暂存区。将工作区的 “新建 / 修改” 添加到暂存区</p>
+</li>
+<li>
+<p>提交操作 <strong>git commit 文件名</strong></p>
+</li>
+</ol>
+<ul>
+<li>
+<p>把文件从暂存区提交到本地库</p>
+</li>
+<li>
+<p>执行该命令后需要输入 commit message，即这次 commit 的相关注释。</p>
+<p>因为使用的是 vim 编辑器，可以 i 键进入编辑模式，ESC 进入命令模式，命令模式下输入：wq 进行保存并退出</p>
+</li>
+</ul>
+<p><img data-src="https://gitee.com/meng-xuemeng/git-and---github-notes/raw/master/img/20220203003720.png" alt="/images/image-20220130125343078" /></p>
+<p>图片展示中的 2 insertions 代表两行，新加的 good.txt 文件确实里边只有两行文字。</p>
+<ul>
+<li>执行 git commit 命令后会进入 vim 文本编辑器，需要输注释。下面是一种更简单的方法</li>
+</ul>
+<p><code>git commit -m &quot;这里写注释&quot; goood.txt</code></p>
+<ol start="4">
+<li>
+<p>查看历史记录操作</p>
+<p><code>git log</code></p>
+<ul>
+<li>
+<p>查看历史操作<img data-src="https://gitee.com/meng-xuemeng/git-and---github-notes/raw/master/img/20220203003738.png" alt="/images/image-20220130131345836" /></p>
+</li>
+<li>
+<p>如果提交次数特别多，历史记录会一屏放不下。多屏显示控制方式</p>
+<p>空格向下翻页；b 向上翻页；q 退出</p>
+</li>
+<li>
+<p>可以使用 --pretty 增加参数</p>
+<p><code>git log --pretty=oneline</code>  显示一行</p>
+<p><img data-src="https://gitee.com/meng-xuemeng/git-and---github-notes/raw/master/img/20220203003846.png" alt="/images/image-20220130132306271" /></p>
+</li>
+<li>
+<p><code>git log --oneline</code>  也是每次提交仅显示一行，与上面的命令相比，hash 值会变短</p>
+<p><img data-src="https://gitee.com/meng-xuemeng/git-and---github-notes/raw/master/img/20220203003854.png" alt="/images/image-20220130132333516" /></p>
+</li>
+<li>
+<p><code>git reflog</code>  可以增加显示要移动几次指针来回复到对应版本</p>
+<p><img data-src="https://gitee.com/meng-xuemeng/git-and---github-notes/raw/master/img/20220203003822.png" alt="/images/image-20220130132048569" /></p>
+</li>
+</ul>
+</li>
+<li>
+<p>版本前进和后退</p>
+<ul>
+<li>
+<p>基于索引值操作（推荐）</p>
+<p><code>git reset --hard 索引值</code> 【索引值可以通过 git reflog 获得，选中索引，然后粘贴】</p>
+</li>
+<li>
+<p>使用 ^ 符号</p>
+<ul>
+<li>
+<p>该命令只能后退</p>
+</li>
+<li>
+<p><code>git reset --hard HEAD^^</code>  几个 **^** 代表退几步</p>
+</li>
+</ul>
+</li>
+<li>
+<p>使用～符号</p>
+<p>该命令也只能后退</p>
+<ul>
+<li>
+<p><code>git reset --hard HEAD~n</code></p>
+</li>
+<li>
+<p>n 代表后退 n 步</p>
+</li>
+</ul>
+</li>
+<li>
+<p>reset 命令的三个参数对比</p>
+<ul>
+<li>
+<p>--soft 参数  仅仅在本地库移动 HEAD 指针</p>
+</li>
+<li>
+<p>--mixed 参数 在本地库移动 HEAD 指针；重置暂存区</p>
+</li>
+<li>
+<p>--hard 参数   在本地库移动 HEAD 指针；重置暂存区；重置工作区</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><code>git help 命令</code></p>
+</li>
+<li>
+<p>永久删除文件后找回</p>
+<p>在工作区删除后，提交到本地库，可以通过 reset 回到之前的版本，之前版本还保留该文件</p>
+<ul>
+<li>前提：删除前，文件存在时的状态提交到本地库</li>
+<li>操作：git reset --hard [指针位置]
+<ul>
+<li>删除操作已经提交到本地库，则指针位置指向历史记录</li>
+<li>删除操作没有提交到本地库，指针使用 head</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>比较文件差异</p>
+<ul>
+<li>git diff [文件名]
+<ul>
+<li>将工作区中的文件和暂存区进行比较</li>
+</ul>
+</li>
+<li>git diff [本地库中的历史版本] [文件名]
+<ul>
+<li>将工作区中的文件和本地库历史记录比较</li>
+</ul>
+</li>
+<li>不带文件名则可以比较多个文件</li>
+</ul>
+</li>
+<li>
+<p>分支管理</p>
+<ol>
+<li>
+<p>分支：在版本控制过程中，使用多条线同时推进多个任务</p>
+</li>
+<li>
+<p>分支的好处：</p>
+<ul>
+<li>同时并行推进多个功能的开发，提高开发效率</li>
+<li>如果发现某个分支有问题，可以删除该分支不影响主干</li>
+</ul>
+</li>
+<li>
+<p>如何查看分支</p>
+<p><code>git branch -v</code></p>
+</li>
+<li>
+<p>如何创建分支</p>
+<p><code>git branch [新的分支名字]</code></p>
+</li>
+<li>
+<p>切换分支</p>
+<p><code>git checkout [分支名字]</code>   切换到某个分支</p>
+</li>
+<li>
+<p>合并分支</p>
+<p><code>git branch -v</code></p>
+<ul>
+<li>
+<p>第一步，切换到接受修改的分支（被合并，增加新内容）上</p>
+<p><code>git checkout master</code>  到接受修改的分支，比如合并到主分支</p>
+</li>
+<li>
+<p>第二步，执行 merge</p>
+<p><code>git merge [被合并的分支名]</code></p>
+</li>
+</ul>
+</li>
+<li>
+<p>解决冲突</p>
+<ul>
+<li>
+<p>冲突的表现</p>
+<p><img data-src="https://gitee.com/meng-xuemeng/git-and---github-notes/raw/master/img/20220203003919.png" alt="/images/image-20220202183828366" /></p>
+</li>
+<li>
+<p>冲突的解决</p>
+<ul>
+<li>第一步：编辑文件，删除特殊符号</li>
+<li>第二步：把文件修改到满意的程度，保存退出</li>
+<li>第三步：git add [文件名]</li>
+<li>第四步：git commit -m “日志信息”
+<ul>
+<li>注意：此时 commit 一定不能带具体文件名</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h1 id="四-git基本原理"><a class="anchor" href="#四-git基本原理">#</a> 四、Git 基本原理</h1>
+<ol>
+<li>
+<p>Hash</p>
+<p><img data-src="https://gitee.com/meng-xuemeng/git-and---github-notes/raw/master/img/20220203003934.png" alt="/images/image-20220202184334597" /></p>
+<p><img data-src="https://gitee.com/meng-xuemeng/git-and---github-notes/raw/master/img/20220203003941.png" alt="/images/image-20220202184638546" /></p>
+</li>
+</ol>
+<p>2. 创建分支 ---&gt; 创建指针；</p>
+<p>切换分支 ---&gt; 切换指针；</p>
+<h1 id="五-github"><a class="anchor" href="#五-github">#</a> 五、Github</h1>
+<ol>
+<li>
+<p>首先创建一个 Github 账号，然后创建一个 repository。复制这个仓库对应的地址，然后在本地添加一下这个地址（这样就不用每次都写它了）</p>
+<ul>
+<li>这里初始化仓库  <code>git init</code></li>
+<li>添加远程仓库，` 之后可以使用别名 origin 指代该仓库</li>
+</ul>
+<p><img data-src="https://gitee.com/meng-xuemeng/git-and---github-notes/raw/master/img/20220203003953.png" alt="/images/image-20220202192116825" /></p>
+<ul>
+<li>向该仓库推送   <code>git push origin master</code>  格式：git push 仓库地址（名） 分支名</li>
+</ul>
+</li>
+</ol>
+<p><code>git remote add  地址别名  地址</code></p>
+<p><code>git push 地址别名  分支名</code></p>
+</li>
+<li>
+<p>克隆</p>
+<ul>
+<li>直接使用命令 <code>git  clone [远程地址]</code></li>
+<li>效果
+<ul>
+<li>完整地把远程库下载到本地</li>
+<li>创建 origin 远程地址别名</li>
+<li>初始化本地库</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>拉取</p>
+<ul>
+<li>pull = fetch+merge</li>
+<li>git fetch 【远程库地址别名】【远程分支名】</li>
+<li>git merge 【远程库地址别名 / 远程分支名】</li>
+<li>git pull 【远程库地址别名】【远程分支名】</li>
+</ul>
+<p>如果没冲突，就直接从远程 pull；如果不确定，可以先 fetch 下来看看，再决定 merge</p>
+</li>
+<li>
+<p>协同开发时冲突的解决</p>
+<ul>
+<li>要点
+<ul>
+<li>如果不是基于 Github 远程库的最新版所作的修改，不能推送，必须先拉取。</li>
+<li>拉取下来后如果进入冲突状态，则按照 “分支冲突解决” 操作解决即可</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>跨团队协作</p>
+</li>
+</ol>
+<ul>
+<li>Fork</li>
+<li>pull requestes</li>
+</ul>
+<ol start="6">
+<li>
+<p>Eclipse 中 Git 使用</p>
+<p>介绍了在 Eclipse 使用 Git 。 应该 pycharm 或者 VSCode 也可以？</p>
+</li>
+</ol>
+<h1 id="六-git工作流"><a class="anchor" href="#六-git工作流">#</a> 六、Git 工作流</h1>
+<p><img data-src="https://gitee.com/meng-xuemeng/git-and---github-notes/raw/master/img/20220203003050.png" alt="/images/image-20220202210632324" /></p>
+<p>这里安装 Gitlab 为啥？？？？</p>
+<h1 id="七-gitee"><a class="anchor" href="#七-gitee">#</a> 七、Gitee</h1>
+<p><img data-src="https://gitee.com/meng-xuemeng/git-and---github-notes/raw/master/img/20220203003051.png" alt="/images/image-20220203000544636" /></p>
+
+      <div class="tags">
+          <a href="/tags/git/" rel="tag"><i class="ic i-tag"></i> git</a>
+          <a href="/tags/github/" rel="tag"><i class="ic i-tag"></i> github</a>
+      </div>
+  </div>
+
+   <footer>
+
+    <div class="meta">
+  <span class="item">
+    <span class="icon">
+      <i class="ic i-calendar-check"></i>
+    </span>
+    <span class="text">更新于</span>
+    <time title="修改时间：2024-03-30 19:15:27" itemprop="dateModified" datetime="2024-03-30T19:15:27+08:00">2024-03-30</time>
+  </span>
+  <span id="2023/05/02/git github笔记（概念）/" class="item leancloud_visitors" data-flag-title="git笔记" title="阅读次数">
+      <span class="icon">
+        <i class="ic i-eye"></i>
+      </span>
+      <span class="text">阅读次数</span>
+      <span class="leancloud-visitors-count"></span>
+      <span class="text">次</span>
+  </span>
+</div>
+
+      
+<div class="reward">
+  <button><i class="ic i-heartbeat"></i> 赞赏</button>
+  <p>请我喝[茶]~(￣▽￣)~*</p>
+  <div id="qr">
+      
+      <div>
+        <img data-src="/images/wechatpay.png" alt="dmq 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div>
+        <img data-src="/images/alipay.png" alt="dmq 支付宝">
+        <p>支付宝</p>
+      </div>
+  </div>
+</div>
+
+      
+
+<div id="copyright">
+<ul>
+  <li class="author">
+    <strong>本文作者： </strong>dmq <i class="ic i-at"><em>@</em></i>杜明清的个人博客
+  </li>
+  <li class="link">
+    <strong>本文链接：</strong>
+    <a href="https://dmqweb.cn/2023/05/02/git%20github%E7%AC%94%E8%AE%B0%EF%BC%88%E6%A6%82%E5%BF%B5%EF%BC%89/" title="git笔记">https://dmqweb.cn/2023/05/02/git github笔记（概念）/</a>
+  </li>
+  <li class="license">
+    <strong>版权声明： </strong>本站所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+  </footer>
+
+</article>
+
+  </div>
+  
+
+<div class="post-nav">
+    <div class="item left">
+      
+
+  <a href="/2023/05/02/HTTP/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;s3.uuu.ovh&#x2F;imgs&#x2F;2024&#x2F;04&#x2F;05&#x2F;921096d78816dacc.jpg" title="HTTP">
+  <span class="type">上一篇</span>
+  <span class="category"><i class="ic i-flag"></i> HTTP</span>
+  <h3>HTTP</h3>
+  </a>
+
+    </div>
+    <div class="item right">
+      
+
+  <a href="/2023/06/02/%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;s3.uuu.ovh&#x2F;imgs&#x2F;2024&#x2F;04&#x2F;28&#x2F;f7a6eb62965e0dec.webp" title="图片上传解决方案">
+  <span class="type">下一篇</span>
+  <span class="category"><i class="ic i-flag"></i> 算法</span>
+  <h3>图片上传解决方案</h3>
+  </a>
+
+    </div>
+</div>
+
+  
+  <div class="wrap" id="comments"></div>
+
+
+        </div>
+        <div id="sidebar">
+          
+
+<div class="inner">
+
+  <div class="panels">
+    <div class="inner">
+      <div class="contents panel pjax" data-title="文章目录">
+          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%80-%E7%94%A8%E4%BA%8E%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6"><span class="toc-number">1.</span> <span class="toc-text"> 一、用于版本控制</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%8C-git%E7%AE%80%E4%BB%8B"><span class="toc-number">2.</span> <span class="toc-text"> 二、Git 简介</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%89-git%E5%91%BD%E4%BB%A4%E8%A1%8C%E6%93%8D%E4%BD%9C"><span class="toc-number">3.</span> <span class="toc-text"> 三、Git 命令行操作</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%AC%E5%9C%B0%E5%BA%93%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="toc-number">3.1.</span> <span class="toc-text"> 本地库初始化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%BE%E7%BD%AE%E7%AD%BE%E5%90%8D"><span class="toc-number">3.2.</span> <span class="toc-text"> 设置签名</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%93%8D%E4%BD%9C%E5%91%BD%E4%BB%A4"><span class="toc-number">3.3.</span> <span class="toc-text"> 操作命令</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9B%9B-git%E5%9F%BA%E6%9C%AC%E5%8E%9F%E7%90%86"><span class="toc-number">4.</span> <span class="toc-text"> 四、Git 基本原理</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%94-github"><span class="toc-number">5.</span> <span class="toc-text"> 五、Github</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%85%AD-git%E5%B7%A5%E4%BD%9C%E6%B5%81"><span class="toc-number">6.</span> <span class="toc-text"> 六、Git 工作流</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%83-gitee"><span class="toc-number">7.</span> <span class="toc-text"> 七、Gitee</span></a></li></ol>
+      </div>
+      <div class="related panel pjax" data-title="系列文章">
+        <ul>
+          <li><a href="/2023/04/02/git%E5%92%8Cgithub/" rel="bookmark" title="git与github">git与github</a></li><li class="active"><a href="/2023/05/02/git%20github%E7%AC%94%E8%AE%B0%EF%BC%88%E6%A6%82%E5%BF%B5%EF%BC%89/" rel="bookmark" title="git笔记">git笔记</a></li>
+        </ul>
+      </div>
+      <div class="overview panel" data-title="站点概览">
+        <div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="image" itemprop="image" alt="dmq"
+      data-src="/images/avatar.jpg">
+  <p class="name" itemprop="name">dmq</p>
+  <div class="description" itemprop="description"></div>
+</div>
+
+<nav class="state">
+    <div class="item posts">
+      <a href="/archives/">
+        <span class="count">60</span>
+        <span class="name">文章</span>
+      </a>
+    </div>
+    <div class="item categories">
+      <a href="/categories/">
+        <span class="count">43</span>
+        <span class="name">分类</span>
+      </a>
+    </div>
+    <div class="item tags">
+      <a href="/tags/">
+        <span class="count">78</span>
+        <span class="name">标签</span>
+      </a>
+    </div>
+</nav>
+
+<div class="social">
+      <span class="exturl item github" data-url="aHR0cHM6Ly9naXRodWIuY29tL2RtcTA/dGFiPXJlcG9zaXRvcmllcw==" title="https:&#x2F;&#x2F;github.com&#x2F;dmq0?tab&#x3D;repositories"><i class="ic i-github"></i></span>
+      <span class="exturl item npm" data-url="aHR0cHM6Ly93d3cubnBtanMuY29tL35kbXEwMDA=" title="https:&#x2F;&#x2F;www.npmjs.com&#x2F;~dmq000"><i class="ic i-file"></i></span>
+      <span class="exturl item zhihu" data-url="aHR0cHM6Ly93d3cuemhpaHUuY29tL3Blb3BsZS9kLTg4LTYxLTgz" title="https:&#x2F;&#x2F;www.zhihu.com&#x2F;people&#x2F;d-88-61-83"><i class="ic i-zhihu"></i></span>
+      <span class="exturl item music" data-url="aHR0cHM6Ly9tdXNpYy4xNjMuY29tLyMvdXNlci9ob21lP2lkPTgwMjc4OTk0OTE=" title="https:&#x2F;&#x2F;music.163.com&#x2F;#&#x2F;user&#x2F;home?id&#x3D;8027899491"><i class="ic i-cloud-music"></i></span>
+      <span class="exturl item weibo" data-url="aHR0cHM6Ly93ZWliby5jb20vdS83NjI1OTAxNzE3" title="https:&#x2F;&#x2F;weibo.com&#x2F;u&#x2F;7625901717"><i class="ic i-weibo"></i></span>
+      <span class="exturl item email" data-url="bWFpbHRvOjMyNjc4MDc1MTRAcXEuY29t" title="mailto:3267807514@qq.com"><i class="ic i-envelope"></i></span>
+</div>
+
+<ul class="menu">
+  
+    
+  <li class="item">
+    <a href="/" rel="section"><i class="ic i-home"></i>首页</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/about/" rel="section"><i class="ic i-user"></i>介绍</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/archives/" rel="section"><i class="ic i-list-alt"></i>归档</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/categories/" rel="section"><i class="ic i-th"></i>分类</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/tags/" rel="section"><i class="ic i-tags"></i>标签</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/friends/" rel="section"><i class="ic i-heart"></i>友链</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/links/" rel="section"><i class="ic i-magic"></i>工具</a>
+  </li>
+
+
+</ul>
+
+      </div>
+    </div>
+  </div>
+
+  <ul id="quick">
+    <li class="prev pjax">
+        <a href="/2023/05/02/HTTP/" rel="prev" title="上一篇"><i class="ic i-chevron-left"></i></a>
+    </li>
+    <li class="up"><i class="ic i-arrow-up"></i></li>
+    <li class="down"><i class="ic i-arrow-down"></i></li>
+    <li class="next pjax">
+        <a href="/2023/06/02/%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" rel="next" title="下一篇"><i class="ic i-chevron-right"></i></a>
+    </li>
+    <li class="percent"></li>
+  </ul>
+</div>
+
+
+        </div>
+        <div class="dimmer"></div>
+      </div>
+    </main>
+    <footer id="footer">
+      <div class="inner">
+        <div class="widgets">
+          
+<div class="rpost pjax">
+  <h2>随机文章</h2>
+  <ul>
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E5%89%8D%E7%AB%AF%E5%8F%91%E5%B8%83/" title="分类于 前端发布">前端发布</a>
+</div>
+
+    <span><a href="/2024/04/16/%E5%89%8D%E7%AB%AF%E5%8F%91%E5%B8%83/" title="前端发布">前端发布</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/node-js/" title="分类于 node.js">node.js</a>
+</div>
+
+    <span><a href="/2024/01/02/node.js%E5%86%85%E7%BD%AE%E6%A8%A1%E5%9D%97/" title="node.js内置模块">node.js内置模块</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/JS/" title="分类于 JS">JS</a>
+</div>
+
+    <span><a href="/2023/12/08/DataView/" title="DataView">DataView</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/JS/" title="分类于 JS">JS</a>
+</div>
+
+    <span><a href="/2023/12/21/%E6%9C%80%E5%A4%A7%E5%AE%89%E5%85%A8%E6%95%B0/" title="最大安全数与最大安全整数">最大安全数与最大安全整数</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/vue/" title="分类于 vue">vue</a>
+</div>
+
+    <span><a href="/2023/11/02/vue%E5%8E%9F%E7%90%86/" title="vue原理">vue原理</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Linux/" title="分类于 Linux">Linux</a>
+</div>
+
+    <span><a href="/2023/01/22/linux%E6%9C%8D%E5%8A%A1%E5%99%A8/" title="Linux">Linux</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/JS/" title="分类于 JS">JS</a>
+</div>
+
+    <span><a href="/2023/07/02/forEach/" title="forEach">forEach</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E5%BC%80%E6%BA%90%E5%8D%8F%E8%AE%AE/" title="分类于 开源协议">开源协议</a>
+</div>
+
+    <span><a href="/2023/02/02/%E5%BC%80%E6%BA%90%E5%8D%8F%E8%AE%AE/" title="常见开源协议">常见开源协议</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E4%B8%9A%E5%8A%A1%E5%A4%84%E7%90%86/" title="分类于 业务处理">业务处理</a>
+</div>
+
+    <span><a href="/2024/03/29/%E6%9C%AC%E5%9C%B0%E9%A2%84%E8%A7%88%E5%9B%BE%E7%89%87/" title="本地预览图片">本地预览图片</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/JS/" title="分类于 JS">JS</a>
+</div>
+
+    <span><a href="/2024/02/02/serviceWorker/" title="serviceWorker">serviceWorker</a></span>
+  </li>
+
+  </ul>
+</div>
+<div>
+  <h2>最新评论</h2>
+  <ul class="leancloud-recent-comment"></ul>
+</div>
+
+        </div>
+        <div class="status">
+  <div class="copyright">
+    
+    &copy; 2010 – 
+    <span itemprop="copyrightYear">2024</span>
+    <span class="with-love">
+      <i class="ic i-sakura rotate"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">dmq @ Web blog</span>
+  </div>
+  <div class="powered-by">
+    基于 <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & Theme.<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Shoka</span>
+  </div>
+</div>
+
+      </div>
+    </footer>
+  </div>
+<script data-config type="text/javascript">
+  var LOCAL = {
+    path: '2023/05/02/git github笔记（概念）/',
+    favicon: {
+      show: "科技引领未来",
+      hide: "欢迎与我交流"
+    },
+    search : {
+      placeholder: "文章搜索",
+      empty: "关于 「 ${query} 」，什么也没搜到",
+      stats: "${time} ms 内找到 ${hits} 条结果"
+    },
+    valine: true,fancybox: true,
+    copyright: '复制成功，转载请遵守 <i class="ic i-creative-commons"></i>BY-NC-SA 协议。',
+    ignores : [
+      function(uri) {
+        return uri.includes('#');
+      },
+      function(uri) {
+        return new RegExp(LOCAL.path+"$").test(uri);
+      }
+    ]
+  };
+</script>
+
+<script src="https://cdn.polyfill.io/v2/polyfill.js"></script>
+
+<script src="//gcore.jsdelivr.net/combine/npm/pace-js@1.0.2/pace.min.js,npm/pjax@0.2.8/pjax.min.js,npm/whatwg-fetch@3.4.0/dist/fetch.umd.min.js,npm/animejs@3.2.0/lib/anime.min.js,npm/algoliasearch@4/dist/algoliasearch-lite.umd.js,npm/instantsearch.js@4/dist/instantsearch.production.min.js,npm/lozad@1/dist/lozad.min.js,npm/quicklink@2/dist/quicklink.umd.js"></script>
+
+<script src="/js/app.js?v=0.2.5"></script>
+
+
+
+
+</body>
+</html>
