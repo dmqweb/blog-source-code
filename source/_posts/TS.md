@@ -287,7 +287,8 @@ class PersonClass3 implements pp{  //使用类实现接口
 ```
 
 ### 泛型< T >
-
+#### 泛型是什么
+泛型是程序设计语言的一种风格或范式，它允许我们使用一些以后才指定的类型。在定义函数接口或者类时，不预先定义好具体的类型，而在使用的时候才去指定类型的一种特性。
 ```ts
 /**
  * 泛型<T>
@@ -307,6 +308,25 @@ let L3 = lastInArray<string | number>(['1','2'])
 // 多泛型表达
 let L4 = <T,Y>(x:T,y:Y)=>[x,y]
 const v1 = L4(1,'one')
+//声明泛型接口
+interface ReturnItemFn<T> {
+    (para: T): T
+}
+const returnItem: ReturnItemFn<number> = para => para
+//声明泛型类
+
+class Stack<T> {
+    private arr: T[] = []
+ 
+    public push(item: T) {
+        this.arr.push(item)
+    }
+ 
+    public pop() {
+        this.arr.pop()
+    }
+}
+const stack = new Stack<number>();
 ```
 
 ### 类型type

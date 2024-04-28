@@ -1,26 +1,13 @@
 ---
-title: 杂记
+title: 杂记与工具库函数
 date: 2023-6-2 12:24:4
 categories:
 - 杂记
+- 工具函数
 tags:
 - 杂记
+- 工具函数
 ---
-# learn
-
-## node.js高级
-
-## react
-
-## vue源码
-
-## 项目架构
-
-## 数据结构和算法
-
-## 设计模式
-
-## 协议
 
 ## NaN历史遗留问题
 
@@ -198,47 +185,47 @@ forEach回调函数中不传参数，默认将item项作为变量进行传递
 
 dialog弹窗
 
-![/images/image-20240122101335456](C:\Users\44676\AppData\Roaming\Typora\typora-user-images\image-20240122101335456.png)
+![/images/image-20240122101335456](/images/image-20240122101335456.png)
 
 details详细
 
-![/images/image-20240122101339487](C:\Users\44676\AppData\Roaming\Typora\typora-user-images\image-20240122101339487.png)
+![/images/image-20240122101339487](/images/image-20240122101339487.png)
 
 刻度尺
 
-![/images/image-20240122101344976](C:\Users\44676\AppData\Roaming\Typora\typora-user-images\image-20240122101344976.png)
+![/images/image-20240122101344976](/images/image-20240122101344976.png)
 
 进度条
 
-![/images/image-20240122101352284](C:\Users\44676\AppData\Roaming\Typora\typora-user-images\image-20240122101352284.png)
+![/images/image-20240122101352284](/images/image-20240122101352284.png)
 
 时间
 
-![/images/image-20240122101359606](C:\Users\44676\AppData\Roaming\Typora\typora-user-images\image-20240122101359606.png)
+![/images/image-20240122101359606](/images/image-20240122101359606.png)
 
 高亮文本
 
-![/images/image-20240122102818128](C:\Users\44676\AppData\Roaming\Typora\typora-user-images\image-20240122102818128.png)
+![/images/image-20240122102818128](/images/image-20240122102818128.png)
 
 注解发音
 
-![/images/image-20240122102837759](C:\Users\44676\AppData\Roaming\Typora\typora-user-images\image-20240122102837759.png)
+![/images/image-20240122102837759](/images/image-20240122102837759.png)
 
 数据列表
 
-![/images/image-20240122102908520](C:\Users\44676\AppData\Roaming\Typora\typora-user-images\image-20240122102908520.png)
+![/images/image-20240122102908520](/images/image-20240122102908520.png)
 
 上标，下标
 
-![/images/image-20240122102926938](C:\Users\44676\AppData\Roaming\Typora\typora-user-images\image-20240122102926938.png)
+![/images/image-20240122102926938](/images/image-20240122102926938.png)
 
 虚线标识的
 
-![/images/image-20240122102943236](C:\Users\44676\AppData\Roaming\Typora\typora-user-images\image-20240122102943236.png)
+![/images/image-20240122102943236](/images/image-20240122102943236.png)
 
 地图标签
 
-![/images/image-20240122103024494](C:\Users\44676\AppData\Roaming\Typora\typora-user-images\image-20240122103024494.png)
+![/images/image-20240122103024494](/images/image-20240122103024494.png)
 
 # vue3中通过位运算进行类型判断
 
@@ -299,3 +286,15 @@ const mynew = function(constroctor,...argus){
 }
 ```
 
+# 将字符串转换为二进制形式
+```js
+    function toBianary(str){
+        let res = '';
+        for(let i=0;i<str.length;i++){
+            let charCode = str.charCodeAt(i);
+            let binaryCharCode = charCode.toString(2);
+            res += binaryCharCode.padStart(8,'0');
+        }
+        return res;
+    }
+```

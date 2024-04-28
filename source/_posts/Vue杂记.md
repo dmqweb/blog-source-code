@@ -6,6 +6,12 @@ categories:
 tags:
 - Vue
 ---
+## Vue注意事项
+
+一、使用watch监听数组时：
+
+当使用watch监听数组时，要将deep设置为true，这样才能监听到数组内部的操作，而不是只监听引用是否变化，当需要使用newValue和oldValue时，监听部分需要写数组的拷贝而不是数组本身（否则当数组引用不变而堆数据变化时，oldValue和newValue都是变化之后的数值。）
+
 ## Vue项目创建过程：
 
 （

@@ -7,9 +7,9 @@ tags:
 - vue
 - 源码
 ---
-# vue
+# vue大致流程
 
-# 一、响应式系统：
+## 一、响应式系统：
 
 #### reactive：
 
@@ -49,11 +49,11 @@ tags:
 
 ![/images/image-20240123164938769](/images/vue8.png)
 
-### watch函数：
+### watch函数：Z
 
 ![/images/image-20240123164938769](/images/vue9.png)
 
-# 二、运行时runtime：
+## 二、运行时runtime：
 
 #### createVNode函数：
 
@@ -91,7 +91,7 @@ tags:
 
 
 
-# 三、编译时compile：
+## 三、编译时compile：
 
 将template模板转为render函数。这个过程中共经历了三大步骤：1、解析（解析template模板，生成AST抽象语法树）；2、转化（转化AST，生成 JavaScript  AST）；3、生成（生成render函数）
 
@@ -135,7 +135,7 @@ AST中添加对应属性，JavascriptAST中相应变动，在生成render函数�
 
 
 
-# 四、运行时+编译时合并
+## 四、运行时+编译时合并
 
 此时只能导入模块中的函数进行使用，尚未处理合并的逻辑：
 
@@ -224,4 +224,6 @@ Vue3中的Block Tree会将**条件渲染v-if**和**循环渲染v-for**的内容�
 ###### 5 、patchFlag
 
 Vue3中引入了PatchFlag地概念，会**标记VNode中哪些部分发生了变化**，从而**只对变化的部分进行比较和更新**。
+
+
 
