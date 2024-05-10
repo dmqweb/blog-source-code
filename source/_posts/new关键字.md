@@ -1,17 +1,12 @@
----
-title: new关键字
-date: 2023-8-10 12:24:4
-categories:
-- JS
-tags:
-- new
-- JS
----
-```js
-const mynew = function(constroctor,...argus){
-    const obj = Object.create(constroctor.prototype)
-    const res = obj.apply(obj,argus);
-    return (res && typeof res === 'object') ?res:obj;
+function myNew(constructor,...args){
+    //创建对象，原型为构造函数的原型对象
+    const obj = Object.create(constructor.prototype);
+    //执行构造函数，传入创建的对象和参数
+    const res = constructor.apply(obj,args); //注意apply方法是函数对象的方法，普通对象不可用
+    return (res && typeof res === 'object')?res:obj;    
 }
-```
-
+function A (){
+    this.name='sdjf'
+}
+const ab = myNew(A)
+console.log(ab);
