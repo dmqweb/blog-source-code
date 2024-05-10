@@ -24,15 +24,15 @@
 <link rel="stylesheet" href="/css/app.css?v=0.2.5">
 
   
-  <meta name="keywords" content="前端监控" />
+  <meta name="keywords" content="JS,函数重载" />
 
 
-<link rel="canonical" href="https://dmqweb.cn/2024/04/16/%E5%89%8D%E7%AB%AF%E7%9B%91%E6%8E%A7/">
+<link rel="canonical" href="https://dmqweb.cn/2024/05/08/%E5%87%BD%E6%95%B0%E9%87%8D%E8%BD%BD/">
 
 
 
   <title>
-前端监控 - 前端监控 |
+函数重载 - JS |
 Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
 <meta name="generator" content="Hexo 6.3.0"></head>
 <body itemscope itemtype="http://schema.org/WebPage">
@@ -60,16 +60,16 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
         <div id="brand">
           <div class="pjax">
           
-  <h1 itemprop="name headline">前端监控
+  <h1 itemprop="name headline">函数重载
   </h1>
   
 <div class="meta">
-  <span class="item" title="创建时间：2024-04-16 12:36:51">
+  <span class="item" title="创建时间：2024-05-08 22:35:51">
     <span class="icon">
       <i class="ic i-calendar"></i>
     </span>
     <span class="text">发表于</span>
-    <time itemprop="dateCreated datePublished" datetime="2024-04-16T12:36:51+08:00">2024-04-16</time>
+    <time itemprop="dateCreated datePublished" datetime="2024-05-08T22:35:51+08:00">2024-05-08</time>
   </span>
 </div>
 
@@ -102,12 +102,12 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
       </div>
       <div id="imgs" class="pjax">
         <ul>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/12/b04c50f26fdc9c19.jpg"></li>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/25/3fe84aea28b256c7.jpg"></li>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/06/a16303594a53d8d1.jpg"></li>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/28/dc01f095118914ac.webp"></li>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/05/f09ce1d151936963.jpg"></li>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/07/517ddd40a038fa1b.jpg"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/03/29/4e134f025ae53f2b.jpg"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/04/025bf3f9fc1cf452.webp"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/03/29/5c162f03529c2f38.jpg"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/25/1276fcec5eb7990e.webp"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/04/f480d741324d8eb5.jpg"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/25/1e63bc89310bfa29.jpg"></li>
         </ul>
       </div>
     </header>
@@ -133,12 +133,12 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
 <div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
 <i class="ic i-home"></i>
 <span><a href="/">首页</a></span><i class="ic i-angle-right"></i>
-<span  class="current" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/categories/%E5%89%8D%E7%AB%AF%E7%9B%91%E6%8E%A7/" itemprop="item" rel="index" title="分类于 前端监控"><span itemprop="name">前端监控</span></a>
+<span  class="current" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/categories/JS/" itemprop="item" rel="index" title="分类于 JS"><span itemprop="name">JS</span></a>
 <meta itemprop="position" content="1" /></span>
 </div>
 
     <article itemscope itemtype="http://schema.org/Article" class="post block" lang="zh-CN">
-  <link itemprop="mainEntityOfPage" href="https://dmqweb.cn/2024/04/16/%E5%89%8D%E7%AB%AF%E7%9B%91%E6%8E%A7/">
+  <link itemprop="mainEntityOfPage" href="https://dmqweb.cn/2024/05/08/%E5%87%BD%E6%95%B0%E9%87%8D%E8%BD%BD/">
 
   <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="image" content="/images/avatar.jpg">
@@ -153,24 +153,99 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
   <div class="body md" itemprop="articleBody">
     
 
-    <h1 id="为何要前端监控"><a class="anchor" href="#为何要前端监控">#</a> 为何要前端监控？</h1>
-<p><strong>前端监控的数据有什么作用</strong></p>
-<ul>
-<li>流量数据监控，如：PV、UV、点击率、页面停留时长等</li>
-<li>自定义事件监控，如：曝光事件、滑动事件、请求事件等</li>
-<li>交易指标监控，如：成交额、转化率等</li>
-<li>其他综合分析，如：用户画像分析、流量漏斗、销量预测等</li>
-</ul>
-<p><strong>前端监控的三个阶段</strong></p>
-<ul>
-<li>初阶：使用第三方平台，百度、友盟、阿里云 ARMS 等</li>
-<li>中阶：自研前端监控库，缺乏完整的监控体系</li>
-<li>高阶：自研前端监控平台，具备完整的监控体系</li>
-</ul>
-<h1 id="在此存档未完待续"><a class="anchor" href="#在此存档未完待续">#</a> 在此存档，未完待续....</h1>
+    <h1 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h1><p>函数重载是指在编程语言中允许定义多个同名函数，但是他们的参数类型、参数个数或者返回类型不同，编译器或解析器会根据调用时提供的参数类型和个数来确定使用哪个函数</p>
+<h1 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h1><p>函数重载的主要目的就是提高代码的可读性和灵活性，同时避免了为不同功能编写不同的函数名导致的变量命名冲突和混乱。</p>
+<h1 id="实现函数重载"><a href="#实现函数重载" class="headerlink" title="实现函数重载"></a>实现函数重载</h1><h2 id="ts"><a href="#ts" class="headerlink" title="ts"></a>ts</h2><p>ts中进行函数重载其实就是根据型参数组的个数和对变量进行typeof检测，然后根据不同的情况进行分支处理</p>
+<pre><code class="ts">// 函数重载的声明
+function average(numbers: number[]): number; // 函数签名1：接受数字数组并返回数字
+function average(...numbers: number[]): number; // 函数签名2：接受可变数量的数字参数并返回数字
+// 函数实现
+function average(...args: any[]): number &#123; // 实际函数实现
+    let sum = 0;
+    if (args.length === 1 &amp;&amp; Array.isArray(args[0])) &#123; // 如果传入的是数组
+        const numbers = args[0] as number[]; // 类型断言为数字数组
+        for (const num of numbers) &#123;
+            sum += num;
+        &#125;
+        return sum / numbers.length;
+    &#125; else if (args.length &gt; 1) &#123; // 如果传入的是多个数字
+        for (const num of args) &#123;
+            sum += num;
+        &#125;
+        return sum / args.length;
+    &#125; else &#123;
+        throw new Error(&#39;Invalid arguments&#39;); // 抛出错误，不支持的参数类型
+    &#125;
+&#125;
+
+// 调用函数重载
+console.log(average([1, 2, 3, 4, 5])); // 输出: 3
+console.log(average(1, 2, 3, 4, 5)); // 输出: 3
+</code></pre>
+<h2 id="js"><a href="#js" class="headerlink" title="js"></a>js</h2><p>js中也可以通过typeof和形参数组进行函数重载，不过当然还有更好的做法，jQuery作者常用如下实现函数重载（进行重载之前要调用一次函数）：</p>
+<pre><code class="js">function addMethod(object,name,fn)&#123;
+    const old = object[name];
+    object[name] = function (...args)&#123;
+        if(args.length === fn.length)&#123;
+            return fn.apply(this,args);
+        &#125;else if(typeof old === &#39;function&#39;)&#123;
+            return old.apply(this,args);
+        &#125;
+    &#125;
+&#125;;
+const searcher = &#123;&#125;; //将对象中对应属性的重载方法全部存储起来
+addMethod(searcher,&#39;getUsers&#39;,()=&gt;&#123;
+    console.log(&#39;查询所有用户&#39;);
+&#125;);
+addMethod(searcher,&#39;getUsers&#39;,(name=&#39;a&#39;)=&gt;&#123; //注意默认参数的形参数量不与计数
+    console.log(&#39;按照姓名查询用户&#39;);
+&#125;);
+
+searcher.getUsers();
+</code></pre>
+<p>另一种实现方法就是使用映射：</p>
+<pre><code class="js">function createOverload()&#123;
+    const fnMap = new Map();
+    function overload(...args)&#123;
+        const key = args.map((it) =&gt; typeof it).join(&#39;,&#39;);
+        const fn = fnMap.get(key);
+        if(!fn)&#123;
+            throw new TypeError(&#39;没有找到对应的实现&#39;);
+        &#125;
+        return fn.apply(this,args);
+    &#125;
+    overload.addImpl = function(...args)&#123;
+        const fn = args.pop();
+        if(typeof fn !== &#39;function&#39;)&#123;
+            throw new TypeError(&#39;最后一个参数必须是函数&#39;)
+        &#125;
+        const key = args.join(&#39;,&#39;);
+        fnMap.set(key,fn);
+    &#125;;
+    return overload;
+&#125;
+const getUsers = createOverload();
+getUsers.addImpl(()=&gt;&#123;
+    console.log(&#39;查询所有用户&#39;);
+&#125;);
+getUsers.addImpl(&#39;number&#39;,(page,size=10)=&gt;&#123;
+    console.log(&#39;按照页码和数量查询用户&#39;);
+&#125;);
+getUsers.addImpl(&#39;number&#39;,&#39;number&#39;,(page,size=10)=&gt;&#123;
+    console.log(&#39;按照页码和数量查询用户&#39;);
+&#125;)
+getUsers.addImpl(&#39;string&#39;,(name)=&gt;&#123;
+    console.log(&#39;按照姓名查询用户&#39;);
+&#125;);
+getUsers.addImpl(&#39;string&#39;,&#39;string&#39;,()=&gt;&#123;
+    console.log(&#39;按照性别查询用户&#39;);
+&#125;);
+getUsers(&#39;asfsdf&#39;);
+</code></pre>
+<p>总结一下实现思路，通过createOverload函数调用可以返回一个重载后的函数，createOverload函数中创建了一个map，map中将参数类型和个数与对应的函数相匹配，返回的重载函数在调用时会根据参数的类型去map中寻找对应的函数，通过apply绑定this作用域和参数执行即可。</p>
 
       <div class="tags">
-          <a href="/tags/%E5%89%8D%E7%AB%AF%E7%9B%91%E6%8E%A7/" rel="tag"><i class="ic i-tag"></i> 前端监控</a>
+          <a href="/tags/JS-%E5%87%BD%E6%95%B0%E9%87%8D%E8%BD%BD/" rel="tag"><i class="ic i-tag"></i> JS,函数重载</a>
       </div>
   </div>
 
@@ -182,9 +257,9 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
       <i class="ic i-calendar-check"></i>
     </span>
     <span class="text">更新于</span>
-    <time title="修改时间：2024-04-28 18:21:41" itemprop="dateModified" datetime="2024-04-28T18:21:41+08:00">2024-04-28</time>
+    <time title="修改时间：2024-05-08 23:53:18" itemprop="dateModified" datetime="2024-05-08T23:53:18+08:00">2024-05-08</time>
   </span>
-  <span id="2024/04/16/前端监控/" class="item leancloud_visitors" data-flag-title="前端监控" title="阅读次数">
+  <span id="2024/05/08/函数重载/" class="item leancloud_visitors" data-flag-title="函数重载" title="阅读次数">
       <span class="icon">
         <i class="ic i-eye"></i>
       </span>
@@ -221,7 +296,7 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
   </li>
   <li class="link">
     <strong>本文链接：</strong>
-    <a href="https://dmqweb.cn/2024/04/16/%E5%89%8D%E7%AB%AF%E7%9B%91%E6%8E%A7/" title="前端监控">https://dmqweb.cn/2024/04/16/前端监控/</a>
+    <a href="https://dmqweb.cn/2024/05/08/%E5%87%BD%E6%95%B0%E9%87%8D%E8%BD%BD/" title="函数重载">https://dmqweb.cn/2024/05/08/函数重载/</a>
   </li>
   <li class="license">
     <strong>版权声明： </strong>本站所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> 许可协议。转载请注明出处！
@@ -240,22 +315,14 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
     <div class="item left">
       
 
-  <a href="/2024/04/12/vue-router/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;s3.uuu.ovh&#x2F;imgs&#x2F;2024&#x2F;04&#x2F;28&#x2F;f7a6eb62965e0dec.webp" title="vue-router">
+  <a href="/2024/05/07/miniwebpack/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;s3.uuu.ovh&#x2F;imgs&#x2F;2024&#x2F;04&#x2F;28&#x2F;dc01f095118914ac.webp" title="实现miniwebpack">
   <span class="type">上一篇</span>
-  <span class="category"><i class="ic i-flag"></i> vue-router原理</span>
-  <h3>vue-router</h3>
+  <span class="category"><i class="ic i-flag"></i> webpack</span>
+  <h3>实现miniwebpack</h3>
   </a>
 
     </div>
     <div class="item right">
-      
-
-  <a href="/2024/04/16/%E5%89%8D%E7%AB%AF%E5%8F%91%E5%B8%83/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;s3.uuu.ovh&#x2F;imgs&#x2F;2024&#x2F;04&#x2F;15&#x2F;66e62db68b7b65eb.webp" title="前端发布">
-  <span class="type">下一篇</span>
-  <span class="category"><i class="ic i-flag"></i> 前端发布</span>
-  <h3>前端发布</h3>
-  </a>
-
     </div>
 </div>
 
@@ -272,11 +339,11 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
   <div class="panels">
     <div class="inner">
       <div class="contents panel pjax" data-title="文章目录">
-          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%BA%E4%BD%95%E8%A6%81%E5%89%8D%E7%AB%AF%E7%9B%91%E6%8E%A7"><span class="toc-number">1.</span> <span class="toc-text"> 为何要前端监控？</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9C%A8%E6%AD%A4%E5%AD%98%E6%A1%A3%E6%9C%AA%E5%AE%8C%E5%BE%85%E7%BB%AD"><span class="toc-number">2.</span> <span class="toc-text"> 在此存档，未完待续....</span></a></li></ol>
+          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%A6%82%E5%BF%B5"><span class="toc-number">1.</span> <span class="toc-text">概念</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BD%9C%E7%94%A8"><span class="toc-number">2.</span> <span class="toc-text">作用</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0%E5%87%BD%E6%95%B0%E9%87%8D%E8%BD%BD"><span class="toc-number">3.</span> <span class="toc-text">实现函数重载</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#ts"><span class="toc-number">3.1.</span> <span class="toc-text">ts</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#js"><span class="toc-number">3.2.</span> <span class="toc-text">js</span></a></li></ol></li></ol>
       </div>
       <div class="related panel pjax" data-title="系列文章">
         <ul>
-          <li class="active"><a href="/2024/04/16/%E5%89%8D%E7%AB%AF%E7%9B%91%E6%8E%A7/" rel="bookmark" title="前端监控">前端监控</a></li>
+          <li><a href="/2023/07/02/forEach/" rel="bookmark" title="forEach">forEach</a></li><li><a href="/2023/08/10/new%E5%85%B3%E9%94%AE%E5%AD%97/" rel="bookmark" title="new关键字">new关键字</a></li><li><a href="/2023/09/02/ArrayBuffer/" rel="bookmark" title="ArrayBuffer">ArrayBuffer</a></li><li><a href="/2023/10/02/33%E4%B8%AAJavascript%E6%A6%82%E5%BF%B5/" rel="bookmark" title="33个JavaScript概念">33个JavaScript概念</a></li><li><a href="/2023/12/02/%E9%9A%90%E5%BC%8F%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2/" rel="bookmark" title="JS类型转换">JS类型转换</a></li><li><a href="/2023/12/07/Blob/" rel="bookmark" title="Blob">Blob</a></li><li><a href="/2023/12/08/DataView/" rel="bookmark" title="DataView">DataView</a></li><li><a href="/2023/12/08/NaN/" rel="bookmark" title="NaN历史遗留问题">NaN历史遗留问题</a></li><li><a href="/2023/12/11/typedArray/" rel="bookmark" title="JS中类型化数组typedArray">JS中类型化数组typedArray</a></li><li><a href="/2023/12/21/%E6%9C%80%E5%A4%A7%E5%AE%89%E5%85%A8%E6%95%B0/" rel="bookmark" title="最大安全数与最大安全整数">最大安全数与最大安全整数</a></li><li><a href="/2024/01/11/webworker/" rel="bookmark" title="webWorker">webWorker</a></li><li><a href="/2024/02/02/serviceWorker/" rel="bookmark" title="serviceWorker">serviceWorker</a></li><li class="active"><a href="/2024/05/08/%E5%87%BD%E6%95%B0%E9%87%8D%E8%BD%BD/" rel="bookmark" title="函数重载">函数重载</a></li>
         </ul>
       </div>
       <div class="overview panel" data-title="站点概览">
@@ -290,7 +357,7 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
 <nav class="state">
     <div class="item posts">
       <a href="/archives/">
-        <span class="count">60</span>
+        <span class="count">62</span>
         <span class="name">文章</span>
       </a>
     </div>
@@ -302,7 +369,7 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
     </div>
     <div class="item tags">
       <a href="/tags/">
-        <span class="count">78</span>
+        <span class="count">80</span>
         <span class="name">标签</span>
       </a>
     </div>
@@ -363,12 +430,10 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
 
   <ul id="quick">
     <li class="prev pjax">
-        <a href="/2024/04/12/vue-router/" rel="prev" title="上一篇"><i class="ic i-chevron-left"></i></a>
     </li>
     <li class="up"><i class="ic i-arrow-up"></i></li>
     <li class="down"><i class="ic i-arrow-down"></i></li>
     <li class="next pjax">
-        <a href="/2024/04/16/%E5%89%8D%E7%AB%AF%E5%8F%91%E5%B8%83/" rel="next" title="下一篇"><i class="ic i-chevron-right"></i></a>
     </li>
     <li class="percent"></li>
   </ul>
@@ -390,30 +455,20 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/ES6/" title="分类于 ES6">ES6</a>
+<a href="/categories/react/" title="分类于 react">react</a>
 </div>
 
-    <span><a href="/2023/08/02/ES6/" title="ES6">ES6</a></span>
+    <span><a href="/2023/12/02/react/" title="react笔记">react笔记</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/three-js/" title="分类于 three.js">three.js</a>
+<a href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" title="分类于 设计模式">设计模式</a>
 </div>
 
-    <span><a href="/2023/10/24/ThreeJS/" title="three.js">three.js</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/" title="分类于 计算机组成原理">计算机组成原理</a>
-</div>
-
-    <span><a href="/2023/07/02/%E6%B5%AE%E7%82%B9%E6%95%B0%E5%AD%98%E5%82%A8/" title="浮点数存储">浮点数存储</a></span>
+    <span><a href="/2024/03/02/%E8%BD%AF%E4%BB%B6%E6%A8%A1%E5%BC%8F%E8%AE%BE%E8%AE%A1%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="设计模式">设计模式</a></span>
   </li>
 
       
@@ -430,50 +485,30 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/JS/" title="分类于 JS">JS</a>
+<a href="/categories/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" title="分类于 正则表达式">正则表达式</a>
 </div>
 
-    <span><a href="/2023/12/08/DataView/" title="DataView">DataView</a></span>
+    <span><a href="/2023/02/12/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" title="正则表达式">正则表达式</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/vue-router%E5%8E%9F%E7%90%86/" title="分类于 vue-router原理">vue-router原理</a>
+<a href="/categories/TDD/" title="分类于 TDD">TDD</a>
 </div>
 
-    <span><a href="/2024/04/12/vue-router/" title="vue-router">vue-router</a></span>
+    <span><a href="/2024/03/30/jest/" title="jest">jest</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/HTTP/" title="分类于 HTTP">HTTP</a>
+<a href="/categories/%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90%E4%B8%8E%E9%83%A8%E7%BD%B2/" title="分类于 持续集成与部署">持续集成与部署</a>
 </div>
 
-    <span><a href="/2023/05/02/HTTP/" title="HTTP">HTTP</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/" title="分类于 前端性能优化">前端性能优化</a>
-</div>
-
-    <span><a href="/2024/03/02/%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/" title="前端性能优化">前端性能优化</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/jenkins%E9%85%8D%E5%90%88git-hook%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90/" title="分类于 jenkins配合git hook持续集成">jenkins配合git hook持续集成</a>
-</div>
-
-    <span><a href="/2024/02/02/%E4%BD%BF%E7%94%A8Jenkins%E9%85%8D%E5%90%88github%20hook%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90/" title="jenkins配合git hook持续集成">jenkins配合git hook持续集成</a></span>
+    <span><a href="/2024/02/03/%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90%E4%B8%8E%E6%8C%81%E7%BB%AD%E9%83%A8%E7%BD%B2/" title="持续集成与持续部署">持续集成与持续部署</a></span>
   </li>
 
       
@@ -483,7 +518,37 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
 <a href="/categories/JS/" title="分类于 JS">JS</a>
 </div>
 
-    <span><a href="/2023/12/07/Blob/" title="Blob">Blob</a></span>
+    <span><a href="/2023/08/10/new%E5%85%B3%E9%94%AE%E5%AD%97/" title="new关键字">new关键字</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/" title="分类于 计算机组成原理">计算机组成原理</a>
+</div>
+
+    <span><a href="/2024/01/02/%E7%BC%93%E5%AD%98%E3%80%81%E5%86%85%E5%AD%98%E3%80%81CPU%E7%9F%A5%E8%AF%86%E7%82%B9%E8%A7%A3%E6%9E%90%E7%AC%94%E8%AE%B0/" title="计组知识点">计组知识点</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/JS/" title="分类于 JS">JS</a>
+</div>
+
+    <span><a href="/2023/12/08/NaN/" title="NaN历史遗留问题">NaN历史遗留问题</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E7%AE%97%E6%B3%95/" title="分类于 算法">算法</a>
+</div>
+
+    <span><a href="/2023/12/02/%E7%AE%97%E6%B3%95/" title="算法与数据结构">算法与数据结构</a></span>
   </li>
 
   </ul>
@@ -514,7 +579,7 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
   </div>
 <script data-config type="text/javascript">
   var LOCAL = {
-    path: '2024/04/16/前端监控/',
+    path: '2024/05/08/函数重载/',
     favicon: {
       show: "科技引领未来",
       hide: "欢迎与我交流"
@@ -544,6 +609,15 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
 <script src="/js/app.js?v=0.2.5"></script>
 
 
+  <script data-pjax>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?9ba187659e850a6910681214f0faa16b";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
 
 
 </body>

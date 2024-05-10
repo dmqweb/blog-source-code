@@ -1,0 +1,929 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#FFF">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="icon" type="image/ico" sizes="32x32" href="/images/favicon.ico">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+<link rel="alternate" type="application/rss+xml" title="杜明清的个人博客" href="https://dmqweb.cn/rss.xml" />
+<link rel="alternate" type="application/atom+xml" title="杜明清的个人博客" href="https://dmqweb.cn/atom.xml" />
+<link rel="alternate" type="application/json" title="杜明清的个人博客" href="https://dmqweb.cn/feed.json" />
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Mulish:300,300italic,400,400italic,700,700italic%7CFredericka%20the%20Great:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20JP:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CInconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="/css/app.css?v=0.2.5">
+
+  
+  <meta name="keywords" content="前端监控" />
+
+
+<link rel="canonical" href="https://dmqweb.cn/2024/04/29/%E5%89%8D%E7%AB%AF%E7%9B%91%E6%8E%A7/">
+
+
+
+  <title>
+前端监控 - 前端监控 |
+Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
+<meta name="generator" content="Hexo 6.3.0"></head>
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div id="loading">
+    <div class="cat">
+      <div class="body"></div>
+      <div class="head">
+        <div class="face"></div>
+      </div>
+      <div class="foot">
+        <div class="tummy-end"></div>
+        <div class="bottom"></div>
+        <div class="legs left"></div>
+        <div class="legs right"></div>
+      </div>
+      <div class="paw">
+        <div class="hands left"></div>
+        <div class="hands right"></div>
+      </div>
+    </div>
+  </div>
+  <div id="container">
+    <header id="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="inner">
+        <div id="brand">
+          <div class="pjax">
+          
+  <h1 itemprop="name headline">前端监控
+  </h1>
+  
+<div class="meta">
+  <span class="item" title="创建时间：2024-04-29 08:36:51">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <span class="text">发表于</span>
+    <time itemprop="dateCreated datePublished" datetime="2024-04-29T08:36:51+08:00">2024-04-29</time>
+  </span>
+</div>
+
+
+          </div>
+        </div>
+        <nav id="nav">
+  <div class="inner">
+    <div class="toggle">
+      <div class="lines" aria-label="切换导航栏">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </div>
+    </div>
+    <ul class="menu">
+      <li class="item title"><a href="/" rel="start">Web blog</a></li>
+    </ul>
+    <ul class="right">
+      <li class="item theme">
+        <i class="ic i-sun"></i>
+      </li>
+      <li class="item search">
+        <i class="ic i-search"></i>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+      </div>
+      <div id="imgs" class="pjax">
+        <ul>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/25/1e63bc89310bfa29.jpg"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/04/4b93d7d24397b567.jpg"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/28/b9f6c169ea5daebe.webp"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/15/6cedcb364082ed12.webp"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/06/ae2b485c961ddd62.jpg"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/05/8c79eda29fb3b505.jpg"></li>
+        </ul>
+      </div>
+    </header>
+    <div id="waves">
+      <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+        <defs>
+          <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+        </defs>
+        <g class="parallax">
+          <use xlink:href="#gentle-wave" x="48" y="0" />
+          <use xlink:href="#gentle-wave" x="48" y="3" />
+          <use xlink:href="#gentle-wave" x="48" y="5" />
+          <use xlink:href="#gentle-wave" x="48" y="7" />
+        </g>
+      </svg>
+    </div>
+    <main>
+      <div class="inner">
+        <div id="main" class="pjax">
+          
+  <div class="article wrap">
+    
+<div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+<i class="ic i-home"></i>
+<span><a href="/">首页</a></span><i class="ic i-angle-right"></i>
+<span  class="current" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/categories/%E5%89%8D%E7%AB%AF%E7%9B%91%E6%8E%A7/" itemprop="item" rel="index" title="分类于 前端监控"><span itemprop="name">前端监控</span></a>
+<meta itemprop="position" content="1" /></span>
+</div>
+
+    <article itemscope itemtype="http://schema.org/Article" class="post block" lang="zh-CN">
+  <link itemprop="mainEntityOfPage" href="https://dmqweb.cn/2024/04/29/%E5%89%8D%E7%AB%AF%E7%9B%91%E6%8E%A7/">
+
+  <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="image" content="/images/avatar.jpg">
+    <meta itemprop="name" content="dmq">
+    <meta itemprop="description" content="👻欢迎一起交流学习👻, ">
+  </span>
+
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="杜明清的个人博客">
+  </span>
+
+  <div class="body md" itemprop="articleBody">
+    
+
+    <h1 id="前端监控"><a href="#前端监控" class="headerlink" title="前端监控"></a>前端监控</h1><h1 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h1><p><strong>为什么要进行前端监控：</strong></p>
+<ul>
+<li>页面的访问行为，PV、UV、IP、PV点击率、UV点击率、停留时长</li>
+<li>用户的操作行为，模块曝光、</li>
+<li>模块点击</li>
+<li>页面的性能，首屏渲染时间、API请求时间</li>
+<li>异常的监控，JS Error、API异常、业务异常</li>
+<li>业务的监控，成交金额、每日消息数</li>
+</ul>
+<p><strong>常见的应用场景：</strong></p>
+<ul>
+<li>流量分析</li>
+</ul>
+<p><strong>常见的前端监控平台：</strong></p>
+<ul>
+<li>百度统计</li>
+<li>阿里云ARMS</li>
+<li>友盟</li>
+</ul>
+<p><strong>前端监控的数据有什么作用</strong></p>
+<ul>
+<li>流量数据监控，如：PV、UV、点击率、页面停留时长等</li>
+<li>自定义事件监控，如：曝光事件、滑动事件、请求事件等</li>
+<li>交易指标监控，如：成交额、转化率等</li>
+<li>其他综合分析，如：用户画像分析、流量漏斗、销量预测等</li>
+</ul>
+<p><strong>前端监控的三个阶段</strong></p>
+<ul>
+<li>初阶：使用第三方平台，百度、友盟、阿里云ARMS等</li>
+<li>中阶：自研前端监控库，缺乏完整的监控体系</li>
+<li>高阶：自研前端监控平台，具备完整的监控体系</li>
+</ul>
+<h1 id="百度统计接入"><a href="#百度统计接入" class="headerlink" title="百度统计接入"></a><span class="exturl" data-url="aHR0cHM6Ly90b25namkuYmFpZHUuY29tLw==">百度统计接入</span></h1><p><strong>流量分析免费，行为分析需要付费。</strong></p>
+<ol>
+<li>官网创建网站，设置域名和首页</li>
+<li>保证域名公共可读</li>
+<li>复制统计代码，添加到要跟踪的网页中（加入到head标签之前）</li>
+</ol>
+<p><strong>阿里云ARM和友盟分析方案较全，接入方案大致相同，但是当数据量较大时，有一定的成本，所以考虑自建前端统计系统。</strong></p>
+<p><strong>什么时候需要考虑自建前端监控系统？</strong></p>
+<ol>
+<li>不仅仅需要流量分析，还需要做行为分析</li>
+<li>自建成本小于或等于平台付费</li>
+<li>希望网站监控数据能存到自己数据库中，并且数据隐私化。</li>
+</ol>
+<h1 id="监控平台架构"><a href="#监控平台架构" class="headerlink" title="监控平台架构"></a>监控平台架构</h1><p><strong>前端监控平台的分层：</strong></p>
+<ul>
+<li><p>前端监控JSSDK</p>
+<ul>
+<li>采集</li>
+<li>上报<ul>
+<li>默认上报：页面PV、性能等</li>
+<li>手动上报：页面操作行为</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>前端监控API和大数据仓库</p>
+<ul>
+<li>接收上报的数据</li>
+<li>数据仓库：MaxCompute<ul>
+<li>数据查询</li>
+<li>数据存储</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>前端监控数据可视化</p>
+<ul>
+<li>日志大数据清洗</li>
+<li>大数据回流RDS（非结构化数据 &#x3D;&gt; 结构化数据）</li>
+</ul>
+</li>
+</ul>
+<p><strong>监控平台架构说明：</strong></p>
+<p><img data-src="/images/Snipaste_2024-04-29_08-11-46.jpg" alt="监控平台架构"></p>
+<h2 id="JS库的开发"><a href="#JS库的开发" class="headerlink" title="JS库的开发"></a>JS库的开发</h2><h4 id="JS-SDK"><a href="#JS-SDK" class="headerlink" title="JS  SDK"></a>JS  SDK</h4><p>monitor.js：</p>
+<pre><code class="js">function collect()&#123;
+    console.log(&#39;collect&#39;);
+&#125;
+function upload()&#123;
+    console.log(&#39;upload&#39;);
+&#125;
+window.testMonitor = &#123;
+    collect,
+    upload,
+&#125;
+</code></pre>
+<p>上传到服务器，在需要监控的页面引入脚本。</p>
+<p><strong>一、直接引入脚本：</strong></p>
+<p>直接使用script标签引入在线地址。</p>
+<p><strong>二、异步加载（确保脚本加载完成后再使用api）：</strong></p>
+<pre><code class="html">&lt;script&gt;
+(function()
+    const script = document.createElement(&#39;script&#39;);
+    script.src = &#39;https://imooc.youbaobao.xyz/imooc-cli-monitor.js&#39;
+    const body = document.body;
+    body.insertBefore(script,body.firstChild);
+    script.onload = function()&#123;
+    var event = new CustomEvent(&#39;onMonitorScriptLoad&#39;);
+    window.dispatchEvent(event);
+)()
+&lt;/script&gt;
+&lt;script&gt;
+    window.addEventListener(&#39;onMonitorScriptLoad&#39;,function()&#123;
+    window.testMonitor.collect();
+    window.testMonitor.upload();
+&#125;):
+&lt;/script&gt;
+</code></pre>
+<h4 id="PV埋点"><a href="#PV埋点" class="headerlink" title="PV埋点"></a>PV埋点</h4><p><strong>一、分包便于代码书写和维护</strong></p>
+<p>假设将项目分为：index.js、collect.js和upload.js三个js文件，分别用于整合、收集和上报。</p>
+<p><strong>二、设置页面基本信息</strong></p>
+<p>在meta标签中设置变量，假设为：test-app-id，在body标签中设置test-page-id，此变量用于区分不同的站点。</p>
+<p><strong>三、collect.js</strong></p>
+<pre><code class="js">import &#123; upload &#125; from &#39;./upload&#39;;
+//自定义一些钩子函数
+let beforeCreateParams;
+let beforeUpload;
+let afterUpload;
+let onError=(err)=&gt;&#123;
+    console.error(err);
+&#125;;
+
+export function collect()&#123;
+    console.log(&#39;收集开始...&#39;);
+&#125;
+// 采集信息
+function collection(customData,eventType)&#123;
+    let appId , pageId , timeStamp , ua;
+    beforeCreateParams &amp;&amp; beforeCreateParams();
+    const metaList = document.getElementsByTagName(&#39;meta&#39;)
+    for (let i=0;i&lt; metaList.length;i++)&#123;
+        const meta = metaList[i];
+        console.log(meta.getAttribute(&#39;test-app-id&#39;));
+        if (meta.getAttribute(&#39;test-app-id&#39;))&#123;
+            appId = meta.getAttribute(&#39;test-app-id&#39;);
+         &#125;
+       &#125;
+    const body = document.body;
+    pageId = body.getAttribute(&#39;test-page-id&#39;);
+    if (!appId || !pageId) return;
+    timeStamp = new Date().getTime();
+    ua = window.navigator.userAgent;
+    console.log(appId,pageId,timeStamp,ua);
+    let data = `appId=$&#123;appId&#125;&amp;pageId=$&#123;pageId&#125;&amp;timeStamp=$&#123;timeStamp&#125;&amp;ua=$&#123;ua&#125;`;
+    if(beforeUpload)&#123;
+        data = beforeUpload(data); //允许定制数据
+    &#125;
+    //日志上报
+    // upload(&#123; appId,pageId,timeStamp,ua &#125;)  不常用
+    let url , uploadData;
+    try&#123;
+        data = &#123;...customData,...data&#125;
+        const ret = upload(data,&#123;eventType&#125;)
+        url = ret.url;
+        uploadData = ret.data;
+    &#125;catch(e)&#123;
+        onError(e);
+    &#125;finally&#123;
+        afterUpload &amp;&amp; afterUpload(url,uploadData);
+    &#125;
+    
+&#125;
+//发送PV日志
+export function sendPV()&#123;
+    collection(&#123;&#125;,&#39;PV&#39;)
+&#125;
+// 上报曝光埋点
+export function sendExp(data=&#123;&#125;)&#123;
+    collection(data,&#39;EXP&#39;)
+&#125;
+//注册钩子函数
+export function registerBeforeCreateParams(fn)&#123;
+    beforeCreateParams = fn;
+&#125;
+export function registerBeforeUpload(fn)&#123;
+    beforeUpload = fn;
+&#125;
+export function registerAfterUpload(fn)&#123;
+    afterUpload = fn;
+&#125;
+export function registerOnError(fn)&#123;
+    onError = fn;
+&#125;
+export default &#123; &#125;;
+</code></pre>
+<p><strong>四、upload.js</strong></p>
+<pre><code class="js">export function upload(data) &#123;
+    const img = new Image(); //利用image标签跨域特性
+    const &#123; eventType = &quot;PV&quot; &#125; = options;
+    const params = encodeURIComponent(data) + &#39;&amp;eventType=&#39; + eventType;
+    const src = &#39;http://dmqtest.com?data=&#39; + params ;
+    console.log(params,src,eventType);
+    img.src = src;
+    img = null; //注意内存释放
+    return &#123;
+        url: src,
+        data: &#123;
+            params,
+        &#125;
+    &#125;
+&#125;
+export default upload;
+</code></pre>
+<p><strong>五、index.js</strong></p>
+<pre><code>import &#123; sendPV , registerBeforeCreateParams,registerBeforeUpload,registerAfterUpload &#125; from &#39;./collect&#39;;
+import &#123; upload &#125; from &#39;./upload&#39;;
+window.testMonitor = &#123;
+    upload,
+    sendPV,
+    registerBeforeCreateParams,
+    registerBeforeUpload,
+    registerAfterUpload,
+    registerOnError
+&#125;
+</code></pre>
+<p><strong>六、index.html</strong></p>
+<pre><code class="html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot; test-app-id=&quot;app123456&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;title&gt;Document&lt;/title&gt;
+&lt;/head&gt;
+    &lt;script src=&#39;https://dmqtest.com/index.js&#39;&gt;&lt;/script&gt;
+&lt;body test-page-id=&quot;page123456&quot;&gt;
+    &lt;script&gt;
+        window.onload = function()&#123;
+            window.testMonitor.registerBeforeCreateParams(()=&gt;&#123;
+                console.log(&#39;创建之前&#39;)
+            &#125;);
+            window.testMonitor.registerBrforeUpload((params)=&gt;&#123;
+                return params + &#39;&amp;custom=1&#39;; //添加自定义数据
+            &#125;)
+            window.testMonitor.registerAfterUpload((url,data)=&gt;&#123;
+                
+            &#125;)
+            window.testMonitor.sendPV();
+        &#125;
+    &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<h4 id="曝光埋点"><a href="#曝光埋点" class="headerlink" title="曝光埋点"></a>曝光埋点</h4><p>曝光埋点记录元素由不可变到可变的过程，需要浏览器IntersectionObserver这个API的支持。</p>
+<p><strong>浏览器5种Observer：</strong></p>
+<ul>
+<li>MutationObserver（用于监听DOM树的变化，一般为属性、子节点的增删改）</li>
+<li>IntersectionObserver（用于监听一个元素和可视区域相交部分的比列，然后在可视比列到达某一阈值的时候触发回调）</li>
+<li>PerformanceObserver（用于检测性能度量事件，在浏览器的性能事件轴记录下一个新的performance entries的时候将会被通知）</li>
+<li>ResizeObserver（用于监听DOM的变化，一般为节点的出现和隐藏，节点大小的变化）</li>
+<li>ReportingObserver（用于监听过时的api、浏览器的一些干预行为的预告）</li>
+</ul>
+<p><strong>IntersectionObserver：</strong></p>
+<p><strong>方法：</strong></p>
+<ul>
+<li><p>observe：开始监听一个目标元素</p>
+<p>语法：IntersectionObserver.disconnect();</p>
+</li>
+<li><p>disconnect：停止监听</p>
+<p>语法：IntersectionObserver.observe(targetElement);</p>
+</li>
+<li><p>takeRecords:返回所有观察目标的IntersectionObserverEntry对象数组。</p>
+<p>语法：intersectionObserverEntries &#x3D; intersectionObserver.takeRecords();</p>
+</li>
+<li><p>unobserve:使IntersectionObserver停止监听特定目标元素</p>
+<p>语法：IntersectionObserver.unobserve(targetElement);</p>
+</li>
+</ul>
+<p><strong>配置项：</strong></p>
+<ul>
+<li>targetElement：目标DOM</li>
+<li>root：指定根目录，也就就是当目标元素显示在这个元素中时会触发监控回调</li>
+<li>rootMargin：类似于css的margin，设定root元素的边框区域。</li>
+<li>threhold：阈值，决定了什么时候触发回调函数。</li>
+</ul>
+<p><strong>返回参数：</strong></p>
+<ul>
+<li>tIme:可见性发生变化的时间，是一个高精度时间戳，单位为毫秒</li>
+<li>rootBounds:是在根元素矩形区域的信息</li>
+<li>intersectionRatio:目标元素的可见比例</li>
+<li>intersectionRect:目标元素与根元素交叉区域的信息</li>
+<li>isIntersecting:判断元素是否符合options中的可见条件</li>
+<li>boundingClientRect:目标元素的矩形区域的信息</li>
+<li>target:被观察的目标元素</li>
+</ul>
+<p><strong>upload.js文件中添加：</strong></p>
+<pre><code class="js">// ....省略
+// 上报曝光埋点
+export function sendExp(data=&#123;&#125;)&#123;
+    collection(data,&#39;EXP&#39;)
+&#125;
+// 最后在index.js中暴露出去。
+</code></pre>
+<p><strong>collect.js文件中添加：</strong></p>
+<pre><code class="js">//....省略
+export function collectAppear()&#123;
+    const appearEvent = new CustomEvent(&#39;onAppear&#39;);
+    const disappearEvent = new CustomEvent(&#39;onDisappear&#39;);
+    let ob;
+    if(window.testMonitorObserver)&#123;
+        ob = window.testMonitorObserver;
+    &#125;else&#123;
+        ob = new IntersectionObserver(function(e)&#123;
+        e.forEach(item=&gt;&#123;
+            if(item.intersectionRatio &gt; 0)&#123;
+                console.log(item.target.className + &#39;appear&#39;);
+                item.target.dispatchEvent(appearEvent);
+            &#125;else&#123;
+                console.log(item.target.className + &#39;disappear&#39;);
+                item.target.dispatchEvent(disappearEvent);
+            &#125;
+        &#125;)
+    &#125;);
+    &#125;
+    let obList = [];
+    const appear = document.querySelectorAll(&#39;[appear]&#39;);
+    for(let i=0;i&lt;appear.length;i++)&#123;
+        if(obList.includes(appear[i]))&#123;
+            ob.observe(appear[i]);
+            obList.push(appear[i]);
+        &#125;
+    &#125;
+    window.testMonitorObserver = ob; //存起来防止重复
+    window.monitorObserverList = obList;
+&#125;
+</code></pre>
+<p><strong>index.js中使用：</strong></p>
+<pre><code class="js">//...省略
+// import引入collectAppear函数。
+window.onload = function()&#123;
+    collectAppear();
+&#125;
+</code></pre>
+<h4 id="点击埋点"><a href="#点击埋点" class="headerlink" title="点击埋点"></a><strong>点击埋点</strong></h4><p><strong>collect.js中添加：</strong></p>
+<pre><code class="js">//...省略
+//上报点击埋点
+export function sendClick(data=&#123;&#125;)&#123;
+    collection(data,&#39;CLICK&#39;)
+&#125;
+//暴露出去，index.js导入该方法并暴露出去。
+</code></pre>
+<h4 id="自定义埋点"><a href="#自定义埋点" class="headerlink" title="自定义埋点"></a>自定义埋点</h4><p><strong>collect.js中添加：</strong></p>
+<p>自定义埋点行为就直接在内部添加CUSTOM对应的处理逻辑，可以使用其他的Observer实现更多功能。</p>
+<pre><code class="js">//...省略
+//上报自定义埋点
+export function sendCustom(data=&#123;&#125;)&#123;
+    collection(data,&#39;CUSTOM&#39;)
+&#125;
+//暴露出去，index.js导入该方法并暴露出去。
+</code></pre>
+<h2 id="大数据平台开发"><a href="#大数据平台开发" class="headerlink" title="大数据平台开发"></a>大数据平台开发</h2><p><strong><span class="exturl" data-url="aHR0cHM6Ly9oZWxwLmFsaXl1bi5jb20vemgvbWF4Y29tcHV0ZS8jOn46dGV4dD0lRTQlQkElOTElRTUlOEUlOUYlRTclOTQlOUYlRTUlQTQlQTclRTYlOTUlQjAlRTYlOEQlQUUlRTglQUUlQTElRTclQUUlOTclRTYlOUMlOEQlRTUlOEElQTEsJTI4TWF4Q29tcHV0ZSUyOSVFNiU5OCVBRiVFNCVCOCU4MCVFNyVBNyU4RCVFNSVCRiVBQiVFOSU4MCU5RiVFMyU4MCU4MSVFNSVBRSU4QyVFNSU4NSVBOCVFNiU4OSU5OCVFNyVBRSVBMSVFNyU5QSU4NFRCJTJGUEIlRTclQkElQTclRTYlOTUlQjAlRTYlOEQlQUUlRTQlQkIlOTMlRTUlQkElOTMlRTglQTclQTMlRTUlODYlQjMlRTYlOTYlQjklRTYlQTElODglRTMlODAlODIlMjBNYXhDb21wdXRlJUU1JTkwJTkxJUU3JTk0JUE4JUU2JTg4JUI3JUU2JThGJTkwJUU0JUJFJTlCJUU0JUJBJTg2JUU1JUFFJThDJUU1JTk2JTg0JUU3JTlBJTg0JUU2JTk1JUIwJUU2JThEJUFFJUU1JUFGJUJDJUU1JTg1JUE1JUU2JTk2JUI5JUU2JUExJTg4JUU0JUJCJUE1JUU1JThGJThBJUU1JUE0JTlBJUU3JUE3JThEJUU3JUJCJThGJUU1JTg1JUI4JUU3JTlBJTg0JUU1JTg4JTg2JUU1JUI4JTgzJUU1JUJDJThGJUU4JUFFJUExJUU3JUFFJTk3JUU2JUE4JUExJUU1JTlFJThCJUVGJUJDJThDJUU4JTgzJUJEJUU1JUE0JTlGJUU2JTlCJUI0JUU1JUJGJUFCJUU5JTgwJTlGJUU3JTlBJTg0JUU4JUE3JUEzJUU1JTg2JUIzJUU3JTk0JUE4JUU2JTg4JUI3JUU2JUI1JUI3JUU5JTg3JThGJUU2JTk1JUIwJUU2JThEJUFFJUU4JUFFJUExJUU3JUFFJTk3JUU5JTk3JUFFJUU5JUEyJTk4JUVGJUJDJThDJUU2JTlDJTg5JUU2JTk1JTg4JUU5JTk5JThEJUU0JUJEJThFJUU0JUJDJTgxJUU0JUI4JTlBJUU2JTg4JTkwJUU2JTlDJUFDJUVGJUJDJThDJUU1JUI5JUI2JUU0JUJGJTlEJUU5JTlBJTlDJUU2JTk1JUIwJUU2JThEJUFFJUU1JUFFJTg5JUU1JTg1JUE4JUUzJTgwJTgy">MaxCompute阿里云原生大数据计算服务</span>：</strong></p>
+<p>MaxCompute是基于数据分析场景的企业级SaaS模式云数据仓库，以Serverless架构提供快速、全托管的在线数据仓库服务，消除了传统数据平台在资源扩展性和弹性方面的限制，最小化用户运维投入。</p>
+<p><strong>使用：</strong></p>
+<ol>
+<li><p>使用MaxCompute创建数据库，在数据开发页面创建表进行记录前端监控数据</p>
+</li>
+<li><p>使用py脚本对接（暂时没有js包），需要安装python和pip（包管理工具）</p>
+</li>
+<li><p>安装pyodps：<code>pip install pyodps</code></p>
+</li>
+<li><p>connect.py文件中写入示例：</p>
+<pre><code class="python">from odps import ODPS;
+
+odps = ODPS(&#39;LTAI5tBDj3HajwRVhc6me5KR&#39;,&#39;DJqWAI1IWUBZnZGE#FKDSFJDEJLet&#39;,&#39;test_monitor&#39;,endpoint=&#39;https://service-cn-hangzhou.odps.aliyun-inc.com&#39;)
+
+result = odps.executexecute_sql(&#39;select * from test_monitor where datetime=&quot;20240325&quot;&#39;)
+
+with result.open_reader() as reader:
+    for record in reader:
+        print(record[0],record[1])
+# 打印表名
+for table in odps.list_tables():
+    print(table)
+data = [
+    [&#39;appid123&#39;,&#39;pageid123&#39;,&#39;123456&#39;,&#39;ua123&#39;,&#39;http://www.baidu.com&#39;,&#39;20240325&#39;,&#39;20240325&#39;,&#39;20240325&#39;,&#39;20240325&#39;,&#39;20240325&#39;,&#39;20240325&#39;,&#39;20240325&#39;,&#39;20240325&#39;,&#39;20240325&#39;,&#39;20240325&#39;,&#39;20240325&#39;,&#39;20240325&#39;,&#39;20240325&#39;,&#39;20240325&#39;,&#39;20240325&#39;,&#39;20240325&#39;,&#39;20240325&#39;,&#39;20240325&#39;,&#39;20240325&#39;,&#39;20240325&#39;,&#39;20240325&#39;,&#39;20240325&#39;,&#39;20240325&#39;,&#39;20240325&#39;,&#39;20240325&#39;,&#39;20240325&#39;,&#39;20240325&#39;,&#39;202403&#39;]
+]
+# 写入数据
+odps.write_table(&#39;test_table&#39;, data)
+# ....等等后续操作
+</code></pre>
+</li>
+</ol>
+<p><strong>前端监控平台可视化架构图：</strong></p>
+<p><img data-src="/images/Snipaste_2024-04-30_15-14-09.jpg" alt="前端监控流程架构"></p>
+
+      <div class="tags">
+          <a href="/tags/%E5%89%8D%E7%AB%AF%E7%9B%91%E6%8E%A7/" rel="tag"><i class="ic i-tag"></i> 前端监控</a>
+      </div>
+  </div>
+
+   <footer>
+
+    <div class="meta">
+  <span class="item">
+    <span class="icon">
+      <i class="ic i-calendar-check"></i>
+    </span>
+    <span class="text">更新于</span>
+    <time title="修改时间：2024-04-30 15:17:04" itemprop="dateModified" datetime="2024-04-30T15:17:04+08:00">2024-04-30</time>
+  </span>
+  <span id="2024/04/29/前端监控/" class="item leancloud_visitors" data-flag-title="前端监控" title="阅读次数">
+      <span class="icon">
+        <i class="ic i-eye"></i>
+      </span>
+      <span class="text">阅读次数</span>
+      <span class="leancloud-visitors-count"></span>
+      <span class="text">次</span>
+  </span>
+</div>
+
+      
+<div class="reward">
+  <button><i class="ic i-heartbeat"></i> 赞赏</button>
+  <p>请我喝[茶]~(￣▽￣)~*</p>
+  <div id="qr">
+      
+      <div>
+        <img data-src="/images/wechatpay.png" alt="dmq 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div>
+        <img data-src="/images/alipay.png" alt="dmq 支付宝">
+        <p>支付宝</p>
+      </div>
+  </div>
+</div>
+
+      
+
+<div id="copyright">
+<ul>
+  <li class="author">
+    <strong>本文作者： </strong>dmq <i class="ic i-at"><em>@</em></i>杜明清的个人博客
+  </li>
+  <li class="link">
+    <strong>本文链接：</strong>
+    <a href="https://dmqweb.cn/2024/04/29/%E5%89%8D%E7%AB%AF%E7%9B%91%E6%8E%A7/" title="前端监控">https://dmqweb.cn/2024/04/29/前端监控/</a>
+  </li>
+  <li class="license">
+    <strong>版权声明： </strong>本站所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+  </footer>
+
+</article>
+
+  </div>
+  
+
+<div class="post-nav">
+    <div class="item left">
+      
+
+  <a href="/2024/04/16/%E4%B8%89%E6%96%B9%E5%8C%85/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;s3.uuu.ovh&#x2F;imgs&#x2F;2024&#x2F;04&#x2F;15&#x2F;66e62db68b7b65eb.webp" title="三方库">
+  <span class="type">上一篇</span>
+  <span class="category"><i class="ic i-flag"></i> 三方库</span>
+  <h3>三方库</h3>
+  </a>
+
+    </div>
+    <div class="item right">
+      
+
+  <a href="/2024/04/30/%E6%B7%B1%E6%8B%B7%E8%B4%9D/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;s3.uuu.ovh&#x2F;imgs&#x2F;2024&#x2F;04&#x2F;05&#x2F;8c79eda29fb3b505.jpg" title="深拷贝">
+  <span class="type">下一篇</span>
+  <span class="category"><i class="ic i-flag"></i> 面试题</span>
+  <h3>深拷贝</h3>
+  </a>
+
+    </div>
+</div>
+
+  
+  <div class="wrap" id="comments"></div>
+
+
+        </div>
+        <div id="sidebar">
+          
+
+<div class="inner">
+
+  <div class="panels">
+    <div class="inner">
+      <div class="contents panel pjax" data-title="文章目录">
+          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%89%8D%E7%AB%AF%E7%9B%91%E6%8E%A7"><span class="toc-number">1.</span> <span class="toc-text">前端监控</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BB%8B%E7%BB%8D"><span class="toc-number">2.</span> <span class="toc-text">介绍</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%99%BE%E5%BA%A6%E7%BB%9F%E8%AE%A1%E6%8E%A5%E5%85%A5"><span class="toc-number">3.</span> <span class="toc-text">百度统计接入</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%9B%91%E6%8E%A7%E5%B9%B3%E5%8F%B0%E6%9E%B6%E6%9E%84"><span class="toc-number">4.</span> <span class="toc-text">监控平台架构</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#JS%E5%BA%93%E7%9A%84%E5%BC%80%E5%8F%91"><span class="toc-number">4.1.</span> <span class="toc-text">JS库的开发</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#JS-SDK"><span class="toc-number">4.1.0.1.</span> <span class="toc-text">JS  SDK</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#PV%E5%9F%8B%E7%82%B9"><span class="toc-number">4.1.0.2.</span> <span class="toc-text">PV埋点</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9B%9D%E5%85%89%E5%9F%8B%E7%82%B9"><span class="toc-number">4.1.0.3.</span> <span class="toc-text">曝光埋点</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%82%B9%E5%87%BB%E5%9F%8B%E7%82%B9"><span class="toc-number">4.1.0.4.</span> <span class="toc-text">点击埋点</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E5%9F%8B%E7%82%B9"><span class="toc-number">4.1.0.5.</span> <span class="toc-text">自定义埋点</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%B9%B3%E5%8F%B0%E5%BC%80%E5%8F%91"><span class="toc-number">4.2.</span> <span class="toc-text">大数据平台开发</span></a></li></ol></li></ol>
+      </div>
+      <div class="related panel pjax" data-title="系列文章">
+        <ul>
+          <li class="active"><a href="/2024/04/29/%E5%89%8D%E7%AB%AF%E7%9B%91%E6%8E%A7/" rel="bookmark" title="前端监控">前端监控</a></li>
+        </ul>
+      </div>
+      <div class="overview panel" data-title="站点概览">
+        <div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="image" itemprop="image" alt="dmq"
+      data-src="/images/avatar.jpg">
+  <p class="name" itemprop="name">dmq</p>
+  <div class="description" itemprop="description"></div>
+</div>
+
+<nav class="state">
+    <div class="item posts">
+      <a href="/archives/">
+        <span class="count">62</span>
+        <span class="name">文章</span>
+      </a>
+    </div>
+    <div class="item categories">
+      <a href="/categories/">
+        <span class="count">43</span>
+        <span class="name">分类</span>
+      </a>
+    </div>
+    <div class="item tags">
+      <a href="/tags/">
+        <span class="count">80</span>
+        <span class="name">标签</span>
+      </a>
+    </div>
+</nav>
+
+<div class="social">
+      <span class="exturl item github" data-url="aHR0cHM6Ly9naXRodWIuY29tL2RtcTA/dGFiPXJlcG9zaXRvcmllcw==" title="https:&#x2F;&#x2F;github.com&#x2F;dmq0?tab&#x3D;repositories"><i class="ic i-github"></i></span>
+      <span class="exturl item npm" data-url="aHR0cHM6Ly93d3cubnBtanMuY29tL35kbXEwMDA=" title="https:&#x2F;&#x2F;www.npmjs.com&#x2F;~dmq000"><i class="ic i-file"></i></span>
+      <span class="exturl item zhihu" data-url="aHR0cHM6Ly93d3cuemhpaHUuY29tL3Blb3BsZS9kLTg4LTYxLTgz" title="https:&#x2F;&#x2F;www.zhihu.com&#x2F;people&#x2F;d-88-61-83"><i class="ic i-zhihu"></i></span>
+      <span class="exturl item music" data-url="aHR0cHM6Ly9tdXNpYy4xNjMuY29tLyMvdXNlci9ob21lP2lkPTgwMjc4OTk0OTE=" title="https:&#x2F;&#x2F;music.163.com&#x2F;#&#x2F;user&#x2F;home?id&#x3D;8027899491"><i class="ic i-cloud-music"></i></span>
+      <span class="exturl item weibo" data-url="aHR0cHM6Ly93ZWliby5jb20vdS83NjI1OTAxNzE3" title="https:&#x2F;&#x2F;weibo.com&#x2F;u&#x2F;7625901717"><i class="ic i-weibo"></i></span>
+      <span class="exturl item email" data-url="bWFpbHRvOjMyNjc4MDc1MTRAcXEuY29t" title="mailto:3267807514@qq.com"><i class="ic i-envelope"></i></span>
+</div>
+
+<ul class="menu">
+  
+    
+  <li class="item">
+    <a href="/" rel="section"><i class="ic i-home"></i>首页</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/about/" rel="section"><i class="ic i-user"></i>介绍</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/archives/" rel="section"><i class="ic i-list-alt"></i>归档</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/categories/" rel="section"><i class="ic i-th"></i>分类</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/tags/" rel="section"><i class="ic i-tags"></i>标签</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/friends/" rel="section"><i class="ic i-heart"></i>友链</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/links/" rel="section"><i class="ic i-magic"></i>工具</a>
+  </li>
+
+
+</ul>
+
+      </div>
+    </div>
+  </div>
+
+  <ul id="quick">
+    <li class="prev pjax">
+        <a href="/2024/04/16/%E4%B8%89%E6%96%B9%E5%8C%85/" rel="prev" title="上一篇"><i class="ic i-chevron-left"></i></a>
+    </li>
+    <li class="up"><i class="ic i-arrow-up"></i></li>
+    <li class="down"><i class="ic i-arrow-down"></i></li>
+    <li class="next pjax">
+        <a href="/2024/04/30/%E6%B7%B1%E6%8B%B7%E8%B4%9D/" rel="next" title="下一篇"><i class="ic i-chevron-right"></i></a>
+    </li>
+    <li class="percent"></li>
+  </ul>
+</div>
+
+
+        </div>
+        <div class="dimmer"></div>
+      </div>
+    </main>
+    <footer id="footer">
+      <div class="inner">
+        <div class="widgets">
+          
+<div class="rpost pjax">
+  <h2>随机文章</h2>
+  <ul>
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E4%B8%89%E6%96%B9%E5%BA%93/" title="分类于 三方库">三方库</a>
+</div>
+
+    <span><a href="/2024/04/16/%E4%B8%89%E6%96%B9%E5%8C%85/" title="三方库">三方库</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/JS/" title="分类于 JS">JS</a>
+</div>
+
+    <span><a href="/2024/02/02/serviceWorker/" title="serviceWorker">serviceWorker</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/TDD/" title="分类于 TDD">TDD</a>
+</div>
+
+    <span><a href="/2024/03/30/jest/" title="jest">jest</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Vue/" title="分类于 Vue">Vue</a>
+</div>
+
+    <span><a href="/2023/01/12/Vue%E6%9D%82%E8%AE%B0/" title="Vue使用笔记">Vue使用笔记</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/JS/" title="分类于 JS">JS</a>
+</div>
+
+    <span><a href="/2023/12/21/%E6%9C%80%E5%A4%A7%E5%AE%89%E5%85%A8%E6%95%B0/" title="最大安全数与最大安全整数">最大安全数与最大安全整数</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E5%89%8D%E7%AB%AF%E7%9B%91%E6%8E%A7/" title="分类于 前端监控">前端监控</a>
+</div>
+
+    <span><a href="/2024/04/29/%E5%89%8D%E7%AB%AF%E7%9B%91%E6%8E%A7/" title="前端监控">前端监控</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/JS/" title="分类于 JS">JS</a>
+</div>
+
+    <span><a href="/2023/12/11/typedArray/" title="JS中类型化数组typedArray">JS中类型化数组typedArray</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/typeScript/" title="分类于 typeScript">typeScript</a>
+</div>
+
+    <span><a href="/2023/12/11/TS/" title="typeScript笔记">typeScript笔记</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/git/" title="分类于 git">git</a>
+</div>
+
+    <span><a href="/2023/04/02/git%E5%92%8Cgithub/" title="git与github">git与github</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/webpack/" title="分类于 webpack">webpack</a>
+</div>
+
+    <span><a href="/2024/05/07/miniwebpack/" title="实现miniwebpack">实现miniwebpack</a></span>
+  </li>
+
+  </ul>
+</div>
+<div>
+  <h2>最新评论</h2>
+  <ul class="leancloud-recent-comment"></ul>
+</div>
+
+        </div>
+        <div class="status">
+  <div class="copyright">
+    
+    &copy; 2010 – 
+    <span itemprop="copyrightYear">2024</span>
+    <span class="with-love">
+      <i class="ic i-sakura rotate"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">dmq @ Web blog</span>
+  </div>
+  <div class="powered-by">
+    基于 <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & Theme.<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Shoka</span>
+  </div>
+</div>
+
+      </div>
+    </footer>
+  </div>
+<script data-config type="text/javascript">
+  var LOCAL = {
+    path: '2024/04/29/前端监控/',
+    favicon: {
+      show: "科技引领未来",
+      hide: "欢迎与我交流"
+    },
+    search : {
+      placeholder: "文章搜索",
+      empty: "关于 「 ${query} 」，什么也没搜到",
+      stats: "${time} ms 内找到 ${hits} 条结果"
+    },
+    valine: true,fancybox: true,
+    copyright: '复制成功，转载请遵守 <i class="ic i-creative-commons"></i>BY-NC-SA 协议。',
+    ignores : [
+      function(uri) {
+        return uri.includes('#');
+      },
+      function(uri) {
+        return new RegExp(LOCAL.path+"$").test(uri);
+      }
+    ]
+  };
+</script>
+
+<script src="https://cdn.polyfill.io/v2/polyfill.js"></script>
+
+<script src="//gcore.jsdelivr.net/combine/npm/pace-js@1.0.2/pace.min.js,npm/pjax@0.2.8/pjax.min.js,npm/whatwg-fetch@3.4.0/dist/fetch.umd.min.js,npm/animejs@3.2.0/lib/anime.min.js,npm/algoliasearch@4/dist/algoliasearch-lite.umd.js,npm/instantsearch.js@4/dist/instantsearch.production.min.js,npm/lozad@1/dist/lozad.min.js,npm/quicklink@2/dist/quicklink.umd.js"></script>
+
+<script src="/js/app.js?v=0.2.5"></script>
+
+
+  <script data-pjax>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?9ba187659e850a6910681214f0faa16b";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+</body>
+</html>

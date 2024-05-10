@@ -102,12 +102,12 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
       </div>
       <div id="imgs" class="pjax">
         <ul>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/15/64f47485ad1e6bed.jpg"></li>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/04/e805d35284c2d7d5.jpg"></li>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/07/5804c6f23029288b.jpg"></li>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/06/ae2b485c961ddd62.jpg"></li>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/12/65788b6548e9e58f.jpg"></li>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/05/5f5c15d0d8ceb4d1.jpg"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/04/3149a0cc49823a9c.jpg"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/28/f7a6eb62965e0dec.webp"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/15/effaa43770a5e6bc.jpg"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/03/29/5c162f03529c2f38.jpg"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/04/25ef11a84cfafbef.jpg"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/15/229ca07a8d7b6e02.jpg"></li>
         </ul>
       </div>
     </header>
@@ -153,17 +153,33 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
   <div class="body md" itemprop="articleBody">
     
 
-    <p>#JS 中类型化数组（typed array）<br />
-JavaScript 的类型化数组是一种特殊的数组，可以存储和操作固定类型的数据，如整数、浮点数、字节等。相比于普通的 JavaScript 数组，类型化数组有以下几个优点：</p>
-<p>更加高效：类型化数组在内存中是连续存储的，这意味着它们可以更快地被读取和写入。此外，它们还允许我们直接访问底层的二进制数据，而不需要进行类型转换或拷贝操作。<br />
-更加节省空间：由于类型化数组只能存储固定类型的数据，因此它们使用的内存空间可以更加紧凑。例如，使用 Int8Array 数组可以将每个元素压缩为 1 个字节，而使用普通的 JavaScript 数组则需要至少 8 个字节来存储一个数字。<br />
-更加易于处理二进制数据：类型化数组可以帮助我们更加方便地处理二进制数据，如音频、视频、图像等。这些数据通常以二进制格式存储，而类型化数组可以直接读取和操作这些数据，而不需要进行复杂的解析和转换操作。<br />
-总之，类型化数组可以带来更高效、更紧凑、更直接的二进制数据处理体验，是 JavaScript 中处理二进制数据时非常有用的工具。虽然普通的 JavaScript 数组也可以存储二进制数据，但它们没有类型化数组那样的高效和直接性。因此，在需要处理大量二进制数据时，使用类型化数组会更加合适。</p>
-<p>Int8Array:<br />
-①只能存储 8 位有符号整数（-128 到 127），②使用固定大小的内存来存储数据，每个元素占用一个字节（8 位）③元素连续存储</p>
-<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token comment">// 以长度参数构造对象</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token keyword">var</span> int8 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Int8Array</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="3"></td><td><pre>int8<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">42</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="4"></td><td><pre>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>int8<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 42</span></pre></td></tr><tr><td data-num="5"></td><td><pre>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>int8<span class="token punctuation">.</span>length<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 2</span></pre></td></tr><tr><td data-num="6"></td><td><pre>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>int8<span class="token punctuation">.</span><span class="token constant">BYTES_PER_ELEMENT</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 数组所占用的字节数</span></pre></td></tr><tr><td data-num="7"></td><td><pre><span class="token comment">// 以数组构造对象</span></pre></td></tr><tr><td data-num="8"></td><td><pre><span class="token keyword">var</span> arr <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Int8Array</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">21</span><span class="token punctuation">,</span> <span class="token number">31</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="9"></td><td><pre>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>arr<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 31</span></pre></td></tr><tr><td data-num="10"></td><td><pre><span class="token comment">// 从另一数组构造对象</span></pre></td></tr><tr><td data-num="11"></td><td><pre><span class="token keyword">var</span> x <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Int8Array</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">21</span><span class="token punctuation">,</span> <span class="token number">31</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="12"></td><td><pre><span class="token keyword">var</span> y <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Int8Array</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="13"></td><td><pre>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>y<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 21</span></pre></td></tr><tr><td data-num="14"></td><td><pre><span class="token comment">// 从 ArrayBuffer 构造对象</span></pre></td></tr><tr><td data-num="15"></td><td><pre><span class="token keyword">var</span> buffer <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayBuffer</span><span class="token punctuation">(</span><span class="token number">8</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="16"></td><td><pre><span class="token keyword">var</span> z <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Int8Array</span><span class="token punctuation">(</span>buffer<span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr></table></figure><p>还有：Uint8Array 等类型<br />
- forEach 的回调函数中不传参数</p>
-<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">const</span> <span class="token function-variable function">dfs</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">root</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="2"></td><td><pre>    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>root<span class="token punctuation">.</span>val<span class="token punctuation">,</span><span class="token string">'还好'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="3"></td><td><pre>    root<span class="token punctuation">.</span>children<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span>dfs<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//forEach 回调不传参数，默认传的参数就是 item 项</span></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr></table></figure>
+    <p>#JS中类型化数组（typed array）<br>JavaScript 的类型化数组是一种特殊的数组，可以存储和操作固定类型的数据，如整数、浮点数、字节等。相比于普通的 JavaScript 数组，类型化数组有以下几个优点：</p>
+<p>更加高效：类型化数组在内存中是连续存储的，这意味着它们可以更快地被读取和写入。此外，它们还允许我们直接访问底层的二进制数据，而不需要进行类型转换或拷贝操作。<br>更加节省空间：由于类型化数组只能存储固定类型的数据，因此它们使用的内存空间可以更加紧凑。例如，使用 Int8Array 数组可以将每个元素压缩为 1 个字节，而使用普通的 JavaScript 数组则需要至少 8 个字节来存储一个数字。<br>更加易于处理二进制数据：类型化数组可以帮助我们更加方便地处理二进制数据，如音频、视频、图像等。这些数据通常以二进制格式存储，而类型化数组可以直接读取和操作这些数据，而不需要进行复杂的解析和转换操作。<br>总之，类型化数组可以带来更高效、更紧凑、更直接的二进制数据处理体验，是 JavaScript 中处理二进制数据时非常有用的工具。虽然普通的 JavaScript 数组也可以存储二进制数据，但它们没有类型化数组那样的高效和直接性。因此，在需要处理大量二进制数据时，使用类型化数组会更加合适。</p>
+<p>Int8Array:<br>①只能存储8位有符号整数（-128到127），②使用固定大小的内存来存储数据，每个元素占用一个字节（8位）③元素连续存储</p>
+<pre><code class="js">// 以长度参数构造对象
+var int8 = new Int8Array(2);
+int8[0] = 42;
+console.log(int8[0]); // 42
+console.log(int8.length); // 2
+console.log(int8.BYTES_PER_ELEMENT); // 数组所占用的字节数
+// 以数组构造对象
+var arr = new Int8Array([21, 31]);
+console.log(arr[1]); // 31
+// 从另一数组构造对象
+var x = new Int8Array([21, 31]);
+var y = new Int8Array(x);
+console.log(y[0]); // 21
+// 从 ArrayBuffer 构造对象
+var buffer = new ArrayBuffer(8);
+var z = new Int8Array(buffer, 1, 4);
+</code></pre>
+<p>还有：Uint8Array等类型<br>forEach的回调函数中不传参数</p>
+<pre><code class="js">const dfs = function(root)&#123;
+    console.log(root.val,&#39;还好&#39;);
+    root.children.forEach(dfs);//forEach回调不传参数，默认传的参数就是item项
+&#125;
+</code></pre>
+
       <div class="tags">
           <a href="/tags/JS/" rel="tag"><i class="ic i-tag"></i> JS</a>
           <a href="/tags/typedArray/" rel="tag"><i class="ic i-tag"></i> typedArray</a>
@@ -236,7 +252,7 @@ JavaScript 的类型化数组是一种特殊的数组，可以存储和操作固
     <div class="item left">
       
 
-  <a href="/2023/12/08/DataView/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;s3.uuu.ovh&#x2F;imgs&#x2F;2024&#x2F;04&#x2F;04&#x2F;025bf3f9fc1cf452.webp" title="DataView">
+  <a href="/2023/12/08/DataView/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;s3.uuu.ovh&#x2F;imgs&#x2F;2024&#x2F;04&#x2F;04&#x2F;64e30381ceb47acd.webp" title="DataView">
   <span class="type">上一篇</span>
   <span class="category"><i class="ic i-flag"></i> JS</span>
   <h3>DataView</h3>
@@ -246,7 +262,7 @@ JavaScript 的类型化数组是一种特殊的数组，可以存储和操作固
     <div class="item right">
       
 
-  <a href="/2023/12/11/TS/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;s3.uuu.ovh&#x2F;imgs&#x2F;2024&#x2F;03&#x2F;29&#x2F;a93636ae09845d36.jpg" title="typeScript笔记">
+  <a href="/2023/12/11/TS/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;s3.uuu.ovh&#x2F;imgs&#x2F;2024&#x2F;04&#x2F;04&#x2F;25ef11a84cfafbef.jpg" title="typeScript笔记">
   <span class="type">下一篇</span>
   <span class="category"><i class="ic i-flag"></i> typeScript</span>
   <h3>typeScript笔记</h3>
@@ -271,7 +287,7 @@ JavaScript 的类型化数组是一种特殊的数组，可以存储和操作固
       </div>
       <div class="related panel pjax" data-title="系列文章">
         <ul>
-          <li><a href="/2023/07/02/forEach/" rel="bookmark" title="forEach">forEach</a></li><li><a href="/2023/08/10/new%E5%85%B3%E9%94%AE%E5%AD%97/" rel="bookmark" title="new关键字">new关键字</a></li><li><a href="/2023/09/02/ArrayBuffer/" rel="bookmark" title="ArrayBuffer">ArrayBuffer</a></li><li><a href="/2023/10/02/33%E4%B8%AAJavascript%E6%A6%82%E5%BF%B5/" rel="bookmark" title="33个JavaScript概念">33个JavaScript概念</a></li><li><a href="/2023/12/02/%E9%9A%90%E5%BC%8F%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2/" rel="bookmark" title="JS类型转换">JS类型转换</a></li><li><a href="/2023/12/07/Blob/" rel="bookmark" title="Blob">Blob</a></li><li><a href="/2023/12/08/DataView/" rel="bookmark" title="DataView">DataView</a></li><li><a href="/2023/12/08/NaN/" rel="bookmark" title="NaN历史遗留问题">NaN历史遗留问题</a></li><li class="active"><a href="/2023/12/11/typedArray/" rel="bookmark" title="JS中类型化数组typedArray">JS中类型化数组typedArray</a></li><li><a href="/2023/12/21/%E6%9C%80%E5%A4%A7%E5%AE%89%E5%85%A8%E6%95%B0/" rel="bookmark" title="最大安全数与最大安全整数">最大安全数与最大安全整数</a></li><li><a href="/2024/01/11/webworker/" rel="bookmark" title="webWorker">webWorker</a></li><li><a href="/2024/02/02/serviceWorker/" rel="bookmark" title="serviceWorker">serviceWorker</a></li>
+          <li><a href="/2023/07/02/forEach/" rel="bookmark" title="forEach">forEach</a></li><li><a href="/2023/08/10/new%E5%85%B3%E9%94%AE%E5%AD%97/" rel="bookmark" title="new关键字">new关键字</a></li><li><a href="/2023/09/02/ArrayBuffer/" rel="bookmark" title="ArrayBuffer">ArrayBuffer</a></li><li><a href="/2023/10/02/33%E4%B8%AAJavascript%E6%A6%82%E5%BF%B5/" rel="bookmark" title="33个JavaScript概念">33个JavaScript概念</a></li><li><a href="/2023/12/02/%E9%9A%90%E5%BC%8F%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2/" rel="bookmark" title="JS类型转换">JS类型转换</a></li><li><a href="/2023/12/07/Blob/" rel="bookmark" title="Blob">Blob</a></li><li><a href="/2023/12/08/DataView/" rel="bookmark" title="DataView">DataView</a></li><li><a href="/2023/12/08/NaN/" rel="bookmark" title="NaN历史遗留问题">NaN历史遗留问题</a></li><li class="active"><a href="/2023/12/11/typedArray/" rel="bookmark" title="JS中类型化数组typedArray">JS中类型化数组typedArray</a></li><li><a href="/2023/12/21/%E6%9C%80%E5%A4%A7%E5%AE%89%E5%85%A8%E6%95%B0/" rel="bookmark" title="最大安全数与最大安全整数">最大安全数与最大安全整数</a></li><li><a href="/2024/01/11/webworker/" rel="bookmark" title="webWorker">webWorker</a></li><li><a href="/2024/02/02/serviceWorker/" rel="bookmark" title="serviceWorker">serviceWorker</a></li><li><a href="/2024/05/08/%E5%87%BD%E6%95%B0%E9%87%8D%E8%BD%BD/" rel="bookmark" title="函数重载">函数重载</a></li>
         </ul>
       </div>
       <div class="overview panel" data-title="站点概览">
@@ -285,7 +301,7 @@ JavaScript 的类型化数组是一种特殊的数组，可以存储和操作固
 <nav class="state">
     <div class="item posts">
       <a href="/archives/">
-        <span class="count">60</span>
+        <span class="count">62</span>
         <span class="name">文章</span>
       </a>
     </div>
@@ -297,7 +313,7 @@ JavaScript 的类型化数组是一种特殊的数组，可以存储和操作固
     </div>
     <div class="item tags">
       <a href="/tags/">
-        <span class="count">78</span>
+        <span class="count">80</span>
         <span class="name">标签</span>
       </a>
     </div>
@@ -385,10 +401,10 @@ JavaScript 的类型化数组是一种特殊的数组，可以存储和操作固
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/react/" title="分类于 react">react</a>
+<a href="/categories/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96/" title="分类于 前端工程化">前端工程化</a>
 </div>
 
-    <span><a href="/2023/12/02/react/" title="react笔记">react笔记</a></span>
+    <span><a href="/2024/03/29/%E5%89%8D%E7%AB%AF%E6%A8%A1%E5%9D%97%E5%8C%96/" title="前端模块化">前端模块化</a></span>
   </li>
 
       
@@ -398,17 +414,37 @@ JavaScript 的类型化数组是一种特殊的数组，可以存储和操作固
 <a href="/categories/JS/" title="分类于 JS">JS</a>
 </div>
 
-    <span><a href="/2023/12/21/%E6%9C%80%E5%A4%A7%E5%AE%89%E5%85%A8%E6%95%B0/" title="最大安全数与最大安全整数">最大安全数与最大安全整数</a></span>
+    <span><a href="/2023/12/08/DataView/" title="DataView">DataView</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/" title="分类于 计算机组成原理">计算机组成原理</a>
+<a href="/categories/Sass/" title="分类于 Sass">Sass</a>
 </div>
 
-    <span><a href="/2023/07/02/%E6%B5%AE%E7%82%B9%E6%95%B0%E5%AD%98%E5%82%A8/" title="浮点数存储">浮点数存储</a></span>
+    <span><a href="/2023/01/10/Sass/" title="Sass笔记">Sass笔记</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/JS/" title="分类于 JS">JS</a>
+</div>
+
+    <span><a href="/2023/09/02/ArrayBuffer/" title="ArrayBuffer">ArrayBuffer</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/webpack/" title="分类于 webpack">webpack</a>
+</div>
+
+    <span><a href="/2024/05/07/miniwebpack/" title="实现miniwebpack">实现miniwebpack</a></span>
   </li>
 
       
@@ -418,47 +454,27 @@ JavaScript 的类型化数组是一种特殊的数组，可以存储和操作固
 <a href="/categories/%E8%84%9A%E6%89%8B%E6%9E%B6%E5%BC%80%E5%8F%91/" title="分类于 脚手架开发">脚手架开发</a>
 </div>
 
-    <span><a href="/2024/03/30/%E6%9C%AC%E5%9C%B0%E6%96%87%E4%BB%B6%E9%93%BE%E6%8E%A5/" title="本地文件链接">本地文件链接</a></span>
+    <span><a href="/2024/04/12/%E8%84%9A%E6%89%8B%E6%9E%B6/" title="脚手架开发">脚手架开发</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/%E5%AE%B9%E5%99%A8%E5%8C%96%E8%BF%90%E7%BB%B4%E6%93%8D%E4%BD%9C/" title="分类于 容器化运维操作">容器化运维操作</a>
+<a href="/categories/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" title="分类于 正则表达式">正则表达式</a>
 </div>
 
-    <span><a href="/2024/02/02/%E5%AE%B9%E5%99%A8%E5%8C%96%E8%BF%90%E7%BB%B4%E6%93%8D%E4%BD%9C/" title="容器化运维操作">容器化运维操作</a></span>
+    <span><a href="/2024/01/10/%E6%AD%A3%E5%88%99/" title="正则编写方式">正则编写方式</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/%E4%B8%9A%E5%8A%A1%E5%A4%84%E7%90%86/" title="分类于 业务处理">业务处理</a>
+<a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/" title="分类于 计算机组成原理">计算机组成原理</a>
 </div>
 
-    <span><a href="/2024/03/29/%E6%9C%AC%E5%9C%B0%E9%A2%84%E8%A7%88%E5%9B%BE%E7%89%87/" title="本地预览图片">本地预览图片</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/typeScript/" title="分类于 typeScript">typeScript</a>
-</div>
-
-    <span><a href="/2023/12/11/TS/" title="typeScript笔记">typeScript笔记</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/git/" title="分类于 git">git</a>
-</div>
-
-    <span><a href="/2023/04/02/git%E5%92%8Cgithub/" title="git与github">git与github</a></span>
+    <span><a href="/2024/01/02/%E7%BC%93%E5%AD%98%E3%80%81%E5%86%85%E5%AD%98%E3%80%81CPU%E7%9F%A5%E8%AF%86%E7%82%B9%E8%A7%A3%E6%9E%90%E7%AC%94%E8%AE%B0/" title="计组知识点">计组知识点</a></span>
   </li>
 
       
@@ -468,17 +484,17 @@ JavaScript 的类型化数组是一种特殊的数组，可以存储和操作固
 <a href="/categories/JS/" title="分类于 JS">JS</a>
 </div>
 
-    <span><a href="/2023/12/07/Blob/" title="Blob">Blob</a></span>
+    <span><a href="/2024/05/08/%E5%87%BD%E6%95%B0%E9%87%8D%E8%BD%BD/" title="函数重载">函数重载</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/json-server/" title="分类于 json-server">json-server</a>
+<a href="/categories/TDD/" title="分类于 TDD">TDD</a>
 </div>
 
-    <span><a href="/2023/01/09/json-server%E6%95%99%E7%A8%8B/" title="json-server">json-server</a></span>
+    <span><a href="/2024/03/30/jest/" title="jest">jest</a></span>
   </li>
 
   </ul>
@@ -539,6 +555,15 @@ JavaScript 的类型化数组是一种特殊的数组，可以存储和操作固
 <script src="/js/app.js?v=0.2.5"></script>
 
 
+  <script data-pjax>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?9ba187659e850a6910681214f0faa16b";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
 
 
 </body>

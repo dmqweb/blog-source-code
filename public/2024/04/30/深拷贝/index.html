@@ -1,0 +1,618 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#FFF">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="icon" type="image/ico" sizes="32x32" href="/images/favicon.ico">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+<link rel="alternate" type="application/rss+xml" title="杜明清的个人博客" href="https://dmqweb.cn/rss.xml" />
+<link rel="alternate" type="application/atom+xml" title="杜明清的个人博客" href="https://dmqweb.cn/atom.xml" />
+<link rel="alternate" type="application/json" title="杜明清的个人博客" href="https://dmqweb.cn/feed.json" />
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Mulish:300,300italic,400,400italic,700,700italic%7CFredericka%20the%20Great:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20JP:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CInconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="/css/app.css?v=0.2.5">
+
+  
+  <meta name="keywords" content="深拷贝,面试题" />
+
+
+<link rel="canonical" href="https://dmqweb.cn/2024/04/30/%E6%B7%B1%E6%8B%B7%E8%B4%9D/">
+
+
+
+  <title>
+深拷贝 - 面试题 |
+Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
+<meta name="generator" content="Hexo 6.3.0"></head>
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div id="loading">
+    <div class="cat">
+      <div class="body"></div>
+      <div class="head">
+        <div class="face"></div>
+      </div>
+      <div class="foot">
+        <div class="tummy-end"></div>
+        <div class="bottom"></div>
+        <div class="legs left"></div>
+        <div class="legs right"></div>
+      </div>
+      <div class="paw">
+        <div class="hands left"></div>
+        <div class="hands right"></div>
+      </div>
+    </div>
+  </div>
+  <div id="container">
+    <header id="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="inner">
+        <div id="brand">
+          <div class="pjax">
+          
+  <h1 itemprop="name headline">深拷贝
+  </h1>
+  
+<div class="meta">
+  <span class="item" title="创建时间：2024-04-30 17:34:25">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <span class="text">发表于</span>
+    <time itemprop="dateCreated datePublished" datetime="2024-04-30T17:34:25+08:00">2024-04-30</time>
+  </span>
+</div>
+
+
+          </div>
+        </div>
+        <nav id="nav">
+  <div class="inner">
+    <div class="toggle">
+      <div class="lines" aria-label="切换导航栏">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </div>
+    </div>
+    <ul class="menu">
+      <li class="item title"><a href="/" rel="start">Web blog</a></li>
+    </ul>
+    <ul class="right">
+      <li class="item theme">
+        <i class="ic i-sun"></i>
+      </li>
+      <li class="item search">
+        <i class="ic i-search"></i>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+      </div>
+      <div id="imgs" class="pjax">
+        <ul>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/04/3149a0cc49823a9c.jpg"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/25/1b093314ebaab948.jpg"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/25/0aebf75866635811.jpg"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/28/dc01f095118914ac.webp"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/04/eff89867286d822f.webp"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/06/ba62f09d8f302a0f.jpg"></li>
+        </ul>
+      </div>
+    </header>
+    <div id="waves">
+      <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+        <defs>
+          <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+        </defs>
+        <g class="parallax">
+          <use xlink:href="#gentle-wave" x="48" y="0" />
+          <use xlink:href="#gentle-wave" x="48" y="3" />
+          <use xlink:href="#gentle-wave" x="48" y="5" />
+          <use xlink:href="#gentle-wave" x="48" y="7" />
+        </g>
+      </svg>
+    </div>
+    <main>
+      <div class="inner">
+        <div id="main" class="pjax">
+          
+  <div class="article wrap">
+    
+<div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+<i class="ic i-home"></i>
+<span><a href="/">首页</a></span><i class="ic i-angle-right"></i>
+<span  class="current" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/" itemprop="item" rel="index" title="分类于 面试题"><span itemprop="name">面试题</span></a>
+<meta itemprop="position" content="1" /></span>
+</div>
+
+    <article itemscope itemtype="http://schema.org/Article" class="post block" lang="zh-CN">
+  <link itemprop="mainEntityOfPage" href="https://dmqweb.cn/2024/04/30/%E6%B7%B1%E6%8B%B7%E8%B4%9D/">
+
+  <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="image" content="/images/avatar.jpg">
+    <meta itemprop="name" content="dmq">
+    <meta itemprop="description" content="👻欢迎一起交流学习👻, ">
+  </span>
+
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="杜明清的个人博客">
+  </span>
+
+  <div class="body md" itemprop="articleBody">
+    
+
+    <h1 id="深拷贝"><a href="#深拷贝" class="headerlink" title="深拷贝"></a>深拷贝</h1><h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>我们知道在javascript中有八种数据类型：其中number，string，undefined，null，boolean，symbol和bigint为基本数据类型，而object为复杂数据类型</p>
+<h2 id="存储"><a href="#存储" class="headerlink" title="存储"></a>存储</h2><ul>
+<li>对于基本数据类型，其值直接存储于栈中。</li>
+<li>对于复杂数据类型，其值存储于堆中，而栈中只存储堆中的地址。这样做的好处有：<ul>
+<li>节省内存空间：存储在堆中的对象可以通过栈内的引用被访问和操作，意味着对象可以在不同的上下文中被共享和引用，从而节省内存。</li>
+<li>垃圾回收：堆内存中的对象不再被引用时，垃圾回收机制就会自动进行回收，从而避免了内存泄漏和资源浪费。</li>
+<li>动态分配内存：堆内存允许对象动态的增长和缩小，因此可以根据需要灵活地修改对象的结构和内容，使得js对象可以轻松地扩展以适应不同的应用需求。</li>
+</ul>
+</li>
+</ul>
+<h2 id="深拷贝-1"><a href="#深拷贝-1" class="headerlink" title="深拷贝"></a><strong>深拷贝</strong></h2><p>而深拷贝和浅拷贝就是对于复杂数据类型object来说的，当拷贝了对象的一层（即堆的引用）时，就称之为浅拷贝，当拷贝了对象的两层（堆中创建新的对象）时，就称之为深拷贝。</p>
+<h2 id="实现方案"><a href="#实现方案" class="headerlink" title="实现方案"></a>实现方案</h2><ol>
+<li><p><code>JSON.parse(JSON.stringify(obj))</code>，第一种方法是使用JSON方法，但是这个方法有一些限制：JSON序列化时函数会被转为null，正则表达式会被转为空对象。</p>
+</li>
+<li><p><code>Object.assign(&#123;&#125;,obj)</code>，第二方法是使用Object.assign()</p>
+</li>
+<li><p>递归实现：</p>
+<pre><code class="js">
+
+```js
+function deepCopy(obj, parent = null) &#123;
+    // 创建一个新对象
+    let result = &#123;&#125;;
+    let keys = Object.keys(obj),
+        key = null,
+        temp = null,
+        _parent = parent;
+    // 该字段有父级则需要追溯该字段的父级
+    while (_parent) &#123;
+        // 如果该字段引用了它的父级则为循环引用
+        if (_parent.originalParent === obj) &#123;
+            // 循环引用直接返回同级的新对象
+            return _parent.currentParent;
+        &#125;
+        _parent = _parent.parent;
+    &#125;
+    for (let i = 0; i &lt; keys.length; i++) &#123;
+        key = keys[i];
+        temp = obj[key];
+        // 如果字段的值也是一个对象
+        if (temp &amp;&amp; typeof temp === &#39;object&#39;) &#123;
+            // 递归执行深拷贝 将同级的待拷贝对象与新对象传递给 parent 方便追溯循环引用
+            result[key] = DeepCopy(temp, &#123;
+                originalParent: obj,
+                currentParent: result,
+                parent: parent
+            &#125;);
+
+        &#125; else &#123;
+            result[key] = temp;
+        &#125;
+    &#125;
+    return result;
+&#125;
+```
+</code></pre>
+</li>
+<li><p>MessageChannel实现深克隆：由于浏览器不能将一个函数正确的复制到另一个线程中，所以不能支持函数的深克隆。</p>
+<pre><code class="js">function deepCopy(obj) &#123;
+  return new Promise((resolve) =&gt; &#123;
+    const &#123;port1, port2&#125; = new MessageChannel();
+    port2.onmessage = ev =&gt; resolve(ev.data);
+    port1.postMessage(obj);
+  &#125;);
+&#125;
+
+deepCopy(obj).then((copy) =&gt; &#123;// 异步的
+    let copyObj = copy;
+    console.log(copyObj, obj)
+    console.log(copyObj == obj)
+&#125;);
+</code></pre>
+</li>
+</ol>
+
+      <div class="tags">
+          <a href="/tags/%E6%B7%B1%E6%8B%B7%E8%B4%9D-%E9%9D%A2%E8%AF%95%E9%A2%98/" rel="tag"><i class="ic i-tag"></i> 深拷贝,面试题</a>
+      </div>
+  </div>
+
+   <footer>
+
+    <div class="meta">
+  <span class="item">
+    <span class="icon">
+      <i class="ic i-calendar-check"></i>
+    </span>
+    <span class="text">更新于</span>
+    <time title="修改时间：2024-04-30 18:16:37" itemprop="dateModified" datetime="2024-04-30T18:16:37+08:00">2024-04-30</time>
+  </span>
+  <span id="2024/04/30/深拷贝/" class="item leancloud_visitors" data-flag-title="深拷贝" title="阅读次数">
+      <span class="icon">
+        <i class="ic i-eye"></i>
+      </span>
+      <span class="text">阅读次数</span>
+      <span class="leancloud-visitors-count"></span>
+      <span class="text">次</span>
+  </span>
+</div>
+
+      
+<div class="reward">
+  <button><i class="ic i-heartbeat"></i> 赞赏</button>
+  <p>请我喝[茶]~(￣▽￣)~*</p>
+  <div id="qr">
+      
+      <div>
+        <img data-src="/images/wechatpay.png" alt="dmq 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div>
+        <img data-src="/images/alipay.png" alt="dmq 支付宝">
+        <p>支付宝</p>
+      </div>
+  </div>
+</div>
+
+      
+
+<div id="copyright">
+<ul>
+  <li class="author">
+    <strong>本文作者： </strong>dmq <i class="ic i-at"><em>@</em></i>杜明清的个人博客
+  </li>
+  <li class="link">
+    <strong>本文链接：</strong>
+    <a href="https://dmqweb.cn/2024/04/30/%E6%B7%B1%E6%8B%B7%E8%B4%9D/" title="深拷贝">https://dmqweb.cn/2024/04/30/深拷贝/</a>
+  </li>
+  <li class="license">
+    <strong>版权声明： </strong>本站所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+  </footer>
+
+</article>
+
+  </div>
+  
+
+<div class="post-nav">
+    <div class="item left">
+      
+
+  <a href="/2024/04/29/%E5%89%8D%E7%AB%AF%E7%9B%91%E6%8E%A7/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;s3.uuu.ovh&#x2F;imgs&#x2F;2024&#x2F;04&#x2F;04&#x2F;f480d741324d8eb5.jpg" title="前端监控">
+  <span class="type">上一篇</span>
+  <span class="category"><i class="ic i-flag"></i> 前端监控</span>
+  <h3>前端监控</h3>
+  </a>
+
+    </div>
+    <div class="item right">
+      
+
+  <a href="/2024/05/07/miniwebpack/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;s3.uuu.ovh&#x2F;imgs&#x2F;2024&#x2F;03&#x2F;29&#x2F;4e134f025ae53f2b.jpg" title="实现miniwebpack">
+  <span class="type">下一篇</span>
+  <span class="category"><i class="ic i-flag"></i> webpack</span>
+  <h3>实现miniwebpack</h3>
+  </a>
+
+    </div>
+</div>
+
+  
+  <div class="wrap" id="comments"></div>
+
+
+        </div>
+        <div id="sidebar">
+          
+
+<div class="inner">
+
+  <div class="panels">
+    <div class="inner">
+      <div class="contents panel pjax" data-title="文章目录">
+          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%B7%B1%E6%8B%B7%E8%B4%9D"><span class="toc-number">1.</span> <span class="toc-text">深拷贝</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%8B%E7%BB%8D"><span class="toc-number">1.1.</span> <span class="toc-text">介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AD%98%E5%82%A8"><span class="toc-number">1.2.</span> <span class="toc-text">存储</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B7%B1%E6%8B%B7%E8%B4%9D-1"><span class="toc-number">1.3.</span> <span class="toc-text">深拷贝</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%A1%88"><span class="toc-number">1.4.</span> <span class="toc-text">实现方案</span></a></li></ol></li></ol>
+      </div>
+      <div class="related panel pjax" data-title="系列文章">
+        <ul>
+          <li class="active"><a href="/2024/04/30/%E6%B7%B1%E6%8B%B7%E8%B4%9D/" rel="bookmark" title="深拷贝">深拷贝</a></li>
+        </ul>
+      </div>
+      <div class="overview panel" data-title="站点概览">
+        <div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="image" itemprop="image" alt="dmq"
+      data-src="/images/avatar.jpg">
+  <p class="name" itemprop="name">dmq</p>
+  <div class="description" itemprop="description"></div>
+</div>
+
+<nav class="state">
+    <div class="item posts">
+      <a href="/archives/">
+        <span class="count">62</span>
+        <span class="name">文章</span>
+      </a>
+    </div>
+    <div class="item categories">
+      <a href="/categories/">
+        <span class="count">43</span>
+        <span class="name">分类</span>
+      </a>
+    </div>
+    <div class="item tags">
+      <a href="/tags/">
+        <span class="count">80</span>
+        <span class="name">标签</span>
+      </a>
+    </div>
+</nav>
+
+<div class="social">
+      <span class="exturl item github" data-url="aHR0cHM6Ly9naXRodWIuY29tL2RtcTA/dGFiPXJlcG9zaXRvcmllcw==" title="https:&#x2F;&#x2F;github.com&#x2F;dmq0?tab&#x3D;repositories"><i class="ic i-github"></i></span>
+      <span class="exturl item npm" data-url="aHR0cHM6Ly93d3cubnBtanMuY29tL35kbXEwMDA=" title="https:&#x2F;&#x2F;www.npmjs.com&#x2F;~dmq000"><i class="ic i-file"></i></span>
+      <span class="exturl item zhihu" data-url="aHR0cHM6Ly93d3cuemhpaHUuY29tL3Blb3BsZS9kLTg4LTYxLTgz" title="https:&#x2F;&#x2F;www.zhihu.com&#x2F;people&#x2F;d-88-61-83"><i class="ic i-zhihu"></i></span>
+      <span class="exturl item music" data-url="aHR0cHM6Ly9tdXNpYy4xNjMuY29tLyMvdXNlci9ob21lP2lkPTgwMjc4OTk0OTE=" title="https:&#x2F;&#x2F;music.163.com&#x2F;#&#x2F;user&#x2F;home?id&#x3D;8027899491"><i class="ic i-cloud-music"></i></span>
+      <span class="exturl item weibo" data-url="aHR0cHM6Ly93ZWliby5jb20vdS83NjI1OTAxNzE3" title="https:&#x2F;&#x2F;weibo.com&#x2F;u&#x2F;7625901717"><i class="ic i-weibo"></i></span>
+      <span class="exturl item email" data-url="bWFpbHRvOjMyNjc4MDc1MTRAcXEuY29t" title="mailto:3267807514@qq.com"><i class="ic i-envelope"></i></span>
+</div>
+
+<ul class="menu">
+  
+    
+  <li class="item">
+    <a href="/" rel="section"><i class="ic i-home"></i>首页</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/about/" rel="section"><i class="ic i-user"></i>介绍</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/archives/" rel="section"><i class="ic i-list-alt"></i>归档</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/categories/" rel="section"><i class="ic i-th"></i>分类</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/tags/" rel="section"><i class="ic i-tags"></i>标签</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/friends/" rel="section"><i class="ic i-heart"></i>友链</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/links/" rel="section"><i class="ic i-magic"></i>工具</a>
+  </li>
+
+
+</ul>
+
+      </div>
+    </div>
+  </div>
+
+  <ul id="quick">
+    <li class="prev pjax">
+        <a href="/2024/04/29/%E5%89%8D%E7%AB%AF%E7%9B%91%E6%8E%A7/" rel="prev" title="上一篇"><i class="ic i-chevron-left"></i></a>
+    </li>
+    <li class="up"><i class="ic i-arrow-up"></i></li>
+    <li class="down"><i class="ic i-arrow-down"></i></li>
+    <li class="next pjax">
+        <a href="/2024/05/07/miniwebpack/" rel="next" title="下一篇"><i class="ic i-chevron-right"></i></a>
+    </li>
+    <li class="percent"></li>
+  </ul>
+</div>
+
+
+        </div>
+        <div class="dimmer"></div>
+      </div>
+    </main>
+    <footer id="footer">
+      <div class="inner">
+        <div class="widgets">
+          
+<div class="rpost pjax">
+  <h2>随机文章</h2>
+  <ul>
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/react/" title="分类于 react">react</a>
+</div>
+
+    <span><a href="/2023/12/02/react/" title="react笔记">react笔记</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Linux/" title="分类于 Linux">Linux</a>
+</div>
+
+    <span><a href="/2023/01/22/linux%E6%9C%8D%E5%8A%A1%E5%99%A8/" title="Linux">Linux</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/git/" title="分类于 git">git</a>
+</div>
+
+    <span><a href="/2023/04/02/git%E5%92%8Cgithub/" title="git与github">git与github</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/" title="分类于 前端性能优化">前端性能优化</a>
+</div>
+
+    <span><a href="/2024/03/02/%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/" title="前端性能优化">前端性能优化</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E4%B8%9A%E5%8A%A1%E5%A4%84%E7%90%86/" title="分类于 业务处理">业务处理</a>
+</div>
+
+    <span><a href="/2024/03/29/%E6%9C%AC%E5%9C%B0%E9%A2%84%E8%A7%88%E5%9B%BE%E7%89%87/" title="本地预览图片">本地预览图片</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/vue/" title="分类于 vue">vue</a>
+</div>
+
+    <span><a href="/2023/11/02/vue%E5%8E%9F%E7%90%86/" title="vue原理">vue原理</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E9%A1%B9%E7%9B%AE%E8%B4%A8%E9%87%8F%E6%A3%80%E6%B5%8B/" title="分类于 项目质量检测">项目质量检测</a>
+</div>
+
+    <span><a href="/2024/01/02/%E9%A1%B9%E7%9B%AE%E8%B4%A8%E9%87%8F%E6%A3%80%E6%B5%8B/" title="项目质量检测">项目质量检测</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Vue/" title="分类于 Vue">Vue</a>
+</div>
+
+    <span><a href="/2023/01/12/Vue%E6%9D%82%E8%AE%B0/" title="Vue使用笔记">Vue使用笔记</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/typeScript/" title="分类于 typeScript">typeScript</a>
+</div>
+
+    <span><a href="/2023/12/11/TS/" title="typeScript笔记">typeScript笔记</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E7%AE%97%E6%B3%95/" title="分类于 算法">算法</a>
+</div>
+
+    <span><a href="/2023/12/02/%E7%AE%97%E6%B3%95/" title="算法与数据结构">算法与数据结构</a></span>
+  </li>
+
+  </ul>
+</div>
+<div>
+  <h2>最新评论</h2>
+  <ul class="leancloud-recent-comment"></ul>
+</div>
+
+        </div>
+        <div class="status">
+  <div class="copyright">
+    
+    &copy; 2010 – 
+    <span itemprop="copyrightYear">2024</span>
+    <span class="with-love">
+      <i class="ic i-sakura rotate"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">dmq @ Web blog</span>
+  </div>
+  <div class="powered-by">
+    基于 <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & Theme.<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Shoka</span>
+  </div>
+</div>
+
+      </div>
+    </footer>
+  </div>
+<script data-config type="text/javascript">
+  var LOCAL = {
+    path: '2024/04/30/深拷贝/',
+    favicon: {
+      show: "科技引领未来",
+      hide: "欢迎与我交流"
+    },
+    search : {
+      placeholder: "文章搜索",
+      empty: "关于 「 ${query} 」，什么也没搜到",
+      stats: "${time} ms 内找到 ${hits} 条结果"
+    },
+    valine: true,fancybox: true,
+    copyright: '复制成功，转载请遵守 <i class="ic i-creative-commons"></i>BY-NC-SA 协议。',
+    ignores : [
+      function(uri) {
+        return uri.includes('#');
+      },
+      function(uri) {
+        return new RegExp(LOCAL.path+"$").test(uri);
+      }
+    ]
+  };
+</script>
+
+<script src="https://cdn.polyfill.io/v2/polyfill.js"></script>
+
+<script src="//gcore.jsdelivr.net/combine/npm/pace-js@1.0.2/pace.min.js,npm/pjax@0.2.8/pjax.min.js,npm/whatwg-fetch@3.4.0/dist/fetch.umd.min.js,npm/animejs@3.2.0/lib/anime.min.js,npm/algoliasearch@4/dist/algoliasearch-lite.umd.js,npm/instantsearch.js@4/dist/instantsearch.production.min.js,npm/lozad@1/dist/lozad.min.js,npm/quicklink@2/dist/quicklink.umd.js"></script>
+
+<script src="/js/app.js?v=0.2.5"></script>
+
+
+  <script data-pjax>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?9ba187659e850a6910681214f0faa16b";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+</body>
+</html>

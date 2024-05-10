@@ -4761,7 +4761,7 @@ code,
   justify-self: center;
   align-items: center;
   line-height: 1.5;
-  width: calc(50% - 2rem);
+  width: calc(33.3% - 2rem);
   padding: 0.5rem 1rem;
   margin: 1rem;
   transition: all 0.2s ease-in-out 0s;

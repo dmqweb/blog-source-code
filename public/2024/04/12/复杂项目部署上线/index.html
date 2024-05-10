@@ -1,0 +1,2498 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#FFF">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="icon" type="image/ico" sizes="32x32" href="/images/favicon.ico">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+<link rel="alternate" type="application/rss+xml" title="杜明清的个人博客" href="https://dmqweb.cn/rss.xml" />
+<link rel="alternate" type="application/atom+xml" title="杜明清的个人博客" href="https://dmqweb.cn/atom.xml" />
+<link rel="alternate" type="application/json" title="杜明清的个人博客" href="https://dmqweb.cn/feed.json" />
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Mulish:300,300italic,400,400italic,700,700italic%7CFredericka%20the%20Great:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20JP:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CInconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="/css/app.css?v=0.2.5">
+
+  
+  <meta name="keywords" content="复杂业务部署与优化" />
+
+
+<link rel="canonical" href="https://dmqweb.cn/2024/04/12/%E5%A4%8D%E6%9D%82%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2%E4%B8%8A%E7%BA%BF/">
+
+
+
+  <title>
+复杂业务部署与优化 - 复杂业务部署与优化 |
+Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
+<meta name="generator" content="Hexo 6.3.0"></head>
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div id="loading">
+    <div class="cat">
+      <div class="body"></div>
+      <div class="head">
+        <div class="face"></div>
+      </div>
+      <div class="foot">
+        <div class="tummy-end"></div>
+        <div class="bottom"></div>
+        <div class="legs left"></div>
+        <div class="legs right"></div>
+      </div>
+      <div class="paw">
+        <div class="hands left"></div>
+        <div class="hands right"></div>
+      </div>
+    </div>
+  </div>
+  <div id="container">
+    <header id="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="inner">
+        <div id="brand">
+          <div class="pjax">
+          
+  <h1 itemprop="name headline">复杂业务部署与优化
+  </h1>
+  
+<div class="meta">
+  <span class="item" title="创建时间：2024-04-12 08:33:58">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <span class="text">发表于</span>
+    <time itemprop="dateCreated datePublished" datetime="2024-04-12T08:33:58+08:00">2024-04-12</time>
+  </span>
+</div>
+
+
+          </div>
+        </div>
+        <nav id="nav">
+  <div class="inner">
+    <div class="toggle">
+      <div class="lines" aria-label="切换导航栏">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </div>
+    </div>
+    <ul class="menu">
+      <li class="item title"><a href="/" rel="start">Web blog</a></li>
+    </ul>
+    <ul class="right">
+      <li class="item theme">
+        <i class="ic i-sun"></i>
+      </li>
+      <li class="item search">
+        <i class="ic i-search"></i>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+      </div>
+      <div id="imgs" class="pjax">
+        <ul>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/06/603b3532eacee81b.webp"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/05/f58f811a8b6cbdbb.jpg"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/05/d3c578870618de4e.webp"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/25/b4f20660104f3911.jpg"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/25/0edddbac6c1e1908.webp"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/07/5804c6f23029288b.jpg"></li>
+        </ul>
+      </div>
+    </header>
+    <div id="waves">
+      <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+        <defs>
+          <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+        </defs>
+        <g class="parallax">
+          <use xlink:href="#gentle-wave" x="48" y="0" />
+          <use xlink:href="#gentle-wave" x="48" y="3" />
+          <use xlink:href="#gentle-wave" x="48" y="5" />
+          <use xlink:href="#gentle-wave" x="48" y="7" />
+        </g>
+      </svg>
+    </div>
+    <main>
+      <div class="inner">
+        <div id="main" class="pjax">
+          
+  <div class="article wrap">
+    
+<div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+<i class="ic i-home"></i>
+<span><a href="/">首页</a></span><i class="ic i-angle-right"></i>
+<span  class="current" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/categories/%E5%A4%8D%E6%9D%82%E4%B8%9A%E5%8A%A1%E9%83%A8%E7%BD%B2%E4%B8%8E%E4%BC%98%E5%8C%96/" itemprop="item" rel="index" title="分类于 复杂业务部署与优化"><span itemprop="name">复杂业务部署与优化</span></a>
+<meta itemprop="position" content="1" /></span>
+</div>
+
+    <article itemscope itemtype="http://schema.org/Article" class="post block" lang="zh-CN">
+  <link itemprop="mainEntityOfPage" href="https://dmqweb.cn/2024/04/12/%E5%A4%8D%E6%9D%82%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2%E4%B8%8A%E7%BA%BF/">
+
+  <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="image" content="/images/avatar.jpg">
+    <meta itemprop="name" content="dmq">
+    <meta itemprop="description" content="👻欢迎一起交流学习👻, ">
+  </span>
+
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="杜明清的个人博客">
+  </span>
+
+  <div class="body md" itemprop="articleBody">
+    
+
+    <h1 id="软件生命周期："><a href="#软件生命周期：" class="headerlink" title="软件生命周期："></a>软件生命周期：</h1><p><img data-src="/images/Snipaste_2024-04-16_12-54-33.jpg" alt="/images/Snipaste_2024-04-16_12-54-33.jpg"></p>
+<h1 id="架构流程图"><a href="#架构流程图" class="headerlink" title="架构流程图"></a>架构流程图</h1><p><img data-src="/images/Snipaste_2024-04-17_12-16-04.jpg" alt="/images/Snipaste_2024-04-17_12-16-04.jpg"></p>
+<h1 id="复杂项目通用方案"><a href="#复杂项目通用方案" class="headerlink" title="复杂项目通用方案"></a>复杂项目通用方案</h1><h4 id="业务的复杂度"><a href="#业务的复杂度" class="headerlink" title="业务的复杂度"></a>业务的复杂度</h4><ul>
+<li>交互的复杂性</li>
+<li>数据结构和状态的复杂性</li>
+<li>多项目互相依赖的复杂性</li>
+<li>打包</li>
+<li>性能优化</li>
+<li>第三方库的使用和调研以及二次开发</li>
+</ul>
+<h4 id="流程的复杂度"><a href="#流程的复杂度" class="headerlink" title="流程的复杂度"></a>流程的复杂度</h4><ul>
+<li>git flow</li>
+<li>lint工具</li>
+<li>单元测试</li>
+<li>commit信息</li>
+<li>PR revirew</li>
+<li>CI &#x2F; CD</li>
+</ul>
+<h1 id="CI-x2F-CD的概念"><a href="#CI-x2F-CD的概念" class="headerlink" title="CI &#x2F; CD的概念"></a>CI &#x2F; CD的概念</h1><p>业务组件库的开发和发布是随着一些列任务进化的：</p>
+<ul>
+<li>本地commit钩子函数完成commit验证</li>
+<li>代码push到远端之后</li>
+<li>跑特定的test（不仅仅是本机的unit test，也可能有时间很长的E2E test）</li>
+<li>test通过之后检查是否有新的tag，如果有就自动publish一个新的版本</li>
+<li>甚至还有更多，自动部署文档站点等等。</li>
+</ul>
+<p>这些任务如果手动操作，就费时费力，所以需要自动化进行。</p>
+<h4 id="CI（Continuous-integration）持续集成"><a href="#CI（Continuous-integration）持续集成" class="headerlink" title="CI（Continuous integration）持续集成"></a>CI（Continuous integration）持续集成</h4><p>持续集成是指频繁地将代码集成到主干，一旦开发人员对应用所做的更改被合并，系统就会通过自动构建应用并运行不同级别的自动化测试（通常是单元测试和集成测试）来验证这些更改，确保这些更改没有对应用造成破坏。</p>
+<p>作用有：</p>
+<ul>
+<li>快速发现错误</li>
+<li>防止分支大幅偏离主干</li>
+</ul>
+<p>持续集成的目的就是让产品可以快速迭代，同时保持高质量。</p>
+<h4 id="CD（Continuous-Delivery）持续交付"><a href="#CD（Continuous-Delivery）持续交付" class="headerlink" title="CD（Continuous Delivery）持续交付"></a>CD（Continuous Delivery）持续交付</h4><p>持续交付是指频繁地将软件的新版本，交付给质量团队或者用户，以供评审。</p>
+<h4 id="CD（Continuous-Deployment）持续部署"><a href="#CD（Continuous-Deployment）持续部署" class="headerlink" title="CD（Continuous Deployment）持续部署"></a>CD（Continuous Deployment）持续部署</h4><p>持续部署是持续交付的下一步，指的是代码通过评审以后，自动部署到生产环境。</p>
+<h4 id="CI-x2F-CD两大服务："><a href="#CI-x2F-CD两大服务：" class="headerlink" title="CI &#x2F; CD两大服务："></a>CI &#x2F; CD两大服务：</h4><ul>
+<li>github actions</li>
+<li>travis-ci</li>
+</ul>
+<h1 id="列表排序解决方案"><a href="#列表排序解决方案" class="headerlink" title="列表排序解决方案"></a>列表排序解决方案</h1><p>列表排序原理：</p>
+<pre><code class="js">&lt;template&gt;
+    &lt;div&gt;
+      &lt;ul class=&quot;ul&quot; @drop=&quot;onDrop&quot;&gt;
+        &lt;li 
+            v-for=&quot;(item,index) in list&quot; 
+            :data-index=&quot;index&quot; 
+            :key=&quot;item.id&quot; 
+            @dragover=&quot;onDragover($event,index)&quot; 
+            @dragstartart=&quot;dragstart($event,index)&quot; 
+            @dragenter=&quot;dragenter($event,index)&quot; 
+            draggable=&quot;true&quot; 
+            :class=&quot;[item.id==currentLi?&#39;glost&#39;:&#39;&#39;]&quot;
+        &gt;&#123;&#123; item.name &#125;&#125;&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script setup&gt;
+/*eslint-disable*/
+import &#123; ref &#125; from &quot;vue&quot;;
+import &#123;arrayMoveImmutable&#125; from &#39;array-move&#39;;
+let currentLi = ref(1);
+let index = ref(1);
+const list = ref(
+  [
+  &#123;id:1,name:&#39;列表1&#39;&#125;,
+  &#123;id:2,name:&#39;列表2&#39;&#125;,
+  &#123;id:3,name:&#39;列表3&#39;&#125;,
+  &#123;id:4,name:&#39;列表4&#39;&#125;,
+  &#123;id:5,name:&#39;列表5&#39;&#125;,
+]
+)
+const dragstart = (e,inde)=&gt;&#123;
+  currentLi.value = inde;
+&#125;
+const dragenter = (e,ind)=&gt;&#123;
+  if(ind != currentLi.value)&#123;
+      list.value = arrayMoveImmutable(list.value,ind,currentLi.value)
+      currentLi.value = ind;
+  &#125;
+&#125;
+const onDrop = (e)=&gt;&#123;
+  console.log(e.target.dataset.index,&#39;drop&#39;);
+  list.value = arrayMoveImmutable(list.value,index.value,currentLi.value)
+  console.log(list.value);
+&#125;
+const onDragover = (e,inde)=&gt;&#123;
+  e.preventDefault();
+  index.value = inde;
+&#125;
+&lt;/script&gt;
+
+&lt;style  scoped&gt;
+.ul&gt;li&#123;
+  width: 100%;
+  height: 50px;
+  border: 1px solid red;
+&#125;
+.glost&#123;
+  box-shadow: 10px 10px 3px 3px gray;
+&#125;
+&lt;/style&gt;
+</code></pre>
+<p>列表排序常用工具包：</p>
+<ul>
+<li>vue-draggable</li>
+<li>sortable.js</li>
+<li>array-move.js</li>
+</ul>
+<h1 id="拖动改变位置原理"><a href="#拖动改变位置原理" class="headerlink" title="拖动改变位置原理"></a>拖动改变位置原理</h1><p>通过监听mousedown和mousemove事件，用element.getBoundingClientRect方法获得x和y，left和top等属性，改变对应元素的top和left属性。</p>
+<h1 id="拖动改变大小原理"><a href="#拖动改变大小原理" class="headerlink" title="拖动改变大小原理"></a>拖动改变大小原理</h1><p> 设置边框元素，边框元素的四个角添加圆点元素，监听mousedown事件和mousemove事件，并将最新的坐标赋值给元素的尺寸大小。</p>
+<h1 id="快捷键实现原理"><a href="#快捷键实现原理" class="headerlink" title="快捷键实现原理"></a>快捷键实现原理</h1><p>好用的快捷键第三方库：Hotkeys.js</p>
+<p>事件原理：keydown事件的监听，通过event.key判断是那个快捷键，从而执行对应的操作。</p>
+<h1 id="撤销重做原理"><a href="#撤销重做原理" class="headerlink" title="撤销重做原理"></a>撤销重做原理</h1><p>维护一个固定长度的histories数组和historyIndex指针，每次修改的时候添加一条记录（标识操作类型和数据）。回滚时改变historyIndex指针。</p>
+<h1 id="右键菜单原理"><a href="#右键菜单原理" class="headerlink" title="右键菜单原理"></a>右键菜单原理</h1><p>在需要显示的区域拦截默认的右键点击事件，判断是否点击在组件元素上（通过event.target），显示一个自定义菜单，其中包括操作项，显示在鼠标的位置（event.clientX和event.clientY），点击完成操作，通过display:none隐藏。</p>
+<h1 id="自动保存实现方案"><a href="#自动保存实现方案" class="headerlink" title="自动保存实现方案"></a>自动保存实现方案</h1><ul>
+<li>定时保存（语雀）</li>
+<li>实时保存（石墨）</li>
+</ul>
+<p>实现原理：添加isDrity字段标记数据是否有修改，当修改时将isDirty设置为true，根据isDIrty的值设置定时器，定时触发保存逻辑。</p>
+<h1 id="DOM元素截图实现方案"><a href="#DOM元素截图实现方案" class="headerlink" title="DOM元素截图实现方案"></a>DOM元素截图实现方案</h1><p>工具包：html2canvas</p>
+<p>实现原理：根据DOM元素的styles样式，通过svg的foreignObject元素引入XML命名空间的元素，然后创建一个image标签，将svg通过url.createObjectURL方法创建一个路径赋值给image标签的src属性，通过canvas画笔 的drawImage方法将image图片绘制到canvas画布上。</p>
+<pre><code class="js">const data =
+&quot;&lt;svg xmlns=&#39;http://www.w3.org/2000/svg&#39;width=&#39;400px&#39;height=&#39;40
+&quot;&lt;foreignabject width=&#39;100%&#39;height=&#39;100%&#39;&gt;&quot;+
+&quot;&lt;div xmlns=&#39;http://ww.w3.org/1999/xhtml&#39;&gt;&quot;
+element.innerHTML+
+&quot;&lt;/div&gt;&quot;+
+&quot;&lt;/foreignobject&gt;&quot; +
+&quot;&lt;/svg&gt;&quot;
+
+const svg = new Blob([data],&#123;type:&quot;image/svg+xml;charset=utf-8&quot;&#125;);
+const url = URL.createobjectURL(svg)
+const image = new Image()
+image.src = url
+image.addEventListener(&#39;load&#39;,()=&gt;&#123;
+    const ctx =anvas.getContext(&#39;2d&#39;);
+    if (ctx)&#123;
+    ctx.drawImage(image,0,0)
+    &#125;
+&#125;)
+</code></pre>
+<h1 id="二维码生成方案"><a href="#二维码生成方案" class="headerlink" title="二维码生成方案"></a>二维码生成方案</h1><ul>
+<li>工具包：node-qrcode</li>
+<li>ts项目中需要安装额外的定义文件。</li>
+</ul>
+<p>简单原理：将数据变为二进制，然后通过canvas将二进制变为图像。</p>
+<pre><code class="html">&lt;body&gt;
+  &lt;canvas id=&quot;qrcode&quot; width=&quot;128&quot; height=&quot;128&quot;&gt;&lt;/canvas&gt;
+  &lt;script&gt;
+    //将字符串转为二进制形式
+    function toBianary(str)&#123;
+        let res = &#39;&#39;;
+        for(let i=0;i&lt;str.length;i++)&#123;
+            let charCode = str.charCodeAt(i);
+            let binaryCharCode = charCode.toString(2);
+            res += binaryCharCode.padStart(8,&#39;0&#39;);
+        &#125;
+        return res;
+    &#125;
+    //绘制
+    function drawQRCode(text, canvas) &#123;
+      var context = canvas.getContext(&quot;2d&quot;);
+      // 绘制黑白像素点
+      for (var i = 0; i &lt; text.length; i++) &#123;
+        var row = Math.floor(i / canvas.width);
+        var col = i % canvas.width;
+        var color = text.charAt(i) === &quot;1&quot; ? &quot;#000000&quot; : &quot;#FFFFFF&quot;;
+        context.fillStyle = color; 
+        context.fillRect(col, row, 1, 1);
+      &#125;
+    &#125;
+    var qrcodeCanvas = document.getElementById(&quot;qrcode&quot;);
+    drawQRCode(toBianary(&#39;https://dmqweb.cn&#39;), qrcodeCanvas); // 示例：绘制一个简单的二维码
+  &lt;/script&gt;
+</code></pre>
+<h1 id="复制功能实现原理"><a href="#复制功能实现原理" class="headerlink" title="复制功能实现原理"></a>复制功能实现原理</h1><ul>
+<li>工具包：clipboard.js</li>
+<li>自带type定义文件</li>
+</ul>
+<p>实现原理：</p>
+<p>方案一：document.execCommand()方法。内置一系列功能，包括复制文本（但<strong>前提是需要选中文本</strong>），可以使用不可见元素迂回。</p>
+<p>方案二：Clipboard API（ navigator.clipboard ），但是对于<strong>浏览器兼容性有待加强。</strong></p>
+<h1 id="下载文件原理"><a href="#下载文件原理" class="headerlink" title="下载文件原理"></a>下载文件原理</h1><ul>
+<li>工具包：FileSaver.js（小文件）</li>
+<li>StreamSaver.js（大文件）</li>
+</ul>
+<p>方案一：超链接a标签添加download属性，属性值为文件名，rel属性设置打开页面的具体实现细节。（但前提是<strong>href属性为当前同源情况下</strong>。）</p>
+<p>方案二：通过axios请求到图片地址，通过URL.createObjectURL创建为一个与document相绑定的地址，赋值给a标签即可。（不要忘记使用URL.revokeObjectURL将创建的地址移除。）</p>
+<p>方案三：通过FileReader.readAsDataURL，创建一个FileReader实例，使用readAsDataURL读取对象返回一段base64格式的字符串，监听reader实例的onload事件，创建a标签将reader.result赋值给a标签的href属性。</p>
+<pre><code class="js">downloadFile:function(data,fileName)&#123;
+   const reader = new FileReader()
+   // 传入被读取的blob对象
+   reader.readAsDataURL(data)
+   // 读取完成的回调事件
+   reader.onload = (e) =&gt; &#123;
+       let a = document.createElement(&#39;a&#39;)
+       a.download = fileName
+       a.style.display = &#39;none&#39;
+       // 生成的base64编码
+       let url = reader.result
+       a.href = url
+       document.body.appendChild(a)
+       a.click()
+       document.body.removeChild(a)
+   &#125;
+&#125;
+</code></pre>
+<p>终极解决方案：由于通过URL.createObjectURL和FileReader都会先将数据保存到内存中，业务中经常需要后端验证token之后才能拿到文件，不能直接使用a标签。因此实际中可以先发送ajax请求验证token，验证之后颁发一个过期时间短的cookie，之后使用a标签进行下载即可。但是同样会受到a标签download属性跨域请求的限制。</p>
+<h1 id="应用部署的流程"><a href="#应用部署的流程" class="headerlink" title="应用部署的流程"></a>应用部署的流程</h1><p><em><strong>构建</strong><br>Javascript语言本身是不需要编译的。<br>但是现代的前端项目使用的语言和或者的模块系统都无法在浏览器中使用，都需要使用特定的<br>bundler将源代码最终转换为浏览器支持的」avascript代码。<br><strong>不同的环境:</strong></em><br>开发环境(development) ：本地的测试环境<br>测试环境(test或者staging）：线上的测试环境</p>
+<p>生产环境（production)：线上的生产环境</p>
+<p><strong>生产和开发环境的区别</strong><br>*开发环境<br>*会添加丰富的错误提示<br>可以使用mock server或者本地后端环境<br>添加各种便利的功能-比如hot reload,自动刷新<br>*不太关心静态资源的大小，最好提供最丰富的调试信息(sourcemap)等。</p>
+<p><strong>生产环境</strong><br>稳定是最重要的原则<br>速度是第一要务<br><strong>生产环境和测试环境的区别</strong><br>高度相似<br>使用的后端服务不一样</p>
+<p><strong>环境变量设置（按优先级）</strong></p>
+<ul>
+<li>跨平台设置环境变量工具包：cross-env</li>
+<li>命令中添加环境变量（平台限制）</li>
+<li>环境变量文件中配置</li>
+</ul>
+<p><strong>在项目根目录中放置下列文件来指定环境变量</strong><br>.env                                        #在所有的环境中被载入<br>.env.local                             #在所有的环境中被载入，但会被git忽略<br>env.[mode]                         #只在指定的模式中被载入<br>env.[mode].local             #只在指定的模式中被载入，但会被git忽略</p>
+<h1 id="webpack构建优化"><a href="#webpack构建优化" class="headerlink" title="webpack构建优化"></a>webpack构建优化</h1><h3 id="Bundler："><a href="#Bundler：" class="headerlink" title="Bundler："></a>Bundler：</h3><p>将浏览器不支持的模块进行编译，转换，<br>合并最后生成的代码可以在浏览器端良好的运行的工具。</p>
+<h3 id="Loaders："><a href="#Loaders：" class="headerlink" title="Loaders："></a><strong>Loaders：</strong></h3><p><span class="exturl" data-url="aHR0cHM6Ly93ZWJwYWNrLmRvY3NjaGluYS5vcmcvY29uY2VwdHMvbG9hZGVycy8=">https://webpack.docschina.org/concepts/loaders/</span><br>loader用于对模块的源代码进行转换。loader可以使你在import或”Ioad(加载)”模块时预处理文件。<br><strong>多个Loader</strong><br>module.rules允许你在webpack配置中指定多个loader。这种方式是展示loader的一种简明方式，并且有助于使代码变得简洁和易于维护。</p>
+<p><strong>webpack中loader配置：</strong></p>
+<pre><code class="json">const path = require(&#39;path&#39;)
+module.exports = &#123;
+    entry:&#39;./main.js&#39;,
+    output:&#123;
+        path:path.resolve(dirname,&#39;dist&#39;),
+        filename:bundle.js&#39;,
+    &#125;
+&#125;,
+module:&#123;
+    rules:[
+    &#123;
+        test:/八.css$/,
+        use: [
+            loader:&#39;style-loader&#39;&#125;,   //先写的loader后执行。
+            loader:&#39;css-loader&#39;&#125;
+        ]
+    &#125;]
+  &#125;
+&#125;
+</code></pre>
+<h6 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h6><p><strong>webpack中loader原理：</strong></p>
+<p> 在webpack.config.js的module字段的rules数组中进行配置：添加一个对象标识一个独立的匹配项，test字段使用正则表示匹配的文件名，use数组表示对应文件需要执行的loader，webpack在打包时会<strong>将文件内容传入并执行对应的loader</strong>（是一个函数），<strong>执行loader函数后会将函数返回值包装成一个新的函数</strong>，因此webpack中的loader通常需要进行两次module.exports。</p>
+<pre><code class="js">//手写一个md文件的loader
+const marked = require(&#39;marked&#39;);  //第三方库，用于将md转为html
+const utils = require(&#39;loader-utils&#39;)  //官方库，用于获取用户配置loader时传入的参数
+const markdownLoader = (source) =&gt; &#123;
+    const options = utils.getOptions(this);
+    const html = marked(source , options);
+    return  `module.exports = $&#123;JSON.stringify(html)&#125;`;
+&#125;
+module.exports = markdownLoader;
+</code></pre>
+<p>配置：</p>
+<pre><code class="js">const path = require(&#39;path&#39;)
+module.exports = &#123;
+    entry:&#39;./main.js&#39;,
+    output:&#123;
+        path:path.resolve(dirname,&#39;dist&#39;),
+        filename:bundle.js&#39;,
+    &#125;
+&#125;,
+module:&#123;
+    rules:[
+    &#123;
+        test:/八.css$/,
+        use: [
+            &#123; loader:&#39;style-loader&#39; &#125;,   //先写的loader后执行。
+            &#123; loader:&#39;css-loader&#39; &#125;
+        ]
+    &#125;,
+    &#123;
+        test:/八.md$/,
+        use: [
+            &#123; loader: &#39;./markdonwn-loader&#39;,options:&#123; headerIds:false &#125; &#125; //其中options是给loader函数传入的第二个参数，loader中可以使用loader-utils官方三方库进行接受
+        ]
+    &#125;]
+  &#125;
+&#125;
+</code></pre>
+<p><strong>多个Loader串联</strong><br>最后的loader最早调用，将会传入原始资源内容。<br>第一个loader最后调用，期望值是传出JavaScript和source map(可选)。<br>中间的loader执行时，会传入前一个loader传出的结果。<br><strong>将markdown转换为html:turndown</strong><br>地址：<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIub20vZG9tY2hyaXN0aWUvdHVybmRvd24=">https://github.om/domchristie/turndown</span></p>
+<h3 id="plugins"><a href="#plugins" class="headerlink" title="plugins:"></a><strong>plugins:</strong></h3><p><span class="exturl" data-url="aHR0cHM6Ly93ZWJwYWNrLmRvY3NjaGluYS5vcmcvY29uY2VwdHMvcGx1Z2lucy8=">https://webpack.docschina.org/concepts/plugins/</span><br>插件是webpack的支柱功能。webpack自身也是构建开你在webpack配置中用到的相同的插件系统之上！插件目的在于解决loader无法实现的其他事。(我自己的理解，loader解决的是各种不同资源的问题，plugins更多解决的是项目整体的事情)</p>
+<pre><code class="json">const path = require(&#39;path&#39;);
+const HtmlWebpackPlugin = require(&#39;html-webpack-plugin&#39;);
+module.exports = &#123;
+    entry:&#39;./main.js&#39;,
+    output:&#123;
+        path:path.resolve(dirname,&#39;dist&#39;),
+        filename:bundle.js&#39;,
+    &#125;
+&#125;,
+module:&#123;
+    rules:[
+    &#123;
+        test:/八.css$/,
+        use: [
+            loader:&#39;style-loader&#39;&#125;,   //先写的loader后执行。
+            loader:&#39;css-loader&#39;&#125;
+        ]
+    &#125;]
+  &#125;,
+plugins:[
+    new BundlesizeWebpackPlugin( &#123; sizeLimit:3 &#125; )  //自己手写的插件（如下）
+    new webpack.ProgressPlugin(), //显示打包过程（webpack内置插件）
+    new HtmlwebpackPlugin(),
+]
+&#125;
+</code></pre>
+<h6 id="原理-1"><a href="#原理-1" class="headerlink" title="原理"></a>原理</h6><p><strong>webpack中plugins原理：</strong></p>
+<p>webpack执行时会将plugins字段中的插件实例取出并将webpack实例传入并执行其<strong>apply方法</strong>，通过webpack实例的hooks中的方法我们可以操控对应的钩子函数。</p>
+<p>官方的教程：<span class="exturl" data-url="aHR0cHM6Ly93ZWJwYWNrLmpzLm9yZy9jb250cmlidXRlL3dyaXRpbmctYS1wbHVnaW4v">https://webpack.js.org/contribute/writing-a-plugin/</span><br><strong>插件的格式</strong><br>一个JavaScript函数或JavaScript类<br>在它原型上定义的apply方法，会在安装插件时被调用，并被webpack compiler调用一次<br>指定一个触及到webpack本身的事件钩子，即hooks,用于特定时机处理额外的逻辑<br>Compiler Hooks列表<br><span class="exturl" data-url="aHR0cHM6Ly93ZWJwYWNrLmlzLm9yZy9hcGkvY29tcGlsZXItaG9va3Mv">https://webpack.is.org/api/compiler-hooks/</span></p>
+<pre><code class="js">//手写一个webpack插件，打包文件超出限制时，报错。
+const &#123; resolve &#125; = require(&#39;path&#39;);
+const &#123; statSync &#125; = require(&#39;fs&#39;); //fs模块中同步读取文件信息
+class BundlesizeWebpackPlugin &#123;
+    constructor(options) &#123;
+        this.options = options;
+    &#125;
+    apply(compiler) &#123;
+        //获取到传入的参数
+        const &#123; sizeLimit &#125; = this.options;
+        compiler.hooks.compile.tap(&#39;BundleSizePlugin&#39;,(compilationParams)=&gt;&#123; //编译时钩子,参数是参数
+            console.log(&#39;compile阶段&#39;,compilationParams);
+        &#125;)
+        compiler.hooks.done.tap(&#39;BundleSizePlugin&#39;,(stats)=&gt;&#123; //结束时钩子，参数是打包后的信息。
+            console.log(&#39;done&#39;,stats); 
+            //拿到打包后文件的路径和文件名
+            const &#123; path , filename &#125; = stats.compilation.outputOptions;
+            //拼接成文件路径
+            const bundlePath = resolve(path,filename);
+            //获取到文件size
+            const &#123; size &#125; = statSync(bundlePath);
+            const bundleSize = size / 1024;
+            if(bundleSize &lt; sizeLimit) &#123;
+                console.log(&#39;Safe:Bundle-Size&#39;,bundleSize,&#39;\n Size Limit:&#39;,sizeLimit);
+            &#125;else&#123;
+                console.error(&#39;Unsafe:Bundle-Size&#39;,bundleSize,&#39;\n Size Limit:&#39;,sizeLimit);
+            &#125;
+        &#125;) 
+    &#125;
+&#125;
+module.exports = BundlesizeWebpackPlugin;
+</code></pre>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p><strong>Loaders关注代码中的单个资源，Plugins关注整体流程，可以接触到webpack构建流程中的<br>各个阶段并劫持做一些代码处理。</strong></p>
+<h1 id="node后端框架"><a href="#node后端框架" class="headerlink" title="node后端框架"></a>node后端框架</h1><h2 id="Node-js后端框架调研"><a href="#Node-js后端框架调研" class="headerlink" title="Node.js后端框架调研"></a>Node.js后端框架调研</h2><p><strong>后端框架应该注意的三大问题</strong><br>路由Routes<br>请求Request<br>响应Response</p>
+<h4 id="Express"><a href="#Express" class="headerlink" title="Express"></a>Express</h4><p>官方网址：[https:l&#x2F;expressis.com(https:expressis.com)<br>**安装**<br>官方网址：[<span class="exturl" data-url="aHR0cHM6Ly9leHByZXNzaXMuY29tL3poLWNuL3N0YXJ0ZXIvaW5zdGFsbGluZy5odG1sXQ==">https://expressis.com/zh-cn/starter/installing.html]</span>(https:l&#x2F;expressjs.com&#x2F;zh-<br>cn&#x2F;starter&#x2F;installing.html)<br>使用生成器安装，可以自动生成一系列的脚手架代码：[https:&#x2F;expressjs.com&#x2F;zh<br>cn&#x2F;starter&#x2F;generator.htmll(<span class="exturl" data-url="aHR0cHM6Ly9leHByZXNzaXMuY29tL3poLWNuL3N0YXJ0ZXIvZ2VuZXJhdG9yLmh0bWw=">https://expressis.com/zh-cn/starter/generator.html</span>)</p>
+<p><strong>优点</strong></p>
+<p>快速简单、易上手</p>
+<p><strong>缺点</strong></p>
+<ul>
+<li>路由响应中，很可能有：从外部请求数据的服务，有验证路由的请求参数，返回特定的格式。</li>
+<li>所有逻辑不分青红皂白的写在一起！很容易产生冗长的难以维护的代码。</li>
+<li>一些大型必备的模块，如第三方服务初始化，安全，日志都没有明确的标准。</li>
+</ul>
+<p><strong>Express中间件：</strong></p>
+<p>Express是一个基于中间件的框架，其余任务都会在中间件中执行，中间件是一个队列结构，先写入的任务先执行,中间件的写法是：app.use()，当调用中间件时，会向传入的函数中传入req,res和next函数。</p>
+<p><strong>中间件可以完成的任务</strong></p>
+<ul>
+<li>执行任何代码。</li>
+<li>对请求和响应对象进行更改。</li>
+<li>结束请求&#x2F;响应循环。</li>
+<li>调用堆栈中的下一个中间件。</li>
+</ul>
+<h4 id="Koa2"><a href="#Koa2" class="headerlink" title="Koa2"></a>Koa2</h4><p><strong>官网地址</strong>：[https:I&#x2F;koajs.com(https:&#x2F;koajs.com)</p>
+<p><strong>Koa2和Express的区别</strong></p>
+<ul>
+<li>使用Promise(async,await)代替callback (node&gt;v7.6.0)</li>
+<li>使用ctx(上下文对象)封装req(Request)和res(Response),以及一些常用的功能。</li>
+<li><strong>完全不同的中间件机制</strong></li>
+<li><strong>更轻量级，没有捆绑任何中间件</strong></li>
+<li>官方文章：<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2tvYWpzL2tvYS9ibG9iL21hc3Rlci9kb2NzL2tvYS12cy1leHByZXNzLm1k">https://github.com/koajs/koa/blob/naster/docs/koa-vs-express.md</span></li>
+</ul>
+<p><strong>Koa2中间件：</strong></p>
+<ol>
+<li>Koa2中间件，由Express的队列模型（同步）转变为洋葱模型，当程序运行到<code>await next()</code>的时候就会暂停当前程序，进入下一个中间件，处理完之后才会仔回过头来继续处理。</li>
+<li>Koa2洋葱模型解决的问题就是一个中间件可以调用其他中间件执行后，再继续自己的操作，Express框架中next()执行后就直接到下一个中间件操作，无法退回。</li>
+</ol>
+<p><img data-src="/images/Snipaste_2024-04-22_14-30-49.jpg" alt="Koa2中间件"></p>
+<p><strong>代码示例：</strong></p>
+<pre><code class="js">const Koa = require(&#39;koa&#39;);
+const app = new Koa();
+const PORT = 3000;
+app.use(async (ctx, next)=&gt;&#123;
+    console.log(1)
+    await next();
+    console.log(1)
+&#125;);
+app.use(async (ctx, next) =&gt; &#123;
+    console.log(2)
+    await next();
+    console.log(2)
+&#125;)
+app.use(async (ctx, next) =&gt; &#123;
+    console.log(3)
+&#125;)
+app.listen(PORT);
+console.log(`http://localhost:$&#123;PORT&#125;`);
+</code></pre>
+<p><strong>Koa2特点：</strong></p>
+<ul>
+<li>响应机制的不同</li>
+<li>Express:我们直接操作的是res对象，直接res.send之后就立即响应了。</li>
+<li>Koa2:数据的响应是通过ctx.body进行设置，注意这里仅是设置并没有立即响应，而是在所有的中间件结束之后做了响应。</li>
+</ul>
+<p><strong>缺点：</strong>Koa2在使用上有一定的缺点，因为太过于轻量使得在使用时需要手动处理很多操作，可以使用基于Koa2的上层框架（如：egg.js）</p>
+<h4 id="egg-js"><a href="#egg-js" class="headerlink" title="egg.js"></a>egg.js</h4><p><strong>Express和Koa2的不足</strong></p>
+<ul>
+<li>简单而且扩展性强，适合个人的比较小的项目</li>
+<li>没有约定，对于统一维护和开发非常不利</li>
+</ul>
+<p><strong>对于后端框架的需求</strong></p>
+<ul>
+<li>需要有一套优秀的统一的约定或者架构进行开发</li>
+<li>有丰富的扩展机制和可定制性</li>
+<li>Typescript支持</li>
+</ul>
+<p><strong>egg.js</strong></p>
+<ul>
+<li>地址：[https:l&#x2F;eggis.org&#x2F;zh-cnI(https:l&#x2F;eggjs.org&#x2F;zh-cn) （基于Koa2）</li>
+<li>阿里大厂出品，维护有保障。国内开发者开发，中文文档质量有保证。</li>
+<li><strong>约定优于配置，按照一套统一的约定进行应用开发。</strong></li>
+<li>一个插件只做一件事，高度可扩展的插件机制</li>
+<li>支持Typescript</li>
+</ul>
+<pre><code class="bash">//nodejs版本10以上
+npm init egg --type=ts
+npm install
+npm run dev
+</code></pre>
+<p><strong>egg.js概念：</strong></p>
+<ul>
+<li><p>Application-全局应用对象，只有一个实例。</p>
+</li>
+<li><p>Context-上下文对象，每次请求生成一个实例。</p>
+</li>
+<li><p>Request-请求对象，来自Koa。</p>
+</li>
+<li><p>Response-响应对象，来自Koa的一个新的对象。</p>
+</li>
+<li><p>Helper-用来提供一些实用的utility函数。框架内置了几个简单的Helper函数。</p>
+</li>
+</ul>
+<h4 id="Nest-js"><a href="#Nest-js" class="headerlink" title="Nest.js"></a>Nest.js</h4><ul>
+<li>地址：<span class="exturl" data-url="aHR0cHM6Ly9kb2NzLm5lc3Rpcy5jb20v">https:&#x2F;docs.nestjs.com</span></li>
+<li>内置并且完全支持Typescript</li>
+<li>开箱即用的应用程序架构</li>
+<li>可扩展，松散耦合</li>
+<li>大量采用了装饰器的写法 <span class="exturl" data-url="aHRwczovL2RvY3MubmVzdGlzLmNuLzgvY29udHJvbGxlcnM=">https://docs.nestjs.cn/8/controllers</span></li>
+</ul>
+<h1 id="vue-config-js"><a href="#vue-config-js" class="headerlink" title="vue.config.js"></a>vue.config.js</h1><p><strong>个性化构建结果-vue.config,js</strong><br>在基础的配置上，自定义构建的结果-可以使用vue.config.js<br>文档地址：https:l&#x2F;cli.vuejs.org&#x2F;zh&#x2F;config#vue-config-js<br>简介两个字段<br>*<strong>PublicPath</strong>-部署应用包时的基本URL,这个配置对应的是webpack的PublicPath属性<br>★<br>默认值为’&#x2F;‘，Vue CLI会假设你的应用是被部署在一个域名的根路径上<br><span class="exturl" data-url="aHR0cHM6Ly9hYmMuY29tLw==">https://abc.com/</span><br>★<br>可以设置为子路径-如果你的应用被部署在https:abc,com&#x2F;sub&#x2F;那么就设置为’&#x2F;sub’<br>*可以设置为CDN路径-在我们的应用中，最后静态资源是要全部上传到CDN的，（脚手<br>架自动完成)，所以这里可以设置为一个cDN域名-‘https:l&#x2F;oss.imooc-Iego.com&#x2F;editor’<br>*还可以设置为绝对路径(‘’或者’.&#x2F;‘)，这样所有的资源都会被链接为相对路径</p>
+<p><strong>css.loaderOptions</strong>属性<br>*向CSS相关的loader传递选项<br>*Ant-design-vue的样式变量：https:lww,antd,com docs&#x2F;vue&#x2F;customize-theme-cn<br><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3Z1ZUNvbXBvbmVudC9hbnQtZGVzaWduLQ==">https://github.com/vueComponent/ant-design-</span><br>yue&#x2F;blob&#x2F;master&#x2F;components&#x2F;style&#x2F;themes&#x2F;default.less<br>*添加更多的CSS预处理器：<br><span class="exturl" data-url="aHR0cHM6Ly9jbGkudnVlanMub3JnL3poL2d1aWRlL2Nzcy5odG1sIyVFOSVBMiU4NCVFNSVBNCU4NCVFNyU5MCU4NiVFNSU5OSVBOA==">https://cli.vuejs.org/zh/guide/css.html#%E9%A2%84%E5%A4%84%E7%90%86%E5%99%A8</span><br>*特别注意less和Iess-loader的版本问题。不要装最新的，建议选用：</p>
+<pre><code class="js">//vue.config.js配置：
+const isstaging = !process.env.VUE_APP_STAGINE
+const isProduction = process.env.NODE_ENV &#39;production&#39;
+module.exports = &#123;
+    /生产环境要使用0SS地址
+    /其他环境都使用绝对路径
+    publicPath:(isProduction 6 !isStaging)&#39;https://oss.imooc-lego.com/
+    css:&#123;
+        loaderOptions:&#123;
+        less:&#123;
+            lessoptions:&#123;
+                modifyVars:&#123;
+                   &#39;primary-color&#39;:&#39;#3E7FFF&#39;,
+                &#125;，
+                javascriptEnabled:true
+            &#125;
+        &#125;,
+    configureWebpack: config =&gt; &#123;
+        config.plugins.push(
+            new webpack.IgnorePlugin(&#123;        //打包时忽略对应的文件
+                resourceRegExp: /^\.\/locale$/,
+                contextRegExp: /moment$/,
+            &#125;)
+        )
+        if(isAnalyzeMode)&#123;
+            config.plugins.push(
+                new BundleAnalyzerPlugin(&#123;    //添加打包后的文件分析工具（BundleAnalyzerPlugin）
+                    analyzerMode : &#39;static&#39;,
+                &#125;)
+            )
+        &#125;
+    &#125;
+    &#125;
+</code></pre>
+<h1 id="项目构建优化"><a href="#项目构建优化" class="headerlink" title="项目构建优化"></a>项目构建优化</h1><p><strong>好用的webpack插件:webpack-bundle-analyzer</strong></p>
+<p>可视化webpack打包后的工具包大小，便于分析依赖和进行项目优化。如上vue.config.js中配置。</p>
+<p><strong>根据图表的优化步骤</strong></p>
+<p>一、看看有没有什么重复的模块，或者没有用的模块被打包到了最终的代码中<br>二、看看package.json,对比一下是否有应该在devDeps的模块，被错误的放置到了deps当中<br>三、检查是否有重复加载的模块，或者是功能大体相同的模块。<br>比如：使用<strong>es</strong>版本的第三方库，享受tree-shaking的红利。<br>四、检查是否有没有用的模块是否打包到了最终的文件中，通过如下插件忽略对应的文件，从而tree-shaking掉忽略的文件（如国际化需要的各种语言包）,详细配置如上vue.config.js中。</p>
+<p>*webpack ignore plugin <span class="exturl" data-url="aHR0cHM6Ly93ZWJwYWNrLmpzLm9yZ2xwbHVnaW5zL2lnbm9yZS1wbHVnaW4vI3Jvb3Q=">https://webpack.js.orglplugins/ignore-plugin/#root</span></p>
+<p><strong>将三方库中全部导入更换为按需导入</strong></p>
+<pre><code class="js">import &#123;Input,Dropdown,Slider,Select&#125; from &#39;Antd-vue&#39;;
+const components = [Input,Dropdown,Slider,Select];
+const install = (app) =&gt; &#123;
+    components.forEach(item=&gt;&#123;
+        app.component(item.name,item);
+    &#125;)
+&#125;
+export default&#123; install &#125;;
+// 在main.js中导入，然后app.use
+</code></pre>
+<p><strong>浏览器缓存优化</strong></p>
+<p>一、项目即使是上线之后也会在后续追加或修改代码，如果分包较少重新上线后就不能使用浏览器缓存的文件，当分包数量较多时，就可以充分利用浏览器缓存。</p>
+<p>二、分包较多时可以使用浏览器支持平行加载多个文件的特性。（HTTP1对同一域名并行请求的个数进行了限制，HTTP2完全突破了这个限制）</p>
+<p><strong>手动分割第三方库为多个文件</strong></p>
+<p>webpack的config.optimization中自带一些优化的配置项：</p>
+<ul>
+<li>minimize：压缩</li>
+<li>splitChunks：分包（可以配置minSize等）</li>
+<li>等等</li>
+</ul>
+<pre><code class="js">//vue.config.js配置：
+module.exports = &#123;
+    // ....省略
+    configureWebpack: config =&gt; &#123;
+        config.optimization.splitChunks = &#123;
+            maxInitialRequests: Infinity,
+            minSize: 300 * 1024,
+            chunks: &#39;all&#39;,
+            cacheGroups: &#123;
+                antVendor: &#123;
+                    name: &#39;ant-design-vue&#39;,
+                    test: /[\\/]node_modules[\\/](ant-design-vue)[\\/]/,
+                &#125;,
+                canvasVendor: &#123;
+                    name: &#39;html2canvas,
+                    test: /[\\/]node_modules[\\/](html2canvas)[\\/]/,
+                &#125;,
+                vendor: &#123;
+                    name: &#39;vendor&#39;,
+                    test: /[\\/]node_modules[\\/](!html2canvas)(!ant-design-vue)[\\/]/
+                &#125;,
+                all &#123;
+                    test: /[\\/]node_modules[\\/]/, //匹配全部的node_modules中的文件
+                    name (module) &#123; const packageName = module.context.match(/[\\/]node_modules[\\/](.*?)([\\/]|$)/)
+                    return `npm.$&#123;packageName.replace(&#39;@&#39;,&#39;&#39;)&#125;`
+                &#125;,
+            &#125;
+        &#125;
+    &#125;
+&#125;
+</code></pre>
+<h1 id="项目运行优化"><a href="#项目运行优化" class="headerlink" title="项目运行优化"></a>项目运行优化</h1><p><strong>路由懒加载</strong></p>
+<p>使用import函数动态加载，配合魔法注释可以和webpack中的bundler相配合使用，例如：</p>
+<pre><code class="js">import(/* webpackChunkName: &quot;my-lodash&quot; */ &#39;lodash&#39;).then(lodash=&gt;&#123;
+     // ....
+&#125;)
+</code></pre>
+<p><strong>改变HTML标题，增强SEO</strong></p>
+<p>项目中动态添加标题的原理：使用HtmlWebpackPlugin插件，插入动态js语句进行占位，然后通过项目中package.json中的name进行替换。</p>
+<pre><code class="js">//vue.config.js配置：
+module.exports = &#123;
+    // ....省略
+   chainWebpack: config =&gt; &#123;
+       config.plugin(&#39;html&#39;).tap(args=&gt;&#123;
+           args[0].title = &#39;网站标题&#39;,
+           args[0].desc = &#39;网站详情描述&#39;
+           return args;
+       &#125;)
+   &#125;
+&#125;
+//记得添加 &lt;meta name=&quot;viewport&quot; content=&quot;&lt;%= htmlWebpackPlugin.options.desc %&gt;&quot;&gt;
+</code></pre>
+<p><strong>同构渲染方式</strong><br>服务端渲染和客户端渲染的区别就在于在哪里完成html完整文件的拼接：</p>
+<h3 id="客户端渲染"><a href="#客户端渲染" class="headerlink" title="客户端渲染"></a>客户端渲染</h3><p>客户端渲染由客户端完成html文件的拼接，服务端只负责提供数据。<br>优势：首屏加载快<br>劣势：不利于SEO</p>
+<h3 id="服务端渲染"><a href="#服务端渲染" class="headerlink" title="服务端渲染"></a>服务端渲染</h3><p>服务端渲染由服务端完成html文件的凭借，客户端直接渲染即可<br>优势：利于SEO，<br>劣势：白屏问题（获取html文件较慢）,服务端压力大，占用CPU资源。</p>
+<h3 id="同构渲染"><a href="#同构渲染" class="headerlink" title="同构渲染"></a>同构渲染</h3><p>服务端先通过服务端渲染，生成html以及初始化数据，客户端拿到代码和初始化数据，在客户端进行激活渲染。<br>优势：兼容了前端渲染的大部分优点（节省服务端资源、多终端适配渲染、局部刷新等），同时也具有服务端渲染首屏加载快，SEO支持好的特点。<br>劣势：服务端必须是要js支持的语言，增加了整个系统的复杂度和维护成本。</p>
+<h1 id="部署与HTTP优化"><a href="#部署与HTTP优化" class="headerlink" title="部署与HTTP优化"></a>部署与HTTP优化</h1><h3 id="部署"><a href="#部署" class="headerlink" title="部署"></a><strong>部署</strong></h3><p><strong>前端部署：https:llci,uejs,org&#x2F;zh&#x2F;guide&#x2F;deployment.html</strong></p>
+<p>原理就是：将构建生成的产物直接烤贝到任何的静态文件服务器当中。</p>
+<p><strong>后端部署：https:&#x2F;eggis.org&#x2F;zh-cn&#x2F;core&#x2F;deployment.html</strong></p>
+<p>几乎没有构建过程：除非你用了typescript等需要编译的语言。</p>
+<p>方案一：直接将本地的源代码打个压缩包拷贝到目标服务器，然后启动服务器。</p>
+<p>方案二：在服务器中直接pu川源代码，install,.然后启动服务器。</p>
+<h3 id="Nginx-反向代理"><a href="#Nginx-反向代理" class="headerlink" title="Nginx:反向代理"></a><strong>Nginx:反向代理</strong></h3><p><strong>Nginx</strong>作为服务器软件，它的优点：</p>
+<ul>
+<li>特别适合前后端分离的项目</li>
+<li>保证安全</li>
+<li>非常快</li>
+<li>支持负载均衡</li>
+</ul>
+<p>使用：</p>
+<ul>
+<li>安装nginx</li>
+<li>nginx    命令启动服务器</li>
+<li>nginx -s stop    命令关闭服务器</li>
+<li>nginx -v      命令查看配置信息</li>
+<li>nginx -s reload      命令重启服务</li>
+<li>配置nginx.conf文件</li>
+</ul>
+<h3 id="HTTP缓存"><a href="#HTTP缓存" class="headerlink" title="HTTP缓存"></a><strong>HTTP缓存</strong></h3><p>（若服务器使用nginx，则在nginx.conf中配置）</p>
+<p>Expires <span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvemgtQ04vZG9jcy9XZWIvSFRUUC9IZWFkZXJzL0V4cGlyZXM=">https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/Expires</span><br><strong>Expires响应头包含日期&#x2F;时间，即在此时候之后，响应过期</strong><br>使用nginx添加对应的响应头：expires指令<br>文档地址：http:l&#x2F;nginx.org&#x2F;en&#x2F;docs&#x2F;http&#x2F;ngx http headers module.html</p>
+<p>但是由于客户端时间和用户端时间并不总是相同的，于是有了Cache-Control：</p>
+<p><strong>Cache-Control</strong>:通用消息头字段，被用于在http请求和响应中，通过指定指令来实现缓存机制。<br>文档地址：<span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIv">https://developer</span> mozilla.org&#x2F;zh-CN&#x2F;docs&#x2F;Web&#x2F;HTTP&#x2F;Headers&#x2F;Cache-Control</p>
+<p>*<strong>Etag</strong>:ETagHTTP响应头是资源的特定版本的标识符。这可以让缓存更高效，并节省带宽<br>因为如果内容没有改变，Wb服务器不需要发送完整的响应，直接返回304表示可以使用缓存文件。<br>*文档地址：<span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvemgtQ04vZG9jcy9XZWIvSFRUUC9IZWFkZXJzL0VUYWc=">https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/ETag</span><br><strong>Last-Modified</strong>:是一个响应首部，其中包含源头服务器认定的资源做出修改的日期及时间。<br>文档地址：<span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvemgtQ04vZG9jcy9XZWIvSFRUUC9IZWFkZXJzL0xhc3QtTW9kaWZpZWQ=">https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/Last-Modified</span><br>nginx Etag:<span class="exturl" data-url="aHR0cDovL25naW54Lm9yZy9lbi9kb2NzL2h0dHAvbmd4X2h0dHBfY29yZV9tb2R1bGUuaHRtbCNldGFn">http://nginx.org/en/docs/http/ngx_http_core_module.html#etag</span><br>304 Not Modified <span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvemgtQ04vZG9jcy9XZWIvSElUUC9TdGF0dXMvMzA0">https://developer.mozilla.org/zh-CN/docs/Web/HITP/Status/304</span></p>
+<p>浏览器使用缓存：</p>
+<p><img data-src="/images/image.png" alt="/images/image.png"></p>
+<h3 id="压缩算法"><a href="#压缩算法" class="headerlink" title="压缩算法"></a>压缩算法</h3><p>压缩比对照表<br><span class="exturl" data-url="aHR0cHM6Ly9xdWl4ZGIuZ2l0aHViLmlvL3NxdWFzaC1iZW5jaG1hcmsvI3JhdGlvLXZzLWNvbXByZXNzaW9u">https://quixdb.github.io/squash-benchmark/#ratio-vs-compression</span></p>
+<h4 id="gzip"><a href="#gzip" class="headerlink" title="gzip"></a>gzip</h4><p><strong>一、动态压缩（服务器在返回静态文件之前，由服务器对每个请求压缩后再进行输出）</strong></p>
+<p>nginx中启用gzip：在nginx.conf中配置：</p>
+<ul>
+<li>gzip  on;        开启gzip</li>
+<li>gzip_types     text&#x2F;plain  application&#x2F;javascript              设置那些文件需要压缩</li>
+<li>gzip_min_length   1k;         小于设置值不会压缩</li>
+<li>gzip_comp_level     1;          压缩级别</li>
+<li>等等</li>
+</ul>
+<p><strong>二、静态压缩（服务器直接使用压缩文件进行输出）</strong></p>
+<p>两个步骤</p>
+<ul>
+<li>生成压缩文件（gzip命令或使用webpack插件 compression-webpack-plugin）</li>
+<li>在ngin×开启支持静态压缩的模块（例如gzip_static  :  on）</li>
+</ul>
+<h4 id="Brotli"><a href="#Brotli" class="headerlink" title="Brotli"></a>Brotli</h4><p><strong>一、动态压缩（服务器在返回静态文件之前，由服务器对每个请求压缩后再进行输出）</strong></p>
+<p><strong>使用前提</strong><br>浏览器支持：https:caniuse.com&#x2F;brot山i<br><strong>HTTPS协议</strong><br>NGINX对应的模块：https:&#x2F;github.com&#x2F;google&#x2F;ngx._brot山i</p>
+<p>nginx中启用Brotli：在nginx.conf中配置：</p>
+<ul>
+<li>brotli  on;        开启Brotli</li>
+<li>brotli_types     text&#x2F;plain  application&#x2F;javascript              设置那些文件需要压缩</li>
+<li>等等</li>
+</ul>
+<p><strong>二、静态压缩（服务器直接使用压缩文件进行输出 ,如上。）</strong></p>
+<h3 id="HTTP优化"><a href="#HTTP优化" class="headerlink" title="HTTP优化"></a>HTTP优化</h3><p>HTTP是建立在TCP协议之上，所以<strong>HTTP协议的瓶颈及其优化技巧都是基于TCP协议本身的特性</strong>，例如tcp建立连接的3次握手和断开连接的4次挥手以及每次建立连接带来的延迟时间。所以减少这些重新握手和至关重要。</p>
+<h4 id="keepAlive属性"><a href="#keepAlive属性" class="headerlink" title="keepAlive属性"></a>keepAlive属性</h4><p>keepAlive属性可以保持服务器端和客户端建立的会话连接，开启之后除首次建立连接外的其他请求不会进行<strong>DNS Lookup</strong>（NDS域名解析）和<strong>Initial connection</strong>（三报文握手建立连接），可以在服务端文件中进行配置。</p>
+<p><strong>KeepAlive的优点</strong></p>
+<ul>
+<li>TCP连接更少，I这样就会节约TCP连接在建立、释放过程中，主机和路由器上的CPU和内存开销。</li>
+<li>网络拥塞也减少了，拿到响应的延时也减少了</li>
+</ul>
+<h4 id="HTTP2"><a href="#HTTP2" class="headerlink" title="HTTP2"></a>HTTP2</h4><p><strong>使用HTTP&#x2F;2提升性能</strong></p>
+<ul>
+<li>2010年SPDY <span class="exturl" data-url="aHR0cHM6Ly9iYWlrZS8=">https://baike</span> baidu.com&#x2F;item&#x2F;SPDY演化到</li>
+<li>2015 HTTP&#x2F;2 <span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIsbW96aWxsYSxvcmcvemgtQ04vZG9jcy9HbG9zc2FyeS9IVFRQXzI=">https://developer,mozilla,org/zh-CN/docs/Glossary/HTTP_2</span></li>
+</ul>
+<p><strong>兼容性</strong></p>
+<p>需要浏览器支持-https:&#x2F;caniuse.com&#x2F;http2</p>
+<p>需要HTTPS协议支持</p>
+<p><strong>主要特性</strong></p>
+<p>一、二进制协议：</p>
+<p>HTTP2由原来的文本请求（报文）转变为二进制请求帧，加快传输</p>
+<p>二、多路复用：</p>
+<p><strong>HTTP2多路复用解决了浏览器同一域名并行请求数量的限制。</strong></p>
+<p>在HTTP&#x2F;2中引入了多路复用的技术。多路复用很好的解决了浏览器限制同一个域名下的请求数量的问题，同时也接更容易实现全速传输，毕竟开一个TCP连接都需要慢慢提升传输速度。</p>
+<p><strong>同个域名只需要占用一个TCP连接</strong>，使用一个连接并行发送多个请求和响应，<strong>消除了因多个TCP连接而带来的延时和内存消耗</strong>。</p>
+<p>三、Header压缩复用</p>
+<p>TTP&#x2F;2在客户端和服务器端使用“<strong>首部表</strong>”来跟踪和存储之前发送的键一值对，对于相同的数据，不再通过每次请求和响应发送。</p>
+<p><strong>配置HTTP2：</strong></p>
+<p>依nginx为例：在server字段的listen字段添加：listen   443   ssl   http2; </p>
+<h1 id="Mongodb数据库"><a href="#Mongodb数据库" class="headerlink" title="Mongodb数据库"></a>Mongodb数据库</h1><h3 id="基本操作"><a href="#基本操作" class="headerlink" title="基本操作"></a><strong>基本操作</strong></h3><pre><code class="js">// 导入Mongodb客户端构造函数
+import &#123; MongoClient,ObjectId, &#125; from &quot;mongodb&quot;;
+// 创建mongo实例(传入url)
+const client = new MongoClient(&#39;mongodb://localhost:27017/&#39;);
+// 执行函数，连接mongodb数据库
+async function run() &#123;
+  try &#123;
+    await client.connect(); //等待实例连接
+    const db = client.db(&#39;hello&#39;); //创建数据库
+    const res = await db.command(&#123; ping: 1 &#125;); //ping命令
+    console.log(&#39;connected&#39;, res);
+    const userCollection = db.collection(&#39;user&#39;);//创建集合表
+// 数据的插入
+    // const result = await userCollection.insertOne(&#123;name:&quot;张三&quot;,age:18&#125;)
+    // const results = await userCollection.insertMany([&#123;name:&quot;李四&quot;,age:12&#125;,&#123;name:&quot;王五&quot;,age:13&#125;]);
+    // console.log(result,results); //返回影响的信息，id等
+//数据的查找
+    const result = await userCollection.findOne(&#123;name:&#39;张三&#39;&#125;);
+    console.log(result);
+    const resultCursor =  userCollection.find(); //find返回的是指针对象，不是结果
+    //将游标变为数组结果
+    const results = await userCollection.find().toArray();
+    // console.log(results);
+//比较操作符 $lt小于 $gt大于
+    const results2 = await userCollection.find(&#123;age:&#123;$lt:16&#125;&#125;).toArray();
+    // console.log(results2);
+//逻辑操作符 $or
+    const results3 = await userCollection.find(&#123;$or:[&#123;age:&#123;$gt:12&#125;&#125;,&#123;name:&quot;王五&quot;&#125;]&#125;).toArray();
+    // console.log(results3);
+//元素操作符  $exists存在与否  $type指定类型
+    const results4 = await userCollection.find(&#123;age:&#123;$type:&#39;number&#39;&#125;&#125;).toArray();
+    // console.log(results4);
+//limit  第二个参数传入options配置（projection表示包含字段哪些字段）
+    const result5 = await userCollection.find(&#123;age:&#123;$type:&#39;number&#39;&#125;&#125;,&#123;limit:2,skip:3,sort:&#123;age:-1&#125;,projection:&#123;name:0&#125;&#125;).toArray();
+    // console.log(result5);
+//更新替换数据   update更新数据  replaceOne替换数据 ,修改操作要传具体更新操作符：
+//普通更新操作符： $set设置值 $inc增加 $rename重命名 $unset删除 
+//数组更新操作符： $push数组字段添加 $pop删除 $all包含 $regex正则  .属性符 .$属性占位符
+    const result6 = await userCollection.replaceOne(&#123;name:&quot;张三&quot;&#125;,&#123;name:&quot;Lebrown&quot;&#125;);
+    const result7 = await userCollection.updateOne(&#123;_id:new ObjectId(&#39;6628b9876bac632e95ead1bb&#39;)&#125;,&#123;$set:&#123;name:&quot;updateOne&quot;&#125;,$inc:&#123;age:10&#125;&#125;);
+    const result8 = await userCollection.updateOne(&#123;_id: new ObjectId(&#39;6628b9876bac632e95ead1bb&#39;)&#125;,&#123;$set:&#123;&quot;hobbies.0&quot;:&quot;golf&quot;&#125;&#125;)
+    const result9 = await userCollection.updateOne(&#123;_id: new ObjectId(&#39;6628b9876bac632e95ead1bb&#39;),hobbies:&#39;glof&#39;&#125;,&#123;$set:&#123;&quot;hobbies.$&quot;:&quot;golf-new&quot;&#125;&#125;)
+    // console.log(result8);//返回影响信息
+//删除数据：deleteOne(filter) 和deleteMany
+  &#125; catch (e) &#123;
+    console.error(e);
+  &#125; finally &#123;
+    await client.close();
+  &#125;
+&#125;
+run();
+</code></pre>
+<h3 id="mongodb高级"><a href="#mongodb高级" class="headerlink" title="mongodb高级"></a><strong>mongodb高级</strong></h3><h5 id="索引"><a href="#索引" class="headerlink" title="索引"></a>索引</h5><p><strong>MongoDB索引</strong></p>
+<ul>
+<li>索引(Index)<strong>为了提高查询效率</strong></li>
+<li>MongoDB的文件类型：<strong>BSON</strong>,Binary JSON,主要被用作MongoDB数据库中的数据存储和网络传输格式。</li>
+<li>假如没有索引，必须扫描这个巨大BSON对象集合中的每个文档并选取那些符合查询条件的记录，这样是低效的。</li>
+<li>索引是特殊的数据结构，索引存储在一个易于遍历读取的数据集合中。</li>
+<li>为某个字段创建索引之后查找速度非常快，ObjectId是自带的索引（ _ id _ ）。</li>
+</ul>
+<p><strong>创建索引</strong></p>
+<p>创建索引可以直接用Navicate等工具，也可以代码中使用：</p>
+<pre><code class="js">//......省略
+//给name字段创建索引之前耗时很大，创建之后耗时很小
+const indexResult = await userCollection.find(&#123;name:&quot;James&quot;&#125;).explain();
+console.log(indexResult);
+//创建索引，属性表示字段，值表示升序降序
+const result = await userCollection.createIndex(&#123;name:1&#125;) //1表示升序
+//取消索引
+const result1 = await userCollection.dropIndex(&quot;name_1&quot;)
+</code></pre>
+<h5 id="聚合"><a href="#聚合" class="headerlink" title="聚合"></a>聚合</h5><p>聚合操作将来自多个文档的值组合在一起，并且可以对分组数据执行各种操作以返回相应的结果。<br><strong>linux常用的管道写法：</strong></p>
+<pre><code class="bash">ps aux | grep mongo
+</code></pre>
+<p><strong>聚合常用的操作符：</strong></p>
+<ul>
+<li>$group将collection中的document:分组，可用于统计结果</li>
+<li>$natch过滤数据，只输出符合结果的文档</li>
+<li>$project修改输入文档的结构（例如重命名，增加、删除字段，创建结算结果等）</li>
+<li>$sot将结果进行排序后输出</li>
+<li>$imit限制管道输出的结果个数</li>
+<li>$skp跳过制定数量的结果，并且返回剩下的结果</li>
+</ul>
+<p><strong>表达式操作符：</strong></p>
+<ul>
+<li>$sum计算总和，{$sum:1}表示返回总和×1的值（即总和的数量），使用{$sum:’$制定字段’}也能直接获取制定字段的值的总和</li>
+<li>$avg求平均值</li>
+<li>$min求min值</li>
+<li>$max求max值</li>
+<li>$push将结果文档中插入值到一个数组中</li>
+<li>$frst根据文档的排序获取第一个文档数据</li>
+<li>$last同理，获取最后一个数据</li>
+</ul>
+<pre><code class="js">//.....
+const pipeLine = [
+    &#123; $match : &#123; age : &#123; $gt : 30 &#125;&#125;&#125;,
+    &#123; $group : &#123; _id : &quot;$steam&quot; , total : &#123; $sum : &quot;$age&quot; &#125; , count : &#123; $sum : 1 &#125;&#125;&#125;,
+    &#123; $sort : &#123; total : 1 &#125;&#125;
+]
+cosnt result = await userCollection.aggregate(pipeLine).toArray();
+//....
+</code></pre>
+<h5 id="多表联查"><a href="#多表联查" class="headerlink" title="多表联查"></a>多表联查</h5><p><strong>普通方式使用多表联查需要两次查询</strong></p>
+<pre><code class="js">// 导入Mongodb客户端构造函数
+import &#123; MongoClient,ObjectId, &#125; from &quot;mongodb&quot;;
+// 创建mongo实例(传入url)
+const client = new MongoClient(&#39;mongodb://localhost:27017/&#39;);
+// 执行函数，连接mongodb数据库
+async function run() &#123;
+  try &#123;
+    await client.connect(); //等待实例连接
+    const db = client.db(&#39;hello&#39;); //创建数据库
+    const res = await db.command(&#123; ping: 1 &#125;); //ping命令
+    console.log(&#39;connected&#39;, res);
+//获取表
+     const teamCollection = db.collection(&#39;team&#39;);
+     const playerCollection = db.collection(&#39;player&#39;);
+     const netsTeam = await teamCollection.findOne(&#123;team:&quot;NETS&quot;&#125;);
+     const netsPlayers = await playerCollection.find(&#123;team:netsTeam._id&#125;).toArray();
+  &#125; catch (e) &#123;
+    console.error(e);
+  &#125; finally &#123;
+    await client.close();
+  &#125;
+&#125;
+run();
+</code></pre>
+<p><strong>使用聚合中$lookup进行多表联查只需要一次查询：</strong></p>
+<pre><code class="js">//...
+const pipeLine2 = [
+    &#123;
+        $match : &#123; team : &#123; $exists : true &#125; &#125;
+    &#125;,
+    &#123;
+        $lookup : &#123;
+            from : &quot;team&quot;,
+            localField : &quot;team&quot;,
+            foreignField : &quot;_id&quot;,
+            as : &quot;team&quot;
+        &#125;
+    &#125;
+] 
+const playerWithTeam = await playerCollection.aggregate(pipeLine2).toArray();
+console.log(playerWithTeam);
+//...
+</code></pre>
+<h3 id="数据库设计"><a href="#数据库设计" class="headerlink" title="数据库设计"></a>数据库设计</h3><p><em>MongoDB最佳设计实践：</em>[https:l<span class="exturl" data-url="aHR0cDovL3d3dy5tb25nb2RiLmNvbS9kZXZlbG9wZXIvYXJ0aWNsZS9tb25nb2RiLXNjaGVtYS1kZXNpZ24tYmVzdC1wcmFjdGljZXMvXQ==">www.mongodb.Com/developer/article/mongodb-schema-design-best-practices/]</span>(<span class="exturl" data-url="aHR0cHM6Ly93d3cubW9uZ29kYi5jb20vZGV2ZWxvcGVyL2FydGljbGUvbW9uZ29kYi0=">https://www.mongodb.com/developer/article/mongodb-</span><br>schema-design-best-practices&#x2F;)</p>
+<p>  关键问题：数据产生关系的时候，选择内嵌还是引用？</p>
+<p><strong>内嵌模式：</strong></p>
+<p>优势：</p>
+<ul>
+<li>只需要一次查询就可以查询所有的信息。</li>
+<li>避免多集合查询。</li>
+<li>只需要一个操作就可以更新多个信息。</li>
+</ul>
+<p>劣势：</p>
+<ul>
+<li>单个文档太大，查询可能更耗时，获得的无关信息概率增大。</li>
+<li>针对每个文档，MongoDB有一个16M的最大限制，内嵌太多，可能超过这个限制。</li>
+</ul>
+<p><strong>引用模式：</strong></p>
+<p>优势：</p>
+<ul>
+<li>将数据分散到不同文档，数据量会变小。</li>
+<li>不太会超过16M最大限制。</li>
+<li>每次查询取得不必要数据的慨率降低。</li>
+</ul>
+<p>劣势：需要多次查询才能获得最终数据</p>
+<p><strong>最佳设计实践：</strong></p>
+<ul>
+<li><p>一对几个：推荐使用内嵌形式</p>
+</li>
+<li><p>一对很多：推荐使用引用形式</p>
+<ul>
+<li>子集合中使用一个字段保存父集合的_id   ； 或者：</li>
+<li>父集合中使用一个数组保存子集合的_id</li>
+</ul>
+</li>
+<li><p>一对亿万：只能子集合中使用一个字段保存父集合的_id</p>
+</li>
+</ul>
+<h3 id="访问权限管理"><a href="#访问权限管理" class="headerlink" title="访问权限管理"></a><strong>访问权限管理</strong></h3><p><strong>授权文档</strong>：https:&#x2F;docs.mongodb.com&#x2F;manual&#x2F;core&#x2F;authentication&#x2F;<br><strong>内置的Roles</strong>：https:&#x2F;docs.mongodb.com&#x2F;manual&#x2F;reference&#x2F;built-in-roles&#x2F;</p>
+<p><strong>在mongo命令行中输入：</strong></p>
+<pre><code class="cmd">show dbs
+use admin
+# mongodb基于RBAC进行权限管理，设置roles可以设置相应的全选，见上。
+db.createUser(&#123; user : &#39;root&#39; , pwd : &#39;123456&#39; , roles : [&#39;root&#39;] &#125;) 
+db.auth(&#39;root&#39;,&#39;123456&#39;)
+# --auth 开启数据库的权限验证，也可以直接在mongo.conf中配置（先终止运行mongod）
+mongod --config /usr/local/etc/mongo.conf --auth
+# 操作配置了权限管理的数据库
+mongo -u &quot;root&quot; -p &quot;123456&quot; --authenticationDatabase &quot;admin&quot;
+</code></pre>
+<p><strong>初始化一个新数据库以后期望的步骤</strong></p>
+<ul>
+<li>创建admin级谜别的root用户&#x2F;roles:root</li>
+<li>创建对应的数据库lego</li>
+<li>创建该数据库的管理员dmq&#x2F;roles:readWrite</li>
+<li>代码中，使用管理员dmq的用户名密码链接数据库并且完成操作。</li>
+</ul>
+<p>步骤如下：</p>
+<pre><code>show dbs
+use lego
+db.createUser(&#123; user : &quot;dmq&quot; , pwd : &#39;123456&#39; , roles : [&#123; role : &quot;readWrite&quot; , db : &quot;lego&quot; &#125;]&#125;)
+# 重启服务：mongod --config /usr/local/etc/mongo.conf --auth
+# 这样在mongodb的配置文件中设置用户信息，就保证只能读取数据库信息，保证了数据库的安全。（如果用户信息来自admin数据库就需要配置authSource:&#39;admin&#39;。）
+</code></pre>
+<h1 id="Mongoose"><a href="#Mongoose" class="headerlink" title="Mongoose"></a>Mongoose</h1><p><strong>出现的原因：</strong></p>
+<p>使用原生的mongoDB nodejs driver数据结构及其操作过于灵活，类似于ORM：</p>
+<p><strong>mongoose：</strong>（mongoose之于mongodb类似于ts之于js，都是在原有的基础之上加一层抽象层，进行类型定义等操作）</p>
+<p>mongoose：<span class="exturl" data-url="aHR0cHM6Ly9tb25nb29zZWlzLmNvbS8=">https://mongooseis.com/</span></p>
+<ul>
+<li>建立在native mongoDB nodejs driver之上</li>
+<li>提出Modl,数据模型的概念，用来约束集合中的数据结构</li>
+<li>非常多扩展的内容</li>
+<li>它是一个ODM(Object Document Mapping)工具。</li>
+</ul>
+<h3 id="ORM"><a href="#ORM" class="headerlink" title="ORM"></a>ORM</h3><p>ORM指的是<strong>Object Relational Mapping对象关系映射</strong>，针对于关系型数据库。</p>
+<p><strong>简单说，ORM就是通过实例对象的语法，完成关系型数据库的操作的技术。</strong></p>
+<p><strong>ORM优点</strong></p>
+<ul>
+<li>不需要再去写晦涩的SQL语句。</li>
+<li>使用面向对象的方式操作数据，代码量少，语义性好，容易理解。</li>
+<li>Classes类-Tables</li>
+<li>Objects实例-Records(表中的一行数据)</li>
+<li>Attributes属性-Records</li>
+<li>内置很多功能，数据验证，清洗，预处理等等操作。</li>
+</ul>
+<h3 id="ODM"><a href="#ODM" class="headerlink" title="ODM"></a>ODM</h3><p>ODM指的是<strong>Object Document Mapping对象文档映射</strong>。ODM针对于noSql数据库，关注文档模型，mongoose是ODM的一种实现，可以用于约束数据类型。</p>
+<pre><code class="javascript">const User = mongoose.model(&quot;User&quot;,&#123;
+    username:&#123; type : string &#125;,
+    password:&#123; type : String &#125;
+&#125;)
+//user object
+const newUser new User(&#123;
+    username:&quot;john-doe&quot;,
+    password:&quot;helloworld&quot;,
+&#125;)
+await newUser.save()
+</code></pre>
+<h1 id="egg-mongoose"><a href="#egg-mongoose" class="headerlink" title="egg-mongoose"></a>egg-mongoose</h1><p>详见源码，此处省略。</p>
+<h1 id="Stream"><a href="#Stream" class="headerlink" title="Stream"></a>Stream</h1><h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><p>Stream的官方文档：<span class="exturl" data-url="aHR0cHM6Ly9ub2RlanMsb3JnL2FwaS9zdHJlYW0uaHRtbA==">https://nodejs,org/api/stream.html</span><br><strong>流是Node.js中最好，也是最容易误解的慨念</strong><br>流就是数据的合集，数据可以是字符串也可以是数组，流的数据不是一次性全部获得的。</p>
+<p>大文件输出方式：</p>
+<ul>
+<li><p>直接读取</p>
+<p>输入的文件————读取到内存—————-输出文件内容</p>
+</li>
+<li><p>流式读取</p>
+<p>输入的文件————通过可读流读取到管道—————–通过可写流输出文件内容</p>
+</li>
+</ul>
+<p><strong>Node.js支持流的内置模块：</strong></p>
+<p><strong>Readable Streams:</strong></p>
+<ul>
+<li>HTTP responses,on the client</li>
+<li>HTTP requests,on the server</li>
+<li>fs read streams</li>
+<li>zlib streams</li>
+<li>crypto streams</li>
+<li>TCP sockets</li>
+<li>child process stdout and stderr</li>
+<li>process.stdin</li>
+</ul>
+<p><strong>Writable  Streams:</strong></p>
+<ul>
+<li>HTTP requests,on the client</li>
+<li>HTTP responses,on the server</li>
+<li>fs write streams</li>
+<li>zlib streams</li>
+<li>crypto streams</li>
+<li>TCP sockets</li>
+<li>child process stdin</li>
+<li>process.stdout,process.stderr</li>
+</ul>
+<p><strong>流的类型：</strong></p>
+<ul>
+<li>Readable-可读操作。</li>
+<li>Vritable-可写操作。</li>
+<li>Duplex-可读可写操作. </li>
+<li>Transform-操作被写入数据，然后读出结果。</li>
+</ul>
+<h3 id="pipe"><a href="#pipe" class="headerlink" title="pipe"></a>pipe</h3><p><strong>流的流动：</strong></p>
+<p>可读流Readable（数据源input）———————-pipe管道—————————————-可写流Writable（输出output）</p>
+<pre><code class="js">import &#123; createReadStream, createWriteStream &#125; from &#39;fs&#39;;
+const readStream = createReadStream(&#39;./a.txt&#39;);
+readStream.pipe(process.stdout);
+</code></pre>
+<p>可读流Readable（数据源input）————-pipe管道—————转换流Transform—————-pipe管道———–可写流Writable（输出output）</p>
+<pre><code class="js">import &#123; createReadStream, createWriteStream, write &#125; from &#39;fs&#39;;
+const readStream = createReadStream(&#39;./a.txt&#39;);
+const writeStream = createWriteStream(&#39;./b.txt&#39;);
+readStream.pipe(writeStream);
+</code></pre>
+<h3 id="原理-2"><a href="#原理-2" class="headerlink" title="原理"></a>原理</h3><p><strong>流是基于EventEmitter（事件），pipe方法是基于事件封装的的语法糖，常见的事件有：</strong></p>
+<p><strong>Readable  Streams：可读流事件和函数</strong></p>
+<ul>
+<li>Events<ul>
+<li>data–当没有数据时触发</li>
+<li>end–没有更多的数据可读时触发</li>
+<li>error–在接受和写入过程中发生错误时触发</li>
+<li>finish–所有数据已被写入到底层系统时触发</li>
+<li>close</li>
+<li>readable</li>
+</ul>
+</li>
+<li>Functions<ul>
+<li>pipe() , unpipe()</li>
+<li>read() , unshift() , resume()</li>
+<li>pause() , isPaused()</li>
+<li>setEncoding()</li>
+</ul>
+</li>
+</ul>
+<p><strong>Writable  Streams：写入流事件和函数</strong></p>
+<ul>
+<li>Events<ul>
+<li>drain</li>
+<li>finish</li>
+<li>error</li>
+<li>close</li>
+<li>pipe&#x2F;unpipe</li>
+</ul>
+</li>
+<li>Functions<ul>
+<li>write()</li>
+<li>end()</li>
+<li>cork() , uncork()</li>
+<li>setDefaultEncoding()</li>
+</ul>
+</li>
+</ul>
+<p><strong>pipe方法原理：</strong></p>
+<pre><code class="js">import &#123; createReadStream , createWriteStream &#125; from &#39;fs&#39;;
+const readStream = createReadStream(&#39;./a.txt&#39;);
+const writeStream = createWriteStream(&#39;./b.txt&#39;);
+readStream.on(&#39;data&#39; , chunk=&gt;&#123;
+    writeStream.write(chunk);
+&#125;)
+readStream.on(&#39;end&#39;,()=&gt;&#123;
+    writeStream.end();
+&#125;)
+</code></pre>
+<p>压缩：</p>
+<pre><code class="js">import &#123; createReadStream , createWriteStream &#125; from &#39;fs&#39;;
+import &#123; createGzip &#125; from &#39;zlib&#39;;
+const readStream = createReadStream(&#39;./a.txt&#39;);
+const writeStream = createWriteStream(&#39;./b.txt&#39;);
+readStream.pipe(createGzip()).pipe(writeStream);
+</code></pre>
+<p>封装：</p>
+<pre><code class="js">cosnt savePromise = (readStream , writeStream = stdout)&#123;
+    return new Promise(resolve,reject)&#123;
+        readStream
+            .pipe(writeStream)
+            .on(&#39;finish&#39;,resolve)
+            .on(&#39;error&#39;,reject)
+    &#125;
+&#125;
+</code></pre>
+<h3 id="pipeline"><a href="#pipeline" class="headerlink" title="pipeline"></a>pipeline</h3><p><strong>使用pipe方法有时会存在一个问题：</strong></p>
+<pre><code class="js">//....
+createReadStream(&#39;./a.txt&#39;)
+    .pipe(stdout)
+    .on(&#39;finish&#39;,finishFn)
+    .on(&#39;error&#39;,errFn);  //这里监听的是pipe后的错误，对于createReadStream的错误则会卡死
+</code></pre>
+<p><strong>于是推出了pipeline方法：</strong></p>
+<pre><code class="js">//...
+pipeLine(fs.createReadStream(&#39;./a.txt&#39;),zlib.createGzip(),fs.createWriteStream(&#39;./b.txt&#39;),(err)=&gt;&#123;
+    if (err) &#123; console.error(&#39;pipeline failed&#39;,error) &#125;;
+    else &#123; console.log(&#39;successed&#39;) &#125;
+&#125;)
+</code></pre>
+<h1 id="对象存储服务"><a href="#对象存储服务" class="headerlink" title="对象存储服务"></a>对象存储服务</h1><p><strong>自己完成静态文件存储的问题</strong></p>
+<ul>
+<li>Nod.js不擅长处理静态文件的存储和展示，没有未静态文件做特殊的优化</li>
+<li>如果将图片生成多种处理格式要耗费大量的资源和空间</li>
+</ul>
+<p><strong>各三方比对</strong></p>
+<h3 id="阿里云OSS"><a href="#阿里云OSS" class="headerlink" title="阿里云OSS"></a><span class="exturl" data-url="aHR0cHM6Ly93d3cuYWxpeXVuLmNvbS9wcm9kdWN0Li9vc3M=">阿里云OSS</span></h3><p><strong>特点</strong></p>
+<ul>
+<li>支持丰富的图片处理<span class="exturl" data-url="aHR0cHM6Ly9oZWxwLmFsaXl1bi5jb20vZG9jdW1lbnQuX2RldGFpbC80NDY4Ni5odG1s">https://help.aliyun.com/document._detail/44686.html</span></li>
+<li>egg.js有对应的插件：<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2VnZ2pzL2VnZy1vc3M=">https://github.com/eggjs/egg-oss</span></li>
+</ul>
+<p><strong>价格</strong></p>
+<ul>
+<li>下行流量100GB一年352元<span class="exturl" data-url="aHR0cHM6Ly9jb21tb24tYnV5LmFsaXl1bi5jb20vP3NwbT01MTc2Ljc5MzM2OTEuSl81MjUzNzg1MTYwLjEuMmUzOTRjNTlxM0ZJc0EmY29tbW9kaXR5Q29kZT1vc3NiYWcjL2J1eQ==">https://common-buy.aliyun.com/?spm=5176.7933691.J_5253785160.1.2e394c59q3FIsA&amp;commodityCode=ossbag#/buy</span></li>
+<li>基本图片处理：每月0-10TB:免费&gt;10TB:0.025元&#x2F;GB</li>
+</ul>
+<h3 id="七牛云KODO"><a href="#七牛云KODO" class="headerlink" title="七牛云KODO"></a><span class="exturl" data-url="aHR0cHM6Ly93d3cucWluaXUuY29tL3ByaWNlcy9rb2Rv">七牛云KODO</span></h3><p><strong>特点：</strong></p>
+<ul>
+<li>多媒体处理功能非常丰富<span class="exturl" data-url="aHR0cHM6Ly93d3cuZ2luaXUuY29tL3Byb2R1Y3RzL2RvcmE=">https://www.giniu.com/products/dora</span></li>
+<li>图片视频处理</li>
+<li>审核</li>
+<li>人工智能分析</li>
+</ul>
+<p><strong>价格：</strong></p>
+<ul>
+<li>外网流出100GB-年278.4元<span class="exturl" data-url="aHR0cHM6Ly9xbWFsbC5xaW5pdS5jb20vdGVtcGxhdGUuL01URXk/c3BlY19jb21ibz1NekUwTlE=">https://qmall.qiniu.com/template./MTEy?spec_combo=MzE0NQ</span></li>
+<li>基本图片处理：每月0-20TB:免费20TB以上：0.025元&#x2F;GB https:&#x2F;<span class="exturl" data-url="aHR0cDovL3d3dy5xaW5pdS5jb20vcHJpY2VzL2RvcmE=">www.qiniu.com/prices/dora</span></li>
+</ul>
+<h3 id="腾讯云COS"><a href="#腾讯云COS" class="headerlink" title="腾讯云COS"></a><span class="exturl" data-url="aHR0cHM6Ly9jbG91ZC50ZW5jZW50LmNvbS9kb2N1bWVudC9wcm9kdWN0LzQzNg==">腾讯云COS</span></h3><p><strong>特点：</strong></p>
+<p>图像处理有一些新的亮点，比如自研的TPG压缩等</p>
+<p><strong>价格：</strong></p>
+<ul>
+<li>外网流出100GB一年396元<span class="exturl" data-url="aHR0cHM6Ly9idXkuY2xvdWQudGVuY2VudC4uY29tL3ByaWNlL2NvcyN0YWIwLWxpc3Qx">https://buy.cloud.tencent..com/price/cos#tab0-list1</span></li>
+<li>基本图片处理：每月0-20TB:免费20TB以上：0.025元&#x2F;GB</li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9jbG91ZC50ZW5jZW50LmNvbS9kb2N1bWVudC9wcm9kdWN0LzEyNDYvNDUyNzQ=">https://cloud.tencent.com/document/product/1246/45274</span></li>
+<li>图片压缩：1元&#x2F;千次</li>
+</ul>
+<h1 id="SSR服务端渲染"><a href="#SSR服务端渲染" class="headerlink" title="SSR服务端渲染"></a>SSR服务端渲染</h1><h3 id="介绍-1"><a href="#介绍-1" class="headerlink" title="介绍"></a>介绍</h3><p><strong>SSR-Server Side Rendering</strong></p>
+<p>Vue关于SSR的介绍：https:&#x2F;sSr.uejs.org&#x2F;zh</p>
+<p><strong>SSR的优点</strong></p>
+<ul>
+<li>更好的SEO</li>
+<li>更快的渲染时间(Time to content)，</li>
+</ul>
+<p><strong>SSR的缺点</strong></p>
+<ul>
+<li><p>开发的限制，浏览器相关的操作只能在特定的钩子函数中使用</p>
+</li>
+<li><p>SPA应用完全静态化，而SSR app需要Node.js Server才能运行</p>
+</li>
+<li><p>服务端负荷更高</p>
+</li>
+</ul>
+<p><strong>SSR的实现：</strong></p>
+<ul>
+<li><p>基本原理：@vue&#x2F;server-renderer https:lv3.uejs.org&#x2F;guide&#x2F;ssr&#x2F;getting-started.html#installation</p>
+</li>
+<li><p>使用createSSRApp,renderToString以及renderToStream方法</p>
+</li>
+</ul>
+<p><strong>成熟的，大而全的SSR通用开发框架：</strong></p>
+<ul>
+<li>Nuxt.js <span class="exturl" data-url="aHR0cHM6Ly9udXh0anMub3JnLw==">https://nuxtjs.org/</span>  （Vue）</li>
+<li>React类似的Next.js https:&#x2F;nextjs.orgl （React）</li>
+</ul>
+<h3 id="SSR"><a href="#SSR" class="headerlink" title="SSR"></a>SSR</h3><p>express等框架的res.render方法可以渲染html模板，使用的是nunjucks库进行数据填充。</p>
+<p>index.html</p>
+<pre><code class="html">&lt;!DOCTYPE html&gt;
+&lt;html class=&quot;no-js&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;description&quot; content=&quot;&#123;&#123; desc &#125;&#125;&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;title&gt;Document&lt;/title&gt;
+&lt;/head&gt;
+&lt;body style=&quot;&#123;&#123; bodyStyle &#125;&#125;&quot;&gt;  //根据传入的props动态添加style样式
+    &#123;&#123; html | safe &#125;&#125;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p>index.js  (依据express框架为例：)</p>
+<pre><code>//...res是响应参数
+res.render(&#39;index&#39;,function(err,html)&#123;
+    res.send(html);
+&#125;)
+</code></pre>
+<h3 id="vue中SSR"><a href="#vue中SSR" class="headerlink" title="vue中SSR"></a>vue中SSR</h3><p>1、vue3有包：@vue&#x2F;server-renderer，在3.2.13版本以上内置了，低于此版本需要自行安装。</p>
+<p>2、使用：</p>
+<pre><code class="js">//.......... res是服务端返回
+import &#123; pipeline &#125; from &#39;stream/promises&#39;;
+import &#123; createSSRApp &#125; from &#39;vue&#39;;
+import &#123; renderToString , renderToNodeStream &#125; from &#39;@vue/server-renderer&#39;
+const vueApp = createSSRApp(&#123;
+    data:()=&gt;&#123; msg:&#39;hello world&#39; &#125;,
+    template: &#39;&lt;h1&gt;&#123;&#123; msg &#125;&#125;&lt;/h1&gt;&#39;
+&#125;)
+const appContent = await renderToString(vueApp);
+res.type = &#39;text/html&#39;;
+res.body = appContent;
+// 或者使用流式输出：
+const stream = renderToNodeStream(vueApp);
+res.statys = 200;
+await pipeline(stream,res);
+</code></pre>
+<h1 id="RBAC权限验证"><a href="#RBAC权限验证" class="headerlink" title="RBAC权限验证"></a>RBAC权限验证</h1><h3 id="介绍-2"><a href="#介绍-2" class="headerlink" title="介绍"></a>介绍</h3><p><strong>权限验证的场景以及需求：</strong></p>
+<ul>
+<li>特定的角色的用户才能操作特定的资源</li>
+<li>不同的用户能操作同类资源的特定实体</li>
+<li>不同的用户操作特定资源的不同属性</li>
+</ul>
+<p><strong>谁(User)拥有什么权限(Authority）去操作(Operation)哪些资源(Resource)</strong><br>根据角色完成权限的控制-RBAC(role based access control)，其实就是在原本用户——-权限的对应关系之上加一层中间层角色：用户——角色—–权限。好处是使得用户和权限的对应关系更加清晰和易于掌控。</p>
+<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><p>Node.js实现RBAC的库：</p>
+<ul>
+<li><p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL29udXJ5L2FjY2Vzc2NvbnRyb2w=">AccessControl.js（不推荐，不维护了）</span></p>
+<ul>
+<li>1.6k Star</li>
+<li>3年没有更新，很多issue没人处理</li>
+<li>不支持ts</li>
+</ul>
+</li>
+<li><p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2Nhc2Jpbi9ub2RlLWNhc2Jpbg==">Casbin</span></p>
+<ul>
+<li>1.7k Star</li>
+<li>ts编写，支持多种编程语言</li>
+<li>概念比较复杂，使用略繁琐</li>
+</ul>
+</li>
+<li><p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3N0YWxuaXkvY2FzbA==">Casl</span></p>
+<ul>
+<li><p>3.4k Star</p>
+</li>
+<li><p>ts编写</p>
+</li>
+<li><p>简单易用，可读性良好</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="Casl使用"><a href="#Casl使用" class="headerlink" title="Casl使用"></a><strong>Casl使用</strong></h3><pre><code class="js">import &#123; AbilityBuilder , Ability &#125; from &#39;@casl/ability&#39;;
+class Work &#123;
+    constructor(attrs)&#123;
+        Object.assign(this,attrs);
+    &#125;
+&#125;
+const templateWork = new Work(&#123; id : 1 , isTemplate : true &#125;);
+const notWork = new Work(&#123; id : 2 , isTemplate : false &#125;);
+function defineRules()&#123;
+    const &#123; can , cannot ,build &#125; = new AbilityBuilder(Ability);
+    can(&#39;read&#39;,&#39;Work&#39;);
+    cannot(&#39;delete&#39;,&#39;Work&#39;);
+    can(&#39;update&#39;,&#39;Work&#39;,&#123;isTemplate:false&#125;);
+    return build();
+&#125;
+console.log(templateWork.constructor.name)
+const rules defineRules()
+console.log(rules.can(&#39;read&#39;,&#39;Work&#39;))
+console.log(rules.can(&#39;delete&#39;,&#39;Work&#39;))
+console.log(rules.can(&#39;update&#39;,templateWork))
+console.log(rules.can(&#39;update&#39;,notWork))
+</code></pre>
+<h1 id="部署-1"><a href="#部署-1" class="headerlink" title="部署"></a>部署</h1><h3 id="传统模式"><a href="#传统模式" class="headerlink" title="传统模式"></a>传统模式</h3><p><strong>本地开发</strong><br>使用egg-bin https:github.com&#x2F;eggjs&#x2F;egg-bin,提供了便捷的方式在本地进行开发、调试、单元测试，它可以自动的监控文件的修改，然后重新运行对应的命令。<br>采用的配置文件是：config.default.ts<br>启动开发环境命令为<code>egg-bin dev</code><br><strong>生产环境运行程序</strong><br><span class="exturl" data-url="aHR0cHM6Ly9wbTIua2V5bWV0cmljcy5pby8=">pm2-process manager</span></p>
+<p><code>node script.js pm2 start script.js</code></p>
+<p><strong>PM2的优势：</strong></p>
+<ul>
+<li>cluster模式运行</li>
+<li>自动重启auto reload</li>
+<li>热替换hot reload</li>
+<li>性能监控Monitoring</li>
+</ul>
+<p><strong>egg.js中有对应于PM2的内置方法：</strong></p>
+<ul>
+<li><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2VnZ2pzL2VnZy1zY3JpcHRz">egg-scripts</span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2VnZ2pzL2VnZy1jbHVzdGVy">egg-cluster</span></li>
+</ul>
+<p><strong>egg.js生产环境启动和关闭</strong><br><code>egg-scripts start egg-scripts stop</code></p>
+<p><strong>配置文件</strong><br>config.prod.ts config.default.ts<br><strong>编译过程</strong><br>需要手动将ts转换为js,借助<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3doeGF4ZXMvZWdnLXRzLWhlbHBlcg==">ets</span><br><code>特别注意将项目中的typscript版本升级到4.4.3 </code></p>
+<p><code>npm run tsc</code></p>
+<h2 id="Cluster模型"><a href="#Cluster模型" class="headerlink" title="Cluster模型"></a>Cluster模型</h2><p><strong>Egg.js Cluster模型的原理</strong><br>Egg.js关于这部分内容的文档：https:l&#x2F;eggjs.org&#x2F;zh-cn&#x2F;core&#x2F;cluster-and-ipc.html<br><strong>为什么要采用Cluster模式</strong><br>JavaScript代码是运行在单线程上的，那么如果用Node.js来做Web Server,就无法享受到多核运算的好处。<br><strong>什么是Cluster模式</strong><br>文档：http:l&#x2F;nodejs.cn&#x2F;api&#x2F;cluster.html</p>
+<p>Node.jS的单个实例在单个线程中运行。为了利用多核系统，用户有时会想<br>要启动Node.js进程的集群来处理负载。</p>
+<ul>
+<li>在服务器上同时启动多个进程</li>
+<li>每个进程里都跑的是同一份源代码（将一个进程的工作分给多个进程去做）</li>
+<li>这些进程可以同时监听一个端口</li>
+</ul>
+<p><strong>Cluster的运行模式：</strong></p>
+<p>Request————-master_process主进程———————workers进程（多个）</p>
+<p><strong>进程间通信（IPC）：</strong></p>
+<p><span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kvJUU4JUExJThDJUU3JUE4JThCJUU5JTk2JTkzJUU5JTgwJTlBJUU4JUE4JThB">IPC Inter-Process Communication</span></p>
+<p>IPC指的是至少两个进程或线程间传送数据或信号的一些技术或者方法，Node.js将其封装为基于事件的形式便于使用。</p>
+<p><strong>Cluster使用：</strong></p>
+<pre><code class="js">import http from &#39;http&#39;;
+import cluster from &#39;cluster&#39;;
+import &#123; cpus &#125; from &#39;os&#39;;
+import process from &#39;process&#39;;
+if(cluster.isPrimary)&#123;
+    console.log(`master $&#123;process.pid&#125; running`);
+    const cpuLength = cpus().length;
+    for(let i = 0 ; i &lt; cpuLength ; i++)&#123;
+        cluster.fork();
+    &#125;
+    cluster.on(&#39;exit&#39;,(worker)=&gt;&#123;
+        console.log(`worker $&#123;worker.process.pid&#125; exited`);
+    &#125;)
+&#125;else&#123;
+    http.createServer((req,res)=&gt;&#123;
+        res.writeHead(200);
+        res.end(&quot;hello world&quot;);
+    &#125;).listen(8000);
+    console.log(`worker $&#123;process.pid&#125; started`);
+    console.log(cluster.workers); //获得子进程，可以通过process.send和on(&#39;message&#39;)事件进行进程间通信。
+&#125;
+</code></pre>
+<p><strong>egg.js中对于Cluster的二次封装：</strong></p>
+<ul>
+<li>使用egg-scripts启动master process</li>
+<li>使用egg-cluster启动和CPU核数相等的app_worker process</li>
+<li>使用egg-cluster启动的一个独特的agent_.worker process</li>
+</ul>
+<p><strong>进程守护</strong><br>考虑到生产环境的健壮性，必须保证进程异常的情况下怎样处理。<br><strong>当代码抛出异常并没有被捕获的时候，worker使用process.on(‘uncaughtException’,handler)来捕获对应的错误，这时进程处于不确定的状态，需要优雅退出。</strong></p>
+<p><strong>系统异常</strong><br>而当一个进程出现异常导致crash或者被系统杀死时，不像未捕获异常发生时我们还有机会让进程继续执行，Master立刻fork一个新的Worker。<br><strong>Agent机制</strong><br>有一些特殊性质的工作，不能多个worker一起合作，容易造成混乱。对于这种工作egg.js提供了一个新的agent进程来完成。</p>
+<p><strong>Egg.js三种进程的总结：</strong></p>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>进程数量</th>
+<th>作用</th>
+<th>稳定性</th>
+<th>是否运行业务代码</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Master进程</td>
+<td>1</td>
+<td>进程管理，进程间消息转发</td>
+<td>非常高</td>
+<td>否</td>
+</tr>
+<tr>
+<td>Agent进程</td>
+<td>1</td>
+<td>后台运行工作</td>
+<td>高</td>
+<td>少量</td>
+</tr>
+<tr>
+<td>Workers进程</td>
+<td>CPU核数</td>
+<td>执行业务代码</td>
+<td>一般</td>
+<td>是</td>
+</tr>
+</tbody></table>
+<p><strong>Cluster模型和Node多进程的区别：</strong></p>
+<ul>
+<li>Cluster模块可以将一个node进程分裂成多个子进程，每个子进程独立运行在cpu内核上，以提升应用程序的并发能力和性能，通过主进程和子进程之间的通信来实现负载均衡，处理并发请求。</li>
+<li>node多进程使用child_process模块，其不具备负载均衡和通信机制，需要自行实现进程间通信和负载均衡逻辑。可用于处理长时操作，返回结果给主进程。</li>
+</ul>
+<p><strong>Node.js压力测试工具：</strong></p>
+<p>模拟高并发场景：<span class="exturl" data-url="aHR0cHM6Ly93d3cubnBtanMuY29tL3BhY2thZ2UvbG9hZHRlc3Q=">Loadtest</span></p>
+<pre><code class="bash"># n                   总过发送多少个请求
+# c concurrency       同时有几个客户端在发送请求
+# rps request per seconds   每秒发送多少个请求
+loadtest -n 400 -c 10 --rps 200 http://mysite.com/ 
+</code></pre>
+<h1 id="云服务器"><a href="#云服务器" class="headerlink" title="云服务器"></a>云服务器</h1><h4 id="购买"><a href="#购买" class="headerlink" title="购买"></a>购买</h4><p><span class="exturl" data-url="aHR0cHM6Ly93d3cuYWxpeXVuLmNvbS9wcm9kdWN0L2Vjcw==">阿里云ECS</span></p>
+<p><span class="exturl" data-url="aHR0cHM6Ly9jbG91ZC50ZW5jZW50LmNvbS9wcm9kdWN0L2N2bQ==">腾讯云CVM</span></p>
+<p>价格（学生优惠）：<span class="exturl" data-url="aHR0cHM6Ly9jbG91ZC50ZW5jZW50LmNvbS9hY3QvY2FtcHVzP2Zyb209MTQ1OTk=">https://cloud.tencent.com/act/campus?from=14599</span> 12G 38</p>
+<p><span class="exturl" data-url="aHR0cHM6Ly93d3cuaHVhd2VpY2xvdWQuY29tL3Byb2R1Y3QvZWNzLmh0bWw=">华为云ECS</span></p>
+<h4 id="登录"><a href="#登录" class="headerlink" title="登录"></a>登录</h4><p><strong>为什么使用root登录时一个不好的实践</strong></p>
+<ul>
+<li>有非常多的bot会尝试使用root+pwd的ssh方式暴力登录机器，当尝试成功以后，黑客就会控制整个系统。</li>
+<li><em>假如使用特定用户名+pwd,bot需要先猜测用户名(N次)，然后是密码(M次)，这样复杂度提升到N</em>M</li>
+<li>root可以造成更大的危害，影响整个系统，而某个特定用户只能影响它的文件系统</li>
+</ul>
+<p><strong>创建一个用户账号进行登录</strong></p>
+<pre><code class="bash"># 远程登录
+ssh root@xxx.xx.xx.xx
+# 添加用户以及设置密码
+adduser dmq
+</code></pre>
+<p><strong>设置该用户拥有sudo权限，给予它在登录以后切换到root的能力</strong></p>
+<pre><code class="bash"># 修改权限，u表示所有者，w表示写权限+表示添加
+chmod u+w /etc/sudoers
+# 编辑文件
+vim /etc/sudoers
+# 找到  `root ALL=(ALL)  ALL`
+# 再加一行  `dmq ALL=(ALL)  ALL`
+</code></pre>
+<p><strong>使用新用户登录并且测试权限</strong></p>
+<pre><code class="bash">ssh dmq@xxx.xx.xx.xx
+# 可以使用 su 直接切换为root用户
+# 也可以使用sudo快捷的使用root权限进行操作
+</code></pre>
+<p><strong>禁止使用root远程登录ssh</strong></p>
+<pre><code class="bash"># 修改ssh配置
+vim /etc/ssh/sshd_config I
+# 修改yes为no
+PermitRootLogin no
+# 重启sshd服务
+service sshd restart
+</code></pre>
+<p><strong>可选：不使用密码登录</strong><br>为什么使用密码登录有时候是一个不好的实践？<br><strong>非常简单：用户经常使用非常错误（简单的）用户密码，全球最常用的密码是123456以及bc123,而且用户会在多个账户大量重复使用，所以黑客从别的地方盗取的密码很可能在其他账户也可以使用</strong></p>
+<p><strong>使用SSH kev讲行登录</strong><br>SSH key采角了经典的非对称加密技术，可以使用工具创建一个公钥和私钥，你可以将公钥放置在任何的服务器当中，在本地保留私钥。在ssh登录的时候，SSH验证公钥和私钥的合法性，当合法的时候，就可以免密码登录了。证书由1024Bits到4096Bits（128到512字符)的随机字符组成，<br>要比你自己的密码安全的多。</p>
+<pre><code class="bash">#创建ssh key pair
+ssh-keygen -t rsa -b 4096 -C &quot;your email@example.com&quot;
+windows可以使用putty或者git scma软件生成，备注网址：
+https://www.jianshu.com/p/95262f5eba7a
+# 本地ssh证书的位置
+-/.ssh/id rsa
+-/.ssh/id rsa.pub
+# 登录远程机器
+ssh viking@xxx.xx.xx.xx
+# 创建受信任的登录密钥
+# 这个文件当中的公钥会被当前的主机设置为信任方
+touch -/.ssh/authorized keys
+# 将id rsa.pub的文本内容黏贴进来
+</code></pre>
+<p><strong>可选，关闭密码登录服务器的功能</strong></p>
+<pre><code class="bash#修改ssh配置">vim /etc/ssh/sshd config
+#修改为no
+PasswordAuthentication no
+#重启服务
+service sshd i restart
+</code></pre>
+<h4 id="使用-1"><a href="#使用-1" class="headerlink" title="使用"></a>使用</h4><p><strong>准备云服务器必备软件</strong></p>
+<ul>
+<li>nodejs (16)</li>
+<li>MongoDB</li>
+<li>Redis</li>
+<li>Git</li>
+</ul>
+<p><strong>Linux发行版的两大家族</strong></p>
+<ul>
+<li>Debian(完全免费的Linux发行版)-Ubuntu(基于Debian,更加容易上手)-apt包管理系统-软件格式为deb包大</li>
+<li>Red Hat(商用Linux发行版)-CentOS(Red Hat减去收费软件)-yum包管理系统-软件格式为rpm</li>
+</ul>
+<p><strong>软件安装</strong><br><strong>安装Node.js</strong><br>1安装nvm管理node版本<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL252bS1zaC9udm0=">https://github.com/nvm-sh/nvm</span><br>2使用包管理器安装node最新版本<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL25vZGVzb3VyY2UvZGlzdHJpYnV0aW9ucy9ibG9iL21hc3Rlci9SRUFETUUubWQjZGVi">https://github.com/nodesource/distributions/blob/master/README.md#deb</span></p>
+<p><strong>安装MongoDB</strong><br>1从源代码下载安装，回顾之前的内容<br>2使用包管理器安装<br>Ubuntu:<span class="exturl" data-url="aHR0cHM6Ly9kb2NzLm1vbmdvZGIuY29tL21hbnVhbC90dXRvcmlhbC9pbnN0YWxsLW1vbmdvZGItb24tdWJ1bnR1Lw==">https://docs.mongodb.com/manual/tutorial/install-mongodb-on-ubuntu/</span><br>Centos:<span class="exturl" data-url="aHR0cHM6Ly9kb2NzLm1vbmdvZGIuY29tL21hbnVhbC90dXRvcmlhbC9pbnN0YWxsLW1vbmdvZGItb24tcmVkLWhhdC8=">https://docs.mongodb.com/manual/tutorial/install-mongodb-on-red-hat/</span></p>
+<p><strong>安装Redis</strong><br>*1从源代码下载安装，回顾之前的基础知识<br>*2使用包管理器安装<br>CentOS:<span class="exturl" data-url="aHR0cHM6Ly93d3cuZGlnaXRhbG9jZWFuLmNvbS9jb21tdW5pdHkvdHV0b3JpYWxzL2hvdy10by1pbnN0YWxsLXNlY3VyZS1yZWRpcy1jZW50b3MtNw==">https://www.digitalocean.com/community/tutorials/how-to-install-secure-redis-centos-7</span><br>Ubuntu:<span class="exturl" data-url="aHR0cHM6Ly93d3cuZGlnaXRhbG9jZWFuLmNvbS9jb21tdW5pdHkvdHV0b3JpYWxzL2hvdy10by1pbnN0YWxsLWFuZC1zZWN1cmUtcmVkaXMtb24tdWJ1bnR1LTE4LTA0">https://www.digitalocean.com/community/tutorials/how-to-install-and-secure-redis-on-ubuntu-18-04</span></p>
+<h4 id="管理"><a href="#管理" class="headerlink" title="管理"></a>管理</h4><p><strong>使用service或者systemctl管理服务</strong></p>
+<pre><code class="bash"># systemd 模块 - https://en.wikipedia.org/wiki/Systemd
+service  服务名称(mongod)  操作指令(status/start/stop/restart)
+systemctl  操作指令(start/stop/status/restart/reload)  服务名称service
+</code></pre>
+<h1 id="普通部署"><a href="#普通部署" class="headerlink" title="普通部署"></a>普通部署</h1><p><strong>在服务器上部署并运行</strong></p>
+<ul>
+<li><p>1登录远程机器，使用普通用户。</p>
+</li>
+<li><p>2在自己的目录下面，clone代码</p>
+</li>
+<li><p>3安装对应的依赖</p>
+<ul>
+<li><p>可以使用sharp淘宝mirror来安装比较大的二进制文件。</p>
+</li>
+<li><p><span class="exturl" data-url="aHR0cHM6Ly9zaGFycC5waXhlbHBsdW1iaW5nLmNvbS9pbnN0YWxsI2NoaW5lc2UtbWlycm9y">https://sharp.pixelplumbing.com/install#chinese-mirror</span></p>
+</li>
+</ul>
+</li>
+<li><p>4创建并且设置.env文件</p>
+</li>
+<li><p>5开启云服务对应的端口(7001)访问。</p>
+<ul>
+<li><p>阿里云：左侧导航“本实例安全组”，“配置规则”，“手动添加”端口</p>
+</li>
+<li><p>其他云平台请自行查看。</p>
+</li>
+</ul>
+</li>
+<li><p>6启动服务器</p>
+<ul>
+<li><p>确认mongo,redis在运行状态</p>
+</li>
+<li><p>npm run tsc</p>
+</li>
+<li><p>npm run start</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>于此可以完成基本的项目部署，但是这种部署方式启动和更新时过于复杂，存在如下问题：</p>
+<p>三个问题</p>
+<ul>
+<li>前置软件的安装，它们在不同操作系统中安装的方式，启动的脚本，预设初始的方式有可能都不相同，这就给我们造成一个很大的困扰，假如你在多台机器上部署的话，可能会遇到各种各样的问题。</li>
+<li>项目需要运行一系列对应的命令才能启动</li>
+<li>项目更新的问题，需要一系列手动的步骤，这是一个非常繁琐，而且容易出错的步骤。有没有更方便的方式可以完成这个过程呢？<ul>
+<li>完成对应的pu川代码，更新依赖，启动应用的过程</li>
+<li>是在特定的提交自动触发这个过程</li>
+</ul>
+</li>
+</ul>
+<p>想要更加方便的进行部署可以使用如下工具：</p>
+<h2 id="Docker"><a href="#Docker" class="headerlink" title="Docker"></a><span class="exturl" data-url="aHR0cHM6Ly93d3cuZG9ja2VyLmNvbS9wcm9kdWN0cy9kb2NrZXItZGVza3RvcA==">Docker</span></h2><h3 id="介绍-3"><a href="#介绍-3" class="headerlink" title="介绍"></a>介绍</h3><p><strong>问题</strong><br>我们希望有一个工具可以帮我们一键智能部署，假如你要部署在多台不同的机器上，可以不用在担心不同系统，不同版本的差异，以及运行之前需要安装不同软件的痛苦。<br><strong>解决</strong><br>当红的虚拟化软件：<span class="exturl" data-url="aHR0cHM6Ly93d3cuZG9ja2VyLmNvbWwv">Docker</span><br>Docker的进化</p>
+<p><img data-src="/images/Snipaste_2024-04-26_20-27-53.jpg" alt="Docker的进化"></p>
+<ul>
+<li>传统虚拟机，虚拟硬件以后，需要在上面安装一个完整的操作系统。</li>
+<li>Docker:推出了容器的概念，每个容器不需要安装完成的操作系统，里面的进程直接运行在Docker创造的宿主内核中，不需要虚拟硬件。</li>
+</ul>
+<p><strong>Docker的优点</strong></p>
+<ul>
+<li>更快速的启动速度</li>
+<li>更少的资源占用</li>
+<li>一致的运行环境，使用户不关注操作系统而只关心应用程序。</li>
+<li>微服务架构，docker天生适配微服务架构（Docker 有助于将一个复杂系统分解成一系列可组合的部分，这让用户可以用更离散的方式来思考其服务。用户可以在不影响全局的前提下重组软件，使其各部分更易于管理和可插拔。）</li>
+<li>用户可以更准确地控制构建环境的状态，Docker 构建比传统软件构建方法更具有可重现性和可复制性。使持续交付的实现变得更容易。</li>
+</ul>
+<h3 id="Docker-images"><a href="#Docker-images" class="headerlink" title="Docker  images"></a><strong>Docker  images</strong></h3><p>可以在https:&#x2F;hub.docker.com&#x2F;search?g&#x3D;&amp;type&#x3D;image中获取各种官方的镜像，并且可以上传你自己的自定义镜像<br>Docker镜像仓库获取镜像的命令是docker pull</p>
+<pre><code class="bash"># 下载镜像
+docker pull &lt;image-name&gt;:&lt;tag&gt;
+# 查看以及下载的镜像
+docker images
+# 删除镜像
+docker rmi &lt;image-id&gt;
+# 上传
+docker push &lt;username&gt;/&lt;repository&gt;:&lt;tag&gt;
+</code></pre>
+<p><strong>使用镜像代理：</strong></p>
+<pre><code class="json">&quot;registry-mirrors&quot;: [
+    &quot;https://docker.mirrors.ustc.edu.cn/&quot;,
+    &quot;https://reg-mirror.qiniu.com&quot;
+]
+</code></pre>
+<h3 id="Docker-Container"><a href="#Docker-Container" class="headerlink" title="Docker Container"></a><strong>Docker Container</strong></h3><p><strong>启动Docker容器</strong></p>
+<pre><code class="bash">docker run -d -p 主机端口:镜像端口 --name 容器名称 镜像名称
+# 例如：（--name 容器名称省略）
+docker run -d -p 81:80 nginx
+# -d  后台运行
+# -p  端口映射，81为主机的端口，80为镜像端口
+# --name 自定义容器名称
+# 镜像名称，假如本地没有，会自动pull一次镜像进行下载。
+</code></pre>
+<p><strong>其他命令</strong></p>
+<pre><code class="bash"># 查看所有容器
+docker  ps
+# 停止容器
+docker stop container-id
+# 删除容器
+docker rm container-id
+# 启动已终止容器
+docker container start container-id
+</code></pre>
+<p><strong>进入容器内部</strong></p>
+<pre><code class="bash">docker exec -it &lt;container-id&gt; command
+-i : 即使没有附加也保持STDIN 打开
+-t : 分配一个伪终端
+</code></pre>
+<h3 id="持久化容器数据"><a href="#持久化容器数据" class="headerlink" title="持久化容器数据"></a><strong>持久化容器数据</strong></h3><p>使用-v参数，可以设定一个数据的映射关系，将本地的文件映射到容器中对应的文件中去。</p>
+<pre><code class="bash">docker run -d -p 81:80 -v host:container image-name
+#例如：将本地数据卷映射到容器中
+docker run -d -v /data/db:/data/db mongo
+</code></pre>
+<p><strong>创建对应的数据卷volumn</strong></p>
+<pre><code class="bash"># 创建数据卷
+docker volume create &lt;volumn-name&gt;
+#例如：docker volume create mongo
+# 使用volumn数据卷
+docker run -d -v &lt;volumn-name&gt;:/data/db mongo
+# 例如：docker run -d -v mongo:/data/db mongo
+# 检查数据卷
+docker volume inspect &lt;volumn-name&gt;
+# 删除数据卷
+docker volume remove mongo
+</code></pre>
+<h3 id="Dockerfile自定义镜像"><a href="#Dockerfile自定义镜像" class="headerlink" title="Dockerfile自定义镜像"></a>Dockerfile自定义镜像</h3><p>Docker image中的镜像虽然非常多，但是不能完全符合自己项目的全部需求，可以自定义构建一个自己的镜像。</p>
+<p>Dockerfile是一个特殊的文本文件，其中包括一系列指令，用于构建对应的镜像。</p>
+<p><strong><span class="exturl" data-url="aHR0cHM6Ly9kb2NzLmRvY2tlci5jb20vZW5naW5lL3JlZmVyZW5jZS9idWlsZGVyLyNmcm9t">指令</span></strong></p>
+<p> <strong>Dockerfile示例：</strong></p>
+<pre><code class="dockerfile"># 指定基础镜像，从node14开始构建
+FROM node:14
+
+# 创建对应的文件夹，作为项目运行的位置
+RUN mkdir -p /usr/src/app
+
+# 指定工作区，后面的运行任何命令都是在这个工作区中完成的
+WORKDIR /usr/sec/app
+
+# 从本地拷贝对应的文件 到 工作区
+COPY server.js /usr/src/app
+
+# 执行安装命令
+RUN npm install --registry=https://registry.npm.taobao.org
+RUN npm run tsc
+
+#告知当前Docker image暴露的是3000端☐
+EXPOSE 3000
+
+#执行启动命令，一个Dockerfile只能有一个
+CMD node server.js
+</code></pre>
+<p><strong>构建：</strong></p>
+<pre><code class="bash"># 这里特别注意上下文的概念，不要在根目录使用Dockerfi1e
+docker build [选项] &lt;上下文路径/URL/-&gt;
+# 例如：(在项目文件夹中运行)
+docker build -t test-node .
+</code></pre>
+<p><strong>.dockerignore文件用于忽略docker中需要打包进镜像的文件</strong></p>
+<p><strong>.dockerignore示例：</strong></p>
+<pre><code class="dockerfile"># Microbundle cache
+.rpt2_cache/
+.rts2_cache_cjs/
+.rts2_cache_es/
+.rts2_cache_umd/
+# Optional REPL history
+.node_repl_history
+# Output of &#39;npm pack&#39;
+*.tgz
+# Yarn Integrity file
+.yarn-integrity
+</code></pre>
+<p> <strong>多个容器相互通信：</strong></p>
+<p>要点：Docker中每一个container应该只完成一个工作，并且将它做好。</p>
+<p><strong>优点：</strong></p>
+<ul>
+<li>解耦，这样不同的服务和后端代砀都可以完全分离开来，方便管理以及未来的扩展。</li>
+<li>服务的更新以及升级都是完全独立的。</li>
+<li>在一个container中，启动多个不同的进程，需要一个进程管理器</li>
+</ul>
+<p><strong>通信过程：</strong></p>
+<p>docker容器之间不能直接进行访问，而是应该通过docker网络进行访问。</p>
+<pre><code class="bash"># 创建docker网络
+docker network create test
+# 在创建的docker网络中启动服务
+docker run -d --network test --name mongo -p 27017:27017 mongo
+# 将原来项目中的的ip地址替换为docker的name名称
+# 例如原来为：mongodb://localhost:27017/api  的地址要替换为： mongodb://mongo:27017/api
+# 只有在同一个docker网络中启动的项目间才能进行访问。
+docker run -d --network test --name use -p 80:3000 use
+</code></pre>
+<p>如果每个容器都要这样操作一遍就会显得非常麻烦，这时就需要使用Docer compose工具（配置docker-compose.yml文件）</p>
+<p>Docker compose工具</p>
+<p>Docker compose是Docker官方推出的工具，用来管理和共享多个容器的应用，Mac系统和Windows系统安装客户端时自带。<span class="exturl" data-url="aHR0cHM6Ly9kb2NzLmRvY2tlci5jb20vY29tcG9zZS9pbnN0YWxsLw==">Linux需要单独安装</span>。</p>
+<pre><code class="bash">docker-compose version
+</code></pre>
+<p><strong>配置：</strong></p>
+<ul>
+<li>docker compose通过一个特殊的yml文件，进行配置，这个文件必须命名为<strong>docker-compose.yml</strong></li>
+<li>docker-compose所有的字段参考文档：<span class="exturl" data-url="aHR0cHM6Ly9kb2NzLmRvY2tlci5jb20vY29tcG9zZS9jb21wb3NlLWZpbGUvY29tcG9zZS1maWxlLXYzLw==">https://docs.docker.com/compose/compose-file/compose-file-v3/</span></li>
+</ul>
+<p><strong>docker-compose.yml文件配置示例：</strong></p>
+<pre><code class="yaml">version: &#39;3&#39; # docker指令版本
+services: # 要启动的服务
+  test-mongo: # 服务名称，这里的服务名称对应着容器通信时的前缀！
+    image: mongo # 使用的镜像名称
+    container_name: test-mongo # 容器名称
+    volumes:  # 使用的数据卷映射
+      - &#39;.docker-volumes/mongo/data:/data/db&#39;
+    ports:  # 端口映射
+      - 27017:27017
+    environment: # 设置环境变量
+      - MONGO_INITDB_ROOT_USERNAME=admin  # 内置的环境变量，可以初始化添加一个User
+      - MONGO_INITDB_ROOT_PASSWORD=pass
+    env_file: # 设置环境变量文件，将敏感信息放置到环境变量文件中
+      - .env
+  test-use: # 第二个项目，注意对齐关系
+    depends_on: # 配置所依赖的服务
+      - test-mongo
+    build: # 设置构建配置
+      context: . # 操作上下文为当前目录
+      dockerfile: Dockerfile # 基于Dockerfile进行构建
+    image: test-use-image
+    container_name: test-use
+    ports:
+      - 7001:7001
+</code></pre>
+<p><strong>启动以及关闭：</strong></p>
+<pre><code class="bash"># 启动
+docker-compose up -d
+# 关闭
+docker-compose down
+</code></pre>
+<h3 id="数据库配置"><a href="#数据库配置" class="headerlink" title="数据库配置"></a>数据库配置</h3><p><strong>数据库准备工作</strong></p>
+<ul>
+<li>数据库配置，初始化工作，比如插入一些特定的数据</li>
+<li>避免使用root用户去启动服务，从而提高安全性（配置数据库访问权限）</li>
+</ul>
+<p><strong>特殊的初始化数据库的位置：&#x2F;docker-entrypoint-initdb.d（这个文件夹中的脚本会在容器启动前自动执行）</strong></p>
+<ul>
+<li><p>可以创建js文件或者sh文件（shell）进行执行。</p>
+</li>
+<li><p>mongoDB：https:hub.docker,com&#x2F;_&#x2F;mongo</p>
+</li>
+<li><p>Postgres:<span class="exturl" data-url="aHR0cHM6Ly9odWIuZG9ja2VyLmNvbS9fbHBvc3RncmVz">https://hub.docker.com/_lpostgres</span></p>
+</li>
+<li><p>特别注意，只有在数据库没有被创建的情况下，也就是<strong>数据库的文件夹是空的情况下</strong>，脚本才会被执行。</p>
+</li>
+</ul>
+<p><strong>docker-compose.yml文件中配置env_file为当前文件夹下的.env文件。</strong></p>
+<p>可以使用js文件或者sh文件，但是由于此文件在其余文件之前运行，此时js文件中通过process.env获取不到所需要的环境变量，可以选用sh文件。</p>
+<p><strong>Shell中EOF&lt;&lt;的用法</strong><br>在Shell中我们通常将EOF与&lt;结合使用，表示，二债的输入作为子命令或子Shell的输入，直到遇到EOF为止，再返回到主调Shell。.</p>
+<pre><code class="shell">#!/bin/bash
+mongo &lt;&lt;EOF
+use admin
+db.auth(&#39;root&#39;,&#39;123456&#39;)
+use lego
+db.createUser(&#123;
+    user: &#39;$MONGO_DB_USERNAME&#39;,
+    pwd: &#39;$MONGO_DB_PASSWORD&#39;,
+    roles: [&#123;
+        role: &#39;readWrite&#39;,
+        db: &#39;lego&#39;
+    &#125;]
+&#125;)
+db.createCollection(&#39;works&#39;)
+db.works.insertMany([
+    &#123;
+          id:19,
+          title:&#39;测试标题&#39;,
+          name:&#39;张三&#39;
+    &#125;
+])
+EOF
+</code></pre>
+<h3 id="优化镜像大小"><a href="#优化镜像大小" class="headerlink" title="优化镜像大小"></a>优化镜像大小</h3><p> <strong>Docker镜像构建优化：使用alpine版本的镜像</strong></p>
+<p>优化镜像大小  ：   什么是Alpine Linux:https:l&#x2F;alpinelinux.orgl</p>
+<p><strong>Alpine的优点</strong></p>
+<ul>
+<li><p>Small小</p>
+<ul>
+<li><p>默认软件包，alpine选择busybox</p>
+</li>
+<li><p>C运行库，一般会用glibc,alpine选择musl</p>
+</li>
+</ul>
+</li>
+<li><p>最简依赖，Simple</p>
+<ul>
+<li><p>很多内置软件的插件都去掉。</p>
+</li>
+<li><p>国际化内容都被删除</p>
+</li>
+</ul>
+</li>
+<li><p>Secure安全</p>
+</li>
+</ul>
+<p><strong>使用alpine版本的镜像可以大大减小镜像的体积。</strong></p>
+<p><strong>DockerBuild构建提速</strong></p>
+<p>docker中运行命令是基于一层一层的，当修改文件之后，COPY后的缓存全部失效，这时就会重新执行后续命令，使用不了缓存，导致构建速度很慢。此时可以将原来COPY文件夹，改为COPY具体的文件（进行拆分），以更好地使用缓存。</p>
+<h3 id="部署-2"><a href="#部署-2" class="headerlink" title="部署"></a>部署</h3><p><strong>安装Docker（有的云服务可以自定义安装）</strong></p>
+<p>Ubuntu：（需要使用root账户进行安装）</p>
+<ul>
+<li><span class="exturl" data-url="aHR0cHM6Ly93d3cucnVub29iLi5jb20vZG9ja2VyL3VidW50dS1kb2NrZXItaW5zdGFsbC5odG1s">https://www.runoob..com/docker/ubuntu-docker-install.html</span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9kb2NzLmRvY2tlci5jb20vZW5naW5lL2luc3RhbGwvdWJ1bnR1Lw==">https://docs.docker.com/engine/install/ubuntu/</span></li>
+</ul>
+<p><strong>配置用户组</strong><br>因为是root安装，普通用户执行对应的命令的时候有可能会报错：<br><code>Can&#39;t connect to docker daemonGot permission denied while trying to connect to the Docker daemonsocket at unix:///var/run/docker.sock</code></p>
+<p><strong>需要将对应的用户添加到docker的用户组中。</strong></p>
+<pre><code class="bash">#usermod命令修改用户账户
+#a--append添加-G--groups
+组的名称
+sudo usermod-aG docker你的用户名
+#如果组不存在，添加对应的docker组
+sudo groupadd docker
+#查看一个用户所属的组
+groups
+</code></pre>
+<p><strong>添加下载镜像：</strong></p>
+<pre><code class="bash"># root
+vim /etc/docker/daemon.json
+&#123;
+&quot;registry-mirrors&quot;:
+&quot;https://docker.mirrors.ustc.edu.cn/&quot;,
+&quot;https://reg-mirror.qiniu.com&quot;
+]
+</code></pre>
+<p><strong>运行：</strong></p>
+<pre><code class="bash"># 拉最新的代码
+git pull
+# 先查看目前端口是否被占用
+# 如果被占用，释放端口
+# 或者改变docker-compose,yml的映射端口
+docker-compose up -d
+</code></pre>
+<h1 id="YAML语言"><a href="#YAML语言" class="headerlink" title="YAML语言"></a>YAML语言</h1><p>YAML<br>(YAML Ain’t a Markup Language)是一种标记语言，它使用空格作为缩进，看起来非常的简洁，可读性非常的好，非常适合一些内容大纲和配置文件。他最终是通过工具转化为JSON文件的，但是YAML的可读性比JSON强很多，因此复杂的配置文件一般使用YAML。</p>
+<p><strong>例如：</strong></p>
+<pre><code class="yaml"># 字符串不用加引号
+key: value
+number: 100
+boolean: true
+# 字符串不用加引号，但是加上也不会报错
+quote_string: &#39;quote String&#39;
+# 多行字符串使用 literal block语法：也就是竖线
+mutiple_string: |
+  line one
+  line two
+  line three
+# collection types 集合类型
+# 使用缩进表示层级关系，最好使用两个空格，不是两个空格也没关系，对齐就行
+person:
+  name: dmq
+  age: 18
+  address:
+    city: 上海
+
+# sequences 数组或者列表
+hobbies:
+  - Item 1
+  - Item 2
+  - name: weson
+    value: xyz
+    address:
+      city: 北京
+</code></pre>
+<h1 id="Github-Action"><a href="#Github-Action" class="headerlink" title="Github Action"></a>Github Action</h1><p>Github官方的CI&#x2F;CD工具，作为github的亲儿子，和github几乎是完美的无缝衔接的，功能非常强大。</p>
+<p>CI   CD常用工具：</p>
+<ul>
+<li>Github actions <span class="exturl" data-url="aHR0cHM6Ly9kb2NzLmdpdGh1Yi5jb20vZW4vYWN0aW9ucw==">https://docs.github.com/en/actions</span></li>
+<li>Travis <span class="exturl" data-url="aHR0cHM6Ly93d3cudHJhdmlzLWNpLmNvbS8=">https://www.travis-ci.com/</span></li>
+<li>CircleCl <span class="exturl" data-url="aHR0cHM6Ly9jaXJjbGVjaS5jb20v">https://circleci.com/</span></li>
+<li>Jenkins <span class="exturl" data-url="aHR0cHM6Ly93d3cuamVua2lucy5pby8=">https://www.jenkins.io/</span></li>
+<li>优势讨论：htps:&#x2F;<span class="exturl" data-url="aHR0cDovL3d3dy56aGlodS5jb20vcXVlc3Rpb24vMzA2MTk1MDMzL2Fuc3dlci8xODcwMzIyMTE4">www.zhihu.com/question/306195033/answer/1870322118</span></li>
+</ul>
+<p><img data-src="/images/Snipaste_2024-04-27_18-37-04.jpg" alt="/images/Snipaste_2024-04-16_12-54-33.jpg"></p>
+<p><strong>Workflow</strong><br><span class="exturl" data-url="aHR0cHM6Ly9kb2NzLmdpdGh1Yi5jb20vY24vYWN0aW9ucy9sZWFybi1naXRodWItYWN0aW9ucy91bmRlcnN0YW5kaW5nLWdpdGh1Yi1hY3Rpb25zI3dvcmtmbG93cw==">https://docs.github.com/cn/actions/learn-github-actions/understanding-github-actions#workflows</span><br>Workflow是一个可配置的自动化流程，可以包含多个jobs,通过一个在repo当中的yml文件来定义对应的流程，一个repo可以包含多个workflow。<br><strong>Events</strong><br>Event是触发workflow的特殊事件，比如pull request,push或者issue,也可以完全自定义，完整列表请看：https:&#x2F;docs.github.com&#x2F;cn&#x2F;actions&#x2F;learn-github-actions&#x2F;events-that-trigger-workflows</p>
+<p><strong>Jobs</strong></p>
+<p>Job是Workflow当中一系列的可执行步骤，每个Job是在同一个runner中进行的（(Runner是指处于github的一台特殊的虚拟机，支持各种操作系统)，每个步骤或者是一个shell脚本，抑或是一个可执行的action,每个步骤是按顺序执行，并且互相依赖的。</p>
+<p><img data-src="/Snipaste_2024-04-27_19-54-06.jpg" alt="/images/Snipaste_2024-04-16_12-54-33.jpg"></p>
+<p><strong>Actions</strong></p>
+<p>Action是github actions中的一个自定义应用，它可以运行一系列复杂的并且常用的任务，使用action可以帮我们减少在workflow中写重复代码，Github提供了非常多常用的action,可以在<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL21hcmtldHBsYWNlP3R5cGU9YWN0aW9ucw==">这里查阅</span>，同时我们也可以写自己的action。</p>
+<p><strong>github secrets</strong></p>
+<p>项目中有的私密信息不希望公开暴露，通常的做法是将私密信息写道env文件中，使用gitingore将其忽略掉，这里还有一个做法就是github secrets，在github官网设置github secret，然后在文件中直接书写变量。</p>
+<p><strong>例如：.github文件夹下workflow文件夹下创建一个yml文件，写入：</strong></p>
+<pre><code class="yaml">name: Github Actions Demo
+on: [push]
+jobs:
+  Check-Github-actions:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo &quot;triggered by a $&#123;&#123; github.event_name &#125;&#125; event&quot;
+      - run: echo &quot;running on a $&#123;&#123; runner.os &#125;&#125; server hosted by github&quot;
+      - name: check out repo code
+        uses: actions/checkout@v2 # 在工作流程中检出代码仓库的内容、确保工作流程始终使用一致的代码版本
+      - run: echo &quot;the $&#123;&#123; github.reopsitory &#125;&#125; has been cloned&quot;
+      - name: List files in the repo
+        run: |
+          ls $&#123;&#123; github.workspace &#125;&#125;
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        width:
+          repository: &#39;vikingmute/lego-bricks&#39;
+      - name: List files in the repo
+        run: |
+          ls $&#123;&#123; github.workspace &#125;&#125;
+      - uses: actions/setup-node@v2
+        with:
+          node-version: &#39;16&#39;
+      - run: node -v
+      - run: npm install -g typescript
+      - run: tsc -v
+  jobs:
+    SECRET-SSH-ACTIONS:
+      runs-on: ubuntu-latest
+      steps:
+      #使用ssh-action完成远程登陆：文档地址：https://github.com/appleboy/ssh-action
+        - uses: appleboy/ssh-action@master 
+          with:
+            host: $&#123;&#123; secrets.HOST &#125;&#125;
+            username: $&#123;&#123; secrets.SSH_USER &#125;&#125;
+            password: $&#123;&#123; secrets.SSH_PWD &#125;&#125;
+            script_stop: true
+            script: |
+              pwd
+              ls -l
+              touch secret.txt
+              echo $&#123;&#123; secrets.MY_SECRET &#125;&#125; &gt;&gt; secret.txt
+</code></pre>
+<h1 id="自动化部署"><a href="#自动化部署" class="headerlink" title="自动化部署"></a>自动化部署</h1><h2 id="推送远程镜像仓库"><a href="#推送远程镜像仓库" class="headerlink" title="推送远程镜像仓库"></a>推送远程镜像仓库</h2><p><strong>普通线上更新流程：</strong></p>
+<pre><code class="bash"># 每次代码更新以后，登录到ssh服务器
+# 关闭服务
+docker-compose down
+# 更新代码
+git pull
+# 假如有.env，的更新需要重新设置，env文件
+# 重新build应用镜像
+docker-compose build lego-backend
+# 重启服务
+docker-compose up -d
+</code></pre>
+<p><strong>弊端：</strong></p>
+<ul>
+<li><p>初次上线和更新属于两步</p>
+</li>
+<li><p>初次上线需要特别的操作，就是之前手动部署上线的运行的过程</p>
+<ul>
+<li><p>clone代码</p>
+</li>
+<li><p>设置环境变量.env</p>
+</li>
+<li><p>docker-compose up -d</p>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong>追求的成果：</strong></p>
+<p><strong>每次提交，可以自动一次性的部署到任何服务器，实现初次启动或者更新的效果，这才是一个完美的devops的流程</strong></p>
+<p><strong>解决方案：</strong></p>
+<p>将上面本地的镜像存在于docker hub服务器中，这样每次就不用重新build，而是直接拉取。</p>
+<pre><code class="yaml">services:
+  lego-redis:
+    image:redis:6
+  lego-mongo:
+    image:mongo:latest
+  lego-backend:
+    image:lego-backend
+#我们需要每次手动的build镜像，也就说镜像只存在于本地
+  build:
+    ......context:.
+    dockerfile:Dockerfile
+</code></pre>
+<p><strong>改为：</strong></p>
+<pre><code class="yaml"># 更好的方案
+# 不需要任何代码库中的文件，只需要一个docker-compose,yml文件
+# 就可以轻松的在任何服务器运行
+services:
+  lego-redis:
+    image:redis:6
+  lego-mongo
+    image:mongo:latest
+  lego-backend:
+# 不需要build,而是存在于docker hub服务器中，可以每次直接拉取
+    image:lego-backend:1.0.1
+</code></pre>
+<p><strong>docker hub免费版有限制，推荐使用阿里云容器镜像服务：</strong></p>
+<p><strong><span class="exturl" data-url="aHR0cHM6Ly9sd3d3LmFsaXl1bi5jb20vcHJvZHVjdC9hY3I=">阿里云容器镜像服务ACR</span></strong><br>个人版完全免费</p>
+<p>创建镜像仓库之后，需要将本地镜像推送到ACR仓库中：</p>
+<pre><code class="bash"># 来到镜像仓库的基本信息页面
+# 登录
+docker login --username=用户名 registry.cn-hangzhou.aliyuncs.com
+# tag两种方式：
+# 1:使用tag bui1d
+docker build--tag &quot;registry.cn-hangzhou.aliyuncs.com/dmq00/test:[镜像版本号]&quot;
+# 2:给 build 好的打 tag
+docker tag [ImageId] registry.cn-hangzhou.aliyuncs.com/dmq00/test:[镜像版本号]
+# 查看镜像是否 build 完成
+docker images
+# 推送镜像
+docker push registry.cn-hangzhou.aliyuncs.com/dmq00/test:[镜像版本号]
+# 在阿里云ACR界面检查看是否已经存在
+</code></pre>
+<h2 id="Github-Actions自动部署"><a href="#Github-Actions自动部署" class="headerlink" title="Github Actions自动部署"></a>Github Actions自动部署</h2><p><strong>使用github actions加成自动化部署：当推送代码到github仓库时，让我们的代码自动提交镜像到镜像仓库。</strong></p>
+<p><strong>大体分为两步</strong></p>
+<ul>
+<li><h6 id="在github服务器上build-image并且push"><a href="#在github服务器上build-image并且push" class="headerlink" title="在github服务器上build image并且push"></a>在github服务器上build image并且push</h6></li>
+<li><p><strong>使用docker-compose-online文件在服务器上运行应用</strong></p>
+</li>
+</ul>
+<p><strong>第一步详细流程分析，在github runner上运行</strong></p>
+<ul>
+<li><p>checkout代码（在github服务器上）</p>
+</li>
+<li><p>创建.env文件，并且添加两个环境变量( upload to OSS需要两个对应的信息 )</p>
+</li>
+<li><p>使用阿里云ACR完成docker login</p>
+</li>
+<li><p>使用正确的阿里云tag进行docker build</p>
+<ul>
+<li>怎样每次push生成特殊的tag？是一个后续的问题</li>
+</ul>
+</li>
+<li><p>docker push</p>
+</li>
+</ul>
+<p>例如：【1】在项目文件夹.github&#x2F;workflow下创建yml文件，写入：</p>
+<pre><code>name: build image,push to ACR
+on: [push]
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
+    steps:
+      # checkout 代码
+      - uses: actions/checkout@v2
+      # 创建env文件
+      - run: touch .env
+      # 使用“ &gt;&gt; ”添加信息
+      - run: echo ALC_ACCESS_KEY=$&#123;&#123; secrets.ALC_ACCESS_KEY &#125;&#125; &gt;&gt; .env
+      - run: echo ALC_SECRET_KEY=$&#123;&#123; secrets.ALC_SECRET_KEY &#125;&#125; &gt;&gt; .env
+      # 使用阿里云ACR 完成 docker login
+      - name: Login to Aliyun ACR
+        uses: aliyun/acr-login@v1 # 使用专属的镜像
+        with:
+          login-server: https://registry.cn-hangzhou.aliyuncs.com
+          region-id: cn-hangzhou # 查看官网自己仓库的信息
+          username: &quot;$&#123;&#123; secrets.ACR_USERNAME &#125;&#125;&quot;
+          password: &quot;$&#123;&#123; secrets.ACR_PASSWORD &#125;&#125;&quot;
+        # 使用正确的阿里云 tag 进行 docker build
+        - name: Build image for Docker
+          run: docker build --tag &quot;registry.cn-hangzhou.aliyuncs.com/dmq00/test:0.0.2&quot;
+        - name: Push Image to ACR
+          run: docker push registry.cn-hangzhou.aliyuncs.com/dmq00/test:0.0.2
+</code></pre>
+<p>这样就能保证代码push到github上之后自动将镜像推送到docker镜像仓库，结合dockerfile文件就能保证使用docker镜像时自动执行命令，安装对应依赖并执行项目。</p>
+<p><strong>第二步详细流程分析，在服务器上部署对应的代码并且运行</strong></p>
+<ul>
+<li><p>checkout代码</p>
+</li>
+<li><p>创建.env文件，添加多个环境变量。(应用所有需要的环境变量)，github  secrets中添加。</p>
+</li>
+<li><p>创建文件夹，拷贝如下文件到文件夹内</p>
+<ul>
+<li>.env</li>
+<li>docker-compose-online.yml</li>
+<li>mongo-entrypoint文件夹</li>
+</ul>
+</li>
+<li><p>将新建的文件夹拷贝到服务器(SCP)当中</p>
+<ul>
+<li>使用 https:&#x2F;github.com&#x2F;appleboy&#x2F;scp-action</li>
+</ul>
+</li>
+<li><p>SSH到服务器中</p>
+<ul>
+<li>进入拷贝的文件夹内</li>
+<li>登录阿里云ACR</li>
+<li>停止服务docker-compose down （第一次的话，没有启动也不会报错）</li>
+<li>启动服务docker-compose up</li>
+<li>清理工作可选，保证安全（删除.env文件，登出docker账户）</li>
+</ul>
+</li>
+</ul>
+<p><strong>后续过程需要完成：</strong></p>
+<ul>
+<li><p>在push tags的时候才触发对应的job</p>
+<p>：<span class="exturl" data-url="aHR0cHM6Ly9kb2NzLmdpdGh1Yi5jb20vY24vYWN0aW9ucy9sZWFybi1naXRodWItYWN0aW9ucy9ldmVudHMtdGhhdC10cmlnZ2VyLXdvcmtmbG93cw==">https://docs.github.com/cn/actions/learn-github-actions/events-that-trigger-workflows</span></p>
+</li>
+<li><p>怎样获取对应的每次提交相关的特殊信息</p>
+<p>：<span class="exturl" data-url="aHR0cHM6Ly9kb2NzLmdpdGh1Yi5jb20vZW4vYWN0aW9ucy9sZWFybi1naXRodWItYWN0aW9ucy9jb250ZXh0cw==">https://docs.github.com/en/actions/learn-github-actions/contexts</span></p>
+</li>
+<li><p>使用这个特殊信息，在对应的docker-compose-online.yml中进行替换，将要启动的版本替换为将要构建的版本。</p>
+</li>
+</ul>
+
+      <div class="tags">
+          <a href="/tags/%E5%A4%8D%E6%9D%82%E4%B8%9A%E5%8A%A1%E9%83%A8%E7%BD%B2%E4%B8%8E%E4%BC%98%E5%8C%96/" rel="tag"><i class="ic i-tag"></i> 复杂业务部署与优化</a>
+      </div>
+  </div>
+
+   <footer>
+
+    <div class="meta">
+  <span class="item">
+    <span class="icon">
+      <i class="ic i-calendar-check"></i>
+    </span>
+    <span class="text">更新于</span>
+    <time title="修改时间：2024-04-28 21:37:29" itemprop="dateModified" datetime="2024-04-28T21:37:29+08:00">2024-04-28</time>
+  </span>
+  <span id="2024/04/12/复杂项目部署上线/" class="item leancloud_visitors" data-flag-title="复杂业务部署与优化" title="阅读次数">
+      <span class="icon">
+        <i class="ic i-eye"></i>
+      </span>
+      <span class="text">阅读次数</span>
+      <span class="leancloud-visitors-count"></span>
+      <span class="text">次</span>
+  </span>
+</div>
+
+      
+<div class="reward">
+  <button><i class="ic i-heartbeat"></i> 赞赏</button>
+  <p>请我喝[茶]~(￣▽￣)~*</p>
+  <div id="qr">
+      
+      <div>
+        <img data-src="/images/wechatpay.png" alt="dmq 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div>
+        <img data-src="/images/alipay.png" alt="dmq 支付宝">
+        <p>支付宝</p>
+      </div>
+  </div>
+</div>
+
+      
+
+<div id="copyright">
+<ul>
+  <li class="author">
+    <strong>本文作者： </strong>dmq <i class="ic i-at"><em>@</em></i>杜明清的个人博客
+  </li>
+  <li class="link">
+    <strong>本文链接：</strong>
+    <a href="https://dmqweb.cn/2024/04/12/%E5%A4%8D%E6%9D%82%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2%E4%B8%8A%E7%BA%BF/" title="复杂业务部署与优化">https://dmqweb.cn/2024/04/12/复杂项目部署上线/</a>
+  </li>
+  <li class="license">
+    <strong>版权声明： </strong>本站所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+  </footer>
+
+</article>
+
+  </div>
+  
+
+<div class="post-nav">
+    <div class="item left">
+      
+
+  <a href="/2024/03/30/jest/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;s3.uuu.ovh&#x2F;imgs&#x2F;2024&#x2F;04&#x2F;12&#x2F;4508f1e9b6c8e047.jpg" title="jest">
+  <span class="type">上一篇</span>
+  <span class="category"><i class="ic i-flag"></i> TDD</span>
+  <h3>jest</h3>
+  </a>
+
+    </div>
+    <div class="item right">
+      
+
+  <a href="/2024/04/12/%E8%84%9A%E6%89%8B%E6%9E%B6/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;s3.uuu.ovh&#x2F;imgs&#x2F;2024&#x2F;04&#x2F;25&#x2F;1276fcec5eb7990e.webp" title="脚手架开发">
+  <span class="type">下一篇</span>
+  <span class="category"><i class="ic i-flag"></i> 脚手架开发</span>
+  <h3>脚手架开发</h3>
+  </a>
+
+    </div>
+</div>
+
+  
+  <div class="wrap" id="comments"></div>
+
+
+        </div>
+        <div id="sidebar">
+          
+
+<div class="inner">
+
+  <div class="panels">
+    <div class="inner">
+      <div class="contents panel pjax" data-title="文章目录">
+          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%BD%AF%E4%BB%B6%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%EF%BC%9A"><span class="toc-number">1.</span> <span class="toc-text">软件生命周期：</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%9E%B6%E6%9E%84%E6%B5%81%E7%A8%8B%E5%9B%BE"><span class="toc-number">2.</span> <span class="toc-text">架构流程图</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%A4%8D%E6%9D%82%E9%A1%B9%E7%9B%AE%E9%80%9A%E7%94%A8%E6%96%B9%E6%A1%88"><span class="toc-number">3.</span> <span class="toc-text">复杂项目通用方案</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%9A%E5%8A%A1%E7%9A%84%E5%A4%8D%E6%9D%82%E5%BA%A6"><span class="toc-number">3.0.0.1.</span> <span class="toc-text">业务的复杂度</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B5%81%E7%A8%8B%E7%9A%84%E5%A4%8D%E6%9D%82%E5%BA%A6"><span class="toc-number">3.0.0.2.</span> <span class="toc-text">流程的复杂度</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#CI-x2F-CD%E7%9A%84%E6%A6%82%E5%BF%B5"><span class="toc-number">4.</span> <span class="toc-text">CI &#x2F; CD的概念</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#CI%EF%BC%88Continuous-integration%EF%BC%89%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90"><span class="toc-number">4.0.0.1.</span> <span class="toc-text">CI（Continuous integration）持续集成</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#CD%EF%BC%88Continuous-Delivery%EF%BC%89%E6%8C%81%E7%BB%AD%E4%BA%A4%E4%BB%98"><span class="toc-number">4.0.0.2.</span> <span class="toc-text">CD（Continuous Delivery）持续交付</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#CD%EF%BC%88Continuous-Deployment%EF%BC%89%E6%8C%81%E7%BB%AD%E9%83%A8%E7%BD%B2"><span class="toc-number">4.0.0.3.</span> <span class="toc-text">CD（Continuous Deployment）持续部署</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#CI-x2F-CD%E4%B8%A4%E5%A4%A7%E6%9C%8D%E5%8A%A1%EF%BC%9A"><span class="toc-number">4.0.0.4.</span> <span class="toc-text">CI &#x2F; CD两大服务：</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%88%97%E8%A1%A8%E6%8E%92%E5%BA%8F%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="toc-number">5.</span> <span class="toc-text">列表排序解决方案</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%8B%96%E5%8A%A8%E6%94%B9%E5%8F%98%E4%BD%8D%E7%BD%AE%E5%8E%9F%E7%90%86"><span class="toc-number">6.</span> <span class="toc-text">拖动改变位置原理</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%8B%96%E5%8A%A8%E6%94%B9%E5%8F%98%E5%A4%A7%E5%B0%8F%E5%8E%9F%E7%90%86"><span class="toc-number">7.</span> <span class="toc-text">拖动改变大小原理</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%BF%AB%E6%8D%B7%E9%94%AE%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86"><span class="toc-number">8.</span> <span class="toc-text">快捷键实现原理</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%92%A4%E9%94%80%E9%87%8D%E5%81%9A%E5%8E%9F%E7%90%86"><span class="toc-number">9.</span> <span class="toc-text">撤销重做原理</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8F%B3%E9%94%AE%E8%8F%9C%E5%8D%95%E5%8E%9F%E7%90%86"><span class="toc-number">10.</span> <span class="toc-text">右键菜单原理</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%87%AA%E5%8A%A8%E4%BF%9D%E5%AD%98%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%A1%88"><span class="toc-number">11.</span> <span class="toc-text">自动保存实现方案</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#DOM%E5%85%83%E7%B4%A0%E6%88%AA%E5%9B%BE%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%A1%88"><span class="toc-number">12.</span> <span class="toc-text">DOM元素截图实现方案</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%8C%E7%BB%B4%E7%A0%81%E7%94%9F%E6%88%90%E6%96%B9%E6%A1%88"><span class="toc-number">13.</span> <span class="toc-text">二维码生成方案</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%A4%8D%E5%88%B6%E5%8A%9F%E8%83%BD%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86"><span class="toc-number">14.</span> <span class="toc-text">复制功能实现原理</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%8B%E8%BD%BD%E6%96%87%E4%BB%B6%E5%8E%9F%E7%90%86"><span class="toc-number">15.</span> <span class="toc-text">下载文件原理</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%BA%94%E7%94%A8%E9%83%A8%E7%BD%B2%E7%9A%84%E6%B5%81%E7%A8%8B"><span class="toc-number">16.</span> <span class="toc-text">应用部署的流程</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#webpack%E6%9E%84%E5%BB%BA%E4%BC%98%E5%8C%96"><span class="toc-number">17.</span> <span class="toc-text">webpack构建优化</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Bundler%EF%BC%9A"><span class="toc-number">17.0.1.</span> <span class="toc-text">Bundler：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Loaders%EF%BC%9A"><span class="toc-number">17.0.2.</span> <span class="toc-text">Loaders：</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E5%8E%9F%E7%90%86"><span class="toc-number">17.0.2.0.0.1.</span> <span class="toc-text">原理</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#plugins"><span class="toc-number">17.0.3.</span> <span class="toc-text">plugins:</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E5%8E%9F%E7%90%86-1"><span class="toc-number">17.0.3.0.0.1.</span> <span class="toc-text">原理</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-number">17.0.4.</span> <span class="toc-text">总结</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#node%E5%90%8E%E7%AB%AF%E6%A1%86%E6%9E%B6"><span class="toc-number">18.</span> <span class="toc-text">node后端框架</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Node-js%E5%90%8E%E7%AB%AF%E6%A1%86%E6%9E%B6%E8%B0%83%E7%A0%94"><span class="toc-number">18.1.</span> <span class="toc-text">Node.js后端框架调研</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Express"><span class="toc-number">18.1.0.1.</span> <span class="toc-text">Express</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Koa2"><span class="toc-number">18.1.0.2.</span> <span class="toc-text">Koa2</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#egg-js"><span class="toc-number">18.1.0.3.</span> <span class="toc-text">egg.js</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Nest-js"><span class="toc-number">18.1.0.4.</span> <span class="toc-text">Nest.js</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#vue-config-js"><span class="toc-number">19.</span> <span class="toc-text">vue.config.js</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%A1%B9%E7%9B%AE%E6%9E%84%E5%BB%BA%E4%BC%98%E5%8C%96"><span class="toc-number">20.</span> <span class="toc-text">项目构建优化</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%A1%B9%E7%9B%AE%E8%BF%90%E8%A1%8C%E4%BC%98%E5%8C%96"><span class="toc-number">21.</span> <span class="toc-text">项目运行优化</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%A2%E6%88%B7%E7%AB%AF%E6%B8%B2%E6%9F%93"><span class="toc-number">21.0.1.</span> <span class="toc-text">客户端渲染</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%8D%E5%8A%A1%E7%AB%AF%E6%B8%B2%E6%9F%93"><span class="toc-number">21.0.2.</span> <span class="toc-text">服务端渲染</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%8C%E6%9E%84%E6%B8%B2%E6%9F%93"><span class="toc-number">21.0.3.</span> <span class="toc-text">同构渲染</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%83%A8%E7%BD%B2%E4%B8%8EHTTP%E4%BC%98%E5%8C%96"><span class="toc-number">22.</span> <span class="toc-text">部署与HTTP优化</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%83%A8%E7%BD%B2"><span class="toc-number">22.0.1.</span> <span class="toc-text">部署</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Nginx-%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86"><span class="toc-number">22.0.2.</span> <span class="toc-text">Nginx:反向代理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#HTTP%E7%BC%93%E5%AD%98"><span class="toc-number">22.0.3.</span> <span class="toc-text">HTTP缓存</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8E%8B%E7%BC%A9%E7%AE%97%E6%B3%95"><span class="toc-number">22.0.4.</span> <span class="toc-text">压缩算法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#gzip"><span class="toc-number">22.0.4.1.</span> <span class="toc-text">gzip</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Brotli"><span class="toc-number">22.0.4.2.</span> <span class="toc-text">Brotli</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#HTTP%E4%BC%98%E5%8C%96"><span class="toc-number">22.0.5.</span> <span class="toc-text">HTTP优化</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#keepAlive%E5%B1%9E%E6%80%A7"><span class="toc-number">22.0.5.1.</span> <span class="toc-text">keepAlive属性</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#HTTP2"><span class="toc-number">22.0.5.2.</span> <span class="toc-text">HTTP2</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Mongodb%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="toc-number">23.</span> <span class="toc-text">Mongodb数据库</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C"><span class="toc-number">23.0.1.</span> <span class="toc-text">基本操作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#mongodb%E9%AB%98%E7%BA%A7"><span class="toc-number">23.0.2.</span> <span class="toc-text">mongodb高级</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E7%B4%A2%E5%BC%95"><span class="toc-number">23.0.2.0.1.</span> <span class="toc-text">索引</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%81%9A%E5%90%88"><span class="toc-number">23.0.2.0.2.</span> <span class="toc-text">聚合</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%A4%9A%E8%A1%A8%E8%81%94%E6%9F%A5"><span class="toc-number">23.0.2.0.3.</span> <span class="toc-text">多表联查</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E5%BA%93%E8%AE%BE%E8%AE%A1"><span class="toc-number">23.0.3.</span> <span class="toc-text">数据库设计</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%BF%E9%97%AE%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86"><span class="toc-number">23.0.4.</span> <span class="toc-text">访问权限管理</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Mongoose"><span class="toc-number">24.</span> <span class="toc-text">Mongoose</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#ORM"><span class="toc-number">24.0.1.</span> <span class="toc-text">ORM</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ODM"><span class="toc-number">24.0.2.</span> <span class="toc-text">ODM</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#egg-mongoose"><span class="toc-number">25.</span> <span class="toc-text">egg-mongoose</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Stream"><span class="toc-number">26.</span> <span class="toc-text">Stream</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%8B%E7%BB%8D"><span class="toc-number">26.0.1.</span> <span class="toc-text">介绍</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#pipe"><span class="toc-number">26.0.2.</span> <span class="toc-text">pipe</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8E%9F%E7%90%86-2"><span class="toc-number">26.0.3.</span> <span class="toc-text">原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#pipeline"><span class="toc-number">26.0.4.</span> <span class="toc-text">pipeline</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AF%B9%E8%B1%A1%E5%AD%98%E5%82%A8%E6%9C%8D%E5%8A%A1"><span class="toc-number">27.</span> <span class="toc-text">对象存储服务</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%98%BF%E9%87%8C%E4%BA%91OSS"><span class="toc-number">27.0.1.</span> <span class="toc-text">阿里云OSS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%83%E7%89%9B%E4%BA%91KODO"><span class="toc-number">27.0.2.</span> <span class="toc-text">七牛云KODO</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%85%BE%E8%AE%AF%E4%BA%91COS"><span class="toc-number">27.0.3.</span> <span class="toc-text">腾讯云COS</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#SSR%E6%9C%8D%E5%8A%A1%E7%AB%AF%E6%B8%B2%E6%9F%93"><span class="toc-number">28.</span> <span class="toc-text">SSR服务端渲染</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%8B%E7%BB%8D-1"><span class="toc-number">28.0.1.</span> <span class="toc-text">介绍</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SSR"><span class="toc-number">28.0.2.</span> <span class="toc-text">SSR</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#vue%E4%B8%ADSSR"><span class="toc-number">28.0.3.</span> <span class="toc-text">vue中SSR</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#RBAC%E6%9D%83%E9%99%90%E9%AA%8C%E8%AF%81"><span class="toc-number">29.</span> <span class="toc-text">RBAC权限验证</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%8B%E7%BB%8D-2"><span class="toc-number">29.0.1.</span> <span class="toc-text">介绍</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8"><span class="toc-number">29.0.2.</span> <span class="toc-text">使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Casl%E4%BD%BF%E7%94%A8"><span class="toc-number">29.0.3.</span> <span class="toc-text">Casl使用</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%83%A8%E7%BD%B2-1"><span class="toc-number">30.</span> <span class="toc-text">部署</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BC%A0%E7%BB%9F%E6%A8%A1%E5%BC%8F"><span class="toc-number">30.0.1.</span> <span class="toc-text">传统模式</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Cluster%E6%A8%A1%E5%9E%8B"><span class="toc-number">30.1.</span> <span class="toc-text">Cluster模型</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="toc-number">31.</span> <span class="toc-text">云服务器</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%B4%AD%E4%B9%B0"><span class="toc-number">31.0.0.1.</span> <span class="toc-text">购买</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%99%BB%E5%BD%95"><span class="toc-number">31.0.0.2.</span> <span class="toc-text">登录</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8-1"><span class="toc-number">31.0.0.3.</span> <span class="toc-text">使用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%AE%A1%E7%90%86"><span class="toc-number">31.0.0.4.</span> <span class="toc-text">管理</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%99%AE%E9%80%9A%E9%83%A8%E7%BD%B2"><span class="toc-number">32.</span> <span class="toc-text">普通部署</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Docker"><span class="toc-number">32.1.</span> <span class="toc-text">Docker</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%8B%E7%BB%8D-3"><span class="toc-number">32.1.1.</span> <span class="toc-text">介绍</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Docker-images"><span class="toc-number">32.1.2.</span> <span class="toc-text">Docker  images</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Docker-Container"><span class="toc-number">32.1.3.</span> <span class="toc-text">Docker Container</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8C%81%E4%B9%85%E5%8C%96%E5%AE%B9%E5%99%A8%E6%95%B0%E6%8D%AE"><span class="toc-number">32.1.4.</span> <span class="toc-text">持久化容器数据</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Dockerfile%E8%87%AA%E5%AE%9A%E4%B9%89%E9%95%9C%E5%83%8F"><span class="toc-number">32.1.5.</span> <span class="toc-text">Dockerfile自定义镜像</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E5%BA%93%E9%85%8D%E7%BD%AE"><span class="toc-number">32.1.6.</span> <span class="toc-text">数据库配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BC%98%E5%8C%96%E9%95%9C%E5%83%8F%E5%A4%A7%E5%B0%8F"><span class="toc-number">32.1.7.</span> <span class="toc-text">优化镜像大小</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%83%A8%E7%BD%B2-2"><span class="toc-number">32.1.8.</span> <span class="toc-text">部署</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#YAML%E8%AF%AD%E8%A8%80"><span class="toc-number">33.</span> <span class="toc-text">YAML语言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Github-Action"><span class="toc-number">34.</span> <span class="toc-text">Github Action</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%87%AA%E5%8A%A8%E5%8C%96%E9%83%A8%E7%BD%B2"><span class="toc-number">35.</span> <span class="toc-text">自动化部署</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8E%A8%E9%80%81%E8%BF%9C%E7%A8%8B%E9%95%9C%E5%83%8F%E4%BB%93%E5%BA%93"><span class="toc-number">35.1.</span> <span class="toc-text">推送远程镜像仓库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Github-Actions%E8%87%AA%E5%8A%A8%E9%83%A8%E7%BD%B2"><span class="toc-number">35.2.</span> <span class="toc-text">Github Actions自动部署</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E5%9C%A8github%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8Abuild-image%E5%B9%B6%E4%B8%94push"><span class="toc-number">35.2.0.0.0.1.</span> <span class="toc-text">在github服务器上build image并且push</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></li></ol>
+      </div>
+      <div class="related panel pjax" data-title="系列文章">
+        <ul>
+          <li class="active"><a href="/2024/04/12/%E5%A4%8D%E6%9D%82%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2%E4%B8%8A%E7%BA%BF/" rel="bookmark" title="复杂业务部署与优化">复杂业务部署与优化</a></li>
+        </ul>
+      </div>
+      <div class="overview panel" data-title="站点概览">
+        <div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="image" itemprop="image" alt="dmq"
+      data-src="/images/avatar.jpg">
+  <p class="name" itemprop="name">dmq</p>
+  <div class="description" itemprop="description"></div>
+</div>
+
+<nav class="state">
+    <div class="item posts">
+      <a href="/archives/">
+        <span class="count">62</span>
+        <span class="name">文章</span>
+      </a>
+    </div>
+    <div class="item categories">
+      <a href="/categories/">
+        <span class="count">43</span>
+        <span class="name">分类</span>
+      </a>
+    </div>
+    <div class="item tags">
+      <a href="/tags/">
+        <span class="count">80</span>
+        <span class="name">标签</span>
+      </a>
+    </div>
+</nav>
+
+<div class="social">
+      <span class="exturl item github" data-url="aHR0cHM6Ly9naXRodWIuY29tL2RtcTA/dGFiPXJlcG9zaXRvcmllcw==" title="https:&#x2F;&#x2F;github.com&#x2F;dmq0?tab&#x3D;repositories"><i class="ic i-github"></i></span>
+      <span class="exturl item npm" data-url="aHR0cHM6Ly93d3cubnBtanMuY29tL35kbXEwMDA=" title="https:&#x2F;&#x2F;www.npmjs.com&#x2F;~dmq000"><i class="ic i-file"></i></span>
+      <span class="exturl item zhihu" data-url="aHR0cHM6Ly93d3cuemhpaHUuY29tL3Blb3BsZS9kLTg4LTYxLTgz" title="https:&#x2F;&#x2F;www.zhihu.com&#x2F;people&#x2F;d-88-61-83"><i class="ic i-zhihu"></i></span>
+      <span class="exturl item music" data-url="aHR0cHM6Ly9tdXNpYy4xNjMuY29tLyMvdXNlci9ob21lP2lkPTgwMjc4OTk0OTE=" title="https:&#x2F;&#x2F;music.163.com&#x2F;#&#x2F;user&#x2F;home?id&#x3D;8027899491"><i class="ic i-cloud-music"></i></span>
+      <span class="exturl item weibo" data-url="aHR0cHM6Ly93ZWliby5jb20vdS83NjI1OTAxNzE3" title="https:&#x2F;&#x2F;weibo.com&#x2F;u&#x2F;7625901717"><i class="ic i-weibo"></i></span>
+      <span class="exturl item email" data-url="bWFpbHRvOjMyNjc4MDc1MTRAcXEuY29t" title="mailto:3267807514@qq.com"><i class="ic i-envelope"></i></span>
+</div>
+
+<ul class="menu">
+  
+    
+  <li class="item">
+    <a href="/" rel="section"><i class="ic i-home"></i>首页</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/about/" rel="section"><i class="ic i-user"></i>介绍</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/archives/" rel="section"><i class="ic i-list-alt"></i>归档</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/categories/" rel="section"><i class="ic i-th"></i>分类</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/tags/" rel="section"><i class="ic i-tags"></i>标签</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/friends/" rel="section"><i class="ic i-heart"></i>友链</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/links/" rel="section"><i class="ic i-magic"></i>工具</a>
+  </li>
+
+
+</ul>
+
+      </div>
+    </div>
+  </div>
+
+  <ul id="quick">
+    <li class="prev pjax">
+        <a href="/2024/03/30/jest/" rel="prev" title="上一篇"><i class="ic i-chevron-left"></i></a>
+    </li>
+    <li class="up"><i class="ic i-arrow-up"></i></li>
+    <li class="down"><i class="ic i-arrow-down"></i></li>
+    <li class="next pjax">
+        <a href="/2024/04/12/%E8%84%9A%E6%89%8B%E6%9E%B6/" rel="next" title="下一篇"><i class="ic i-chevron-right"></i></a>
+    </li>
+    <li class="percent"></li>
+  </ul>
+</div>
+
+
+        </div>
+        <div class="dimmer"></div>
+      </div>
+    </main>
+    <footer id="footer">
+      <div class="inner">
+        <div class="widgets">
+          
+<div class="rpost pjax">
+  <h2>随机文章</h2>
+  <ul>
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%BC%8F/" title="分类于 开发模式">开发模式</a>
+</div>
+
+    <span><a href="/2024/03/29/TDD/" title="TDD测试驱动开发">TDD测试驱动开发</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/typeScript/" title="分类于 typeScript">typeScript</a>
+</div>
+
+    <span><a href="/2023/12/11/TS/" title="typeScript笔记">typeScript笔记</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/git/" title="分类于 git">git</a>
+</div>
+
+    <span><a href="/2023/04/02/git%E5%92%8Cgithub/" title="git与github">git与github</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/JS/" title="分类于 JS">JS</a>
+</div>
+
+    <span><a href="/2023/12/02/%E9%9A%90%E5%BC%8F%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2/" title="JS类型转换">JS类型转换</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/JS/" title="分类于 JS">JS</a>
+</div>
+
+    <span><a href="/2023/12/07/Blob/" title="Blob">Blob</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/jenkins%E9%85%8D%E5%90%88git-hook%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90/" title="分类于 jenkins配合git hook持续集成">jenkins配合git hook持续集成</a>
+</div>
+
+    <span><a href="/2024/02/02/%E4%BD%BF%E7%94%A8Jenkins%E9%85%8D%E5%90%88github%20hook%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90/" title="jenkins配合git hook持续集成">jenkins配合git hook持续集成</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90%E4%B8%8E%E9%83%A8%E7%BD%B2/" title="分类于 持续集成与部署">持续集成与部署</a>
+</div>
+
+    <span><a href="/2024/02/03/%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90%E4%B8%8E%E6%8C%81%E7%BB%AD%E9%83%A8%E7%BD%B2/" title="持续集成与持续部署">持续集成与持续部署</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E9%A1%B9%E7%9B%AE%E8%B4%A8%E9%87%8F%E6%A3%80%E6%B5%8B/" title="分类于 项目质量检测">项目质量检测</a>
+</div>
+
+    <span><a href="/2024/01/02/%E9%A1%B9%E7%9B%AE%E8%B4%A8%E9%87%8F%E6%A3%80%E6%B5%8B/" title="项目质量检测">项目质量检测</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/" title="分类于 计算机组成原理">计算机组成原理</a>
+</div>
+
+    <span><a href="/2023/07/02/%E6%B5%AE%E7%82%B9%E6%95%B0%E5%AD%98%E5%82%A8/" title="浮点数存储">浮点数存储</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/JS/" title="分类于 JS">JS</a>
+</div>
+
+    <span><a href="/2024/02/02/serviceWorker/" title="serviceWorker">serviceWorker</a></span>
+  </li>
+
+  </ul>
+</div>
+<div>
+  <h2>最新评论</h2>
+  <ul class="leancloud-recent-comment"></ul>
+</div>
+
+        </div>
+        <div class="status">
+  <div class="copyright">
+    
+    &copy; 2010 – 
+    <span itemprop="copyrightYear">2024</span>
+    <span class="with-love">
+      <i class="ic i-sakura rotate"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">dmq @ Web blog</span>
+  </div>
+  <div class="powered-by">
+    基于 <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & Theme.<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Shoka</span>
+  </div>
+</div>
+
+      </div>
+    </footer>
+  </div>
+<script data-config type="text/javascript">
+  var LOCAL = {
+    path: '2024/04/12/复杂项目部署上线/',
+    favicon: {
+      show: "科技引领未来",
+      hide: "欢迎与我交流"
+    },
+    search : {
+      placeholder: "文章搜索",
+      empty: "关于 「 ${query} 」，什么也没搜到",
+      stats: "${time} ms 内找到 ${hits} 条结果"
+    },
+    valine: true,fancybox: true,
+    copyright: '复制成功，转载请遵守 <i class="ic i-creative-commons"></i>BY-NC-SA 协议。',
+    ignores : [
+      function(uri) {
+        return uri.includes('#');
+      },
+      function(uri) {
+        return new RegExp(LOCAL.path+"$").test(uri);
+      }
+    ]
+  };
+</script>
+
+<script src="https://cdn.polyfill.io/v2/polyfill.js"></script>
+
+<script src="//gcore.jsdelivr.net/combine/npm/pace-js@1.0.2/pace.min.js,npm/pjax@0.2.8/pjax.min.js,npm/whatwg-fetch@3.4.0/dist/fetch.umd.min.js,npm/animejs@3.2.0/lib/anime.min.js,npm/algoliasearch@4/dist/algoliasearch-lite.umd.js,npm/instantsearch.js@4/dist/instantsearch.production.min.js,npm/lozad@1/dist/lozad.min.js,npm/quicklink@2/dist/quicklink.umd.js"></script>
+
+<script src="/js/app.js?v=0.2.5"></script>
+
+
+  <script data-pjax>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?9ba187659e850a6910681214f0faa16b";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+</body>
+</html>

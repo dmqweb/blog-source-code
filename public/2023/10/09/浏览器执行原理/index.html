@@ -102,12 +102,12 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
       </div>
       <div id="imgs" class="pjax">
         <ul>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/05/f0ab0ce587c99d2f.webp"></li>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/05/9c07b3ea7f1e2a1c.jpg"></li>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/13/ba4d76fc0767aeef.jpg"></li>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/03/29/4e134f025ae53f2b.jpg"></li>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/07/517ddd40a038fa1b.jpg"></li>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/06/a2c97e7bd0c6ecd6.webp"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/25/3fe84aea28b256c7.jpg"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/28/f7a6eb62965e0dec.webp"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/04/4b93d7d24397b567.jpg"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/06/936b9e7ccd02d444.jpg"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/15/229ca07a8d7b6e02.jpg"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/28/a34792f58e340f69.webp"></li>
         </ul>
       </div>
     </header>
@@ -153,20 +153,14 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
   <div class="body md" itemprop="articleBody">
     
 
-    <p>事件循环<br />
-浏览器的进程模型<br />
-何为进程？<br />
-程序运行需要有它自己专属的内存空间，可以把这块内存空间简单的理解为进程</p>
-<p>image-20220809205743532<br />
- 每个应用至少有一个进程，进程之间相互独立，即使要通信，也需要双方同意。</p>
-<p>何为线程？<br />
-有了进程后，就可以运行程序的代码了。</p>
+    <p>事件循环<br>浏览器的进程模型<br>何为进程？<br>程序运行需要有它自己专属的内存空间，可以把这块内存空间简单的理解为进程</p>
+<p>image-20220809205743532<br>每个应用至少有一个进程，进程之间相互独立，即使要通信，也需要双方同意。</p>
+<p>何为线程？<br>有了进程后，就可以运行程序的代码了。</p>
 <p>运行代码的「人」称之为「线程」。</p>
 <p>一个进程至少有一个线程，所以在进程开启后会自动创建一个线程来运行代码，该线程称之为主线程。</p>
 <p>如果程序需要同时执行多块代码，主线程就会启动更多的线程来执行代码，所以一个进程中可以包含多个线程。</p>
 <p>image-20220809210859457</p>
-<p>浏览器有哪些进程和线程？<br />
-浏览器是一个多进程多线程的应用程序</p>
+<p>浏览器有哪些进程和线程？<br>浏览器是一个多进程多线程的应用程序</p>
 <p>浏览器内部工作极其复杂。</p>
 <p>为了避免相互影响，为了减少连环崩溃的几率，当启动浏览器后，它会自动启动多个进程。</p>
 <p>image-20220809213152371</p>
@@ -179,40 +173,17 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
 <p>渲染进程（本节课重点讲解的进程）</p>
 <p>渲染进程启动后，会开启一个渲染主线程，主线程负责执行 HTML、CSS、JS 代码。</p>
 <p>默认情况下，浏览器会为每个标签页开启一个新的渲染进程，以保证不同的标签页之间不相互影响。</p>
-<p>将来该默认模式可能会有所改变，有兴趣的同学可参见 chrome 官方说明文档</p>
-<p>渲染主线程是如何工作的？<br />
-渲染主线程是浏览器中最繁忙的线程，需要它处理的任务包括但不限于：</p>
-<p>解析 HTML<br />
- 解析 CSS<br />
- 计算样式<br />
-布局<br />
-处理图层<br />
-每秒把页面画 60 次<br />
-执行全局 JS 代码<br />
-执行事件处理函数<br />
-执行计时器的回调函数<br />
-……<br />
- 思考题：为什么渲染进程不适用多个线程来处理这些事情？</p>
+<p>将来该默认模式可能会有所改变，有兴趣的同学可参见chrome官方说明文档</p>
+<p>渲染主线程是如何工作的？<br>渲染主线程是浏览器中最繁忙的线程，需要它处理的任务包括但不限于：</p>
+<p>解析 HTML<br>解析 CSS<br>计算样式<br>布局<br>处理图层<br>每秒把页面画 60 次<br>执行全局 JS 代码<br>执行事件处理函数<br>执行计时器的回调函数<br>……<br>思考题：为什么渲染进程不适用多个线程来处理这些事情？</p>
 <p>要处理这么多的任务，主线程遇到了一个前所未有的难题：如何调度任务？</p>
 <p>比如：</p>
-<p>我正在执行一个 JS 函数，执行到一半的时候用户点击了按钮，我该立即去执行点击事件的处理函数吗？<br />
-我正在执行一个 JS 函数，执行到一半的时候某个计时器到达了时间，我该立即去执行它的回调吗？<br />
-浏览器进程通知我 “用户点击了按钮”，与此同时，某个计时器也到达了时间，我应该处理哪一个呢？<br />
-……<br />
- 渲染主线程想出了一个绝妙的主意来处理这个问题：排队</p>
+<p>我正在执行一个 JS 函数，执行到一半的时候用户点击了按钮，我该立即去执行点击事件的处理函数吗？<br>我正在执行一个 JS 函数，执行到一半的时候某个计时器到达了时间，我该立即去执行它的回调吗？<br>浏览器进程通知我“用户点击了按钮”，与此同时，某个计时器也到达了时间，我应该处理哪一个呢？<br>……<br>渲染主线程想出了一个绝妙的主意来处理这个问题：排队</p>
 <p>image-20220809223027806</p>
-<p>在最开始的时候，渲染主线程会进入一个无限循环<br />
-每一次循环会检查消息队列中是否有任务存在。如果有，就取出第一个任务执行，执行完一个后进入下一次循环；如果没有，则进入休眠状态。<br />
-其他所有线程（包括其他进程的线程）可以随时向消息队列添加任务。新任务会加到消息队列的末尾。在添加新任务时，如果主线程是休眠状态，则会将其唤醒以继续循环拿取任务<br />
-这样一来，就可以让每个任务有条不紊的、持续的进行下去了。</p>
+<p>在最开始的时候，渲染主线程会进入一个无限循环<br>每一次循环会检查消息队列中是否有任务存在。如果有，就取出第一个任务执行，执行完一个后进入下一次循环；如果没有，则进入休眠状态。<br>其他所有线程（包括其他进程的线程）可以随时向消息队列添加任务。新任务会加到消息队列的末尾。在添加新任务时，如果主线程是休眠状态，则会将其唤醒以继续循环拿取任务<br>这样一来，就可以让每个任务有条不紊的、持续的进行下去了。</p>
 <p>整个过程，被称之为事件循环（消息循环）</p>
-<p>若干解释<br />
-何为异步？<br />
-代码在执行过程中，会遇到一些无法立即处理的任务，比如：</p>
-<p>计时完成后需要执行的任务 —— setTimeout、setInterval<br />
- 网络通信完成后需要执行的任务 – XHR、Fetch<br />
- 用户操作后需要执行的任务 – addEventListener<br />
- 如果让渲染主线程等待这些任务的时机达到，就会导致主线程长期处于「阻塞」的状态，从而导致浏览器「卡死」</p>
+<p>若干解释<br>何为异步？<br>代码在执行过程中，会遇到一些无法立即处理的任务，比如：</p>
+<p>计时完成后需要执行的任务 —— setTimeout、setInterval<br>网络通信完成后需要执行的任务 – XHR、Fetch<br>用户操作后需要执行的任务 – addEventListener<br>如果让渲染主线程等待这些任务的时机达到，就会导致主线程长期处于「阻塞」的状态，从而导致浏览器「卡死」</p>
 <p>image-20220810104344296</p>
 <p>渲染主线程承担着极其重要的工作，无论如何都不能阻塞！</p>
 <p>因此，浏览器选择异步来解决这个问题</p>
@@ -220,48 +191,29 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
 <p>使用异步的方式，渲染主线程永不阻塞</p>
 <p>面试题：如何理解 JS 的异步？</p>
 <p>参考答案：</p>
-<p>JS 是一门单线程的语言，这是因为它运行在浏览器的渲染主线程中，而渲染主线程只有一个。</p>
+<p>JS是一门单线程的语言，这是因为它运行在浏览器的渲染主线程中，而渲染主线程只有一个。</p>
 <p>而渲染主线程承担着诸多的工作，渲染页面、执行 JS 都在其中运行。</p>
 <p>如果使用同步的方式，就极有可能导致主线程产生阻塞，从而导致消息队列中的很多其他任务无法得到执行。这样一来，一方面会导致繁忙的主线程白白的消耗时间，另一方面导致页面无法及时更新，给用户造成卡死现象。</p>
 <p>所以浏览器采用异步的方式来避免。具体做法是当某些任务发生时，比如计时器、网络、事件监听，主线程将任务交给其他线程去处理，自身立即结束任务的执行，转而执行后续代码。当其他线程完成时，将事先传递的回调函数包装成任务，加入到消息队列的末尾排队，等待主线程调度执行。</p>
 <p>在这种异步模式下，浏览器永不阻塞，从而最大限度的保证了单线程的流畅运行。</p>
-<p>JS 为何会阻碍渲染？<br />
-先看代码</p>
-<p>&lt;h1&gt;Mr.Yuan is awesome!&lt;/h1&gt;<br />
-&lt;button&gt;change&lt;/button&gt;<br />
-&lt;script&gt;<br />
-var h1 = document.querySelector('h1');<br />
-var btn = document.querySelector('button');</p>
-<p>// 死循环指定的时间<br />
- function delay (duration) {<br />
-var start = Date.now();<br />
-while (Date.now() - start &lt; duration) {}<br />
-}</p>
-<p>btn.onclick = function () {<br />
-h1.textContent = ' 袁老师很帅！';<br />
-delay(3000);<br />
-};<br />
-&lt;/script&gt;<br />
- 点击按钮后，会发生什么呢？</p>
+<p>JS为何会阻碍渲染？<br>先看代码</p>
+<h1>Mr.Yuan is awesome!</h1>
+<button>change</button>
+<script>
+  var h1 = document.querySelector('h1');
+  var btn = document.querySelector('button');
+
+<p>  &#x2F;&#x2F; 死循环指定的时间<br>  function delay(duration) {<br>    var start &#x3D; Date.now();<br>    while (Date.now() - start &lt; duration) {}<br>  }</p>
+<p>  btn.onclick &#x3D; function () {<br>    h1.textContent &#x3D; ‘袁老师很帅！’;<br>    delay(3000);<br>  };<br></script><br>点击按钮后，会发生什么呢？</p>
 <p>&lt;见具体演示&gt;</p>
-<p>任务有优先级吗？<br />
-任务没有优先级，在消息队列中先进先出</p>
+<p>任务有优先级吗？<br>任务没有优先级，在消息队列中先进先出</p>
 <p>但消息队列是有优先级的</p>
 <p>根据 W3C 的最新解释:</p>
-<p>每个任务都有一个任务类型，同一个类型的任务必须在一个队列，不同类型的任务可以分属于不同的队列。<br />
-在一次事件循环中，浏览器可以根据实际情况从不同的队列中取出任务执行。<br />
-浏览器必须准备好一个微队列，微队列中的任务优先所有其他任务执行<br />
-<span class="exturl" data-url="aHR0cHM6Ly9odG1sLnNwZWMud2hhdHdnLm9yZy9tdWx0aXBhZ2Uvd2ViYXBwYXBpcy5odG1sI3BlcmZvcm0tYS1taWNyb3Rhc2stY2hlY2twb2ludA=="> https://html.spec.whatwg.org/multipage/webappapis.html#perform-a-microtask-checkpoint</span><br />
- 随着浏览器的复杂度急剧提升，W3C 不再使用宏队列的说法</p>
+<p>每个任务都有一个任务类型，同一个类型的任务必须在一个队列，不同类型的任务可以分属于不同的队列。<br>在一次事件循环中，浏览器可以根据实际情况从不同的队列中取出任务执行。<br>浏览器必须准备好一个微队列，微队列中的任务优先所有其他任务执行<br><span class="exturl" data-url="aHR0cHM6Ly9odG1sLnNwZWMud2hhdHdnLm9yZy9tdWx0aXBhZ2Uvd2ViYXBwYXBpcy5odG1sI3BlcmZvcm0tYS1taWNyb3Rhc2stY2hlY2twb2ludA==">https://html.spec.whatwg.org/multipage/webappapis.html#perform-a-microtask-checkpoint</span><br>随着浏览器的复杂度急剧提升，W3C 不再使用宏队列的说法</p>
 <p>在目前 chrome 的实现中，至少包含了下面的队列：</p>
-<p>延时队列：用于存放计时器到达后的回调任务，优先级「中」<br />
-交互队列：用于存放用户操作后产生的事件处理任务，优先级「高」<br />
-微队列：用户存放需要最快执行的任务，优先级「最高」<br />
-添加任务到微队列的主要方式主要是使用 Promise、MutationObserver</p>
+<p>延时队列：用于存放计时器到达后的回调任务，优先级「中」<br>交互队列：用于存放用户操作后产生的事件处理任务，优先级「高」<br>微队列：用户存放需要最快执行的任务，优先级「最高」<br>添加任务到微队列的主要方式主要是使用 Promise、MutationObserver</p>
 <p>例如：</p>
-<p>// 立即把一个函数添加到微队列<br />
- Promise.resolve ().then (函数)<br />
- 浏览器还有很多其他的队列，由于和我们开发关系不大，不作考虑</p>
+<p>&#x2F;&#x2F; 立即把一个函数添加到微队列<br>Promise.resolve().then(函数)<br>浏览器还有很多其他的队列，由于和我们开发关系不大，不作考虑</p>
 <p>面试题：阐述一下 JS 的事件循环</p>
 <p>参考答案：</p>
 <p>事件循环又叫做消息循环，是浏览器渲染主线程的工作方式。</p>
@@ -271,10 +223,7 @@ delay(3000);<br />
 <p>面试题：JS 中的计时器能做到精确计时吗？为什么？</p>
 <p>参考答案：</p>
 <p>不行，因为：</p>
-<p>计算机硬件没有原子钟，无法做到精确计时<br />
-操作系统的计时函数本身就有少量偏差，由于 JS 的计时器最终调用的是操作系统的函数，也就携带了这些偏差<br />
-按照 W3C 的标准，浏览器实现计时器时，如果嵌套层级超过 5 层，则会带有 4 毫秒的最少时间，这样在计时时间少于 4 毫秒时又带来了偏差<br />
-受事件循环的影响，计时器的回调函数只能在主线程空闲时运行，因此又带来了偏差</p>
+<p>计算机硬件没有原子钟，无法做到精确计时<br>操作系统的计时函数本身就有少量偏差，由于 JS 的计时器最终调用的是操作系统的函数，也就携带了这些偏差<br>按照 W3C 的标准，浏览器实现计时器时，如果嵌套层级超过 5 层，则会带有 4 毫秒的最少时间，这样在计时时间少于 4 毫秒时又带来了偏差<br>受事件循环的影响，计时器的回调函数只能在主线程空闲时运行，因此又带来了偏差</p>
 
       <div class="tags">
           <a href="/tags/%E6%B5%8F%E8%A7%88%E5%99%A8/" rel="tag"><i class="ic i-tag"></i> 浏览器</a>
@@ -348,7 +297,7 @@ delay(3000);<br />
     <div class="item left">
       
 
-  <a href="/2023/10/02/33%E4%B8%AAJavascript%E6%A6%82%E5%BF%B5/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;s3.uuu.ovh&#x2F;imgs&#x2F;2024&#x2F;04&#x2F;12&#x2F;3368de466b008234.webp" title="33个JavaScript概念">
+  <a href="/2023/10/02/33%E4%B8%AAJavascript%E6%A6%82%E5%BF%B5/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;s3.uuu.ovh&#x2F;imgs&#x2F;2024&#x2F;04&#x2F;04&#x2F;61e9f78d997bc7c9.webp" title="33个JavaScript概念">
   <span class="type">上一篇</span>
   <span class="category"><i class="ic i-flag"></i> JS</span>
   <h3>33个JavaScript概念</h3>
@@ -358,7 +307,7 @@ delay(3000);<br />
     <div class="item right">
       
 
-  <a href="/2023/10/21/webpack/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;s3.uuu.ovh&#x2F;imgs&#x2F;2024&#x2F;04&#x2F;06&#x2F;d8aa12b30683676e.jpg" title="webpack笔记">
+  <a href="/2023/10/21/webpack/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;s3.uuu.ovh&#x2F;imgs&#x2F;2024&#x2F;04&#x2F;12&#x2F;4508f1e9b6c8e047.jpg" title="webpack笔记">
   <span class="type">下一篇</span>
   <span class="category"><i class="ic i-flag"></i> webpack</span>
   <h3>webpack笔记</h3>
@@ -380,6 +329,7 @@ delay(3000);<br />
   <div class="panels">
     <div class="inner">
       <div class="contents panel pjax" data-title="文章目录">
+          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text">Mr.Yuan is awesome!</span></a></li></ol>
       </div>
       <div class="related panel pjax" data-title="系列文章">
         <ul>
@@ -397,7 +347,7 @@ delay(3000);<br />
 <nav class="state">
     <div class="item posts">
       <a href="/archives/">
-        <span class="count">60</span>
+        <span class="count">62</span>
         <span class="name">文章</span>
       </a>
     </div>
@@ -409,7 +359,7 @@ delay(3000);<br />
     </div>
     <div class="item tags">
       <a href="/tags/">
-        <span class="count">78</span>
+        <span class="count">80</span>
         <span class="name">标签</span>
       </a>
     </div>
@@ -497,50 +447,72 @@ delay(3000);<br />
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/JS/" title="分类于 JS">JS</a>
+<a href="/categories/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%BC%8F/" title="分类于 开发模式">开发模式</a>
 </div>
 
-    <span><a href="/2024/02/02/serviceWorker/" title="serviceWorker">serviceWorker</a></span>
+    <span><a href="/2024/03/29/TDD/" title="TDD测试驱动开发">TDD测试驱动开发</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/JS/" title="分类于 JS">JS</a>
+<a href="/categories/%E6%9D%82%E8%AE%B0/" title="分类于 杂记">杂记</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/%E6%9D%82%E8%AE%B0/%E5%B7%A5%E5%85%B7%E5%87%BD%E6%95%B0/" title="分类于 工具函数">工具函数</a>
 </div>
 
-    <span><a href="/2023/12/11/typedArray/" title="JS中类型化数组typedArray">JS中类型化数组typedArray</a></span>
+    <span><a href="/2023/06/02/learn/" title="杂记与工具库函数">杂记与工具库函数</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/JS/" title="分类于 JS">JS</a>
+<a href="/categories/Sass/" title="分类于 Sass">Sass</a>
 </div>
 
-    <span><a href="/2023/09/02/ArrayBuffer/" title="ArrayBuffer">ArrayBuffer</a></span>
+    <span><a href="/2023/01/10/Sass/" title="Sass笔记">Sass笔记</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/%E6%B5%8F%E8%A7%88%E5%99%A8/" title="分类于 浏览器">浏览器</a>
+<a href="/categories/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96/" title="分类于 前端工程化">前端工程化</a>
 </div>
 
-    <span><a href="/2023/10/09/%E6%B5%8F%E8%A7%88%E5%99%A8%E6%89%A7%E8%A1%8C%E5%8E%9F%E7%90%86/" title="浏览器执行原理">浏览器执行原理</a></span>
+    <span><a href="/2024/03/29/%E5%89%8D%E7%AB%AF%E6%A8%A1%E5%9D%97%E5%8C%96/" title="前端模块化">前端模块化</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/%E7%AE%97%E6%B3%95/" title="分类于 算法">算法</a>
+<a href="/categories/%E8%84%9A%E6%89%8B%E6%9E%B6%E5%BC%80%E5%8F%91/" title="分类于 脚手架开发">脚手架开发</a>
 </div>
 
-    <span><a href="/2023/12/02/%E7%AE%97%E6%B3%95/" title="算法与数据结构">算法与数据结构</a></span>
+    <span><a href="/2024/04/12/%E8%84%9A%E6%89%8B%E6%9E%B6/" title="脚手架开发">脚手架开发</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/vue/" title="分类于 vue">vue</a>
+</div>
+
+    <span><a href="/2023/09/02/vue3%E6%BA%90%E7%A0%81%E4%BD%8D%E8%BF%90%E7%AE%97/" title="vue3源码中的位运算">vue3源码中的位运算</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/typeScript/" title="分类于 typeScript">typeScript</a>
+</div>
+
+    <span><a href="/2023/12/11/TS/" title="typeScript笔记">typeScript笔记</a></span>
   </li>
 
       
@@ -557,40 +529,20 @@ delay(3000);<br />
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/json-server/" title="分类于 json-server">json-server</a>
+<a href="/categories/JS/" title="分类于 JS">JS</a>
 </div>
 
-    <span><a href="/2023/01/09/json-server%E6%95%99%E7%A8%8B/" title="json-server">json-server</a></span>
+    <span><a href="/2024/01/11/webworker/" title="webWorker">webWorker</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/vue-router%E5%8E%9F%E7%90%86/" title="分类于 vue-router原理">vue-router原理</a>
+<a href="/categories/JS/" title="分类于 JS">JS</a>
 </div>
 
-    <span><a href="/2024/04/12/vue-router/" title="vue-router">vue-router</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/Travis%E5%92%8CDocker/" title="分类于 Travis和Docker">Travis和Docker</a>
-</div>
-
-    <span><a href="/2023/12/02/Travis%20CI%E5%92%8CDocker%E7%9A%84%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90/" title="Travis和Docker的持续集成">Travis和Docker的持续集成</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/%E4%B8%89%E6%96%B9%E5%BA%93/" title="分类于 三方库">三方库</a>
-</div>
-
-    <span><a href="/2024/04/16/%E4%B8%89%E6%96%B9%E5%8C%85/" title="三方库">三方库</a></span>
+    <span><a href="/2023/09/02/ArrayBuffer/" title="ArrayBuffer">ArrayBuffer</a></span>
   </li>
 
   </ul>
@@ -651,6 +603,15 @@ delay(3000);<br />
 <script src="/js/app.js?v=0.2.5"></script>
 
 
+  <script data-pjax>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?9ba187659e850a6910681214f0faa16b";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
 
 
 </body>

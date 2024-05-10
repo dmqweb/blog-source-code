@@ -102,12 +102,12 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
       </div>
       <div id="imgs" class="pjax">
         <ul>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/13/19825e05514a3605.jpg"></li>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/15/9d4994abd78e2f72.jpg"></li>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/25/3fe84aea28b256c7.jpg"></li>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/25/0aebf75866635811.jpg"></li>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/15/6cedcb364082ed12.webp"></li>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/07/5804c6f23029288b.jpg"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/05/ec66a7160398848b.webp"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/05/d3c578870618de4e.webp"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/05/8c79eda29fb3b505.jpg"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/05/9c07b3ea7f1e2a1c.jpg"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/07/2600bb35f2cdf6cf.jpg"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/12/8740e71363c6800c.jpg"></li>
         </ul>
       </div>
     </header>
@@ -153,16 +153,15 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
   <div class="body md" itemprop="articleBody">
     
 
-    <h1 id="blob"><a class="anchor" href="#blob">#</a> Blob:</h1>
-<p>Blob（Binary Large Object）对象是 JavaScript 中用来表示二进制数据的对象，通常用于存储和操作文件或其他类型的二进制数据。Blob 对象可以表示大型数据对象，比如图像、视频、音频文件等。</p>
-<p>Blob 对象通常由两部分组成：数据和数据的类型。数据部分包含实际的二进制数据，而类型部分描述了数据的 MIME 类型，例如 “image/png” 或 “application/pdf”。</p>
-<p>Blob 对象可以通过 new Blob () 构造函数创建，传入一个数组作为参数，数组中包含要存储的二进制数据。另外，你还可以通过传入一个可选的对象参数，来指定数据的 MIME 类型。例如：</p>
-<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre>javascriptCopy Codevar binaryData <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">0x48</span><span class="token punctuation">,</span> <span class="token number">0x65</span><span class="token punctuation">,</span> <span class="token number">0x6c</span><span class="token punctuation">,</span> <span class="token number">0x6c</span><span class="token punctuation">,</span> <span class="token number">0x6f</span><span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token comment">// 用十六进制表示的字符串 "Hello"</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token keyword">var</span> blob <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Blob</span><span class="token punctuation">(</span><span class="token punctuation">[</span>binaryData<span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">&#123;</span> <span class="token literal-property property">type</span><span class="token operator">:</span> <span class="token string">"text/plain"</span> <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr></table></figure><p>在上面的例子中，我们使用 new Blob () 创建了一个包含 “Hello” 文本数据的 Blob 对象，并指定了它的 MIME 类型为 “text/plain”。</p>
+    <h1 id="Blob"><a href="#Blob" class="headerlink" title="Blob:"></a>Blob:</h1><p>Blob（Binary Large Object）对象是 JavaScript 中用来表示二进制数据的对象，通常用于存储和操作文件或其他类型的二进制数据。Blob 对象可以表示大型数据对象，比如图像、视频、音频文件等。</p>
+<p>Blob 对象通常由两部分组成：数据和数据的类型。数据部分包含实际的二进制数据，而类型部分描述了数据的 MIME 类型，例如 “image&#x2F;png” 或 “application&#x2F;pdf”。</p>
+<p>Blob 对象可以通过 new Blob() 构造函数创建，传入一个数组作为参数，数组中包含要存储的二进制数据。另外，你还可以通过传入一个可选的对象参数，来指定数据的 MIME 类型。例如：</p>
+<pre><code class="js">javascriptCopy Codevar binaryData = [0x48, 0x65, 0x6c, 0x6c, 0x6f]; // 用十六进制表示的字符串 &quot;Hello&quot;
+var blob = new Blob([binaryData], &#123; type: &quot;text/plain&quot; &#125;);
+</code></pre>
+<p>在上面的例子中，我们使用 new Blob() 创建了一个包含 “Hello” 文本数据的 Blob 对象，并指定了它的 MIME 类型为 “text&#x2F;plain”。</p>
 <p>Blob 对象可以被用于多种用途，比如：</p>
-<p>通过 URL.createObjectURL () 方法创建一个临时的 URL，用于在页面中显示或下载文件，一般配置 a 标签（download 属性）。<br />
-作为 XMLHttpRequest 的响应数据类型，用于接收和处理文件或二进制数据。<br />
-作为 FormData 对象的值，用于将二进制数据发送到服务器。<br />
-总之，Blob 对象在 JavaScript 中提供了一种方便的方式来处理和操作二进制数据，特别适合于文件操作和网络通信中的数据传输</p>
+<p>通过 URL.createObjectURL() 方法创建一个临时的 URL，用于在页面中显示或下载文件,一般配置a标签（download属性）。<br>作为 XMLHttpRequest 的响应数据类型，用于接收和处理文件或二进制数据。<br>作为 FormData 对象的值，用于将二进制数据发送到服务器。<br>总之，Blob 对象在 JavaScript 中提供了一种方便的方式来处理和操作二进制数据，特别适合于文件操作和网络通信中的数据传输</p>
 
       <div class="tags">
           <a href="/tags/JS/" rel="tag"><i class="ic i-tag"></i> JS</a>
@@ -236,7 +235,7 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
     <div class="item left">
       
 
-  <a href="/2023/12/02/Travis%20CI%E5%92%8CDocker%E7%9A%84%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;s3.uuu.ovh&#x2F;imgs&#x2F;2024&#x2F;04&#x2F;06&#x2F;a2c97e7bd0c6ecd6.webp" title="Travis和Docker的持续集成">
+  <a href="/2023/12/02/Travis%20CI%E5%92%8CDocker%E7%9A%84%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;s3.uuu.ovh&#x2F;imgs&#x2F;2024&#x2F;04&#x2F;25&#x2F;b4f20660104f3911.jpg" title="Travis和Docker的持续集成">
   <span class="type">上一篇</span>
   <span class="category"><i class="ic i-flag"></i> Travis和Docker</span>
   <h3>Travis和Docker的持续集成</h3>
@@ -246,7 +245,7 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
     <div class="item right">
       
 
-  <a href="/2023/12/08/NaN/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;s3.uuu.ovh&#x2F;imgs&#x2F;2024&#x2F;04&#x2F;15&#x2F;9d4994abd78e2f72.jpg" title="NaN历史遗留问题">
+  <a href="/2023/12/08/NaN/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;s3.uuu.ovh&#x2F;imgs&#x2F;2024&#x2F;04&#x2F;13&#x2F;c95fa1dc9a2ef7b0.jpg" title="NaN历史遗留问题">
   <span class="type">下一篇</span>
   <span class="category"><i class="ic i-flag"></i> JS</span>
   <h3>NaN历史遗留问题</h3>
@@ -268,11 +267,11 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
   <div class="panels">
     <div class="inner">
       <div class="contents panel pjax" data-title="文章目录">
-          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#blob"><span class="toc-number">1.</span> <span class="toc-text"> Blob:</span></a></li></ol>
+          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Blob"><span class="toc-number">1.</span> <span class="toc-text">Blob:</span></a></li></ol>
       </div>
       <div class="related panel pjax" data-title="系列文章">
         <ul>
-          <li><a href="/2023/07/02/forEach/" rel="bookmark" title="forEach">forEach</a></li><li><a href="/2023/08/10/new%E5%85%B3%E9%94%AE%E5%AD%97/" rel="bookmark" title="new关键字">new关键字</a></li><li><a href="/2023/09/02/ArrayBuffer/" rel="bookmark" title="ArrayBuffer">ArrayBuffer</a></li><li><a href="/2023/10/02/33%E4%B8%AAJavascript%E6%A6%82%E5%BF%B5/" rel="bookmark" title="33个JavaScript概念">33个JavaScript概念</a></li><li><a href="/2023/12/02/%E9%9A%90%E5%BC%8F%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2/" rel="bookmark" title="JS类型转换">JS类型转换</a></li><li class="active"><a href="/2023/12/07/Blob/" rel="bookmark" title="Blob">Blob</a></li><li><a href="/2023/12/08/DataView/" rel="bookmark" title="DataView">DataView</a></li><li><a href="/2023/12/08/NaN/" rel="bookmark" title="NaN历史遗留问题">NaN历史遗留问题</a></li><li><a href="/2023/12/11/typedArray/" rel="bookmark" title="JS中类型化数组typedArray">JS中类型化数组typedArray</a></li><li><a href="/2023/12/21/%E6%9C%80%E5%A4%A7%E5%AE%89%E5%85%A8%E6%95%B0/" rel="bookmark" title="最大安全数与最大安全整数">最大安全数与最大安全整数</a></li><li><a href="/2024/01/11/webworker/" rel="bookmark" title="webWorker">webWorker</a></li><li><a href="/2024/02/02/serviceWorker/" rel="bookmark" title="serviceWorker">serviceWorker</a></li>
+          <li><a href="/2023/07/02/forEach/" rel="bookmark" title="forEach">forEach</a></li><li><a href="/2023/08/10/new%E5%85%B3%E9%94%AE%E5%AD%97/" rel="bookmark" title="new关键字">new关键字</a></li><li><a href="/2023/09/02/ArrayBuffer/" rel="bookmark" title="ArrayBuffer">ArrayBuffer</a></li><li><a href="/2023/10/02/33%E4%B8%AAJavascript%E6%A6%82%E5%BF%B5/" rel="bookmark" title="33个JavaScript概念">33个JavaScript概念</a></li><li><a href="/2023/12/02/%E9%9A%90%E5%BC%8F%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2/" rel="bookmark" title="JS类型转换">JS类型转换</a></li><li class="active"><a href="/2023/12/07/Blob/" rel="bookmark" title="Blob">Blob</a></li><li><a href="/2023/12/08/DataView/" rel="bookmark" title="DataView">DataView</a></li><li><a href="/2023/12/08/NaN/" rel="bookmark" title="NaN历史遗留问题">NaN历史遗留问题</a></li><li><a href="/2023/12/11/typedArray/" rel="bookmark" title="JS中类型化数组typedArray">JS中类型化数组typedArray</a></li><li><a href="/2023/12/21/%E6%9C%80%E5%A4%A7%E5%AE%89%E5%85%A8%E6%95%B0/" rel="bookmark" title="最大安全数与最大安全整数">最大安全数与最大安全整数</a></li><li><a href="/2024/01/11/webworker/" rel="bookmark" title="webWorker">webWorker</a></li><li><a href="/2024/02/02/serviceWorker/" rel="bookmark" title="serviceWorker">serviceWorker</a></li><li><a href="/2024/05/08/%E5%87%BD%E6%95%B0%E9%87%8D%E8%BD%BD/" rel="bookmark" title="函数重载">函数重载</a></li>
         </ul>
       </div>
       <div class="overview panel" data-title="站点概览">
@@ -286,7 +285,7 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
 <nav class="state">
     <div class="item posts">
       <a href="/archives/">
-        <span class="count">60</span>
+        <span class="count">62</span>
         <span class="name">文章</span>
       </a>
     </div>
@@ -298,7 +297,7 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
     </div>
     <div class="item tags">
       <a href="/tags/">
-        <span class="count">78</span>
+        <span class="count">80</span>
         <span class="name">标签</span>
       </a>
     </div>
@@ -386,40 +385,30 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/%E4%B8%9A%E5%8A%A1%E5%A4%84%E7%90%86/" title="分类于 业务处理">业务处理</a>
+<a href="/categories/node-js/" title="分类于 node.js">node.js</a>
 </div>
 
-    <span><a href="/2024/03/29/%E6%9C%AC%E5%9C%B0%E9%A2%84%E8%A7%88%E5%9B%BE%E7%89%87/" title="本地预览图片">本地预览图片</a></span>
+    <span><a href="/2024/01/02/node.js%E5%86%85%E7%BD%AE%E6%A8%A1%E5%9D%97/" title="node.js内置模块">node.js内置模块</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/" title="分类于 计算机组成原理">计算机组成原理</a>
+<a href="/categories/react/" title="分类于 react">react</a>
 </div>
 
-    <span><a href="/2023/07/02/%E6%B5%AE%E7%82%B9%E6%95%B0%E5%AD%98%E5%82%A8/" title="浮点数存储">浮点数存储</a></span>
+    <span><a href="/2023/12/02/react/" title="react笔记">react笔记</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/jenkins%E9%85%8D%E5%90%88git-hook%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90/" title="分类于 jenkins配合git hook持续集成">jenkins配合git hook持续集成</a>
+<a href="/categories/webpack/" title="分类于 webpack">webpack</a>
 </div>
 
-    <span><a href="/2024/02/02/%E4%BD%BF%E7%94%A8Jenkins%E9%85%8D%E5%90%88github%20hook%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90/" title="jenkins配合git hook持续集成">jenkins配合git hook持续集成</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/ES6/" title="分类于 ES6">ES6</a>
-</div>
-
-    <span><a href="/2023/08/02/ES6/" title="ES6">ES6</a></span>
+    <span><a href="/2023/10/21/webpack/" title="webpack笔记">webpack笔记</a></span>
   </li>
 
       
@@ -436,50 +425,60 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/%E5%AE%B9%E5%99%A8%E5%8C%96%E8%BF%90%E7%BB%B4%E6%93%8D%E4%BD%9C/" title="分类于 容器化运维操作">容器化运维操作</a>
+<a href="/categories/ajax/" title="分类于 ajax">ajax</a>
 </div>
 
-    <span><a href="/2024/02/02/%E5%AE%B9%E5%99%A8%E5%8C%96%E8%BF%90%E7%BB%B4%E6%93%8D%E4%BD%9C/" title="容器化运维操作">容器化运维操作</a></span>
+    <span><a href="/2023/01/08/json-ajax-axios/" title="ajax">ajax</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/JS%E8%BF%9B%E9%98%B6/" title="分类于 JS进阶">JS进阶</a>
+<a href="/categories/%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/" title="分类于 自动化测试">自动化测试</a>
 </div>
 
-    <span><a href="/2023/08/02/JS/" title="JS进阶">JS进阶</a></span>
+    <span><a href="/2024/03/02/%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/" title="自动化测试">自动化测试</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/JS/" title="分类于 JS">JS</a>
+<a href="/categories/typeScript/" title="分类于 typeScript">typeScript</a>
 </div>
 
-    <span><a href="/2023/09/02/ArrayBuffer/" title="ArrayBuffer">ArrayBuffer</a></span>
+    <span><a href="/2023/12/11/TS/" title="typeScript笔记">typeScript笔记</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/JS/" title="分类于 JS">JS</a>
+<a href="/categories/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96/" title="分类于 前端工程化">前端工程化</a>
 </div>
 
-    <span><a href="/2023/12/08/NaN/" title="NaN历史遗留问题">NaN历史遗留问题</a></span>
+    <span><a href="/2024/03/29/%E5%89%8D%E7%AB%AF%E6%A8%A1%E5%9D%97%E5%8C%96/" title="前端模块化">前端模块化</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" title="分类于 正则表达式">正则表达式</a>
+<a href="/categories/jenkins%E9%85%8D%E5%90%88git-hook%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90/" title="分类于 jenkins配合git hook持续集成">jenkins配合git hook持续集成</a>
 </div>
 
-    <span><a href="/2023/02/12/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" title="正则表达式">正则表达式</a></span>
+    <span><a href="/2024/02/02/%E4%BD%BF%E7%94%A8Jenkins%E9%85%8D%E5%90%88github%20hook%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90/" title="jenkins配合git hook持续集成">jenkins配合git hook持续集成</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/vue/" title="分类于 vue">vue</a>
+</div>
+
+    <span><a href="/2023/11/02/vue%E5%8E%9F%E7%90%86/" title="vue原理">vue原理</a></span>
   </li>
 
   </ul>
@@ -540,6 +539,15 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
 <script src="/js/app.js?v=0.2.5"></script>
 
 
+  <script data-pjax>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?9ba187659e850a6910681214f0faa16b";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
 
 
 </body>
