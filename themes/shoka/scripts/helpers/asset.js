@@ -3,7 +3,6 @@
 'use strict';
 const { htmlTag, url_for } = require('hexo-util');
 const theme_env = require('../../package.json');
-console.log(theme_env[type]);
 hexo.extend.helper.register('hexo_env', function (type) {
   return this.env[type]
 })

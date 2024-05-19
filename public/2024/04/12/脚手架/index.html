@@ -102,12 +102,12 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
       </div>
       <div id="imgs" class="pjax">
         <ul>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/03/29/4e134f025ae53f2b.jpg"></li>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/07/d94cad8780c8c094.jpg"></li>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/28/dc01f095118914ac.webp"></li>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/05/9c07b3ea7f1e2a1c.jpg"></li>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/05/f0ab0ce587c99d2f.webp"></li>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/03/29/a93636ae09845d36.jpg"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/07/6e43985af4997748.jpg"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/28/b9f6c169ea5daebe.webp"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/07/971b0200f59eab4c.jpg"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/28/979e0f45da318aa7.webp"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/05/921096d78816dacc.jpg"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/06/a16303594a53d8d1.jpg"></li>
         </ul>
       </div>
     </header>
@@ -153,12 +153,13 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
   <div class="body md" itemprop="articleBody">
     
 
-    <h1 id="需求分析"><a href="#需求分析" class="headerlink" title="需求分析"></a>需求分析</h1><p><strong>为什么需要优化研发流程？</strong></p>
+    <h1 id="需求分析"><a class="anchor" href="#需求分析">#</a> 需求分析</h1>
+<p><strong>为什么需要优化研发流程？</strong></p>
 <ul>
-<li>项目量级增加：几干行代码-&gt;几万行代码</li>
-<li>项目数量扩大：几个项目-&gt;几干个项目</li>
-<li>项目复杂度高：Wb项目-&gt;H5&#x2F;PC&#x2F;小程序&#x2F;后端&#x2F;脚手架</li>
-<li>团队人数增长：几个人-&gt;几百人</li>
+<li>项目量级增加：几干行代码 -&gt; 几万行代码</li>
+<li>项目数量扩大：几个项目 -&gt; 几干个项目</li>
+<li>项目复杂度高：Wb 项目 -&gt;H5/PC/ 小程序 / 后端 / 脚手架</li>
+<li>团队人数增长：几个人 -&gt; 几百人</li>
 <li>传统的项目研发流程已经无法满足业务需求</li>
 </ul>
 <p><strong>项目创建流程思考</strong></p>
@@ -178,282 +179,336 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
 <li>等等</li>
 </ul>
 <p>从使用角度理解什么是脚手架？</p>
-<h1 id="脚手架简介"><a href="#脚手架简介" class="headerlink" title="脚手架简介"></a>脚手架简介</h1><p>脚手架本质是一个操作系统的客户端，它通过命令行执行，比如：</p>
+<h1 id="脚手架简介"><a class="anchor" href="#脚手架简介">#</a> 脚手架简介</h1>
+<p>脚手架本质是一个操作系统的客户端，它通过命令行执行，比如：</p>
 <p>vue create vue-test-app</p>
 <p>bash</p>
-<p>上面这条命令由3个部分组成：</p>
+<p>上面这条命令由 3 个部分组成：</p>
 <ul>
 <li>主命令：vue</li>
 <li>command:create</li>
-<li>command的param:vue-test-app</li>
+<li>command 的 param:vue-test-app</li>
 </ul>
-<p>它表示创建一个vue项目，项目的名称为vue-test-app,以上是最一个较为简单的脚手架命令，但实际场易<br>往更加复杂，比如：<br>当前目录已经有文件了，我们需要覆盖当前目录下的文件，强制进行安装ue项目，此时我们就可以输入：</p>
-<pre><code class="bash">vue create vue-test-app --force
-</code></pre>
-<p>这里的-force叫做option,用来辅助脚手架确认在特定场景下用户的选择（可以理解为配置）。还有一种场景<br>通过vue create<br>创建项目时，会自动执行npm install帮用户安装依赖，如果我们希望使用淘宝源来安装，<br>可以输入命令：</p>
-<pre><code class="bash">vue create vue-test-app --force -r https://registry.npm.taobao.org
-</code></pre>
-<p>这里的-x也叫做option,它与–force不同的是它使用-，并且使用简写，这里的-x也可以替换成–registry,有的同学可能要问，为什么老师知道这个命令，其实我们输入下面的命令就可以看到vue create支持的所有options:<br>vue create  –help </p>
-<p>-r  https:&#x2F;registry.npm.taobao.org后面的<span class="exturl" data-url="aHR0cHM6Ly9yZWdpc3RyeS5ucG0udGFvYmFvLm9yZ+aIkOS4um9wdGlvbueahHBhcmFtLOWFtuWunuS7uy1mb3JjZeWPr+S7peeQhuino+S4uu+8mi1mb3JjZQ==">https://registry.npm.taobao.org成为option的param,其实任-force可以理解为：-force</span> true,f简写为：–force或-f</p>
-<h1 id="脚手架原理"><a href="#脚手架原理" class="headerlink" title="脚手架原理"></a>脚手架原理</h1><p><strong>脚手架的执行原理如下：</strong></p>
+<p>它表示创建一个 vue 项目，项目的名称为 vue-test-app, 以上是最一个较为简单的脚手架命令，但实际场易<br />
+往更加复杂，比如：<br />
+当前目录已经有文件了，我们需要覆盖当前目录下的文件，强制进行安装 ue 项目，此时我们就可以输入：</p>
+<figure class="highlight bash"><figcaption data-lang="bash"></figcaption><table><tr><td data-num="1"></td><td><pre>vue create vue-test-app <span class="token parameter variable">--force</span></pre></td></tr></table></figure><p>这里的 - force 叫做 option, 用来辅助脚手架确认在特定场景下用户的选择（可以理解为配置）。还有一种场景<br />
+通过 vue create<br />
+ 创建项目时，会自动执行 npm install 帮用户安装依赖，如果我们希望使用淘宝源来安装，<br />
+可以输入命令：</p>
+<figure class="highlight bash"><figcaption data-lang="bash"></figcaption><table><tr><td data-num="1"></td><td><pre>vue create vue-test-app <span class="token parameter variable">--force</span> <span class="token parameter variable">-r</span> https://registry.npm.taobao.org</pre></td></tr></table></figure><p>这里的 - x 也叫做 option, 它与 --force 不同的是它使用 -，并且使用简写，这里的 - x 也可以替换成 --registry, 有的同学可能要问，为什么老师知道这个命令，其实我们输入下面的命令就可以看到 vue create 支持的所有 options:<br />
+vue create  --help</p>
+<p>-r  https:/registry.npm.taobao.org 后面的 https://registry.npm.taobao.org 成为 option 的 param, 其实任 - force 可以理解为：-force true,f 简写为：--force 或 - f</p>
+<h1 id="脚手架原理"><a class="anchor" href="#脚手架原理">#</a> 脚手架原理</h1>
+<p><strong>脚手架的执行原理如下：</strong></p>
 <ul>
-<li>在终端输入vue create vue-test-app</li>
-<li>终端解析出vue命令</li>
-<li>终端在环境变量中找到ue命令</li>
-<li>终端根据vue命令链接到实际文件vue.js</li>
-<li>终端利用node执行&#96;ue.js</li>
-<li>vue.js解析command&#x2F;options</li>
-<li>vue.js执行command</li>
+<li>在终端输入 vue create vue-test-app</li>
+<li>终端解析出 vue 命令</li>
+<li>终端在环境变量中找到 ue 命令</li>
+<li>终端根据 vue 命令链接到实际文件 vue.js</li>
+<li>终端利用 node 执行 `ue.js</li>
+<li>vue.js 解析 command/options</li>
+<li>vue.js 执行 command</li>
 <li>执行完毕，退出执行</li>
 </ul>
 <p><strong>从应用的角度看如何开发一个脚手架</strong></p>
-<p>这里以vue-cli为例：</p>
+<p>这里以 vue-cli 为例：</p>
 <ul>
-<li>开发npm项目，该项目中应包含一个bin&#x2F;vue.js文件，并将这个项目发布到npm</li>
-<li>将npm项目安装到node的lib&#x2F;node_modules</li>
-<li>在node的bin目录下配置vue软链接指向lib&#x2F;node modules&#x2F;Qvue&#x2F;cli&#x2F;bin&#x2F;vue.js</li>
-<li>这样我们在执行vue命令的时候就可以找到vue.js进行执行</li>
+<li>开发 npm 项目，该项目中应包含一个 bin/vue.js 文件，并将这个项目发布到 npm</li>
+<li>将 npm 项目安装到 node 的 lib/node_modules</li>
+<li>在 node 的 bin 目录下配置 vue 软链接指向 lib/node modules/Qvue/cli/bin/vue.js</li>
+<li>这样我们在执行 vue 命令的时候就可以找到 vue.js 进行执行</li>
 </ul>
 <p><strong>还有很多疑问需要解答</strong></p>
 <ul>
-<li><p>为什么全局安装vue&#x2F;cli后会添加的命令为vue?  （npm install -g @vue&#x2F;cli）</p>
+<li>
+<p>为什么全局安装 vue/cli 后会添加的命令为 vue?  （npm install -g @vue/cli）</p>
 </li>
-<li><p>答：vue&#x2F;cli项目的package.json中的bin字段配置的名称为vue。</p>
+<li>
+<p>答：vue/cli 项目的 package.json 中的 bin 字段配置的名称为 vue。</p>
 </li>
-<li><p>全局安装vue&#x2F;c1i时发生了什么？</p>
+<li>
+<p>全局安装 vue/c1i 时发生了什么？</p>
 </li>
-<li><p>答：全局node_modules中下载项目文件，并根据项目package.json中的bin字段配置可执行文件软链接。</p>
+<li>
+<p>答：全局 node_modules 中下载项目文件，并根据项目 package.json 中的 bin 字段配置可执行文件软链接。</p>
 </li>
-<li><p>为什么vue指向一个js文件，我们却可以直接通过vue命令直接去执行它？</p>
+<li>
+<p>为什么 vue 指向一个 js 文件，我们却可以直接通过 vue 命令直接去执行它？</p>
 </li>
-<li><p>答：js文件配置了蛇棒（操作系统的接口），例如：</p>
+<li>
+<p>答：js 文件配置了蛇棒（操作系统的接口），例如：</p>
 </li>
-<li><pre><code class="js">#!/usr/bin/env node
-</code></pre>
-<p>通常使用环境变量中找node命令，因为每个电脑上的node文件位置不同，但是环境变量中都会有node软连接。</p>
+<li>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token hashbang comment">#!/usr/bin/env node</span></pre></td></tr></table></figure><p>通常使用环境变量中找 node 命令，因为每个电脑上的 node 文件位置不同，但是环境变量中都会有 node 软连接。</p>
 </li>
 </ul>
-<h1 id="脚手架的开发流程"><a href="#脚手架的开发流程" class="headerlink" title="脚手架的开发流程"></a>脚手架的开发流程</h1><p><strong>脚手架开发流程详解</strong></p>
+<h1 id="脚手架的开发流程"><a class="anchor" href="#脚手架的开发流程">#</a> 脚手架的开发流程</h1>
+<p><strong>脚手架开发流程详解</strong></p>
 <p>开发流程</p>
 <ul>
-<li>创建npm项目</li>
-<li>创建脚手架入口文件，最上方添加#!&#x2F;usr&#x2F;bin&#x2F;env node</li>
-<li>配置package.json,添加bin属性</li>
+<li>创建 npm 项目</li>
+<li>创建脚手架入口文件，最上方添加 #!/usr/bin/env node</li>
+<li>配置 package.json, 添加 bin 属性</li>
 <li>编写脚手架代码</li>
-<li>将脚手架发布到npm</li>
+<li>将脚手架发布到 npm</li>
 </ul>
 <p><strong>使用流程</strong></p>
 <ul>
-<li><p>安装脚手架</p>
-<pre><code class="bash">npm install -g your-own-cli
-</code></pre>
-</li>
-<li><p>使用脚手架</p>
-<pre><code class="bash">your-own-cli-binName
-</code></pre>
-</li>
+<li>
+<p>安装脚手架</p>
+<figure class="highlight bash"><figcaption data-lang="bash"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">npm</span> <span class="token function">install</span> <span class="token parameter variable">-g</span> your-own-cli</pre></td></tr></table></figure></li>
+<li>
+<p>使用脚手架</p>
+<figure class="highlight bash"><figcaption data-lang="bash"></figcaption><table><tr><td data-num="1"></td><td><pre>your-own-cli-binName</pre></td></tr></table></figure></li>
 </ul>
 <p><strong>脚手架开发难点解析</strong></p>
 <ul>
-<li><p>分包：将复杂的系统拆分成若干个模块</p>
+<li>
+<p>分包：将复杂的系统拆分成若干个模块</p>
 </li>
-<li><p>命令注册：</p>
-<pre><code class="bash">- vue create
-- vue add
-- vue invoke
-</code></pre>
+<li>
+<p>命令注册：</p>
+<figure class="highlight bash"><figcaption data-lang="bash"></figcaption><table><tr><td data-num="1"></td><td><pre>- vue create</pre></td></tr><tr><td data-num="2"></td><td><pre>- vue <span class="token function">add</span></pre></td></tr><tr><td data-num="3"></td><td><pre>- vue invoke</pre></td></tr></table></figure></li>
+<li>
+<p>参数解析：</p>
+<figure class="highlight bash"><figcaption data-lang="bash"></figcaption><table><tr><td data-num="1"></td><td><pre>vue <span class="token builtin class-name">command</span> <span class="token punctuation">[</span>options <span class="token operator">&lt;</span>params<span class="token operator">></span></pre></td></tr></table></figure></li>
+<li>
+<p>options: 全称：--version、--help。简写为：-v   -h</p>
 </li>
-<li><p>参数解析：</p>
-<pre><code class="bash">vue command [options &lt;params&gt;
-</code></pre>
+<li>
+<p>帮助文档：global help</p>
 </li>
-<li><p>options:全称：–version、–help。简写为：-v   -h</p>
+<li>
+<p>命令行交互</p>
 </li>
-<li><p>帮助文档：global help</p>
+<li>
+<p>日志打印</p>
 </li>
-<li><p>命令行交互</p>
+<li>
+<p>命令行文字变色</p>
 </li>
-<li><p>日志打印</p>
+<li>
+<p>网络通信</p>
 </li>
-<li><p>命令行文字变色</p>
-</li>
-<li><p>网络通信</p>
-</li>
-<li><p>文件处理</p>
+<li>
+<p>文件处理</p>
 </li>
 </ul>
-<h1 id="开发细节"><a href="#开发细节" class="headerlink" title="开发细节"></a>开发细节</h1><p><strong>两种链接本地文件的方式</strong></p>
+<h1 id="开发细节"><a class="anchor" href="#开发细节">#</a> 开发细节</h1>
+<p><strong>两种链接本地文件的方式</strong></p>
 <ul>
-<li><p>npm  link命令会将命令执行的当前文件夹根据bin字段软连接到全局的node_moduls。</p>
+<li>
+<p>npm  link 命令会将命令执行的当前文件夹根据 bin 字段软连接到全局的 node_moduls。</p>
 </li>
-<li><p>npm link 包名称 ，这个命令会将全局包添加软连接到当前项目的node_modules中。</p>
+<li>
+<p>npm link 包名称 ，这个命令会将全局包添加软连接到当前项目的 node_modules 中。</p>
 </li>
-<li><p>npm unlink 包名称 ，这个命令用于移除全局node_modules中指定的软连接。（不过这个命令不好用，建议使用<code>npm uninstall -g </code>包名称、或者<code>npm remove -g </code>包名称  代替）</p>
+<li>
+<p>npm unlink 包名称 ，这个命令用于移除全局 node_modules 中指定的软连接。（不过这个命令不好用，建议使用 <code>npm uninstall -g </code> 包名称、或者 <code>npm remove -g </code> 包名称  代替）</p>
 </li>
-<li><p>调试过程中，当本地包相互依赖时，可以使用File:路径进行指向。</p>
+<li>
+<p>调试过程中，当本地包相互依赖时，可以使用 File: 路径进行指向。</p>
 <p><strong>两种方式的区别</strong></p>
 </li>
 </ul>
-<p> npm  link的方式创建的软连接可以实时同步更改的文件，但是项目文件多了就不方便管理、很复杂，File路径不能实时同步文件修改，需要执行npm install，但是管理方便。</p>
-<h1 id="脚手架发布体系"><a href="#脚手架发布体系" class="headerlink" title="脚手架发布体系"></a>脚手架发布体系</h1><p><strong>利用脚手架统一管理发布阶段</strong></p>
+<p>npm  link 的方式创建的软连接可以实时同步更改的文件，但是项目文件多了就不方便管理、很复杂，File 路径不能实时同步文件修改，需要执行 npm install，但是管理方便。</p>
+<h1 id="脚手架发布体系"><a class="anchor" href="#脚手架发布体系">#</a> 脚手架发布体系</h1>
+<p><strong>利用脚手架统一管理发布阶段</strong></p>
 <p><strong>利用脚手架做发布的优势</strong></p>
 <ul>
-<li>规范：利用统一发布规范，如commiti记录、分支名称、代码规范等</li>
+<li>规范：利用统一发布规范，如 commiti 记录、分支名称、代码规范等</li>
 <li>效率：避免大量重复操作，浪费开发时间</li>
 <li>安全：构建和发布全部在云端操作，避免个人发布时带来的安全隐患</li>
 </ul>
 <p><strong>脚手架发布的流程？</strong></p>
 <ul>
-<li>GitF1low自动化代码提交</li>
+<li>GitF1low 自动化代码提交</li>
 <li>远程代码自动检查</li>
 <li>云端完成构建与发布操作</li>
 </ul>
-<h1 id="脚手架发布流程"><a href="#脚手架发布流程" class="headerlink" title="脚手架发布流程"></a>脚手架发布流程</h1><ul>
-<li>检查package.json中name和bin字段，name字段不能和已存在的线上包名重复，</li>
+<h1 id="脚手架发布流程"><a class="anchor" href="#脚手架发布流程">#</a> 脚手架发布流程</h1>
+<ul>
+<li>检查 package.json 中 name 和 bin 字段，name 字段不能和已存在的线上包名重复，</li>
 <li>检查版本号，是否需要更新</li>
 <li>npm login</li>
 <li>npm publish</li>
 </ul>
-<h1 id="npm新特性：workspace"><a href="#npm新特性：workspace" class="headerlink" title="npm新特性：workspace"></a>npm新特性：workspace</h1><p><strong>作用</strong></p>
-<p>本地调试时，需要多次执行npm  link，node15版本推出workspace，workspace新特性可以帮助我们进行多package包管理，可以让多个npm包在同一个项目中进行开发和管理：</p>
+<h1 id="npm新特性workspace"><a class="anchor" href="#npm新特性workspace">#</a> npm 新特性：workspace</h1>
+<p><strong>作用</strong></p>
+<p>本地调试时，需要多次执行 npm  link，node15 版本推出 workspace，workspace 新特性可以帮助我们进行多 package 包管理，可以让多个 npm 包在同一个项目中进行开发和管理：</p>
 <ul>
 <li>将子包中所有的依赖包都提升到根目录进行安装，提升包的安装速度</li>
-<li>初始化( npm install )后自动将子包之间的依赖进行关联</li>
-<li>各个子包共享一些流程（eslint、githook、publish flow等等）</li>
+<li>初始化 (npm install) 后自动将子包之间的依赖进行关联</li>
+<li>各个子包共享一些流程（eslint、githook、publish flow 等等）</li>
 </ul>
-<h1 id="Lerna多package管理"><a href="#Lerna多package管理" class="headerlink" title="Lerna多package管理"></a>Lerna多package管理</h1><h3 id="Lerna简介"><a href="#Lerna简介" class="headerlink" title="Lerna简介"></a>Lerna简介</h3><p><strong>原生脚手架开发痛点分析</strong>（Lerna解决了哪些问题： ）</p>
+<h1 id="lerna多package管理"><a class="anchor" href="#lerna多package管理">#</a> Lerna 多 package 管理</h1>
+<h3 id="lerna简介"><a class="anchor" href="#lerna简介">#</a> Lerna 简介</h3>
+<p><strong>原生脚手架开发痛点分析</strong>（Lerna 解决了哪些问题： ）</p>
 <p><strong>痛点一：重复操作</strong></p>
 <ul>
-<li>多Package本地link</li>
-<li>多Package依赖安装</li>
-<li>多Package.单元测试</li>
-<li>多Package代码提交</li>
-<li>多Package代码发布</li>
+<li>多 Package 本地 link</li>
+<li>多 Package 依赖安装</li>
+<li>多 Package. 单元测试</li>
+<li>多 Package 代码提交</li>
+<li>多 Package 代码发布</li>
 </ul>
 <p><strong>痛点二：版本一致性</strong></p>
 <ul>
 <li>发布时版本一致性</li>
 <li>发布后相互依赖板本升级</li>
-<li>package越多，管理复杂度越高</li>
+<li>package 越多，管理复杂度越高</li>
 </ul>
 <p><strong>简介：</strong></p>
-<p>Lerna是一个优化基于git+npm的多package项目的管理工具。</p>
+<p>Lerna 是一个优化基于 git+npm 的多 package 项目的管理工具。</p>
 <p><strong>优势：</strong></p>
 <ul>
 <li>大幅减少重复操作</li>
 <li>提升操作的标准化</li>
 </ul>
-<p>Lera是架构优化的产物，它揭示了一个架构真理：项目复杂度提升后，就需要对项目进行架构优化。优化的主要目标往往都是以效能为核心。</p>
-<h3 id="Lerna使用"><a href="#Lerna使用" class="headerlink" title="Lerna使用"></a>Lerna使用</h3><p><strong>Lerna开发脚手架流程如下：</strong></p>
+<p>Lera 是架构优化的产物，它揭示了一个架构真理：项目复杂度提升后，就需要对项目进行架构优化。优化的主要目标往往都是以效能为核心。</p>
+<h3 id="lerna使用"><a class="anchor" href="#lerna使用">#</a> Lerna 使用</h3>
+<p><strong>Lerna 开发脚手架流程如下：</strong></p>
 <ul>
-<li><p>npm上创建group</p>
+<li>
+<p>npm 上创建 group</p>
 </li>
-<li><p>初始化npm项目</p>
+<li>
+<p>初始化 npm 项目</p>
 </li>
-<li><p>安装lerna</p>
+<li>
+<p>安装 lerna</p>
 </li>
-<li><p>package.json中配置workspaces</p>
-<pre><code class="json">&quot;workspaces&quot;: [
-    &quot;packages/*&quot;
-  ],
-//workspaces字段允许指定一个或多个目录作为工作区。一、可以在父级目录的package.json中管理他们的依赖，从而较少体积。二、工作区每个包之间直接相互引用，有助于提高开发效率。三、工作区所有包共享版本控制历史。
-</code></pre>
+<li>
+<p>package.json 中配置 workspaces</p>
+<figure class="highlight json"><figcaption data-lang="JSON"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token property">"workspaces"</span><span class="token operator">:</span> <span class="token punctuation">[</span></pre></td></tr><tr><td data-num="2"></td><td><pre>    <span class="token string">"packages/*"</span></pre></td></tr><tr><td data-num="3"></td><td><pre>  <span class="token punctuation">]</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token comment">//workspaces 字段允许指定一个或多个目录作为工作区。一、可以在父级目录的 package.json 中管理他们的依赖，从而较少体积。二、工作区每个包之间直接相互引用，有助于提高开发效率。三、工作区所有包共享版本控制历史。</span></pre></td></tr></table></figure></li>
+<li>
+<p>lerna init 初始化项目（创建了 git）</p>
 </li>
-<li><p>lerna init初始化项目（创建了git）</p>
+<li>
+<p>配置 gitignore 排除不需要提交的文件</p>
 </li>
-<li><p>配置gitignore排除不需要提交的文件</p>
+<li>
+<p>--------------------------- 初始化完成</p>
 </li>
-<li><p>—————————初始化完成</p>
+<li>
+<p>lerna create 创建 package</p>
 </li>
-<li><p>lerna create创建package</p>
+<li>
+<p>lerna add 安装依赖（最新版废弃），使用 npm install &lt;dependency&gt; --workspace  &lt;workspace &gt; 代替。</p>
 </li>
-<li><p>lerna add安装依赖（最新版废弃），使用npm install <dependency> –workspace  <workspace>代替。</p>
+<li>
+<p>lerna link 链接依赖（最新版废弃），workspace 自动链接。</p>
 </li>
-<li><p>lerna link链接依赖（最新版废弃），workspace自动链接。</p>
+<li>
+<p>---------------------------- 项目创建完成</p>
 </li>
-<li><p>—————————-项目创建完成</p>
+<li>
+<p>lerna exec 执行 shell 脚本</p>
 </li>
-<li><p>lerna exec执行shell脚本</p>
+<li>
+<p>lerna run 执行 npm 命令</p>
 </li>
-<li><p>lerna run执行npm命令</p>
+<li>
+<p>lerna clean 清空依赖</p>
 </li>
-<li><p>lerna clean清空依赖</p>
+<li>
+<p>lerna bootstrap 重装依赖（最新版废弃），使用 npm install 代替</p>
 </li>
-<li><p>lerna bootstrap重装依赖（最新版废弃），使用npm install代替</p>
+<li>
+<p>---------------------------- 项目开发完成</p>
 </li>
-<li><p>—————————-项目开发完成</p>
+<li>
+<p>git push 提交到远程仓库</p>
 </li>
-<li><p>git push提交到远程仓库</p>
+<li>
+<p>lerna version 升级版本号</p>
 </li>
-<li><p>lerna version升级版本号</p>
+<li>
+<p>lerna changed 查看上版本以来全部的变更。</p>
 </li>
-<li><p>lerna changed查看上版本以来全部的变更。</p>
+<li>
+<p>git add . 添加到 git 工作区</p>
 </li>
-<li><p>git add . 添加到git工作区</p>
+<li>
+<p>lerna diff 查看 diff</p>
 </li>
-<li><p>lerna diff查看diff</p>
-</li>
-<li><p>lerna publish进行项目发布</p>
-<pre><code class="json">//默认是私有仓库，需要在package.json中进行配置：
-&quot;publishConfig&quot;: &#123;
-    &quot;access&quot;:&quot;public&quot;
-&#125;
-</code></pre>
-</li>
-<li><p>—————————-项目发布完成</p>
+<li>
+<p>lerna publish 进行项目发布</p>
+<figure class="highlight json"><figcaption data-lang="JSON"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token comment">// 默认是私有仓库，需要在 package.json 中进行配置：</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token property">"publishConfig"</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="3"></td><td><pre>	<span class="token property">"access"</span><span class="token operator">:</span><span class="token string">"public"</span></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr></table></figure></li>
+<li>
+<p>---------------------------- 项目发布完成</p>
 </li>
 </ul>
-<p>这里注意npm最新版 workspace特性的推广导致lerna许多命令在最新版被废弃。</p>
-<h3 id="Lerna学习收获"><a href="#Lerna学习收获" class="headerlink" title="Lerna学习收获"></a>Lerna学习收获</h3><ul>
-<li>熟悉Yargs脚手架开发框架</li>
-<li>熟悉多Package管理工具Lerna的使用方法和实现原理</li>
-<li>深入理解Node.js模块路径解析流程</li>
-</ul>
-<h4 id="一、yargs"><a href="#一、yargs" class="headerlink" title="一、yargs"></a><strong>一、yargs</strong></h4><p><strong>脚手架构成</strong></p>
+<p>这里注意 npm 最新版 workspace 特性的推广导致 lerna 许多命令在最新版被废弃。</p>
+<h3 id="lerna学习收获"><a class="anchor" href="#lerna学习收获">#</a> Lerna 学习收获</h3>
 <ul>
-<li><p>bin:package,json中配置bin属性，npm link本地安装</p>
+<li>熟悉 Yargs 脚手架开发框架</li>
+<li>熟悉多 Package 管理工具 Lerna 的使用方法和实现原理</li>
+<li>深入理解 Node.js 模块路径解析流程</li>
+</ul>
+<h4 id="一-yargs"><a class="anchor" href="#一-yargs">#</a> <strong>一、yargs</strong></h4>
+<p><strong>脚手架构成</strong></p>
+<ul>
+<li>
+<p>bin:package,json 中配置 bin 属性，npm link 本地安装</p>
 </li>
-<li><p>command:命令</p>
+<li>
+<p>command: 命令</p>
 </li>
-<li><p>options:参数(boolean&#x2F;string&#x2F;number)</p>
+<li>
+<p>options: 参数 (boolean/string/number)</p>
 </li>
-<li><p>文件顶部增加  #！&#x2F;usr&#x2F;bin&#x2F;env node</p>
+<li>
+<p>文件顶部增加  #！/usr/bin/env node</p>
 </li>
 </ul>
 <p><strong>脚手架初始化流程</strong></p>
 <ul>
-<li><p>构造函数：Yargs(0</p>
+<li>
+<p>构造函数：Yargs (0</p>
 </li>
-<li><p>常用方法：</p>
+<li>
+<p>常用方法：</p>
 </li>
 </ul>
 <ol>
-<li><p>Yargs.options</p>
+<li>
+<p>Yargs.options</p>
 </li>
-<li><p>Yargs.option</p>
+<li>
+<p>Yargs.option</p>
 </li>
-<li><p>Yargs.group</p>
+<li>
+<p>Yargs.group</p>
 </li>
-<li><p>Yargs.demandCommand</p>
+<li>
+<p>Yargs.demandCommand</p>
 </li>
-<li><p>Yargs.recommendCommands</p>
+<li>
+<p>Yargs.recommendCommands</p>
 </li>
-<li><p>Yargs.strict</p>
+<li>
+<p>Yargs.strict</p>
 </li>
-<li><p>Yargs.fail</p>
+<li>
+<p>Yargs.fail</p>
 </li>
-<li><p>Yargs.alias</p>
+<li>
+<p>Yargs.alias</p>
 </li>
-<li><p>Yargs.wrap</p>
+<li>
+<p>Yargs.wrap</p>
 </li>
-<li><p>Yargs.epilogue</p>
+<li>
+<p>Yargs.epilogue</p>
 </li>
 </ol>
 <ul>
 <li>脚手架参数解析</li>
 </ul>
 <ol>
-<li>hideBin(process.argv)&#x2F;Yargs.argv</li>
+<li>hideBin(process.argv)/Yargs.argv</li>
 <li>Yargs.parse(argv,options)</li>
 </ol>
 <ul>
@@ -463,445 +518,177 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
 <li>Yargs.command(command,describe,builder,handler)</li>
 <li>Yargs.command({command,describe,builder,handler )</li>
 </ol>
-<h4 id="二、Lerna实现原理"><a href="#二、Lerna实现原理" class="headerlink" title="二、Lerna实现原理"></a><strong>二、Lerna实现原理</strong></h4><p>Lerna是基于git+npm的多package项目管理工具</p>
+<h4 id="二-lerna实现原理"><a class="anchor" href="#二-lerna实现原理">#</a> <strong>二、Lerna 实现原理</strong></h4>
+<p>Lerna 是基于 git+npm 的多 package 项目管理工具</p>
 <p><strong>实现原理：</strong></p>
 <ul>
-<li>通过import-local优先调用本地lerna命令</li>
-<li>通过Yargs生成脚手架，先注册全局属性，再注册命令，最后通过parse方法解析参数</li>
-<li>lerna命令注册时需要传入builder和handler两个方法，builder方法用于注册命令专属的options</li>
-<li>handler用来处理命令的业务逻辑</li>
-<li>lerna通过配置npm本地依赖的方式来进行本地开发，具体写法是在package.json的依赖中写入：file:your-local–module-path,在lerna publish时会自动将该路径替换</li>
+<li>通过 import-local 优先调用本地 lerna 命令</li>
+<li>通过 Yargs 生成脚手架，先注册全局属性，再注册命令，最后通过 parse 方法解析参数</li>
+<li>lerna 命令注册时需要传入 builder 和 handler 两个方法，builder 方法用于注册命令专属的 options</li>
+<li>handler 用来处理命令的业务逻辑</li>
+<li>lerna 通过配置 npm 本地依赖的方式来进行本地开发，具体写法是在 package.json 的依赖中写入：file:your-local--module-path, 在 lerna publish 时会自动将该路径替换</li>
 </ul>
-<h4 id="三、Node-js模块路径解析流程"><a href="#三、Node-js模块路径解析流程" class="headerlink" title="三、Node.js模块路径解析流程"></a>三、Node.js模块路径解析流程</h4><ul>
-<li><p>Node.js项目模块路径解析是通过require.resolve方法来实现的</p>
+<h4 id="三-nodejs模块路径解析流程"><a class="anchor" href="#三-nodejs模块路径解析流程">#</a> 三、Node.js 模块路径解析流程</h4>
+<ul>
+<li>
+<p>Node.js 项目模块路径解析是通过 require.resolve 方法来实现的</p>
 </li>
-<li><p>require,resolve就是通过Module.reso1 veFileName方法实现的</p>
+<li>
+<p>require,resolve 就是通过 Module.reso1 veFileName 方法实现的</p>
 </li>
-<li><p>require,resolve实现原理：<strong>Module,resolveFileName方法核心流程有3点：</strong></p>
+<li>
+<p>require,resolve 实现原理：<strong>Module,resolveFileName 方法核心流程有 3 点：</strong></p>
 <ol>
-<li><p>判断是否为内置模块</p>
+<li>
+<p>判断是否为内置模块</p>
 </li>
-<li><p>通过Module,resolveLookupPaths方法生成node_modules可能存在的路径</p>
+<li>
+<p>通过 Module,resolveLookupPaths 方法生成 node_modules 可能存在的路径</p>
 </li>
-<li><p>通过Module,findPath查询模块的真实路径</p>
+<li>
+<p>通过 Module,findPath 查询模块的真实路径</p>
 </li>
 </ol>
-<p><strong>Module,findPath核心流程有4点：</strong></p>
+<p><strong>Module,findPath 核心流程有 4 点：</strong></p>
 <ol>
-<li><p>查询缓存（将request和paths通过\xoo合并成cacheKey)</p>
+<li>
+<p>查询缓存（将 request 和 paths 通过 \xoo 合并成 cacheKey)</p>
 </li>
-<li><p>遍历paths,将path与request组成文件路径basePath</p>
+<li>
+<p>遍历 paths, 将 path 与 request 组成文件路径 basePath</p>
 </li>
-<li><p>如果basePath存在则调用fs,realPathSync获取文件真实路径</p>
+<li>
+<p>如果 basePath 存在则调用 fs,realPathSync 获取文件真实路径</p>
 </li>
-<li><p>将文件真实路径缓存到Module.pathCache(key就是前面生成的cacheKey)</p>
+<li>
+<p>将文件真实路径缓存到 Module.pathCache (key 就是前面生成的 cacheKey)</p>
 </li>
 </ol>
-<p><strong>fs.realPathSync核心流程有3点：</strong></p>
+<p><strong>fs.realPathSync 核心流程有 3 点：</strong></p>
 </li>
 </ul>
 <ol>
-<li><p>查询缓存（缓存的key为p,即Module.findPath中生成的文件路径）】</p>
+<li>
+<p>查询缓存（缓存的 key 为 p, 即 Module.findPath 中生成的文件路径）】</p>
 </li>
-<li><p>从左往右遍历路径字符串，查询到&#x2F;时，拆分路径，判断该路径是否为软链接，如果是软链接则查询真实链接，并生成新路径P,然后继续往后遍历，这里有1个细节需要特别注意：</p>
-<p>遍历过程中生成的子路径base会缓存在knownHard和cache中，避免重复查询</p>
+<li>
+<p>从左往右遍历路径字符串，查询到 / 时，拆分路径，判断该路径是否为软链接，如果是软链接则查询真实链接，并生成新路径 P, 然后继续往后遍历，这里有 1 个细节需要特别注意：</p>
+<p>遍历过程中生成的子路径 base 会缓存在 knownHard 和 cache 中，避免重复查询</p>
 </li>
-<li><p>遍历完成得到模块对应的真实路径，此时会将原始路径original作为key,真实路径作为value,保存到缓存中</p>
+<li>
+<p>遍历完成得到模块对应的真实路径，此时会将原始路径 original 作为 key, 真实路径作为 value, 保存到缓存中</p>
 </li>
 </ol>
 <ul>
-<li><p>require.resolve,paths等价于Module.resolveLookupPaths，,该方法用于获取所有node_modules可能存在的路径</p>
+<li>
+<p>require.resolve,paths 等价于 Module.resolveLookupPaths，, 该方法用于获取所有 node_modules 可能存在的路径</p>
 </li>
-<li><p>require.resolve,paths实现原理：<br>如果路径为&#x2F;（根目录），直接返回【’&#x2F;node modules’】否则，将路径字符串从后往前遍历，查询到&#x2F;时，拆分路径，在后面加上node_modules,并传入一个paths数组，直至查询不到&#x2F;后返回paths数组</p>
+<li>
+<p>require.resolve,paths 实现原理：<br />
+如果路径为 /（根目录），直接返回【'/node modules'】否则，将路径字符串从后往前遍历，查询到 / 时，拆分路径，在后面加上 node_modules, 并传入一个 paths 数组，直至查询不到 / 后返回 paths 数组</p>
 </li>
 </ul>
-<h1 id="yargs"><a href="#yargs" class="headerlink" title="yargs"></a>yargs</h1><p><strong>yargs使用简要介绍：</strong></p>
-<pre><code class="js">#! /usr/bin/env node
-
-//获得yargs构造实例
-const yargs = require(&#39;yargs/yargs&#39;);
-//参数解析函数
-const &#123; hideBin &#125; = require(&#39;yargs/helpers&#39;);
-const arg = hideBin(process.argv);
-const cli = yargs(arg);
-//配置命令：
-cli
-  .usage(&#39;Usage: $0 [command] &lt;options&gt;&#39;) //使用说明,$0表示命令
-  .demandCommand(1,&#39;A command is required,pass --help to see info&#39;) //最少一个次命令
-  .strict() //对于未知的命令行参数进行提示输出。
-  .recommendCommands() //查找提示近似命令
-  .alias(&#39;h&#39;,&#39;help&#39;) //options别名
-  .alias(&#39;v&#39;,&#39;version&#39;)
-  .wrap(cli.terminalWidth()) //命令行输出宽度
-  .epilog(`welcomn use cli-core`) //结语
-  .options(&#123; //注册多个options选项
-    debug:&#123;
-      type:&quot;boolean&quot;,
-      describe: &quot;bootstrap debug mode&quot;,
-      alias: &quot;d&quot; //添加别名
-    &#125;,
-  &#125;)
-  .option(&#39;registry&#39;,&#123; //添加单个选项
-    hidden: true, //不对外暴露命令
-    type:&quot;string&quot;,
-    describe:&quot;define global registry&quot;,
-    alias:&#39;r&#39;
-  &#125;)
-  .group([&#39;debug&#39;],&#39;Dev Options&#39;) //对Options选项进行分类
-  .group([&#39;registry&#39;],&quot;Extra Options&quot;)
-  .command(&#39;init [name]&#39;,&#39;init a project&#39;,(yargs)=&gt;&#123; //注册次命令，制定对应options
-    yargs
-      .option(&#39;name&#39;,&#123;
-        type: &#39;string&#39;,
-        describe: &#39;Name of a project&#39;,
-        alias: &#39;n&#39;
-      &#125;);
-  &#125;,(argv)=&gt;&#123;
-        console.log(argv);
-  &#125;)
-  .command(&#123;    //第二种注册命令的方法（更加精细）
-    command: &#39;list&#39;,
-    aliases: [&#39;ls&#39;,&#39;la&#39;,&#39;ll&#39;],
-    describe: &#39;List local packages&#39;,
-    builder: (yargs)=&gt;[
-      // ....操作
-    ],
-    handler: (argv)=&gt;&#123;
-      console.log(argv);
-    &#125;
-  &#125;)
-  .argv; //使用参数
-</code></pre>
-<h1 id="commander"><a href="#commander" class="headerlink" title="commander"></a>commander</h1><p><strong>commander简单单例模式</strong></p>
-<pre><code class="js">#! /usr/bin/env node
-const commander = require(&#39;commander&#39;);
-const pkg = require(&#39;../package.json&#39;);
-const &#123; program &#125; = commander; //commander单例，包含已注册好的基础命令
-program
-    .version(pkg.version)
-    .parse(process.argv)
-</code></pre>
-<p><strong>commander强大功能</strong></p>
-<pre><code class="js">#! /usr/bin/env node
-const commander = require(&#39;commander&#39;);
-const pkg = require(&#39;../package.json&#39;);
-const program = new commander.Command();//手动实例化一个commander实例
-program
-    .name(Object.keys(pkg.bin)[0])
-    .usage(&#39;&lt;command&gt; [options]&#39;) //使用说明
-    .version(pkg.version) //版本
-    .option(&#39;-d,--debug&#39;,&#39;是否开启调试模式&#39;,false) //配置option选项：选项，帮助信息，默认值
-    .option(&#39;-e,--envName &lt;envName&gt;&#39;,&#39;获取变量名称&#39;)//option获得传参
-    .parse(process.argv) //解析参数
-//使用command注册命令
-const clone = program.command(&#39;clone &lt;source&gt; [destination]&#39;); //&lt;必选项&gt;，[可选项]
-clone
-    .description(&#39;clone a repository&#39;)
-    .option(&#39;-f,--force&#39;,&#39;是否强制克隆&#39;)
-    .action((source,destination,cmdObj)=&gt;&#123;
-        console.log(&#39;do clone&#39;,source,destination,cmdObj.force);
-    &#125;)
-//使用addCommand注册子命令
-const service = new commander.Command(&#39;service&#39;);
-service
-    .command(&#39;start [port]&#39;)
-    .description(&#39;start service at port&#39;)
-    .action((port)=&gt;&#123;
-        console.log(&#39;do service start&#39;,port);
-    &#125;);
-service
-    .command(&#39;stop&#39;)
-    .description(&#39;stop service&#39;)
-    .action(()=&gt;&#123;
-        console.log(&#39;stop service&#39;);
-    &#125;)
-program.addCommand(service);
-
-//参数解释和自动匹配功能
-program
-    .arguments(&#39;&lt;cmd&gt; [options]&#39;) //强制传入命令
-    .description(&#39;test command&#39;,&#123; //描述
-        cmd: &#39;命令&#39;,
-        options: &#39;参数&#39;
-    &#125;)
-    .action(function(cmd,options)&#123; //匹配全部命令
-        console.log(cmd,options);
-    &#125;)
-
-//默认命令与命令转向功能
-program
-    .command(&#39;install [name]&#39;,&#39;install package&#39;,&#123;
-            executableFile: &#39;imooc-cli&#39;, //将install [name]命令转向imooc-cli
-            isDefault: true,//设置为默认命令
-            hidden: true,//命令不可见
-        &#125;)
-        .alias(&#39;i&#39;);
-
-//高级定制1：自定义help信息
-program.helpInformation = function()&#123;
-    return &#39;&#39;;
-&#125;;
-program.on(&#39;--help&#39;,function()&#123;
-    console.log(&#39;my help information&#39;);
-&#125;);
-
-//高级定制2：监听debug
-program.on(&#39;option:debug&#39;,function()&#123;
-    if(program.debug)&#123;
-        process.env.LOG_LEVEL = &#39;verbose&#39;;
-    &#125;;
-    console.log(process.env.LOG_LEVEL);
-&#125;)
-
-//高级定制3：监听未知命令（与默认命令冲突）
-program.on(&#39;command:*&#39;,function(obj)&#123;
-    console.error(&#39;未知命令:&#39;+ obj[0]);
-    const avaliableCommands = program.commands.map(cmd=&gt;cmd.name());
-    console.log(&#39;可用命令：&#39;+avaliableCommands.join(&#39;,&#39;));
-&#125;)
-
-//最后要进行参数解析!
-program.parse(process.argv)
-
-//内置属性和方法
-console.log(program.debug);
-console.log(program.envName);
-program.outputHelp();//内置方法，弹出帮助信息
-console.log(program.opts());//内置方法，返回options信息
-</code></pre>
-<h1 id="require加载机制"><a href="#require加载机制" class="headerlink" title="require加载机制"></a>require加载机制</h1><p><strong>require直接加载.js、.json和.node文件，其余文件按照js语法进行加载</strong></p>
+<h1 id="yargs"><a class="anchor" href="#yargs">#</a> yargs</h1>
+<p><strong>yargs 使用简要介绍：</strong></p>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token hashbang comment">#! /usr/bin/env node</span></pre></td></tr><tr><td data-num="2"></td><td><pre></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token comment">// 获得 yargs 构造实例</span></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token keyword">const</span> yargs <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'yargs/yargs'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token comment">// 参数解析函数</span></pre></td></tr><tr><td data-num="6"></td><td><pre><span class="token keyword">const</span> <span class="token punctuation">&#123;</span> hideBin <span class="token punctuation">&#125;</span> <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'yargs/helpers'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="7"></td><td><pre><span class="token keyword">const</span> arg <span class="token operator">=</span> <span class="token function">hideBin</span><span class="token punctuation">(</span>process<span class="token punctuation">.</span>argv<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="8"></td><td><pre><span class="token keyword">const</span> cli <span class="token operator">=</span> <span class="token function">yargs</span><span class="token punctuation">(</span>arg<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="9"></td><td><pre><span class="token comment">// 配置命令：</span></pre></td></tr><tr><td data-num="10"></td><td><pre>cli</pre></td></tr><tr><td data-num="11"></td><td><pre>  <span class="token punctuation">.</span><span class="token function">usage</span><span class="token punctuation">(</span><span class="token string">'Usage: $0 [command] &lt;options>'</span><span class="token punctuation">)</span> <span class="token comment">// 使用说明，$0 表示命令</span></pre></td></tr><tr><td data-num="12"></td><td><pre>  <span class="token punctuation">.</span><span class="token function">demandCommand</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token string">'A command is required,pass --help to see info'</span><span class="token punctuation">)</span> <span class="token comment">// 最少一个次命令</span></pre></td></tr><tr><td data-num="13"></td><td><pre>  <span class="token punctuation">.</span><span class="token function">strict</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment">// 对于未知的命令行参数进行提示输出。</span></pre></td></tr><tr><td data-num="14"></td><td><pre>  <span class="token punctuation">.</span><span class="token function">recommendCommands</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment">// 查找提示近似命令</span></pre></td></tr><tr><td data-num="15"></td><td><pre>  <span class="token punctuation">.</span><span class="token function">alias</span><span class="token punctuation">(</span><span class="token string">'h'</span><span class="token punctuation">,</span><span class="token string">'help'</span><span class="token punctuation">)</span> <span class="token comment">//options 别名</span></pre></td></tr><tr><td data-num="16"></td><td><pre>  <span class="token punctuation">.</span><span class="token function">alias</span><span class="token punctuation">(</span><span class="token string">'v'</span><span class="token punctuation">,</span><span class="token string">'version'</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="17"></td><td><pre>  <span class="token punctuation">.</span><span class="token function">wrap</span><span class="token punctuation">(</span>cli<span class="token punctuation">.</span><span class="token function">terminalWidth</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment">// 命令行输出宽度</span></pre></td></tr><tr><td data-num="18"></td><td><pre>  <span class="token punctuation">.</span><span class="token function">epilog</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">welcomn use cli-core</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span> <span class="token comment">// 结语</span></pre></td></tr><tr><td data-num="19"></td><td><pre>  <span class="token punctuation">.</span><span class="token function">options</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span> <span class="token comment">// 注册多个 options 选项</span></pre></td></tr><tr><td data-num="20"></td><td><pre>    <span class="token literal-property property">debug</span><span class="token operator">:</span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="21"></td><td><pre>      <span class="token literal-property property">type</span><span class="token operator">:</span><span class="token string">"boolean"</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="22"></td><td><pre>      <span class="token literal-property property">describe</span><span class="token operator">:</span> <span class="token string">"bootstrap debug mode"</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="23"></td><td><pre>      <span class="token literal-property property">alias</span><span class="token operator">:</span> <span class="token string">"d"</span> <span class="token comment">// 添加别名</span></pre></td></tr><tr><td data-num="24"></td><td><pre>    <span class="token punctuation">&#125;</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="25"></td><td><pre>  <span class="token punctuation">&#125;</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="26"></td><td><pre>  <span class="token punctuation">.</span><span class="token function">option</span><span class="token punctuation">(</span><span class="token string">'registry'</span><span class="token punctuation">,</span><span class="token punctuation">&#123;</span> <span class="token comment">// 添加单个选项</span></pre></td></tr><tr><td data-num="27"></td><td><pre>    <span class="token literal-property property">hidden</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> <span class="token comment">// 不对外暴露命令</span></pre></td></tr><tr><td data-num="28"></td><td><pre>    <span class="token literal-property property">type</span><span class="token operator">:</span><span class="token string">"string"</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="29"></td><td><pre>    <span class="token literal-property property">describe</span><span class="token operator">:</span><span class="token string">"define global registry"</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="30"></td><td><pre>    <span class="token literal-property property">alias</span><span class="token operator">:</span><span class="token string">'r'</span></pre></td></tr><tr><td data-num="31"></td><td><pre>  <span class="token punctuation">&#125;</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="32"></td><td><pre>  <span class="token punctuation">.</span><span class="token function">group</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'debug'</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token string">'Dev Options'</span><span class="token punctuation">)</span> <span class="token comment">// 对 Options 选项进行分类</span></pre></td></tr><tr><td data-num="33"></td><td><pre>  <span class="token punctuation">.</span><span class="token function">group</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'registry'</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token string">"Extra Options"</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="34"></td><td><pre>  <span class="token punctuation">.</span><span class="token function">command</span><span class="token punctuation">(</span><span class="token string">'init [name]'</span><span class="token punctuation">,</span><span class="token string">'init a project'</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token parameter">yargs</span><span class="token punctuation">)</span><span class="token operator">=></span><span class="token punctuation">&#123;</span> <span class="token comment">// 注册次命令，制定对应 options</span></pre></td></tr><tr><td data-num="35"></td><td><pre>    yargs</pre></td></tr><tr><td data-num="36"></td><td><pre>      <span class="token punctuation">.</span><span class="token function">option</span><span class="token punctuation">(</span><span class="token string">'name'</span><span class="token punctuation">,</span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="37"></td><td><pre>        <span class="token literal-property property">type</span><span class="token operator">:</span> <span class="token string">'string'</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="38"></td><td><pre>        <span class="token literal-property property">describe</span><span class="token operator">:</span> <span class="token string">'Name of a project'</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="39"></td><td><pre>        <span class="token literal-property property">alias</span><span class="token operator">:</span> <span class="token string">'n'</span></pre></td></tr><tr><td data-num="40"></td><td><pre>      <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="41"></td><td><pre>  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token parameter">argv</span><span class="token punctuation">)</span><span class="token operator">=></span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="42"></td><td><pre>        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>argv<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="43"></td><td><pre>  <span class="token punctuation">&#125;</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="44"></td><td><pre>  <span class="token punctuation">.</span><span class="token function">command</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>    <span class="token comment">// 第二种注册命令的方法（更加精细）</span></pre></td></tr><tr><td data-num="45"></td><td><pre>    <span class="token literal-property property">command</span><span class="token operator">:</span> <span class="token string">'list'</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="46"></td><td><pre>    <span class="token literal-property property">aliases</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">'ls'</span><span class="token punctuation">,</span><span class="token string">'la'</span><span class="token punctuation">,</span><span class="token string">'ll'</span><span class="token punctuation">]</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="47"></td><td><pre>    <span class="token literal-property property">describe</span><span class="token operator">:</span> <span class="token string">'List local packages'</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="48"></td><td><pre>    <span class="token function-variable function">builder</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token parameter">yargs</span><span class="token punctuation">)</span><span class="token operator">=></span><span class="token punctuation">[</span></pre></td></tr><tr><td data-num="49"></td><td><pre>      <span class="token comment">//.... 操作</span></pre></td></tr><tr><td data-num="50"></td><td><pre>    <span class="token punctuation">]</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="51"></td><td><pre>    <span class="token function-variable function">handler</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token parameter">argv</span><span class="token punctuation">)</span><span class="token operator">=></span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="52"></td><td><pre>      console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>argv<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="53"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="54"></td><td><pre>  <span class="token punctuation">&#125;</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="55"></td><td><pre>  <span class="token punctuation">.</span>argv<span class="token punctuation">;</span> <span class="token comment">// 使用参数</span></pre></td></tr></table></figure><h1 id="commander"><a class="anchor" href="#commander">#</a> commander</h1>
+<p><strong>commander 简单单例模式</strong></p>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token hashbang comment">#! /usr/bin/env node</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token keyword">const</span> commander <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'commander'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token keyword">const</span> pkg <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'../package.json'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token keyword">const</span> <span class="token punctuation">&#123;</span> program <span class="token punctuation">&#125;</span> <span class="token operator">=</span> commander<span class="token punctuation">;</span> <span class="token comment">//commander 单例，包含已注册好的基础命令</span></pre></td></tr><tr><td data-num="5"></td><td><pre>program</pre></td></tr><tr><td data-num="6"></td><td><pre>    <span class="token punctuation">.</span><span class="token function">version</span><span class="token punctuation">(</span>pkg<span class="token punctuation">.</span>version<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="7"></td><td><pre>    <span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span>process<span class="token punctuation">.</span>argv<span class="token punctuation">)</span></pre></td></tr></table></figure><p><strong>commander 强大功能</strong></p>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token hashbang comment">#! /usr/bin/env node</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token keyword">const</span> commander <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'commander'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token keyword">const</span> pkg <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'../package.json'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token keyword">const</span> program <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">commander<span class="token punctuation">.</span>Command</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">// 手动实例化一个 commander 实例</span></pre></td></tr><tr><td data-num="5"></td><td><pre>program</pre></td></tr><tr><td data-num="6"></td><td><pre>    <span class="token punctuation">.</span><span class="token function">name</span><span class="token punctuation">(</span>Object<span class="token punctuation">.</span><span class="token function">keys</span><span class="token punctuation">(</span>pkg<span class="token punctuation">.</span>bin<span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="7"></td><td><pre>    <span class="token punctuation">.</span><span class="token function">usage</span><span class="token punctuation">(</span><span class="token string">'&lt;command> [options]'</span><span class="token punctuation">)</span> <span class="token comment">// 使用说明</span></pre></td></tr><tr><td data-num="8"></td><td><pre>    <span class="token punctuation">.</span><span class="token function">version</span><span class="token punctuation">(</span>pkg<span class="token punctuation">.</span>version<span class="token punctuation">)</span> <span class="token comment">// 版本</span></pre></td></tr><tr><td data-num="9"></td><td><pre>    <span class="token punctuation">.</span><span class="token function">option</span><span class="token punctuation">(</span><span class="token string">'-d,--debug'</span><span class="token punctuation">,</span><span class="token string">'是否开启调试模式'</span><span class="token punctuation">,</span><span class="token boolean">false</span><span class="token punctuation">)</span> <span class="token comment">// 配置 option 选项：选项，帮助信息，默认值</span></pre></td></tr><tr><td data-num="10"></td><td><pre>    <span class="token punctuation">.</span><span class="token function">option</span><span class="token punctuation">(</span><span class="token string">'-e,--envName &lt;envName>'</span><span class="token punctuation">,</span><span class="token string">'获取变量名称'</span><span class="token punctuation">)</span><span class="token comment">//option 获得传参</span></pre></td></tr><tr><td data-num="11"></td><td><pre>    <span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span>process<span class="token punctuation">.</span>argv<span class="token punctuation">)</span> <span class="token comment">// 解析参数</span></pre></td></tr><tr><td data-num="12"></td><td><pre><span class="token comment">// 使用 command 注册命令</span></pre></td></tr><tr><td data-num="13"></td><td><pre><span class="token keyword">const</span> clone <span class="token operator">=</span> program<span class="token punctuation">.</span><span class="token function">command</span><span class="token punctuation">(</span><span class="token string">'clone &lt;source> [destination]'</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//&lt; 必选项 >，[可选项]</span></pre></td></tr><tr><td data-num="14"></td><td><pre>clone</pre></td></tr><tr><td data-num="15"></td><td><pre>    <span class="token punctuation">.</span><span class="token function">description</span><span class="token punctuation">(</span><span class="token string">'clone a repository'</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="16"></td><td><pre>    <span class="token punctuation">.</span><span class="token function">option</span><span class="token punctuation">(</span><span class="token string">'-f,--force'</span><span class="token punctuation">,</span><span class="token string">'是否强制克隆'</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="17"></td><td><pre>    <span class="token punctuation">.</span><span class="token function">action</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">source<span class="token punctuation">,</span>destination<span class="token punctuation">,</span>cmdObj</span><span class="token punctuation">)</span><span class="token operator">=></span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="18"></td><td><pre>        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'do clone'</span><span class="token punctuation">,</span>source<span class="token punctuation">,</span>destination<span class="token punctuation">,</span>cmdObj<span class="token punctuation">.</span>force<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="19"></td><td><pre>    <span class="token punctuation">&#125;</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="20"></td><td><pre><span class="token comment">// 使用 addCommand 注册子命令</span></pre></td></tr><tr><td data-num="21"></td><td><pre><span class="token keyword">const</span> service <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">commander<span class="token punctuation">.</span>Command</span><span class="token punctuation">(</span><span class="token string">'service'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="22"></td><td><pre>service</pre></td></tr><tr><td data-num="23"></td><td><pre>    <span class="token punctuation">.</span><span class="token function">command</span><span class="token punctuation">(</span><span class="token string">'start [port]'</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="24"></td><td><pre>    <span class="token punctuation">.</span><span class="token function">description</span><span class="token punctuation">(</span><span class="token string">'start service at port'</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="25"></td><td><pre>    <span class="token punctuation">.</span><span class="token function">action</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">port</span><span class="token punctuation">)</span><span class="token operator">=></span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="26"></td><td><pre>        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'do service start'</span><span class="token punctuation">,</span>port<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="27"></td><td><pre>    <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="28"></td><td><pre>service</pre></td></tr><tr><td data-num="29"></td><td><pre>    <span class="token punctuation">.</span><span class="token function">command</span><span class="token punctuation">(</span><span class="token string">'stop'</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="30"></td><td><pre>    <span class="token punctuation">.</span><span class="token function">description</span><span class="token punctuation">(</span><span class="token string">'stop service'</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="31"></td><td><pre>    <span class="token punctuation">.</span><span class="token function">action</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">=></span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="32"></td><td><pre>        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'stop service'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="33"></td><td><pre>    <span class="token punctuation">&#125;</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="34"></td><td><pre>program<span class="token punctuation">.</span><span class="token function">addCommand</span><span class="token punctuation">(</span>service<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="35"></td><td><pre></pre></td></tr><tr><td data-num="36"></td><td><pre><span class="token comment">// 参数解释和自动匹配功能</span></pre></td></tr><tr><td data-num="37"></td><td><pre>program</pre></td></tr><tr><td data-num="38"></td><td><pre>    <span class="token punctuation">.</span><span class="token function">arguments</span><span class="token punctuation">(</span><span class="token string">'&lt;cmd> [options]'</span><span class="token punctuation">)</span> <span class="token comment">// 强制传入命令</span></pre></td></tr><tr><td data-num="39"></td><td><pre>    <span class="token punctuation">.</span><span class="token function">description</span><span class="token punctuation">(</span><span class="token string">'test command'</span><span class="token punctuation">,</span><span class="token punctuation">&#123;</span> <span class="token comment">// 描述</span></pre></td></tr><tr><td data-num="40"></td><td><pre>        <span class="token literal-property property">cmd</span><span class="token operator">:</span> <span class="token string">'命令'</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="41"></td><td><pre>        <span class="token literal-property property">options</span><span class="token operator">:</span> <span class="token string">'参数'</span></pre></td></tr><tr><td data-num="42"></td><td><pre>    <span class="token punctuation">&#125;</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="43"></td><td><pre>    <span class="token punctuation">.</span><span class="token function">action</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">cmd<span class="token punctuation">,</span>options</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span> <span class="token comment">// 匹配全部命令</span></pre></td></tr><tr><td data-num="44"></td><td><pre>        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>cmd<span class="token punctuation">,</span>options<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="45"></td><td><pre>    <span class="token punctuation">&#125;</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="46"></td><td><pre></pre></td></tr><tr><td data-num="47"></td><td><pre><span class="token comment">// 默认命令与命令转向功能</span></pre></td></tr><tr><td data-num="48"></td><td><pre>program</pre></td></tr><tr><td data-num="49"></td><td><pre>    <span class="token punctuation">.</span><span class="token function">command</span><span class="token punctuation">(</span><span class="token string">'install [name]'</span><span class="token punctuation">,</span><span class="token string">'install package'</span><span class="token punctuation">,</span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="50"></td><td><pre>            <span class="token literal-property property">executableFile</span><span class="token operator">:</span> <span class="token string">'imooc-cli'</span><span class="token punctuation">,</span> <span class="token comment">// 将 install [name] 命令转向 imooc-cli</span></pre></td></tr><tr><td data-num="51"></td><td><pre>            <span class="token literal-property property">isDefault</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span><span class="token comment">// 设置为默认命令</span></pre></td></tr><tr><td data-num="52"></td><td><pre>            <span class="token literal-property property">hidden</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span><span class="token comment">// 命令不可见</span></pre></td></tr><tr><td data-num="53"></td><td><pre>        <span class="token punctuation">&#125;</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="54"></td><td><pre>        <span class="token punctuation">.</span><span class="token function">alias</span><span class="token punctuation">(</span><span class="token string">'i'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="55"></td><td><pre></pre></td></tr><tr><td data-num="56"></td><td><pre><span class="token comment">// 高级定制 1：自定义 help 信息</span></pre></td></tr><tr><td data-num="57"></td><td><pre>program<span class="token punctuation">.</span><span class="token function-variable function">helpInformation</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="58"></td><td><pre>    <span class="token keyword">return</span> <span class="token string">''</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="59"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="60"></td><td><pre>program<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">'--help'</span><span class="token punctuation">,</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="61"></td><td><pre>    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'my help information'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="62"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="63"></td><td><pre></pre></td></tr><tr><td data-num="64"></td><td><pre><span class="token comment">// 高级定制 2：监听 debug</span></pre></td></tr><tr><td data-num="65"></td><td><pre>program<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">'option:debug'</span><span class="token punctuation">,</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="66"></td><td><pre>    <span class="token keyword">if</span><span class="token punctuation">(</span>program<span class="token punctuation">.</span>debug<span class="token punctuation">)</span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="67"></td><td><pre>        process<span class="token punctuation">.</span>env<span class="token punctuation">.</span><span class="token constant">LOG_LEVEL</span> <span class="token operator">=</span> <span class="token string">'verbose'</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="68"></td><td><pre>    <span class="token punctuation">&#125;</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="69"></td><td><pre>    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>process<span class="token punctuation">.</span>env<span class="token punctuation">.</span><span class="token constant">LOG_LEVEL</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="70"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="71"></td><td><pre></pre></td></tr><tr><td data-num="72"></td><td><pre><span class="token comment">// 高级定制 3：监听未知命令（与默认命令冲突）</span></pre></td></tr><tr><td data-num="73"></td><td><pre>program<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">'command:*'</span><span class="token punctuation">,</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">obj</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="74"></td><td><pre>    console<span class="token punctuation">.</span><span class="token function">error</span><span class="token punctuation">(</span><span class="token string">'未知命令:'</span><span class="token operator">+</span> obj<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="75"></td><td><pre>    <span class="token keyword">const</span> avaliableCommands <span class="token operator">=</span> program<span class="token punctuation">.</span>commands<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token parameter">cmd</span><span class="token operator">=></span>cmd<span class="token punctuation">.</span><span class="token function">name</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="76"></td><td><pre>    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'可用命令：'</span><span class="token operator">+</span>avaliableCommands<span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span><span class="token string">','</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="77"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="78"></td><td><pre></pre></td></tr><tr><td data-num="79"></td><td><pre><span class="token comment">// 最后要进行参数解析！</span></pre></td></tr><tr><td data-num="80"></td><td><pre>program<span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span>process<span class="token punctuation">.</span>argv<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="81"></td><td><pre></pre></td></tr><tr><td data-num="82"></td><td><pre><span class="token comment">// 内置属性和方法</span></pre></td></tr><tr><td data-num="83"></td><td><pre>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>program<span class="token punctuation">.</span>debug<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="84"></td><td><pre>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>program<span class="token punctuation">.</span>envName<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="85"></td><td><pre>program<span class="token punctuation">.</span><span class="token function">outputHelp</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">// 内置方法，弹出帮助信息</span></pre></td></tr><tr><td data-num="86"></td><td><pre>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>program<span class="token punctuation">.</span><span class="token function">opts</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">// 内置方法，返回 options 信息</span></pre></td></tr></table></figure><h1 id="require加载机制"><a class="anchor" href="#require加载机制">#</a> require 加载机制</h1>
+<p><strong>require 直接加载.js、.json 和.node 文件，其余文件按照 js 语法进行加载</strong></p>
 <ol>
-<li>加载js文件，require加载的js文件需要进行导出</li>
-<li>加载json文件，通过JSON.parse进行文件解析</li>
-<li>加载node文件，通过process.dlopen方法加载（node文件是C++语法）</li>
-<li>其余文件，使用js语法加载，此时语法错误的会报错。</li>
+<li>加载 js 文件，require 加载的 js 文件需要进行导出</li>
+<li>加载 json 文件，通过 JSON.parse 进行文件解析</li>
+<li>加载 node 文件，通过 process.dlopen 方法加载（node 文件是 C++ 语法）</li>
+<li>其余文件，使用 js 语法加载，此时语法错误的会报错。</li>
 </ol>
-<h1 id="node多进程"><a href="#node多进程" class="headerlink" title="node多进程"></a>node多进程</h1><h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><p><strong>进程是资源分配的最小单位，线程是CPU调度的最小单位</strong></p>
+<h1 id="node多进程"><a class="anchor" href="#node多进程">#</a> node 多进程</h1>
+<h3 id="介绍"><a class="anchor" href="#介绍">#</a> 介绍</h3>
+<p><strong>进程是资源分配的最小单位，线程是 CPU 调度的最小单位</strong></p>
 <p>什么是进程</p>
-<p>进程(Process)是计算机中的程序关于某数据集合上的一次运行活动，是系统进行资源分配和调度的基本单</p>
+<p>进程 (Process) 是计算机中的程序关于某数据集合上的一次运行活动，是系统进行资源分配和调度的基本单</p>
 <p>位，是操作系统结构的基础。</p>
 <p>进程的概念主要有两点：</p>
 <ul>
 <li>第一，进程是一个实体。每一个进程都有它自己的地址空间。</li>
-<li>第二，进程是一个“执行中的程序”，存在嵌套关系。</li>
+<li>第二，进程是一个 “执行中的程序”，存在嵌套关系。</li>
 </ul>
-<p>node多进程官方文档：</p>
+<p>node 多进程官方文档：</p>
 <p>中文版：<span class="exturl" data-url="aHR0cDovL25vZGVpcy5jbi9hcGkvY2hpbGRfcHJvY2VzcyxodG1s">http://nodeis.cn/api/child_process,html</span></p>
-<p><strong>操作系统会使用时会开辟一个node进程，每个node文件在运行时都会创建一个child_process进行，也就是node.js的子进程。</strong></p>
-<h3 id="child-precess用法"><a href="#child-precess用法" class="headerlink" title="child_precess用法"></a>child_precess用法</h3><p><strong>一、执行可执行文件。</strong></p>
-<pre><code class="js">const cp = require(&#39;child_process&#39;) //默认内置库
-//exec方法，可以传执行命令，也可以传文件路径，但不支持给文件传参。
-cp.exec(&#39;ls -al|grep node_modules&#39;,function(err,stdout,stderr)&#123;
-    console.log(err,stdout,stderr);
-&#125;);
-//execFile方法，传文件路径，并且支持给文件传参数。
-cp.execFile(&#39;ls&#39;,[&#39;-al&#39;],function(err,stdout,stderr)&#123;
-    console.log(err,stdout,stderr);
-&#125;)
-//spawn方法，传入文件路径，以流式的方式输出，是exec和execFile的底层原理
-const child = cp.spawn(&#39;npm&#39;,[install],&#123;
-    cwd: path.resolve(&#39;/User/dmq/Desktop/test&#39;)
-&#125;);
-child.stdout.on(&#39;data&#39;,function(chunk)&#123;
-    console.log(&#39;stdout&#39;,chunk.toString());
-&#125;);
-child.stderr.on(&#39;data&#39;,function(chunk)&#123;
-    console.log(&#39;stderr&#39;,chunk.toString());
-&#125;)
-</code></pre>
-<p><strong>exec和spawn使用场景：</strong></p>
-<p>当文件操作过程复杂，并且需要频繁输出日志时，使用spawn进行流式操作。</p>
-<pre><code class="js">const child = cp.spawn(&#39;npm&#39;,[install],&#123;
-    cwd: path.resolve(&#39;/User/dmq/Desktop/test&#39;),
-    stdio: &#39;inherit&#39;, //将输出传给父进程。
-&#125;);
-//监听错误事件
-child.on(&#39;error&#39;,e=&gt;&#123;
-    console.error(e.message);
-&#125;)
-//监听退出事件
-child.on(&#39;exit&#39;,e=&gt;&#123;
-    console.log(&#39;命令执行成功&#39; + e)
-&#125;)
-child.stdout.on(&#39;data&#39;,function(chunk)&#123;
-    console.log(&#39;stdout&#39;,chunk.toString());
-&#125;);
-child.stderr.on(&#39;data&#39;,function(chunk)&#123;
-    console.log(&#39;stderr&#39;,chunk.toString());
-&#125;)
-</code></pre>
-<p>当文件操作过程简单，需要直接输出时，使用exec方法</p>
-<pre><code class="js">cp.exec(&#39;npm install&#39;,&#123;
-    cwd: path.resolve(&#39;/User/dmq/Desktop/test&#39;)
-&#125;,function(err,stdout,stderr)&#123;
-    console.log(err);
-    console.log(stdout);
-    console.log(stderr);
-&#125;)
-</code></pre>
-<p><strong>二、执行指定JS文件（不支持回调）</strong></p>
-<p>fork方法类似于require函数，但是区别在于fork方法会创建一个node子进程执行JS文件，使用独立的v8引擎去解析代码。</p>
-<p>index.js文件：</p>
-<pre><code class="js">const child = cp.fork(path.resolve(__dirname,&#39;child.js&#39;));
-child.send(&#39;hello child process!&#39;,()=&gt;&#123;
-    child.disconnect(); //及时断开连接，防止主进程和子进程长期处于等待状态
-&#125;);
-child.on(&#39;message&#39;,(msg)=&gt;&#123;
-    console.log(msg);
-&#125;);
-console.log(&#39;main pid:&#39;,process.pid);
-</code></pre>
-<p>child.js文件：</p>
-<pre><code class="js">console.log(&#39;child process pid:&#39;,process.pid);
-process.on(&#39;message&#39;,(msg)=&gt;&#123;
-    console.log(msg);
-&#125;);
-process.send(&#39;hello main process&#39;);
-</code></pre>
-<h3 id="child-process源码"><a href="#child-process源码" class="headerlink" title="child_process源码"></a>child_process源码</h3><p>疑问：</p>
+<p><strong>操作系统会使用时会开辟一个 node 进程，每个 node 文件在运行时都会创建一个 child_process 进行，也就是 node.js 的子进程。</strong></p>
+<h3 id="child_precess用法"><a class="anchor" href="#child_precess用法">#</a> child_precess 用法</h3>
+<p><strong>一、执行可执行文件。</strong></p>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">const</span> cp <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'child_process'</span><span class="token punctuation">)</span> <span class="token comment">// 默认内置库</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token comment">//exec 方法，可以传执行命令，也可以传文件路径，但不支持给文件传参。</span></pre></td></tr><tr><td data-num="3"></td><td><pre>cp<span class="token punctuation">.</span><span class="token function">exec</span><span class="token punctuation">(</span><span class="token string">'ls -al|grep node_modules'</span><span class="token punctuation">,</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">err<span class="token punctuation">,</span>stdout<span class="token punctuation">,</span>stderr</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="4"></td><td><pre>    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>err<span class="token punctuation">,</span>stdout<span class="token punctuation">,</span>stderr<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="6"></td><td><pre><span class="token comment">//execFile 方法，传文件路径，并且支持给文件传参数。</span></pre></td></tr><tr><td data-num="7"></td><td><pre>cp<span class="token punctuation">.</span><span class="token function">execFile</span><span class="token punctuation">(</span><span class="token string">'ls'</span><span class="token punctuation">,</span><span class="token punctuation">[</span><span class="token string">'-al'</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">err<span class="token punctuation">,</span>stdout<span class="token punctuation">,</span>stderr</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="8"></td><td><pre>    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>err<span class="token punctuation">,</span>stdout<span class="token punctuation">,</span>stderr<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="9"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="10"></td><td><pre><span class="token comment">//spawn 方法，传入文件路径，以流式的方式输出，是 exec 和 execFile 的底层原理</span></pre></td></tr><tr><td data-num="11"></td><td><pre><span class="token keyword">const</span> child <span class="token operator">=</span> cp<span class="token punctuation">.</span><span class="token function">spawn</span><span class="token punctuation">(</span><span class="token string">'npm'</span><span class="token punctuation">,</span><span class="token punctuation">[</span>install<span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="12"></td><td><pre>    <span class="token literal-property property">cwd</span><span class="token operator">:</span> path<span class="token punctuation">.</span><span class="token function">resolve</span><span class="token punctuation">(</span><span class="token string">'/User/dmq/Desktop/test'</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="13"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="14"></td><td><pre>child<span class="token punctuation">.</span>stdout<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">'data'</span><span class="token punctuation">,</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">chunk</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="15"></td><td><pre>    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'stdout'</span><span class="token punctuation">,</span>chunk<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="16"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="17"></td><td><pre>child<span class="token punctuation">.</span>stderr<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">'data'</span><span class="token punctuation">,</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">chunk</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="18"></td><td><pre>    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'stderr'</span><span class="token punctuation">,</span>chunk<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="19"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">)</span></pre></td></tr></table></figure><p><strong>exec 和 spawn 使用场景：</strong></p>
+<p>当文件操作过程复杂，并且需要频繁输出日志时，使用 spawn 进行流式操作。</p>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">const</span> child <span class="token operator">=</span> cp<span class="token punctuation">.</span><span class="token function">spawn</span><span class="token punctuation">(</span><span class="token string">'npm'</span><span class="token punctuation">,</span><span class="token punctuation">[</span>install<span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="2"></td><td><pre>    <span class="token literal-property property">cwd</span><span class="token operator">:</span> path<span class="token punctuation">.</span><span class="token function">resolve</span><span class="token punctuation">(</span><span class="token string">'/User/dmq/Desktop/test'</span><span class="token punctuation">)</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="3"></td><td><pre>    <span class="token literal-property property">stdio</span><span class="token operator">:</span> <span class="token string">'inherit'</span><span class="token punctuation">,</span> <span class="token comment">// 将输出传给父进程。</span></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token comment">// 监听错误事件</span></pre></td></tr><tr><td data-num="6"></td><td><pre>child<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">'error'</span><span class="token punctuation">,</span><span class="token parameter">e</span><span class="token operator">=></span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="7"></td><td><pre>    console<span class="token punctuation">.</span><span class="token function">error</span><span class="token punctuation">(</span>e<span class="token punctuation">.</span>message<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="8"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="9"></td><td><pre><span class="token comment">// 监听退出事件</span></pre></td></tr><tr><td data-num="10"></td><td><pre>child<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">'exit'</span><span class="token punctuation">,</span><span class="token parameter">e</span><span class="token operator">=></span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="11"></td><td><pre>    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'命令执行成功'</span> <span class="token operator">+</span> e<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="12"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="13"></td><td><pre>child<span class="token punctuation">.</span>stdout<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">'data'</span><span class="token punctuation">,</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">chunk</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="14"></td><td><pre>    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'stdout'</span><span class="token punctuation">,</span>chunk<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="15"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="16"></td><td><pre>child<span class="token punctuation">.</span>stderr<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">'data'</span><span class="token punctuation">,</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">chunk</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="17"></td><td><pre>    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'stderr'</span><span class="token punctuation">,</span>chunk<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="18"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">)</span></pre></td></tr></table></figure><p>当文件操作过程简单，需要直接输出时，使用 exec 方法</p>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre>cp<span class="token punctuation">.</span><span class="token function">exec</span><span class="token punctuation">(</span><span class="token string">'npm install'</span><span class="token punctuation">,</span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="2"></td><td><pre>	<span class="token literal-property property">cwd</span><span class="token operator">:</span> path<span class="token punctuation">.</span><span class="token function">resolve</span><span class="token punctuation">(</span><span class="token string">'/User/dmq/Desktop/test'</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">,</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">err<span class="token punctuation">,</span>stdout<span class="token punctuation">,</span>stderr</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="4"></td><td><pre>	console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="5"></td><td><pre>	console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>stdout<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="6"></td><td><pre>	console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>stderr<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="7"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">)</span></pre></td></tr></table></figure><p><strong>二、执行指定 JS 文件（不支持回调）</strong></p>
+<p>fork 方法类似于 require 函数，但是区别在于 fork 方法会创建一个 node 子进程执行 JS 文件，使用独立的 v8 引擎去解析代码。</p>
+<p>index.js 文件：</p>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">const</span> child <span class="token operator">=</span> cp<span class="token punctuation">.</span><span class="token function">fork</span><span class="token punctuation">(</span>path<span class="token punctuation">.</span><span class="token function">resolve</span><span class="token punctuation">(</span>__dirname<span class="token punctuation">,</span><span class="token string">'child.js'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="2"></td><td><pre>child<span class="token punctuation">.</span><span class="token function">send</span><span class="token punctuation">(</span><span class="token string">'hello child process!'</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">=></span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="3"></td><td><pre>    child<span class="token punctuation">.</span><span class="token function">disconnect</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 及时断开连接，防止主进程和子进程长期处于等待状态</span></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="5"></td><td><pre>child<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">'message'</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token parameter">msg</span><span class="token punctuation">)</span><span class="token operator">=></span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="6"></td><td><pre>    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>msg<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="7"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="8"></td><td><pre>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'main pid:'</span><span class="token punctuation">,</span>process<span class="token punctuation">.</span>pid<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr></table></figure><p>child.js 文件：</p>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'child process pid:'</span><span class="token punctuation">,</span>process<span class="token punctuation">.</span>pid<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="2"></td><td><pre>process<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">'message'</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token parameter">msg</span><span class="token punctuation">)</span><span class="token operator">=></span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="3"></td><td><pre>    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>msg<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="5"></td><td><pre>process<span class="token punctuation">.</span><span class="token function">send</span><span class="token punctuation">(</span><span class="token string">'hello main process'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr></table></figure><h3 id="child_process源码"><a class="anchor" href="#child_process源码">#</a> child_process 源码</h3>
+<p>疑问：</p>
 <ul>
-<li>exec、execFile、spanwn和fork区别：<ul>
-<li>exec:原理是调用&#x2F;bin&#x2F;sh-c执行我们传入的shell脚本，底层调用了execFile</li>
-<li>execFile:原理是直接执行我们传入的file和args,底层调用spawn创建和执行子进程，并建立了回调，一次性将所有的stdout和stderr结果返回</li>
-<li>spawn:原理是调用了internal&#x2F;child_.process,实例化了ChildProcess子进程对象，再调用child.spawn创建子进程并执行命令，底层是调用了child._handle.spawn执行process_wrap中的spwn方法，执行过程是异步的，执行完毕后通过PIPE进行单向数据通信，通信结束后会子进程发起onexit回调，同时Socket会执行close回调</li>
-<li>fork:原理是通过spawn创建子进程和执行命令，通过setupchannel创建IPC用于子进程和父进程之</li>
+<li>exec、execFile、spanwn 和 fork 区别：
+<ul>
+<li>exec: 原理是调用 /bin/sh-c 执行我们传入的 shell 脚本，底层调用了 execFile</li>
+<li>execFile: 原理是直接执行我们传入的 file 和 args, 底层调用 spawn 创建和执行子进程，并建立了回调，一次性将所有的 stdout 和 stderr 结果返回</li>
+<li>spawn: 原理是调用了 internal/child_.process, 实例化了 ChildProcess 子进程对象，再调用 child.spawn 创建子进程并执行命令，底层是调用了 child._handle.spawn 执行 process_wrap 中的 spwn 方法，执行过程是异步的，执行完毕后通过 PIPE 进行单向数据通信，通信结束后会子进程发起 onexit 回调，同时 Socket 会执行 close 回调</li>
+<li>fork: 原理是通过 spawn 创建子进程和执行命令，通过 setupchannel 创建 IPC 用于子进程和父进程之</li>
 </ul>
 </li>
 </ul>
-<h1 id="egg-js-mongodb"><a href="#egg-js-mongodb" class="headerlink" title="egg.js+mongodb"></a>egg.js+mongodb</h1><p><strong>1、egg.js</strong></p>
-<p>用于快速生成后端api的框架。</p>
-<p><strong>2、npm init egg命令</strong></p>
-<p>当执行<code>npm init egg</code> 命令时，npm会自动找到create-egg这个包（其他包同理，找到create-包名），进行执行。<strong>当不想将脚手架安装到本地，而是在线上直接使用时，这个机制就显得十分重要。</strong></p>
-<p><strong>3、mongodb数据库</strong></p>
+<h1 id="eggjsmongodb"><a class="anchor" href="#eggjsmongodb">#</a> egg.js+mongodb</h1>
+<p><strong>1、egg.js</strong></p>
+<p>用于快速生成后端 api 的框架。</p>
+<p><strong>2、npm init egg 命令</strong></p>
+<p>当执行 <code>npm init egg</code>  命令时，npm 会自动找到 create-egg 这个包（其他包同理，找到 create - 包名），进行执行。<strong>当不想将脚手架安装到本地，而是在线上直接使用时，这个机制就显得十分重要。</strong></p>
+<p><strong>3、mongodb 数据库</strong></p>
 <p>非关系型数据库。</p>
 <ul>
-<li><p><strong>云mongodb</strong></p>
+<li>
+<p><strong>云 mongodb</strong></p>
 <ul>
-<li><p>云mongodb开通</p>
+<li>
+<p>云 mongodb 开通</p>
 </li>
-<li><p>地址：https:&#x2F;mongodb.console.aliyun.comL,创建实例并付款即可</p>
+<li>
+<p>地址：https:/mongodb.console.aliyun.comL, 创建实例并付款即可</p>
 </li>
 </ul>
 </li>
-<li><p><strong>本地mongodb</strong></p>
+<li>
+<p><strong>本地 mongodb</strong></p>
 <ul>
-<li><p>地址：https:&#x2F;<span class="exturl" data-url="aHR0cDovL3d3dy5ydW5vb2IuY29tL21vbmdvZGIvbW9uZ29kYi10dXRvcmlhbC5odG1s">www.runoob.com/mongodb/mongodb-tutorial.html</span></p>
+<li>
+<p>地址：https:/www.runoob.com/mongodb/mongodb-tutorial.html</p>
 </li>
-<li><p>mongodb使用方法</p>
+<li>
+<p>mongodb 使用方法</p>
 </li>
-<li><p><span class="exturl" data-url="aHR0cHM6Ly93d3cucnVub29iLmNvbS9tb25nb2RiL21vbmdvZGItZGF0YWJhc2VzLWRvY3VtZW50cy1jb2xsZWN0aW9ucy5odG1s">https://www.runoob.com/mongodb/mongodb-databases-documents-collections.html</span></p>
+<li>
+<p><span class="exturl" data-url="aHR0cHM6Ly93d3cucnVub29iLmNvbS9tb25nb2RiL21vbmdvZGItZGF0YWJhc2VzLWRvY3VtZW50cy1jb2xsZWN0aW9ucy5odG1s">https://www.runoob.com/mongodb/mongodb-databases-documents-collections.html</span></p>
 </li>
 </ul>
 </li>
 </ul>
-<p>4、egg.js链接mongodb数据库</p>
-<p>utils&#x2F;mongo.js</p>
-<pre><code class="js">&#39;use strict&#39;;
-const logger = require(&#39;npmlog&#39;);
-logger.level = process.env.LOG_LEVEL ? process.env.LOG_LEVEL : &#39;info&#39;;
-logger.heading = &#39;pick&#39;; // 自定义头部
-logger.addLevel(&#39;success&#39;, 2000, &#123; fg: &#39;green&#39;, bold: true &#125;); // 自定义success日志
-logger.addLevel(&#39;notice&#39;, 2000, &#123; fg: &#39;blue&#39;, bg: &#39;black&#39; &#125;); // 自定义notice日志
-const MongoClient = require(&#39;mongodb&#39;).MongoClient;
-class Mongo &#123;
-  constructor(url, dbName) &#123;
-    this.url = url;
-    this.dbName = dbName;
-  &#125;
-  connect() &#123;
-    return new Promise((resolve, reject) =&gt; &#123;
-      MongoClient.connect(
-        this.url,
-        &#123;
-          useNewUrlParser: true,
-          useUnifiedTopology: true,
-        &#125;,
-        (err, client) =&gt; &#123;
-          if (err) &#123;
-            reject(err);
-          &#125; else &#123;
-            const db = client.db(this.dbName);
-            resolve(&#123; db, client &#125;);
-          &#125;
-        &#125;);
-    &#125;);
-  &#125;
-  connectAction(docName, action) &#123;
-    return new Promise(async (resolve, reject) =&gt; &#123;
-      const &#123; db, client &#125; = await this.connect();
-      try &#123;
-        const collection = db.collection(docName);
-        action(collection, result =&gt; &#123;
-          this.close(client);
-          logger.verbose(&#39;result&#39;, result);
-          resolve(result);
-        &#125;, err =&gt; &#123;
-          this.close(client);
-          logger.error(err.toString());
-          reject(err);
-        &#125;);
-      &#125; catch (err) &#123;
-        this.close(client);
-        logger.error(err.toString());
-        reject(err);
-      &#125;
-    &#125;);
-  &#125;
-  query(docName) &#123;
-    return this.connectAction(docName, (collection, onSuccess, onError) =&gt; &#123;
-      collection.find(&#123;&#125;, &#123; projection: &#123; _id: 0 &#125; &#125;).toArray((err, docs) =&gt; &#123;
-        if (err) &#123;
-          onError(err);
-        &#125; else &#123;
-          onSuccess(docs);
-        &#125;
-      &#125;);
-    &#125;);
-  &#125;
-  insert(docName, data) &#123;
-    return this.connectAction(docName, (collection, onSuccess, onError) =&gt; &#123;
-      collection.insertMany(data, (err, result) =&gt; &#123;
-        if (err) &#123;
-          onError(err);
-        &#125; else &#123;
-          onSuccess(result);
-        &#125;
-      &#125;);
-    &#125;);
-  &#125;
-  remove(docName, data) &#123;
-    return this.connectAction(docName, (collection, onSuccess, onError) =&gt; &#123;
-      collection.deleteOne(data, (err, result) =&gt; &#123;
-        if (err) &#123;
-          onError(err);
-        &#125; else &#123;
-          onSuccess(result);
-        &#125;
-      &#125;);
-    &#125;);
-  &#125;
-  //   update(collection, data) &#123;
-  //   &#125;
-  close(client) &#123;
-    client &amp;&amp; client.close();
-  &#125;
-&#125;
-module.exports = Mongo;
-</code></pre>
-<p>db.js</p>
-<pre><code class="js">const mongo = new Mongodb(&#39;mongodb://dmq:dmq0216@127.0.0.1:27017/dbName&#39;,&#39;dbName&#39;);
-const data = mongo().query(&#39;project&#39;);
-</code></pre>
-<h1 id="inquirer源码"><a href="#inquirer源码" class="headerlink" title="inquirer源码"></a>inquirer源码</h1><h2 id="学习路径"><a href="#学习路径" class="headerlink" title="学习路径"></a>学习路径</h2><ul>
-<li>掌握一些库：readline（命令行读取）&#x2F;events（事件驱动）&#x2F;stream（输入输出流）&#x2F;ansi-escapes（命令行文字样式）&#x2F;rxjs（处理异步事件）</li>
+<p>4、egg.js 链接 mongodb 数据库</p>
+<p>utils/mongo.js</p>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token string">'use strict'</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token keyword">const</span> logger <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'npmlog'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="3"></td><td><pre>logger<span class="token punctuation">.</span>level <span class="token operator">=</span> process<span class="token punctuation">.</span>env<span class="token punctuation">.</span><span class="token constant">LOG_LEVEL</span> <span class="token operator">?</span> process<span class="token punctuation">.</span>env<span class="token punctuation">.</span><span class="token constant">LOG_LEVEL</span> <span class="token operator">:</span> <span class="token string">'info'</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="4"></td><td><pre>logger<span class="token punctuation">.</span>heading <span class="token operator">=</span> <span class="token string">'pick'</span><span class="token punctuation">;</span> <span class="token comment">// 自定义头部</span></pre></td></tr><tr><td data-num="5"></td><td><pre>logger<span class="token punctuation">.</span><span class="token function">addLevel</span><span class="token punctuation">(</span><span class="token string">'success'</span><span class="token punctuation">,</span> <span class="token number">2000</span><span class="token punctuation">,</span> <span class="token punctuation">&#123;</span> <span class="token literal-property property">fg</span><span class="token operator">:</span> <span class="token string">'green'</span><span class="token punctuation">,</span> <span class="token literal-property property">bold</span><span class="token operator">:</span> <span class="token boolean">true</span> <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 自定义 success 日志</span></pre></td></tr><tr><td data-num="6"></td><td><pre>logger<span class="token punctuation">.</span><span class="token function">addLevel</span><span class="token punctuation">(</span><span class="token string">'notice'</span><span class="token punctuation">,</span> <span class="token number">2000</span><span class="token punctuation">,</span> <span class="token punctuation">&#123;</span> <span class="token literal-property property">fg</span><span class="token operator">:</span> <span class="token string">'blue'</span><span class="token punctuation">,</span> <span class="token literal-property property">bg</span><span class="token operator">:</span> <span class="token string">'black'</span> <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 自定义 notice 日志</span></pre></td></tr><tr><td data-num="7"></td><td><pre><span class="token keyword">const</span> MongoClient <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'mongodb'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>MongoClient<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="8"></td><td><pre><span class="token keyword">class</span> <span class="token class-name">Mongo</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="9"></td><td><pre>  <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token parameter">url<span class="token punctuation">,</span> dbName</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="10"></td><td><pre>    <span class="token keyword">this</span><span class="token punctuation">.</span>url <span class="token operator">=</span> url<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="11"></td><td><pre>    <span class="token keyword">this</span><span class="token punctuation">.</span>dbName <span class="token operator">=</span> dbName<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="12"></td><td><pre>  <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="13"></td><td><pre>  <span class="token function">connect</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="14"></td><td><pre>    <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Promise</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">resolve<span class="token punctuation">,</span> reject</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="15"></td><td><pre>      MongoClient<span class="token punctuation">.</span><span class="token function">connect</span><span class="token punctuation">(</span></pre></td></tr><tr><td data-num="16"></td><td><pre>        <span class="token keyword">this</span><span class="token punctuation">.</span>url<span class="token punctuation">,</span></pre></td></tr><tr><td data-num="17"></td><td><pre>        <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="18"></td><td><pre>          <span class="token literal-property property">useNewUrlParser</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="19"></td><td><pre>          <span class="token literal-property property">useUnifiedTopology</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="20"></td><td><pre>        <span class="token punctuation">&#125;</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="21"></td><td><pre>        <span class="token punctuation">(</span><span class="token parameter">err<span class="token punctuation">,</span> client</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="22"></td><td><pre>          <span class="token keyword">if</span> <span class="token punctuation">(</span>err<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="23"></td><td><pre>            <span class="token function">reject</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="24"></td><td><pre>          <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="25"></td><td><pre>            <span class="token keyword">const</span> db <span class="token operator">=</span> client<span class="token punctuation">.</span><span class="token function">db</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>dbName<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="26"></td><td><pre>            <span class="token function">resolve</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span> db<span class="token punctuation">,</span> client <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="27"></td><td><pre>          <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="28"></td><td><pre>        <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="29"></td><td><pre>    <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="30"></td><td><pre>  <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="31"></td><td><pre>  <span class="token function">connectAction</span><span class="token punctuation">(</span><span class="token parameter">docName<span class="token punctuation">,</span> action</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="32"></td><td><pre>    <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Promise</span><span class="token punctuation">(</span><span class="token keyword">async</span> <span class="token punctuation">(</span><span class="token parameter">resolve<span class="token punctuation">,</span> reject</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="33"></td><td><pre>      <span class="token keyword">const</span> <span class="token punctuation">&#123;</span> db<span class="token punctuation">,</span> client <span class="token punctuation">&#125;</span> <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">connect</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="34"></td><td><pre>      <span class="token keyword">try</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="35"></td><td><pre>        <span class="token keyword">const</span> collection <span class="token operator">=</span> db<span class="token punctuation">.</span><span class="token function">collection</span><span class="token punctuation">(</span>docName<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="36"></td><td><pre>        <span class="token function">action</span><span class="token punctuation">(</span>collection<span class="token punctuation">,</span> <span class="token parameter">result</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="37"></td><td><pre>          <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span>client<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="38"></td><td><pre>          logger<span class="token punctuation">.</span><span class="token function">verbose</span><span class="token punctuation">(</span><span class="token string">'result'</span><span class="token punctuation">,</span> result<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="39"></td><td><pre>          <span class="token function">resolve</span><span class="token punctuation">(</span>result<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="40"></td><td><pre>        <span class="token punctuation">&#125;</span><span class="token punctuation">,</span> <span class="token parameter">err</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="41"></td><td><pre>          <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span>client<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="42"></td><td><pre>          logger<span class="token punctuation">.</span><span class="token function">error</span><span class="token punctuation">(</span>err<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="43"></td><td><pre>          <span class="token function">reject</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="44"></td><td><pre>        <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="45"></td><td><pre>      <span class="token punctuation">&#125;</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span>err<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="46"></td><td><pre>        <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span>client<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="47"></td><td><pre>        logger<span class="token punctuation">.</span><span class="token function">error</span><span class="token punctuation">(</span>err<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="48"></td><td><pre>        <span class="token function">reject</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="49"></td><td><pre>      <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="50"></td><td><pre>    <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="51"></td><td><pre>  <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="52"></td><td><pre>  <span class="token function">query</span><span class="token punctuation">(</span><span class="token parameter">docName</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="53"></td><td><pre>    <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">connectAction</span><span class="token punctuation">(</span>docName<span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">collection<span class="token punctuation">,</span> onSuccess<span class="token punctuation">,</span> onError</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="54"></td><td><pre>      collection<span class="token punctuation">.</span><span class="token function">find</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span><span class="token punctuation">,</span> <span class="token punctuation">&#123;</span> <span class="token literal-property property">projection</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span> <span class="token literal-property property">_id</span><span class="token operator">:</span> <span class="token number">0</span> <span class="token punctuation">&#125;</span> <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toArray</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">err<span class="token punctuation">,</span> docs</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="55"></td><td><pre>        <span class="token keyword">if</span> <span class="token punctuation">(</span>err<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="56"></td><td><pre>          <span class="token function">onError</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="57"></td><td><pre>        <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="58"></td><td><pre>          <span class="token function">onSuccess</span><span class="token punctuation">(</span>docs<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="59"></td><td><pre>        <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="60"></td><td><pre>      <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="61"></td><td><pre>    <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="62"></td><td><pre>  <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="63"></td><td><pre>  <span class="token function">insert</span><span class="token punctuation">(</span><span class="token parameter">docName<span class="token punctuation">,</span> data</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="64"></td><td><pre>    <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">connectAction</span><span class="token punctuation">(</span>docName<span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">collection<span class="token punctuation">,</span> onSuccess<span class="token punctuation">,</span> onError</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="65"></td><td><pre>      collection<span class="token punctuation">.</span><span class="token function">insertMany</span><span class="token punctuation">(</span>data<span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">err<span class="token punctuation">,</span> result</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="66"></td><td><pre>        <span class="token keyword">if</span> <span class="token punctuation">(</span>err<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="67"></td><td><pre>          <span class="token function">onError</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="68"></td><td><pre>        <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="69"></td><td><pre>          <span class="token function">onSuccess</span><span class="token punctuation">(</span>result<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="70"></td><td><pre>        <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="71"></td><td><pre>      <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="72"></td><td><pre>    <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="73"></td><td><pre>  <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="74"></td><td><pre>  <span class="token function">remove</span><span class="token punctuation">(</span><span class="token parameter">docName<span class="token punctuation">,</span> data</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="75"></td><td><pre>    <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">connectAction</span><span class="token punctuation">(</span>docName<span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">collection<span class="token punctuation">,</span> onSuccess<span class="token punctuation">,</span> onError</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="76"></td><td><pre>      collection<span class="token punctuation">.</span><span class="token function">deleteOne</span><span class="token punctuation">(</span>data<span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">err<span class="token punctuation">,</span> result</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="77"></td><td><pre>        <span class="token keyword">if</span> <span class="token punctuation">(</span>err<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="78"></td><td><pre>          <span class="token function">onError</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="79"></td><td><pre>        <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="80"></td><td><pre>          <span class="token function">onSuccess</span><span class="token punctuation">(</span>result<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="81"></td><td><pre>        <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="82"></td><td><pre>      <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="83"></td><td><pre>    <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="84"></td><td><pre>  <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="85"></td><td><pre>  <span class="token comment">//   update(collection, data) &#123;</span></pre></td></tr><tr><td data-num="86"></td><td><pre>  <span class="token comment">//   &#125;</span></pre></td></tr><tr><td data-num="87"></td><td><pre>  <span class="token function">close</span><span class="token punctuation">(</span><span class="token parameter">client</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="88"></td><td><pre>    client <span class="token operator">&amp;&amp;</span> client<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="89"></td><td><pre>  <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="90"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="91"></td><td><pre>module<span class="token punctuation">.</span>exports <span class="token operator">=</span> Mongo<span class="token punctuation">;</span></pre></td></tr></table></figure><p>db.js</p>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">const</span> mongo <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Mongodb</span><span class="token punctuation">(</span><span class="token string">'mongodb://dmq:dmq0216@127.0.0.1:27017/dbName'</span><span class="token punctuation">,</span><span class="token string">'dbName'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token keyword">const</span> data <span class="token operator">=</span> <span class="token function">mongo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">query</span><span class="token punctuation">(</span><span class="token string">'project'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr></table></figure><h1 id="inquirer源码"><a class="anchor" href="#inquirer源码">#</a> inquirer 源码</h1>
+<h2 id="学习路径"><a class="anchor" href="#学习路径">#</a> 学习路径</h2>
+<ul>
+<li>掌握一些库：readline（命令行读取）/events（事件驱动）/stream（输入输出流）/ansi-escapes（命令行文字样式）/rxjs（处理异步事件）</li>
 <li>掌握命令行交互的实现原理，并实现一个可交互的列表</li>
-<li>分析inquirer源码掌握其中的关键实现</li>
+<li>分析 inquirer 源码掌握其中的关键实现</li>
 </ul>
-<h1 id="ejs-glob"><a href="#ejs-glob" class="headerlink" title="ejs+glob"></a>ejs+glob</h1><p>ejs三方库用于xml动态模板渲染，glob三方库用于根据<code>文件路径进行遍历和匹配文件</code>，拿到文件的内容。</p>
-<h1 id="ejs源码"><a href="#ejs源码" class="headerlink" title="ejs源码"></a>ejs源码</h1><p>省略，详见官网</p>
-<h1 id="require源码"><a href="#require源码" class="headerlink" title="require源码"></a>require源码</h1><p>省略，详见官网</p>
-<h1 id="代码复用实践"><a href="#代码复用实践" class="headerlink" title="代码复用实践"></a>代码复用实践</h1><p><strong>代码复用目的：</strong>提高人效，降低开发成本。</p>
-<p><strong>计算公式</strong>为：<strong>节约工时 &#x3D; 服用代码节约时间  *  代码复用系数  *  复用次数</strong></p>
+<h1 id="ejsglob"><a class="anchor" href="#ejsglob">#</a> ejs+glob</h1>
+<p>ejs 三方库用于 xml 动态模板渲染，glob 三方库用于根据 <code>文件路径进行遍历和匹配文件</code> ，拿到文件的内容。</p>
+<h1 id="ejs源码"><a class="anchor" href="#ejs源码">#</a> ejs 源码</h1>
+<p>省略，详见官网</p>
+<h1 id="require源码"><a class="anchor" href="#require源码">#</a> require 源码</h1>
+<p>省略，详见官网</p>
+<h1 id="代码复用实践"><a class="anchor" href="#代码复用实践">#</a> 代码复用实践</h1>
+<p>** 代码复用目的：** 提高人效，降低开发成本。</p>
+<p><strong>计算公式</strong>为：<strong>节约工时 = 服用代码节约时间  *  代码复用系数  *  复用次数</strong></p>
 <p><strong>背后思考：</strong></p>
 <ul>
 <li>不同开发者、团队之间会产生了大量重复、通用的代码</li>
@@ -981,7 +768,7 @@ const data = mongo().query(&#39;project&#39;);
     <div class="item left">
       
 
-  <a href="/2024/04/12/%E5%A4%8D%E6%9D%82%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2%E4%B8%8A%E7%BA%BF/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;s3.uuu.ovh&#x2F;imgs&#x2F;2024&#x2F;04&#x2F;05&#x2F;8c79eda29fb3b505.jpg" title="复杂业务部署与优化">
+  <a href="/2024/04/12/%E5%A4%8D%E6%9D%82%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2%E4%B8%8A%E7%BA%BF/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;s3.uuu.ovh&#x2F;imgs&#x2F;2024&#x2F;04&#x2F;06&#x2F;3b79311f42543632.jpg" title="复杂业务部署与优化">
   <span class="type">上一篇</span>
   <span class="category"><i class="ic i-flag"></i> 复杂业务部署与优化</span>
   <h3>复杂业务部署与优化</h3>
@@ -991,7 +778,7 @@ const data = mongo().query(&#39;project&#39;);
     <div class="item right">
       
 
-  <a href="/2024/04/12/vue-router/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;s3.uuu.ovh&#x2F;imgs&#x2F;2024&#x2F;04&#x2F;15&#x2F;21b7a3f222ccbcb6.jpg" title="vue-router">
+  <a href="/2024/04/12/vue-router/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;s3.uuu.ovh&#x2F;imgs&#x2F;2024&#x2F;04&#x2F;12&#x2F;4508f1e9b6c8e047.jpg" title="vue-router">
   <span class="type">下一篇</span>
   <span class="category"><i class="ic i-flag"></i> vue-router原理</span>
   <h3>vue-router</h3>
@@ -1013,7 +800,7 @@ const data = mongo().query(&#39;project&#39;);
   <div class="panels">
     <div class="inner">
       <div class="contents panel pjax" data-title="文章目录">
-          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90"><span class="toc-number">1.</span> <span class="toc-text">需求分析</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%84%9A%E6%89%8B%E6%9E%B6%E7%AE%80%E4%BB%8B"><span class="toc-number">2.</span> <span class="toc-text">脚手架简介</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%84%9A%E6%89%8B%E6%9E%B6%E5%8E%9F%E7%90%86"><span class="toc-number">3.</span> <span class="toc-text">脚手架原理</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%84%9A%E6%89%8B%E6%9E%B6%E7%9A%84%E5%BC%80%E5%8F%91%E6%B5%81%E7%A8%8B"><span class="toc-number">4.</span> <span class="toc-text">脚手架的开发流程</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%BC%80%E5%8F%91%E7%BB%86%E8%8A%82"><span class="toc-number">5.</span> <span class="toc-text">开发细节</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%84%9A%E6%89%8B%E6%9E%B6%E5%8F%91%E5%B8%83%E4%BD%93%E7%B3%BB"><span class="toc-number">6.</span> <span class="toc-text">脚手架发布体系</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%84%9A%E6%89%8B%E6%9E%B6%E5%8F%91%E5%B8%83%E6%B5%81%E7%A8%8B"><span class="toc-number">7.</span> <span class="toc-text">脚手架发布流程</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#npm%E6%96%B0%E7%89%B9%E6%80%A7%EF%BC%9Aworkspace"><span class="toc-number">8.</span> <span class="toc-text">npm新特性：workspace</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Lerna%E5%A4%9Apackage%E7%AE%A1%E7%90%86"><span class="toc-number">9.</span> <span class="toc-text">Lerna多package管理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Lerna%E7%AE%80%E4%BB%8B"><span class="toc-number">9.0.1.</span> <span class="toc-text">Lerna简介</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Lerna%E4%BD%BF%E7%94%A8"><span class="toc-number">9.0.2.</span> <span class="toc-text">Lerna使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Lerna%E5%AD%A6%E4%B9%A0%E6%94%B6%E8%8E%B7"><span class="toc-number">9.0.3.</span> <span class="toc-text">Lerna学习收获</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%80%E3%80%81yargs"><span class="toc-number">9.0.3.1.</span> <span class="toc-text">一、yargs</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BA%8C%E3%80%81Lerna%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86"><span class="toc-number">9.0.3.2.</span> <span class="toc-text">二、Lerna实现原理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%89%E3%80%81Node-js%E6%A8%A1%E5%9D%97%E8%B7%AF%E5%BE%84%E8%A7%A3%E6%9E%90%E6%B5%81%E7%A8%8B"><span class="toc-number">9.0.3.3.</span> <span class="toc-text">三、Node.js模块路径解析流程</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#yargs"><span class="toc-number">10.</span> <span class="toc-text">yargs</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#commander"><span class="toc-number">11.</span> <span class="toc-text">commander</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#require%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6"><span class="toc-number">12.</span> <span class="toc-text">require加载机制</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#node%E5%A4%9A%E8%BF%9B%E7%A8%8B"><span class="toc-number">13.</span> <span class="toc-text">node多进程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%8B%E7%BB%8D"><span class="toc-number">13.0.1.</span> <span class="toc-text">介绍</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#child-precess%E7%94%A8%E6%B3%95"><span class="toc-number">13.0.2.</span> <span class="toc-text">child_precess用法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#child-process%E6%BA%90%E7%A0%81"><span class="toc-number">13.0.3.</span> <span class="toc-text">child_process源码</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#egg-js-mongodb"><span class="toc-number">14.</span> <span class="toc-text">egg.js+mongodb</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#inquirer%E6%BA%90%E7%A0%81"><span class="toc-number">15.</span> <span class="toc-text">inquirer源码</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AD%A6%E4%B9%A0%E8%B7%AF%E5%BE%84"><span class="toc-number">15.1.</span> <span class="toc-text">学习路径</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#ejs-glob"><span class="toc-number">16.</span> <span class="toc-text">ejs+glob</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#ejs%E6%BA%90%E7%A0%81"><span class="toc-number">17.</span> <span class="toc-text">ejs源码</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#require%E6%BA%90%E7%A0%81"><span class="toc-number">18.</span> <span class="toc-text">require源码</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E5%A4%8D%E7%94%A8%E5%AE%9E%E8%B7%B5"><span class="toc-number">19.</span> <span class="toc-text">代码复用实践</span></a></li></ol>
+          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90"><span class="toc-number">1.</span> <span class="toc-text"> 需求分析</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%84%9A%E6%89%8B%E6%9E%B6%E7%AE%80%E4%BB%8B"><span class="toc-number">2.</span> <span class="toc-text"> 脚手架简介</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%84%9A%E6%89%8B%E6%9E%B6%E5%8E%9F%E7%90%86"><span class="toc-number">3.</span> <span class="toc-text"> 脚手架原理</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%84%9A%E6%89%8B%E6%9E%B6%E7%9A%84%E5%BC%80%E5%8F%91%E6%B5%81%E7%A8%8B"><span class="toc-number">4.</span> <span class="toc-text"> 脚手架的开发流程</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%BC%80%E5%8F%91%E7%BB%86%E8%8A%82"><span class="toc-number">5.</span> <span class="toc-text"> 开发细节</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%84%9A%E6%89%8B%E6%9E%B6%E5%8F%91%E5%B8%83%E4%BD%93%E7%B3%BB"><span class="toc-number">6.</span> <span class="toc-text"> 脚手架发布体系</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%84%9A%E6%89%8B%E6%9E%B6%E5%8F%91%E5%B8%83%E6%B5%81%E7%A8%8B"><span class="toc-number">7.</span> <span class="toc-text"> 脚手架发布流程</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#npm%E6%96%B0%E7%89%B9%E6%80%A7workspace"><span class="toc-number">8.</span> <span class="toc-text"> npm 新特性：workspace</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#lerna%E5%A4%9Apackage%E7%AE%A1%E7%90%86"><span class="toc-number">9.</span> <span class="toc-text"> Lerna 多 package 管理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#lerna%E7%AE%80%E4%BB%8B"><span class="toc-number">9.0.1.</span> <span class="toc-text"> Lerna 简介</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#lerna%E4%BD%BF%E7%94%A8"><span class="toc-number">9.0.2.</span> <span class="toc-text"> Lerna 使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#lerna%E5%AD%A6%E4%B9%A0%E6%94%B6%E8%8E%B7"><span class="toc-number">9.0.3.</span> <span class="toc-text"> Lerna 学习收获</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%80-yargs"><span class="toc-number">9.0.3.1.</span> <span class="toc-text"> 一、yargs</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BA%8C-lerna%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86"><span class="toc-number">9.0.3.2.</span> <span class="toc-text"> 二、Lerna 实现原理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%89-nodejs%E6%A8%A1%E5%9D%97%E8%B7%AF%E5%BE%84%E8%A7%A3%E6%9E%90%E6%B5%81%E7%A8%8B"><span class="toc-number">9.0.3.3.</span> <span class="toc-text"> 三、Node.js 模块路径解析流程</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#yargs"><span class="toc-number">10.</span> <span class="toc-text"> yargs</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#commander"><span class="toc-number">11.</span> <span class="toc-text"> commander</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#require%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6"><span class="toc-number">12.</span> <span class="toc-text"> require 加载机制</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#node%E5%A4%9A%E8%BF%9B%E7%A8%8B"><span class="toc-number">13.</span> <span class="toc-text"> node 多进程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%8B%E7%BB%8D"><span class="toc-number">13.0.1.</span> <span class="toc-text"> 介绍</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#child_precess%E7%94%A8%E6%B3%95"><span class="toc-number">13.0.2.</span> <span class="toc-text"> child_precess 用法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#child_process%E6%BA%90%E7%A0%81"><span class="toc-number">13.0.3.</span> <span class="toc-text"> child_process 源码</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#eggjsmongodb"><span class="toc-number">14.</span> <span class="toc-text"> egg.js+mongodb</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#inquirer%E6%BA%90%E7%A0%81"><span class="toc-number">15.</span> <span class="toc-text"> inquirer 源码</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AD%A6%E4%B9%A0%E8%B7%AF%E5%BE%84"><span class="toc-number">15.1.</span> <span class="toc-text"> 学习路径</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#ejsglob"><span class="toc-number">16.</span> <span class="toc-text"> ejs+glob</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#ejs%E6%BA%90%E7%A0%81"><span class="toc-number">17.</span> <span class="toc-text"> ejs 源码</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#require%E6%BA%90%E7%A0%81"><span class="toc-number">18.</span> <span class="toc-text"> require 源码</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E5%A4%8D%E7%94%A8%E5%AE%9E%E8%B7%B5"><span class="toc-number">19.</span> <span class="toc-text"> 代码复用实践</span></a></li></ol>
       </div>
       <div class="related panel pjax" data-title="系列文章">
         <ul>
@@ -1131,36 +918,6 @@ const data = mongo().query(&#39;project&#39;);
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/%E4%B8%9A%E5%8A%A1%E5%A4%84%E7%90%86/" title="分类于 业务处理">业务处理</a>
-</div>
-
-    <span><a href="/2024/03/29/%E6%9C%AC%E5%9C%B0%E9%A2%84%E8%A7%88%E5%9B%BE%E7%89%87/" title="本地预览图片">本地预览图片</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/typeScript/" title="分类于 typeScript">typeScript</a>
-</div>
-
-    <span><a href="/2023/12/11/TS/" title="typeScript笔记">typeScript笔记</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/%E9%A1%B9%E7%9B%AE%E8%B4%A8%E9%87%8F%E6%A3%80%E6%B5%8B/" title="分类于 项目质量检测">项目质量检测</a>
-</div>
-
-    <span><a href="/2024/01/02/%E9%A1%B9%E7%9B%AE%E8%B4%A8%E9%87%8F%E6%A3%80%E6%B5%8B/" title="项目质量检测">项目质量检测</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
 <a href="/categories/JS/" title="分类于 JS">JS</a>
 </div>
 
@@ -1171,50 +928,20 @@ const data = mongo().query(&#39;project&#39;);
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/JS/" title="分类于 JS">JS</a>
+<a href="/categories/%E7%AE%97%E6%B3%95/" title="分类于 算法">算法</a>
 </div>
 
-    <span><a href="/2023/12/11/typedArray/" title="JS中类型化数组typedArray">JS中类型化数组typedArray</a></span>
+    <span><a href="/2023/12/02/%E7%AE%97%E6%B3%95/" title="算法与数据结构">算法与数据结构</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/JS/" title="分类于 JS">JS</a>
+<a href="/categories/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96/" title="分类于 前端工程化">前端工程化</a>
 </div>
 
-    <span><a href="/2023/12/08/DataView/" title="DataView">DataView</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/vue-router%E5%8E%9F%E7%90%86/" title="分类于 vue-router原理">vue-router原理</a>
-</div>
-
-    <span><a href="/2024/04/12/vue-router/" title="vue-router">vue-router</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/ES6/" title="分类于 ES6">ES6</a>
-</div>
-
-    <span><a href="/2023/08/02/ES6/" title="ES6">ES6</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/json-server/" title="分类于 json-server">json-server</a>
-</div>
-
-    <span><a href="/2023/01/09/json-server%E6%95%99%E7%A8%8B/" title="json-server">json-server</a></span>
+    <span><a href="/2024/03/29/%E5%89%8D%E7%AB%AF%E6%A8%A1%E5%9D%97%E5%8C%96/" title="前端模块化">前端模块化</a></span>
   </li>
 
       
@@ -1222,9 +949,71 @@ const data = mongo().query(&#39;project&#39;);
     
 <div class="breadcrumb">
 <a href="/categories/%E6%9D%82%E8%AE%B0/" title="分类于 杂记">杂记</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/%E6%9D%82%E8%AE%B0/%E5%B7%A5%E5%85%B7%E5%87%BD%E6%95%B0/" title="分类于 工具函数">工具函数</a>
 </div>
 
-    <span><a href="/2023/01/01/%E6%9D%82%E8%AE%B0/" title="杂记">杂记</a></span>
+    <span><a href="/2023/06/02/learn/" title="杂记与工具库函数">杂记与工具库函数</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/" title="分类于 计算机组成原理">计算机组成原理</a>
+</div>
+
+    <span><a href="/2023/07/02/%E6%B5%AE%E7%82%B9%E6%95%B0%E5%AD%98%E5%82%A8/" title="浮点数存储">浮点数存储</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E4%B8%89%E6%96%B9%E5%BA%93/" title="分类于 三方库">三方库</a>
+</div>
+
+    <span><a href="/2024/04/16/%E4%B8%89%E6%96%B9%E5%8C%85/" title="三方库">三方库</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/" title="分类于 面试题">面试题</a>
+</div>
+
+    <span><a href="/2024/04/30/%E6%B7%B1%E6%8B%B7%E8%B4%9D/" title="深拷贝">深拷贝</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%BC%8F/" title="分类于 开发模式">开发模式</a>
+</div>
+
+    <span><a href="/2024/03/29/TDD/" title="TDD测试驱动开发">TDD测试驱动开发</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/ajax/" title="分类于 ajax">ajax</a>
+</div>
+
+    <span><a href="/2023/01/08/json-ajax-axios/" title="ajax">ajax</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/vue/" title="分类于 vue">vue</a>
+</div>
+
+    <span><a href="/2023/09/02/vue3%E6%BA%90%E7%A0%81%E4%BD%8D%E8%BF%90%E7%AE%97/" title="vue3源码中的位运算">vue3源码中的位运算</a></span>
   </li>
 
   </ul>

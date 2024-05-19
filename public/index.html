@@ -89,12 +89,12 @@
       </div>
       <div id="imgs" class="pjax">
         <ul>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/28/f7a6eb62965e0dec.webp"></li>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/05/d389418a13d92e24.jpg"></li>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/05/d3c578870618de4e.webp"></li>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/05/ec66a7160398848b.webp"></li>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/05/05d9a07e0d190274.webp"></li>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/06/a2c97e7bd0c6ecd6.webp"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/25/3fe84aea28b256c7.jpg"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/28/02824114036dc293.webp"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/07/5804c6f23029288b.jpg"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/15/21b7a3f222ccbcb6.jpg"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/12/61baca9d80b5756d.jpg"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/12/65788b6548e9e58f.jpg"></li>
         </ul>
       </div>
     </header>
@@ -121,7 +121,7 @@
         
 <article class="item">
   <div class="cover">
-    <a href="/2024/05/08/%E5%87%BD%E6%95%B0%E9%87%8D%E8%BD%BD/" itemprop="url" title="函数重载"><img data-src="https://s3.uuu.ovh/imgs/2024/04/15/66e62db68b7b65eb.webp"></a>
+    <a href="/2024/05/08/%E5%87%BD%E6%95%B0%E9%87%8D%E8%BD%BD/" itemprop="url" title="函数重载"><img data-src="https://s3.uuu.ovh/imgs/2024/04/12/3368de466b008234.webp"></a>
   </div>
   <div class="info">
     
@@ -136,12 +136,14 @@
 
     <h3><a href="/2024/05/08/%E5%87%BD%E6%95%B0%E9%87%8D%E8%BD%BD/" itemprop="url" title="函数重载">函数重载</a></h3>
     <div class="excerpt">
-        概念函数重载是指在编程语言中允许定义多个同名函数，但是他们的参数类型、参数个数或者返回类型不同，编译器或解析器会根据调用时提供的参数类型和个数来确定使用哪个函数
-作用函数重载的主要目的就是提高代码的可读性和灵活性，同时避免了为不同功能编写不同的函数名导致的变量命名冲突和混乱。
-实现函数重载tsts中进行函数重载其实就是根据型参数组的个数和对变量进行typeof检测，然后根据不同的情况进行分支处理
-// 函数重载的声明
-function average(numbers: number[]): number; // 函数签名1：接受数字数组并返回数字
-function...
+        # 概念
+函数重载是指在编程语言中允许定义多个同名函数，但是他们的参数类型、参数个数或者返回类型不同，编译器或解析器会根据调用时提供的参数类型和个数来确定使用哪个函数
+# 作用
+函数重载的主要目的就是提高代码的可读性和灵活性，同时避免了为不同功能编写不同的函数名导致的变量命名冲突和混乱。
+# 实现函数重载
+# ts
+ts 中进行函数重载其实就是根据型参数组的个数和对变量进行 typeof 检测，然后根据不同的情况进行分支处理
+// 函数重载的声明function average(numbers: number[]): number; // 函数签名 1：接受数字数组并返回数字function...
     </div>
     <div class="meta footer">
       <span>
@@ -155,7 +157,7 @@ function...
         
 <article class="item">
   <div class="cover">
-    <a href="/2024/05/07/miniwebpack/" itemprop="url" title="实现miniwebpack"><img data-src="https://s3.uuu.ovh/imgs/2024/04/07/517ddd40a038fa1b.jpg"></a>
+    <a href="/2024/05/07/miniwebpack/" itemprop="url" title="实现miniwebpack"><img data-src="https://s3.uuu.ovh/imgs/2024/04/05/5f5c15d0d8ceb4d1.jpg"></a>
   </div>
   <div class="info">
     
@@ -170,12 +172,13 @@ function...
 
     <h3><a href="/2024/05/07/miniwebpack/" itemprop="url" title="实现miniwebpack">实现miniwebpack</a></h3>
     <div class="excerpt">
-        前置知识我们都知道webpack是基于babel进行语法转换的，因此我们需要提前了解一些babel的使用方法：
+        # 前置知识
+我们都知道 webpack 是基于 babel 进行语法转换的，因此我们需要提前了解一些 babel 的使用方法：
 
-@babel&amp;#x2F;parser模块：用于将js代码转为抽象语法树
-@babel&amp;#x2F;traverse模块：用于遍历和操作抽象语法树（处理导入的模块）
-@babel&amp;#x2F;core模块：babel的核心模块，用于将抽象语法树转换为代码信息对象（包含重要的code属性，表示转换后生成的代码）
-@babel&amp;#x2F;preset-env模块：babel中的一个预设，可以在babel.transformFromAst中第三个参数中prese...
+@babel/parser 模块：用于将 js 代码转为抽象语法树
+@babel/traverse 模块：用于遍历和操作抽象语法树（处理导入的模块）
+@babel/core 模块：babel 的核心模块，用于将抽象语法树转换为代码信息对象（包含重要的 code 属性，表示转换后生成的代码）
+@babel/preset-env 模块：babel 中的一个预设，可以在 babel.transformFromAst 中第三个参数中 presets...
     </div>
     <div class="meta footer">
       <span>
@@ -189,7 +192,7 @@ function...
         
 <article class="item">
   <div class="cover">
-    <a href="/2024/04/30/%E6%B7%B1%E6%8B%B7%E8%B4%9D/" itemprop="url" title="深拷贝"><img data-src="https://s3.uuu.ovh/imgs/2024/04/13/2376b10e610925e4.jpg"></a>
+    <a href="/2024/04/30/%E6%B7%B1%E6%8B%B7%E8%B4%9D/" itemprop="url" title="深拷贝"><img data-src="https://s3.uuu.ovh/imgs/2024/04/28/9363f420a16ea998.webp"></a>
   </div>
   <div class="info">
     
@@ -204,13 +207,10 @@ function...
 
     <h3><a href="/2024/04/30/%E6%B7%B1%E6%8B%B7%E8%B4%9D/" itemprop="url" title="深拷贝">深拷贝</a></h3>
     <div class="excerpt">
-        深拷贝介绍我们知道在javascript中有八种数据类型：其中number，string，undefined，null，boolean，symbol和bigint为基本数据类型，而object为复杂数据类型
-存储
-对于基本数据类型，其值直接存储于栈中。
-对于复杂数据类型，其值存储于堆中，而栈中只存储堆中的地址。这样做的好处有：
-节省内存空间：存储在堆中的对象可以通过栈内的引用被访问和操作，意味着对象可以在不同的上下文中被共享和引用，从而节省内存。
-垃圾回收：堆内存中的对象不再被引用时，垃圾回收机制就会自动进行回收，从而避免了内存泄漏和资源浪费。
-动态分配内存：堆内存允许对象动态的增长和缩小，因...
+        # 深拷贝
+# 介绍
+我们知道在 javascript 中有八种数据类型：其中 number，string，undefined，null，boolean，symbol 和 bigint 为基本数据类型，而 object 为复杂数据类型
+#...
     </div>
     <div class="meta footer">
       <span>
@@ -224,7 +224,7 @@ function...
         
 <article class="item">
   <div class="cover">
-    <a href="/2024/04/29/%E5%89%8D%E7%AB%AF%E7%9B%91%E6%8E%A7/" itemprop="url" title="前端监控"><img data-src="https://s3.uuu.ovh/imgs/2024/04/04/eff89867286d822f.webp"></a>
+    <a href="/2024/04/29/%E5%89%8D%E7%AB%AF%E7%9B%91%E6%8E%A7/" itemprop="url" title="前端监控"><img data-src="https://s3.uuu.ovh/imgs/2024/04/05/ec66a7160398848b.webp"></a>
   </div>
   <div class="info">
     
@@ -239,13 +239,25 @@ function...
 
     <h3><a href="/2024/04/29/%E5%89%8D%E7%AB%AF%E7%9B%91%E6%8E%A7/" itemprop="url" title="前端监控">前端监控</a></h3>
     <div class="excerpt">
-        前端监控介绍为什么要进行前端监控：
+        # 前端监控
+# 介绍
+为什么要进行前端监控：
 
-页面的访问行为，PV、UV、IP、PV点击率、UV点击率、停留时长
+页面的访问行为，PV、UV、IP、PV 点击率、UV 点击率、停留时长
 用户的操作行为，模块曝光、
 模块点击
-页面的性能，首屏渲染时间、API请求时间
-异常的监控，JS...
+页面的性能，首屏渲染时间、API 请求时间
+异常的监控，JS Error、API 异常、业务异常
+业务的监控，成交金额、每日消息数
+
+常见的应用场景：
+
+流量分析
+
+常见的前端监控平台：
+
+百度统计
+阿里云...
     </div>
     <div class="meta footer">
       <span>
@@ -259,7 +271,7 @@ function...
         
 <article class="item">
   <div class="cover">
-    <a href="/2024/04/16/%E4%B8%89%E6%96%B9%E5%8C%85/" itemprop="url" title="三方库"><img data-src="https://s3.uuu.ovh/imgs/2024/04/07/5a293b82670a4885.webp"></a>
+    <a href="/2024/04/16/%E4%B8%89%E6%96%B9%E5%8C%85/" itemprop="url" title="三方库"><img data-src="https://s3.uuu.ovh/imgs/2024/04/13/ba4d76fc0767aeef.jpg"></a>
   </div>
   <div class="info">
     
@@ -310,7 +322,7 @@ ora
         
 <article class="item">
   <div class="cover">
-    <a href="/2024/04/12/vue-router/" itemprop="url" title="vue-router"><img data-src="https://s3.uuu.ovh/imgs/2024/04/07/a69a9d571bee6f0b.jpg"></a>
+    <a href="/2024/04/12/vue-router/" itemprop="url" title="vue-router"><img data-src="https://s3.uuu.ovh/imgs/2024/04/06/ba62f09d8f302a0f.jpg"></a>
   </div>
   <div class="info">
     
@@ -325,11 +337,16 @@ ora
 
     <h3><a href="/2024/04/12/vue-router/" itemprop="url" title="vue-router">vue-router</a></h3>
     <div class="excerpt">
-        vue-router源码vue-router路由模式hash模式（#）SEO不友好，资源不变，不会刷新。
-history模式（&amp;#x2F;）SEO友好，重新请求资源。
-history模式发布时出现的问题：
-发布到服务器上时，点击路由跳转正常但是刷新后路由跳转404，出现的原因刷新后跳转的根路径并不是当前项目的index.html导致资源路径不匹配单页面应用路由，采取的方法是每次请求资源都fallback到index.html文件，可以使用静态资源服务器的支持。（例如在nginx中location字段添加：try_files字段）
-vue-router内部处理vue-router主体架构...
+        #
+# vue-router 源码
+# vue-router 路由模式
+# hash 模式（#）
+SEO 不友好，资源不变，不会刷新。
+# history 模式（/）
+SEO 友好，重新请求资源。
+history 模式发布时出现的问题：
+发布到服务器上时，点击路由跳转正常但是刷新后路由跳转 404，出现的原因刷新后跳转的根路径并不是当前项目的 index.html 导致资源路径不匹配单页面应用路由，采取的方法是每次请求资源都 fallback 到 index.html 文件，可以使用静态资源服务器的支持。（例如在 nginx 中 location 字段添加：try_files 字段）
+#...
     </div>
     <div class="meta footer">
       <span>
@@ -343,7 +360,7 @@ vue-router内部处理vue-router主体架构...
         
 <article class="item">
   <div class="cover">
-    <a href="/2024/04/12/%E8%84%9A%E6%89%8B%E6%9E%B6/" itemprop="url" title="脚手架开发"><img data-src="https://s3.uuu.ovh/imgs/2024/04/12/f63f09ff2084b1f3.jpg"></a>
+    <a href="/2024/04/12/%E8%84%9A%E6%89%8B%E6%9E%B6/" itemprop="url" title="脚手架开发"><img data-src="https://s3.uuu.ovh/imgs/2024/04/07/d94cad8780c8c094.jpg"></a>
   </div>
   <div class="info">
     
@@ -358,28 +375,13 @@ vue-router内部处理vue-router主体架构...
 
     <h3><a href="/2024/04/12/%E8%84%9A%E6%89%8B%E6%9E%B6/" itemprop="url" title="脚手架开发">脚手架开发</a></h3>
     <div class="excerpt">
-        需求分析为什么需要优化研发流程？
+        # 需求分析
+为什么需要优化研发流程？
 
-项目量级增加：几干行代码-&amp;gt;几万行代码
-项目数量扩大：几个项目-&amp;gt;几干个项目
-项目复杂度高：Wb项目-&amp;gt;H5&amp;#x2F;PC&amp;#x2F;小程序&amp;#x2F;后端&amp;#x2F;脚手架
-团队人数增长：几个人-&amp;gt;几百人
-传统的项目研发流程已经无法满足业务需求
-
-项目创建流程思考
-当团队较大时，让每一个团队成员开发创建项目体验趋于一致就非常重要。
-项目创建流程
-
-项目代码
-抽象出项目模板
-存储到数据库
-脚手架读取数据库
-根据脚手架创建新的项目
-
-提升前端研发效率的手段
-
-物料和模板
-...
+项目量级增加：几干行代码 -&amp;gt; 几万行代码
+项目数量扩大：几个项目 -&amp;gt; 几干个项目
+项目复杂度高：Wb 项目 -&amp;gt;H5/PC/ 小程序 / 后端 / 脚手架
+团队人数增长：几个人 -&amp;gt;...
     </div>
     <div class="meta footer">
       <span>
@@ -393,7 +395,7 @@ vue-router内部处理vue-router主体架构...
         
 <article class="item">
   <div class="cover">
-    <a href="/2024/04/12/%E5%A4%8D%E6%9D%82%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2%E4%B8%8A%E7%BA%BF/" itemprop="url" title="复杂业务部署与优化"><img data-src="https://s3.uuu.ovh/imgs/2024/04/07/2600bb35f2cdf6cf.jpg"></a>
+    <a href="/2024/04/12/%E5%A4%8D%E6%9D%82%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2%E4%B8%8A%E7%BA%BF/" itemprop="url" title="复杂业务部署与优化"><img data-src="https://s3.uuu.ovh/imgs/2024/04/15/6cedcb364082ed12.webp"></a>
   </div>
   <div class="info">
     
@@ -408,9 +410,13 @@ vue-router内部处理vue-router主体架构...
 
     <h3><a href="/2024/04/12/%E5%A4%8D%E6%9D%82%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2%E4%B8%8A%E7%BA%BF/" itemprop="url" title="复杂业务部署与优化">复杂业务部署与优化</a></h3>
     <div class="excerpt">
-        软件生命周期：
-架构流程图
-复杂项目通用方案业务的复杂度
+        # 软件生命周期：
+
+# 架构流程图
+
+# 复杂项目通用方案
+# 业务的复杂度
+
 交互的复杂性
 数据结构和状态的复杂性
 多项目互相依赖的复杂性
@@ -418,19 +424,22 @@ vue-router内部处理vue-router主体架构...
 性能优化
 第三方库的使用和调研以及二次开发
 
-流程的复杂度
+# 流程的复杂度
+
 git flow
-lint工具
+lint 工具
 单元测试
-commit信息
+commit 信息
 PR revirew
-CI &amp;#x2F; CD
+CI / CD
 
-CI &amp;#x2F; CD的概念业务组件库的开发和发布是随着一些列任务进化的：
+# CI / CD 的概念
+业务组件库的开发和发布是随着一些列任务进化的：
 
-本地commit钩子函数完成commit验证
-代码push到远端之后
-跑特定的test（不仅仅是本机的unit test，也可能有时间很长的E2E...
+本地 commit 钩子函数完成 commit 验证
+代码 push 到远端之后
+跑特定的 test（不仅仅是本机的 unit test，也可能有时间很长的 E2E test）
+test...
     </div>
     <div class="meta footer">
       <span>
@@ -444,7 +453,7 @@ CI &amp;#x2F; CD的概念业务组件库的开发和发布是随着一些列任�
         
 <article class="item">
   <div class="cover">
-    <a href="/2024/03/30/jest/" itemprop="url" title="jest"><img data-src="https://s3.uuu.ovh/imgs/2024/04/05/9c07b3ea7f1e2a1c.jpg"></a>
+    <a href="/2024/03/30/jest/" itemprop="url" title="jest"><img data-src="https://s3.uuu.ovh/imgs/2024/04/05/05d9a07e0d190274.webp"></a>
   </div>
   <div class="info">
     
@@ -459,16 +468,9 @@ CI &amp;#x2F; CD的概念业务组件库的开发和发布是随着一些列任�
 
     <h3><a href="/2024/03/30/jest/" itemprop="url" title="jest">jest</a></h3>
     <div class="excerpt">
-        jest测试市面上有很多测试框架，例如：mocha 、jasmine、vue test utils、vitest、react testing library和testing frameworks for jacascript等，但语法和思想大致相同，现在依jest框架进行简单的使用
-/**
-* jest简单的语法
-* expect toBe 语法
-*/
-test(&amp;#39;tow plus to 4&amp;#39;,()=&amp;gt;&amp;#123;
-expect(2+2).toBe(4);
-&amp;#125;)
-/**
-*...
+        # jest 测试
+市面上有很多测试框架，例如：mocha 、jasmine、vue test utils、vitest、react testing library 和 testing frameworks for jacascript 等，但语法和思想大致相同，现在依 jest 框架进行简单的使用
+/** * jest 简单的语法 * expect toBe 语法 */test(&#39;tow plus to 4&#39;,()=&gt;&amp;#123; expect(2+2).toBe(4);&amp;#125;)/** * toEqual 语法，递归检查对象或数组的每个字段...
     </div>
     <div class="meta footer">
       <span>
@@ -482,7 +484,7 @@ expect(2+2).toBe(4);
         
 <article class="item">
   <div class="cover">
-    <a href="/2024/03/30/%E6%9C%AC%E5%9C%B0%E6%96%87%E4%BB%B6%E9%93%BE%E6%8E%A5/" itemprop="url" title="本地文件链接"><img data-src="https://s3.uuu.ovh/imgs/2024/04/05/f0ab0ce587c99d2f.webp"></a>
+    <a href="/2024/03/30/%E6%9C%AC%E5%9C%B0%E6%96%87%E4%BB%B6%E9%93%BE%E6%8E%A5/" itemprop="url" title="本地文件链接"><img data-src="https://s3.uuu.ovh/imgs/2024/04/15/6d859d49c9d65157.jpg"></a>
   </div>
   <div class="info">
     
@@ -497,10 +499,14 @@ expect(2+2).toBe(4);
 
     <h3><a href="/2024/03/30/%E6%9C%AC%E5%9C%B0%E6%96%87%E4%BB%B6%E9%93%BE%E6%8E%A5/" itemprop="url" title="本地文件链接">本地文件链接</a></h3>
     <div class="excerpt">
-        链接本地文件的方式npm link1、带有package.json文件的文件夹内运行：npm link ，即可在用户全局中创建该文件夹的全局链接。
-2、在需要使用文件的地方执行：npm link 文件名，注意文件名是package.json中的name字段值。
-file路径在需要使用的package.json的dependence中添加：文件名：”file: ….”，添加上file路径指向本地文件。
-区别：两种方式的区别在于如果项目较为简单，使用file:路径即可解决，但如果项目较为复杂，且文件包括文件地址需要不断移动时，使用npm link的方式更好。
+        # 链接本地文件的方式
+# npm link
+1、带有 package.json 文件的文件夹内运行：npm link ，即可在用户全局中创建该文件夹的全局链接。
+2、在需要使用文件的地方执行：npm link 文件名，注意文件名是 package.json 中的 name 字段值。
+# file 路径
+在需要使用的 package.json 的 dependence 中添加：文件名：&amp;quot;file: ....&amp;quot;，添加上 file 路径指向本地文件。
+# 区别：
+两种方式的区别在于如果项目较为简单，使用 file:...
     </div>
     <div class="meta footer">
       <span>
@@ -644,30 +650,80 @@ file路径在需要使用的package.json的dependence中添加：文件名：”
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/%E6%9D%82%E8%AE%B0/" title="分类于 杂记">杂记</a>
+<a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" title="分类于 数据库">数据库</a>
 </div>
 
-    <span><a href="/2023/01/01/%E6%9D%82%E8%AE%B0/" title="杂记">杂记</a></span>
+    <span><a href="/2023/12/02/%E6%95%B0%E6%8D%AE%E5%BA%93/" title="数据库">数据库</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/node-js/" title="分类于 node.js">node.js</a>
+<a href="/categories/Vue/" title="分类于 Vue">Vue</a>
 </div>
 
-    <span><a href="/2024/01/02/node.js%E5%86%85%E7%BD%AE%E6%A8%A1%E5%9D%97/" title="node.js内置模块">node.js内置模块</a></span>
+    <span><a href="/2023/01/12/Vue%E6%9D%82%E8%AE%B0/" title="Vue使用笔记">Vue使用笔记</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/%E7%AE%97%E6%B3%95/" title="分类于 算法">算法</a>
+<a href="/categories/JS/" title="分类于 JS">JS</a>
 </div>
 
-    <span><a href="/2023/12/02/%E7%AE%97%E6%B3%95/" title="算法与数据结构">算法与数据结构</a></span>
+    <span><a href="/2023/12/21/%E6%9C%80%E5%A4%A7%E5%AE%89%E5%85%A8%E6%95%B0/" title="最大安全数与最大安全整数">最大安全数与最大安全整数</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E8%84%9A%E6%89%8B%E6%9E%B6%E5%BC%80%E5%8F%91/" title="分类于 脚手架开发">脚手架开发</a>
+</div>
+
+    <span><a href="/2024/04/12/%E8%84%9A%E6%89%8B%E6%9E%B6/" title="脚手架开发">脚手架开发</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" title="分类于 正则表达式">正则表达式</a>
+</div>
+
+    <span><a href="/2023/02/12/%E4%B8%AD%E5%89%8D%E5%8F%B0%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" title="正则表达式">正则表达式</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/three-js/" title="分类于 three.js">three.js</a>
+</div>
+
+    <span><a href="/2023/10/24/ThreeJS/" title="three.js">three.js</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/JS/" title="分类于 JS">JS</a>
+</div>
+
+    <span><a href="/2023/12/11/typedArray/" title="JS中类型化数组typedArray">JS中类型化数组typedArray</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/git/" title="分类于 git">git</a>
+</div>
+
+    <span><a href="/2023/04/02/git%E5%92%8Cgithub/" title="git与github">git与github</a></span>
   </li>
 
       
@@ -684,60 +740,10 @@ file路径在需要使用的package.json的dependence中添加：文件名：”
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/vue-router%E5%8E%9F%E7%90%86/" title="分类于 vue-router原理">vue-router原理</a>
+<a href="/categories/Travis%E5%92%8CDocker/" title="分类于 Travis和Docker">Travis和Docker</a>
 </div>
 
-    <span><a href="/2024/04/12/vue-router/" title="vue-router">vue-router</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/%E5%A4%8D%E6%9D%82%E4%B8%9A%E5%8A%A1%E9%83%A8%E7%BD%B2%E4%B8%8E%E4%BC%98%E5%8C%96/" title="分类于 复杂业务部署与优化">复杂业务部署与优化</a>
-</div>
-
-    <span><a href="/2024/04/12/%E5%A4%8D%E6%9D%82%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2%E4%B8%8A%E7%BA%BF/" title="复杂业务部署与优化">复杂业务部署与优化</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/JS/" title="分类于 JS">JS</a>
-</div>
-
-    <span><a href="/2023/09/02/ArrayBuffer/" title="ArrayBuffer">ArrayBuffer</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/" title="分类于 计算机组成原理">计算机组成原理</a>
-</div>
-
-    <span><a href="/2023/07/02/%E6%B5%AE%E7%82%B9%E6%95%B0%E5%AD%98%E5%82%A8/" title="浮点数存储">浮点数存储</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/JS/" title="分类于 JS">JS</a>
-</div>
-
-    <span><a href="/2023/12/08/NaN/" title="NaN历史遗留问题">NaN历史遗留问题</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/JS/" title="分类于 JS">JS</a>
-</div>
-
-    <span><a href="/2024/02/02/serviceWorker/" title="serviceWorker">serviceWorker</a></span>
+    <span><a href="/2023/12/02/Travis%20CI%E5%92%8CDocker%E7%9A%84%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90/" title="Travis和Docker的持续集成">Travis和Docker的持续集成</a></span>
   </li>
 
   </ul>

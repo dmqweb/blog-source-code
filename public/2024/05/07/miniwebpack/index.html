@@ -102,12 +102,12 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
       </div>
       <div id="imgs" class="pjax">
         <ul>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/03/29/b0675aed15ca0334.jpg"></li>
           <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/06/3b79311f42543632.jpg"></li>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/03/29/4e134f025ae53f2b.jpg"></li>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/25/1b093314ebaab948.jpg"></li>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/15/3ad1c5ee17b91ba4.webp"></li>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/07/d94cad8780c8c094.jpg"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/12/f63f09ff2084b1f3.jpg"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/15/64f47485ad1e6bed.jpg"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/06/a16303594a53d8d1.jpg"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/12/b04c50f26fdc9c19.jpg"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/15/6d859d49c9d65157.jpg"></li>
         </ul>
       </div>
     </header>
@@ -153,89 +153,18 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
   <div class="body md" itemprop="articleBody">
     
 
-    <h1 id="前置知识"><a href="#前置知识" class="headerlink" title="前置知识"></a>前置知识</h1><p>我们都知道webpack是基于babel进行语法转换的，因此我们需要提前了解一些babel的使用方法：</p>
+    <h1 id="前置知识"><a class="anchor" href="#前置知识">#</a> 前置知识</h1>
+<p>我们都知道 webpack 是基于 babel 进行语法转换的，因此我们需要提前了解一些 babel 的使用方法：</p>
 <ul>
-<li>@babel&#x2F;parser模块：用于将js代码转为抽象语法树</li>
-<li>@babel&#x2F;traverse模块：用于遍历和操作抽象语法树（处理导入的模块）</li>
-<li>@babel&#x2F;core模块：babel的核心模块，用于将抽象语法树转换为代码信息对象（包含重要的code属性，表示转换后生成的代码）</li>
-<li>@babel&#x2F;preset-env模块：babel中的一个预设，可以在babel.transformFromAst中第三个参数中presets字段传入，可以根据当前环境将代码转成相应的兼容版本。</li>
+<li>@babel/parser 模块：用于将 js 代码转为抽象语法树</li>
+<li>@babel/traverse 模块：用于遍历和操作抽象语法树（处理导入的模块）</li>
+<li>@babel/core 模块：babel 的核心模块，用于将抽象语法树转换为代码信息对象（包含重要的 code 属性，表示转换后生成的代码）</li>
+<li>@babel/preset-env 模块：babel 中的一个预设，可以在 babel.transformFromAst 中第三个参数中 presets 字段传入，可以根据当前环境将代码转成相应的兼容版本。</li>
 </ul>
-<h1 id="流程图"><a href="#流程图" class="headerlink" title="流程图"></a>流程图</h1><p><img data-src="/images/Snipaste_2024-05-07_07-23-59.jpg" alt="miniwebpack"></p>
-<h1 id="开始编码"><a href="#开始编码" class="headerlink" title="开始编码"></a>开始编码</h1><pre><code class="js">const fs = require(&quot;fs&quot;);
-const path = require(&quot;path&quot;);
-// @babel/parser用于将js代码转化为抽象语法树
-const parser = require(&quot;@babel/parser&quot;);
-// @babel/traverse用于遍历和操作抽象语法树
-const traverse = require(&quot;@babel/traverse&quot;).default;
-// Babel 的核心功能包含在 @babel/core 模块中
-const babel = require(&quot;@babel/core&quot;);
-// 1. 分析依赖
-function parseModules(file) &#123;
-  const entry = getModuleInfo(file);
-  const temp = [entry];
-  const depsGraph = &#123;&#125;;
-  getDeps(temp, entry);
-  temp.forEach((moduleInfo) =&gt; &#123; //遍历全部模块信息数组
-    depsGraph[moduleInfo.file] = &#123; //映射file路径和code、deps
-      deps: moduleInfo.deps,
-      code: moduleInfo.code,
-    &#125;;
-  &#125;);
-  return depsGraph;
-&#125;
-function getDeps(temp, &#123;deps&#125;) &#123;
-  Object.keys(deps).forEach((key) =&gt; &#123;
-    const child = getModuleInfo(deps[key]);
-    temp.push(child);
-    getDeps(temp, child);
-  &#125;);
-&#125;
-function getModuleInfo(file) &#123;
-  // 读取文件
-  const body = fs.readFileSync(file, &quot;utf-8&quot;);
-  // 转化为AST
-  const ast = parser.parse(body, &#123;sourceType: &quot;module&quot;&#125;);
-  const deps = &#123;&#125;;
-  traverse(ast, &#123;
-    // 获取import导入的模块
-    ImportDeclaration(&#123;node&#125;) &#123;
-      const dirname = path.dirname(file);
-      // 获取标准化路径
-      const absPath = &quot;./&quot; + path.join(dirname, node.source.value);
-      deps[node.source.value] = absPath;
-    &#125;,
-  &#125;);
-  const &#123;code&#125; = babel.transformFromAst(ast, null, &#123;
-    // 使用预设
-    presets: [&quot;@babel/preset-env&quot;],
-  &#125;);
-  const moduleInfo = &#123;file, deps, code&#125;;
-  return moduleInfo;
-&#125;
-// 2. 实现bundle
-function bundle(file) &#123;
-  //将模块转为引用路径和映射code、deps的对象
-  const depsGraph = JSON.stringify(parseModules(file));
-  return `(function (graph) &#123;
-    function require(file) &#123;
-      function absRequire(realPath) &#123;
-        return require(graph[file].deps[realPath]);  //递归调用获取返回值
-      &#125;
-      var exports = &#123;&#125;;   //exports对象，用于存储模块的返回值信息
-      (function (require, exports, code) &#123;
-        eval(code);   //eval函数用于执行字符串的js代码，传入require，exports和code
-      &#125;)(absRequire, exports, graph[file].code);
-      return exports;
-    &#125;
-    require(&#39;$&#123;file&#125;&#39;);
-  &#125;)($&#123;depsGraph&#125;);`;
-&#125;
-const content = bundle(&quot;./src/index.js&quot;);
-//将内容写入到输出文件 
-fs.writeFileSync(&quot;./dist/bundle.js&quot;, content);
-//webpack打包后的js文件就是一个立即执行函数，传入的参数是一个对象，对象的键是模块路径，值是模块函数代码
-</code></pre>
-
+<h1 id="流程图"><a class="anchor" href="#流程图">#</a> 流程图</h1>
+<p><img data-src="/images/Snipaste_2024-05-07_07-23-59.jpg" alt="miniwebpack" /></p>
+<h1 id="开始编码"><a class="anchor" href="#开始编码">#</a> 开始编码</h1>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">const</span> fs <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"fs"</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token keyword">const</span> path <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"path"</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token comment">// @babel/parser 用于将 js 代码转化为抽象语法树</span></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token keyword">const</span> parser <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"@babel/parser"</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token comment">// @babel/traverse 用于遍历和操作抽象语法树</span></pre></td></tr><tr><td data-num="6"></td><td><pre><span class="token keyword">const</span> traverse <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"@babel/traverse"</span><span class="token punctuation">)</span><span class="token punctuation">.</span>default<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="7"></td><td><pre><span class="token comment">// Babel 的核心功能包含在 @babel/core 模块中</span></pre></td></tr><tr><td data-num="8"></td><td><pre><span class="token keyword">const</span> babel <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"@babel/core"</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="9"></td><td><pre><span class="token comment">// 1. 分析依赖</span></pre></td></tr><tr><td data-num="10"></td><td><pre><span class="token keyword">function</span> <span class="token function">parseModules</span><span class="token punctuation">(</span><span class="token parameter">file</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="11"></td><td><pre>  <span class="token keyword">const</span> entry <span class="token operator">=</span> <span class="token function">getModuleInfo</span><span class="token punctuation">(</span>file<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="12"></td><td><pre>  <span class="token keyword">const</span> temp <span class="token operator">=</span> <span class="token punctuation">[</span>entry<span class="token punctuation">]</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="13"></td><td><pre>  <span class="token keyword">const</span> depsGraph <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="14"></td><td><pre>  <span class="token function">getDeps</span><span class="token punctuation">(</span>temp<span class="token punctuation">,</span> entry<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="15"></td><td><pre>  temp<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">moduleInfo</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span> <span class="token comment">// 遍历全部模块信息数组</span></pre></td></tr><tr><td data-num="16"></td><td><pre>    depsGraph<span class="token punctuation">[</span>moduleInfo<span class="token punctuation">.</span>file<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">&#123;</span> <span class="token comment">// 映射 file 路径和 code、deps</span></pre></td></tr><tr><td data-num="17"></td><td><pre>      <span class="token literal-property property">deps</span><span class="token operator">:</span> moduleInfo<span class="token punctuation">.</span>deps<span class="token punctuation">,</span></pre></td></tr><tr><td data-num="18"></td><td><pre>      <span class="token literal-property property">code</span><span class="token operator">:</span> moduleInfo<span class="token punctuation">.</span>code<span class="token punctuation">,</span></pre></td></tr><tr><td data-num="19"></td><td><pre>    <span class="token punctuation">&#125;</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="20"></td><td><pre>  <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="21"></td><td><pre>  <span class="token keyword">return</span> depsGraph<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="22"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="23"></td><td><pre><span class="token keyword">function</span> <span class="token function">getDeps</span><span class="token punctuation">(</span><span class="token parameter">temp<span class="token punctuation">,</span> <span class="token punctuation">&#123;</span>deps<span class="token punctuation">&#125;</span></span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="24"></td><td><pre>  Object<span class="token punctuation">.</span><span class="token function">keys</span><span class="token punctuation">(</span>deps<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">key</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="25"></td><td><pre>    <span class="token keyword">const</span> child <span class="token operator">=</span> <span class="token function">getModuleInfo</span><span class="token punctuation">(</span>deps<span class="token punctuation">[</span>key<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="26"></td><td><pre>    temp<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>child<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="27"></td><td><pre>    <span class="token function">getDeps</span><span class="token punctuation">(</span>temp<span class="token punctuation">,</span> child<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="28"></td><td><pre>  <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="29"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="30"></td><td><pre><span class="token keyword">function</span> <span class="token function">getModuleInfo</span><span class="token punctuation">(</span><span class="token parameter">file</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="31"></td><td><pre>  <span class="token comment">// 读取文件</span></pre></td></tr><tr><td data-num="32"></td><td><pre>  <span class="token keyword">const</span> body <span class="token operator">=</span> fs<span class="token punctuation">.</span><span class="token function">readFileSync</span><span class="token punctuation">(</span>file<span class="token punctuation">,</span> <span class="token string">"utf-8"</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="33"></td><td><pre>  <span class="token comment">// 转化为 AST</span></pre></td></tr><tr><td data-num="34"></td><td><pre>  <span class="token keyword">const</span> ast <span class="token operator">=</span> parser<span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span>body<span class="token punctuation">,</span> <span class="token punctuation">&#123;</span><span class="token literal-property property">sourceType</span><span class="token operator">:</span> <span class="token string">"module"</span><span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="35"></td><td><pre>  <span class="token keyword">const</span> deps <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="36"></td><td><pre>  <span class="token function">traverse</span><span class="token punctuation">(</span>ast<span class="token punctuation">,</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="37"></td><td><pre>    <span class="token comment">// 获取 import 导入的模块</span></pre></td></tr><tr><td data-num="38"></td><td><pre>    <span class="token function">ImportDeclaration</span><span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">&#123;</span>node<span class="token punctuation">&#125;</span></span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="39"></td><td><pre>      <span class="token keyword">const</span> dirname <span class="token operator">=</span> path<span class="token punctuation">.</span><span class="token function">dirname</span><span class="token punctuation">(</span>file<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="40"></td><td><pre>      <span class="token comment">// 获取标准化路径</span></pre></td></tr><tr><td data-num="41"></td><td><pre>      <span class="token keyword">const</span> absPath <span class="token operator">=</span> <span class="token string">"./"</span> <span class="token operator">+</span> path<span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span>dirname<span class="token punctuation">,</span> node<span class="token punctuation">.</span>source<span class="token punctuation">.</span>value<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="42"></td><td><pre>      deps<span class="token punctuation">[</span>node<span class="token punctuation">.</span>source<span class="token punctuation">.</span>value<span class="token punctuation">]</span> <span class="token operator">=</span> absPath<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="43"></td><td><pre>    <span class="token punctuation">&#125;</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="44"></td><td><pre>  <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="45"></td><td><pre>  <span class="token keyword">const</span> <span class="token punctuation">&#123;</span>code<span class="token punctuation">&#125;</span> <span class="token operator">=</span> babel<span class="token punctuation">.</span><span class="token function">transformFromAst</span><span class="token punctuation">(</span>ast<span class="token punctuation">,</span> <span class="token keyword">null</span><span class="token punctuation">,</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="46"></td><td><pre>    <span class="token comment">// 使用预设</span></pre></td></tr><tr><td data-num="47"></td><td><pre>    <span class="token literal-property property">presets</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">"@babel/preset-env"</span><span class="token punctuation">]</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="48"></td><td><pre>  <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="49"></td><td><pre>  <span class="token keyword">const</span> moduleInfo <span class="token operator">=</span> <span class="token punctuation">&#123;</span>file<span class="token punctuation">,</span> deps<span class="token punctuation">,</span> code<span class="token punctuation">&#125;</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="50"></td><td><pre>  <span class="token keyword">return</span> moduleInfo<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="51"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="52"></td><td><pre><span class="token comment">// 2. 实现 bundle</span></pre></td></tr><tr><td data-num="53"></td><td><pre><span class="token keyword">function</span> <span class="token function">bundle</span><span class="token punctuation">(</span><span class="token parameter">file</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="54"></td><td><pre>  <span class="token comment">// 将模块转为引用路径和映射 code、deps 的对象</span></pre></td></tr><tr><td data-num="55"></td><td><pre>  <span class="token keyword">const</span> depsGraph <span class="token operator">=</span> <span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">stringify</span><span class="token punctuation">(</span><span class="token function">parseModules</span><span class="token punctuation">(</span>file<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="56"></td><td><pre>  <span class="token keyword">return</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">(function (graph) &#123;</pre></td></tr><tr><td data-num="57"></td><td><pre>    function require(file) &#123;</pre></td></tr><tr><td data-num="58"></td><td><pre>      function absRequire(realPath) &#123;</pre></td></tr><tr><td data-num="59"></td><td><pre>        return require(graph[file].deps[realPath]);  //递归调用获取返回值</pre></td></tr><tr><td data-num="60"></td><td><pre>      &#125;</pre></td></tr><tr><td data-num="61"></td><td><pre>      var exports = &#123;&#125;;   //exports对象，用于存储模块的返回值信息</pre></td></tr><tr><td data-num="62"></td><td><pre>      (function (require, exports, code) &#123;</pre></td></tr><tr><td data-num="63"></td><td><pre>        eval(code);   //eval函数用于执行字符串的js代码，传入require，exports和code</pre></td></tr><tr><td data-num="64"></td><td><pre>      &#125;)(absRequire, exports, graph[file].code);</pre></td></tr><tr><td data-num="65"></td><td><pre>      return exports;</pre></td></tr><tr><td data-num="66"></td><td><pre>    &#125;</pre></td></tr><tr><td data-num="67"></td><td><pre>    require('</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>file<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string">');</pre></td></tr><tr><td data-num="68"></td><td><pre>  &#125;)(</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>depsGraph<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string">);</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="69"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="70"></td><td><pre><span class="token keyword">const</span> content <span class="token operator">=</span> <span class="token function">bundle</span><span class="token punctuation">(</span><span class="token string">"./src/index.js"</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="71"></td><td><pre><span class="token comment">// 将内容写入到输出文件 </span></pre></td></tr><tr><td data-num="72"></td><td><pre>fs<span class="token punctuation">.</span><span class="token function">writeFileSync</span><span class="token punctuation">(</span><span class="token string">"./dist/bundle.js"</span><span class="token punctuation">,</span> content<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="73"></td><td><pre><span class="token comment">//webpack 打包后的 js 文件就是一个立即执行函数，传入的参数是一个对象，对象的键是模块路径，值是模块函数代码</span></pre></td></tr></table></figure>
       <div class="tags">
           <a href="/tags/webpack-miniwebpack/" rel="tag"><i class="ic i-tag"></i> webpack,miniwebpack</a>
       </div>
@@ -307,7 +236,7 @@ fs.writeFileSync(&quot;./dist/bundle.js&quot;, content);
     <div class="item left">
       
 
-  <a href="/2024/04/30/%E6%B7%B1%E6%8B%B7%E8%B4%9D/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;s3.uuu.ovh&#x2F;imgs&#x2F;2024&#x2F;04&#x2F;12&#x2F;65788b6548e9e58f.jpg" title="深拷贝">
+  <a href="/2024/04/30/%E6%B7%B1%E6%8B%B7%E8%B4%9D/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;s3.uuu.ovh&#x2F;imgs&#x2F;2024&#x2F;04&#x2F;05&#x2F;9c07b3ea7f1e2a1c.jpg" title="深拷贝">
   <span class="type">上一篇</span>
   <span class="category"><i class="ic i-flag"></i> 面试题</span>
   <h3>深拷贝</h3>
@@ -317,7 +246,7 @@ fs.writeFileSync(&quot;./dist/bundle.js&quot;, content);
     <div class="item right">
       
 
-  <a href="/2024/05/08/%E5%87%BD%E6%95%B0%E9%87%8D%E8%BD%BD/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;s3.uuu.ovh&#x2F;imgs&#x2F;2024&#x2F;04&#x2F;06&#x2F;a16303594a53d8d1.jpg" title="函数重载">
+  <a href="/2024/05/08/%E5%87%BD%E6%95%B0%E9%87%8D%E8%BD%BD/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;s3.uuu.ovh&#x2F;imgs&#x2F;2024&#x2F;04&#x2F;15&#x2F;21b7a3f222ccbcb6.jpg" title="函数重载">
   <span class="type">下一篇</span>
   <span class="category"><i class="ic i-flag"></i> JS</span>
   <h3>函数重载</h3>
@@ -339,7 +268,7 @@ fs.writeFileSync(&quot;./dist/bundle.js&quot;, content);
   <div class="panels">
     <div class="inner">
       <div class="contents panel pjax" data-title="文章目录">
-          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%89%8D%E7%BD%AE%E7%9F%A5%E8%AF%86"><span class="toc-number">1.</span> <span class="toc-text">前置知识</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%B5%81%E7%A8%8B%E5%9B%BE"><span class="toc-number">2.</span> <span class="toc-text">流程图</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%BC%80%E5%A7%8B%E7%BC%96%E7%A0%81"><span class="toc-number">3.</span> <span class="toc-text">开始编码</span></a></li></ol>
+          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%89%8D%E7%BD%AE%E7%9F%A5%E8%AF%86"><span class="toc-number">1.</span> <span class="toc-text"> 前置知识</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%B5%81%E7%A8%8B%E5%9B%BE"><span class="toc-number">2.</span> <span class="toc-text"> 流程图</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%BC%80%E5%A7%8B%E7%BC%96%E7%A0%81"><span class="toc-number">3.</span> <span class="toc-text"> 开始编码</span></a></li></ol>
       </div>
       <div class="related panel pjax" data-title="系列文章">
         <ul>
@@ -457,30 +386,40 @@ fs.writeFileSync(&quot;./dist/bundle.js&quot;, content);
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/%E8%84%9A%E6%89%8B%E6%9E%B6%E5%BC%80%E5%8F%91/" title="分类于 脚手架开发">脚手架开发</a>
-</div>
-
-    <span><a href="/2024/04/12/%E8%84%9A%E6%89%8B%E6%9E%B6/" title="脚手架开发">脚手架开发</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/JS/" title="分类于 JS">JS</a>
-</div>
-
-    <span><a href="/2023/10/02/33%E4%B8%AAJavascript%E6%A6%82%E5%BF%B5/" title="33个JavaScript概念">33个JavaScript概念</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
 <a href="/categories/JS/" title="分类于 JS">JS</a>
 </div>
 
     <span><a href="/2023/09/02/ArrayBuffer/" title="ArrayBuffer">ArrayBuffer</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/" title="分类于 面试题">面试题</a>
+</div>
+
+    <span><a href="/2024/04/30/%E6%B7%B1%E6%8B%B7%E8%B4%9D/" title="深拷贝">深拷贝</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Vue/" title="分类于 Vue">Vue</a>
+</div>
+
+    <span><a href="/2023/01/12/Vue%E6%9D%82%E8%AE%B0/" title="Vue使用笔记">Vue使用笔记</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E4%B8%9A%E5%8A%A1%E5%A4%84%E7%90%86/" title="分类于 业务处理">业务处理</a>
+</div>
+
+    <span><a href="/2024/03/29/%E6%9C%AC%E5%9C%B0%E9%A2%84%E8%A7%88%E5%9B%BE%E7%89%87/" title="本地预览图片">本地预览图片</a></span>
   </li>
 
       
@@ -497,59 +436,50 @@ fs.writeFileSync(&quot;./dist/bundle.js&quot;, content);
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90%E4%B8%8E%E9%83%A8%E7%BD%B2/" title="分类于 持续集成与部署">持续集成与部署</a>
+<a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" title="分类于 数据库">数据库</a>
 </div>
 
-    <span><a href="/2024/02/03/%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90%E4%B8%8E%E6%8C%81%E7%BB%AD%E9%83%A8%E7%BD%B2/" title="持续集成与持续部署">持续集成与持续部署</a></span>
+    <span><a href="/2023/12/02/%E6%95%B0%E6%8D%AE%E5%BA%93/" title="数据库">数据库</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96/" title="分类于 前端工程化">前端工程化</a>
+<a href="/categories/JS/" title="分类于 JS">JS</a>
 </div>
 
-    <span><a href="/2024/03/29/%E5%89%8D%E7%AB%AF%E6%A8%A1%E5%9D%97%E5%8C%96/" title="前端模块化">前端模块化</a></span>
+    <span><a href="/2023/10/02/33%E4%B8%AAJavascript%E6%A6%82%E5%BF%B5/" title="33个JavaScript概念">33个JavaScript概念</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
+<a href="/categories/git/" title="分类于 git">git</a>
 </div>
 
-    <span><a href="/2024/03/29/new%E5%85%B3%E9%94%AE%E5%AD%97/" title="未命名">未命名</a></span>
+    <span><a href="/2023/05/02/git%20github%E7%AC%94%E8%AE%B0%EF%BC%88%E6%A6%82%E5%BF%B5%EF%BC%89/" title="git笔记">git笔记</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/JS%E8%BF%9B%E9%98%B6/" title="分类于 JS进阶">JS进阶</a>
+<a href="/categories/ajax/" title="分类于 ajax">ajax</a>
 </div>
 
-    <span><a href="/2023/08/02/JS/" title="JS进阶">JS进阶</a></span>
+    <span><a href="/2023/01/08/json-ajax-axios/" title="ajax">ajax</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/vue/" title="分类于 vue">vue</a>
+<a href="/categories/%E9%A1%B9%E7%9B%AE%E8%B4%A8%E9%87%8F%E6%A3%80%E6%B5%8B/" title="分类于 项目质量检测">项目质量检测</a>
 </div>
 
-    <span><a href="/2023/11/02/vue%E5%8E%9F%E7%90%86/" title="vue原理">vue原理</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/webpack/" title="分类于 webpack">webpack</a>
-</div>
-
-    <span><a href="/2023/10/21/webpack/" title="webpack笔记">webpack笔记</a></span>
+    <span><a href="/2024/01/02/%E9%A1%B9%E7%9B%AE%E8%B4%A8%E9%87%8F%E6%A3%80%E6%B5%8B/" title="项目质量检测">项目质量检测</a></span>
   </li>
 
   </ul>
