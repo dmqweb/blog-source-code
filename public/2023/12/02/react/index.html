@@ -102,12 +102,12 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
       </div>
       <div id="imgs" class="pjax">
         <ul>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/12/35b09cafcea9fd29.webp"></li>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/15/229ca07a8d7b6e02.jpg"></li>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/12/f63f09ff2084b1f3.jpg"></li>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/07/d94cad8780c8c094.jpg"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/06/a2c97e7bd0c6ecd6.webp"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/04/e805d35284c2d7d5.jpg"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/28/52565b5ee960b9b5.webp"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/12/4508f1e9b6c8e047.jpg"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/15/d888a622df52afa7.webp"></li>
           <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/07/a69a9d571bee6f0b.jpg"></li>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/06/a16303594a53d8d1.jpg"></li>
         </ul>
       </div>
     </header>
@@ -153,7 +153,153 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
   <div class="body md" itemprop="articleBody">
     
 
-    <h1 id="react笔记"><a class="anchor" href="#react笔记">#</a> react 笔记：</h1>
+    <h1 id="-"><a class="anchor" href="#-">#</a> ------------------------------------</h1>
+<h1 id="react官网笔记"><a class="anchor" href="#react官网笔记">#</a> <span class="exturl" data-url="aHR0cHM6Ly96aC1oYW5zLnJlYWN0LmRldi9sZWFybi95b3UtbWlnaHQtbm90LW5lZWQtYW4tZWZmZWN0">react 官网笔记：</span></h1>
+<h1 id="react核心价值"><a class="anchor" href="#react核心价值">#</a> react 核心价值</h1>
+<p>组件化 + 数据驱动视图<br />
+ UI = f (state)</p>
+<h1 id="react快照state"><a class="anchor" href="#react快照state">#</a> react 快照 state</h1>
+<p>state 就像每次渲染的快照，并且不会同步更新，react 中当 state 状态变化时，当前快照中是获取不到更新后的内容和状态的（因为 react 由于优化需要集中多个进行更新），此时想要操作快照更新之后的操作只能在快照更新之后添加钩子函数。</p>
+<ul>
+<li>使用 useEffect（快照更新之后自动执行钩子）</li>
+<li>类组件可以使用生命周期钩子</li>
+<li>使用条件渲染，根据条件进行不同的处理</li>
+</ul>
+<h1 id="组件透层级传递状态"><a class="anchor" href="#组件透层级传递状态">#</a> 组件透层级传递状态</h1>
+<p>使用 React 的 Context 功能，Context 让父组件可以为它下面的整个组件树提供数据，实现原理是通过发布订阅模式。</p>
+<ol>
+<li>使用 react 中 createContext 方法，创建一个 context 状态，传入状态初始值</li>
+<li>通过 react 的 useContent 方法，传入 context 名称进行状态的消费。</li>
+<li>前提是需要在需要使用到的标签外部包裹创建的 context 组件.Provider&lt;ContextName.Provider value={}&gt;&lt;/ContextName.Provider&gt;</li>
+<li>这将导致在组件内部消费状态时，根据 Provider 的嵌套层级，使用最近的 Provider 的 context 内容。</li>
+</ol>
+<h1 id="react状态管理"><a class="anchor" href="#react状态管理">#</a> react 状态管理</h1>
+<h3 id="局部状态管理"><a class="anchor" href="#局部状态管理">#</a> 局部状态管理</h3>
+<p>react 提供了两种状态管理的 hooks，useState 和 useReducer，两者使用场景为：简单的业务可以使用 useState 钩子完成即可，但是如果业务中状态繁琐，频繁使用 useState 就会导致太多状态难以阅读理解，表现和业务耦合在一起，这时使用 useReducer 更好。</p>
+<h3 id="全局状态管理"><a class="anchor" href="#全局状态管理">#</a> 全局状态管理</h3>
+<p>react 中已经有了 useState 和 useReducer 两种状态管理方式，那为什么还要使用 redux 呢？其实只是用 useState 和 useReuder 只能实现局部的状态管理，redux 解决了：</p>
+<ul>
+<li>全局状态管理（多个组件共享状态）</li>
+<li>状态的可预测性（使得状态的变化更加清晰和易于追踪）</li>
+<li>结构化组织代码，提高可维护性</li>
+</ul>
+<h1 id="useref"><a class="anchor" href="#useref">#</a> useRef</h1>
+<p>useRef 返回一个普通的 javascript 对象，它和 state 一样，react 会在每次渲染之间保留 ref，但是设置 state 会重新渲染组件，更改 ref 不会。</p>
+<p>当一条信息用于渲染时，将他保存在 state 中，当一条信息用于仅仅被事件处理器需要，并且不参与渲染时，使用 ref 更加高效。</p>
+<h3 id="ref和state差异"><a class="anchor" href="#ref和state差异">#</a> ref 和 state 差异</h3>
+<p><strong>useRef 是由 useState 函数进一步封装得到（只使用状态，不使用方法更新视图）：</strong></p>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">function</span> <span class="token function">useRef</span><span class="token punctuation">(</span><span class="token parameter">initialValue</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="2"></td><td><pre>  <span class="token keyword">const</span> <span class="token punctuation">[</span>ref<span class="token punctuation">,</span> unused<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">useState</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span> <span class="token literal-property property">current</span><span class="token operator">:</span> initialValue <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="3"></td><td><pre>  <span class="token keyword">return</span> ref<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr></table></figure><p>大多数情况下，建议使用 state。ref 是一种 “脱围机制”，并不会经常用到它。 以下是 state 和 ref 的对比：</p>
+<table>
+<thead>
+<tr>
+<th>ref</th>
+<th>state</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>useRef(initialValue)</code>  返回  <code>&#123; current: initialValue &#125;</code></td>
+<td><code>useState(initialValue)</code>  返回 state 变量的当前值和一个 state 设置函数 (  <code>[value, setValue]</code> )</td>
+</tr>
+<tr>
+<td>更改时不会触发重新渲染</td>
+<td>更改时触发重新渲染。</td>
+</tr>
+<tr>
+<td>可变 —— 你可以在渲染过程之外修改和更新  <code>current</code>  的值。</td>
+<td>“不可变” —— 你必须使用 state 设置函数来修改 state 变量，从而排队重新渲染。</td>
+</tr>
+<tr>
+<td>你不应在渲染期间读取（或写入）  <code>current</code>  值。</td>
+<td>你可以随时读取 state。但是，每次渲染都有自己不变的 state <span class="exturl" data-url="aHR0cHM6Ly96aC1oYW5zLnJlYWN0LmRldi9sZWFybi9zdGF0ZS1hcy1hLXNuYXBzaG90">快照</span>。</td>
+</tr>
+</tbody>
+</table>
+<p><strong>注意：ref 设值（同步）不同于 state 快照型设值（不同步）。</strong></p>
+<h3 id="ref和dom"><a class="anchor" href="#ref和dom">#</a> ref 和 DOM</h3>
+<p>ref 最常见的用法是访问 DOM 元素。比如  <code>&lt;div ref=&#123;myRef&#125;&gt;</code> ，React 会将相应的 DOM 元素放入  <code>myRef.current</code>  中。当元素从 DOM 中删除时，React 会将  <code>myRef.current</code>  更新为  <code>null</code> 。</p>
+<p><code>useRef</code>  Hook 返回一个对象，该对象有一个名为  <code>current</code>  的属性。最初， <code>myRef.current</code>  是  <code>null</code> 。当 React 为这个  <code>&lt;div&gt;</code>  创建一个 DOM 节点时，React 会把对该节点的引用放入  <code>myRef.current</code> 。然后，你可以从 <span class="exturl" data-url="aHR0cHM6Ly96aC1oYW5zLnJlYWN0LmRldi9sZWFybi9yZXNwb25kaW5nLXRvLWV2ZW50cw==">事件处理器</span> 访问此 DOM 节点，并使用在其上定义的内置<span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvZG9jcy9XZWIvQVBJL0VsZW1lbnQ=">浏览器 API</span>。</p>
+<p>useRef 返回的 ref.current 中有一个 remove 方法，该方法执行后会将 ref 值为 null，这样以便于 ref 能够被垃圾回收机制进行回收。</p>
+<p><strong>注意：ref 只能使用浏览器自带的 DOM 元素上，而不能直接用在组件上（可以在组件内传递一下使用）。</strong></p>
+<h1 id="forwardref"><a class="anchor" href="#forwardref">#</a> forwardRef</h1>
+<p>用于将一个组件的  <code>ref</code>  转发到该组件的子组件中。这在使用类组件或需要访问子组件的 DOM 元素时非常有用，尤其是当子组件是一个函数组件或类组件，且你希望保留对该子组件的引用时。</p>
+<h1 id="useimperativehandle"><a class="anchor" href="#useimperativehandle">#</a> useImperativeHandle</h1>
+<p><code>useImperativeHandle</code>  是 React 的一个钩子，它与  <code>forwardRef</code>  一起使用，用于在使用 refs 的场景中为组件提供一个 ** 可自定义的行为。** 当你想要在子组件中暴露给父组件一些方法或属性时， <code>useImperativeHandle</code>  就非常有用。</p>
+<p>两者可以结合使用（使用 forwardRef 转发 ref，使用 useImperativeHandle 设置 DOM 元素方法）：</p>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">const</span> InputComponent <span class="token operator">=</span> React<span class="token punctuation">.</span><span class="token function">forwardRef</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">props<span class="token punctuation">,</span> ref</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="2"></td><td><pre>  <span class="token function">useImperativeHandle</span><span class="token punctuation">(</span>ref<span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">(</span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="3"></td><td><pre>    <span class="token function-variable function">focus</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> inputRef<span class="token punctuation">.</span>current<span class="token punctuation">.</span><span class="token function">focus</span><span class="token punctuation">(</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="4"></td><td><pre>  <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="5"></td><td><pre>  <span class="token keyword">return</span> <span class="token operator">&lt;</span>input ref<span class="token operator">=</span><span class="token punctuation">&#123;</span>inputRef<span class="token punctuation">&#125;</span> <span class="token punctuation">&#123;</span><span class="token operator">...</span>props<span class="token punctuation">&#125;</span> <span class="token operator">/</span><span class="token operator">></span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="6"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr></table></figure><h1 id="effect同步"><a class="anchor" href="#effect同步">#</a> Effect 同步</h1>
+<h3 id="react中两种逻辑类型"><a class="anchor" href="#react中两种逻辑类型">#</a> React 中两种逻辑类型</h3>
+<ul>
+<li><strong>渲染逻辑代码</strong>，<strong>位于组件的顶层</strong>，在此处接受 props 和 state，并对他们进行转换，最终返回想在屏幕上看到的 JSX，渲染的代码必须是纯粹的，它只应该 “计算” 结果，而不做其他任何事情。</li>
+<li><strong>事件处理程序</strong>，<strong>是嵌套在组件内部的函数</strong>，而不仅仅是计算函数。事件处理程序可能会更新输入字段、提交 HTTP POST 请求以购买产品，或者将用户导航到另一个屏幕。事件处理程序包含由特定用户操作（例如按钮点击或键入）引起的 “副作用”（它们改变了程序的状态）。</li>
+</ul>
+<h3 id="effect作用"><a class="anchor" href="#effect作用">#</a> Effect 作用</h3>
+<p>Effect 允许指定由渲染本身而不是特定事件引起的副作用。（利用无论是哪种交互导致组件执行渲染，effect 都会在屏幕更新后的提交阶段执行）</p>
+<h3 id="使用注意"><a class="anchor" href="#使用注意">#</a> 使用注意</h3>
+<ul>
+<li>
+<p><strong>不要随意在你的组件中使用 Effect</strong>。记住，Effect 通常用于暂时 “跳出” React 代码并与一些 <strong>外部</strong> 系统进行同步。这包括浏览器 API、第三方小部件，以及网络等等。如果你想用 Effect 仅根据其他状态调整某些状态，那么 <span class="exturl" data-url="aHR0cHM6Ly96aC1oYW5zLnJlYWN0LmRldi9sZWFybi95b3UtbWlnaHQtbm90LW5lZWQtYW4tZWZmZWN0">你可能不需要 Effect</span>。</p>
+</li>
+<li>
+<p>Effect 会在每次渲染之后执行，如下代码会造成死循环：</p>
+<pre><code>const [count,setCount] = useState();
+useEffect(()=&gt;&#123;
+	setCount(count++);
+&#125;)
+</code></pre>
+</li>
+<li>
+<p>useEffect 第二个参数不传代表<strong>每次渲染组件后都执行一次</strong>，传空数组代表<strong>只会在第一次挂载后执行</strong>，传依赖项代表在<strong>依赖项变化时执行。</strong></p>
+</li>
+<li>
+<p>useEffect 依赖项中传入 ref 通常是无效的，因为 ref 相当于不使用渲染赋值的 state 状态，传递过去的 ref 引用始终相同（不随着快照的渲染而变化）。</p>
+</li>
+<li>
+<p>某些逻辑不能放在 effect 中执行，因为 effect 的执行是和组件渲染强绑定的（例如不能在 effect 中写购买商品的逻辑，这样会导致组件以任何方式被渲染都会执行购买逻辑，这样是不对的）</p>
+</li>
+<li>
+<p>effect 中 return 的函数会在下一次 effect 执行前被执行，常用于执行清理函数（清除定时器等）</p>
+</li>
+</ul>
+<h3 id="摘要"><a class="anchor" href="#摘要">#</a> 摘要</h3>
+<ul>
+<li>与事件不同，Effect 是由渲染本身，而非特定交互引起的。</li>
+<li>Effect 允许你将组件与某些外部系统（第三方 API、网络等）同步。</li>
+<li>默认情况下，Effect 在每次渲染（包括初始渲染）后运行。</li>
+<li>如果 React 的所有依赖项都与上次渲染时的值相同，则将跳过本次 Effect。</li>
+<li>不能随意选择依赖项，它们是由 Effect 内部的代码决定的。</li>
+<li>空的依赖数组（ <code>[]</code> ）对应于组件 “挂载”，即添加到屏幕上。</li>
+<li>仅在严格模式下的开发环境中，React 会挂载两次组件，以对 Effect 进行压力测试。</li>
+<li>如果 Effect 因为重新挂载而中断，那么需要实现一个清理函数。</li>
+<li>React 将在下次 Effect 运行之前以及卸载期间这两个时候调用清理函数</li>
+</ul>
+<h1 id="effect生命周期"><a class="anchor" href="#effect生命周期">#</a> Effect 生命周期</h1>
+<p>react 组件的生命周期：</p>
+<ul>
+<li>添加到屏幕（挂载）</li>
+<li>组件接收新的 props 或 state（更新）</li>
+<li>从屏幕移除（卸载）</li>
+</ul>
+<h1 id="effect依赖项"><a class="anchor" href="#effect依赖项">#</a> effect 依赖项</h1>
+<ul>
+<li>effect 中的依赖项只能传入响应性的变量（组件 props 也是响应性的）</li>
+<li>组件 props 也是响应性的，类组件 props 变化会触发钩子重新执行，函数式组件 props 变化会重新执行</li>
+<li>组件内声明的变量可以是响应性的，每次会重新声明。</li>
+<li>effect 依赖项不能传入 ref.current，ref.current 本身不是响应性的，不会引起视图更新（ref.current 允许跟踪某些值而不触发重新渲染）</li>
+<li>effect 依赖项不能传入组件内定义的对象或者函数（由于每次定义都会改变）</li>
+<li>effect 依赖项不能传入可变值（包括全局变量），它不是响应性的。</li>
+</ul>
+<h1 id="自定义hook"><a class="anchor" href="#自定义hook">#</a> 自定义 Hook</h1>
+<ul>
+<li>use 开头</li>
+<li>代码检查工具会强制 use 命名公约，只有 Hook 和组件可以调用其他 Hook</li>
+<li>没有调用 Hook 的函数不需要变成 Hook（或以 use 开头）</li>
+<li>自定义 Hook 共享的是状态逻辑，而不是状态本身，对 Hook 的每一个调用完全独立于对同一个 Hook 的其他调用。</li>
+<li>当需要在多个组件之间共享 state 本身时，需要将变量提升并传递下去。</li>
+</ul>
+<h1 id="--2"><a class="anchor" href="#--2">#</a> ------------------------------------</h1>
+<h1 id=""><a class="anchor" href="#">#</a> </h1>
+<h1 id="react项目学习"><a class="anchor" href="#react项目学习">#</a> <a href="">react 项目学习</a></h1>
+<h1 id="-2"><a class="anchor" href="#-2">#</a> </h1>
 <h1 id="redux状态管理工具"><a class="anchor" href="#redux状态管理工具">#</a> redux 状态管理工具：</h1>
 <h3 id="设计思想"><a class="anchor" href="#设计思想">#</a> 设计思想</h3>
 <p>将 store 实例进行订阅，则当 store 实例通过 dispatch 进行发布时，就触发订阅函数的执行。</p>
@@ -268,7 +414,7 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
       <i class="ic i-calendar-check"></i>
     </span>
     <span class="text">更新于</span>
-    <time title="修改时间：2024-05-19 17:02:10" itemprop="dateModified" datetime="2024-05-19T17:02:10+08:00">2024-05-19</time>
+    <time title="修改时间：2024-05-23 10:47:25" itemprop="dateModified" datetime="2024-05-23T10:47:25+08:00">2024-05-23</time>
   </span>
   <span id="2023/12/02/react/" class="item leancloud_visitors" data-flag-title="react笔记" title="阅读次数">
       <span class="icon">
@@ -326,7 +472,7 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
     <div class="item left">
       
 
-  <a href="/2023/12/02/%E6%95%B0%E6%8D%AE%E5%BA%93/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;s3.uuu.ovh&#x2F;imgs&#x2F;2024&#x2F;04&#x2F;12&#x2F;35b09cafcea9fd29.webp" title="数据库">
+  <a href="/2023/12/02/%E6%95%B0%E6%8D%AE%E5%BA%93/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;s3.uuu.ovh&#x2F;imgs&#x2F;2024&#x2F;04&#x2F;07&#x2F;be4bd9184664725b.webp" title="数据库">
   <span class="type">上一篇</span>
   <span class="category"><i class="ic i-flag"></i> 数据库</span>
   <h3>数据库</h3>
@@ -336,7 +482,7 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
     <div class="item right">
       
 
-  <a href="/2023/12/02/Travis%20CI%E5%92%8CDocker%E7%9A%84%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;s3.uuu.ovh&#x2F;imgs&#x2F;2024&#x2F;04&#x2F;12&#x2F;35b09cafcea9fd29.webp" title="Travis和Docker的持续集成">
+  <a href="/2023/12/02/Travis%20CI%E5%92%8CDocker%E7%9A%84%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;s3.uuu.ovh&#x2F;imgs&#x2F;2024&#x2F;04&#x2F;15&#x2F;6d859d49c9d65157.jpg" title="Travis和Docker的持续集成">
   <span class="type">下一篇</span>
   <span class="category"><i class="ic i-flag"></i> Travis和Docker</span>
   <h3>Travis和Docker的持续集成</h3>
@@ -358,7 +504,7 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
   <div class="panels">
     <div class="inner">
       <div class="contents panel pjax" data-title="文章目录">
-          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#react%E7%AC%94%E8%AE%B0"><span class="toc-number">1.</span> <span class="toc-text"> react 笔记：</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#redux%E7%8A%B6%E6%80%81%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7"><span class="toc-number">2.</span> <span class="toc-text"> redux 状态管理工具：</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%BE%E8%AE%A1%E6%80%9D%E6%83%B3"><span class="toc-number">2.0.1.</span> <span class="toc-text"> 设计思想</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#react%E4%B8%ADcss%E4%BD%BF%E7%94%A8"><span class="toc-number">3.</span> <span class="toc-text"> react 中 css 使用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%87%BA%E7%8E%B0%E9%97%AE%E9%A2%98"><span class="toc-number">3.0.1.</span> <span class="toc-text"> 出现问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="toc-number">3.0.2.</span> <span class="toc-text"> 解决方案</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8sass"><span class="toc-number">3.0.3.</span> <span class="toc-text"> 使用 sass</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#css-in-js"><span class="toc-number">3.1.</span> <span class="toc-text"> CSS-in-JS</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%BB%8B%E7%BB%8D"><span class="toc-number">3.1.0.0.1.</span> <span class="toc-text"> 介绍</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%B7%A5%E5%85%B7"><span class="toc-number">3.1.0.0.2.</span> <span class="toc-text"> 工具</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%BC%98%E7%BC%BA%E7%82%B9"><span class="toc-number">3.1.0.0.3.</span> <span class="toc-text"> 优缺点</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%B7%AF%E7%94%B1"><span class="toc-number">4.</span> <span class="toc-text"> 路由</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%83%8C%E6%99%AF"><span class="toc-number">4.0.1.</span> <span class="toc-text"> 背景</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8"><span class="toc-number">4.0.2.</span> <span class="toc-text"> 使用</span></a></li></ol></li></ol></li></ol>
+          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#-"><span class="toc-number">1.</span> <span class="toc-text"> ------------------------------------</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#react%E5%AE%98%E7%BD%91%E7%AC%94%E8%AE%B0"><span class="toc-number">2.</span> <span class="toc-text"> react 官网笔记：</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#react%E6%A0%B8%E5%BF%83%E4%BB%B7%E5%80%BC"><span class="toc-number">3.</span> <span class="toc-text"> react 核心价值</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#react%E5%BF%AB%E7%85%A7state"><span class="toc-number">4.</span> <span class="toc-text"> react 快照 state</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BB%84%E4%BB%B6%E9%80%8F%E5%B1%82%E7%BA%A7%E4%BC%A0%E9%80%92%E7%8A%B6%E6%80%81"><span class="toc-number">5.</span> <span class="toc-text"> 组件透层级传递状态</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#react%E7%8A%B6%E6%80%81%E7%AE%A1%E7%90%86"><span class="toc-number">6.</span> <span class="toc-text"> react 状态管理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B1%80%E9%83%A8%E7%8A%B6%E6%80%81%E7%AE%A1%E7%90%86"><span class="toc-number">6.0.1.</span> <span class="toc-text"> 局部状态管理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%A8%E5%B1%80%E7%8A%B6%E6%80%81%E7%AE%A1%E7%90%86"><span class="toc-number">6.0.2.</span> <span class="toc-text"> 全局状态管理</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#useref"><span class="toc-number">7.</span> <span class="toc-text"> useRef</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#ref%E5%92%8Cstate%E5%B7%AE%E5%BC%82"><span class="toc-number">7.0.1.</span> <span class="toc-text"> ref 和 state 差异</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ref%E5%92%8Cdom"><span class="toc-number">7.0.2.</span> <span class="toc-text"> ref 和 DOM</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#forwardref"><span class="toc-number">8.</span> <span class="toc-text"> forwardRef</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#useimperativehandle"><span class="toc-number">9.</span> <span class="toc-text"> useImperativeHandle</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#effect%E5%90%8C%E6%AD%A5"><span class="toc-number">10.</span> <span class="toc-text"> Effect 同步</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#react%E4%B8%AD%E4%B8%A4%E7%A7%8D%E9%80%BB%E8%BE%91%E7%B1%BB%E5%9E%8B"><span class="toc-number">10.0.1.</span> <span class="toc-text"> React 中两种逻辑类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#effect%E4%BD%9C%E7%94%A8"><span class="toc-number">10.0.2.</span> <span class="toc-text"> Effect 作用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E6%B3%A8%E6%84%8F"><span class="toc-number">10.0.3.</span> <span class="toc-text"> 使用注意</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%91%98%E8%A6%81"><span class="toc-number">10.0.4.</span> <span class="toc-text"> 摘要</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#effect%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F"><span class="toc-number">11.</span> <span class="toc-text"> Effect 生命周期</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#effect%E4%BE%9D%E8%B5%96%E9%A1%B9"><span class="toc-number">12.</span> <span class="toc-text"> effect 依赖项</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89hook"><span class="toc-number">13.</span> <span class="toc-text"> 自定义 Hook</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#--2"><span class="toc-number">14.</span> <span class="toc-text"> ------------------------------------</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">15.</span> <span class="toc-text"> </span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#react%E9%A1%B9%E7%9B%AE%E5%AD%A6%E4%B9%A0"><span class="toc-number">16.</span> <span class="toc-text"> react 项目学习</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#-2"><span class="toc-number">17.</span> <span class="toc-text"> </span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#redux%E7%8A%B6%E6%80%81%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7"><span class="toc-number">18.</span> <span class="toc-text"> redux 状态管理工具：</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%BE%E8%AE%A1%E6%80%9D%E6%83%B3"><span class="toc-number">18.0.1.</span> <span class="toc-text"> 设计思想</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#react%E4%B8%ADcss%E4%BD%BF%E7%94%A8"><span class="toc-number">19.</span> <span class="toc-text"> react 中 css 使用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%87%BA%E7%8E%B0%E9%97%AE%E9%A2%98"><span class="toc-number">19.0.1.</span> <span class="toc-text"> 出现问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="toc-number">19.0.2.</span> <span class="toc-text"> 解决方案</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8sass"><span class="toc-number">19.0.3.</span> <span class="toc-text"> 使用 sass</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#css-in-js"><span class="toc-number">19.1.</span> <span class="toc-text"> CSS-in-JS</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%BB%8B%E7%BB%8D"><span class="toc-number">19.1.0.0.1.</span> <span class="toc-text"> 介绍</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%B7%A5%E5%85%B7"><span class="toc-number">19.1.0.0.2.</span> <span class="toc-text"> 工具</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%BC%98%E7%BC%BA%E7%82%B9"><span class="toc-number">19.1.0.0.3.</span> <span class="toc-text"> 优缺点</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%B7%AF%E7%94%B1"><span class="toc-number">20.</span> <span class="toc-text"> 路由</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%83%8C%E6%99%AF"><span class="toc-number">20.0.1.</span> <span class="toc-text"> 背景</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8"><span class="toc-number">20.0.2.</span> <span class="toc-text"> 使用</span></a></li></ol></li></ol></li></ol>
       </div>
       <div class="related panel pjax" data-title="系列文章">
         <ul>
@@ -376,19 +522,19 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
 <nav class="state">
     <div class="item posts">
       <a href="/archives/">
-        <span class="count">63</span>
+        <span class="count">71</span>
         <span class="name">文章</span>
       </a>
     </div>
     <div class="item categories">
       <a href="/categories/">
-        <span class="count">43</span>
+        <span class="count">52</span>
         <span class="name">分类</span>
       </a>
     </div>
     <div class="item tags">
       <a href="/tags/">
-        <span class="count">79</span>
+        <span class="count">94</span>
         <span class="name">标签</span>
       </a>
     </div>
@@ -476,70 +622,50 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" title="分类于 数据库">数据库</a>
+<a href="/categories/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96/" title="分类于 前端工程化">前端工程化</a>
 </div>
 
-    <span><a href="/2023/12/02/%E6%95%B0%E6%8D%AE%E5%BA%93/" title="数据库">数据库</a></span>
+    <span><a href="/2024/03/29/%E5%89%8D%E7%AB%AF%E6%A8%A1%E5%9D%97%E5%8C%96/" title="前端模块化">前端模块化</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/%E5%89%8D%E7%AB%AF%E7%9B%91%E6%8E%A7/" title="分类于 前端监控">前端监控</a>
+<a href="/categories/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" title="分类于 正则表达式">正则表达式</a>
 </div>
 
-    <span><a href="/2024/04/29/%E5%89%8D%E7%AB%AF%E7%9B%91%E6%8E%A7/" title="前端监控">前端监控</a></span>
+    <span><a href="/2023/02/12/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" title="正则表达式">正则表达式</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/JS/" title="分类于 JS">JS</a>
+<a href="/categories/%E4%B8%89%E6%96%B9%E5%BA%93/" title="分类于 三方库">三方库</a>
 </div>
 
-    <span><a href="/2023/10/02/33%E4%B8%AAJavascript%E6%A6%82%E5%BF%B5/" title="33个JavaScript概念">33个JavaScript概念</a></span>
+    <span><a href="/2024/04/16/%E4%B8%89%E6%96%B9%E5%8C%85/" title="三方库">三方库</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/Linux/" title="分类于 Linux">Linux</a>
+<a href="/categories/jQuery/" title="分类于 jQuery">jQuery</a>
 </div>
 
-    <span><a href="/2023/01/22/linux%E6%9C%8D%E5%8A%A1%E5%99%A8/" title="Linux">Linux</a></span>
+    <span><a href="/2023/01/02/jQuery%E6%A1%86%E6%9E%B6%E5%BA%94%E7%94%A8/" title="jQuery">jQuery</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/%E7%AE%97%E6%B3%95/" title="分类于 算法">算法</a>
+<a href="/categories/Sass/" title="分类于 Sass">Sass</a>
 </div>
 
-    <span><a href="/2023/12/02/%E7%AE%97%E6%B3%95/" title="算法与数据结构">算法与数据结构</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/%E7%AE%97%E6%B3%95/" title="分类于 算法">算法</a>
-</div>
-
-    <span><a href="/2023/06/02/%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" title="图片上传解决方案">图片上传解决方案</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/node-js/" title="分类于 node.js">node.js</a>
-</div>
-
-    <span><a href="/2024/01/02/node.js%E5%86%85%E7%BD%AE%E6%A8%A1%E5%9D%97/" title="node.js内置模块">node.js内置模块</a></span>
+    <span><a href="/2023/01/10/Sass/" title="Sass笔记">Sass笔记</a></span>
   </li>
 
       
@@ -559,17 +685,37 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
 <a href="/categories/JS/" title="分类于 JS">JS</a>
 </div>
 
-    <span><a href="/2024/05/08/%E5%87%BD%E6%95%B0%E9%87%8D%E8%BD%BD/" title="函数重载">函数重载</a></span>
+    <span><a href="/2023/12/21/%E6%9C%80%E5%A4%A7%E5%AE%89%E5%85%A8%E6%95%B0/" title="最大安全数与最大安全整数">最大安全数与最大安全整数</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" title="分类于 设计模式">设计模式</a>
+<a href="/categories/node-js/" title="分类于 node.js">node.js</a>
 </div>
 
-    <span><a href="/2024/03/02/%E8%BD%AF%E4%BB%B6%E6%A8%A1%E5%BC%8F%E8%AE%BE%E8%AE%A1%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="设计模式">设计模式</a></span>
+    <span><a href="/2024/01/02/node.js%E5%86%85%E7%BD%AE%E6%A8%A1%E5%9D%97/" title="node.js内置模块">node.js内置模块</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/ajax/" title="分类于 ajax">ajax</a>
+</div>
+
+    <span><a href="/2023/01/08/json-ajax-axios/" title="ajax">ajax</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E6%9D%82%E8%AE%B0/" title="分类于 杂记">杂记</a>
+</div>
+
+    <span><a href="/2023/01/01/%E6%9D%82%E8%AE%B0/" title="杂记">杂记</a></span>
   </li>
 
   </ul>
