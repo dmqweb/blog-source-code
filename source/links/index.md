@@ -185,4 +185,18 @@ type: "links"
   desc: html分析检查工具
   image: https://picsum.photos/200/200?26
   color: "pink"
+    # 多链接参考 yaml 列表格式
+- site: 机器学习平台
+  owner: 
+  url: https://paperswithcode.com/
+  desc: 机器学习前沿平台
+  image: https://picsum.photos/200/200?27
+  color: "red"
+    # 多链接参考 yaml 列表格式
+- site: AI模型仓库
+  owner: 
+  url: https://huggingface.co/
+  desc: AI大模型仓库
+  image: https://picsum.photos/200/200?28
+  color: 
 {% endlinks %}

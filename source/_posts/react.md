@@ -46,6 +46,12 @@ react中已经有了useState和useReducer两种状态管理方式，那为什么
 - 状态的可预测性（使得状态的变化更加清晰和易于追踪）
 - 结构化组织代码，提高可维护性
 
+## redux对比useReducer+Context
+
+- 使用useReducer加上Context就可以实现一个简易的状态管理仓库了，可以使得子组件之间共享状态
+- 但是redux的好处在于可以集中管理状态，便于追踪
+- 此外redux插件可以帮助调试，redux的分包管理使得逻辑更加清晰
+
 # useRef
 
 useRef返回一个普通的javascript对象，它和state一样，react会在每次渲染之间保留ref，但是设置state会重新渲染组件，更改ref不会。
