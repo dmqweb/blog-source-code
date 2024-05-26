@@ -133,7 +133,7 @@ valine:
       # - hash of investor1@email.com
 
 algolia:
-  appId: O788GQEJ8A
+  applicationID: O788GQEJ8A
   apiKey: bfa5090f87840ffa546f9e1cb4bc1ef0
   adminApiKey: 0ca6ab5a530a4fa6c11431c30bebcaa7
   chunkSize: 5000
