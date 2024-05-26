@@ -47,6 +47,13 @@ type: "links"
   desc: 免费图床
   image: https://picsum.photos/200/200?6
   color: "gray"
+  # 多链接参考 yaml 列表格式
+- site: JS框架语法对比
+  owner: 
+  url: https://component-party.lainbo.com/
+  desc: JavaScript框架语法特性对比
+  image: https://picsum.photos/200/200?100
+  color: "black"
 # 多链接参考 yaml 列表格式
 - site: img2css
   owner: 
