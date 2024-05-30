@@ -102,12 +102,12 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
       </div>
       <div id="imgs" class="pjax">
         <ul>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/13/ba4d76fc0767aeef.jpg"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/04/e805d35284c2d7d5.jpg"></li>
           <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/06/d8aa12b30683676e.jpg"></li>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/07/5a293b82670a4885.webp"></li>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/03/29/4e134f025ae53f2b.jpg"></li>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/13/c95fa1dc9a2ef7b0.jpg"></li>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/12/65788b6548e9e58f.jpg"></li>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/15/d888a622df52afa7.webp"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/04/f480d741324d8eb5.jpg"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/15/6cedcb364082ed12.webp"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/06/a16303594a53d8d1.jpg"></li>
         </ul>
       </div>
     </header>
@@ -153,721 +153,434 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
   <div class="body md" itemprop="articleBody">
     
 
-    <h2 id="vue注意事项"><a class="anchor" href="#vue注意事项">#</a> Vue 注意事项</h2>
-<p>一、使用 watch 监听数组时：</p>
-<p>当使用 watch 监听数组时，要将 deep 设置为 true，这样才能监听到数组内部的操作，而不是只监听引用是否变化，当需要使用 newValue 和 oldValue 时，监听部分需要写数组的拷贝而不是数组本身（否则当数组引用不变而堆数据变化时，oldValue 和 newValue 都是变化之后的数值。）</p>
-<h2 id="vue项目创建过程"><a class="anchor" href="#vue项目创建过程">#</a> Vue 项目创建过程：</h2>
-<p>（<br />
-①创建项目  <code>vue create 项目名</code> <br />
-②安装开发依赖： <code>yarn add 包名@版本号 -D</code> <br />
-③安装生产依赖:  <code>yarn add 包名</code> ，并在 main.js 中引入和全局属性</p>
-<p>）<br />
-css 选择器和权重的计算<br />
- font-size 和字体详解（小写 x 为基准）<br />
-小黑记事本案例<br />
- vue 中结合网络数据库开发应用（axios 网络请求库）、<br />
-前端避雷技术：Jequry、Angular js、php、rubian rails 构建应用程序<br />
- form-serialize 插件获取表单的各项</p>
-<h2 id="vue知识点"><a class="anchor" href="#vue知识点">#</a> Vue 知识点</h2>
-<p>{</p>
-<p>Vue 文件分类：将 Vue 文件分为页面文件和可复用的文件</p>
-<h6 id="一-vue项目初始化"><a class="anchor" href="#一-vue项目初始化">#</a> 一、vue 项目初始化：</h6>
-<p>（①vue create 文件名②cd 进入文件夹③yarn add 添加引用包④main.js 引入样式 (引用方式)⑤vue.config.js 中禁用 eslint 检查)</p>
-<h6 id="二-vue组件使用"><a class="anchor" href="#二-vue组件使用">#</a> 二、vue 组件使用：</h6>
-<p>（①在 components 文件夹下添加 vue 文件组件②在 App.vue 中 import 组件 form' 路径 '③在 export default 的 componets 下注册组件，有些可简写④div 中用组件名使用组件）</p>
-<h6 id="三-vue中export-default中的属性"><a class="anchor" href="#三-vue中export-default中的属性">#</a> 三、vue 中 export default 中的属性：</h6>
-<p>（name,components,props,created,mounted,data,methods，watch,computed,activated,deactivated）</p>
-<h6 id="四-vue中使用axios"><a class="anchor" href="#四-vue中使用axios">#</a> 四、vue 中使用 axios</h6>
-<p>（①下载 axios 包（yarn add axios）②在 main.js 中引入 (impoort axios from 'axios')③配置基础地址（axios.defaults.baseURL=&quot;<span class="exturl" data-url="aHR0cHM6Ly93d3cuZXNjb29rLmNu">https://www.escook.cn</span>&quot;）④将 axios 挂载到 Vue 原型上，作为全局属性（在 main.js 中添加：Vue.prototype.$axios=axios），⑤App.vue 的 created 中使用全局属性 axios⑥接口地址为 /api/cart⑦进行数据渲染）</p>
-<h6 id="五-动态组件"><a class="anchor" href="#五-动态组件">#</a> 五、动态组件：</h6>
-<p>（①创建要被切换的组件样式②引入到要展示的 vue 文件中，注册③变量承载要显示的组件名④设置承载点 &lt;component :is=&quot;变量&quot;&gt;&lt;/component&gt;⑤点击按钮，切换 comName 的值为要显示的组件名⑥使用 vue 内置的 keep-alive 组件，将抱起来的组件缓存起来 &lt; keep-alive&gt;&lt;/keep-alive&gt;  )</p>
-<h6 id="六-组件插槽"><a class="anchor" href="#六-组件插槽">#</a> 六、组件插槽</h6>
-<p>（①通过 slot 标签占位，让组件内可以接受不同的标签结构样式，为了让封装的组件显示不同的标签结构（灵活），②使用：在模板中添加 &lt;slot&gt; 默认内容 &lt;/slot &gt; 占位，引入模板时在模板内添加占位标签里的内容③具名插槽：子组件，在 slot 上绑定 name=&quot;name 值&quot;，在使用组件，传入自定义标签，用 template 标签内加 v-slot=&quot;name 值&quot;）④作用域插槽：使用子组件时在 template 中使用 scope</p>
-<h6 id="七-自定义指令"><a class="anchor" href="#七-自定义指令">#</a> 七、自定义指令</h6>
-<p>（①全局注册：Vue.directive (&quot;指令名&quot;,{&quot;inserted&quot; (el,binding){对 el 标签扩展额外的功能②局部注册：export.default 中添加配置项 directives:{&quot;指令名&quot;:{inserted (el,binding){对 el 进行操作}}}})③使用：在标签内添加属性:v - 指令名 =&quot;binding.value&quot;(将自定义传值与指令操作相关联)）自定义指令中除了 inserted 方法还有 update 方法</p>
-<h6 id="八-父子组件数据交互"><a class="anchor" href="#八-父子组件数据交互">#</a> 八、父子组件数据交互</h6>
-<p>（①在父组件中引入和注册并使用②子组件定义好 props 属性，设定值得类型与校验③子组件中使用设定的 props 数据④父组件 data 中定义好子组件中 props 属性中的相应类型的值⑤父组件中使用时：绑定子组件 props 中的数据）</p>
-<h6 id="九-切换组件显示"><a class="anchor" href="#九-切换组件显示">#</a> 九、切换组件显示</h6>
-<p>（①）</p>
-<h6 id="十-vue组件之间传值"><a class="anchor" href="#十-vue组件之间传值">#</a> 十、vue 组件之间传值</h6>
-<p>（一、父组件给子组件传值：①父组件使用子组件时，: 绑定值，并在 data 中注册②子组件 props 中注册相同名称的值）<br />
-（二、子组件给父组件传值：①在子组件中使用 this.$emit 方法自定义一个事件并传值②在父组件中使用该事件通过函数操作传来的值）</p>
-<h2 id="十一-vue-router"><a class="anchor" href="#十一-vue-router">#</a> 十一、Vue-router</h2>
-<p>①安装 npm i vue-router@(vue2 用 3 的版本，vue3 用 4 版本)</p>
-<p>②安装：运行命令 yarn add vue-router 安装</p>
-<p>③配置：src 下新建 router 文件夹，下面的 index.js 中进行配置：</p>
-<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre>imprt Vue <span class="token keyword">from</span> <span class="token string">'vue'</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token keyword">import</span> VueRouter <span class="token keyword">from</span> <span class="token string">'vue-router'</span></pre></td></tr><tr><td data-num="3"></td><td><pre>Vue<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span>VueRouter<span class="token punctuation">)</span></pre></td></tr></table></figure><p>④创建路由组件：src 下的 views 文件夹下新建 vue 页面</p>
-<p>⑤创建路由组件：在 router 里 index.js 中引入：</p>
-<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">import</span> Home <span class="token keyword">from</span> <span class="token string">'../views/Home.vue'</span></pre></td></tr></table></figure><p>⑥配置路由表：将路由与组件进行映射：</p>
-<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">const</span> routes <span class="token operator">=</span> <span class="token punctuation">[</span></pre></td></tr><tr><td data-num="2"></td><td><pre>  <span class="token punctuation">&#123;</span> <span class="token literal-property property">path</span><span class="token operator">:</span> <span class="token string">'/'</span><span class="token punctuation">,</span> <span class="token literal-property property">component</span><span class="token operator">:</span> Home <span class="token punctuation">&#125;</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="3"></td><td><pre>  <span class="token punctuation">&#123;</span> <span class="token literal-property property">path</span><span class="token operator">:</span> <span class="token string">'/about'</span><span class="token punctuation">,</span> <span class="token literal-property property">component</span><span class="token operator">:</span> About <span class="token punctuation">&#125;</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="4"></td><td><pre>  <span class="token comment">// 更多路由配置...</span></pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token punctuation">]</span></pre></td></tr></table></figure><p>⑦创建 router 实例</p>
-<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">const</span> router <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">VueRouter</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="2"></td><td><pre>  routes</pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr></table></figure><p>⑧Vue 中挂载 router</p>
-<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">new</span> <span class="token class-name">Vue</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="2"></td><td><pre>  router<span class="token punctuation">,</span></pre></td></tr><tr><td data-num="3"></td><td><pre>  <span class="token function-variable function">render</span><span class="token operator">:</span> <span class="token parameter">h</span> <span class="token operator">=></span> <span class="token function">h</span><span class="token punctuation">(</span>App<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">$mount</span><span class="token punctuation">(</span><span class="token string">'#app'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr></table></figure><h6 id="十二-跨组件传值没有引用关系"><a class="anchor" href="#十二-跨组件传值没有引用关系">#</a> 十二、跨组件传值（没有引用关系）</h6>
-<p>（①创建文件夹 EventBus，下面创建 index.js 文件，文件中引入 Vue，并默认导出空对象②）<br />
-十三、this.<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>r</mi><mi>e</mi><mi>f</mi><mi>s</mi><mtext>获取组件</mtext><mo separator="true">,</mo><mtext>通过组件中</mtext><mi>r</mi><mi>e</mi><mi>f</mi><mtext>属性，调用组件中的函数（①组件使用时添加</mtext><mi>r</mi><mi>e</mi><mi>f</mi><mtext>属性，使用时通过</mtext><mi>t</mi><mi>h</mi><mi>i</mi><mi>s</mi><mi mathvariant="normal">.</mi></mrow><annotation encoding="application/x-tex">refs获取组件 , 通过组件中ref属性，调用组件中的函数（①组件使用时添加ref属性，使用时通过this.</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span><span class="mord mathnormal">e</span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="mord mathnormal">s</span><span class="mord cjk_fallback">获</span><span class="mord cjk_fallback">取</span><span class="mord cjk_fallback">组</span><span class="mord cjk_fallback">件</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord cjk_fallback">通</span><span class="mord cjk_fallback">过</span><span class="mord cjk_fallback">组</span><span class="mord cjk_fallback">件</span><span class="mord cjk_fallback">中</span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span><span class="mord mathnormal">e</span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="mord cjk_fallback">属</span><span class="mord cjk_fallback">性</span><span class="mord cjk_fallback">，</span><span class="mord cjk_fallback">调</span><span class="mord cjk_fallback">用</span><span class="mord cjk_fallback">组</span><span class="mord cjk_fallback">件</span><span class="mord cjk_fallback">中</span><span class="mord cjk_fallback">的</span><span class="mord cjk_fallback">函</span><span class="mord cjk_fallback">数</span><span class="mord cjk_fallback">（</span><span class="mord">①</span><span class="mord cjk_fallback">组</span><span class="mord cjk_fallback">件</span><span class="mord cjk_fallback">使</span><span class="mord cjk_fallback">用</span><span class="mord cjk_fallback">时</span><span class="mord cjk_fallback">添</span><span class="mord cjk_fallback">加</span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span><span class="mord mathnormal">e</span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="mord cjk_fallback">属</span><span class="mord cjk_fallback">性</span><span class="mord cjk_fallback">，</span><span class="mord cjk_fallback">使</span><span class="mord cjk_fallback">用</span><span class="mord cjk_fallback">时</span><span class="mord cjk_fallback">通</span><span class="mord cjk_fallback">过</span><span class="mord mathnormal">t</span><span class="mord mathnormal">h</span><span class="mord mathnormal">i</span><span class="mord mathnormal">s</span><span class="mord">.</span></span></span></span>refs.ref 属性。函数名 ()  ）<br />
-十四、this.<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mi>e</mi><mi>x</mi><mi>t</mi><mi>T</mi><mi>i</mi><mi>c</mi><mi>k</mi><mo stretchy="false">(</mo><mi>f</mi><mi>n</mi><mo stretchy="false">(</mo><mo stretchy="false">)</mo><mrow></mrow><mo stretchy="false">)</mo><mtext>方法中等待</mtext><mi>D</mi><mi>O</mi><mi>M</mi><mtext>更新后触发</mtext></mrow><annotation encoding="application/x-tex">nextTick(fn(){})方法中等待DOM更新后触发</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">n</span><span class="mord mathnormal">e</span><span class="mord mathnormal">x</span><span class="mord mathnormal">t</span><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="mord mathnormal">i</span><span class="mord mathnormal">c</span><span class="mord mathnormal" style="margin-right:0.03148em;">k</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="mord mathnormal">n</span><span class="mopen">(</span><span class="mclose">)</span><span class="mord"></span><span class="mclose">)</span><span class="mord cjk_fallback">方</span><span class="mord cjk_fallback">法</span><span class="mord cjk_fallback">中</span><span class="mord cjk_fallback">等</span><span class="mord cjk_fallback">待</span><span class="mord mathnormal" style="margin-right:0.02778em;">D</span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mord mathnormal" style="margin-right:0.10903em;">M</span><span class="mord cjk_fallback">更</span><span class="mord cjk_fallback">新</span><span class="mord cjk_fallback">后</span><span class="mord cjk_fallback">触</span><span class="mord cjk_fallback">发</span></span></span></span> nextTick 中的函数（ref 中的函数会在 DOM 更新之前触发，DOM 更新是异步任务），他可以保证我们在调用子组件的方法时使用到的数据是最新的数据。nextTick函数原地返回一个Promise对象，主动在js中触发标签事件：获取DOM对象，调用事件方法
-十五、name属性的作用：注册时可以定义自己的名字
-十六、组件缓存<keep-alive></keep-alive>组件，
-十七、动态组件：<component :is=" "></component>
-十八、组件插槽（具名插槽）：①目的：为了让封装的组件显示不同的标签结构    ②使用：<slot #name值=“子组件传值的属性”     或   v-slot:name值=“子组件传值的属性”>     </slot>占位(**注意vue2中，只能使用v-slot，vue3中只能使用#name值)  ③使用定义的组件，传入具体的标签替换到slot
-             ③插槽默认内容，子组件slot内部书写默认内容④作用域插槽：使用子组件内的变量：(方法:在slot上绑定属性和子组件内的值，在使用组件，传入自定义标签，父组件中用template标签scope属性）
-十九、自定义指令：一、①全局方法②局部注册  二、自定义指令传值
-自定义指令的生命周期:①bind②inserted③update④componentUpdated⑤unbind
-二十、Vue生命周期【创建，挂载，更新，销毁】 （1）beforeCreated 此时拿不到data中的数据（2）created data和methods初始化之后，此时可以拿到变量 （3）beforeMount 挂载之前拿不到真实的DOM （4）mounted 挂载之后，可以使用真实DOM （5）beforeUpdate 真实DOM更新之前（6）updated 更新之后，当数据发生变化并更新页面后执行，可以获取更新之后的DOM （7）beforeDestroy 销毁之前（8）destroyed 销毁之后 
-二十一、通过ref获取标签里面的对象（尤其是组件）this.refs. 值获取组件对象【组件通信，但不常用】<br />
-二十二、this.$nextTick (fn ()) 原地返回 Promise 对象，使用 $nextTick 可以在下一次 DOM 更新周期结束之后执行回调函数，确保在更新后进行相关操作。<br />
-二十三、动态组件:&lt;component :is=''&gt; 多个组件在同一个挂载点出现<br />
-二十四、组件缓存 &lt;keep-alive&gt;&lt;/keep-alive &gt; 将包起来的组件缓存起来<br />
-二十三、在使用组件缓存的时候，会多出两个钩子函数：activated 激活状态 与 deactivated 失去激活状态<br />
-二十四、slot 组件插槽：在组件内部不确定内容的位置设置 slot 标签，标签内是默认内容，父组件使用组件时中间的内容是插槽的内容<br />
-二十五、作用域插槽（使用插槽时，想使用子组件内的变量）①子组件在 slot 上 bind 绑定属性和值②使用组件时用 v-slot = 名 获取到组件对象，进而使用组件对象中绑定的属性和值</p>
-<h2 id="二十六-vue-router路由系统"><a class="anchor" href="#二十六-vue-router路由系统">#</a> 二十六、Vue-router 路由系统</h2>
-<p>①下载 vue-router 路由系统使用<br />
- yarn add vue-router<br />
-②在 main.js 中引入 VueRouter 函数，和带切换的页面<br />
- import VueRouter from 'vue-router'<br />
-import My from '@/views/my'<br />
-③添加到 Vue.use（）身上 - 注册全局 RouterLinkRouterView 组件<br />
- Vue.use (VueRouter)<br />
-④创建路由规则数组 - 路径和组件名对应关系<br />
- const routes = [{path:'/my',component:My},{其他}]<br />
-⑤用规则生成路由对象<br />
- const router = new VueRouter ({<br />
-routes })<br />
-⑥将路由对象注入到 new Vue 实例中<br />
- new Vue ({<br />
-el: '#app',<br />
-router, // 将路由对象注入到 Vue 实例中<br />
- render: h =&gt; h (App)<br />
-});<br />
-⑦App.vue 中用 router-view 标签作为挂载点，切换不同的路由页面<br />
- &lt;router-view&gt;&lt;/router-view&gt;<br />
----------------export default router; 导出之后可以全局进行引入 (App.vue 中 export default {router,})<br />
- 二十七、声明式导航（传参），①可以用 &lt;router-link to=&quot;url&quot;&gt;&lt;/router-link&gt;，其中 to 里面不用写 #号。标签来代替要跳转到指定页面的 a 标签（本质上相同，但是添加了自带类名，自带导航高亮）②跳转传参：方法一：在 router-link 中的 to 属性上传值 ，to=&quot;url/path? 参数名 = 值&quot;。在视图 vue 的标签中  使用。方法二： 定义路由规则时添加路径 {path：”/first/:name “ ” ,component:First}。然后传值 &lt; router-link to=&quot;/first/ 值&quot;&gt;&lt;/&gt;。再  使用</p>
-<p>二十八、路由重定向，在路由规则中进行匹配 ({path:&quot;/&quot;,redirect:&quot;/find&quot;})<br />
- 二十九、路由 404 设置，找不到页面时进行返回 404 页面（404 一定要在路由规则末尾），使用 {path:&quot;*&quot;,component:NotFound}<br />
- 三十、路由模式::①hash 路由：url/#/home（哈希路由可以直接被浏览器识别）②history 路由：url/home③将 hash 路由更改为 history 路由：在 new VueRouter 配置项中 mode:&quot;history&quot;（* 注意 history 路由会将路径中识别为文件夹，要在服务器端进行设置）<br />
-三十九、路由守卫（main.js 中对路由权限进行和判断）<br />
- <code>router.beforeEach(to,from,next)=&gt;&#123;</code> <br />
- <code>//next是一个函数体，只有next()执行才会让路由正常跳转，next(false)则停留，next(&quot;修改到另一个路由路径&quot;，不执行则不跳转)</code> <br />
- <code>router.beforeEach((to,from,next)=&gt;&#123;</code> <br />
- <code>if(to.path === '/my' &amp;&amp; isLogin === false)&#123;</code> <br />
- <code>alert('请登录');    next(false)</code> <br />
- <code>&#125;else&#123;    next()        &#125;&#125;)&#125;</code> <br />
- 三十一、编程式导航（js 方式跳转路由，先给标签添加点击事件，然后将路径作为值传进函数），接着在函数内部，方法一：this.<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>r</mi><mi>o</mi><mi>u</mi><mi>t</mi><mi>e</mi><mi>r</mi><mi mathvariant="normal">.</mi><mi>p</mi><mi>u</mi><mi>s</mi><mi>h</mi><mo stretchy="false">(</mo><mrow><mi>p</mi><mi>a</mi><mi>t</mi><mi>h</mi><mo>:</mo><mi mathvariant="normal">&quot;</mi><mtext>函数中的路径值</mtext><mi mathvariant="normal">&quot;</mi></mrow><mo stretchy="false">)</mo><mtext>方法二：</mtext><mi>t</mi><mi>h</mi><mi>i</mi><mi>s</mi><mi mathvariant="normal">.</mi></mrow><annotation encoding="application/x-tex">router.push({path:&quot;函数中的路径值&quot;})
-方法二：this.</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span><span class="mord mathnormal">o</span><span class="mord mathnormal">u</span><span class="mord mathnormal">t</span><span class="mord mathnormal">e</span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span><span class="mord">.</span><span class="mord mathnormal">p</span><span class="mord mathnormal">u</span><span class="mord mathnormal">s</span><span class="mord mathnormal">h</span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal">p</span><span class="mord mathnormal">a</span><span class="mord mathnormal">t</span><span class="mord mathnormal">h</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">:</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mord">&quot;</span><span class="mord cjk_fallback">函</span><span class="mord cjk_fallback">数</span><span class="mord cjk_fallback">中</span><span class="mord cjk_fallback">的</span><span class="mord cjk_fallback">路</span><span class="mord cjk_fallback">径</span><span class="mord cjk_fallback">值</span><span class="mord">&quot;</span></span><span class="mclose">)</span><span class="mord cjk_fallback">方</span><span class="mord cjk_fallback">法</span><span class="mord cjk_fallback">二</span><span class="mord cjk_fallback">：</span><span class="mord mathnormal">t</span><span class="mord mathnormal">h</span><span class="mord mathnormal">i</span><span class="mord mathnormal">s</span><span class="mord">.</span></span></span></span>router.push ({name:&quot;路由名称&quot;}) 注意用 name 跳转时，浏览器上的 url 不会改变（无感知跳转，方便修改）<br />
-三十二、编程式导航（跳转传参）方法一：①this.<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>r</mi><mi>o</mi><mi>u</mi><mi>t</mi><mi>e</mi><mi>r</mi><mi mathvariant="normal">.</mi><mi>p</mi><mi>u</mi><mi>s</mi><mi>h</mi><mo stretchy="false">(</mo><mrow><mi>p</mi><mi>a</mi><mi>t</mi><mi>h</mi><mtext>（或</mtext><mi>n</mi><mi>a</mi><mi>m</mi><mi>e</mi><mtext>）</mtext><mo>:</mo><mi mathvariant="normal">&quot;</mi><mtext>路由路径</mtext><mi mathvariant="normal">&quot;</mi><mo separator="true">,</mo><mi>n</mi><mi>a</mi><mi>m</mi><mi>e</mi><mo>:</mo><mtext>”路由名“，</mtext><mi>q</mi><mi>u</mi><mi>e</mi><mi>r</mi><mi>y</mi><mo>:</mo><mrow><mi mathvariant="normal">&quot;</mi><mtext>参数名</mtext><mi mathvariant="normal">&quot;</mi><mtext>：值</mtext></mrow></mrow><mo stretchy="false">)</mo><mtext>②使用时用</mtext><mo>&lt;</mo><mo stretchy="false">!</mo><mo>−</mo><mo>−</mo><mi>s</mi><mi>w</mi><mi>i</mi><mi>g</mi><mtext>￼</mtext><mn>2</mn><mo>−</mo><mo>−</mo><mo>&gt;</mo><mtext>方法二</mtext><mo stretchy="false">(</mo><mtext>使用</mtext><mi>p</mi><mi>a</mi><mi>t</mi><mi>h</mi><mtext>时会忽略</mtext><mi>p</mi><mi>a</mi><mi>r</mi><mi>a</mi><mi>m</mi><mi>s</mi><mo stretchy="false">)</mo><mtext>：</mtext><mi>t</mi><mi>h</mi><mi>i</mi><mi>s</mi><mi mathvariant="normal">.</mi></mrow><annotation encoding="application/x-tex">router.push({path（或name）:&quot;路由路径&quot;,name:”路由名“，query:{&quot;
-参数名&quot;：值}})②使用时用
-方法二(使用path时会忽略params)：this.</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span><span class="mord mathnormal">o</span><span class="mord mathnormal">u</span><span class="mord mathnormal">t</span><span class="mord mathnormal">e</span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span><span class="mord">.</span><span class="mord mathnormal">p</span><span class="mord mathnormal">u</span><span class="mord mathnormal">s</span><span class="mord mathnormal">h</span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal">p</span><span class="mord mathnormal">a</span><span class="mord mathnormal">t</span><span class="mord mathnormal">h</span><span class="mord cjk_fallback">（</span><span class="mord cjk_fallback">或</span><span class="mord mathnormal">n</span><span class="mord mathnormal">a</span><span class="mord mathnormal">m</span><span class="mord mathnormal">e</span><span class="mord cjk_fallback">）</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">:</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mord">&quot;</span><span class="mord cjk_fallback">路</span><span class="mord cjk_fallback">由</span><span class="mord cjk_fallback">路</span><span class="mord cjk_fallback">径</span><span class="mord">&quot;</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal">n</span><span class="mord mathnormal">a</span><span class="mord mathnormal">m</span><span class="mord mathnormal">e</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">:</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mord">”</span><span class="mord cjk_fallback">路</span><span class="mord cjk_fallback">由</span><span class="mord cjk_fallback">名</span><span class="mord">“</span><span class="mord cjk_fallback">，</span><span class="mord mathnormal" style="margin-right:0.03588em;">q</span><span class="mord mathnormal">u</span><span class="mord mathnormal">e</span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">:</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mord"><span class="mord">&quot;</span><span class="mord cjk_fallback">参</span><span class="mord cjk_fallback">数</span><span class="mord cjk_fallback">名</span><span class="mord">&quot;</span><span class="mord cjk_fallback">：</span><span class="mord cjk_fallback">值</span></span></span><span class="mclose">)</span><span class="mord">②</span><span class="mord cjk_fallback">使</span><span class="mord cjk_fallback">用</span><span class="mord cjk_fallback">时</span><span class="mord cjk_fallback">用</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&lt;</span></span><span class="base"><span class="strut" style="height:0.77777em;vertical-align:-0.08333em;"></span><span class="mclose">!</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.85396em;vertical-align:-0.19444em;"></span><span class="mord">−</span><span class="mord mathnormal">s</span><span class="mord mathnormal" style="margin-right:0.02691em;">w</span><span class="mord mathnormal">i</span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="mord">￼</span><span class="mord">2</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="mord">−</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&gt;</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord cjk_fallback">方</span><span class="mord cjk_fallback">法</span><span class="mord cjk_fallback">二</span><span class="mopen">(</span><span class="mord cjk_fallback">使</span><span class="mord cjk_fallback">用</span><span class="mord mathnormal">p</span><span class="mord mathnormal">a</span><span class="mord mathnormal">t</span><span class="mord mathnormal">h</span><span class="mord cjk_fallback">时</span><span class="mord cjk_fallback">会</span><span class="mord cjk_fallback">忽</span><span class="mord cjk_fallback">略</span><span class="mord mathnormal">p</span><span class="mord mathnormal">a</span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span><span class="mord mathnormal">a</span><span class="mord mathnormal">m</span><span class="mord mathnormal">s</span><span class="mclose">)</span><span class="mord cjk_fallback">：</span><span class="mord mathnormal">t</span><span class="mord mathnormal">h</span><span class="mord mathnormal">i</span><span class="mord mathnormal">s</span><span class="mord">.</span></span></span></span>router.push ({name:&quot;路由名称&quot;,name:” 路由名 “，params:{&quot;<br />
-参数名&quot;：值}})②使用时用 <br />
-（可以组合但是 path 和 params 组合不能一起使用）<br />
-三十三、路由嵌套：①创建二级路由页面：views 文件夹下新建文件夹和 vue 文件②main.js 中配置二级路由 {path:&quot;/first&quot;,component:First,children:[{path:&quot;one&quot;,component:One},]} (* 注意二级路由路径中不加 / 符) ③在一级页面中设置 &lt; router-link to=&quot;二级路由路径&quot;&gt;，再设置 &lt; router-view &gt; 标签显示二级路由页面<br />
-三十四、router-link 激活的 2 个类型的区别（url 上的 hash 值包含 a 标签 href，就添加模糊匹配的类名，若 url 上的 hash 和导航的 a 标签完全匹配就添加精确匹配的类名）<br />
-三十五、路由守卫：（main.js 中，在生成路由对象之后）router.beforeEach ((to,from,next)=&gt;{ 判断和处理 })  【其中 to 表示要去到的 url，from 表示从哪里跳转的，next () 调用才能让路由正常的跳转切换，next (false) 在原地停留，next (‘强制修改到另一个路由路径上’)，如果不调用 next, 则页面留在原地 】<br />
-三十六、Vant 组件库【Vant 是一个轻量、可靠的移动端 Vue 组件库，开箱即用】 （注意 vue 版本号和 vant 版本号的兼容性问题）<br />
-三十七、支持组件自定义，在组件使用时传值，子组件中使用 props 接受 ，:style=“{使用绑定的值和属性}”<br />
- 三十八、将 axios 挂载到 vue 原型上，方便全局使用</p>
-<p>【总结】</p>
+    <h2 id="Vue注意事项"><a href="#Vue注意事项" class="headerlink" title="Vue注意事项"></a>Vue注意事项</h2><p>一、使用watch监听数组时：</p>
+<p>当使用watch监听数组时，要将deep设置为true，这样才能监听到数组内部的操作，而不是只监听引用是否变化，当需要使用newValue和oldValue时，监听部分需要写数组的拷贝而不是数组本身（否则当数组引用不变而堆数据变化时，oldValue和newValue都是变化之后的数值。）</p>
+<h2 id="Vue项目创建过程："><a href="#Vue项目创建过程：" class="headerlink" title="Vue项目创建过程："></a>Vue项目创建过程：</h2><p>（<br>①创建项目 <code>vue create 项目名</code><br>②安装开发依赖：<code>yarn add 包名@版本号 -D</code><br>③安装生产依赖: <code>yarn add 包名</code>，并在main.js中引入和全局属性</p>
+<p>）<br>css选择器和权重的计算<br>font-size和字体详解（小写x为基准）<br>小黑记事本案例<br>vue中结合网络数据库开发应用（axios网络请求库）、<br>前端避雷技术：Jequry、Angular js、php、rubian rails构建应用程序<br>form-serialize插件获取表单的各项</p>
+<h2 id="Vue知识点"><a href="#Vue知识点" class="headerlink" title="Vue知识点"></a>Vue知识点</h2><p>{</p>
+<p>Vue文件分类：将Vue文件分为页面文件和可复用的文件</p>
+<h6 id="一、vue项目初始化："><a href="#一、vue项目初始化：" class="headerlink" title="一、vue项目初始化："></a>一、vue项目初始化：</h6><p>（①vue create文件名②cd进入文件夹③yarn add添加引用包④main.js引入样式(引用方式)⑤vue.config.js中禁用eslint检查)</p>
+<h6 id="二、vue组件使用："><a href="#二、vue组件使用：" class="headerlink" title="二、vue组件使用："></a>二、vue组件使用：</h6><p>（①在components文件夹下添加vue文件组件②在App.vue中import组件form’路径’③在export default的componets下注册组件，有些可简写④div中用组件名使用组件）</p>
+<h6 id="三、vue中export-default中的属性："><a href="#三、vue中export-default中的属性：" class="headerlink" title="三、vue中export default中的属性："></a>三、vue中export default中的属性：</h6><p>（name,components,props,created,mounted,data,methods，watch,computed,activated,deactivated）</p>
+<h6 id="四、vue中使用axios"><a href="#四、vue中使用axios" class="headerlink" title="四、vue中使用axios"></a>四、vue中使用axios</h6><p>（①下载axios包（yarn add axios）②在main.js中引入(impoort axios from ‘axios’)③配置基础地址（axios.defaults.baseURL&#x3D;”<span class="exturl" data-url="aHR0cHM6Ly93d3cuZXNjb29rLmNu">https://www.escook.cn&quot;）④将axios挂载到Vue原型上，作为全局属性（在main.js中添加：Vue.prototype.$axios=axios），⑤App.vue的created中使用全局属性axios⑥接口地址为/api/cart⑦进行数据渲染）</span> </p>
+<h6 id="五、动态组件："><a href="#五、动态组件：" class="headerlink" title="五、动态组件："></a>五、动态组件：</h6><p>（①创建要被切换的组件样式②引入到要展示的vue文件中，注册③变量承载要显示的组件名④设置承载点<component :is="变量"></component>⑤点击按钮，切换comName的值为要显示的组件名⑥使用vue内置的keep-alive组件，将抱起来的组件缓存起来<keep-alive></keep-alive>  )</p>
+<h6 id="六、组件插槽"><a href="#六、组件插槽" class="headerlink" title="六、组件插槽"></a>六、组件插槽</h6><p>（①通过slot标签占位，让组件内可以接受不同的标签结构样式，为了让封装的组件显示不同的标签结构（灵活），②使用：在模板中添加<slot>默认内容</slot>占位，引入模板时在模板内添加占位标签里的内容③具名插槽：子组件，在slot上绑定name&#x3D;”name值”，在使用组件，传入自定义标签，用template标签内加v-slot&#x3D;”name值”）④作用域插槽：使用子组件时在template中使用scope</p>
+<h6 id="七、自定义指令"><a href="#七、自定义指令" class="headerlink" title="七、自定义指令"></a>七、自定义指令</h6><p>（①全局注册：Vue.directive(“指令名”,{“inserted” (el,binding){对el标签扩展额外的功能②局部注册：export.default中添加配置项directives:{“指令名”:{inserted(el,binding){对el进行操作}}}})③使用：在标签内添加属性:v-指令名&#x3D;”binding.value”(将自定义传值与指令操作相关联)）自定义指令中除了inserted方法还有update方法</p>
+<h6 id="八、父子组件数据交互"><a href="#八、父子组件数据交互" class="headerlink" title="八、父子组件数据交互"></a>八、父子组件数据交互</h6><p>（①在父组件中引入和注册并使用②子组件定义好props属性，设定值得类型与校验③子组件中使用设定的props数据④父组件data中定义好子组件中props属性中的相应类型的值⑤父组件中使用时:绑定子组件props中的数据）</p>
+<h6 id="九、切换组件显示"><a href="#九、切换组件显示" class="headerlink" title="九、切换组件显示"></a>九、切换组件显示</h6><p>（①）</p>
+<h6 id="十、vue组件之间传值"><a href="#十、vue组件之间传值" class="headerlink" title="十、vue组件之间传值"></a>十、vue组件之间传值</h6><p>（一、父组件给子组件传值：①父组件使用子组件时，:绑定值，并在data中注册②子组件props中注册相同名称的值）<br>（二、子组件给父组件传值：①在子组件中使用this.$emit方法自定义一个事件并传值②在父组件中使用该事件通过函数操作传来的值）</p>
+<h2 id="十一、Vue-router"><a href="#十一、Vue-router" class="headerlink" title="十一、Vue-router"></a>十一、Vue-router</h2><p>①安装npm i vue-router@(vue2用3的版本,vue3用4版本)</p>
+<p>②安装：运行命令yarn add vue-router安装</p>
+<p>③配置：src下新建router文件夹，下面的index.js中进行配置：</p>
+<pre><code class="js">imprt Vue from &#39;vue&#39;
+import VueRouter from &#39;vue-router&#39;
+Vue.use(VueRouter)
+</code></pre>
+<p>④创建路由组件：src下的views文件夹下新建vue页面</p>
+<p>⑤创建路由组件：在router里index.js中引入：</p>
+<pre><code class="js">import Home from &#39;../views/Home.vue&#39;
+</code></pre>
+<p>⑥配置路由表：将路由与组件进行映射：</p>
+<pre><code class="js">const routes = [
+  &#123; path: &#39;/&#39;, component: Home &#125;,
+  &#123; path: &#39;/about&#39;, component: About &#125;,
+  // 更多路由配置...
+]
+</code></pre>
+<p>⑦创建router实例</p>
+<pre><code class="js">const router = new VueRouter(&#123;
+  routes
+&#125;);
+</code></pre>
+<p>⑧Vue中挂载router</p>
+<pre><code class="js">new Vue(&#123;
+  router,
+  render: h =&gt; h(App)
+&#125;).$mount(&#39;#app&#39;);
+</code></pre>
+<h6 id="十二、跨组件传值（没有引用关系）"><a href="#十二、跨组件传值（没有引用关系）" class="headerlink" title="十二、跨组件传值（没有引用关系）"></a>十二、跨组件传值（没有引用关系）</h6><p>（①创建文件夹EventBus，下面创建index.js文件，文件中引入Vue，并默认导出空对象②）<br>十三、this.$refs获取组件 , 通过组件中ref属性，调用组件中的函数（①组件使用时添加ref属性，使用时通过this.$refs.ref属性.函数名()  ）<br>十四、this.$nextTick(fn(){})方法中等待DOM更新后触发$nextTick中的函数（ref中的函数会在DOM更新之前触发，DOM更新是异步任务），他可以保证我们在调用子组件的方法时使用到的数据是最新的数据。$nextTick函数原地返回一个Promise对象，主动在js中触发标签事件：获取DOM对象，调用事件方法<br>十五、name属性的作用：注册时可以定义自己的名字<br>十六、组件缓存<keep-alive></keep-alive>组件，<br>十七、动态组件：<component :is=" "></component><br>十八、组件插槽（具名插槽）：①目的：为了让封装的组件显示不同的标签结构    ②使用：&lt;slot #name值&#x3D;“子组件传值的属性”     或   v-slot:name值&#x3D;“子组件传值的属性”&gt;     </slot>占位(**注意vue2中，只能使用v-slot，vue3中只能使用#name值)  ③使用定义的组件，传入具体的标签替换到slot<br>             ③插槽默认内容，子组件slot内部书写默认内容④作用域插槽：使用子组件内的变量：(方法:在slot上绑定属性和子组件内的值，在使用组件，传入自定义标签，父组件中用template标签scope属性）<br>十九、自定义指令：一、①全局方法②局部注册  二、自定义指令传值<br>自定义指令的生命周期:①bind②inserted③update④componentUpdated⑤unbind<br>二十、Vue生命周期【创建，挂载，更新，销毁】 （1）beforeCreated 此时拿不到data中的数据（2）created data和methods初始化之后，此时可以拿到变量 （3）beforeMount 挂载之前拿不到真实的DOM （4）mounted 挂载之后，可以使用真实DOM （5）beforeUpdate 真实DOM更新之前（6）updated 更新之后，当数据发生变化并更新页面后执行，可以获取更新之后的DOM （7）beforeDestroy 销毁之前（8）destroyed 销毁之后<br>二十一、通过ref获取标签里面的对象（尤其是组件）this.$refs.值获取组件对象【组件通信，但不常用】<br>二十二、this.$nextTick(fn()) 原地返回Promise对象，使用 $nextTick 可以在下一次 DOM 更新周期结束之后执行回调函数，确保在更新后进行相关操作。<br>二十三、动态组件:<component :is=''>多个组件在同一个挂载点出现<br>二十四、组件缓存 <keep-alive></keep-alive>将包起来的组件缓存起来<br>二十三、在使用组件缓存的时候，会多出两个钩子函数：activated 激活状态 与deactivated失去激活状态<br>二十四、slot组件插槽：在组件内部不确定内容的位置设置slot标签，标签内是默认内容，父组件使用组件时中间的内容是插槽的内容<br>二十五、作用域插槽（使用插槽时，想使用子组件内的变量）①子组件在slot上bind绑定属性和值②使用组件时用v-slot&#x3D;名 获取到组件对象，进而使用组件对象中绑定的属性和值</p>
+<h2 id="二十六、Vue-router路由系统"><a href="#二十六、Vue-router路由系统" class="headerlink" title="二十六、Vue-router路由系统"></a>二十六、Vue-router路由系统</h2><p>①下载vue-router路由系统使用<br>yarn add vue-router<br>②在main.js中引入VueRouter函数,和带切换的页面<br>import VueRouter from ‘vue-router’<br>import My from ‘@&#x2F;views&#x2F;my’<br>③添加到Vue.use（）身上-注册全局RouterLinkRouterView组件<br>Vue.use(VueRouter)<br>④创建路由规则数组-路径和组件名对应关系<br>const routes &#x3D; [{path:’&#x2F;my’,component:My},{其他}]<br>⑤用规则生成路由对象<br>const router &#x3D; new VueRouter({<br>routes })<br>⑥将路由对象注入到new Vue实例中<br>new Vue({<br>  el: ‘#app’,<br>  router, &#x2F;&#x2F; 将路由对象注入到 Vue 实例中<br>  render: h &#x3D;&gt; h(App)<br>});<br>⑦App.vue中用router-view标签作为挂载点，切换不同的路由页面<br><router-view></router-view><br>—————export default router;导出之后可以全局进行引入(App.vue中export default{router,})<br>二十七、声明式导航（传参），①可以用<router-link to="url"></router-link>，其中to里面不用写#号。标签来代替要跳转到指定页面的a标签（本质上相同，但是添加了自带类名，自带导航高亮）②跳转传参：方法一：在router-link中的to属性上传值 ，to&#x3D;”url&#x2F;path?参数名&#x3D;值”。在视图vue的标签中使用。方法二： 定义路由规则时添加路径{path：”&#x2F;first&#x2F;:name“ ” ,component:First}。然后传值<router-link to="/first/值">&lt;&#x2F;&gt;。再使用</p>
+<p>二十八、路由重定向，在路由规则中进行匹配({path:”&#x2F;“,redirect:”&#x2F;find”})<br>二十九、路由404设置，找不到页面时进行返回404页面（404一定要在路由规则末尾），使用{path:”<em>“,component:NotFound}<br>三十、路由模式::①hash路由：url&#x2F;#&#x2F;home（哈希路由可以直接被浏览器识别）②history路由：url&#x2F;home③将hash路由更改为history路由：在new VueRouter配置项中mode:”history”（</em>注意history路由会将路径中识别为文件夹，要在服务器端进行设置）<br>三十九、路由守卫（main.js中对路由权限进行和判断）<br> <code>router.beforeEach(to,from,next)=&gt;&#123;</code><br> <code>//next是一个函数体，只有next()执行才会让路由正常跳转，next(false)则停留，next(&quot;修改到另一个路由路径&quot;，不执行则不跳转)</code><br>      <code>router.beforeEach((to,from,next)=&gt;&#123;</code><br>            <code>if(to.path === &#39;/my&#39; &amp;&amp; isLogin === false)&#123;</code><br>            <code>alert(&#39;请登录&#39;);    next(false)</code><br><code>&#125;else&#123;    next()        &#125;&#125;)&#125;</code><br>三十一、编程式导航（js方式跳转路由，先给标签添加点击事件，然后将路径作为值传进函数），接着在函数内部，方法一：this.$router.push({path:”函数中的路径值”})<br>方法二：this.$router.push({name:”路由名称”}) 注意用name跳转时，浏览器上的url不会改变（无感知跳转，方便修改）<br>三十二、编程式导航（跳转传参）方法一：①this.$router.push({path（或name）:”路由路径”,name:”路由名“，query:{“<br>参数名”：值}})②使用时用<br>方法二(使用path时会忽略params)：this.$router.push({name:”路由名称”,name:”路由名“，params:{“<br>参数名”：值}})②使用时用 <br>（可以组合但是path和params组合不能一起使用）<br>三十三、路由嵌套：①创建二级路由页面：views文件夹下新建文件夹和vue文件②main.js中配置二级路由{path:”&#x2F;first”,component:First,children:[{path:”one”,component:One},]} (*注意二级路由路径中不加&#x2F;符) ③在一级页面中设置<router-link to="二级路由路径">，再设置<router-view>标签显示二级路由页面<br>三十四、router-link激活的2个类型的区别（url上的hash值包含a标签href，就添加模糊匹配的类名，若url上的hash和导航的a标签完全匹配就添加精确匹配的类名）<br>三十五、路由守卫：（main.js中，在生成路由对象之后）router.beforeEach((to,from,next)&#x3D;&gt;{ 判断和处理 })  【其中to表示要去到的url，from表示从哪里跳转的，next()调用才能让路由正常的跳转切换，next(false)在原地停留，next(‘强制修改到另一个路由路径上’)，如果不调用next,则页面留在原地 】<br>三十六、Vant组件库【Vant是一个轻量、可靠的移动端Vue组件库，开箱即用】 （注意vue版本号和vant版本号的兼容性问题）<br>三十七、支持组件自定义，在组件使用时传值，子组件中使用props接受 ，:style&#x3D;“{使用绑定的值和属性}”<br>三十八、将axios挂载到vue原型上，方便全局使用 </p>
+<p>【总结】 </p>
 <p>}</p>
-<h2 id="分析总结"><a class="anchor" href="#分析总结">#</a> **** 分析总结：</h2>
-<p>一、** 动态组件和 vue-router<br />
- 动态组件可以根据具体的条件和状态来灵活地切换和加载组件，这种切换是在同一个组件内部进行的，不涉及 URL 的变化和页面的跳转。可以用于组件复用，条件渲染，动态加载和替换部分组件（轻量灵活，不需要路由跳转和重新渲染，组件复用减少代码重复）<br />
-二、编程式导航和路由式导航<br />
-①声明式导航（路由式导航）：</p>
-<p>声明式导航是通过在模板中使用指令（如 &lt;router-link&gt;）或组件（如 &lt;router-view&gt;）来定义和触发路由跳转的方式。</p>
+<h2 id="分析总结："><a href="#分析总结：" class="headerlink" title="****分析总结："></a>****分析总结：</h2><p>一、**动态组件和vue-router<br>动态组件可以根据具体的条件和状态来灵活地切换和加载组件，这种切换是在同一个组件内部进行的，不涉及 URL 的变化和页面的跳转。可以用于组件复用，条件渲染，动态加载和替换部分组件（轻量灵活，不需要路由跳转和重新渲染，组件复用减少代码重复）<br>二、编程式导航和路由式导航<br>①声明式导航（路由式导航）：</p>
+<p>声明式导航是通过在模板中使用指令（如 <router-link>）或组件（如 <router-view>）来定义和触发路由跳转的方式。</p>
 <p>它基于 Vue Router 提供的组件和指令，使得在模板中进行页面导航更加简洁和直观。</p>
-<p>②声明式导航适用于那些在模板中静态定义的导航链接，例如菜单、导航栏等。通过声明式导航，你可以直接在模板中定义导航链接，点击链接时自动触发路由跳转。<br />
-编程式导航：</p>
+<p>②声明式导航适用于那些在模板中静态定义的导航链接，例如菜单、导航栏等。通过声明式导航，你可以直接在模板中定义导航链接，点击链接时自动触发路由跳转。<br>编程式导航：</p>
 <p>编程式导航是通过在代码中以编程方式触发路由跳转的方式。</p>
 <p>它使用路由实例的方法来进行导航，例如使用 router.push 方法进行页面跳转。</p>
 <p>编程式导航适用于那些需要根据特定条件或用户操作来触发页面跳转的场景。通过编程式导航，你可以在任何地方、任何时候根据需要进行页面的跳转。</p>
-<p>}<br />
-*<em><strong> 注意</strong><br />
- /</em>css 中禁止双击选中文本 */<br />
-.element {<br />
-user-select: none;<br />
-}</p>
-<p>原始类型的值不能直接取反，（true&amp;&amp;false）, 可以使用 Obj.true 进行取反<br />
-当父亲组件给子组件传值，需要通过对象的项目引用的关系来影响对象里面的值时，需要使用 props 的对象方法，而不能用数组方法<br />
- element-ui 适用于 vue2 项目，vue3 项目需要使用 element-plus<br />
-v-bind:“ ” ，里面是属性时直接写，里面不是属性时要加括号<br />
- v-for 遍历对象时，加上 key 属性，有 id 绑定 id，没有 id 绑定 index<br />
- 过滤器使用场景：①在插值语法中使用②在 v-bind 中 value | 过滤器 1 | 过滤器 2<br />
- 过滤器使用于差值表达式和动态绑定中：管道符前面是过滤器的第一个・参数，过滤器的第二个参数写在其 () 里面<br />
-计算属性：相比于函数带有缓存，减少了函数的执行<br />
-侦听器：①侦听值：watch:{变量名（newVal,oldVal）{改变时发生的事件}}<br />
-②侦听对象：watch:{&quot;侦听的名称&quot;：{immediate:true,deep:true,handler (newVal,oldVal){侦听值改变时的操作} }}<br />
- ajax ：异步请求后端的技术，基于原生 ajax+Promise 技术封装通用于前后端的请求库（原理是 XMLHttpRequest）<br />
-@是 vue 中 src 的绝对路径（webpack）,# 是当前页面的路径<br />
- props 类型校验：props:{name:String,color:{type:String,required:true,default:red}} 其中有自定义校验规则 (验证器 validator)：validator (value){校验函数体}<br />
- v-model 绑定 input 值时，只能使用简易的没有歧义的 js 语法，若要使用较难的 js 语法需要使用 watch 进行监听（监听对象时，需要用深度监听）<br />
-计算属性的 get 方法在访问这个计算属性时触发，当模板首次渲染，或者当计算属性所依赖的响应式数据发生变化时重新触发<br />
- arr.reduce ((sum,obj)=&gt;{函数体},0)  返回累加和 sum，sum 的初始值为 0（自定义）</p>
-<h2 id="代码部分"><a class="anchor" href="#代码部分">#</a> 代码部分</h2>
-<p>------------------------------------------------------------------------------------------------------------------------------【*】路由导航中代码：(main.js)</p>
-<p><code>import Vue from 'vue'</code> <br />
- <code>import App from './App.vue'</code> <br />
- <code>Vue.config.productionTip = false</code> <br />
- <code>// 引入</code> <br />
- <code>import VueRouter from 'vue-router'</code> <br />
- <code>import First from '@/views/First'</code> <br />
- <code>import Second from '@/views/Second'</code> <br />
- <code>import Third from '@/views/Third'</code> <br />
- <code>import NotFound from '@/views/NotFound'</code> <br />
- <code>import ViewsOne from '@/views/Second/ViewsOne'</code> <br />
- <code>import ViewsTwo from '@/views/Second/ViewsTwo'</code> <br />
- <code>import ViewsThree from '@/views/Second/ViewsThree'</code></p>
-<p><code>// 注册全局组件</code> <br />
- <code>Vue.use(VueRouter)</code> <br />
- <code>// 规则数组</code> <br />
- <code>const routes = [</code> <br />
- <code>// 匹配默认hash值路径,重定向到页面，检测网页打开的默认路由</code> <br />
- <code>&#123;</code> <br />
- <code>path: '/',</code> <br />
- <code>redirect: &quot;/second&quot;,</code> <br />
- <code>&#125;,</code> <br />
- <code>&#123;</code> <br />
- <code>path: '/first',</code> <br />
- <code>component: First,</code> <br />
- <code>name: &quot;First&quot;,</code></p>
-<p>``meta:{title:&quot; 首页 &quot;}             //meta 元字符，用于传值，路由组件可以通过 this.$route.mata. 属性名 拿到`</p>
-<p><code>&#125;,</code> <br />
- <code>&#123;</code> <br />
- <code>path: '/second',</code> <br />
- <code>component: Second,</code> <br />
- <code>name: 'Second',</code> <br />
- <code>// 给页面配置二级路由</code> <br />
- <code>children: [</code> <br />
- <code>&#123;</code> <br />
- <code>path: &quot;viewsone&quot;,</code> <br />
- <code>component: ViewsOne</code> <br />
- <code>&#125;,</code> <br />
- <code>&#123;</code> <br />
- <code>path: &quot;viewstwo&quot;,</code> <br />
- <code>component: ViewsTwo</code> <br />
- <code>&#125;,</code> <br />
- <code>&#123;</code> <br />
- <code>path: &quot;viewsthree&quot;,</code> <br />
- <code>component: ViewsThree</code> <br />
- <code>&#125;,</code> <br />
- <code>]</code> <br />
- <code>&#125;,</code> <br />
- <code>&#123;</code> <br />
- <code>path: '/third',</code> <br />
- <code>component: Third,</code> <br />
- <code>name: &quot;Third&quot;</code> <br />
- <code>&#125;,</code> <br />
- <code>// 绑定值给视图</code> <br />
- <code>&#123;</code> <br />
- <code>path: '/first/:name',</code> <br />
- <code>component: First,</code> <br />
- <code>name: 'First'</code> <br />
- <code>&#125;,</code> <br />
- <code>&#123;</code> <br />
- <code>path: '/second/:name',</code> <br />
- <code>component: Second,</code> <br />
- <code>name: &quot;Second&quot;,</code> <br />
- <code>&#125;, &#123;</code> <br />
- <code>path: '/third/:name',</code> <br />
- <code>component: Third,</code> <br />
- <code>name: &quot;Third&quot;</code> <br />
- <code>&#125;,</code> <br />
- <code>// 404一定在配置在规则数组最后</code> <br />
- <code>&#123;</code> <br />
- <code>path: &quot;*&quot;,</code> <br />
- <code>component: NotFound</code> <br />
- <code>, name: &quot;NotFound&quot;</code> <br />
- <code>&#125;</code></p>
-<p><code>]</code> <br />
- <code>// 生成路由对象</code> <br />
- <code>const router = new VueRouter(&#123;</code> <br />
- <code>// routes是固定的key，传入规则数组</code> <br />
- <code>routes,</code> <br />
- <code>// 默认不写是hash值</code> <br />
- <code>mode: &quot;history&quot;</code> <br />
- <code>&#125;)</code> <br />
- <code>// 路由守卫，根据路由做出判断</code> <br />
- <code>const isLogin = false</code> <br />
- <code>router.beforeEach((to, from, next) =&gt; &#123;</code> <br />
- <code>if (to.path === '/first' &amp;&amp; isLogin === false) &#123;</code> <br />
- <code>alert('请登录')</code> <br />
- <code>next(false)  //阻止路由跳转</code> <br />
- <code>&#125; else &#123;</code> <br />
- <code>next()  //正常放行</code> <br />
- <code>&#125;</code> <br />
- <code>&#125;)</code> <br />
- <code>new Vue(&#123;</code> <br />
- <code>router,</code> <br />
- <code>render: h =&gt; h(App),</code> <br />
- <code>&#125;).$mount('#app')</code></p>
-<h2 id="vue项目工具"><a class="anchor" href="#vue项目工具">#</a> Vue 项目工具</h2>
-<h6 id="1-vant组件库移动端vue组件库"><a class="anchor" href="#1-vant组件库移动端vue组件库">#</a> 1、vant 组件库（移动端 vue 组件库）</h6>
-<p>一、下载安装（根据 vue 版本）、引入 (import) 和全局注册 (Vue.use)（main.js 中）、直接使用 Vant 组件名<br />
-二、按需引入：安装（ <code>yarn add @vant/auto-import-resolver unplugin-vue-components -D</code> ）、配置、使用、引入</p>
-<h6 id="2-element-uipc端vue组件库"><a class="anchor" href="#2-element-uipc端vue组件库">#</a> 2、element-ui（PC 端 vue 组件库）</h6>
-<h6 id="3-postcss-vue项目插件配合webpack翻译css代码"><a class="anchor" href="#3-postcss-vue项目插件配合webpack翻译css代码">#</a> 3、postcss  （vue 项目插件，配合 webpack 翻译 css 代码）</h6>
-<p>postcss-pxtorem （ 配合 webpack , 自动将 px 转成 rem ）</p>
+<p>}<br>*<em><strong>注意</strong><br>&#x2F;</em> css中禁止双击选中文本 *&#x2F;<br>.element {<br>  user-select: none;<br>}</p>
+<p>原始类型的值不能直接取反，（true&amp;&amp;false）,可以使用Obj.true进行取反<br>当父亲组件给子组件传值，需要通过对象的项目引用的关系来影响对象里面的值时，需要使用props的对象方法，而不能用数组方法<br>element-ui适用于vue2项目，vue3项目需要使用element-plus<br>v-bind:“ ” ，里面是属性时直接写，里面不是属性时要加括号<br>v-for遍历对象时，加上key属性，有id绑定id，没有id绑定index<br>过滤器使用场景：①在插值语法中使用②在v-bind中value | 过滤器1 | 过滤器2<br>过滤器使用于差值表达式和动态绑定中：管道符前面是过滤器的第一个·参数，过滤器的第二个参数写在其()里面<br>计算属性：相比于函数带有缓存，减少了函数的执行<br>侦听器：①侦听值：watch:{变量名（newVal,oldVal）{改变时发生的事件}}<br>②侦听对象：watch:{“侦听的名称”：{immediate:true,deep:true,handler(newVal,oldVal){侦听值改变时的操作} }}<br>ajax ：异步请求后端的技术,基于原生ajax+Promise技术封装通用于前后端的请求库（原理是XMLHttpRequest）<br>@是vue中src的绝对路径（webpack）,#是当前页面的路径<br>props类型校验：props:{name:String,color:{type:String,required:true,default:red}} 其中有自定义校验规则(验证器validator)：validator(value){校验函数体}<br>v-model绑定input值时，只能使用简易的没有歧义的js语法，若要使用较难的js语法需要使用watch进行监听（监听对象时，需要用深度监听）<br>计算属性的get方法在访问这个计算属性时触发，当模板首次渲染，或者当计算属性所依赖的响应式数据发生变化时重新触发<br>arr.reduce((sum,obj)&#x3D;&gt;{函数体},0)  返回累加和sum，sum的初始值为0（自定义）</p>
+<h2 id="代码部分"><a href="#代码部分" class="headerlink" title="代码部分"></a>代码部分</h2><p>——————————————————————————————————————————【*】路由导航中代码：(main.js)</p>
+<p><code>import Vue from &#39;vue&#39;</code><br><code>import App from &#39;./App.vue&#39;</code><br><code>Vue.config.productionTip = false</code><br><code>// 引入</code><br><code>import VueRouter from &#39;vue-router&#39;</code><br><code>import First from &#39;@/views/First&#39;</code><br><code>import Second from &#39;@/views/Second&#39;</code><br><code>import Third from &#39;@/views/Third&#39;</code><br><code>import NotFound from &#39;@/views/NotFound&#39;</code><br><code>import ViewsOne from &#39;@/views/Second/ViewsOne&#39;</code><br><code>import ViewsTwo from &#39;@/views/Second/ViewsTwo&#39;</code><br><code>import ViewsThree from &#39;@/views/Second/ViewsThree&#39;</code></p>
+<p><code>// 注册全局组件</code><br><code>Vue.use(VueRouter)</code><br><code>// 规则数组</code><br><code>const routes = [</code><br>  <code>// 匹配默认hash值路径,重定向到页面，检测网页打开的默认路由</code><br>  <code>&#123;</code><br>    <code>path: &#39;/&#39;,</code><br>    <code>redirect: &quot;/second&quot;,</code><br>  <code>&#125;,</code><br>  <code>&#123;</code><br>    <code>path: &#39;/first&#39;,</code><br>    <code>component: First,</code><br>    <code>name: &quot;First&quot;,</code></p>
+<p>   &#96;&#96;meta:{title:”首页”}             &#x2F;&#x2F;meta元字符，用于传值，路由组件可以通过this.$route.mata.属性名 拿到&#96;</p>
+<p>  <code>&#125;,</code><br>  <code>&#123;</code><br>    <code>path: &#39;/second&#39;,</code><br>    <code>component: Second,</code><br>    <code>name: &#39;Second&#39;,</code><br>    <code>// 给页面配置二级路由</code><br>    <code>children: [</code><br>      <code>&#123;</code><br>        <code>path: &quot;viewsone&quot;,</code><br>        <code>component: ViewsOne</code><br>      <code>&#125;,</code><br>      <code>&#123;</code><br>        <code>path: &quot;viewstwo&quot;,</code><br>        <code>component: ViewsTwo</code><br>      <code>&#125;,</code><br>      <code>&#123;</code><br>        <code>path: &quot;viewsthree&quot;,</code><br>        <code>component: ViewsThree</code><br>      <code>&#125;,</code><br>    <code>]</code><br>  <code>&#125;,</code><br>  <code>&#123;</code><br>    <code>path: &#39;/third&#39;,</code><br>    <code>component: Third,</code><br>    <code>name: &quot;Third&quot;</code><br>  <code>&#125;,</code><br>  <code>// 绑定值给视图</code><br>  <code>&#123;</code><br>    <code>path: &#39;/first/:name&#39;,</code><br>    <code>component: First,</code><br>    <code>name: &#39;First&#39;</code><br>  <code>&#125;,</code><br>  <code>&#123;</code><br>    <code>path: &#39;/second/:name&#39;,</code><br>    <code>component: Second,</code><br>    <code>name: &quot;Second&quot;,</code><br>  <code>&#125;, &#123;</code><br>    <code>path: &#39;/third/:name&#39;,</code><br>    <code>component: Third,</code><br>    <code>name: &quot;Third&quot;</code><br>  <code>&#125;,</code><br>  <code>// 404一定在配置在规则数组最后</code><br>  <code>&#123;</code><br>    <code>path: &quot;*&quot;,</code><br>    <code>component: NotFound</code><br>    <code>, name: &quot;NotFound&quot;</code><br>  <code>&#125;</code></p>
+<p><code>]</code><br><code>// 生成路由对象</code><br><code>const router = new VueRouter(&#123;</code><br>  <code>// routes是固定的key，传入规则数组</code><br>  <code>routes,</code><br>  <code>// 默认不写是hash值</code><br>  <code>mode: &quot;history&quot;</code><br><code>&#125;)</code><br><code>// 路由守卫，根据路由做出判断</code><br><code>const isLogin = false</code><br><code>router.beforeEach((to, from, next) =&gt; &#123;</code><br>  <code>if (to.path === &#39;/first&#39; &amp;&amp; isLogin === false) &#123;</code><br>    <code>alert(&#39;请登录&#39;)</code><br>    <code>next(false)  //阻止路由跳转</code><br>  <code>&#125; else &#123;</code><br>    <code>next()  //正常放行</code><br>  <code>&#125;</code><br><code>&#125;)</code><br><code>new Vue(&#123;</code><br>  <code>router,</code><br>  <code>render: h =&gt; h(App),</code><br><code>&#125;).$mount(&#39;#app&#39;)</code></p>
+<h2 id="Vue项目工具"><a href="#Vue项目工具" class="headerlink" title="Vue项目工具"></a>Vue项目工具</h2><h6 id="1、vant组件库（移动端vue组件库）"><a href="#1、vant组件库（移动端vue组件库）" class="headerlink" title="1、vant组件库（移动端vue组件库）"></a>1、vant组件库（移动端vue组件库）</h6><p>一、下载安装（根据vue版本）、引入(import)和全局注册(Vue.use)（main.js中）、直接使用Vant组件名<br>二、按需引入：安装（<code>yarn add @vant/auto-import-resolver unplugin-vue-components -D</code>）、配置、使用、引入</p>
+<h6 id="2、element-ui（PC端vue组件库）"><a href="#2、element-ui（PC端vue组件库）" class="headerlink" title="2、element-ui（PC端vue组件库）"></a>2、element-ui（PC端vue组件库）</h6><h6 id="3、postcss-（vue项目插件，配合webpack翻译css代码）"><a href="#3、postcss-（vue项目插件，配合webpack翻译css代码）" class="headerlink" title="3、postcss  （vue项目插件，配合webpack翻译css代码）"></a>3、postcss  （vue项目插件，配合webpack翻译css代码）</h6><p>postcss-pxtorem （ 配合webpack , 自动将 px 转成 rem ）</p>
 <p>一、下载 postcss    和    postcss-pxtorem</p>
 <p><code>yarn  add  postcss  postcss-pxtorem</code></p>
-<p>` 二、文件夹 src 下新建 postcss.config.js</p>
+<p>&#96;二、文件夹 src下新建postcss.config.js</p>
 <p><code>module.exports = &#123;</code></p>
 <p><code>plugins:&#123;</code></p>
-<p><code>'postcss-pxtorem':&#123;</code></p>
+<p><code>&#39;postcss-pxtorem&#39;:&#123;</code></p>
 <p><code>//能够将所有元素的px单位转成rem</code></p>
 <p><code>//rootValue：转换px的基准值。</code></p>
 <p><code>//例如一个元素宽是75px，转换成rem之后就是2rem 。</code></p>
 <p><code>rootValue:37.5 ,</code></p>
-<p><code>propList:['*']</code></p>
+<p><code>propList:[&#39;*&#39;]</code></p>
 <p><code>&#125;&#125;&#125;</code></p>
-<h2 id="vuex介绍"><a class="anchor" href="#vuex介绍">#</a> Vuex 介绍</h2>
-<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre>npm  install vuex <span class="token operator">--</span>save</pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token keyword">import</span>  Vuex <span class="token keyword">from</span>  <span class="token string">'vuex'</span></pre></td></tr><tr><td data-num="3"></td><td><pre>Vue<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span>Vuex<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token keyword">const</span> store <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Vuex<span class="token punctuation">.</span>Store</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span> <span class="token literal-property property">state</span><span class="token operator">:</span><span class="token punctuation">&#123;</span><span class="token literal-property property">count</span><span class="token operator">:</span><span class="token number">0</span><span class="token punctuation">&#125;</span> <span class="token punctuation">&#125;</span><span class="token punctuation">)</span> </pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token keyword">new</span> <span class="token class-name">Vue</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span> <span class="token literal-property property">el</span><span class="token operator">:</span><span class="token string">'#app'</span><span class="token punctuation">,</span> <span class="token function-variable function">render</span><span class="token operator">:</span><span class="token parameter">h</span> <span class="token operator">=></span> <span class="token function">h</span><span class="token punctuation">(</span>app<span class="token punctuation">)</span> <span class="token punctuation">,</span> router <span class="token punctuation">,</span> store <span class="token punctuation">&#125;</span><span class="token punctuation">)</span></pre></td></tr></table></figure><h3 id="vuex基础"><a class="anchor" href="#vuex基础">#</a> Vuex 基础</h3>
-<p>一、Vuex 的介绍（创建 store 仓库，项目中大范围进行数据共享）<br />
-1、简介：Vuex 是一个专为 Vue.js 应用程序开发的状态管理模式。<br />
-它采用集中式存储管理应用的所有组件的状态，并以相应的规则保证状态以一种可预测的方式发生变化。Vuex 也集成到 Vue 的官方调试工具 devtools extension (opens new window)，提供了诸如零配置的 time-travel 调试、状态快照导入导出等高级调试功能。</p>
-<p>Vuex 就是用来存放全局变量的，供所有组件使用</p>
-<p>2、通俗理解<br />
- Vuex 相当于一个仓库，仓库中可以存全局变量，方法。一个项目一个仓库，Vuex 充当项目的存储模块</p>
-<h4 id="vuex的模块"><a class="anchor" href="#vuex的模块">#</a> Vuex 的模块</h4>
-<h4 id="store中state-mutationscommit-actionsdispatch-gettersgetters-module-thisstorecommit子模块名键名"><a class="anchor" href="#store中state-mutationscommit-actionsdispatch-gettersgetters-module-thisstorecommit子模块名键名">#</a> （store 中：state、mutations（commit）、actions（dispatch）、getters（getters）、Module（ this.$store.commit（’子模块名 / 键名‘））</h4>
-<p>三大模块中  辅助函数  使用时导入：（使用辅助函数形式时，传参需要在事件发生处传值）     子组件中：</p>
-<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">import</span> <span class="token punctuation">&#123;</span> mapState <span class="token punctuation">,</span>mapMutations<span class="token punctuation">,</span>mapActions<span class="token punctuation">&#125;</span> <span class="token keyword">from</span> <span class="token string">'vuex'</span>  <span class="token comment">// 导入辅助函数</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token literal-property property">computed</span><span class="token operator">:</span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="3"></td><td><pre>    <span class="token operator">...</span><span class="token function">mapState</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'键值'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>       <span class="token comment">// 计算属性中使用 state 中的值</span></pre></td></tr><tr><td data-num="4"></td><td><pre>    <span class="token comment">// 直接使用</span></pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="6"></td><td><pre>methods：<span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="7"></td><td><pre>    <span class="token operator">...</span><span class="token function">mapMutations</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'函数1'</span>，<span class="token string">'函数2'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>       <span class="token comment">//methods 中使用 Mutations 中的函数</span></pre></td></tr><tr><td data-num="8"></td><td><pre>    <span class="token operator">...</span><span class="token function">mapActions</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'函数1'</span>，<span class="token string">'函数2'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>        <span class="token comment">//methods 中使用 Actions 中的异步函数</span></pre></td></tr><tr><td data-num="9"></td><td><pre>    <span class="token comment">// 直接使用</span></pre></td></tr><tr><td data-num="10"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr></table></figure><p>（模块中定义函数时，第一个参数为 state，方便拿到其中的数据，通过 state. 数据名）</p>
-<h6 id="1state数据"><a class="anchor" href="#1state数据">#</a> 【1】 <code>state</code>  数据</h6>
-<p>【】     共享状态数据，存数据</p>
-<p>（1）定义 （在 main.js 中 Vuex.Store 中：）</p>
+<h2 id="Vuex介绍"><a href="#Vuex介绍" class="headerlink" title="Vuex介绍"></a>Vuex介绍</h2><pre><code class="js">npm  install vuex --save
+import  Vuex from  &#39;vuex&#39;
+Vue.use(Vuex)
+const store = new Vuex.Store(&#123; state:&#123;count:0&#125; &#125;) 
+new Vue(&#123; el:&#39;#app&#39;, render:h =&gt; h(app) , router , store &#125;)
+</code></pre>
+<h3 id="Vuex基础"><a href="#Vuex基础" class="headerlink" title="Vuex基础"></a>Vuex基础</h3><p>一、Vuex的介绍（创建store仓库，项目中大范围进行数据共享）<br>1、简介：Vuex 是一个专为 Vue.js 应用程序开发的状态管理模式。<br>它采用集中式存储管理应用的所有组件的状态，并以相应的规则保证状态以一种可预测的方式发生变化。Vuex 也集成到 Vue 的官方调试工具 devtools extension (opens new window)，提供了诸如零配置的 time-travel 调试、状态快照导入导出等高级调试功能。</p>
+<p>Vuex就是用来存放全局变量的，供所有组件使用</p>
+<p>2、通俗理解<br>Vuex相当于一个仓库，仓库中可以存全局变量，方法。一个项目一个仓库，Vuex充当项目的存储模块</p>
+<h4 id="Vuex的模块"><a href="#Vuex的模块" class="headerlink" title="Vuex的模块"></a>Vuex的模块</h4><h4 id="（store中：state、mutations（commit）、actions（dispatch）、getters（getters）、Module（-this-store-commit（’子模块名-x2F-键名‘））"><a href="#（store中：state、mutations（commit）、actions（dispatch）、getters（getters）、Module（-this-store-commit（’子模块名-x2F-键名‘））" class="headerlink" title="（store中：state、mutations（commit）、actions（dispatch）、getters（getters）、Module（ this.$store.commit（’子模块名&#x2F;键名‘））"></a>（store中：state、mutations（commit）、actions（dispatch）、getters（getters）、Module（ this.$store.commit（’子模块名&#x2F;键名‘））</h4><p>三大模块中  辅助函数  使用时导入：（使用辅助函数形式时，传参需要在事件发生处传值）     子组件中：</p>
+<pre><code class="js">import &#123; mapState ,mapMutations,mapActions&#125; from &#39;vuex&#39;  //导入辅助函数
+computed:&#123;
+    ...mapState([&#39;键值&#39;])       //计算属性中使用state中的值
+    //直接使用
+&#125;
+methods：&#123;
+    ...mapMutations([&#39;函数1&#39;，&#39;函数2&#39;])       //methods中使用Mutations中的函数
+    ...mapActions([&#39;函数1&#39;，&#39;函数2&#39;])        //methods中使用Actions中的异步函数
+    //直接使用
+&#125;
+</code></pre>
+<p>（模块中定义函数时，第一个参数为state，方便拿到其中的数据，通过state.数据名）</p>
+<h6 id="【1】state数据"><a href="#【1】state数据" class="headerlink" title="【1】state数据"></a>【1】<code>state</code>数据</h6><p>【】     共享状态数据，存数据</p>
+<p>（1）定义 （在main.js中Vuex.Store中：）</p>
 <p>（2）组件获得数据的方式：</p>
-<p>①组件通过 $store. 键名  获得数据</p>
-<p>②从 vuex 中按需导入 mapState 函数，将全局数据，映射为当前组件的计算属性（子组件中）</p>
-<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">import</span>  <span class="token punctuation">&#123;</span> mapState <span class="token punctuation">&#125;</span>  <span class="token keyword">from</span>  <span class="token string">'vuex'</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token literal-property property">computed</span><span class="token operator">:</span><span class="token punctuation">&#123;</span> <span class="token operator">...</span><span class="token function">mapState</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'键名'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>  <span class="token punctuation">&#125;</span></pre></td></tr></table></figure><h6 id="2mutaitions修改函数"><a class="anchor" href="#2mutaitions修改函数">#</a> 【2】 <code>mutaitions</code>  修改（函数）</h6>
-<p>【】   修改 state<strong> 必须</strong>通过 mutations，但其只能执行同步代码，改数据</p>
-<p>（1）定义函数，传参 state，通过 state. 名得到 state 中的数据进行修改 （在 main.js 中 Vuex.Store 中：）</p>
-<p>（2）组件在组件函数中，通过如下，调用 state 中的函数并传参</p>
-<pre><code class="language-vue">this.$store.commit（'函数名'，形参）
+<p>①组件通过$store.键名  获得数据</p>
+<p>②从vuex中按需导入mapState函数，将全局数据，映射为当前组件的计算属性（子组件中）</p>
+<pre><code class="js">import  &#123; mapState &#125;  from  &#39;vuex&#39;
+computed:&#123; ...mapState([&#39;键名&#39;])  &#125;
+</code></pre>
+<h6 id="【2】mutaitions修改（函数）"><a href="#【2】mutaitions修改（函数）" class="headerlink" title="【2】mutaitions修改（函数）"></a>【2】<code>mutaitions</code>修改（函数）</h6><p>【】   修改state<strong>必须</strong>通过mutations，但其只能执行同步代码，改数据</p>
+<p>（1）定义函数，传参state，通过state.名得到state中的数据进行修改 （在main.js中Vuex.Store中：）</p>
+<p>（2）组件在组件函数中，通过如下，调用state中的函数并传参</p>
+<pre><code class="vue">this.$store.commit（&#39;函数名&#39;，形参）
 //main.js中：
 mutations:&#123;函数名：&#125;
 </code></pre>
-<p>（3） <code>...mapMutations(['函数名',’函数名2‘])  辅助函数</code> （*** 需要导入），组件函数中使用，子组件函数名与 mutations 中函数名保持一致，</p>
-<p>传参在事件发生处（@click='fn (参数)'）</p>
-<pre><code>子组件中import  &#123; mapMutations ..等 &#125;  from  'vuex'
-methods中：&#123;...mapMutations(['键名1，键名2']) ,
+<p>（3）<code>...mapMutations([&#39;函数名&#39;,’函数名2‘])  辅助函数</code>（***需要导入），组件函数中使用，子组件函数名与mutations中函数名保持一致，</p>
+<p>传参在事件发生处（@click&#x3D;’fn(参数)’）</p>
+<pre><code>子组件中import  &#123; mapMutations ..等 &#125;  from  &#39;vuex&#39;
+methods中：&#123;...mapMutations([&#39;键名1，键名2&#39;]) ,
  函数()里通过  this.键名() 调用
 </code></pre>
-<h6 id="3actions-异步"><a class="anchor" href="#3actions-异步">#</a> 【3】 <code>actions</code>    异步</h6>
-<p>【】执行异步操作，数据提交给<strong> mutations</strong> 进行修改，从后端获取数据，更新到 state 中的 count 中（main.js 中）</p>
-<p>【】注意在 action 中，不能直接修改 state 中的数据，必须通过<strong> context.commit（）函数</strong>触发某个 mutation 才行（main.js 中）</p>
-<p>（1）在 actions 中定义函数并传参 （在 main.js 中 Vuex.Store 中：）</p>
-<p>（2）actions 方法参数：</p>
-<p>① <code>context</code> ，相当于组件中的 this.$store，即获得 store 中的值</p>
+<h6 id="【3】actions-异步"><a href="#【3】actions-异步" class="headerlink" title="【3】actions   异步"></a>【3】<code>actions</code>   异步</h6><p>【】执行异步操作，数据提交给<strong>mutations</strong>进行修改，从后端获取数据，更新到state中的count中（main.js中）</p>
+<p>【】注意在action中，不能直接修改state中的数据，必须通过<strong>context.commit（）函数</strong>触发某个mutation才行（main.js中）</p>
+<p>（1）在actions中定义函数并传参 （在main.js中Vuex.Store中：）</p>
+<p>（2）actions方法参数：</p>
+<p>①<code>context</code>，相当于组件中的this.$store，即获得store中的值</p>
 <p>②形参，用于传值</p>
-<p>（3）组件中调用 actions（传参时，在定义 actions 函数时要接收）</p>
-<p>①原始形式调用： <code>this.$store.dispatch(&quot;函数名&quot;，形参)</code></p>
-<p>②辅助函数形式调用（*** 需要导入）：</p>
-<p>子组件中导入，methods 方法中使用：</p>
-<pre><code class="language-vue">...mapActions(['函数名','函数名2']，)
+<p>（3）组件中调用actions（传参时，在定义actions函数时要接收）</p>
+<p>①原始形式调用：<code>this.$store.dispatch(&quot;函数名&quot;，形参)</code></p>
+<p>②辅助函数形式调用（***需要导入）：</p>
+<p>子组件中导入，methods方法中使用：</p>
+<pre><code class="vue">...mapActions([&#39;函数名&#39;,&#39;函数名2&#39;]，)
 //子组件函数中调用（如下）  或者直接在子组件触发事件上使用函数 @click=&quot;函数名(形参)&quot;
 子组件函数()&#123;
 this.函数名（形参）
 this.函数名2(形参)  &#125;
 </code></pre>
-<h6 id="4getters计算包装数据"><a class="anchor" href="#4getters计算包装数据">#</a> 【4】 <code>getters</code>  计算（包装数据）</h6>
-<p>【】从 state 中派生出一些状态，这些状态是依赖 state 的（相当于计算属性，二次处理数据），此时会用到 getters</p>
-<p>（1）定义 getters，并传参（在 main.js 中 Vuex.Store 中：）</p>
-<p>（2）组件中调用 getters</p>
-<p>①原始形式调用： <code>this.$store.getters.函数名</code> ，接着直接在页面使用： </p>
-<p>②辅助函数调用：（*** 需要引入）: ...mapGetters ([' 函数名 '，’函数名 2‘])    导入到 computed 计算属性中，页面中    使用</p>
-<h6 id="5module模块化"><a class="anchor" href="#5module模块化">#</a> 【5】 <code>Module</code>  模块化</h6>
-<p>【】所有的数据、更新、操作都在一起，项目越大，越难维护，因此推出 Vuex 模块化（子模块中使用）</p>
-<p>（1）定义子模块 Modules （在 main.js 中 Vuex.Store 中：）</p>
-<pre><code class="language-vue">modules:&#123;  子模块name1:&#123;state:&#123; 键：值 &#125;&#125; ， 子模块name2:&#123;state:&#123; 键：值 &#125;&#125;  &#125; 
+<h6 id="【4】getters计算（包装数据）"><a href="#【4】getters计算（包装数据）" class="headerlink" title="【4】getters计算（包装数据）"></a>【4】<code>getters</code>计算（包装数据）</h6><p>【】从state中派生出一些状态，这些状态是依赖state的（相当于计算属性，二次处理数据），此时会用到getters</p>
+<p>（1）定义getters，并传参（在main.js中Vuex.Store中：）</p>
+<p>（2）组件中调用getters  </p>
+<p>①原始形式调用：<code>this.$store.getters.函数名</code>,  接着直接在页面使用： </p>
+<p>②辅助函数调用：（***需要引入）: …mapGetters([‘函数名’，’函数名2‘])    导入到computed计算属性中，页面中    使用</p>
+<h6 id="【5】Module模块化"><a href="#【5】Module模块化" class="headerlink" title="【5】Module模块化"></a>【5】<code>Module</code>模块化</h6><p>【】所有的数据、更新、操作都在一起，项目越大，越难维护，因此推出Vuex模块化（子模块中使用）</p>
+<p>（1）定义子模块Modules （在main.js中Vuex.Store中：）</p>
+<pre><code class="vue">modules:&#123;  子模块name1:&#123;state:&#123; 键：值 &#125;&#125; ， 子模块name2:&#123;state:&#123; 键：值 &#125;&#125;  &#125; 
 </code></pre>
 <p>（2）组件中使用</p>
-<pre><code class="language-vue">$store.state.子模块name.子模块键
+<pre><code class="vue">$store.state.子模块name.子模块键
 </code></pre>
 <p>（3）快捷使用</p>
-<p>在 getters 中定义，之后直接使用自定义的名称（①引入 mapGetters，②在 computed 中扩展 ：...mapGetters ([' 自定义名 1'，' 名 2'])）</p>
-<pre><code class="language-vue">getters:&#123;  自定义名  : state =&gt; state.子模块名.子模块键 ，    &#125;
+<p>在getters中定义，之后直接使用自定义的名称（①引入mapGetters，②在computed中扩展 ：…mapGetters([‘自定义名1’，’名2’])）</p>
+<pre><code class="vue">getters:&#123;  自定义名  : state =&gt; state.子模块名.子模块键 ，    &#125;
 </code></pre>
-<h6 id="6模块化中的namespaced命名空间"><a class="anchor" href="#6模块化中的namespaced命名空间">#</a> 【6】模块化中的 <code>namespaced</code>  命名空间</h6>
-<p>【】默认情况下，模块内部的 action、mutation 和 getter 是注册在全局命名空间的，这样使得多个模块能够对同一 mutation 或者 action 做出响应</p>
-<p>（各模块中函数中 state 表示子模块中的 state），此时可以通过 namespaced 命名空间 对模块进行封锁</p>
+<h6 id="【6】模块化中的namespaced命名空间"><a href="#【6】模块化中的namespaced命名空间" class="headerlink" title="【6】模块化中的namespaced命名空间"></a>【6】模块化中的<code>namespaced</code>命名空间</h6><p>【】默认情况下，模块内部的action、mutation和getter是注册在全局命名空间的，这样使得多个模块能够对同一mutation或者action做出响应</p>
+<p>（各模块中函数中state表示子模块中的state），此时可以通过namespaced命名空间 对模块进行封锁</p>
 <p>（1）使用命名空间：</p>
-<pre><code class="language-vue">modules:&#123;  子模块名1： namespaced:true   ,state:&#123;....&#125;,.....   &#125;
+<pre><code class="vue">modules:&#123;  子模块名1： namespaced:true   ,state:&#123;....&#125;,.....   &#125;
 </code></pre>
 <p>（2）调用数据的方法:</p>
-<p>开启命名空间后，组件中读取 state 数据：<br />
-①// 方式一：自己直接读取</p>
+<p>开启命名空间后，组件中读取state数据：<br>①&#x2F;&#x2F;方式一：自己直接读取</p>
 <pre><code>this.$store.state.personAbout.list
 </code></pre>
-<p>②// 方式二：借助 mapState 读取：</p>
-<pre><code>...mapState('countAbout',['sum','school','subject']),
+<p>②&#x2F;&#x2F;方式二：借助mapState读取：</p>
+<pre><code>...mapState(&#39;countAbout&#39;,[&#39;sum&#39;,&#39;school&#39;,&#39;subject&#39;]),
 </code></pre>
-<p>开启命名空间后，组件中读取 getters 数据：<br />
-// 方式一：自己直接读取<br />
-！[</p>
-<pre><code>this.$store.getters['personAbout/firstPersonName']
+<p>开启命名空间后，组件中读取getters数据：<br>&#x2F;&#x2F;方式一：自己直接读取<br>![</p>
+<pre><code>this.$store.getters[&#39;personAbout/firstPersonName&#39;]
 </code></pre>
 <p>]()</p>
-<p>// 方式二：借助 mapGetters 读取：</p>
-<pre><code>...mapGetters('countAbout',['bigSum'])
+<p>&#x2F;&#x2F;方式二：借助mapGetters读取：</p>
+<pre><code>...mapGetters(&#39;countAbout&#39;,[&#39;bigSum&#39;])
 </code></pre>
 <ol start="5">
-<li>开启命名空间后，组件中调用 dispatch<br />
-// 方式一：自己直接 dispatch</li>
+<li>开启命名空间后，组件中调用dispatch<br> &#x2F;&#x2F;方式一：自己直接dispatch</li>
 </ol>
-<pre><code>this.$store.dispatch('personAbout/addPersonWang',person)
+<pre><code>this.$store.dispatch(&#39;personAbout/addPersonWang&#39;,person)
 </code></pre>
-<p>// 方式二：借助 mapActions：</p>
-<pre><code>...mapActions('countAbout',&#123;incrementOdd:'jiaOdd',incrementWait:'jiaWait'&#125;)
+<p>&#x2F;&#x2F;方式二：借助mapActions：</p>
+<pre><code>...mapActions(&#39;countAbout&#39;,&#123;incrementOdd:&#39;jiaOdd&#39;,incrementWait:&#39;jiaWait&#39;&#125;)
 </code></pre>
-<p>开启命名空间后，组件中调用 commit<br />
-// 方式一：自己直接 commit</p>
-<pre><code>this.$store.commit('personAbout/ADD_PERSON',person)
+<p>开启命名空间后，组件中调用commit<br>&#x2F;&#x2F;方式一：自己直接commit</p>
+<pre><code>this.$store.commit(&#39;personAbout/ADD_PERSON&#39;,person)
 </code></pre>
-<p>// 方式二：借助 mapMutations：</p>
-<pre><code>...mapMutations('countAbout',&#123;increment:'JIA',decrement:'JIAN'&#125;),
+<p>&#x2F;&#x2F;方式二：借助mapMutations：</p>
+<pre><code>...mapMutations(&#39;countAbout&#39;,&#123;increment:&#39;JIA&#39;,decrement:&#39;JIAN&#39;&#125;),
 </code></pre>
-<h3 id=""><a class="anchor" href="#">#</a> </h3>
-<h3 id="使用-配置vuex"><a class="anchor" href="#使用-配置vuex">#</a> 使用、配置 Vuex</h3>
-<h4 id="mainjs中配置组件通过thisstore获得"><a class="anchor" href="#mainjs中配置组件通过thisstore获得">#</a> (main.js 中配置，组件通过 this.$store 获得)</h4>
-<p>1、安装：进入项目终端，输入<br />
- npm install vuex@3</p>
+<h3 id=""><a href="#" class="headerlink" title=""></a></h3><h3 id="使用、配置Vuex"><a href="#使用、配置Vuex" class="headerlink" title="使用、配置Vuex"></a>使用、配置Vuex</h3><h4 id="main-js中配置，组件通过this-store获得"><a href="#main-js中配置，组件通过this-store获得" class="headerlink" title="(main.js中配置，组件通过this.$store获得 )"></a>(main.js中配置，组件通过this.$store获得 )</h4><p>1、安装：进入项目终端，输入<br>npm install vuex@3</p>
 <p>2、引入</p>
 <p>1）终端启动项目</p>
-<p>npm run serve<br />
-（2）在 mian.js 文件引入 vuex，使用 Vuex</p>
-<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">import</span> Vue <span class="token keyword">from</span> <span class="token string">'vue'</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token keyword">import</span> App <span class="token keyword">from</span> <span class="token string">'./App.vue'</span></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token keyword">import</span> router <span class="token keyword">from</span> <span class="token string">'./router'</span></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token keyword">import</span> Vuex <span class="token keyword">from</span> <span class="token string">'vuex'</span>    <span class="token comment">// 引入</span></pre></td></tr><tr><td data-num="5"></td><td><pre></pre></td></tr><tr><td data-num="6"></td><td><pre>Vue<span class="token punctuation">.</span>config<span class="token punctuation">.</span>productionTip <span class="token operator">=</span> <span class="token boolean">false</span></pre></td></tr><tr><td data-num="7"></td><td><pre></pre></td></tr><tr><td data-num="8"></td><td><pre>Vue<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span>Vuex<span class="token punctuation">)</span>    <span class="token comment">// 使用</span></pre></td></tr><tr><td data-num="9"></td><td><pre></pre></td></tr><tr><td data-num="10"></td><td><pre><span class="token keyword">new</span> <span class="token class-name">Vue</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="11"></td><td><pre>  router<span class="token punctuation">,</span></pre></td></tr><tr><td data-num="12"></td><td><pre>  <span class="token function-variable function">render</span><span class="token operator">:</span> <span class="token parameter">h</span> <span class="token operator">=></span> <span class="token function">h</span><span class="token punctuation">(</span>App<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="13"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">$mount</span><span class="token punctuation">(</span><span class="token string">'#app'</span><span class="token punctuation">)</span></pre></td></tr></table></figure><p>3、创建使用实例</p>
-<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">import</span> Vue <span class="token keyword">from</span> <span class="token string">'vue'</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token keyword">import</span> App <span class="token keyword">from</span> <span class="token string">'./App.vue'</span></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token keyword">import</span> router <span class="token keyword">from</span> <span class="token string">'./router'</span></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token keyword">import</span> Vuex <span class="token keyword">from</span> <span class="token string">'vuex'</span><span class="token comment">// 引入</span></pre></td></tr><tr><td data-num="5"></td><td><pre></pre></td></tr><tr><td data-num="6"></td><td><pre>Vue<span class="token punctuation">.</span>config<span class="token punctuation">.</span>productionTip <span class="token operator">=</span> <span class="token boolean">false</span></pre></td></tr><tr><td data-num="7"></td><td><pre></pre></td></tr><tr><td data-num="8"></td><td><pre>Vue<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span>Vuex<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="9"></td><td><pre></pre></td></tr><tr><td data-num="10"></td><td><pre><span class="token keyword">const</span> store <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Vuex<span class="token punctuation">.</span>Store</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span><span class="token punctuation">)</span>    <span class="token comment">// 创建实例，注意 Vuex.Store 的大小写</span></pre></td></tr><tr><td data-num="11"></td><td><pre></pre></td></tr><tr><td data-num="12"></td><td><pre><span class="token keyword">new</span> <span class="token class-name">Vue</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="13"></td><td><pre>  router<span class="token punctuation">,</span></pre></td></tr><tr><td data-num="14"></td><td><pre>  store<span class="token punctuation">,</span>    <span class="token comment">// 使用</span></pre></td></tr><tr><td data-num="15"></td><td><pre>  <span class="token function-variable function">render</span><span class="token operator">:</span> <span class="token parameter">h</span> <span class="token operator">=></span> <span class="token function">h</span><span class="token punctuation">(</span>App<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="16"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">$mount</span><span class="token punctuation">(</span><span class="token string">'#app'</span><span class="token punctuation">)</span></pre></td></tr></table></figure><p>4、代码例子</p>
-<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">import</span> Vue <span class="token keyword">from</span> <span class="token string">'vue'</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token keyword">import</span> App <span class="token keyword">from</span> <span class="token string">'./App.vue'</span></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token keyword">import</span> router <span class="token keyword">from</span> <span class="token string">'./router'</span></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token keyword">import</span> Vuex <span class="token keyword">from</span> <span class="token string">'vuex'</span><span class="token comment">// 引入</span></pre></td></tr><tr><td data-num="5"></td><td><pre></pre></td></tr><tr><td data-num="6"></td><td><pre>Vue<span class="token punctuation">.</span>config<span class="token punctuation">.</span>productionTip <span class="token operator">=</span> <span class="token boolean">false</span></pre></td></tr><tr><td data-num="7"></td><td><pre></pre></td></tr><tr><td data-num="8"></td><td><pre>Vue<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span>Vuex<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="9"></td><td><pre></pre></td></tr><tr><td data-num="10"></td><td><pre><span class="token keyword">const</span> store <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Vuex<span class="token punctuation">.</span>Store</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="11"></td><td><pre>  <span class="token literal-property property">state</span><span class="token operator">:</span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="12"></td><td><pre>    <span class="token literal-property property">count</span><span class="token operator">:</span><span class="token number">0</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="13"></td><td><pre>  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="14"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="15"></td><td><pre></pre></td></tr><tr><td data-num="16"></td><td><pre><span class="token keyword">new</span> <span class="token class-name">Vue</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="17"></td><td><pre>  router<span class="token punctuation">,</span></pre></td></tr><tr><td data-num="18"></td><td><pre>  store<span class="token punctuation">,</span></pre></td></tr><tr><td data-num="19"></td><td><pre>  <span class="token function-variable function">render</span><span class="token operator">:</span> <span class="token parameter">h</span> <span class="token operator">=></span> <span class="token function">h</span><span class="token punctuation">(</span>App<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="20"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">$mount</span><span class="token punctuation">(</span><span class="token string">'#app'</span><span class="token punctuation">)</span></pre></td></tr></table></figure><p>去任意页面获取显示 count 数据</p>
-<p>&lt;template&gt;<br />
-&lt;div class=&quot;home&quot;&gt;<br />
-&lt;h1&gt; 这是 count：&lt;/h1&gt;<br />
-&lt;/div&gt;<br />
-&lt;/template&gt;</p>
-<h3 id="项目中使用vuex"><a class="anchor" href="#项目中使用vuex">#</a> 项目中使用 vuex</h3>
-<p>一、在 src 文件中新建 store 下新建 modules 下新建 模块名 . js 文件</p>
+<p>npm run serve<br>（2）在mian.js文件引入vuex，使用Vuex</p>
+<pre><code class="js">import Vue from &#39;vue&#39;
+import App from &#39;./App.vue&#39;
+import router from &#39;./router&#39;
+import Vuex from &#39;vuex&#39;    //引入
+
+Vue.config.productionTip = false
+
+Vue.use(Vuex)    //使用
+
+new Vue(&#123;
+  router,
+  render: h =&gt; h(App)
+&#125;).$mount(&#39;#app&#39;)
+</code></pre>
+<p>3、创建使用实例</p>
+<pre><code class="js">import Vue from &#39;vue&#39;
+import App from &#39;./App.vue&#39;
+import router from &#39;./router&#39;
+import Vuex from &#39;vuex&#39;//引入
+
+Vue.config.productionTip = false
+
+Vue.use(Vuex)
+
+const store = new Vuex.Store(&#123;&#125;)    //创建实例，注意Vuex.Store的大小写
+
+new Vue(&#123;
+  router,
+  store,    //使用
+  render: h =&gt; h(App)
+&#125;).$mount(&#39;#app&#39;)
+</code></pre>
+<p>4、代码例子</p>
+<pre><code class="js">import Vue from &#39;vue&#39;
+import App from &#39;./App.vue&#39;
+import router from &#39;./router&#39;
+import Vuex from &#39;vuex&#39;//引入
+
+Vue.config.productionTip = false
+
+Vue.use(Vuex)
+
+const store = new Vuex.Store(&#123;
+  state:&#123;
+    count:0,
+  &#125;,
+&#125;)
+
+new Vue(&#123;
+  router,
+  store,
+  render: h =&gt; h(App)
+&#125;).$mount(&#39;#app&#39;)
+</code></pre>
+<p> 去任意页面获取显示count数据</p>
+<template>
+  <div class="home">
+    <h1>这是count：</h1>
+  </div>
+</template>
+### 项目中使用vuex
+
+<p>一、在src文件中新建store下新建modules下新建 模块名 . js文件</p>
 <p>二、模块中结构：</p>
-<pre><code class="language-vue">export default&#123;
+<pre><code class="vue">export default&#123;
 namespaced:true , state&#123;&#125; , mutations:&#123;&#125; , actions:&#123;&#125;       &#125;
 </code></pre>
-<p>三、在 store 下 index.js 中引入定义的模块</p>
-<pre><code class="language-vue">import  模块名  from  '路径'
+<p>三、在store下index.js中引入定义的模块</p>
+<pre><code class="vue">import  模块名  from  &#39;路径&#39;
 export  default  new  Vuex.Store(&#123;
 state:&#123;&#125; , mutations:&#123;&#125; , actions:&#123;&#125; , modules:&#123;模块名1，模块名2&#125;     &#125;)
 </code></pre>
-<h6 id="封装"><a class="anchor" href="#封装">#</a> 封装</h6>
-<p>1、新建<br />
-文件夹 store--&gt; 在文件夹下新建 store.js--&gt; 进行以下配置</p>
-<p>import Vuex from 'vuex'<br />
-import Vue from 'vue'</p>
+<h6 id="封装"><a href="#封装" class="headerlink" title="封装"></a>封装</h6><p>1、新建<br>文件夹store–&gt;在文件夹下新建store.js–&gt;进行以下配置</p>
+<p>import Vuex from ‘vuex’<br>import Vue from ‘vue’</p>
 <p>Vue.use(Vuex)</p>
-<p>const store = new Vuex.Store({<br />
-state:{<br />
-count:0,<br />
-},<br />
-})</p>
-<p>export default store    <a target="_blank" rel="noopener" href="//xn--main-9k7fi6gns0aicu633b.js">// 将值导出给 main.js</a><br />
-2、main.js 文件<br />
- import Vue from 'vue'<br />
-import App from './App.vue'<br />
-import router from './router'<br />
-import store from '@/store/store'    // 引入</p>
-<p>Vue.config.productionTip = false</p>
-<p>new Vue({<br />
-router,<br />
-store,    // 使用<br />
- render: h =&gt; h (App)<br />
-}).$mount('#app')<br />
- 四、state 状态存放<br />
- 1、简介<br />
-用于存放全局变量，供任意组件访问</p>
-<p>2、使用：$store.state. 变量名<br />
-（1）在 store.js 这个封装文件，定义需要的变量</p>
-<p>import Vuex from 'vuex'<br />
-import Vue from 'vue'</p>
+<p>const store &#x3D; new Vuex.Store({<br>    state:{<br>      count:0,<br>    },<br>  })</p>
+<p>export default store    &#x2F;&#x2F;将值导出给main.js<br> 2、main.js文件<br>import Vue from ‘vue’<br>import App from ‘.&#x2F;App.vue’<br>import router from ‘.&#x2F;router’<br>import store from ‘@&#x2F;store&#x2F;store’    &#x2F;&#x2F;引入</p>
+<p>Vue.config.productionTip &#x3D; false</p>
+<p>new Vue({<br>  router,<br>  store,    &#x2F;&#x2F;使用<br>  render: h &#x3D;&gt; h(App)<br>}).$mount(‘#app’)<br>四、state状态存放<br>1、简介<br>用于存放全局变量，供任意组件访问</p>
+<p>2、使用：$store.state.变量名<br>（1）在store.js这个封装文件，定义需要的变量</p>
+<p>import Vuex from ‘vuex’<br>import Vue from ‘vue’</p>
 <p>Vue.use(Vuex)</p>
-<p>const store = new Vuex.Store({<br />
-state:{<br />
-count:0,<br />
-userInfo:[<br />
-{<br />
-name:' 申小兮 ',<br />
-age:18,<br />
-},<br />
-{<br />
-name:' 老墨 ',<br />
-age:34,<br />
-},<br />
-]<br />
-},<br />
-})</p>
+<p>const store &#x3D; new Vuex.Store({<br>    state:{<br>      count:0,<br>      userInfo:[<br>        {<br>            name:’申小兮’,<br>            age:18,<br>        },<br>        {<br>            name:’老墨’,<br>            age:34,<br>        },<br>      ]<br>    },<br>  })</p>
 <p>export default store</p>
-<p>（2）在任意 vue 文件进行输出，显示</p>
-<p>&lt;template&gt;<br />
-&lt;div class=&quot;home&quot;&gt;<br />
-&lt;h1&gt; 这是 count：&lt;/h1&gt;<br />
-&lt;h1&gt; 卖鱼的 &lt;/h1&gt;<br />
-&lt;!-- &lt;HelloWorld msg=&quot;Welcome to Your Vue.js App&quot;/&gt; --&gt;<br />
-&lt;/div&gt;<br />
-&lt;/template&gt;</p>
-<p>&lt;script&gt;<br />
-// @ is an alias to /src</p>
-<p>export default {<br />
-name: 'HomeView',<br />
-created(){<br />
-console.log('count',this.<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>s</mi><mi>t</mi><mi>o</mi><mi>r</mi><mi>e</mi><mi mathvariant="normal">.</mi><mi>s</mi><mi>t</mi><mi>a</mi><mi>t</mi><mi>e</mi><mi mathvariant="normal">.</mi><mi>c</mi><mi>o</mi><mi>u</mi><mi>n</mi><mi>t</mi><mo stretchy="false">)</mo><mo separator="true">;</mo><mi>c</mi><mi>o</mi><mi>n</mi><mi>s</mi><mi>o</mi><mi>l</mi><mi>e</mi><mi mathvariant="normal">.</mi><mi>l</mi><mi>o</mi><mi>g</mi><msup><mo stretchy="false">(</mo><mo mathvariant="normal" lspace="0em" rspace="0em">′</mo></msup><mi>u</mi><mi>s</mi><mi>e</mi><mi>r</mi><mi>I</mi><mi>n</mi><mi>f</mi><msup><mi>o</mi><mo mathvariant="normal" lspace="0em" rspace="0em">′</mo></msup><mo separator="true">,</mo><mi>t</mi><mi>h</mi><mi>i</mi><mi>s</mi><mi mathvariant="normal">.</mi></mrow><annotation encoding="application/x-tex">store.state.count);
-    console.log(&#x27;userInfo&#x27;,this.</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.001892em;vertical-align:-0.25em;"></span><span class="mord mathnormal">s</span><span class="mord mathnormal">t</span><span class="mord mathnormal">o</span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span><span class="mord mathnormal">e</span><span class="mord">.</span><span class="mord mathnormal">s</span><span class="mord mathnormal">t</span><span class="mord mathnormal">a</span><span class="mord mathnormal">t</span><span class="mord mathnormal">e</span><span class="mord">.</span><span class="mord mathnormal">c</span><span class="mord mathnormal">o</span><span class="mord mathnormal">u</span><span class="mord mathnormal">n</span><span class="mord mathnormal">t</span><span class="mclose">)</span><span class="mpunct">;</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal">c</span><span class="mord mathnormal">o</span><span class="mord mathnormal">n</span><span class="mord mathnormal">s</span><span class="mord mathnormal">o</span><span class="mord mathnormal" style="margin-right:0.01968em;">l</span><span class="mord mathnormal">e</span><span class="mord">.</span><span class="mord mathnormal" style="margin-right:0.01968em;">l</span><span class="mord mathnormal">o</span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="mopen"><span class="mopen">(</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.751892em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">′</span></span></span></span></span></span></span></span></span><span class="mord mathnormal">u</span><span class="mord mathnormal">s</span><span class="mord mathnormal">e</span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span><span class="mord mathnormal" style="margin-right:0.07847em;">I</span><span class="mord mathnormal">n</span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="mord"><span class="mord mathnormal">o</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.751892em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">′</span></span></span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal">t</span><span class="mord mathnormal">h</span><span class="mord mathnormal">i</span><span class="mord mathnormal">s</span><span class="mord">.</span></span></span></span>store.state.userInfo);<br />
-}<br />
-}<br />
-&lt;/script&gt;</p>
-<h6 id="getters状态派生"><a class="anchor" href="#getters状态派生">#</a> getters 状态派生</h6>
-<p>1、简介<br />
-有时候我们需要从 store 中的 state 中派生出一些状态，类似 Vue 中的 computed 计算属性的功能，例如：格式化数据等。</p>
+<p>（2）在任意vue文件进行输出，显示</p>
+<template>
+  <div class="home">
+    <h1>这是count：</h1>
+    <h1>卖鱼的</h1>
+    <!-- <HelloWorld msg="Welcome to Your Vue.js App"/> -->
+  </div>
+</template>
+
+<script>
+// @ is an alias to /src
+
+export default {
+  name: 'HomeView',
+  created(){
+    console.log('count',this.$store.state.count);
+    console.log('userInfo',this.$store.state.userInfo);
+  }
+}
+</script>
+
+
+
+<h6 id="getters状态派生"><a href="#getters状态派生" class="headerlink" title="getters状态派生"></a>getters状态派生</h6><p>1、简介<br>有时候我们需要从 store 中的 state 中派生出一些状态，类似Vue中的computed计算属性的功能，例如：格式化数据等。</p>
 <p>处理数据：当我们想用或修改的数据，在多个组件或页面，且需要统一修改时，这个状态可以很方便进行修改。</p>
-<p>使用：$store.getters. 变量名</p>
-<p>2、参数<br />
-（1）state 参数：每个 getters 都是一个方法，接受 state 作为其第一个参数，用来访问 vuex 中的 state 数据</p>
-<p>import Vuex from 'vuex'<br />
-import Vue from 'vue'</p>
+<p>使用：$store.getters.变量名</p>
+<p>2、参数<br>（1）state参数：每个getters都是一个方法，接受 state 作为其第一个参数，用来访问vuex中的state数据</p>
+<p>import Vuex from ‘vuex’<br>import Vue from ‘vue’</p>
 <p>Vue.use(Vuex)</p>
-<p>const store = new Vuex.Store({<br />
-state:{<br />
-count:0,<br />
-userInfo:[<br />
-{<br />
-name:' 申小兮 ',<br />
-age:18,<br />
-},<br />
-{<br />
-name:' 老墨 ',<br />
-age:34,<br />
-},<br />
-]<br />
-},<br />
-getters:{<br />
-info(state){<br />
-console.log(state);<br />
-return  <code>告诉$&#123;state.userInfo[1].name&#125;，我想吃鱼了</code> <br />
-}<br />
-}<br />
-})</p>
+<p>const store &#x3D; new Vuex.Store({<br>    state:{<br>      count:0,<br>      userInfo:[<br>        {<br>            name:’申小兮’,<br>            age:18,<br>        },<br>        {<br>            name:’老墨’,<br>            age:34,<br>        },<br>      ]<br>    },<br>    getters:{<br>        info(state){<br>            console.log(state);<br>            return <code>告诉$&#123;state.userInfo[1].name&#125;，我想吃鱼了</code><br>        }<br>    }<br>  })</p>
 <p>export default store</p>
-<p>&lt;template&gt;<br />
-&lt;div class=&quot;home&quot;&gt;<br />
-&lt;h1&gt; 这是 count：&lt;/h1&gt;<br />
-&lt;h1&gt; 卖鱼的 &lt;/h1&gt;<br />
-&lt;h2&gt;&lt;/h2&gt;<br />
-&lt;!-- &lt;HelloWorld msg=&quot;Welcome to Your Vue.js App&quot;/&gt; --&gt;<br />
-&lt;/div&gt;<br />
-&lt;/template&gt;</p>
-<p>&lt;script&gt;<br />
-// @ is an alias to /src</p>
-<p>export default {<br />
-name: 'HomeView',<br />
-created(){<br />
-// console.log('count',this.<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>s</mi><mi>t</mi><mi>o</mi><mi>r</mi><mi>e</mi><mi mathvariant="normal">.</mi><mi>s</mi><mi>t</mi><mi>a</mi><mi>t</mi><mi>e</mi><mi mathvariant="normal">.</mi><mi>c</mi><mi>o</mi><mi>u</mi><mi>n</mi><mi>t</mi><mo stretchy="false">)</mo><mo separator="true">;</mo><mi mathvariant="normal">/</mi><mi mathvariant="normal">/</mi><mi>c</mi><mi>o</mi><mi>n</mi><mi>s</mi><mi>o</mi><mi>l</mi><mi>e</mi><mi mathvariant="normal">.</mi><mi>l</mi><mi>o</mi><mi>g</mi><msup><mo stretchy="false">(</mo><mo mathvariant="normal" lspace="0em" rspace="0em">′</mo></msup><mi>u</mi><mi>s</mi><mi>e</mi><mi>r</mi><mi>I</mi><mi>n</mi><mi>f</mi><msup><mi>o</mi><mo mathvariant="normal" lspace="0em" rspace="0em">′</mo></msup><mo separator="true">,</mo><mi>t</mi><mi>h</mi><mi>i</mi><mi>s</mi><mi mathvariant="normal">.</mi></mrow><annotation encoding="application/x-tex">store.state.count);
-    // console.log(&#x27;userInfo&#x27;,this.</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.001892em;vertical-align:-0.25em;"></span><span class="mord mathnormal">s</span><span class="mord mathnormal">t</span><span class="mord mathnormal">o</span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span><span class="mord mathnormal">e</span><span class="mord">.</span><span class="mord mathnormal">s</span><span class="mord mathnormal">t</span><span class="mord mathnormal">a</span><span class="mord mathnormal">t</span><span class="mord mathnormal">e</span><span class="mord">.</span><span class="mord mathnormal">c</span><span class="mord mathnormal">o</span><span class="mord mathnormal">u</span><span class="mord mathnormal">n</span><span class="mord mathnormal">t</span><span class="mclose">)</span><span class="mpunct">;</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord">/</span><span class="mord">/</span><span class="mord mathnormal">c</span><span class="mord mathnormal">o</span><span class="mord mathnormal">n</span><span class="mord mathnormal">s</span><span class="mord mathnormal">o</span><span class="mord mathnormal" style="margin-right:0.01968em;">l</span><span class="mord mathnormal">e</span><span class="mord">.</span><span class="mord mathnormal" style="margin-right:0.01968em;">l</span><span class="mord mathnormal">o</span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="mopen"><span class="mopen">(</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.751892em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">′</span></span></span></span></span></span></span></span></span><span class="mord mathnormal">u</span><span class="mord mathnormal">s</span><span class="mord mathnormal">e</span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span><span class="mord mathnormal" style="margin-right:0.07847em;">I</span><span class="mord mathnormal">n</span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="mord"><span class="mord mathnormal">o</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.751892em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">′</span></span></span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal">t</span><span class="mord mathnormal">h</span><span class="mord mathnormal">i</span><span class="mord mathnormal">s</span><span class="mord">.</span></span></span></span>store.state.userInfo);<br />
-console.log('getters',<span class="exturl" data-url="aHR0cDovL3RoaXMuJHN0b3JlLmdldHRlcnMuaW5mbw==">this.$store.getters.info</span>);<br />
-}<br />
-}<br />
-&lt;/script&gt;</p>
-<p>（2）getter 参数：获取自己本身的数据</p>
-<p>getters:{<br />
-info(state,getter){<br />
-console.log('state：',state);<br />
-console.log('getter：',getter);<br />
-return  <code>告诉$&#123;state.userInfo[1].name&#125;，我想吃鱼了</code> <br />
-}<br />
-}</p>
-<p>3、绑定点击改值事件<br />
-事件的错误使用</p>
-<p>&lt;template&gt;<br />
-&lt;div class=&quot;home&quot;&gt;<br />
-&lt;h1&gt; 这是 count：&lt;/h1&gt;<br />
-&lt;div&gt;<br />
-&lt;button @click=&quot;add&quot;&gt;+&lt;/button&gt;<br />
-&lt;button @click=&quot;sub&quot;&gt;-&lt;/button&gt;<br />
-&lt;/div&gt;<br />
-&lt;/div&gt;<br />
-&lt;/template&gt;</p>
-<p>&lt;script&gt;<br />
-export default {<br />
-name: 'HomeView',<br />
-created(){<br />
-console.log('getters',this.store.getters.info);
+<template>
+  <div class="home">
+    <h1>这是count：</h1>
+    <h1>卖鱼的</h1>
+    <h2></h2>
+    <!-- <HelloWorld msg="Welcome to Your Vue.js App"/> -->
+  </div>
+</template>
+
+<script>
+// @ is an alias to /src
+
+export default {
+  name: 'HomeView',
+  created(){
+    // console.log('count',this.$store.state.count);
+    // console.log('userInfo',this.$store.state.userInfo);
+    console.log('getters',this.$store.getters.info);
+  }
+}
+</script>
+
+
+
+<p> （2）getter参数：获取自己本身的数据</p>
+<p>getters:{<br>    info(state,getter){<br>        console.log(‘state：’,state);<br>        console.log(‘getter：’,getter);<br>        return <code>告诉$&#123;state.userInfo[1].name&#125;，我想吃鱼了</code><br>    }<br>}</p>
+<p>3、绑定点击改值事件<br>事件的错误使用</p>
+<template>
+  <div class="home">
+    <h1>这是count：</h1>
+    <div>
+      <button @click="add">+</button>
+      <button @click="sub">-</button>
+    </div>
+  </div>
+</template>
+
+<script>
+export default {
+  name: 'HomeView',
+  created(){
+    console.log('getters',this.$store.getters.info);
   },
   methods:{
     add(){
-      this.store.state.count++<br />
-},<br />
-sub(){</p>
-<pre><code>&#125;
-</code></pre>
-<p>}<br />
-}<br />
-&lt;/script&gt;</p>
-<p>观察上图发现：在点击改变 count 值时，虽然页面跟着变化了，但是 vuex 检测系统并没有变化，只有鼠标去触发才会更新</p>
-<p>那么怎样才能正确修改 count 值呢？这时候就要介绍第三个状态 mutations🧐</p>
-<h6 id="mutations状态修改"><a class="anchor" href="#mutations状态修改">#</a> mutations 状态修改</h6>
-<p>1、简介<br />
-更改 Vuex 的 store 中的状态的唯一方法是提交 mutation。每个 mutation 都有一个字符串的 事件类型 (type) 和 一个 回调函数 (handler)，类似 Vue【子向父通信】的 emit</p>
-<p>每个 mutations 都是一个方法，接受 state 作为第一个参数，payload 作为第二个参数</p>
-<p>（1）state：用来访问 vuex 中的 state 数据</p>
-<p>（2）payload：获取此次 mutation 提交的数据荷载</p>
-<p>注意：mutation 中不能在异步函数里修改 state 值，必须是同步函数</p>
-<p>2、使用<br />
-（1）提交形式：$store.commit (type, payload)</p>
-<p>（2）state 参数</p>
-<p>mutations:{<br />
-addCount(state){<br />
-console.log('M',state);<br />
-state.count++<br />
-}<br />
-}<br />
-add(){<br />
-this.$store.commit('addCount')<br />
-},<br />
-（3）payload 参数</p>
-<p>mutations:{<br />
-addCount(state,payload){<br />
-console.log('M',state);<br />
-state.count+=payload<br />
-}<br />
-}<br />
-add(){<br />
-this.$store.commit('addCount',10)<br />
-},</p>
-<p>（4）对象写法</p>
-<p>add(){<br />
-this.$store.commit({<br />
-type:'addCount',<br />
-num:10<br />
-})<br />
-},<br />
-mutations:{<br />
-addCount(state,payload){<br />
-console.log('M',state);<br />
-state.count+=payload.num<br />
-}<br />
-}<br />
- 3、模拟接口<br />
-（1）例子 1：接口是异步的，我们用定时器类比</p>
-<p>mutations:{<br />
-getStudentInfo(state){<br />
-setTimeout(()=&gt;{<br />
-let info = {name:&quot;张三&quot;,age:43}<br />
-state.studentInfo.push(info)<br />
-})<br />
-}<br />
-}<br />
-created(){<br />
-this.$store.commit('getStudentInfo')<br />
-},<br />
-&lt;h3&gt;&lt;/h3&gt;<br />
-（2） 例子 2：在异步中改变 count</p>
-<p>addCount(state,payload){<br />
-console.log('M',state);<br />
-setTimeout(()=&gt;{<br />
-state.count+=payload.num<br />
-})<br />
-},</p>
-<p>这时候发现，vue 编译器每次会比实际数据慢一次，这个问题是为什么？因为 mutation 无法处理异步问题</p>
-<p>注意：mutation 必须是同步函数，这时候就引出第四个状态 actions，来解决 mutation 的异步问题</p>
-<h6 id="actions状态修改"><a class="anchor" href="#actions状态修改">#</a> actions 状态修改</h6>
-<p>1、简介<br />
- Action 类似于 mutation，不同的是 Action 用于提交 mutation，而不是直接变更状态；且 Action 可以包含任意异步操作</p>
-<p>2、使用<br />
-每个 Action 都是一个方法，接受 context 作为第一个参数，payload 作为第二个参数</p>
-<p>（1）提交形式：$store.dispatch (type, payload)</p>
+      this.$store.state.count++
+    },
+    sub(){
+
+    }
+  }
+}
+</script>
+
+
+
+<p>观察上图发现：在点击改变count值时，虽然页面跟着变化了，但是vuex检测系统并没有变化，只有鼠标去触发才会更新</p>
+<p>那么怎样才能正确修改count值呢？这时候就要介绍第三个状态mutations🧐</p>
+<h6 id="mutations状态修改"><a href="#mutations状态修改" class="headerlink" title="mutations状态修改"></a>mutations状态修改</h6><p>1、简介<br>更改 Vuex 的 store 中的状态的唯一方法是提交 mutation。每个 mutation 都有一个字符串的 事件类型 (type) 和 一个 回调函数 (handler)，类似Vue【子向父通信】的emit</p>
+<p>每个mutations都是一个方法，接受 state 作为第一个参数，payload 作为第二个参数</p>
+<p>（1）state：用来访问vuex中的state数据</p>
+<p>（2）payload：获取此次mutation提交的数据荷载</p>
+<p>注意：mutation中不能在异步函数里修改state值，必须是同步函数</p>
+<p>2、使用<br>（1）提交形式：$store.commit(type, payload)</p>
+<p>（2）state参数</p>
+<p>mutations:{<br>    addCount(state){<br>        console.log(‘M’,state);<br>        state.count++<br>    }<br>}<br>add(){<br>    this.$store.commit(‘addCount’)<br>},<br>（3）payload参数</p>
+<p>mutations:{<br>    addCount(state,payload){<br>        console.log(‘M’,state);<br>        state.count+&#x3D;payload<br>    }<br>}<br>add(){<br>  this.$store.commit(‘addCount’,10)<br>},</p>
+<p> （4）对象写法</p>
+<p>add(){<br>  this.$store.commit({<br>    type:’addCount’,<br>    num:10<br>  })<br>},<br>mutations:{<br>    addCount(state,payload){<br>        console.log(‘M’,state);<br>        state.count+&#x3D;payload.num<br>    }<br>}<br>3、模拟接口<br>（1）例子1：接口是异步的，我们用定时器类比</p>
+<p>mutations:{<br>    getStudentInfo(state){<br>        setTimeout(()&#x3D;&gt;{<br>            let info &#x3D; {name:”张三”,age:43}<br>            state.studentInfo.push(info)<br>        })<br>    }<br>}<br>created(){<br>  this.$store.commit(‘getStudentInfo’)<br>},</p>
+<h3></h3>
+（2） 例子2：在异步中改变count
+
+<p>addCount(state,payload){<br>    console.log(‘M’,state);<br>    setTimeout(()&#x3D;&gt;{<br>        state.count+&#x3D;payload.num<br>    })<br>},</p>
+<p> 这时候发现，vue编译器每次会比实际数据慢一次，这个问题是为什么？因为mutation无法处理异步问题</p>
+<p>注意：mutation必须是同步函数，这时候就引出第四个状态actions，来解决mutation的异步问题</p>
+<h6 id="actions状态修改"><a href="#actions状态修改" class="headerlink" title="actions状态修改"></a>actions状态修改</h6><p>1、简介<br>Action 类似于 mutation，不同的是Action用于提交mutation，而不是直接变更状态；且Action 可以包含任意异步操作</p>
+<p>2、使用<br>每个Action都是一个方法，接受 context 作为第一个参数，payload 作为第二个参数</p>
+<p>（1）提交形式：$store.dispatch(type, payload)</p>
 <p>（2）参数</p>
-<p>①context 参数：store 实例对象，用以调用 mutation、访问 state</p>
-<p>②payload 参数：获取此次 mutation 提交的数据荷载</p>
-<p>（3）解决第六大点 mutations 无法解决的异步问题</p>
-<p>mutations:{<br />
-addCount(state,payload){<br />
-console.log('M',state);<br />
-state.count+=payload.num<br />
-},<br />
-getStudentInfo(state,payload){<br />
-state.studentInfo = payload<br />
-}<br />
-},<br />
-actions:{<br />
-getInfoApi(context){<br />
-setTimeout(()=&gt;{<br />
-let info = {name:&quot;张三&quot;,age:43}<br />
-context.commit('getStudentInfo',info)<br />
-})<br />
-},<br />
-addTime(context){<br />
-setTimeout(()=&gt;{<br />
-context.commit({type:'addCount',num:10})<br />
-})<br />
-}<br />
-}</p>
-<p>methods:{<br />
-add(){<br />
-this.store.dispatch('addTime')
-  },
-  sub(){
-    this.store.dispatch('getInfoApi')<br />
-}<br />
-}</p>
-<p>&lt;template&gt;<br />
-&lt;div class=&quot;home&quot;&gt;<br />
-&lt;h1&gt; 这是 count：&lt;/h1&gt;<br />
-&lt;div&gt;<br />
-&lt;button @click=&quot;add&quot;&gt;+&lt;/button&gt;<br />
-&lt;button @click=&quot;sub&quot;&gt;-&lt;/button&gt;<br />
-&lt;/div&gt;<br />
-&lt;h3&gt;&lt;/h3&gt;<br />
-&lt;/div&gt;<br />
-&lt;template&gt;</p>
+<p>①context参数：store实例对象，用以调用mutation、访问state</p>
+<p>②payload参数：获取此次mutation提交的数据荷载</p>
+<p>（3）解决第六大点mutations无法解决的异步问题</p>
+<p>mutations:{<br>    addCount(state,payload){<br>        console.log(‘M’,state);<br>        state.count+&#x3D;payload.num<br>    },<br>    getStudentInfo(state,payload){<br>        state.studentInfo &#x3D; payload<br>    }<br>},<br>actions:{<br>    getInfoApi(context){<br>        setTimeout(()&#x3D;&gt;{<br>            let info &#x3D; {name:”张三”,age:43}<br>            context.commit(‘getStudentInfo’,info)<br>        })<br>    },<br>    addTime(context){<br>        setTimeout(()&#x3D;&gt;{<br>            context.commit({type:’addCount’,num:10})<br>        })<br>    }<br>}</p>
+<p>methods:{<br>  add(){<br>    this.$store.dispatch(‘addTime’)<br>  },<br>  sub(){<br>    this.$store.dispatch(‘getInfoApi’)<br>  }<br>}</p>
+<template>
+  <div class="home">
+    <h1>这是count：</h1>
+    <div>
+      <button @click="add">+</button>
+      <button @click="sub">-</button>
+    </div>
+    <h3></h3>
+  </div>
+<template>
+
 <p>（5）几个状态使用的连接</p>
-<p>①State：存储数据。调用语句<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>s</mi><mi>t</mi><mi>o</mi><mi>r</mi><mi>e</mi><mi mathvariant="normal">.</mi><mi>s</mi><mi>t</mi><mi>a</mi><mi>t</mi><mi>e</mi><mi mathvariant="normal">.</mi><mtext>变量名②</mtext><mi>G</mi><mi>e</mi><mi>t</mi><mi>t</mi><mi>e</mi><mi>r</mi><mtext>：更好的处理数据，但是无法实时改变后台数据。调用语句</mtext></mrow><annotation encoding="application/x-tex">store.state.变量名
-②Getter：更好的处理数据，但是无法实时改变后台数据。调用语句</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal">s</span><span class="mord mathnormal">t</span><span class="mord mathnormal">o</span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span><span class="mord mathnormal">e</span><span class="mord">.</span><span class="mord mathnormal">s</span><span class="mord mathnormal">t</span><span class="mord mathnormal">a</span><span class="mord mathnormal">t</span><span class="mord mathnormal">e</span><span class="mord">.</span><span class="mord cjk_fallback">变</span><span class="mord cjk_fallback">量</span><span class="mord cjk_fallback">名</span><span class="mord">②</span><span class="mord mathnormal">G</span><span class="mord mathnormal">e</span><span class="mord mathnormal">t</span><span class="mord mathnormal">t</span><span class="mord mathnormal">e</span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span><span class="mord cjk_fallback">：</span><span class="mord cjk_fallback">更</span><span class="mord cjk_fallback">好</span><span class="mord cjk_fallback">的</span><span class="mord cjk_fallback">处</span><span class="mord cjk_fallback">理</span><span class="mord cjk_fallback">数</span><span class="mord cjk_fallback">据</span><span class="mord cjk_fallback">，</span><span class="mord cjk_fallback">但</span><span class="mord cjk_fallback">是</span><span class="mord cjk_fallback">无</span><span class="mord cjk_fallback">法</span><span class="mord cjk_fallback">实</span><span class="mord cjk_fallback">时</span><span class="mord cjk_fallback">改</span><span class="mord cjk_fallback">变</span><span class="mord cjk_fallback">后</span><span class="mord cjk_fallback">台</span><span class="mord cjk_fallback">数</span><span class="mord cjk_fallback">据</span><span class="mord cjk_fallback">。</span><span class="mord cjk_fallback">调</span><span class="mord cjk_fallback">用</span><span class="mord cjk_fallback">语</span><span class="mord cjk_fallback">句</span></span></span></span> store.getter. 变量名<br />
-③Mutation：任意更改 state 的数据，但是只允许同步函数。调用语句<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>s</mi><mi>t</mi><mi>o</mi><mi>r</mi><mi>e</mi><mi mathvariant="normal">.</mi><mi>c</mi><mi>o</mi><mi>m</mi><mi>m</mi><mi>i</mi><mi>t</mi><mo stretchy="false">(</mo><mi>t</mi><mi>y</mi><mi>p</mi><mi>e</mi><mo separator="true">,</mo><mi>p</mi><mi>a</mi><mi>y</mi><mi>l</mi><mi>o</mi><mi>a</mi><mi>d</mi><mo stretchy="false">)</mo><mtext>④</mtext><mi>A</mi><mi>c</mi><mi>t</mi><mi>i</mi><mi>o</mi><mi>n</mi><mtext>：不能改</mtext><mi>s</mi><mi>t</mi><mi>a</mi><mi>t</mi><mi>e</mi><mtext>数据，但是可以帮助</mtext><mi>m</mi><mi>u</mi><mi>t</mi><mi>a</mi><mi>t</mi><mi>i</mi><mi>o</mi><mi>n</mi><mtext>做异步操作。调用语句</mtext></mrow><annotation encoding="application/x-tex">store.commit(type, payload)
-④Action：不能改state数据，但是可以帮助mutation做异步操作。调用语句</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">s</span><span class="mord mathnormal">t</span><span class="mord mathnormal">o</span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span><span class="mord mathnormal">e</span><span class="mord">.</span><span class="mord mathnormal">c</span><span class="mord mathnormal">o</span><span class="mord mathnormal">m</span><span class="mord mathnormal">m</span><span class="mord mathnormal">i</span><span class="mord mathnormal">t</span><span class="mopen">(</span><span class="mord mathnormal">t</span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="mord mathnormal">p</span><span class="mord mathnormal">e</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal">p</span><span class="mord mathnormal">a</span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="mord mathnormal" style="margin-right:0.01968em;">l</span><span class="mord mathnormal">o</span><span class="mord mathnormal">a</span><span class="mord mathnormal">d</span><span class="mclose">)</span><span class="mord">④</span><span class="mord mathnormal">A</span><span class="mord mathnormal">c</span><span class="mord mathnormal">t</span><span class="mord mathnormal">i</span><span class="mord mathnormal">o</span><span class="mord mathnormal">n</span><span class="mord cjk_fallback">：</span><span class="mord cjk_fallback">不</span><span class="mord cjk_fallback">能</span><span class="mord cjk_fallback">改</span><span class="mord mathnormal">s</span><span class="mord mathnormal">t</span><span class="mord mathnormal">a</span><span class="mord mathnormal">t</span><span class="mord mathnormal">e</span><span class="mord cjk_fallback">数</span><span class="mord cjk_fallback">据</span><span class="mord cjk_fallback">，</span><span class="mord cjk_fallback">但</span><span class="mord cjk_fallback">是</span><span class="mord cjk_fallback">可</span><span class="mord cjk_fallback">以</span><span class="mord cjk_fallback">帮</span><span class="mord cjk_fallback">助</span><span class="mord mathnormal">m</span><span class="mord mathnormal">u</span><span class="mord mathnormal">t</span><span class="mord mathnormal">a</span><span class="mord mathnormal">t</span><span class="mord mathnormal">i</span><span class="mord mathnormal">o</span><span class="mord mathnormal">n</span><span class="mord cjk_fallback">做</span><span class="mord cjk_fallback">异</span><span class="mord cjk_fallback">步</span><span class="mord cjk_fallback">操</span><span class="mord cjk_fallback">作</span><span class="mord cjk_fallback">。</span><span class="mord cjk_fallback">调</span><span class="mord cjk_fallback">用</span><span class="mord cjk_fallback">语</span><span class="mord cjk_fallback">句</span></span></span></span> store.dispatch (type, payload)</p>
-<p>八、Module 模块化<br />
- 1、简介<br />
-（1）原因：由于使用单一状态树，应用的所有状态会集中到一个比较大的对象。当应用变得非常复杂时，store 对象就有可能变得相当臃肿。</p>
+<p>①State：存储数据。调用语句$store.state.变量名<br>②Getter：更好的处理数据，但是无法实时改变后台数据。调用语句$store.getter.变量名<br>③Mutation：任意更改state的数据，但是只允许同步函数。调用语句$store.commit(type, payload)<br>④Action：不能改state数据，但是可以帮助mutation做异步操作。调用语句$store.dispatch(type, payload)</p>
+<p>八、Module模块化<br>1、简介<br>（1）原因：由于使用单一状态树，应用的所有状态会集中到一个比较大的对象。当应用变得非常复杂时，store 对象就有可能变得相当臃肿。</p>
 <p>（2）解决：为了解决以上问题，Vuex 允许我们将 store 分割成模块（module）。每个模块拥有自己的 state、mutation、action、getter。</p>
-<p>2、理解<br />
-将 store 内的 state、mutation、action、getter 每个完整的对象分割成一个个单独的模块（module），然后写成一个变量导入。</p>
+<p>2、理解<br>将 store 内的state、mutation、action、getter每个完整的对象分割成一个个单独的模块（module），然后写成一个变量导入。</p>
 <p>通常是在做大项目时候才会用上</p>
-<p>3、例子<br />
-这里举一个简易的例子</p>
-<p>（1）将 state、mutation、action、getter 单独到外面</p>
-<p>import Vuex from &quot;vuex&quot;;<br />
-import Vue from &quot;vue&quot;;</p>
+<p>3、例子<br>这里举一个简易的例子</p>
+<p>（1）将state、mutation、action、getter单独到外面</p>
+<p>import Vuex from “vuex”;<br>import Vue from “vue”;</p>
 <p>Vue.use(Vuex);</p>
-<p>const moduleA = {<br />
-namespaced: true, // 命名空间<br />
- state: {<br />
-count: 0,<br />
-},<br />
-};</p>
-<p>const store = new Vuex.Store({<br />
-modules: {<br />
-a: moduleA,<br />
-},<br />
-});</p>
+<p>const moduleA &#x3D; {<br>  namespaced: true, &#x2F;&#x2F;命名空间<br>  state: {<br>    count: 0,<br>  },<br>};</p>
+<p>const store &#x3D; new Vuex.Store({<br>  modules: {<br>    a: moduleA,<br>  },<br>});</p>
 <p>export default store;</p>
 <p>（2）这时候获取及显示数据的写法要有所改变</p>
-<p>&lt;template&gt;<br />
-&lt;div class=&quot;about&quot;&gt;<br />
-&lt;h1&gt; 这是 count：&lt;/h1&gt;<br />
-&lt;!-- &lt;h1&gt;This is an about page&lt;/h1&gt; --&gt;<br />
-&lt;/div&gt;<br />
-&lt;/template&gt;<br />
-4、相关文档<br />
-小伙伴们可以查看文档，深入学习🧐</p>
-<p>Module | Vuex<br />
-Vue.js 的中心化状态管理方案<br />
-<span class="exturl" data-url="aHR0cHM6Ly92dWV4LnZ1ZWpzLm9yZy96aC9ndWlkZS9tb2R1bGVzLmh0bWw="> https://vuex.vuejs.org/zh/guide/modules.html</span></p>
-<p>九、拓展<br />
- 1、关于 vuex 编写登录模块的思想流程</p>
-<p>2、vue-cookie 的使用，小伙伴们可以在下面这个网站进行学习<br />
- ————————————————<br />
- 版权声明：本文为 CSDN 博主「五秒法则」的原创文章，遵循 CC 4.0 BY-SA 版权协议，转载请附上原文出处链接及本声明。<br />
-原文链接：<span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzUxNDc4NzQ1L2FydGljbGUvZGV0YWlscy8xMjk1ODI3MTc=">https://blog.csdn.net/qq_51478745/article/details/129582717</span></p>
+<template>
+  <div class="about">
+    <h1>这是count：</h1>
+    <!-- <h1>This is an about page</h1> -->
+  </div>
+</template>
+4、相关文档
+小伙伴们可以查看文档，深入学习🧐
+
+<p>Module | Vuex<br>Vue.js 的中心化状态管理方案<br><span class="exturl" data-url="aHR0cHM6Ly92dWV4LnZ1ZWpzLm9yZy96aC9ndWlkZS9tb2R1bGVzLmh0bWw=">https://vuex.vuejs.org/zh/guide/modules.html</span></p>
+<p>九、拓展<br>1、关于vuex编写登录模块的思想流程</p>
+<p> 2、vue-cookie的使用，小伙伴们可以在下面这个网站进行学习<br>————————————————<br>版权声明：本文为CSDN博主「五秒法则」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。<br>原文链接：<span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzUxNDc4NzQ1L2FydGljbGUvZGV0YWlscy8xMjk1ODI3MTc=">https://blog.csdn.net/qq_51478745/article/details/129582717</span></p>
 
       <div class="tags">
           <a href="/tags/Vue/" rel="tag"><i class="ic i-tag"></i> Vue</a>
@@ -940,7 +653,7 @@ Vue.js 的中心化状态管理方案<br />
     <div class="item left">
       
 
-  <a href="/2023/01/10/Sass/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;s3.uuu.ovh&#x2F;imgs&#x2F;2024&#x2F;04&#x2F;05&#x2F;5f5c15d0d8ceb4d1.jpg" title="Sass笔记">
+  <a href="/2023/01/10/Sass/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;s3.uuu.ovh&#x2F;imgs&#x2F;2024&#x2F;04&#x2F;06&#x2F;936b9e7ccd02d444.jpg" title="Sass笔记">
   <span class="type">上一篇</span>
   <span class="category"><i class="ic i-flag"></i> Sass</span>
   <h3>Sass笔记</h3>
@@ -950,7 +663,7 @@ Vue.js 的中心化状态管理方案<br />
     <div class="item right">
       
 
-  <a href="/2023/01/22/linux%E6%9C%8D%E5%8A%A1%E5%99%A8/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;s3.uuu.ovh&#x2F;imgs&#x2F;2024&#x2F;04&#x2F;06&#x2F;d8aa12b30683676e.jpg" title="Linux">
+  <a href="/2023/01/22/linux%E6%9C%8D%E5%8A%A1%E5%99%A8/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;s3.uuu.ovh&#x2F;imgs&#x2F;2024&#x2F;04&#x2F;12&#x2F;3368de466b008234.webp" title="Linux">
   <span class="type">下一篇</span>
   <span class="category"><i class="ic i-flag"></i> Linux</span>
   <h3>Linux</h3>
@@ -972,7 +685,7 @@ Vue.js 的中心化状态管理方案<br />
   <div class="panels">
     <div class="inner">
       <div class="contents panel pjax" data-title="文章目录">
-          <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#vue%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"><span class="toc-number">1.</span> <span class="toc-text"> Vue 注意事项</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#vue%E9%A1%B9%E7%9B%AE%E5%88%9B%E5%BB%BA%E8%BF%87%E7%A8%8B"><span class="toc-number">2.</span> <span class="toc-text"> Vue 项目创建过程：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#vue%E7%9F%A5%E8%AF%86%E7%82%B9"><span class="toc-number">3.</span> <span class="toc-text"> Vue 知识点</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E4%B8%80-vue%E9%A1%B9%E7%9B%AE%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="toc-number">3.0.0.0.1.</span> <span class="toc-text"> 一、vue 项目初始化：</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E4%BA%8C-vue%E7%BB%84%E4%BB%B6%E4%BD%BF%E7%94%A8"><span class="toc-number">3.0.0.0.2.</span> <span class="toc-text"> 二、vue 组件使用：</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E4%B8%89-vue%E4%B8%ADexport-default%E4%B8%AD%E7%9A%84%E5%B1%9E%E6%80%A7"><span class="toc-number">3.0.0.0.3.</span> <span class="toc-text"> 三、vue 中 export default 中的属性：</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E5%9B%9B-vue%E4%B8%AD%E4%BD%BF%E7%94%A8axios"><span class="toc-number">3.0.0.0.4.</span> <span class="toc-text"> 四、vue 中使用 axios</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E4%BA%94-%E5%8A%A8%E6%80%81%E7%BB%84%E4%BB%B6"><span class="toc-number">3.0.0.0.5.</span> <span class="toc-text"> 五、动态组件：</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E5%85%AD-%E7%BB%84%E4%BB%B6%E6%8F%92%E6%A7%BD"><span class="toc-number">3.0.0.0.6.</span> <span class="toc-text"> 六、组件插槽</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E4%B8%83-%E8%87%AA%E5%AE%9A%E4%B9%89%E6%8C%87%E4%BB%A4"><span class="toc-number">3.0.0.0.7.</span> <span class="toc-text"> 七、自定义指令</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E5%85%AB-%E7%88%B6%E5%AD%90%E7%BB%84%E4%BB%B6%E6%95%B0%E6%8D%AE%E4%BA%A4%E4%BA%92"><span class="toc-number">3.0.0.0.8.</span> <span class="toc-text"> 八、父子组件数据交互</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E4%B9%9D-%E5%88%87%E6%8D%A2%E7%BB%84%E4%BB%B6%E6%98%BE%E7%A4%BA"><span class="toc-number">3.0.0.0.9.</span> <span class="toc-text"> 九、切换组件显示</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E5%8D%81-vue%E7%BB%84%E4%BB%B6%E4%B9%8B%E9%97%B4%E4%BC%A0%E5%80%BC"><span class="toc-number">3.0.0.0.10.</span> <span class="toc-text"> 十、vue 组件之间传值</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%81%E4%B8%80-vue-router"><span class="toc-number">4.</span> <span class="toc-text"> 十一、Vue-router</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E5%8D%81%E4%BA%8C-%E8%B7%A8%E7%BB%84%E4%BB%B6%E4%BC%A0%E5%80%BC%E6%B2%A1%E6%9C%89%E5%BC%95%E7%94%A8%E5%85%B3%E7%B3%BB"><span class="toc-number">4.0.0.0.1.</span> <span class="toc-text"> 十二、跨组件传值（没有引用关系）</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E5%8D%81%E5%85%AD-vue-router%E8%B7%AF%E7%94%B1%E7%B3%BB%E7%BB%9F"><span class="toc-number">5.</span> <span class="toc-text"> 二十六、Vue-router 路由系统</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%86%E6%9E%90%E6%80%BB%E7%BB%93"><span class="toc-number">6.</span> <span class="toc-text"> **** 分析总结：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E9%83%A8%E5%88%86"><span class="toc-number">7.</span> <span class="toc-text"> 代码部分</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#vue%E9%A1%B9%E7%9B%AE%E5%B7%A5%E5%85%B7"><span class="toc-number">8.</span> <span class="toc-text"> Vue 项目工具</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#1-vant%E7%BB%84%E4%BB%B6%E5%BA%93%E7%A7%BB%E5%8A%A8%E7%AB%AFvue%E7%BB%84%E4%BB%B6%E5%BA%93"><span class="toc-number">8.0.0.0.1.</span> <span class="toc-text"> 1、vant 组件库（移动端 vue 组件库）</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#2-element-uipc%E7%AB%AFvue%E7%BB%84%E4%BB%B6%E5%BA%93"><span class="toc-number">8.0.0.0.2.</span> <span class="toc-text"> 2、element-ui（PC 端 vue 组件库）</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#3-postcss-vue%E9%A1%B9%E7%9B%AE%E6%8F%92%E4%BB%B6%E9%85%8D%E5%90%88webpack%E7%BF%BB%E8%AF%91css%E4%BB%A3%E7%A0%81"><span class="toc-number">8.0.0.0.3.</span> <span class="toc-text"> 3、postcss  （vue 项目插件，配合 webpack 翻译 css 代码）</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#vuex%E4%BB%8B%E7%BB%8D"><span class="toc-number">9.</span> <span class="toc-text"> Vuex 介绍</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#vuex%E5%9F%BA%E7%A1%80"><span class="toc-number">9.1.</span> <span class="toc-text"> Vuex 基础</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#vuex%E7%9A%84%E6%A8%A1%E5%9D%97"><span class="toc-number">9.1.1.</span> <span class="toc-text"> Vuex 的模块</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#store%E4%B8%ADstate-mutationscommit-actionsdispatch-gettersgetters-module-thisstorecommit%E5%AD%90%E6%A8%A1%E5%9D%97%E5%90%8D%E9%94%AE%E5%90%8D"><span class="toc-number">9.1.2.</span> <span class="toc-text"> （store 中：state、mutations（commit）、actions（dispatch）、getters（getters）、Module（ this.$store.commit（’子模块名 &#x2F; 键名‘））</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#1state%E6%95%B0%E6%8D%AE"><span class="toc-number">9.1.2.0.1.</span> <span class="toc-text"> 【1】 state  数据</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#2mutaitions%E4%BF%AE%E6%94%B9%E5%87%BD%E6%95%B0"><span class="toc-number">9.1.2.0.2.</span> <span class="toc-text"> 【2】 mutaitions  修改（函数）</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#3actions-%E5%BC%82%E6%AD%A5"><span class="toc-number">9.1.2.0.3.</span> <span class="toc-text"> 【3】 actions    异步</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#4getters%E8%AE%A1%E7%AE%97%E5%8C%85%E8%A3%85%E6%95%B0%E6%8D%AE"><span class="toc-number">9.1.2.0.4.</span> <span class="toc-text"> 【4】 getters  计算（包装数据）</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#5module%E6%A8%A1%E5%9D%97%E5%8C%96"><span class="toc-number">9.1.2.0.5.</span> <span class="toc-text"> 【5】 Module  模块化</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#6%E6%A8%A1%E5%9D%97%E5%8C%96%E4%B8%AD%E7%9A%84namespaced%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4"><span class="toc-number">9.1.2.0.6.</span> <span class="toc-text"> 【6】模块化中的 namespaced  命名空间</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">9.2.</span> <span class="toc-text"> </span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8-%E9%85%8D%E7%BD%AEvuex"><span class="toc-number">9.3.</span> <span class="toc-text"> 使用、配置 Vuex</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#mainjs%E4%B8%AD%E9%85%8D%E7%BD%AE%E7%BB%84%E4%BB%B6%E9%80%9A%E8%BF%87thisstore%E8%8E%B7%E5%BE%97"><span class="toc-number">9.3.1.</span> <span class="toc-text"> (main.js 中配置，组件通过 this.$store 获得)</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A1%B9%E7%9B%AE%E4%B8%AD%E4%BD%BF%E7%94%A8vuex"><span class="toc-number">9.4.</span> <span class="toc-text"> 项目中使用 vuex</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E5%B0%81%E8%A3%85"><span class="toc-number">9.4.0.0.1.</span> <span class="toc-text"> 封装</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#getters%E7%8A%B6%E6%80%81%E6%B4%BE%E7%94%9F"><span class="toc-number">9.4.0.0.2.</span> <span class="toc-text"> getters 状态派生</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#mutations%E7%8A%B6%E6%80%81%E4%BF%AE%E6%94%B9"><span class="toc-number">9.4.0.0.3.</span> <span class="toc-text"> mutations 状态修改</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#actions%E7%8A%B6%E6%80%81%E4%BF%AE%E6%94%B9"><span class="toc-number">9.4.0.0.4.</span> <span class="toc-text"> actions 状态修改</span></a></li></ol></li></ol></li></ol></li></ol></li></ol>
+          <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Vue%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"><span class="toc-number">1.</span> <span class="toc-text">Vue注意事项</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Vue%E9%A1%B9%E7%9B%AE%E5%88%9B%E5%BB%BA%E8%BF%87%E7%A8%8B%EF%BC%9A"><span class="toc-number">2.</span> <span class="toc-text">Vue项目创建过程：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Vue%E7%9F%A5%E8%AF%86%E7%82%B9"><span class="toc-number">3.</span> <span class="toc-text">Vue知识点</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E4%B8%80%E3%80%81vue%E9%A1%B9%E7%9B%AE%E5%88%9D%E5%A7%8B%E5%8C%96%EF%BC%9A"><span class="toc-number">3.0.0.0.1.</span> <span class="toc-text">一、vue项目初始化：</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E4%BA%8C%E3%80%81vue%E7%BB%84%E4%BB%B6%E4%BD%BF%E7%94%A8%EF%BC%9A"><span class="toc-number">3.0.0.0.2.</span> <span class="toc-text">二、vue组件使用：</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E4%B8%89%E3%80%81vue%E4%B8%ADexport-default%E4%B8%AD%E7%9A%84%E5%B1%9E%E6%80%A7%EF%BC%9A"><span class="toc-number">3.0.0.0.3.</span> <span class="toc-text">三、vue中export default中的属性：</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E5%9B%9B%E3%80%81vue%E4%B8%AD%E4%BD%BF%E7%94%A8axios"><span class="toc-number">3.0.0.0.4.</span> <span class="toc-text">四、vue中使用axios</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E4%BA%94%E3%80%81%E5%8A%A8%E6%80%81%E7%BB%84%E4%BB%B6%EF%BC%9A"><span class="toc-number">3.0.0.0.5.</span> <span class="toc-text">五、动态组件：</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E5%85%AD%E3%80%81%E7%BB%84%E4%BB%B6%E6%8F%92%E6%A7%BD"><span class="toc-number">3.0.0.0.6.</span> <span class="toc-text">六、组件插槽</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E4%B8%83%E3%80%81%E8%87%AA%E5%AE%9A%E4%B9%89%E6%8C%87%E4%BB%A4"><span class="toc-number">3.0.0.0.7.</span> <span class="toc-text">七、自定义指令</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E5%85%AB%E3%80%81%E7%88%B6%E5%AD%90%E7%BB%84%E4%BB%B6%E6%95%B0%E6%8D%AE%E4%BA%A4%E4%BA%92"><span class="toc-number">3.0.0.0.8.</span> <span class="toc-text">八、父子组件数据交互</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E4%B9%9D%E3%80%81%E5%88%87%E6%8D%A2%E7%BB%84%E4%BB%B6%E6%98%BE%E7%A4%BA"><span class="toc-number">3.0.0.0.9.</span> <span class="toc-text">九、切换组件显示</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E5%8D%81%E3%80%81vue%E7%BB%84%E4%BB%B6%E4%B9%8B%E9%97%B4%E4%BC%A0%E5%80%BC"><span class="toc-number">3.0.0.0.10.</span> <span class="toc-text">十、vue组件之间传值</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%81%E4%B8%80%E3%80%81Vue-router"><span class="toc-number">4.</span> <span class="toc-text">十一、Vue-router</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E5%8D%81%E4%BA%8C%E3%80%81%E8%B7%A8%E7%BB%84%E4%BB%B6%E4%BC%A0%E5%80%BC%EF%BC%88%E6%B2%A1%E6%9C%89%E5%BC%95%E7%94%A8%E5%85%B3%E7%B3%BB%EF%BC%89"><span class="toc-number">4.0.0.0.1.</span> <span class="toc-text">十二、跨组件传值（没有引用关系）</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E5%8D%81%E5%85%AD%E3%80%81Vue-router%E8%B7%AF%E7%94%B1%E7%B3%BB%E7%BB%9F"><span class="toc-number">5.</span> <span class="toc-text">二十六、Vue-router路由系统</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%86%E6%9E%90%E6%80%BB%E7%BB%93%EF%BC%9A"><span class="toc-number">6.</span> <span class="toc-text">****分析总结：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E9%83%A8%E5%88%86"><span class="toc-number">7.</span> <span class="toc-text">代码部分</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Vue%E9%A1%B9%E7%9B%AE%E5%B7%A5%E5%85%B7"><span class="toc-number">8.</span> <span class="toc-text">Vue项目工具</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#1%E3%80%81vant%E7%BB%84%E4%BB%B6%E5%BA%93%EF%BC%88%E7%A7%BB%E5%8A%A8%E7%AB%AFvue%E7%BB%84%E4%BB%B6%E5%BA%93%EF%BC%89"><span class="toc-number">8.0.0.0.1.</span> <span class="toc-text">1、vant组件库（移动端vue组件库）</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#2%E3%80%81element-ui%EF%BC%88PC%E7%AB%AFvue%E7%BB%84%E4%BB%B6%E5%BA%93%EF%BC%89"><span class="toc-number">8.0.0.0.2.</span> <span class="toc-text">2、element-ui（PC端vue组件库）</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#3%E3%80%81postcss-%EF%BC%88vue%E9%A1%B9%E7%9B%AE%E6%8F%92%E4%BB%B6%EF%BC%8C%E9%85%8D%E5%90%88webpack%E7%BF%BB%E8%AF%91css%E4%BB%A3%E7%A0%81%EF%BC%89"><span class="toc-number">8.0.0.0.3.</span> <span class="toc-text">3、postcss  （vue项目插件，配合webpack翻译css代码）</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Vuex%E4%BB%8B%E7%BB%8D"><span class="toc-number">9.</span> <span class="toc-text">Vuex介绍</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Vuex%E5%9F%BA%E7%A1%80"><span class="toc-number">9.1.</span> <span class="toc-text">Vuex基础</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Vuex%E7%9A%84%E6%A8%A1%E5%9D%97"><span class="toc-number">9.1.1.</span> <span class="toc-text">Vuex的模块</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%EF%BC%88store%E4%B8%AD%EF%BC%9Astate%E3%80%81mutations%EF%BC%88commit%EF%BC%89%E3%80%81actions%EF%BC%88dispatch%EF%BC%89%E3%80%81getters%EF%BC%88getters%EF%BC%89%E3%80%81Module%EF%BC%88-this-store-commit%EF%BC%88%E2%80%99%E5%AD%90%E6%A8%A1%E5%9D%97%E5%90%8D-x2F-%E9%94%AE%E5%90%8D%E2%80%98%EF%BC%89%EF%BC%89"><span class="toc-number">9.1.2.</span> <span class="toc-text">（store中：state、mutations（commit）、actions（dispatch）、getters（getters）、Module（ this.$store.commit（’子模块名&#x2F;键名‘））</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E3%80%901%E3%80%91state%E6%95%B0%E6%8D%AE"><span class="toc-number">9.1.2.0.1.</span> <span class="toc-text">【1】state数据</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E3%80%902%E3%80%91mutaitions%E4%BF%AE%E6%94%B9%EF%BC%88%E5%87%BD%E6%95%B0%EF%BC%89"><span class="toc-number">9.1.2.0.2.</span> <span class="toc-text">【2】mutaitions修改（函数）</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E3%80%903%E3%80%91actions-%E5%BC%82%E6%AD%A5"><span class="toc-number">9.1.2.0.3.</span> <span class="toc-text">【3】actions   异步</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E3%80%904%E3%80%91getters%E8%AE%A1%E7%AE%97%EF%BC%88%E5%8C%85%E8%A3%85%E6%95%B0%E6%8D%AE%EF%BC%89"><span class="toc-number">9.1.2.0.4.</span> <span class="toc-text">【4】getters计算（包装数据）</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E3%80%905%E3%80%91Module%E6%A8%A1%E5%9D%97%E5%8C%96"><span class="toc-number">9.1.2.0.5.</span> <span class="toc-text">【5】Module模块化</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E3%80%906%E3%80%91%E6%A8%A1%E5%9D%97%E5%8C%96%E4%B8%AD%E7%9A%84namespaced%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4"><span class="toc-number">9.1.2.0.6.</span> <span class="toc-text">【6】模块化中的namespaced命名空间</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">9.2.</span> <span class="toc-text"></span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E3%80%81%E9%85%8D%E7%BD%AEVuex"><span class="toc-number">9.3.</span> <span class="toc-text">使用、配置Vuex</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#main-js%E4%B8%AD%E9%85%8D%E7%BD%AE%EF%BC%8C%E7%BB%84%E4%BB%B6%E9%80%9A%E8%BF%87this-store%E8%8E%B7%E5%BE%97"><span class="toc-number">9.3.1.</span> <span class="toc-text">(main.js中配置，组件通过this.$store获得 )</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number"></span> <span class="toc-text">这是count：</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E5%B0%81%E8%A3%85"><span class="toc-number">0.0.0.0.1.</span> <span class="toc-text">封装</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number"></span> <span class="toc-text">这是count：</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number"></span> <span class="toc-text">卖鱼的</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#getters%E7%8A%B6%E6%80%81%E6%B4%BE%E7%94%9F"><span class="toc-number">0.0.0.0.1.</span> <span class="toc-text">getters状态派生</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number"></span> <span class="toc-text">这是count：</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number"></span> <span class="toc-text">卖鱼的</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text"></span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number"></span> <span class="toc-text">这是count：</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#mutations%E7%8A%B6%E6%80%81%E4%BF%AE%E6%94%B9"><span class="toc-number">0.0.0.0.1.</span> <span class="toc-text">mutations状态修改</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">0.1.</span> <span class="toc-text"></span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#actions%E7%8A%B6%E6%80%81%E4%BF%AE%E6%94%B9"><span class="toc-number">0.1.0.0.1.</span> <span class="toc-text">actions状态修改</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number"></span> <span class="toc-text">这是count：</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">0.1.</span> <span class="toc-text"></span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number"></span> <span class="toc-text">这是count：</span></a>
       </div>
       <div class="related panel pjax" data-title="系列文章">
         <ul>
@@ -1090,40 +803,40 @@ Vue.js 的中心化状态管理方案<br />
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/Linux/" title="分类于 Linux">Linux</a>
+<a href="/categories/%E8%84%9A%E6%89%8B%E6%9E%B6%E5%BC%80%E5%8F%91/" title="分类于 脚手架开发">脚手架开发</a>
 </div>
 
-    <span><a href="/2023/01/22/linux%E6%9C%8D%E5%8A%A1%E5%99%A8/" title="Linux">Linux</a></span>
+    <span><a href="/2024/03/30/%E6%9C%AC%E5%9C%B0%E6%96%87%E4%BB%B6%E9%93%BE%E6%8E%A5/" title="本地文件链接">本地文件链接</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/%E5%AE%B9%E5%99%A8%E5%8C%96%E8%BF%90%E7%BB%B4%E6%93%8D%E4%BD%9C/" title="分类于 容器化运维操作">容器化运维操作</a>
+<a href="/categories/vue/" title="分类于 vue">vue</a>
 </div>
 
-    <span><a href="/2024/02/02/%E5%AE%B9%E5%99%A8%E5%8C%96%E8%BF%90%E7%BB%B4%E6%93%8D%E4%BD%9C/" title="容器化运维操作">容器化运维操作</a></span>
+    <span><a href="/2023/11/02/vue%E5%8E%9F%E7%90%86/" title="vue原理">vue原理</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/%E7%AE%97%E6%B3%95/" title="分类于 算法">算法</a>
+<a href="/categories/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/" title="分类于 性能优化">性能优化</a>
 </div>
 
-    <span><a href="/2023/12/02/%E7%AE%97%E6%B3%95/" title="算法与数据结构">算法与数据结构</a></span>
+    <span><a href="/2024/05/11/%E6%80%A7%E8%83%BD%E6%8C%87%E6%A0%87/" title="性能指标">性能指标</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/%E4%B8%9A%E5%8A%A1%E5%A4%84%E7%90%86/" title="分类于 业务处理">业务处理</a>
+<a href="/categories/eslint/" title="分类于 eslint">eslint</a>
 </div>
 
-    <span><a href="/2024/03/29/%E6%9C%AC%E5%9C%B0%E9%A2%84%E8%A7%88%E5%9B%BE%E7%89%87/" title="本地预览图片">本地预览图片</a></span>
+    <span><a href="/2024/05/17/eslint%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90/" title="eslint源码">eslint源码</a></span>
   </li>
 
       
@@ -1140,50 +853,50 @@ Vue.js 的中心化状态管理方案<br />
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/" title="分类于 计算机组成原理">计算机组成原理</a>
+<a href="/categories/JS%E5%BA%95%E5%B1%82/" title="分类于 JS底层">JS底层</a>
 </div>
 
-    <span><a href="/2024/01/02/%E7%BC%93%E5%AD%98%E3%80%81%E5%86%85%E5%AD%98%E3%80%81CPU%E7%9F%A5%E8%AF%86%E7%82%B9%E8%A7%A3%E6%9E%90%E7%AC%94%E8%AE%B0/" title="计组知识点">计组知识点</a></span>
+    <span><a href="/2023/06/02/new%E5%85%B3%E9%94%AE%E5%AD%97/" title="new关键字的实现">new关键字的实现</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/whistle/" title="分类于 whistle">whistle</a>
+<a href="/categories/%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90%E4%B8%8E%E9%83%A8%E7%BD%B2/" title="分类于 持续集成与部署">持续集成与部署</a>
 </div>
 
-    <span><a href="/2024/05/17/whistle%E4%BD%BF%E7%94%A8/" title="whistle抓包">whistle抓包</a></span>
+    <span><a href="/2024/02/03/%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90%E4%B8%8E%E6%8C%81%E7%BB%AD%E9%83%A8%E7%BD%B2/" title="持续集成与持续部署">持续集成与持续部署</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/webpack/" title="分类于 webpack">webpack</a>
+<a href="/categories/Sass/" title="分类于 Sass">Sass</a>
 </div>
 
-    <span><a href="/2023/10/21/webpack/" title="webpack笔记">webpack笔记</a></span>
+    <span><a href="/2023/01/10/Sass/" title="Sass笔记">Sass笔记</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" title="分类于 正则表达式">正则表达式</a>
+<a href="/categories/%E7%AE%97%E6%B3%95/" title="分类于 算法">算法</a>
 </div>
 
-    <span><a href="/2024/01/10/%E6%AD%A3%E5%88%99/" title="正则编写方式">正则编写方式</a></span>
+    <span><a href="/2023/12/02/%E7%AE%97%E6%B3%95/" title="算法与数据结构">算法与数据结构</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/git/" title="分类于 git">git</a>
+<a href="/categories/JS/" title="分类于 JS">JS</a>
 </div>
 
-    <span><a href="/2023/05/02/git%20github%E7%AC%94%E8%AE%B0%EF%BC%88%E6%A6%82%E5%BF%B5%EF%BC%89/" title="git笔记">git笔记</a></span>
+    <span><a href="/2024/02/02/serviceWorker/" title="serviceWorker">serviceWorker</a></span>
   </li>
 
   </ul>

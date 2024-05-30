@@ -102,12 +102,12 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
       </div>
       <div id="imgs" class="pjax">
         <ul>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/05/ec66a7160398848b.webp"></li>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/06/109323f5add23044.jpg"></li>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/13/7056b573eacc540d.jpg"></li>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/07/d94cad8780c8c094.jpg"></li>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/07/be4bd9184664725b.webp"></li>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/04/4b93d7d24397b567.jpg"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/06/ae2b485c961ddd62.jpg"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/06/936b9e7ccd02d444.jpg"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/15/3ad1c5ee17b91ba4.webp"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/06/63e9f1e7097ba6fb.jpg"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/25/1b093314ebaab948.jpg"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/28/b9f6c169ea5daebe.webp"></li>
         </ul>
       </div>
     </header>
@@ -153,167 +153,267 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
   <div class="body md" itemprop="articleBody">
     
 
-    <h1 id="中前台通用项目"><a class="anchor" href="#中前台通用项目">#</a> 中前台通用项目</h1>
-<h1 id="一-工具和包"><a class="anchor" href="#一-工具和包">#</a> 一、工具和包</h1>
-<h2 id="vite"><a class="anchor" href="#vite">#</a> vite</h2>
-<p><strong>一、介绍</strong></p>
-<p>webpack 进行构建时，默认只会抓取并构建整个应用，然后才能提供服务，项目构建时慢、且项目中任何错误都会影响到整个项目的构建，此外 webpack 是基于 node.js 的打包工具 (vue-cli 基于 webpack)，其中可以使用 CommonJS 的语法。而 Vite 是一个基于 ES 模块的构建工具，它不再依赖于 CommonJS 规范。</p>
-<p><code>**vite**</code>  <strong>不会在一开始就构建你的整个项目</strong>，而是会将应用中的模块区分为 <strong>依赖</strong> 和 <strong>源码（项目代码）</strong> 两部分，对于 <strong>源码</strong> 部分，它会根据 <strong>路由来拆分</strong> 代码模块，只会去构建一开始就必须要构建的内容。</p>
-<p><code>vite</code>  以  <span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvZW4tVVMvZG9jcy9XZWIvSmF2YVNjcmlwdC9HdWlkZS9Nb2R1bGVz">原生 ESM</span> 的方式为浏览器提供源码，让浏览器接管了 <strong>打包</strong> 的部分工作。</p>
-<p>** 问题：** 早期版本不支持 CommonJS 的语法，导致依赖都无法使用</p>
-<p><strong>解决：</strong> <code>vite</code>  在后期提供了 <span class="exturl" data-url="aHR0cHM6Ly9jbi52aXRlanMuZGV2L2d1aWRlL2RlcC1wcmUtYnVuZGxpbmcuaHRtbA==">依赖预构建</span> 的功能，其中一个非常重要的目的就是为了解决 <strong>CommonJS 和 UMD 兼容性</strong> 问题。目前  <code>vite</code>  会先将  <code>CommonJS 或 UMD 发布的依赖项转换为 ESM</code>  之后，再重新进行编译。这也可以理解为 <strong>速度对业务的一个妥协</strong>。</p>
+    <h1 id="中前台通用项目"><a href="#中前台通用项目" class="headerlink" title="中前台通用项目"></a>中前台通用项目</h1><h1 id="一、工具和包"><a href="#一、工具和包" class="headerlink" title="一、工具和包"></a>一、工具和包</h1><h2 id="vite"><a href="#vite" class="headerlink" title="vite"></a>vite</h2><p><strong>一、介绍</strong></p>
+<p>webpack进行构建时，默认只会抓取并构建整个应用，然后才能提供服务，项目构建时慢、且项目中任何错误都会影响到整个项目的构建，此外webpack是基于node.js的打包工具 (vue-cli基于webpack)，其中可以使用CommonJS的语法。而Vite是一个基于ES模块的构建工具，它不再依赖于CommonJS规范。</p>
+<p><code>**vite**</code> <strong>不会在一开始就构建你的整个项目</strong>，而是会将应用中的模块区分为 <strong>依赖</strong> 和 <strong>源码（项目代码）</strong> 两部分，对于 <strong>源码</strong> 部分，它会根据 <strong>路由来拆分</strong> 代码模块，只会去构建一开始就必须要构建的内容。</p>
+<p><code>vite</code> 以  <span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvZW4tVVMvZG9jcy9XZWIvSmF2YVNjcmlwdC9HdWlkZS9Nb2R1bGVz">原生 ESM</span> 的方式为浏览器提供源码，让浏览器接管了 <strong>打包</strong> 的部分工作。</p>
+<p><strong>问题：</strong>早期版本不支持CommonJS的语法，导致依赖都无法使用</p>
+<p><strong>解决：</strong><code>vite</code> 在后期提供了 <span class="exturl" data-url="aHR0cHM6Ly9jbi52aXRlanMuZGV2L2d1aWRlL2RlcC1wcmUtYnVuZGxpbmcuaHRtbA==">依赖预构建</span> 的功能，其中一个非常重要的目的就是为了解决 <strong>CommonJS 和 UMD 兼容性</strong> 问题。目前 <code>vite</code> 会先将 <code>CommonJS 或 UMD 发布的依赖项转换为 ESM</code> 之后，再重新进行编译。这也可以理解为 <strong>速度对业务的一个妥协</strong>。</p>
 <p><strong>二、使用</strong></p>
-<p>1、vite 中需要在 vite.config.js 中配置 @符号表示根路径</p>
-<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token comment">//       在 defineConfig 中进行配置：</span></pre></td></tr><tr><td data-num="2"></td><td><pre> <span class="token comment">// 软链接</span></pre></td></tr><tr><td data-num="3"></td><td><pre>  <span class="token literal-property property">resolve</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="4"></td><td><pre>    <span class="token literal-property property">alias</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="5"></td><td><pre>      <span class="token string-property property">'@'</span><span class="token operator">:</span> <span class="token function">join</span><span class="token punctuation">(</span>__dirname<span class="token punctuation">,</span> <span class="token string">'/src'</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="6"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="7"></td><td><pre>  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span></pre></td></tr></table></figure><p>2、vite 中通过 import.meta 获取到元信息，如环境变量的获取： <code>import.meta.env.VITE_BASE_API</code>  ，批量导入函数：</p>
-<p><code>import.meta.globEager('./modules/*.js')</code></p>
-<p>3、vite-plugin-svg-icons 插件中使用 createSvgIconsPlugin 进行批量注册文件夹中的 svg 图标 （在 vite.config.js 中配置 plugins）</p>
-<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token literal-property property">plugins</span><span class="token operator">:</span> <span class="token punctuation">[</span></pre></td></tr><tr><td data-num="2"></td><td><pre>    <span class="token function">vue</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="3"></td><td><pre>    <span class="token function">createSvgIconsPlugin</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="4"></td><td><pre>      <span class="token comment">// 指定需要缓存的图标文件夹</span></pre></td></tr><tr><td data-num="5"></td><td><pre>      <span class="token literal-property property">iconDirs</span><span class="token operator">:</span> <span class="token punctuation">[</span>path<span class="token punctuation">.</span><span class="token function">resolve</span><span class="token punctuation">(</span>process<span class="token punctuation">.</span><span class="token function">cwd</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">'src/assets/icons'</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="6"></td><td><pre>      <span class="token comment">// 指定 symbolId 格式</span></pre></td></tr><tr><td data-num="7"></td><td><pre>      <span class="token literal-property property">symbolId</span><span class="token operator">:</span> <span class="token string">'icon-[name]'</span></pre></td></tr><tr><td data-num="8"></td><td><pre>    <span class="token punctuation">&#125;</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="9"></td><td><pre>  <span class="token punctuation">]</span><span class="token punctuation">,</span></pre></td></tr></table></figure><p>4. 代理服务器 （在 vite.config.js 中的 defineConfig 中配置：）</p>
-<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token literal-property property">server</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="2"></td><td><pre>    <span class="token literal-property property">proxy</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="3"></td><td><pre>      <span class="token comment">// 代理所有 /api 的请求，该求情将被代理到 target 中</span></pre></td></tr><tr><td data-num="4"></td><td><pre>      <span class="token string-property property">'/api'</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="5"></td><td><pre>        <span class="token comment">// 代理请求之后的请求地址</span></pre></td></tr><tr><td data-num="6"></td><td><pre>        <span class="token literal-property property">target</span><span class="token operator">:</span> <span class="token string">'https://api.imooc-front.lgdsunday.club/'</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="7"></td><td><pre>        <span class="token comment">// target: 'http://127.0.0.1:3005/',</span></pre></td></tr><tr><td data-num="8"></td><td><pre>        <span class="token comment">// 跨域</span></pre></td></tr><tr><td data-num="9"></td><td><pre>        <span class="token literal-property property">changeOrigin</span><span class="token operator">:</span> <span class="token boolean">true</span></pre></td></tr><tr><td data-num="10"></td><td><pre>      <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="11"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="12"></td><td><pre>  <span class="token punctuation">&#125;</span></pre></td></tr></table></figure><p>5、环境配置文件 <code>.env.development</code>  开发环境文件和 <code>.env.production</code>  生产环境文件 等</p>
+<p>1、vite中需要在vite.config.js中配置@符号表示根路径</p>
+<pre><code class="js">//       在defineConfig中进行配置：
+ // 软链接
+  resolve: &#123;
+    alias: &#123;
+      &#39;@&#39;: join(__dirname, &#39;/src&#39;)
+    &#125;
+  &#125;,
+</code></pre>
+<p>2、vite中通过import.meta获取到元信息，如环境变量的获取：<code>import.meta.env.VITE_BASE_API</code> ，批量导入函数：</p>
+<p><code>import.meta.globEager(&#39;./modules/*.js&#39;)</code></p>
+<p>3、vite-plugin-svg-icons插件中使用createSvgIconsPlugin进行批量注册文件夹中的svg图标 （在vite.config.js中配置plugins）</p>
+<pre><code class="js"> plugins: [
+    vue(),
+    createSvgIconsPlugin(&#123;
+      // 指定需要缓存的图标文件夹
+      iconDirs: [path.resolve(process.cwd(), &#39;src/assets/icons&#39;)],
+      // 指定symbolId格式
+      symbolId: &#39;icon-[name]&#39;
+    &#125;)
+  ],
+</code></pre>
+<p>4.代理服务器 （在vite.config.js中的defineConfig中配置：）</p>
+<pre><code class="js">server: &#123;
+    proxy: &#123;
+      // 代理所有 /api 的请求，该求情将被代理到 target 中
+      &#39;/api&#39;: &#123;
+        // 代理请求之后的请求地址
+        target: &#39;https://api.imooc-front.lgdsunday.club/&#39;,
+        // target: &#39;http://127.0.0.1:3005/&#39;,
+        // 跨域
+        changeOrigin: true
+      &#125;
+    &#125;
+  &#125;
+</code></pre>
+<p>5、环境配置文件<code>.env.development</code> 开发环境文件和<code>.env.production</code> 生产环境文件 等</p>
 <p>作用：区分不同环境下的变量，比如开发环境下需要使用任意修改的假数据，但是生产环境下需要使用真实数据</p>
-<p>使用：只有以 <code>VITE_</code>  为前缀的变量，才会暴露给 vite 进行处理，使用时使用 <code>import.meta.env.变量名</code></p>
-<h2 id="tailwindcss"><a class="anchor" href="#tailwindcss">#</a> tailwindcss</h2>
-<p><strong>一、优势：</strong></p>
-<p>如果期望在整个项目中进行统一的划分，这样的一套变量通过 css 来实现，就不得不维护一个庞大的变量组，除此之外还有很多其他的问题，此时 tailwindcss 的优势就体现出来了</p>
+<p>使用：只有以<code>VITE_</code> 为前缀的变量，才会暴露给vite进行处理，使用时使用<code>import.meta.env.变量名</code></p>
+<h2 id="tailwindcss"><a href="#tailwindcss" class="headerlink" title="tailwindcss"></a>tailwindcss</h2><p><strong>一、优势：</strong></p>
+<p>如果期望在整个项目中进行统一的划分，这样的一套变量通过css来实现，就不得不维护一个庞大的变量组，除此之外还有很多其他的问题，此时tailwindcss的优势就体现出来了</p>
 <p><strong>二、简介：</strong></p>
-<p>tailwindcss 提供了很多类名，每一个类名对应一个具体的 css 内容，设计理念为：<strong>原子化 css</strong>，css 设计粒度上有 4 中形式，<strong>颗粒度自上而下逐渐增大，颗粒度越大则约束行越高，可定制性越弱</strong></p>
-<p>css 设计粒度的四种形式：</p>
+<p>tailwindcss提供了很多类名，每一个类名对应一个具体的css内容，设计理念为：<strong>原子化css</strong>，css设计粒度上有4中形式，<strong>颗粒度自上而下逐渐增大，颗粒度越大则约束行越高，可定制性越弱</strong></p>
+<p>css设计粒度的四种形式：</p>
 <p>①<strong>行内样式</strong>：样式全部写入行内，自由度最高，可定制化最强，但是不方便复用。</p>
-<p>②<strong>原子化 css</strong>：每一个类名代表一个 css 属性，自由度很强，可定义化很高，也方便复用，但是大量样式会导致大量的类名</p>
-<p>③<strong>传统形式</strong>：通过一些 class 来描述一段 css 属性，封装性强，语义化强，自由度和可定制化性一般</p>
+<p>②<strong>原子化css</strong>：每一个类名代表一个css属性，自由度很强，可定义化很高，也方便复用，但是大量样式会导致大量的类名</p>
+<p>③<strong>传统形式</strong>：通过一些class来描述一段css属性，封装性强，语义化强，自由度和可定制化性一般</p>
 <p>④<strong>组件形式</strong>：封装性强，语义化强，但是自由度和可定制化性较差</p>
-<p>注意点：tailwindcss 的构建顺序为移动优先，项目中构建尽量和 tailwind 设计保持一致。</p>
+<p>注意点：tailwindcss的构建顺序为移动优先，项目中构建尽量和tailwind设计保持一致。</p>
 <p><strong>三、使用：</strong></p>
 <p>①直接使用类名，注意可以指定<strong>不同屏幕尺寸</strong>和<strong>不同主题</strong>下对应的样式。</p>
-<p>②还可以自己配置特殊的样式（在 tailwind.config.js 中进行配置）</p>
-<p>③tailwindcss 生态下有很多可以使用的插件。例如如下配置：</p>
-<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre>module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="2"></td><td><pre>  <span class="token comment">// 手动切换暗模式</span></pre></td></tr><tr><td data-num="3"></td><td><pre>  <span class="token literal-property property">darkMode</span><span class="token operator">:</span> <span class="token string">'class'</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="4"></td><td><pre>  <span class="token comment">// Tailwind 应用范围</span></pre></td></tr><tr><td data-num="5"></td><td><pre>  <span class="token literal-property property">content</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">'./index.html'</span><span class="token punctuation">,</span> <span class="token string">'./src/**/*.&#123;vue,js&#125;'</span><span class="token punctuation">]</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="6"></td><td><pre>  <span class="token literal-property property">theme</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="7"></td><td><pre>    <span class="token literal-property property">extend</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="8"></td><td><pre>      <span class="token literal-property property">height</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="9"></td><td><pre>        <span class="token literal-property property">header</span><span class="token operator">:</span> <span class="token string">'72px'</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="10"></td><td><pre>        <span class="token literal-property property">main</span><span class="token operator">:</span> <span class="token string">'calc(100vh - 72px)'</span></pre></td></tr><tr><td data-num="11"></td><td><pre>      <span class="token punctuation">&#125;</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="12"></td><td><pre>      <span class="token literal-property property">fontSize</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="13"></td><td><pre>        <span class="token literal-property property">xs</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">'0.25rem'</span><span class="token punctuation">,</span> <span class="token string">'0.35rem'</span><span class="token punctuation">]</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="14"></td><td><pre>        <span class="token literal-property property">sm</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">'0.35rem'</span><span class="token punctuation">,</span> <span class="token string">'0.45rem'</span><span class="token punctuation">]</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="15"></td><td><pre>        <span class="token literal-property property">base</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">'0.42rem'</span><span class="token punctuation">,</span> <span class="token string">'0.52rem'</span><span class="token punctuation">]</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="16"></td><td><pre>        <span class="token literal-property property">lg</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">'0.55rem'</span><span class="token punctuation">,</span> <span class="token string">'0.65rem'</span><span class="token punctuation">]</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="17"></td><td><pre>        <span class="token literal-property property">xl</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">'0.65rem'</span><span class="token punctuation">,</span> <span class="token string">'0.75rem'</span><span class="token punctuation">]</span></pre></td></tr><tr><td data-num="18"></td><td><pre>      <span class="token punctuation">&#125;</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="19"></td><td><pre>      <span class="token literal-property property">boxShadow</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="20"></td><td><pre>        <span class="token string-property property">'l-white'</span><span class="token operator">:</span> <span class="token string">'-10px 0 10px white'</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="21"></td><td><pre>        <span class="token string-property property">'l-zinc'</span><span class="token operator">:</span> <span class="token string">'-10px 0 10px #18181b'</span></pre></td></tr><tr><td data-num="22"></td><td><pre>      <span class="token punctuation">&#125;</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="23"></td><td><pre>      <span class="token literal-property property">colors</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="24"></td><td><pre>        <span class="token literal-property property">main</span><span class="token operator">:</span> <span class="token string">'#f44c58'</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="25"></td><td><pre>        <span class="token string-property property">'success-100'</span><span class="token operator">:</span> <span class="token string">'#F2F9EC'</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="26"></td><td><pre>        <span class="token string-property property">'warn-100'</span><span class="token operator">:</span> <span class="token string">'#FCF6ED'</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="27"></td><td><pre>      <span class="token punctuation">&#125;</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="28"></td><td><pre>      <span class="token literal-property property">backdropBlur</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="29"></td><td><pre>        <span class="token string-property property">'4xl'</span><span class="token operator">:</span> <span class="token string">'240px'</span></pre></td></tr><tr><td data-num="30"></td><td><pre>      <span class="token punctuation">&#125;</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="31"></td><td><pre>      <span class="token literal-property property">variants</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="32"></td><td><pre>        <span class="token literal-property property">scrollbar</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">'dark'</span><span class="token punctuation">]</span></pre></td></tr><tr><td data-num="33"></td><td><pre>      <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="34"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="35"></td><td><pre>  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="36"></td><td><pre>  <span class="token comment">// 注册下载的 tailwind-scroll-bar 工具包，使用全新的 scroll-bar</span></pre></td></tr><tr><td data-num="37"></td><td><pre>  <span class="token literal-property property">plugins</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'tailwind-scrollbar'</span><span class="token punctuation">)</span><span class="token punctuation">]</span></pre></td></tr><tr><td data-num="38"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr></table></figure><p>④ tailwind 进行主题替换</p>
-<p>tailwind 中有一个 dark mode 的概念，在使用 css 时，加上 dark 前缀的表示暗黑模式下的样式。需要在 tailwind.config.js 中进行配置：darkMode : ' class ',</p>
-<p>然后监听主题的切换行为，保存到 vuex 中并进行持久化处理，然后根据 vuex 中保存的当前主题修改 html 元素中的 class 属性  。  (dark 或者 light)</p>
-<p>⑤<span class="exturl" data-url="aHR0cHM6Ly93d3cubnBtanMuY29tL3BhY2thZ2UvdGFpbHdpbmQtc2Nyb2xsYmFy">tailwind-scrollbar</span> tailwind 中 scrollbar 组件</p>
-<h2 id="prettier"><a class="anchor" href="#prettier">#</a> Prettier</h2>
-<p>Prettier 是一个代码格式插件，下载插件之后，在项目根目录中配置 .prettierrc 文件即可使用。例如：</p>
-<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="2"></td><td><pre>  <span class="token comment">// 代码结尾不加分号</span></pre></td></tr><tr><td data-num="3"></td><td><pre>  <span class="token string-property property">"semi"</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="4"></td><td><pre>  <span class="token comment">// 优先单引号</span></pre></td></tr><tr><td data-num="5"></td><td><pre>  <span class="token string-property property">"singleQuote"</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="6"></td><td><pre>  <span class="token comment">// 不添加尾随逗号</span></pre></td></tr><tr><td data-num="7"></td><td><pre>  <span class="token string-property property">"trailingComma"</span><span class="token operator">:</span> <span class="token string">"none"</span></pre></td></tr><tr><td data-num="8"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr></table></figure><h2 id="vueuse"><a class="anchor" href="#vueuse">#</a> vueuse</h2>
-<p>一、 <code>useScroll（）</code> 方法，获得 dom 元素的 <code>响应式</code> 位置数据</p>
-<p>二、 <code>useScrollLock（）</code> 方法，将 dom 元素的滚动 <code>上锁</code> （无法滚动）</p>
-<p>三 <code>、useVModel（）</code> 方法，更方便的使用 v-model，获得的是响应式数据</p>
-<p>四、 <code>useElementBounding（）</code> 方法，获得响应式的元素的宽高属性</p>
-<p>五、 <code>useFullscreen（）</code> 方法，将 dom 元素全屏显示</p>
-<p>六、 <code>useIntersectionObserver（）</code> 方法，监视 dom 元素是否在视窗显示</p>
-<p>七、 <span class="exturl" data-url="aHR0cHM6Ly92dWV1c2Uub3JnL3NoYXJlZC93YXRjaERlYm91bmNlZC8=">watchDebounced</span> 防抖功能的监视属性，在监视属性的基础之上，第三个参数中配置 debounce 属性设置防抖的时长</p>
+<p>②还可以自己配置特殊的样式（在tailwind.config.js中进行配置）</p>
+<p>③tailwindcss生态下有很多可以使用的插件。例如如下配置：</p>
+<pre><code class="js">module.exports = &#123;
+  // 手动切换暗模式
+  darkMode: &#39;class&#39;,
+  // Tailwind 应用范围
+  content: [&#39;./index.html&#39;, &#39;./src/**/*.&#123;vue,js&#125;&#39;],
+  theme: &#123;
+    extend: &#123;
+      height: &#123;
+        header: &#39;72px&#39;,
+        main: &#39;calc(100vh - 72px)&#39;
+      &#125;,
+      fontSize: &#123;
+        xs: [&#39;0.25rem&#39;, &#39;0.35rem&#39;],
+        sm: [&#39;0.35rem&#39;, &#39;0.45rem&#39;],
+        base: [&#39;0.42rem&#39;, &#39;0.52rem&#39;],
+        lg: [&#39;0.55rem&#39;, &#39;0.65rem&#39;],
+        xl: [&#39;0.65rem&#39;, &#39;0.75rem&#39;]
+      &#125;,
+      boxShadow: &#123;
+        &#39;l-white&#39;: &#39;-10px 0 10px white&#39;,
+        &#39;l-zinc&#39;: &#39;-10px 0 10px #18181b&#39;
+      &#125;,
+      colors: &#123;
+        main: &#39;#f44c58&#39;,
+        &#39;success-100&#39;: &#39;#F2F9EC&#39;,
+        &#39;warn-100&#39;: &#39;#FCF6ED&#39;,
+      &#125;,
+      backdropBlur: &#123;
+        &#39;4xl&#39;: &#39;240px&#39;
+      &#125;,
+      variants: &#123;
+        scrollbar: [&#39;dark&#39;]
+      &#125;
+    &#125;
+  &#125;,
+  // 注册下载的tailwind-scroll-bar工具包，使用全新的scroll-bar
+  plugins: [require(&#39;tailwind-scrollbar&#39;)]
+&#125;
+</code></pre>
+<p>④ tailwind进行主题替换</p>
+<p>tailwind中有一个dark mode的概念，在使用css时，加上dark前缀的表示暗黑模式下的样式。需要在tailwind.config.js中进行配置：darkMode : ‘ class ‘,</p>
+<p>然后监听主题的切换行为，保存到vuex中并进行持久化处理，然后根据vuex中保存的当前主题修改html元素中的class属性  。  ( dark 或者 light )</p>
+<p>⑤<span class="exturl" data-url="aHR0cHM6Ly93d3cubnBtanMuY29tL3BhY2thZ2UvdGFpbHdpbmQtc2Nyb2xsYmFy">tailwind-scrollbar</span> tailwind中scrollbar组件</p>
+<h2 id="Prettier"><a href="#Prettier" class="headerlink" title="Prettier"></a>Prettier</h2><p>Prettier是一个代码格式插件，下载插件之后，在项目根目录中配置 .prettierrc文件即可使用。例如：</p>
+<pre><code class="js">&#123;
+  // 代码结尾不加分号
+  &quot;semi&quot;: false,
+  // 优先单引号
+  &quot;singleQuote&quot;: true,
+  // 不添加尾随逗号
+  &quot;trailingComma&quot;: &quot;none&quot;
+&#125;
+</code></pre>
+<h2 id="vueuse"><a href="#vueuse" class="headerlink" title="vueuse"></a>vueuse</h2><p>一、<code>useScroll（）</code>方法，获得dom元素的<code>响应式</code>位置数据</p>
+<p>二、<code>useScrollLock（）</code>方法，将dom元素的滚动<code>上锁</code>（无法滚动）</p>
+<p>三<code>、useVModel（）</code>方法，更方便的使用v-model，获得的是响应式数据</p>
+<p>四、<code>useElementBounding（）</code>方法，获得响应式的元素的宽高属性</p>
+<p>五、<code>useFullscreen（）</code>方法，将dom元素全屏显示</p>
+<p>六、<code>useIntersectionObserver（）</code>方法，监视dom元素是否在视窗显示</p>
+<p>七、 <span class="exturl" data-url="aHR0cHM6Ly92dWV1c2Uub3JnL3NoYXJlZC93YXRjaERlYm91bmNlZC8=">watchDebounced</span> 防抖功能的监视属性，在监视属性的基础之上，第三个参数中配置debounce属性设置防抖的时长</p>
 <p>八、<span class="exturl" data-url="aHR0cHM6Ly92dWV1c2Uub3JnL2NvcmUvdXNlRnVsbHNjcmVlbi8jdXNlZnVsbHNjcmVlbg==">useFullScreen</span>，全屏方法</p>
-<h2 id="gsap"><a class="anchor" href="#gsap">#</a> GSAP</h2>
-<p>js 动效库，官网地址：<span class="exturl" data-url="aHR0cHM6Ly9nc2FwLmZyYW1lci53aWtpLw==">https://gsap.framer.wiki/</span></p>
-<h2 id="vuex-persisterdstate"><a class="anchor" href="#vuex-persisterdstate">#</a> vuex-persisterdstate</h2>
-<p>自动进行 vuex 配置模块的持久化存储处理</p>
-<h2 id="file-saver"><a class="anchor" href="#file-saver">#</a> <strong>file-saver</strong></h2>
-<p>小文件下载</p>
-<h2 id="streamsaver"><a class="anchor" href="#streamsaver">#</a> streamsaver</h2>
-<p>大文件下载</p>
-<h2 id="driverjs"><a class="anchor" href="#driverjs">#</a> driver.js</h2>
-<p>功能引导</p>
-<h2 id="vee-validata"><a class="anchor" href="#vee-validata">#</a> vee-validata</h2>
-<p>表单校验</p>
-<h2 id="md5"><a class="anchor" href="#md5">#</a> md5</h2>
-<p>用于密码加密</p>
-<h2 id="cropperjs"><a class="anchor" href="#cropperjs">#</a> cropperjs</h2>
-<p>图片裁剪</p>
-<h2 id="dayjs"><a class="anchor" href="#dayjs">#</a> dayjs</h2>
-<p>日期工具</p>
-<h1 id="二-组件"><a class="anchor" href="#二-组件">#</a> 二、组件</h1>
-<p><strong>1、vite 通用组件自动化注册</strong></p>
-<p>① 使用 vite 中的 <code>import.meta.glob（）</code> 方法，得到文件路径名称和导入函数的对象</p>
-<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">import</span> <span class="token punctuation">&#123;</span> defineAsyncComponent <span class="token punctuation">&#125;</span> <span class="token keyword">from</span> <span class="token string">'vue'</span></pre></td></tr><tr><td data-num="2"></td><td><pre></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="4"></td><td><pre>  <span class="token function">install</span><span class="token punctuation">(</span><span class="token parameter">app</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="5"></td><td><pre>    <span class="token comment">// 获取当前路径任意文件夹下的 index.vue 文件</span></pre></td></tr><tr><td data-num="6"></td><td><pre>    <span class="token keyword">const</span> components <span class="token operator">=</span> <span class="token keyword">import</span><span class="token punctuation">.</span>meta<span class="token punctuation">.</span><span class="token function">glob</span><span class="token punctuation">(</span><span class="token string">'./*/index.vue'</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="7"></td><td><pre>    <span class="token comment">// 遍历获取到的组件模块</span></pre></td></tr><tr><td data-num="8"></td><td><pre>    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">const</span> <span class="token punctuation">[</span>key<span class="token punctuation">,</span> value<span class="token punctuation">]</span> <span class="token keyword">of</span> Object<span class="token punctuation">.</span><span class="token function">entries</span><span class="token punctuation">(</span>components<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="9"></td><td><pre>      <span class="token comment">// 拼接组件注册的 name</span></pre></td></tr><tr><td data-num="10"></td><td><pre>      <span class="token keyword">const</span> componentName <span class="token operator">=</span> <span class="token string">'m-'</span> <span class="token operator">+</span> key<span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span><span class="token string">'./'</span><span class="token punctuation">,</span> <span class="token string">''</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">split</span><span class="token punctuation">(</span><span class="token string">'/'</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span></pre></td></tr><tr><td data-num="11"></td><td><pre>      <span class="token comment">// 通过 defineAsyncComponent 异步导入指定路径下的组件</span></pre></td></tr><tr><td data-num="12"></td><td><pre>      app<span class="token punctuation">.</span><span class="token function">component</span><span class="token punctuation">(</span>componentName<span class="token punctuation">,</span> <span class="token function">defineAsyncComponent</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="13"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="14"></td><td><pre>  <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="15"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr></table></figure><p>② 然后在 main.js 中引入实例，使用 <code>app.use（）</code> 一下即可。</p>
-<p>③ 此外，指令也可以进行自动化全局注册，但是由于 <code>import.meta.glob()</code>  方法是异步的（适合于组件注册），指令在进行导入时需要使用 <code>import.meta.globEager()</code>  同步导入方法。</p>
-<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token comment">/**</pre></td></tr><tr><td data-num="2"></td><td><pre> * 全局指令注册</pre></td></tr><tr><td data-num="3"></td><td><pre> */</span></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="5"></td><td><pre>  <span class="token keyword">async</span> <span class="token function">install</span><span class="token punctuation">(</span><span class="token parameter">app</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="6"></td><td><pre>    <span class="token comment">// https://cn.vitejs.dev/guide/features.html#glob-import</span></pre></td></tr><tr><td data-num="7"></td><td><pre>    <span class="token comment">//import.meta.globEager 为同步导入</span></pre></td></tr><tr><td data-num="8"></td><td><pre>    <span class="token keyword">const</span> directives <span class="token operator">=</span> <span class="token keyword">import</span><span class="token punctuation">.</span>meta<span class="token punctuation">.</span><span class="token function">globEager</span><span class="token punctuation">(</span><span class="token string">'./modules/*.js'</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="9"></td><td><pre>    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">const</span> <span class="token punctuation">[</span>key<span class="token punctuation">,</span> value<span class="token punctuation">]</span> <span class="token keyword">of</span> Object<span class="token punctuation">.</span><span class="token function">entries</span><span class="token punctuation">(</span>directives<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="10"></td><td><pre>      <span class="token comment">// 拼接组件注册的 name</span></pre></td></tr><tr><td data-num="11"></td><td><pre>      <span class="token keyword">const</span> arr <span class="token operator">=</span> key<span class="token punctuation">.</span><span class="token function">split</span><span class="token punctuation">(</span><span class="token string">'/'</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="12"></td><td><pre>      <span class="token keyword">const</span> directiveName <span class="token operator">=</span> arr<span class="token punctuation">[</span>arr<span class="token punctuation">.</span>length <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span><span class="token string">'.js'</span><span class="token punctuation">,</span> <span class="token string">''</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="13"></td><td><pre>      <span class="token comment">// 完成注册</span></pre></td></tr><tr><td data-num="14"></td><td><pre>      app<span class="token punctuation">.</span><span class="token function">directive</span><span class="token punctuation">(</span>directiveName<span class="token punctuation">,</span> value<span class="token punctuation">.</span>default<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="15"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="16"></td><td><pre>  <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="17"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr></table></figure><p><strong>2、svg-icon 组件</strong>：</p>
-<p>动态绑定 svg 中 use 标签的 xlink:href 属性，svg 中使用图标的方式：</p>
+<h2 id="GSAP"><a href="#GSAP" class="headerlink" title="GSAP"></a>GSAP</h2><p>js动效库，官网地址：<span class="exturl" data-url="aHR0cHM6Ly9nc2FwLmZyYW1lci53aWtpLw==">https://gsap.framer.wiki/</span></p>
+<h2 id="vuex-persisterdstate"><a href="#vuex-persisterdstate" class="headerlink" title="vuex-persisterdstate"></a>vuex-persisterdstate</h2><p>自动进行vuex配置模块的持久化存储处理</p>
+<h2 id="file-saver"><a href="#file-saver" class="headerlink" title="file-saver"></a><strong>file-saver</strong></h2><p>小文件下载</p>
+<h2 id="streamsaver"><a href="#streamsaver" class="headerlink" title="streamsaver"></a>streamsaver</h2><p>大文件下载</p>
+<h2 id="driver-js"><a href="#driver-js" class="headerlink" title="driver.js"></a>driver.js</h2><p>功能引导</p>
+<h2 id="vee-validata"><a href="#vee-validata" class="headerlink" title="vee-validata"></a>vee-validata</h2><p>表单校验</p>
+<h2 id="md5"><a href="#md5" class="headerlink" title="md5"></a>md5</h2><p>用于密码加密</p>
+<h2 id="cropperjs"><a href="#cropperjs" class="headerlink" title="cropperjs"></a>cropperjs</h2><p>图片裁剪</p>
+<h2 id="dayjs"><a href="#dayjs" class="headerlink" title="dayjs"></a>dayjs</h2><p>日期工具</p>
+<h1 id="二、组件"><a href="#二、组件" class="headerlink" title="二、组件"></a>二、组件</h1><p><strong>1、vite通用组件自动化注册</strong></p>
+<p>① 使用vite中的<code>import.meta.glob（）</code>方法，得到文件路径名称和导入函数的对象</p>
+<pre><code class="js">import &#123; defineAsyncComponent &#125; from &#39;vue&#39;
+
+export default &#123;
+  install(app) &#123;
+    // 获取当前路径任意文件夹下的 index.vue 文件
+    const components = import.meta.glob(&#39;./*/index.vue&#39;)
+    // 遍历获取到的组件模块
+    for (const [key, value] of Object.entries(components)) &#123;
+      // 拼接组件注册的 name
+      const componentName = &#39;m-&#39; + key.replace(&#39;./&#39;, &#39;&#39;).split(&#39;/&#39;)[0]
+      // 通过 defineAsyncComponent 异步导入指定路径下的组件
+      app.component(componentName, defineAsyncComponent(value))
+    &#125;
+  &#125;
+&#125;
+</code></pre>
+<p>② 然后在main.js中引入实例，使用<code>app.use（）</code>一下即可。</p>
+<p>③ 此外，指令也可以进行自动化全局注册，但是由于<code>import.meta.glob()</code>方法是异步的（适合于组件注册），指令在进行导入时需要使用<code>import.meta.globEager()</code>同步导入方法。</p>
+<pre><code class="js">/**
+ * 全局指令注册
+ */
+export default &#123;
+  async install(app) &#123;
+    // https://cn.vitejs.dev/guide/features.html#glob-import
+    // import.meta.globEager 为同步导入
+    const directives = import.meta.globEager(&#39;./modules/*.js&#39;)
+    for (const [key, value] of Object.entries(directives)) &#123;
+      // 拼接组件注册的 name
+      const arr = key.split(&#39;/&#39;)
+      const directiveName = arr[arr.length - 1].replace(&#39;.js&#39;, &#39;&#39;)
+      // 完成注册
+      app.directive(directiveName, value.default)
+    &#125;
+  &#125;
+&#125;
+</code></pre>
+<p><strong>2、svg-icon组件</strong>：</p>
+<p>动态绑定svg中use标签的xlink:href属性，svg中使用图标的方式：</p>
 <p>①直接写路径加名称：</p>
-<figure class="highlight html"><figcaption data-lang="HTML"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>svg</span><span class="token punctuation">></span></span></pre></td></tr><tr><td data-num="2"></td><td><pre>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>use</span> <span class="token attr-name"><span class="token namespace">xlink:</span>href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>./access/image.svg<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>use</span><span class="token punctuation">></span></span></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>svg</span><span class="token punctuation">></span></span></pre></td></tr></table></figure><p>②使用 symbol 标签，配合 id 属性</p>
-<figure class="highlight html"><figcaption data-lang="HTML"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>symbol</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">'</span>name<span class="token punctuation">'</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>symbol</span><span class="token punctuation">></span></span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>svg</span><span class="token punctuation">></span></span></pre></td></tr><tr><td data-num="3"></td><td><pre>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>use</span> <span class="token attr-name"><span class="token namespace">xlink:</span>href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>#name<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>use</span><span class="token punctuation">></span></span></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>svg</span><span class="token punctuation">></span></span></pre></td></tr></table></figure><p>项目中使用了工具包 <code>vite-plugin-svg-icons</code> ，配置后直接生成了全部的 symbol 标签，id 熟悉绑定了 name , 直接使用即可，此外需要在 main.js 中导入</p>
-<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">import</span> <span class="token string">'virtual:svg-icons-register'</span> <span class="token comment">// 导入 svg-icons-register</span></pre></td></tr></table></figure><p><strong>3、popup 弹层组件</strong></p>
-<p><strong>4、button 按钮通用组件</strong></p>
-<p>在 button 组件中绑定自己定义的 icon 组件，组件中绑定传过来的 icon-name ,class 和 iconColor 等。组件需要使用时传入 type 标识按钮风格，size 标识按钮大小，icon 标识图标名称，iconColor 标识图标颜色，iconClass 表示图标的类名，isActiveAnim 表示是否需要动画，loading 标识加载状态。给按钮添加点击事件 emits 出去，如果 loading 为 false 就不触发事件</p>
-<p><strong>5、popover 气泡卡片</strong></p>
+<pre><code class="html">&lt;svg&gt;
+  &lt;use xlink:href=&quot;./access/image.svg&quot;&gt;&lt;/use&gt;
+&lt;/svg&gt;
+</code></pre>
+<p>②使用symbol标签，配合id属性</p>
+<pre><code class="html">&lt;symbol id=&#39;name&#39;&gt;&lt;/symbol&gt;
+&lt;svg&gt;
+  &lt;use xlink:href=&quot;#name&quot;&gt;&lt;/use&gt;
+&lt;/svg&gt;
+</code></pre>
+<p>项目中使用了工具包<code>vite-plugin-svg-icons</code>，配置后直接生成了全部的symbol标签，id熟悉绑定了name , 直接使用即可，此外需要在main.js中导入</p>
+<pre><code class="js">import &#39;virtual:svg-icons-register&#39; //导入svg-icons-register
+</code></pre>
+<p><strong>3、popup弹层组件</strong></p>
+<p><strong>4、button按钮通用组件</strong></p>
+<p>在button组件中绑定自己定义的icon组件，组件中绑定传过来的icon-name ,class 和iconColor等。组件需要使用时传入type标识按钮风格，size标识按钮大小，icon标识图标名称，iconColor标识图标颜色，iconClass表示图标的类名，isActiveAnim表示是否需要动画，loading标识加载状态。给按钮添加点击事件emits出去，如果loading为false就不触发事件</p>
+<p><strong>5、popover气泡卡片</strong></p>
 <p>设置两个插槽：具名插槽用于表示出发弹出层的视图，匿名插槽用于表示弹出层视图中展示的内容。同时希望可以控制弹层的位置</p>
 <p><strong>6、瀑布流组件</strong></p>
 <p><strong>7、长列表组件</strong></p>
-<p><strong>8、confirm 确认组件</strong></p>
-<p>虚拟 dom 的概念就是通过 js 来描述 dom 元素，vnode 虚拟节点就是告诉 vue 页面上需要渲染什么样式的节点。h 函数就是用来创建 vnode 函数，h 函数接收三个参数：要渲染的 dom 元素，attrs 对象和子元素，render 函数：可以根据 vnode 虚拟节点来渲染</p>
-<p><strong>9、trigger-menu 移动端 tab-bar</strong></p>
-<p><strong>10、倒计时 count-down 组件</strong></p>
-<h1 id="三-api"><a class="anchor" href="#三-api">#</a> 三、API</h1>
-<p>一、 <code>window.navigator.userAgent</code>  属性，拿到用户的设备信息</p>
-<p>二、 <code>Element.getBoundingClientRect()</code>  方法，获得 dom 元素的位置信息</p>
-<p>三、 <code>window.matchMedia()</code>  方法，接受一个媒体查询解析的字符串，返回一个 MediaQueryLise 对象，对象有 <code>change</code>  事件和 <code>matches</code>  属性（是否匹配成功），例如：</p>
-<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre>matchMedia <span class="token operator">=</span> window<span class="token punctuation">.</span><span class="token function">matchMedia</span><span class="token punctuation">(</span><span class="token string">'(prefers-color-scheme: dark)'</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="2"></td><td><pre>themeClassName <span class="token operator">=</span> matchMedia<span class="token punctuation">.</span>matches <span class="token operator">?</span> <span class="token string">'dark'</span> <span class="token operator">:</span> <span class="token string">'light'</span></pre></td></tr></table></figure><p>匹配系统窗口的 scheme 主题是否是 dark 模式。</p>
-<p>四、 <code>window.getComputedStyle()</code>  方法返回 DOM 元素的 css 样式属性，包含位置等信息，第二个参数可以指定对应要获得的属性</p>
+<p><strong>8、confirm确认组件</strong></p>
+<p>虚拟dom的概念就是通过js来描述dom元素，vnode虚拟节点就是告诉vue页面上需要渲染什么样式的节点。h函数就是用来创建vnode函数，h函数接收三个参数：要渲染的dom元素，attrs对象和子元素，render函数：可以根据vnode虚拟节点来渲染</p>
+<p><strong>9、trigger-menu移动端tab-bar</strong></p>
+<p><strong>10、倒计时count-down组件</strong></p>
+<h1 id="三、API"><a href="#三、API" class="headerlink" title="三、API"></a>三、API</h1><p>一、<code>window.navigator.userAgent</code>属性，拿到用户的设备信息</p>
+<p>二、<code>Element.getBoundingClientRect()</code>方法，获得dom元素的位置信息</p>
+<p>三、<code>window.matchMedia()</code>方法，接受一个媒体查询解析的字符串，返回一个MediaQueryLise对象，对象有<code>change</code>事件和<code>matches</code>属性（是否匹配成功），例如：</p>
+<pre><code class="js">matchMedia = window.matchMedia(&#39;(prefers-color-scheme: dark)&#39;)
+themeClassName = matchMedia.matches ? &#39;dark&#39; : &#39;light&#39;
+</code></pre>
+<p>匹配系统窗口的scheme主题是否是dark模式。</p>
+<p>四、<code>window.getComputedStyle()</code> 方法返回DOM元素的css样式属性，包含位置等信息，第二个参数可以指定对应要获得的属性</p>
 <p>五、<span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvemgtQ04vZG9jcy9XZWIvQVBJL0ludGVyc2VjdGlvbk9ic2VydmVy">window.IntersectionObserver</span> 观察目标元素与祖先元素或顶级文档视口交叉状态</p>
-<p>六、 <code>Element.requestFullscreen()</code>  让指定元素全屏显示。 <code>Document.exitFullscreen()</code>  退出全屏。</p>
-<p>七、<span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvemgtQ04vZG9jcy9XZWIvQVBJL0hpc3RvcnkvcHVzaFN0YXRl">History.pushState()</span> 方法，改变 url 但是不会跳转页面</p>
-<p>八、 <code>URL.createObjectURL（）</code> 方法，获得到对应的 blob 对象 ，可以将文件对象变成一个可以访问的文件对象链接</p>
-<p>九、 <code>BroadcastChannel</code>  广播通道，进行同源页面之间的通信（但是存在兼容性问题）</p>
-<h1 id=""><a class="anchor" href="#">#</a> </h1>
-<h1 id="四-vue3技巧"><a class="anchor" href="#四-vue3技巧">#</a> 四、vue3 技巧</h1>
-<p><strong>一、transition 动画标签钩子函数</strong></p>
-<p>使用 js 进行自定义动画样式和触发时机.（before-enter、enter、leave 等事件），只使用 js 设置动画时，可以给 transition 组件的 css 属性绑定为 false</p>
+<p>六、<code>Element.requestFullscreen()</code>让指定元素全屏显示。<code>Document.exitFullscreen()</code>退出全屏。</p>
+<p>七、<span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvemgtQ04vZG9jcy9XZWIvQVBJL0hpc3RvcnkvcHVzaFN0YXRl">History.pushState()</span> 方法，改变url但是不会跳转页面 </p>
+<p>八、<code>URL.createObjectURL（）</code>方法，获得到对应的blob对象 ，可以将文件对象变成一个可以访问的文件对象链接</p>
+<p>九、<code>BroadcastChannel</code>广播通道，进行同源页面之间的通信（但是存在兼容性问题）</p>
+<h1 id=""><a href="#" class="headerlink" title=""></a></h1><h1 id="四、vue3技巧"><a href="#四、vue3技巧" class="headerlink" title="四、vue3技巧"></a>四、vue3技巧</h1><p><strong>一、transition动画标签钩子函数</strong></p>
+<p>使用js进行自定义动画样式和触发时机.（before-enter、enter、leave等事件），只使用js设置动画时，可以给transition组件的css属性绑定为false</p>
 <p><strong>二、自定义指令实现图片懒加载</strong></p>
-<p>方案：监听所有图片<strong>是否可见</strong>（交互 api），如果图片不可见，就不加载图片（设置 src 属性），如果图片可见就加载图片。</p>
-<p>注意细节是：①对于每一个 img，当监视到在视口中出现过，就可以赋值属性 src，然后就可以使用 <code>stop（）</code> 方法停止监视 dom 元素是否在视口显示 ②使用 <code>import.meta.globEager（）</code> 方法，可以同步导入所有的指令，然后一同注册</p>
+<p>方案：监听所有图片<strong>是否可见</strong>（交互api），如果图片不可见，就不加载图片（设置src属性），如果图片可见就加载图片。</p>
+<p>注意细节是：①对于每一个img，当监视到在视口中出现过，就可以赋值属性src，然后就可以使用<code>stop（）</code>方法停止监视dom元素是否在视口显示 ②使用<code>import.meta.globEager（）</code>方法，可以同步导入所有的指令，然后一同注册</p>
 <p><strong>三、多组件共享数据的方式</strong></p>
-<p>①父传子（绑定数据，使用 props 接收）②子传父（自定义事件）③依赖注入 Provide /inject（ 适用于嵌套层级较深 ）④全局状态管理 vuex 或者 pina</p>
+<p>①父传子（绑定数据，使用props接收）②子传父（自定义事件）③依赖注入Provide &#x2F; inject（ 适用于嵌套层级较深 ）④全局状态管理vuex或者pina</p>
 <p><strong>四、搜索框匹配内容高亮显示</strong></p>
-<p>使用字符串的 replace（）方法，传入正则，将匹配的内容替换为高亮显示的内容（使用 v-html 进行渲染）</p>
-<p>五、<strong>h 函数和 render 函数</strong></p>
-<p>①模板 VS  渲染函数：Vue 模板会被预编译成虚拟 DOM 渲染函数，Vue 也提供了 API 使我们可以不使用模板进行编译：直接手写渲染函数，渲染函数相比于模板更加灵活，而模板更加直观和方便。</p>
-<p>②h 函数用于创建 vnodes 虚拟节点，第一个参数是 dom 类型（可以使用 'div' 等，也可以使用组件），第二个参数是 props (包括组件中的属性和方法  ，或者 dom 的属性如 style)，第三个参数是子元素。</p>
-<p>③render 函数，第一个参数是要渲染的虚拟节点，第二个参数是要渲染的位置（传入 dom 元素）</p>
-<p><strong>六、状态驱动 css</strong></p>
-<p>将响应式数据绑定到 css 之中： <code>v-bind(变量名称)</code></p>
+<p>使用字符串的replace（）方法，传入正则，将匹配的内容替换为高亮显示的内容（使用v-html进行渲染）</p>
+<p>五、<strong>h函数和render函数</strong></p>
+<p>①模板 VS  渲染函数：Vue模板会被预编译成虚拟DOM渲染函数，Vue也提供了API使我们可以不使用模板进行编译：直接手写渲染函数，渲染函数相比于模板更加灵活，而模板更加直观和方便。</p>
+<p>②h函数用于创建vnodes虚拟节点，第一个参数是dom类型（可以使用’div’等，也可以使用组件），第二个参数是props(包括组件中的属性和方法  ，或者dom的属性如style)，第三个参数是子元素。</p>
+<p>③render函数，第一个参数是要渲染的虚拟节点，第二个参数是要渲染的位置（传入dom元素）</p>
+<p><strong>六、状态驱动css</strong></p>
+<p>将响应式数据绑定到css之中：<code>v-bind(变量名称)</code></p>
 <p><strong>七、从部分组件到路由的跳转动画</strong></p>
-<p>①<span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvemgtQ04vZG9jcy9XZWIvQVBJL0hpc3RvcnkvcHVzaFN0YXRl">History.pushState()</span> 方法改变 url 地址栏（注意要绑定对应的动态路由，不然一刷新就会空白）②设置过渡动画（可以使用 GSAP）</p>
-<p><strong>八、router-view 作用域插槽</strong></p>
-<p>使用<strong> router-view 作用域插槽</strong>，配合<strong> transition 中的自定义事件</strong>，加上<strong> keep-alive 的 include 属性</strong>缓存动态数组中的组件，利用<strong> component 组件的 is 属性</strong>动态绑定上 router-virew 的作用域插槽，实现移动端下路由切换时的动态效果</p>
-<h1 id="-2"><a class="anchor" href="#-2">#</a> </h1>
-<h1 id="五-其他业务"><a class="anchor" href="#五-其他业务">#</a> 五、其他业务</h1>
-<p><strong>一、人类行为验证</strong></p>
+<p>①<span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvemgtQ04vZG9jcy9XZWIvQVBJL0hpc3RvcnkvcHVzaFN0YXRl">History.pushState()</span> 方法改变url地址栏（注意要绑定对应的动态路由，不然一刷新就会空白）②设置过渡动画（可以使用GSAP）</p>
+<p><strong>八、router-view作用域插槽</strong></p>
+<p>使用<strong>router-view作用域插槽</strong>，配合<strong>transition中的自定义事件</strong>，加上<strong>keep-alive的include属性</strong>缓存动态数组中的组件，利用<strong>component组件的is属性</strong>动态绑定上router-virew的作用域插槽，实现移动端下路由切换时的动态效果</p>
+<h1 id="-1"><a href="#-1" class="headerlink" title=""></a></h1><h1 id="五、其他业务"><a href="#五、其他业务" class="headerlink" title="五、其他业务"></a>五、其他业务</h1><p><strong>一、人类行为验证</strong></p>
 <p>目前人类行为验证的实现方案，主要分为两种：</p>
 <ol>
-<li>
-<p>收费平台，年费在几万到几十万不等，有专门的技术人员帮助对接：</p>
+<li><p>收费平台，年费在几万到几十万不等，有专门的技术人员帮助对接： </p>
 </li>
-<li>
-<p><span class="exturl" data-url="aHR0cHM6Ly93d3cuZ2VldGVzdC5jb20v">极验</span></p>
+<li><p><span class="exturl" data-url="aHR0cHM6Ly93d3cuZ2VldGVzdC5jb20v">极验</span></p>
 </li>
-<li>
-<p><span class="exturl" data-url="aHR0cHM6Ly9kdW4uMTYzLmNvbS90cmlhbC9zZW5zZQ==">网易易盾</span></p>
+<li><p><span class="exturl" data-url="aHR0cHM6Ly9kdW4uMTYzLmNvbS90cmlhbC9zZW5zZQ==">网易易盾</span></p>
 </li>
-<li>
-<p>...</p>
+<li><p>…</p>
 </li>
-<li>
-<p>免费开源，验证的精准度，需要看服务端的能力：</p>
+<li><p>免费开源，验证的精准度，需要看服务端的能力： </p>
 </li>
-<li>
-<p><code>gitee</code>  开源的： <span class="exturl" data-url="aHR0cHM6Ly9naXRlZS5jb20vTG9uZ2Jvd0VudGVycHJpc2UvU2xpZGVyQ2FwdGNoYT9fZnJvbT1naXRlZV9zZWFyY2g=">SliderCaptcha</span></p>
+<li><p><code>gitee</code> 开源的： <span class="exturl" data-url="aHR0cHM6Ly9naXRlZS5jb20vTG9uZ2Jvd0VudGVycHJpc2UvU2xpZGVyQ2FwdGNoYT9fZnJvbT1naXRlZV9zZWFyY2g=">SliderCaptcha</span></p>
 </li>
 </ol>
 <p><strong>二、头像裁剪与上传</strong></p>
 <p><strong>三、对象存储服务</strong></p>
 <p><strong>四、移动端页面过渡</strong></p>
-<p>维护一个虚拟任务栈的数组，当 push 操作时，将 vuex 中的 routerType 改为 push ，back 操作时，将 routerType 改为 back。</p>
+<p>维护一个虚拟任务栈的数组，当push操作时，将vuex中的routerType改为push ，back操作时，将routerType改为back。</p>
 <p><strong>五、虚拟任务栈缓存</strong></p>
-<p>使用 keep-alive 组件中的 include 属性进行设置，属性值中包含的组件会进行缓存，在使用路由进行跳转的时候，改变 vuex 中的 routerType 属性（PC 端下永远为 none），根据 routerType 的属性进行路由跳转时动画的设置。</p>
+<p>使用keep-alive组件中的include属性进行设置，属性值中包含的组件会进行缓存，在使用路由进行跳转的时候，改变vuex中的routerType属性（PC端下永远为none），根据routerType的属性进行路由跳转时动画的设置。</p>
 <p><strong>六、第三方登录</strong></p>
-<p><span class="exturl" data-url="aHR0cHM6Ly9jb25uZWN0LnFxLmNvbS8=">QQ 互联平台</span></p>
-<p><span class="exturl" data-url="aHR0cHM6Ly9vcGVuLndlaXhpbi5xcS5jb20v">微信开放平台</span></p>
-<p><span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXJzLndlaXhpbi5xcS5jb20vZG9jL29wbGF0Zm9ybS9XZWJzaXRlX0FwcC9XZUNoYXRfTG9naW4vV2VjaGF0X0xvZ2luLmh0bWw=">微信登录对接官方文档</span></p>
+<p>  <span class="exturl" data-url="aHR0cHM6Ly9jb25uZWN0LnFxLmNvbS8=">QQ互联平台</span> </p>
+<p><span class="exturl" data-url="aHR0cHM6Ly9vcGVuLndlaXhpbi5xcS5jb20v">微信开放平台</span> </p>
+<p><span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXJzLndlaXhpbi5xcS5jb20vZG9jL29wbGF0Zm9ybS9XZWJzaXRlX0FwcC9XZUNoYXRfTG9naW4vV2VjaGF0X0xvZ2luLmh0bWw=">微信登录对接官方文档</span> </p>
 <p><strong>七、用户反馈</strong></p>
-<p><span class="exturl" data-url="aHR0cHM6Ly90eGMucXEuY29tLw==">腾讯兔小巢</span> （url 地址中改为 product）</p>
+<p> <span class="exturl" data-url="aHR0cHM6Ly90eGMucXEuY29tLw==">腾讯兔小巢</span> （url地址中改为product）</p>
 <p><strong>八、第三方分享</strong></p>
 <p>当前微信不支持不同网站的分享</p>
-<p><span class="exturl" data-url="aHR0cHM6Ly9vcGVuLndlaWJvLmNvbS9pbmRleC5waHAjX2xvZ2luTGF5ZXJfMTY0NjYzNzMwNzIzMg==">新浪微博开发平台</span></p>
-<p><strong>九、第三方支付</strong></p>
-<p>微信支付不支持 PC 网站应用（迂回）</p>
-<p><span class="exturl" data-url="aHR0cHM6Ly9vcGVuLmFsaXBheS5jb20v">支付宝开放平台</span></p>
+<p> <span class="exturl" data-url="aHR0cHM6Ly9vcGVuLndlaWJvLmNvbS9pbmRleC5waHAjX2xvZ2luTGF5ZXJfMTY0NjYzNzMwNzIzMg==">新浪微博开发平台</span> </p>
+<p> <strong>九、第三方支付</strong></p>
+<p>微信支付不支持PC网站应用（迂回）</p>
+<p> <span class="exturl" data-url="aHR0cHM6Ly9vcGVuLmFsaXBheS5jb20v">支付宝开放平台</span>  </p>
 <p><strong>十、项目上线与发布</strong></p>
 
       <div class="tags">
@@ -387,7 +487,7 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
     <div class="item left">
       
 
-  <a href="/2023/02/12/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;s3.uuu.ovh&#x2F;imgs&#x2F;2024&#x2F;04&#x2F;07&#x2F;517ddd40a038fa1b.jpg" title="正则表达式">
+  <a href="/2023/02/12/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;s3.uuu.ovh&#x2F;imgs&#x2F;2024&#x2F;04&#x2F;05&#x2F;f09ce1d151936963.jpg" title="正则表达式">
   <span class="type">上一篇</span>
   <span class="category"><i class="ic i-flag"></i> 正则表达式</span>
   <h3>正则表达式</h3>
@@ -397,7 +497,7 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
     <div class="item right">
       
 
-  <a href="/2023/04/02/git%E5%92%8Cgithub/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;s3.uuu.ovh&#x2F;imgs&#x2F;2024&#x2F;04&#x2F;04&#x2F;025bf3f9fc1cf452.webp" title="git与github">
+  <a href="/2023/04/02/git%E5%92%8Cgithub/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;s3.uuu.ovh&#x2F;imgs&#x2F;2024&#x2F;04&#x2F;15&#x2F;3ad1c5ee17b91ba4.webp" title="git与github">
   <span class="type">下一篇</span>
   <span class="category"><i class="ic i-flag"></i> git</span>
   <h3>git与github</h3>
@@ -419,7 +519,7 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
   <div class="panels">
     <div class="inner">
       <div class="contents panel pjax" data-title="文章目录">
-          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%AD%E5%89%8D%E5%8F%B0%E9%80%9A%E7%94%A8%E9%A1%B9%E7%9B%AE"><span class="toc-number">1.</span> <span class="toc-text"> 中前台通用项目</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%80-%E5%B7%A5%E5%85%B7%E5%92%8C%E5%8C%85"><span class="toc-number">2.</span> <span class="toc-text"> 一、工具和包</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#vite"><span class="toc-number">2.1.</span> <span class="toc-text"> vite</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#tailwindcss"><span class="toc-number">2.2.</span> <span class="toc-text"> tailwindcss</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#prettier"><span class="toc-number">2.3.</span> <span class="toc-text"> Prettier</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#vueuse"><span class="toc-number">2.4.</span> <span class="toc-text"> vueuse</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#gsap"><span class="toc-number">2.5.</span> <span class="toc-text"> GSAP</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#vuex-persisterdstate"><span class="toc-number">2.6.</span> <span class="toc-text"> vuex-persisterdstate</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#file-saver"><span class="toc-number">2.7.</span> <span class="toc-text"> file-saver</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#streamsaver"><span class="toc-number">2.8.</span> <span class="toc-text"> streamsaver</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#driverjs"><span class="toc-number">2.9.</span> <span class="toc-text"> driver.js</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#vee-validata"><span class="toc-number">2.10.</span> <span class="toc-text"> vee-validata</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#md5"><span class="toc-number">2.11.</span> <span class="toc-text"> md5</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#cropperjs"><span class="toc-number">2.12.</span> <span class="toc-text"> cropperjs</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#dayjs"><span class="toc-number">2.13.</span> <span class="toc-text"> dayjs</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%8C-%E7%BB%84%E4%BB%B6"><span class="toc-number">3.</span> <span class="toc-text"> 二、组件</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%89-api"><span class="toc-number">4.</span> <span class="toc-text"> 三、API</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">5.</span> <span class="toc-text"> </span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9B%9B-vue3%E6%8A%80%E5%B7%A7"><span class="toc-number">6.</span> <span class="toc-text"> 四、vue3 技巧</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#-2"><span class="toc-number">7.</span> <span class="toc-text"> </span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%94-%E5%85%B6%E4%BB%96%E4%B8%9A%E5%8A%A1"><span class="toc-number">8.</span> <span class="toc-text"> 五、其他业务</span></a></li></ol>
+          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%AD%E5%89%8D%E5%8F%B0%E9%80%9A%E7%94%A8%E9%A1%B9%E7%9B%AE"><span class="toc-number">1.</span> <span class="toc-text">中前台通用项目</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E5%B7%A5%E5%85%B7%E5%92%8C%E5%8C%85"><span class="toc-number">2.</span> <span class="toc-text">一、工具和包</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#vite"><span class="toc-number">2.1.</span> <span class="toc-text">vite</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#tailwindcss"><span class="toc-number">2.2.</span> <span class="toc-text">tailwindcss</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Prettier"><span class="toc-number">2.3.</span> <span class="toc-text">Prettier</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#vueuse"><span class="toc-number">2.4.</span> <span class="toc-text">vueuse</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#GSAP"><span class="toc-number">2.5.</span> <span class="toc-text">GSAP</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#vuex-persisterdstate"><span class="toc-number">2.6.</span> <span class="toc-text">vuex-persisterdstate</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#file-saver"><span class="toc-number">2.7.</span> <span class="toc-text">file-saver</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#streamsaver"><span class="toc-number">2.8.</span> <span class="toc-text">streamsaver</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#driver-js"><span class="toc-number">2.9.</span> <span class="toc-text">driver.js</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#vee-validata"><span class="toc-number">2.10.</span> <span class="toc-text">vee-validata</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#md5"><span class="toc-number">2.11.</span> <span class="toc-text">md5</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#cropperjs"><span class="toc-number">2.12.</span> <span class="toc-text">cropperjs</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#dayjs"><span class="toc-number">2.13.</span> <span class="toc-text">dayjs</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E7%BB%84%E4%BB%B6"><span class="toc-number">3.</span> <span class="toc-text">二、组件</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%89%E3%80%81API"><span class="toc-number">4.</span> <span class="toc-text">三、API</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">5.</span> <span class="toc-text"></span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9B%9B%E3%80%81vue3%E6%8A%80%E5%B7%A7"><span class="toc-number">6.</span> <span class="toc-text">四、vue3技巧</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#-1"><span class="toc-number">7.</span> <span class="toc-text"></span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%94%E3%80%81%E5%85%B6%E4%BB%96%E4%B8%9A%E5%8A%A1"><span class="toc-number">8.</span> <span class="toc-text">五、其他业务</span></a></li></ol>
       </div>
       <div class="related panel pjax" data-title="系列文章">
         <ul>
@@ -537,90 +637,92 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%BC%8F/" title="分类于 开发模式">开发模式</a>
-</div>
-
-    <span><a href="/2024/03/29/TDD/" title="TDD测试驱动开发">TDD测试驱动开发</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/%E5%A4%8D%E6%9D%82%E4%B8%9A%E5%8A%A1%E9%83%A8%E7%BD%B2%E4%B8%8E%E4%BC%98%E5%8C%96/" title="分类于 复杂业务部署与优化">复杂业务部署与优化</a>
-</div>
-
-    <span><a href="/2024/04/12/%E5%A4%8D%E6%9D%82%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2%E4%B8%8A%E7%BA%BF/" title="复杂业务部署与优化">复杂业务部署与优化</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
 <a href="/categories/JS/" title="分类于 JS">JS</a>
 </div>
 
-    <span><a href="/2023/07/02/forEach/" title="forEach">forEach</a></span>
+    <span><a href="/2023/12/11/typedArray/" title="JS中类型化数组typedArray">JS中类型化数组typedArray</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90%E4%B8%8E%E9%83%A8%E7%BD%B2/" title="分类于 持续集成与部署">持续集成与部署</a>
+<a href="/categories/%E6%9D%82%E8%AE%B0/" title="分类于 杂记">杂记</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/%E6%9D%82%E8%AE%B0/%E5%B7%A5%E5%85%B7%E5%87%BD%E6%95%B0/" title="分类于 工具函数">工具函数</a>
 </div>
 
-    <span><a href="/2024/02/03/%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90%E4%B8%8E%E6%8C%81%E7%BB%AD%E9%83%A8%E7%BD%B2/" title="持续集成与持续部署">持续集成与持续部署</a></span>
+    <span><a href="/2023/06/02/learn/" title="杂记与工具库函数">杂记与工具库函数</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/" title="分类于 计算机组成原理">计算机组成原理</a>
+<a href="/categories/Sass/" title="分类于 Sass">Sass</a>
 </div>
 
-    <span><a href="/2024/01/02/%E7%BC%93%E5%AD%98%E3%80%81%E5%86%85%E5%AD%98%E3%80%81CPU%E7%9F%A5%E8%AF%86%E7%82%B9%E8%A7%A3%E6%9E%90%E7%AC%94%E8%AE%B0/" title="计组知识点">计组知识点</a></span>
+    <span><a href="/2023/01/10/Sass/" title="Sass笔记">Sass笔记</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/JS/" title="分类于 JS">JS</a>
+<a href="/categories/git/" title="分类于 git">git</a>
 </div>
 
-    <span><a href="/2023/12/07/Blob/" title="Blob">Blob</a></span>
+    <span><a href="/2023/05/02/git%20github%E7%AC%94%E8%AE%B0%EF%BC%88%E6%A6%82%E5%BF%B5%EF%BC%89/" title="git笔记">git笔记</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/%E8%84%9A%E6%89%8B%E6%9E%B6%E5%BC%80%E5%8F%91/" title="分类于 脚手架开发">脚手架开发</a>
+<a href="/categories/OSI%E4%B8%83%E5%B1%82%E7%BD%91%E7%BB%9C%E6%A8%A1%E5%9E%8B/" title="分类于 OSI七层网络模型">OSI七层网络模型</a>
 </div>
 
-    <span><a href="/2024/03/30/%E6%9C%AC%E5%9C%B0%E6%96%87%E4%BB%B6%E9%93%BE%E6%8E%A5/" title="本地文件链接">本地文件链接</a></span>
+    <span><a href="/2024/05/27/OSI%E4%B8%83%E5%B1%82%E7%BD%91%E7%BB%9C%E6%A8%A1%E5%9E%8B/" title="OSI七层网络模型">OSI七层网络模型</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/%E7%AE%97%E6%B3%95/" title="分类于 算法">算法</a>
+<a href="/categories/json-server/" title="分类于 json-server">json-server</a>
 </div>
 
-    <span><a href="/2023/12/02/%E7%AE%97%E6%B3%95/" title="算法与数据结构">算法与数据结构</a></span>
+    <span><a href="/2023/01/09/json-server%E6%95%99%E7%A8%8B/" title="json-server">json-server</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/%E6%A1%8C%E9%9D%A2%E7%AB%AF%E5%BC%80%E5%8F%91/" title="分类于 桌面端开发">桌面端开发</a>
+<a href="/categories/vue/" title="分类于 vue">vue</a>
 </div>
 
-    <span><a href="/2024/05/21/%E6%A1%8C%E9%9D%A2%E7%AB%AF%E5%BC%80%E5%8F%91/" title="桌面端开发">桌面端开发</a></span>
+    <span><a href="/2023/11/02/vue%E5%8E%9F%E7%90%86/" title="vue原理">vue原理</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Vue/" title="分类于 Vue">Vue</a>
+</div>
+
+    <span><a href="/2023/01/12/Vue%E6%9D%82%E8%AE%B0/" title="Vue使用笔记">Vue使用笔记</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/react/" title="分类于 react">react</a>
+</div>
+
+    <span><a href="/2023/12/02/react/" title="react笔记">react笔记</a></span>
   </li>
 
       

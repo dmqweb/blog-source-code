@@ -102,12 +102,12 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
       </div>
       <div id="imgs" class="pjax">
         <ul>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/25/1276fcec5eb7990e.webp"></li>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/07/6e43985af4997748.jpg"></li>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/05/9c07b3ea7f1e2a1c.jpg"></li>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/13/a7144f7fc5d49961.jpg"></li>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/25/15ba2d11a4dda9ca.jpg"></li>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/07/971b0200f59eab4c.jpg"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/12/8740e71363c6800c.jpg"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/06/d8aa12b30683676e.jpg"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/04/25ef11a84cfafbef.jpg"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/03/29/4e134f025ae53f2b.jpg"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/04/4b93d7d24397b567.jpg"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/06/603b3532eacee81b.webp"></li>
         </ul>
       </div>
     </header>
@@ -153,9 +153,160 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
   <div class="body md" itemprop="articleBody">
     
 
-    <h1 id="jest测试"><a class="anchor" href="#jest测试">#</a> jest 测试</h1>
-<p>市面上有很多测试框架，例如：mocha 、jasmine、vue test utils、vitest、react testing library 和 testing frameworks for jacascript 等，但语法和思想大致相同，现在依 jest 框架进行简单的使用</p>
-<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token comment">/**</pre></td></tr><tr><td data-num="2"></td><td><pre> * jest 简单的语法</pre></td></tr><tr><td data-num="3"></td><td><pre> * expect  toBe 语法</pre></td></tr><tr><td data-num="4"></td><td><pre> */</span></pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token function">test</span><span class="token punctuation">(</span><span class="token string">'tow plus to 4'</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">=></span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="6"></td><td><pre>    <span class="token function">expect</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token operator">+</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toBe</span><span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="7"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="8"></td><td><pre><span class="token comment">/**</pre></td></tr><tr><td data-num="9"></td><td><pre> * toEqual 语法，递归检查对象或数组的每个字段</pre></td></tr><tr><td data-num="10"></td><td><pre> */</span></pre></td></tr><tr><td data-num="11"></td><td><pre><span class="token function">test</span><span class="token punctuation">(</span><span class="token string">'object assignment'</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">=></span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="12"></td><td><pre>    <span class="token keyword">const</span> data <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token literal-property property">name</span><span class="token operator">:</span><span class="token string">"张三"</span><span class="token punctuation">&#125;</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="13"></td><td><pre>    data<span class="token punctuation">[</span><span class="token string">'age'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">18</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="14"></td><td><pre>    <span class="token function">expect</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toEqual</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span><span class="token literal-property property">name</span><span class="token operator">:</span><span class="token string">"张三"</span><span class="token punctuation">,</span><span class="token literal-property property">age</span><span class="token operator">:</span><span class="token number">18</span><span class="token punctuation">&#125;</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="15"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="16"></td><td><pre><span class="token comment">/**</pre></td></tr><tr><td data-num="17"></td><td><pre> * expect  not  toBe</pre></td></tr><tr><td data-num="18"></td><td><pre> */</span></pre></td></tr><tr><td data-num="19"></td><td><pre><span class="token function">test</span><span class="token punctuation">(</span><span class="token string">'adding is not 0'</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">=></span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="20"></td><td><pre>    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">let</span> i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>i<span class="token operator">&lt;</span><span class="token number">10</span><span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="21"></td><td><pre>        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">let</span> j<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>j<span class="token operator">&lt;</span><span class="token number">5</span><span class="token punctuation">;</span>j<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="22"></td><td><pre>            <span class="token function">expect</span><span class="token punctuation">(</span>i <span class="token operator">+</span> j<span class="token punctuation">)</span><span class="token punctuation">.</span>not<span class="token punctuation">.</span><span class="token function">toBe</span><span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="23"></td><td><pre>        <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="24"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="25"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="26"></td><td><pre><span class="token comment">/**</pre></td></tr><tr><td data-num="27"></td><td><pre> * 检查指定空类型（null,undefined,defined，true 和 false）</pre></td></tr><tr><td data-num="28"></td><td><pre> */</span></pre></td></tr><tr><td data-num="29"></td><td><pre><span class="token function">test</span><span class="token punctuation">(</span><span class="token string">'toBe null'</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">=></span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="30"></td><td><pre>    <span class="token keyword">const</span> n <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="31"></td><td><pre>    <span class="token function">expect</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toBeNull</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="32"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="33"></td><td><pre><span class="token function">test</span><span class="token punctuation">(</span><span class="token string">'toBe defined'</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">=></span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="34"></td><td><pre>    <span class="token keyword">const</span> n <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="35"></td><td><pre>    <span class="token function">expect</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toBeDefined</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="36"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="37"></td><td><pre><span class="token function">test</span><span class="token punctuation">(</span><span class="token string">'toBe Undefined'</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">=></span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="38"></td><td><pre>    <span class="token keyword">let</span> n<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="39"></td><td><pre>    <span class="token function">expect</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toBeUndefined</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="40"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="41"></td><td><pre><span class="token function">test</span><span class="token punctuation">(</span><span class="token string">'toBe Truthy'</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">=></span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="42"></td><td><pre>    <span class="token keyword">const</span> n <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="43"></td><td><pre>    <span class="token keyword">const</span> m <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="44"></td><td><pre>    <span class="token function">expect</span><span class="token punctuation">(</span>n <span class="token operator">&amp;&amp;</span> m<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toBeTruthy</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="45"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="46"></td><td><pre><span class="token function">test</span><span class="token punctuation">(</span><span class="token string">'toBe falsy'</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">=></span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="47"></td><td><pre>    <span class="token keyword">const</span> n <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="48"></td><td><pre>    <span class="token keyword">const</span> m <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="49"></td><td><pre>    <span class="token function">expect</span><span class="token punctuation">(</span>n <span class="token operator">&amp;&amp;</span> m<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toBeFalsy</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="50"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="51"></td><td><pre><span class="token comment">/**</pre></td></tr><tr><td data-num="52"></td><td><pre> * jest 对 0 进行精确测试的结果</pre></td></tr><tr><td data-num="53"></td><td><pre> */</span></pre></td></tr><tr><td data-num="54"></td><td><pre><span class="token function">test</span><span class="token punctuation">(</span><span class="token string">'zero'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="55"></td><td><pre>    <span class="token keyword">const</span> z <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="56"></td><td><pre>    <span class="token function">expect</span><span class="token punctuation">(</span>z<span class="token punctuation">)</span><span class="token punctuation">.</span>not<span class="token punctuation">.</span><span class="token function">toBeNull</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 非 null</span></pre></td></tr><tr><td data-num="57"></td><td><pre>    <span class="token function">expect</span><span class="token punctuation">(</span>z<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toBeDefined</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//defined</span></pre></td></tr><tr><td data-num="58"></td><td><pre>    <span class="token function">expect</span><span class="token punctuation">(</span>z<span class="token punctuation">)</span><span class="token punctuation">.</span>not<span class="token punctuation">.</span><span class="token function">toBeUndefined</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> </pre></td></tr><tr><td data-num="59"></td><td><pre>    <span class="token function">expect</span><span class="token punctuation">(</span>z<span class="token punctuation">)</span><span class="token punctuation">.</span>not<span class="token punctuation">.</span><span class="token function">toBeTruthy</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 非 true</span></pre></td></tr><tr><td data-num="60"></td><td><pre>    <span class="token function">expect</span><span class="token punctuation">(</span>z<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toBeFalsy</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//false</span></pre></td></tr><tr><td data-num="61"></td><td><pre>  <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="62"></td><td><pre><span class="token comment">/**</pre></td></tr><tr><td data-num="63"></td><td><pre> * jest 测试数字</pre></td></tr><tr><td data-num="64"></td><td><pre> */</span></pre></td></tr><tr><td data-num="65"></td><td><pre><span class="token function">test</span><span class="token punctuation">(</span><span class="token string">'two and two'</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">=></span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="66"></td><td><pre>    <span class="token keyword">const</span> value <span class="token operator">=</span> <span class="token number">2</span> <span class="token operator">+</span> <span class="token number">2</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="67"></td><td><pre>    <span class="token function">expect</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toBeGreaterThan</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="68"></td><td><pre>    <span class="token function">expect</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toBeGreaterThanOrEqual</span><span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="69"></td><td><pre>    <span class="token function">expect</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toBeLessThanOrEqual</span><span class="token punctuation">(</span><span class="token number">4.5</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="70"></td><td><pre>    <span class="token function">expect</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toBeLessThanOrEqual</span><span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="71"></td><td><pre>    <span class="token function">expect</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toBe</span><span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="72"></td><td><pre>    <span class="token function">expect</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toEqual</span><span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="73"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="74"></td><td><pre><span class="token comment">/**</pre></td></tr><tr><td data-num="75"></td><td><pre> * toBeCloseTo 检查浮点数相等</pre></td></tr><tr><td data-num="76"></td><td><pre> */</span></pre></td></tr><tr><td data-num="77"></td><td><pre><span class="token function">test</span><span class="token punctuation">(</span><span class="token string">'test float number'</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">=></span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="78"></td><td><pre>    <span class="token keyword">const</span> value <span class="token operator">=</span> <span class="token number">0.1</span> <span class="token operator">+</span> <span class="token number">0.2</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="79"></td><td><pre>    <span class="token comment">//expect (value).toBe (0.3)  报错，因为计算机精度的原因</span></pre></td></tr><tr><td data-num="80"></td><td><pre>    <span class="token function">expect</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toBeCloseTo</span><span class="token punctuation">(</span><span class="token number">0.3</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="81"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="82"></td><td><pre><span class="token comment">/**</pre></td></tr><tr><td data-num="83"></td><td><pre> * toMatch 根据正则表达式检查字符串</pre></td></tr><tr><td data-num="84"></td><td><pre> */</span></pre></td></tr><tr><td data-num="85"></td><td><pre><span class="token function">test</span><span class="token punctuation">(</span><span class="token string">'test reg'</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">=></span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="86"></td><td><pre>    <span class="token function">expect</span><span class="token punctuation">(</span><span class="token string">'team'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>not<span class="token punctuation">.</span><span class="token function">toMatch</span><span class="token punctuation">(</span><span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">I</span><span class="token regex-delimiter">/</span></span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="87"></td><td><pre>    <span class="token function">expect</span><span class="token punctuation">(</span><span class="token string">'Christoph'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toMatch</span><span class="token punctuation">(</span><span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">stop</span><span class="token regex-delimiter">/</span></span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="88"></td><td><pre>    <span class="token function">expect</span><span class="token punctuation">(</span><span class="token string">'hello world'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toMatch</span><span class="token punctuation">(</span><span class="token string">'lo w'</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="89"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="90"></td><td><pre><span class="token comment">/**</pre></td></tr><tr><td data-num="91"></td><td><pre> * toContain 测试数组和可迭代对象</pre></td></tr><tr><td data-num="92"></td><td><pre> */</span></pre></td></tr><tr><td data-num="93"></td><td><pre><span class="token keyword">const</span> List <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'a'</span><span class="token punctuation">,</span><span class="token string">'b'</span><span class="token punctuation">,</span><span class="token string">'c'</span><span class="token punctuation">,</span><span class="token string">'d'</span><span class="token punctuation">]</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="94"></td><td><pre><span class="token function">test</span><span class="token punctuation">(</span><span class="token string">'list to be'</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">=></span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="95"></td><td><pre>    <span class="token function">expect</span><span class="token punctuation">(</span>List<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toContain</span><span class="token punctuation">(</span><span class="token string">'c'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="96"></td><td><pre>    <span class="token function">expect</span><span class="token punctuation">(</span>List<span class="token punctuation">)</span><span class="token punctuation">.</span>not<span class="token punctuation">.</span><span class="token function">toContain</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="97"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="98"></td><td><pre><span class="token comment">/**</pre></td></tr><tr><td data-num="99"></td><td><pre> * 测试异步代码</pre></td></tr><tr><td data-num="100"></td><td><pre> */</span></pre></td></tr><tr><td data-num="101"></td><td><pre><span class="token keyword">const</span> testPromise <span class="token operator">=</span> Promise<span class="token punctuation">.</span><span class="token function">resolve</span><span class="token punctuation">(</span><span class="token string">'hello'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="102"></td><td><pre><span class="token comment">//1 使用 return</span></pre></td></tr><tr><td data-num="103"></td><td><pre><span class="token function">test</span><span class="token punctuation">(</span><span class="token string">'return异步代码'</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">=></span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="104"></td><td><pre>    <span class="token keyword">return</span> testPromise<span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token parameter">data</span><span class="token operator">=></span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="105"></td><td><pre>        <span class="token function">expect</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toBe</span><span class="token punctuation">(</span><span class="token string">'hello'</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="106"></td><td><pre>    <span class="token punctuation">&#125;</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="107"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="108"></td><td><pre><span class="token comment">//2 使用 async 和 await 语法</span></pre></td></tr><tr><td data-num="109"></td><td><pre><span class="token keyword">function</span> <span class="token function">fetchMessage</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="110"></td><td><pre>    <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Promise</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">resolve</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="111"></td><td><pre>        <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="112"></td><td><pre>            <span class="token function">resolve</span><span class="token punctuation">(</span><span class="token string">'hello'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="113"></td><td><pre>        <span class="token punctuation">&#125;</span><span class="token punctuation">,</span> <span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="114"></td><td><pre>    <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="115"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="116"></td><td><pre><span class="token function">test</span><span class="token punctuation">(</span><span class="token string">'async and await'</span><span class="token punctuation">,</span> <span class="token keyword">async</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="117"></td><td><pre>    <span class="token keyword">const</span> result <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token function">fetchMessage</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="118"></td><td><pre>    <span class="token function">expect</span><span class="token punctuation">(</span>result<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toBe</span><span class="token punctuation">(</span><span class="token string">'hello'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="119"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="120"></td><td><pre><span class="token comment">//expect.assertions 验证是否调用了一定数量的断言，确保兑现的承若通过测试</span></pre></td></tr><tr><td data-num="121"></td><td><pre><span class="token comment">//catch 捕捉（确保 Promise 不会被兑现）</span></pre></td></tr><tr><td data-num="122"></td><td><pre><span class="token comment">// test('catch fails with errors',()=>&#123;</span></pre></td></tr><tr><td data-num="123"></td><td><pre><span class="token comment">//     return fetchData2().catch(e=>expect(e).toMatch('error'))</span></pre></td></tr><tr><td data-num="124"></td><td><pre><span class="token comment">// &#125;)</span></pre></td></tr><tr><td data-num="125"></td><td><pre></pre></td></tr><tr><td data-num="126"></td><td><pre><span class="token comment">// 3 使用回调函数 done</span></pre></td></tr><tr><td data-num="127"></td><td><pre><span class="token function">test</span><span class="token punctuation">(</span><span class="token string">'done to async'</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token parameter">done</span><span class="token punctuation">)</span><span class="token operator">=></span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="128"></td><td><pre>    testPromise<span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token parameter">res</span><span class="token operator">=></span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="129"></td><td><pre>        <span class="token function">expect</span><span class="token punctuation">(</span>res<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toBe</span><span class="token punctuation">(</span><span class="token string">'hello'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="130"></td><td><pre>    <span class="token punctuation">&#125;</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="131"></td><td><pre>    <span class="token function">done</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="132"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="133"></td><td><pre><span class="token comment">// 4 .resolves 匹配器等待 Promise 解析（reject 则失败）</span></pre></td></tr><tr><td data-num="134"></td><td><pre><span class="token function">test</span><span class="token punctuation">(</span><span class="token string">'.resolves匹配器'</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">=></span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="135"></td><td><pre>    <span class="token function">expect</span><span class="token punctuation">(</span>testPromise<span class="token punctuation">)</span><span class="token punctuation">.</span>resolves<span class="token punctuation">.</span><span class="token function">toBe</span><span class="token punctuation">(</span><span class="token string">'hello'</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="136"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="137"></td><td><pre><span class="token comment">/**</pre></td></tr><tr><td data-num="138"></td><td><pre> * beforeEach 和 afterEach 钩子函数</pre></td></tr><tr><td data-num="139"></td><td><pre> * 当每一个测试之前或之后都需要调用相同的方法就可以使用这两个钩子函数</pre></td></tr><tr><td data-num="140"></td><td><pre> */</span></pre></td></tr><tr><td data-num="141"></td><td><pre></pre></td></tr><tr><td data-num="142"></td><td><pre><span class="token comment">/**</pre></td></tr><tr><td data-num="143"></td><td><pre> * describe 块</pre></td></tr><tr><td data-num="144"></td><td><pre> */</span></pre></td></tr><tr><td data-num="145"></td><td><pre></pre></td></tr><tr><td data-num="146"></td><td><pre><span class="token comment">/**</pre></td></tr><tr><td data-num="147"></td><td><pre> * test.only 只运行一个测试</pre></td></tr><tr><td data-num="148"></td><td><pre> */</span></pre></td></tr><tr><td data-num="149"></td><td><pre>test<span class="token punctuation">.</span><span class="token function">only</span><span class="token punctuation">(</span><span class="token string">'test only'</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">=></span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="150"></td><td><pre>    <span class="token function">expect</span><span class="token punctuation">(</span><span class="token string">'test only'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toMatch</span><span class="token punctuation">(</span><span class="token string">'t o'</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="151"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">)</span></pre></td></tr></table></figure>
+    <h1 id="jest测试"><a href="#jest测试" class="headerlink" title="jest测试"></a>jest测试</h1><p>市面上有很多测试框架，例如：mocha 、jasmine、vue test utils、vitest、react testing library和testing frameworks for jacascript等，但语法和思想大致相同，现在依jest框架进行简单的使用</p>
+<pre><code class="js">/**
+ * jest简单的语法
+ * expect  toBe 语法
+ */
+test(&#39;tow plus to 4&#39;,()=&gt;&#123;
+    expect(2+2).toBe(4);
+&#125;)
+/**
+ * toEqual语法，递归检查对象或数组的每个字段
+ */
+test(&#39;object assignment&#39;,()=&gt;&#123;
+    const data = &#123;name:&quot;张三&quot;&#125;;
+    data[&#39;age&#39;] = 18;
+    expect(data).toEqual(&#123;name:&quot;张三&quot;,age:18&#125;)
+&#125;)
+/**
+ * expect  not  toBe
+ */
+test(&#39;adding is not 0&#39;,()=&gt;&#123;
+    for(let i=0;i&lt;10;i++)&#123;
+        for(let j=0;j&lt;5;j++)&#123;
+            expect(i + j).not.toBe(-1);
+        &#125;
+    &#125;
+&#125;)
+/**
+ * 检查指定空类型（null,undefined,defined，true和false）
+ */
+test(&#39;toBe null&#39;,()=&gt;&#123;
+    const n = null;
+    expect(n).toBeNull();
+&#125;)
+test(&#39;toBe defined&#39;,()=&gt;&#123;
+    const n = 1;
+    expect(n).toBeDefined();
+&#125;)
+test(&#39;toBe Undefined&#39;,()=&gt;&#123;
+    let n;
+    expect(n).toBeUndefined();
+&#125;)
+test(&#39;toBe Truthy&#39;,()=&gt;&#123;
+    const n = 1;
+    const m = true;
+    expect(n &amp;&amp; m).toBeTruthy();
+&#125;)
+test(&#39;toBe falsy&#39;,()=&gt;&#123;
+    const n = 0;
+    const m = false;
+    expect(n &amp;&amp; m).toBeFalsy();
+&#125;)
+/**
+ * jest对0进行精确测试的结果
+ */
+test(&#39;zero&#39;, () =&gt; &#123;
+    const z = 0;
+    expect(z).not.toBeNull(); //非null
+    expect(z).toBeDefined(); //defined
+    expect(z).not.toBeUndefined(); 
+    expect(z).not.toBeTruthy(); //非true
+    expect(z).toBeFalsy(); //false
+  &#125;);
+/**
+ * jest测试数字
+ */
+test(&#39;two and two&#39;,()=&gt;&#123;
+    const value = 2 + 2;
+    expect(value).toBeGreaterThan(3);
+    expect(value).toBeGreaterThanOrEqual(4)
+    expect(value).toBeLessThanOrEqual(4.5)
+    expect(value).toBeLessThanOrEqual(4)
+    expect(value).toBe(4)
+    expect(value).toEqual(4)
+&#125;)
+/**
+ * toBeCloseTo检查浮点数相等
+ */
+test(&#39;test float number&#39;,()=&gt;&#123;
+    const value = 0.1 + 0.2;
+    // expect(value).toBe(0.3)  报错，因为计算机精度的原因
+    expect(value).toBeCloseTo(0.3)
+&#125;)
+/**
+ * toMatch根据正则表达式检查字符串
+ */
+test(&#39;test reg&#39;,()=&gt;&#123;
+    expect(&#39;team&#39;).not.toMatch(/I/)
+    expect(&#39;Christoph&#39;).toMatch(/stop/)
+    expect(&#39;hello world&#39;).toMatch(&#39;lo w&#39;)
+&#125;)
+/**
+ * toContain测试数组和可迭代对象
+ */
+const List = [&#39;a&#39;,&#39;b&#39;,&#39;c&#39;,&#39;d&#39;];
+test(&#39;list to be&#39;,()=&gt;&#123;
+    expect(List).toContain(&#39;c&#39;);
+    expect(List).not.toContain(1);
+&#125;)
+/**
+ * 测试异步代码
+ */
+const testPromise = Promise.resolve(&#39;hello&#39;);
+//1 使用return
+test(&#39;return异步代码&#39;,()=&gt;&#123;
+    return testPromise.then(data=&gt;&#123;
+        expect(data).toBe(&#39;hello&#39;)
+    &#125;)
+&#125;)
+//2 使用async和await语法
+function fetchMessage() &#123;
+    return new Promise((resolve) =&gt; &#123;
+        setTimeout(() =&gt; &#123;
+            resolve(&#39;hello&#39;);
+        &#125;, 1000);
+    &#125;);
+&#125;
+test(&#39;async and await&#39;, async () =&gt; &#123;
+    const result = await fetchMessage();
+    expect(result).toBe(&#39;hello&#39;);
+&#125;);
+//expect.assertions验证是否调用了一定数量的断言，确保兑现的承若通过测试
+//catch捕捉（确保Promise不会被兑现）
+// test(&#39;catch fails with errors&#39;,()=&gt;&#123;
+//     return fetchData2().catch(e=&gt;expect(e).toMatch(&#39;error&#39;))
+// &#125;)
+
+// 3 使用回调函数done
+test(&#39;done to async&#39;,(done)=&gt;&#123;
+    testPromise.then(res=&gt;&#123;
+        expect(res).toBe(&#39;hello&#39;);
+    &#125;)
+    done();
+&#125;)
+// 4 .resolves匹配器等待Promise解析（reject则失败）
+test(&#39;.resolves匹配器&#39;,()=&gt;&#123;
+    expect(testPromise).resolves.toBe(&#39;hello&#39;)
+&#125;)
+/**
+ * beforeEach和afterEach钩子函数
+ * 当每一个测试之前或之后都需要调用相同的方法就可以使用这两个钩子函数
+ */
+
+/**
+ * describe块
+ */
+
+/**
+ * test.only只运行一个测试
+ */
+test.only(&#39;test only&#39;,()=&gt;&#123;
+    expect(&#39;test only&#39;).toMatch(&#39;t o&#39;)
+&#125;)
+</code></pre>
+
       <div class="tags">
           <a href="/tags/jest/" rel="tag"><i class="ic i-tag"></i> jest</a>
       </div>
@@ -227,7 +378,7 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
     <div class="item left">
       
 
-  <a href="/2024/03/30/%E6%9C%AC%E5%9C%B0%E6%96%87%E4%BB%B6%E9%93%BE%E6%8E%A5/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;s3.uuu.ovh&#x2F;imgs&#x2F;2024&#x2F;04&#x2F;13&#x2F;ba4d76fc0767aeef.jpg" title="本地文件链接">
+  <a href="/2024/03/30/%E6%9C%AC%E5%9C%B0%E6%96%87%E4%BB%B6%E9%93%BE%E6%8E%A5/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;s3.uuu.ovh&#x2F;imgs&#x2F;2024&#x2F;04&#x2F;25&#x2F;0aebf75866635811.jpg" title="本地文件链接">
   <span class="type">上一篇</span>
   <span class="category"><i class="ic i-flag"></i> 脚手架开发</span>
   <h3>本地文件链接</h3>
@@ -237,7 +388,7 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
     <div class="item right">
       
 
-  <a href="/2024/04/12/%E5%A4%8D%E6%9D%82%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2%E4%B8%8A%E7%BA%BF/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;s3.uuu.ovh&#x2F;imgs&#x2F;2024&#x2F;04&#x2F;07&#x2F;5a293b82670a4885.webp" title="复杂业务部署与优化">
+  <a href="/2024/04/12/%E5%A4%8D%E6%9D%82%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2%E4%B8%8A%E7%BA%BF/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;s3.uuu.ovh&#x2F;imgs&#x2F;2024&#x2F;04&#x2F;12&#x2F;65788b6548e9e58f.jpg" title="复杂业务部署与优化">
   <span class="type">下一篇</span>
   <span class="category"><i class="ic i-flag"></i> 复杂业务部署与优化</span>
   <h3>复杂业务部署与优化</h3>
@@ -259,7 +410,7 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
   <div class="panels">
     <div class="inner">
       <div class="contents panel pjax" data-title="文章目录">
-          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#jest%E6%B5%8B%E8%AF%95"><span class="toc-number">1.</span> <span class="toc-text"> jest 测试</span></a></li></ol>
+          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#jest%E6%B5%8B%E8%AF%95"><span class="toc-number">1.</span> <span class="toc-text">jest测试</span></a></li></ol>
       </div>
       <div class="related panel pjax" data-title="系列文章">
         <ul>
@@ -377,102 +528,100 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/%E6%9D%82%E8%AE%B0/" title="分类于 杂记">杂记</a>
-<i class="ic i-angle-right"></i>
-<a href="/categories/%E6%9D%82%E8%AE%B0/%E5%B7%A5%E5%85%B7%E5%87%BD%E6%95%B0/" title="分类于 工具函数">工具函数</a>
-</div>
-
-    <span><a href="/2023/06/02/learn/" title="杂记与工具库函数">杂记与工具库函数</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/JS/" title="分类于 JS">JS</a>
-</div>
-
-    <span><a href="/2023/12/08/DataView/" title="DataView">DataView</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/%E5%AE%B9%E5%99%A8%E5%8C%96%E8%BF%90%E7%BB%B4%E6%93%8D%E4%BD%9C/" title="分类于 容器化运维操作">容器化运维操作</a>
-</div>
-
-    <span><a href="/2024/02/02/%E5%AE%B9%E5%99%A8%E5%8C%96%E8%BF%90%E7%BB%B4%E6%93%8D%E4%BD%9C/" title="容器化运维操作">容器化运维操作</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/%E7%AE%97%E6%B3%95/" title="分类于 算法">算法</a>
-</div>
-
-    <span><a href="/2023/06/02/%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" title="图片上传解决方案">图片上传解决方案</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/JS/" title="分类于 JS">JS</a>
-</div>
-
-    <span><a href="/2023/09/02/ArrayBuffer/" title="ArrayBuffer">ArrayBuffer</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/%E4%B8%9A%E5%8A%A1%E5%A4%84%E7%90%86/" title="分类于 业务处理">业务处理</a>
-</div>
-
-    <span><a href="/2024/03/29/%E6%9C%AC%E5%9C%B0%E9%A2%84%E8%A7%88%E5%9B%BE%E7%89%87/" title="本地预览图片">本地预览图片</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/JS/" title="分类于 JS">JS</a>
-</div>
-
-    <span><a href="/2023/12/11/typedArray/" title="JS中类型化数组typedArray">JS中类型化数组typedArray</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/JS/" title="分类于 JS">JS</a>
-</div>
-
-    <span><a href="/2024/02/02/serviceWorker/" title="serviceWorker">serviceWorker</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/json-server/" title="分类于 json-server">json-server</a>
-</div>
-
-    <span><a href="/2023/01/09/json-server%E6%95%99%E7%A8%8B/" title="json-server">json-server</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
 <a href="/categories/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" title="分类于 正则表达式">正则表达式</a>
 </div>
 
-    <span><a href="/2023/02/12/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" title="正则表达式">正则表达式</a></span>
+    <span><a href="/2024/01/10/%E6%AD%A3%E5%88%99/" title="正则编写方式">正则编写方式</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/JS/" title="分类于 JS">JS</a>
+</div>
+
+    <span><a href="/2023/07/02/forEach/" title="forEach">forEach</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/JS/" title="分类于 JS">JS</a>
+</div>
+
+    <span><a href="/2024/01/11/webworker/" title="webWorker">webWorker</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/jenkins%E9%85%8D%E5%90%88git-hook%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90/" title="分类于 jenkins配合git hook持续集成">jenkins配合git hook持续集成</a>
+</div>
+
+    <span><a href="/2024/02/02/%E4%BD%BF%E7%94%A8Jenkins%E9%85%8D%E5%90%88github%20hook%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90/" title="jenkins配合git hook持续集成">jenkins配合git hook持续集成</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/eslint/" title="分类于 eslint">eslint</a>
+</div>
+
+    <span><a href="/2024/05/17/eslint%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90/" title="eslint源码">eslint源码</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/node-js/" title="分类于 node.js">node.js</a>
+</div>
+
+    <span><a href="/2024/01/02/node.js%E5%86%85%E7%BD%AE%E6%A8%A1%E5%9D%97/" title="node.js内置模块">node.js内置模块</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/git/" title="分类于 git">git</a>
+</div>
+
+    <span><a href="/2023/04/02/git%E5%92%8Cgithub/" title="git与github">git与github</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/" title="分类于 性能优化">性能优化</a>
+</div>
+
+    <span><a href="/2024/05/11/%E6%80%A7%E8%83%BD%E6%8C%87%E6%A0%87/" title="性能指标">性能指标</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/" title="分类于 计算机组成原理">计算机组成原理</a>
+</div>
+
+    <span><a href="/2024/01/02/%E7%BC%93%E5%AD%98%E3%80%81%E5%86%85%E5%AD%98%E3%80%81CPU%E7%9F%A5%E8%AF%86%E7%82%B9%E8%A7%A3%E6%9E%90%E7%AC%94%E8%AE%B0/" title="计组知识点">计组知识点</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E6%B5%8F%E8%A7%88%E5%99%A8/" title="分类于 浏览器">浏览器</a>
+</div>
+
+    <span><a href="/2023/10/09/%E6%B5%8F%E8%A7%88%E5%99%A8%E6%89%A7%E8%A1%8C%E5%8E%9F%E7%90%86/" title="浏览器执行原理">浏览器执行原理</a></span>
   </li>
 
   </ul>
