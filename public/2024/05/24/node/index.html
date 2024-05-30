@@ -1,0 +1,1087 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#FFF">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="icon" type="image/ico" sizes="32x32" href="/images/favicon.ico">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+<link rel="alternate" type="application/rss+xml" title="杜明清的个人博客" href="https://dmqweb.cn/rss.xml" />
+<link rel="alternate" type="application/atom+xml" title="杜明清的个人博客" href="https://dmqweb.cn/atom.xml" />
+<link rel="alternate" type="application/json" title="杜明清的个人博客" href="https://dmqweb.cn/feed.json" />
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Mulish:300,300italic,400,400italic,700,700italic%7CFredericka%20the%20Great:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20JP:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CInconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="/css/app.css?v=0.2.5">
+
+  
+  <meta name="keywords" content="node.js" />
+
+
+<link rel="canonical" href="https://dmqweb.cn/2024/05/24/node/">
+
+
+
+  <title>
+Node学习笔记 - Node.js |
+Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
+<meta name="generator" content="Hexo 6.3.0"></head>
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div id="loading">
+    <div class="cat">
+      <div class="body"></div>
+      <div class="head">
+        <div class="face"></div>
+      </div>
+      <div class="foot">
+        <div class="tummy-end"></div>
+        <div class="bottom"></div>
+        <div class="legs left"></div>
+        <div class="legs right"></div>
+      </div>
+      <div class="paw">
+        <div class="hands left"></div>
+        <div class="hands right"></div>
+      </div>
+    </div>
+  </div>
+  <div id="container">
+    <header id="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="inner">
+        <div id="brand">
+          <div class="pjax">
+          
+  <h1 itemprop="name headline">Node学习笔记
+  </h1>
+  
+<div class="meta">
+  <span class="item" title="创建时间：2024-05-24 17:02:28">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <span class="text">发表于</span>
+    <time itemprop="dateCreated datePublished" datetime="2024-05-24T17:02:28+08:00">2024-05-24</time>
+  </span>
+</div>
+
+
+          </div>
+        </div>
+        <nav id="nav">
+  <div class="inner">
+    <div class="toggle">
+      <div class="lines" aria-label="切换导航栏">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </div>
+    </div>
+    <ul class="menu">
+      <li class="item title"><a href="/" rel="start">Web blog</a></li>
+    </ul>
+    <ul class="right">
+      <li class="item theme">
+        <i class="ic i-sun"></i>
+      </li>
+      <li class="item search">
+        <i class="ic i-search"></i>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+      </div>
+      <div id="imgs" class="pjax">
+        <ul>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/06/ae2b485c961ddd62.jpg"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/12/b04c50f26fdc9c19.jpg"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/28/dc01f095118914ac.webp"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/28/9363f420a16ea998.webp"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/15/6d859d49c9d65157.jpg"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/12/8740e71363c6800c.jpg"></li>
+        </ul>
+      </div>
+    </header>
+    <div id="waves">
+      <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+        <defs>
+          <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+        </defs>
+        <g class="parallax">
+          <use xlink:href="#gentle-wave" x="48" y="0" />
+          <use xlink:href="#gentle-wave" x="48" y="3" />
+          <use xlink:href="#gentle-wave" x="48" y="5" />
+          <use xlink:href="#gentle-wave" x="48" y="7" />
+        </g>
+      </svg>
+    </div>
+    <main>
+      <div class="inner">
+        <div id="main" class="pjax">
+          
+  <div class="article wrap">
+    
+<div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+<i class="ic i-home"></i>
+<span><a href="/">首页</a></span><i class="ic i-angle-right"></i>
+<span  class="current" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/categories/Node-js/" itemprop="item" rel="index" title="分类于 Node.js"><span itemprop="name">Node.js</span></a>
+<meta itemprop="position" content="1" /></span>
+</div>
+
+    <article itemscope itemtype="http://schema.org/Article" class="post block" lang="zh-CN">
+  <link itemprop="mainEntityOfPage" href="https://dmqweb.cn/2024/05/24/node/">
+
+  <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="image" content="/images/avatar.jpg">
+    <meta itemprop="name" content="dmq">
+    <meta itemprop="description" content="👻欢迎一起交流学习👻, ">
+  </span>
+
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="杜明清的个人博客">
+  </span>
+
+  <div class="body md" itemprop="articleBody">
+    
+
+    <h1 id="nodejs"><a class="anchor" href="#nodejs">#</a> Node.js</h1>
+<h2 id="介绍"><a class="anchor" href="#介绍">#</a> 介绍</h2>
+<ul>
+<li>Node.js 并不是 JavaScript 应用，也不是编程语言，而是 JavaScript 的运行时。</li>
+<li>Node.js 是构建在 V8 引擎之上的，V8 引擎由 C / C<ins> 编写，因此 JavaScript 语言需要编译为 C / C</ins> 代码之后才能执行。</li>
+<li>Node.js 采用异步 IO 和事件驱动的设计理念，可以高效的处理大量并发请求，提供了非阻塞 IO 接口和事件循环机制，使其可以编写出高性能、高扩展的应用程序。（异步 IO 通过 libuv 库来实现）</li>
+<li>Node.js 使用 npm 作为包管理工具</li>
+<li>Node.js 适合做一些 IO 密集型应用，不适合做一些 CPU 密集型应用（事件循环机制和异步 IO 使得 Node.js 有很强的处理能力，但是因为 Node.js 单线程的原因，容易造成 CPU 占用率过高）</li>
+<li>如果非要用 Node.js 做 CPU 密集型应用，需要编写 C++ 插件，或者 Node 提供的 cluster 模块。</li>
+</ul>
+<h2 id="npm"><a class="anchor" href="#npm">#</a> npm</h2>
+<ul>
+<li>npm 是 Node.js 的包管理工具，它基于命令行，用于帮助开发者在自己的项目中安装、升级、移除和管理依赖项。</li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9qaWF4aWFveGlhby5uZXRsaWZ5LmFwcC8yMDE5LzA3LzMwL25vZGUvbm9kZS1ucG0v">npm 命令大全</span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9qdWVqaW4uY24vcG9zdC83MTQ1NzU5ODY4MDEwMzY0OTU5">package.json 配置详解</span></li>
+</ul>
+<h4 id="npm-install"><a class="anchor" href="#npm-install">#</a> npm install</h4>
+<p>执行 <code>npm install</code>  时，npm 会通过广度优先遍历算法遍历依赖树，npm 会首先处理项目根目录下的依赖，然后逐层处理每个依赖包的依赖，直到所有的依赖被处理完成。在处理每个依赖时，npm 会检查该依赖的版本号是否符合依赖树中其他依赖的版本要求，如果不符合，则会尝试安装适合的版本。</p>
+<p><img data-src="/images/Snipaste_2024-05-28_18-35-31.png" alt="images" /></p>
+<h4 id="npmrc文件"><a class="anchor" href="#npmrc文件">#</a> .npmrc 文件</h4>
+<figure class="highlight bash"><figcaption data-lang="bash"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token assign-left variable">registry</span><span class="token operator">=</span>http://registry.npmjs.org/</pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token comment"># 定义 npm 的 registry，即 npm 的包下载源</span></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token assign-left variable">proxy</span><span class="token operator">=</span>http://proxy.example.com:8080/</pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token comment"># 定义 npm 的代理服务器，用于访问网络</span></pre></td></tr><tr><td data-num="5"></td><td><pre>https-proxy<span class="token operator">=</span>http://proxy.example.com:8080/</pre></td></tr><tr><td data-num="6"></td><td><pre><span class="token comment"># 定义 npm 的 https 代理服务器，用于访问网络</span></pre></td></tr><tr><td data-num="7"></td><td><pre>strict-ssl<span class="token operator">=</span>true</pre></td></tr><tr><td data-num="8"></td><td><pre><span class="token comment"># 是否在 SSL 证书验证错误时退出</span></pre></td></tr><tr><td data-num="9"></td><td><pre><span class="token assign-left variable">cafile</span><span class="token operator">=</span>/path/to/cafile.pem</pre></td></tr><tr><td data-num="10"></td><td><pre><span class="token comment"># 定义自定义 CA 证书文件的路径</span></pre></td></tr><tr><td data-num="11"></td><td><pre>user-agent<span class="token operator">=</span>npm/<span class="token punctuation">&#123;</span>npm-version<span class="token punctuation">&#125;</span> node/<span class="token punctuation">&#123;</span>node-version<span class="token punctuation">&#125;</span> <span class="token punctuation">&#123;</span>platform<span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="12"></td><td><pre><span class="token comment"># 自定义请求头中的 User-Agent</span></pre></td></tr><tr><td data-num="13"></td><td><pre><span class="token assign-left variable">save</span><span class="token operator">=</span>true</pre></td></tr><tr><td data-num="14"></td><td><pre><span class="token comment"># 安装包时是否自动保存到 package.json 的 dependencies 中</span></pre></td></tr><tr><td data-num="15"></td><td><pre>save-dev<span class="token operator">=</span>true</pre></td></tr><tr><td data-num="16"></td><td><pre><span class="token comment"># 安装包时是否自动保存到 package.json 的 devDependencies 中</span></pre></td></tr><tr><td data-num="17"></td><td><pre>save-exact<span class="token operator">=</span>true</pre></td></tr><tr><td data-num="18"></td><td><pre><span class="token comment"># 安装包时是否精确保存版本号</span></pre></td></tr><tr><td data-num="19"></td><td><pre>engine-strict<span class="token operator">=</span>true</pre></td></tr><tr><td data-num="20"></td><td><pre><span class="token comment"># 是否在安装时检查依赖的 node 和 npm 版本是否符合要求</span></pre></td></tr><tr><td data-num="21"></td><td><pre>scripts-prepend-node-path<span class="token operator">=</span>true</pre></td></tr><tr><td data-num="22"></td><td><pre><span class="token comment"># 是否在运行脚本时自动将 node 的路径添加到 PATH 环境变量中</span></pre></td></tr></table></figure><h4 id="package-lockjson"><a class="anchor" href="#package-lockjson">#</a> package-lock.json</h4>
+<p>文件的作用：</p>
+<ul>
+<li>
+<p>锁定版本号、记录依赖树详细信息</p>
+</li>
+<li>
+<p>package-lock.json 帮我们做了缓存，他会通过  <code>name + version + integrity</code>  信息生成一个唯一的 key，这个 key 能找到对应的 index-v5 下的缓存记录 （npm cache 文件夹下），如果发现有缓存记录，就会找到 tar 包的 hash 值，然后将对应的二进制文件解压到 node_modeules</p>
+</li>
+</ul>
+<h4 id="npm-run"><a class="anchor" href="#npm-run">#</a> npm run</h4>
+<p>读取 package.json 的 scripts 对应的脚本命令，查找的规则是：</p>
+<ol>
+<li>当前项目 node_modules/.bin 查找</li>
+<li>全局 node_modules/.bin 查找</li>
+<li>环境变量查找</li>
+<li>找不到，报错</li>
+</ol>
+<p>node_modules/.bin 中有三个文件（Node 作为跨平台工具，需要处理平台兼容性）</p>
+<ul>
+<li>.sh 文件是给 Linux unix Macos 使用</li>
+<li>.cmd 给 windows 的 cmd 使用</li>
+<li>.ps1 给 windows 的 powerShell 使用</li>
+</ul>
+<h4 id="npm-生命周期"><a class="anchor" href="#npm-生命周期">#</a> npm 生命周期</h4>
+<p>在 package.json 中的 scripts 字段中，我们可以利用 npm 脚本命名规范使用 npm 的生命周期特性，例如：</p>
+<figure class="highlight json"><figcaption data-lang="JSON"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token property">"pretest"</span><span class="token operator">:</span> <span class="token string">"node prev.js"</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="2"></td><td><pre>    <span class="token property">"test"</span><span class="token operator">:</span> <span class="token string">"node index.js"</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="3"></td><td><pre>    <span class="token property">"posttest"</span><span class="token operator">:</span> <span class="token string">"node post.js"</span></pre></td></tr></table></figure><p>则执行：npm run test 时，会最先执行 pretest，最后执行 posttest。</p>
+<h4 id="npx"><a class="anchor" href="#npx">#</a> npx</h4>
+<p>npx 是一个命令行工具，它是 npm 5.2.0 版本中新增的功能。它允许用户在不安装全局包的情况下，运行已安装在本地项目中的包或者远程仓库中的包。</p>
+<p>npx 的作用是在命令行中运行 node 包中的可执行文件，而不需要全局安装这些包。这可以使开发人员更轻松地管理包的依赖关系，并且可以避免全局污染的问题。它还可以帮助开发人员在项目中使用不同版本的包，而不会出现版本冲突的问题。</p>
+<p><strong>npx 的优势</strong></p>
+<ol>
+<li>避免全局安装： <code>npx</code>  允许你执行 npm package，而不需要你先全局安装它。</li>
+<li>总是使用最新版本：如果你没有在本地安装相应的 npm package， <code>npx</code>  会从 npm 的 package 仓库中下载并使用最新版。</li>
+<li>执行任意 npm 包： <code>npx</code>  不仅可以执行在 <code>package.json</code>  的 <code>scripts</code>  部分定义的命令，还可以执行任何 npm package。</li>
+<li>执行 GitHub gist： <code>npx</code>  甚至可以执行 GitHub gist 或者其他公开的 JavaScript 文件。</li>
+</ol>
+<p><strong>npm 和 npx 区别</strong></p>
+<ul>
+<li>
+<p><code>npx</code>  侧重于执行命令的，执行某个模块命令。虽然会自动安装模块，但是重在执行某个命令</p>
+</li>
+<li>
+<p><code>npm</code>  侧重于安装或者卸载某个模块的。重在安装，并不具备执行某个模块的功能。</p>
+</li>
+</ul>
+<h4 id="npm私服"><a class="anchor" href="#npm私服">#</a> npm 私服</h4>
+<p><strong>优势：</strong></p>
+<ul>
+<li><strong>可以离线使用</strong>，你可以将 npm 私服部署到内网集群，这样离线也可以访问私有的包。</li>
+<li><strong>提高包的安全性</strong>，使用私有的 npm 仓库可以更好的管理你的包，避免在使用公共的 npm 包的时候出现漏洞。</li>
+<li><strong>提高包的下载速度</strong>，使用私有 npm 仓库，你可以将经常使用的 npm 包缓存到本地，从而显著提高包的下载速度，减少依赖包的下载时间。这对于团队内部开发和持续集成、部署等场景非常</li>
+</ul>
+<p><strong>搭建：</strong></p>
+<ul>
+<li>可以克隆 npm 或 cnpm 仓库，更改 yaml 配置文件为自己想要的设置即可</li>
+<li>使用<span class="exturl" data-url="aHR0cHM6Ly92ZXJkYWNjaW8ub3JnL3poLWNuLw=="> verdaccio 工具</span>
+<ul>
+<li><code>npm install verdaccio -g</code></li>
+<li><code>verdaccio</code></li>
+<li>访问 localhost:4873</li>
+<li>使用 npm 操作时，加上 <code>--registry http://localhost:4873</code></li>
+</ul>
+</li>
+</ul>
+<h2 id="node模块化"><a class="anchor" href="#node模块化">#</a> Node 模块化</h2>
+<h4 id="commonjs"><a class="anchor" href="#commonjs">#</a> CommonJS</h4>
+<ul>
+<li>
+<p>支持引入内置模块例如  <code>http</code>   <code>os</code>   <code>fs</code>   <code>child_process</code>  等 nodejs 内置模块</p>
+</li>
+<li>
+<p>支持引入第三方模块 <code>express</code>   <code>md5</code>   <code>koa</code>  等</p>
+</li>
+<li>
+<p>支持引入自己编写的模块 ./../ 等</p>
+</li>
+<li>
+<p>支持引入 addon C++ 扩展模块 .node 文件</p>
+</li>
+</ul>
+<h4 id="esm"><a class="anchor" href="#esm">#</a> ESM</h4>
+<ul>
+<li>import 静态导入需要在顶层调用</li>
+<li>import 导入 json 文件需要添加断言（低版本 node 不可用）</li>
+<li>支持函数式动态导入</li>
+</ul>
+<h4 id="对比"><a class="anchor" href="#对比">#</a> 对比</h4>
+<ol>
+<li>CommonJS 基于运行时的同步加载，ESM 基于编译时的异步加载</li>
+<li>CommonJS 是可以修改值的，ESM 值并且不可修改（可读的）</li>
+<li>CommonJS 不可以 tree shaking，ESM 支持 tree shaking</li>
+<li>CommonJS 中顶层的 this 指向这个模块本身，而 ESM 中顶层 this 指向 undefined</li>
+</ol>
+<h4 id="require执行顺序"><a class="anchor" href="#require执行顺序">#</a> require 执行顺序</h4>
+<ol>
+<li>.js 文件，调用 compile 函数进行执行。</li>
+<li>.json 文件，读取文件内容，调用 JSON.parse 方法处理。</li>
+<li>.node 文件，通过 process.dlopen 方法进行处理。</li>
+</ol>
+<h2 id="全局变量"><a class="anchor" href="#全局变量">#</a> 全局变量</h2>
+<h4 id="global"><a class="anchor" href="#global">#</a> global</h4>
+<ul>
+<li>浏览器端的全局对象是 window</li>
+<li>Node 环境的全局对象是 global</li>
+<li>global 上定义的变量在当前环境执行任何文件时都可以访问到</li>
+<li>ES2020 推出 globalThis 用于兼容 window 和 global（自动切换）</li>
+</ul>
+<h4 id="__dirname"><a class="anchor" href="#__dirname">#</a> __dirname</h4>
+<p>当前模块所在目录的绝对路径</p>
+<h4 id="__filename"><a class="anchor" href="#__filename">#</a> __filename</h4>
+<p>当前模块文件所在的绝对路径，包括文件名和文件扩展名</p>
+<h4 id="require"><a class="anchor" href="#require">#</a> require</h4>
+<h4 id="module"><a class="anchor" href="#module">#</a> module</h4>
+<h4 id="process"><a class="anchor" href="#process">#</a> process</h4>
+<ul>
+<li>
+<p><code>process.argv</code></p>
+<ul>
+<li>第一个参数是当前执行环境的路径</li>
+<li>第二个参数是当前执行的文件的路径</li>
+<li>剩余的参数是传递给脚本文件的命令行参数</li>
+</ul>
+</li>
+<li>
+<p><code>process.env</code>  环境变量</p>
+</li>
+<li>
+<p><code>process.cwd()</code>  返回当前工作目录路径</p>
+</li>
+<li>
+<p><code>process.on(event,listener)</code> ，监听进程变化</p>
+</li>
+<li>
+<p><code>process.exit([code])</code> ，退出 Node 进程，提供退出码</p>
+</li>
+<li>
+<p><code>process.pid</code>  返回进程 id</p>
+</li>
+</ul>
+<h4 id="buffer类"><a class="anchor" href="#buffer类">#</a> Buffer 类</h4>
+<p>Node.js 6.0 版本开始， <code>Buffer</code>  构造函数的使用已被弃用，推荐使用 <code>Buffer.alloc()</code> 、 <code>Buffer.from()</code>  等方法来创建 <code>Buffer</code>  实例。</p>
+<h4 id="dom-bom"><a class="anchor" href="#dom-bom">#</a> DOM、BOM</h4>
+<p>Node 环境中无法操作 DOM 和 BOM，不过可以借助一些工具进行模拟，例如： <code>jsdom</code></p>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">const</span> fs <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'node:fs'</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token keyword">const</span> <span class="token punctuation">&#123;</span> <span class="token constant">JSDOM</span> <span class="token punctuation">&#125;</span> <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'jsdom'</span><span class="token punctuation">)</span> <span class="token comment">//jsdom 模拟浏览器环境</span></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token keyword">const</span> dom <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">JSDOM</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">&lt;!DOCTYPE html>&lt;div id='app'>&lt;/div></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token keyword">const</span> document <span class="token operator">=</span> dom<span class="token punctuation">.</span>window<span class="token punctuation">.</span>document</pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token keyword">const</span> window <span class="token operator">=</span> dom<span class="token punctuation">.</span>window</pre></td></tr><tr><td data-num="6"></td><td><pre><span class="token function">fetch</span><span class="token punctuation">(</span><span class="token string">'https://api.thecatapi.com/v1/images/search?limit=10&amp;page=1'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token parameter">res</span> <span class="token operator">=></span> res<span class="token punctuation">.</span><span class="token function">json</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token parameter">data</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="7"></td><td><pre>    <span class="token keyword">const</span> app <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">'app'</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="8"></td><td><pre>    data<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token parameter">item</span><span class="token operator">=></span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="9"></td><td><pre>       <span class="token keyword">const</span> img <span class="token operator">=</span>  document<span class="token punctuation">.</span><span class="token function">createElement</span><span class="token punctuation">(</span><span class="token string">'img'</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="10"></td><td><pre>       img<span class="token punctuation">.</span>src <span class="token operator">=</span> item<span class="token punctuation">.</span>url</pre></td></tr><tr><td data-num="11"></td><td><pre>       img<span class="token punctuation">.</span>style<span class="token punctuation">.</span>width <span class="token operator">=</span> <span class="token string">'200px'</span></pre></td></tr><tr><td data-num="12"></td><td><pre>       img<span class="token punctuation">.</span>style<span class="token punctuation">.</span>height <span class="token operator">=</span> <span class="token string">'200px'</span></pre></td></tr><tr><td data-num="13"></td><td><pre>       app<span class="token punctuation">.</span><span class="token function">appendChild</span><span class="token punctuation">(</span>img<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="14"></td><td><pre>    <span class="token punctuation">&#125;</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="15"></td><td><pre>    fs<span class="token punctuation">.</span><span class="token function">writeFileSync</span><span class="token punctuation">(</span><span class="token string">'./index.html'</span><span class="token punctuation">,</span> dom<span class="token punctuation">.</span><span class="token function">serialize</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="16"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">)</span></pre></td></tr></table></figure><h2 id="path模块"><a class="anchor" href="#path模块">#</a> path 模块</h2>
+<p>path 模块在 windows 和 posix 系统中是有差异的。</p>
+<ul>
+<li>posix 表示可移植操作系统接口，也就是定义了一套标准，遵守这套标准的操作系统有 (unix,like unix,linux,macOs,windows wsl)，用于多个平台间相互兼容</li>
+<li>Windows 并没有完全遵循 POSIX 标准，在 Windows 系统中，路径使用反斜杠（ <code>\</code> ）作为路径分隔符。这与 POSIX 系统使用的正斜杠（ <code>/</code> ）是不同的</li>
+</ul>
+<p><strong>差异举例：</strong></p>
+<pre><code>path.basename('C:\temp\myfile.html'); 
+// 在posix中 返回: 'C:\temp\myfile.html'
+// 在windows中 返回 empmyfile.html
+</code></pre>
+<ul>
+<li>path.basename 返回文件名（包括后缀）</li>
+</ul>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre>path<span class="token punctuation">.</span><span class="token function">basename</span><span class="token punctuation">(</span><span class="token string">'C:/fs/dmq/MI/index.html'</span><span class="token punctuation">)</span> <span class="token comment">// 返回 index.html</span></pre></td></tr></table></figure><ul>
+<li><code>path.extname</code>  返回扩展名</li>
+<li><code>path.join</code>  路径拼接（路径拼接）</li>
+<li><code>path.resolve</code>  解析绝对路径并且返回绝对路径（路径解析）</li>
+<li><code>path.parse</code>  将路径解析为对象</li>
+<li><code>path.format</code>  将对象解析为路径</li>
+</ul>
+<h2 id="os模块"><a class="anchor" href="#os模块">#</a> os 模块</h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>API</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><strong>os.type()</strong></td>
+<td>它在 Linux 上返回  <code>'Linux'</code> ，在 macOS 上返回  <code>'Darwin'</code> ，在 Windows 上返回  <code>'Windows_NT'</code></td>
+</tr>
+<tr>
+<td>2</td>
+<td><strong>os.platform()</strong></td>
+<td>返回标识为其编译 Node.js 二进制文件的操作系统平台的字符串。 该值在编译时设置。 可能的值为  <code>'aix'</code> 、 <code>'darwin'</code> 、 <code>'freebsd'</code> 、 <code>'linux'</code> 、 <code>'openbsd'</code> 、 <code>'sunos'</code> 、以及  <code>'win32'</code></td>
+</tr>
+<tr>
+<td>3</td>
+<td><strong>os.release()</strong></td>
+<td>返回操作系统的版本例如 10.xxxx win10</td>
+</tr>
+<tr>
+<td>4</td>
+<td><strong>os.homedir()</strong></td>
+<td>返回用户目录 例如 c:\user\xiaoman 原理就是 windows  <code>echo %USERPROFILE% </code> posix $HOME</td>
+</tr>
+<tr>
+<td>5</td>
+<td><strong>os.arch()</strong></td>
+<td>返回 cpu 的架构  可能的值为  <code>'arm'</code> 、 <code>'arm64'</code> 、 <code>'ia32'</code> 、 <code>'mips'</code> 、 <code>'mipsel'</code> 、 <code>'ppc'</code> 、 <code>'ppc64'</code> 、 <code>'s390'</code> 、 <code>'s390x'</code> 、以及  <code>'x64'</code></td>
+</tr>
+<tr>
+<td>6</td>
+<td><strong>os.cups()</strong></td>
+<td>获取 <code>cpu线程</code> 和 cpu 详细信息</td>
+</tr>
+<tr>
+<td>7</td>
+<td><strong>os.networkInterfaces()</strong></td>
+<td>获取 <code>网络信息</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="process模块"><a class="anchor" href="#process模块">#</a> process 模块</h2>
+<ul>
+<li>
+<p><code>process.argv</code></p>
+<ul>
+<li>第一个参数是当前执行环境的路径</li>
+<li>第二个参数是当前执行的文件的路径</li>
+<li>剩余的参数是传递给脚本文件的命令行参数</li>
+</ul>
+</li>
+<li>
+<p><code>process.env</code>  环境变量</p>
+</li>
+<li>
+<p><code>process.cwd()</code>  返回当前工作目录路径</p>
+</li>
+<li>
+<p><code>process.on(event,listener)</code> ，监听进程变化</p>
+</li>
+<li>
+<p><code>process.exit([code])</code> ，退出 Node 进程，提供退出码</p>
+</li>
+<li>
+<p><code>process.pid</code>  返回进程 id</p>
+</li>
+<li>
+<p><code>process.arch</code>  返回操作系统 CPU 架构</p>
+</li>
+<li>
+<p><code>process.memoryUsage</code>  获取当前进程内存使用情况</p>
+</li>
+<li>
+<p><code>process.kill(process.pid)</code>  用于杀死一个进程</p>
+</li>
+</ul>
+<h2 id="child_process模块"><a class="anchor" href="#child_process模块">#</a> child_process 模块</h2>
+<p>子进程是 Nodejs 核心 API，如果你会 shell 命令，他会有非常大的帮助，或者你喜欢编写前端工程化工具之类的，他也有很大的用处，以及处理 CPU 密集型应用。</p>
+<h4 id="创建子进程"><a class="anchor" href="#创建子进程">#</a> 创建子进程</h4>
+<p>Nodejs 创建子进程共有 <code>7个</code>  API Sync 同步 API ，不加是异步 API</p>
+<ol>
+<li>spawn  执行命令</li>
+<li>exec   执行命令</li>
+<li>execFile   执行可执行文件</li>
+<li>fork   创建 node 子进程</li>
+<li><code>execSync</code>  执行命令 同步执行</li>
+<li><code>execFileSync</code>  执行可执行文件 同步执行</li>
+<li><code>spawnSync</code>  执行命令 同步执行</li>
+</ol>
+<h2 id="ffmpeg工具"><a class="anchor" href="#ffmpeg工具">#</a> <span class="exturl" data-url="aHR0cHM6Ly9mZm1wZWcucDJocC5jb20vZG93bmxvYWQuaHRtbA==">ffmpeg 工具</span></h2>
+<p>FFmpeg 是一个开源的跨平台多媒体处理工具，可以用于处理音频、视频和多媒体流。它提供了一组强大的命令行工具和库，可以进行视频转码、视频剪辑、音频提取、音视频合并、流媒体传输等操作。</p>
+<h2 id="events模块"><a class="anchor" href="#events模块">#</a> events 模块</h2>
+<p>Node.js 的事件模型采用发布订阅的设计思想，将发布者和订阅者之间解耦合，使得双方能够独立地扩展自己。</p>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">const</span> EventEmitter <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'events'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token keyword">const</span> event <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">EventEmitter</span><span class="token punctuation">(</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token comment">// 监听 test</span></pre></td></tr><tr><td data-num="4"></td><td><pre>event<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">'test'</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token parameter">data</span><span class="token punctuation">)</span><span class="token operator">=></span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="5"></td><td><pre>    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="6"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="7"></td><td><pre>event<span class="token punctuation">.</span><span class="token function">emit</span><span class="token punctuation">(</span><span class="token string">'test'</span><span class="token punctuation">,</span><span class="token string">'data数据'</span><span class="token punctuation">)</span> <span class="token comment">// 派发事件</span></pre></td></tr></table></figure><p>event 实例默认监听 10 个为上限，可以通过 <code>setMaxListeners()</code>  方法来设置监听上限。</p>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre>event<span class="token punctuation">.</span><span class="token function">setMaxListeners</span><span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">)</span></pre></td></tr></table></figure><p><code>event.once方法</code> 可以只订阅一次</p>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre>event<span class="token punctuation">.</span><span class="token function">once</span><span class="token punctuation">(</span><span class="token string">'test'</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token parameter">data</span><span class="token punctuation">)</span><span class="token operator">=></span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="2"></td><td><pre>	console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'once取代on，只监听一次'</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">)</span></pre></td></tr></table></figure><p><code>event.off</code>  方法取消订阅</p>
+<pre><code class="language-JS">event.on('test', fn) // 订阅事件
+event.off('test', fn) // 取消事件订阅
+</code></pre>
+<h4 id="sse"><a class="anchor" href="#sse">#</a> SSE</h4>
+<ul>
+<li>
+<p>SSE（server send events）服务端推送事件</p>
+</li>
+<li>
+<p>是一种实现服务端向客户端推送数据的技术，也被称为事件流</p>
+</li>
+<li>
+<p>它是基于 HTTP 协议，利用 HTTP 协议长连接的优势，实现服务端向客户端推送实时数据。</p>
+</li>
+<li>
+<p>浏览器端需要使用 <code>EventSource</code>  注册 api 地址，服务端需要对该地址的响应头中设置 Content-Type 为  <code>text/event-stream </code></p>
+</li>
+</ul>
+<p><strong>node 后端：</strong></p>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">import</span> express <span class="token keyword">from</span> <span class="token string">'express'</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token keyword">const</span> app <span class="token operator">=</span> <span class="token function">express</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="3"></td><td><pre>app<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">'/api/sse'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">req<span class="token punctuation">,</span> res</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="4"></td><td><pre>    res<span class="token punctuation">.</span><span class="token function">writeHead</span><span class="token punctuation">(</span><span class="token number">200</span><span class="token punctuation">,</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="5"></td><td><pre>        <span class="token string-property property">'Content-Type'</span><span class="token operator">:</span> <span class="token string">'text/event-stream'</span><span class="token punctuation">,</span> <span class="token comment">// 核心返回数据流</span></pre></td></tr><tr><td data-num="6"></td><td><pre>        <span class="token string-property property">'Connection'</span><span class="token operator">:</span> <span class="token string">'close'</span></pre></td></tr><tr><td data-num="7"></td><td><pre>    <span class="token punctuation">&#125;</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="8"></td><td><pre>    <span class="token keyword">const</span> data <span class="token operator">=</span> fs<span class="token punctuation">.</span><span class="token function">readFileSync</span><span class="token punctuation">(</span><span class="token string">'./index.txt'</span><span class="token punctuation">,</span> <span class="token string">'utf8'</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="9"></td><td><pre>    <span class="token keyword">const</span> total <span class="token operator">=</span> data<span class="token punctuation">.</span>length<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="10"></td><td><pre>    <span class="token keyword">let</span> current <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="11"></td><td><pre>    <span class="token comment">//mock sse 数据</span></pre></td></tr><tr><td data-num="12"></td><td><pre>    <span class="token keyword">let</span> time <span class="token operator">=</span> <span class="token function">setInterval</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="13"></td><td><pre>        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>current<span class="token punctuation">,</span> total<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="14"></td><td><pre>        <span class="token keyword">if</span> <span class="token punctuation">(</span>current <span class="token operator">>=</span> total<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="15"></td><td><pre>            console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'end'</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="16"></td><td><pre>            <span class="token function">clearInterval</span><span class="token punctuation">(</span>time<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="17"></td><td><pre>            <span class="token keyword">return</span></pre></td></tr><tr><td data-num="18"></td><td><pre>        <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="19"></td><td><pre>        <span class="token comment">// 返回自定义事件名</span></pre></td></tr><tr><td data-num="20"></td><td><pre>        res<span class="token punctuation">.</span><span class="token function">write</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">event:name\n</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="21"></td><td><pre>        <span class="token comment">// 返回数据</span></pre></td></tr><tr><td data-num="22"></td><td><pre>        res<span class="token punctuation">.</span><span class="token function">write</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">data:</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>data<span class="token punctuation">.</span><span class="token function">split</span><span class="token punctuation">(</span><span class="token string">''</span><span class="token punctuation">)</span><span class="token punctuation">[</span>current<span class="token punctuation">]</span><span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string">\n\n</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="23"></td><td><pre>        current<span class="token operator">++</span></pre></td></tr><tr><td data-num="24"></td><td><pre>    <span class="token punctuation">&#125;</span><span class="token punctuation">,</span> <span class="token number">300</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="25"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="26"></td><td><pre>app<span class="token punctuation">.</span><span class="token function">listen</span><span class="token punctuation">(</span><span class="token number">3000</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="27"></td><td><pre>    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'Listening on port 3000'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="28"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr></table></figure><p><strong>客户端：</strong></p>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">const</span> sse <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">EventSource</span><span class="token punctuation">(</span><span class="token string">'http://localhost:3000/api/sse'</span> <span class="token punctuation">)</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token keyword">if</span> <span class="token punctuation">(</span>sse<span class="token punctuation">.</span>readyState <span class="token operator">===</span> EventSource<span class="token punctuation">.</span><span class="token constant">CONNECTING</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="3"></td><td><pre>  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'正在连接服务器...'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>sse<span class="token punctuation">.</span>readyState <span class="token operator">===</span> EventSource<span class="token punctuation">.</span><span class="token constant">OPEN</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="5"></td><td><pre>  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'已经连接上服务器！'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="6"></td><td><pre><span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>sse<span class="token punctuation">.</span>readyState <span class="token operator">===</span> EventSource<span class="token punctuation">.</span><span class="token constant">CLOSED</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="7"></td><td><pre>  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'连接已经关闭。'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="8"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="9"></td><td><pre>sse<span class="token punctuation">.</span><span class="token function-variable function">onmessage</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">data</span><span class="token punctuation">)</span><span class="token operator">=></span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="10"></td><td><pre>    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="11"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="12"></td><td><pre>sse<span class="token punctuation">.</span><span class="token function-variable function">onerror</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">e</span><span class="token punctuation">)</span><span class="token operator">=></span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="13"></td><td><pre>    sse<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 关闭连接</span></pre></td></tr><tr><td data-num="14"></td><td><pre>    console<span class="token punctuation">.</span><span class="token function">error</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="15"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="16"></td><td><pre>sse<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">'open'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">e</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="17"></td><td><pre>    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'连接成功'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="18"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="19"></td><td><pre><span class="token comment">// 对应后端 nodejs 自定义的事件名 lol</span></pre></td></tr><tr><td data-num="20"></td><td><pre>sse<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">'name'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">e</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="21"></td><td><pre>    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>e<span class="token punctuation">.</span>data<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="22"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">)</span></pre></td></tr></table></figure><h2 id="util模块"><a class="anchor" href="#util模块">#</a> util 模块</h2>
+<p>Node.js 内部提供的工具集模块，方便快速开发</p>
+<ul>
+<li>
+<p><code>util.promisify</code>  将函数改为 promise 类型的形式</p>
+</li>
+<li>
+<p><code>util.callbackify</code>  将 promise 类型的 api 改为函数形式</p>
+</li>
+<li>
+<p><code>util.format</code>  用于格式化文本</p>
+<ul>
+<li><code>%s</code> :  <code>String</code>  将用于转换除  <code>BigInt</code> 、 <code>Object</code>  和  <code>-0</code>  之外的所有值。  <code>BigInt</code>  值将用  <code>n</code>  表示，没有用户定义的  <code>toString</code>  函数的对象使用具有选项  <code>&#123; depth: 0, colors: false, compact: 3 &#125;</code>  的  <code>util.inspect()</code>  进行检查。</li>
+<li><code>%d</code> :  <code>Number</code>  将用于转换除  <code>BigInt</code>  和  <code>Symbol</code>  之外的所有值。</li>
+<li><code>%i</code> :  <code>parseInt(value, 10)</code>  用于除  <code>BigInt</code>  和  <code>Symbol</code>  之外的所有值。</li>
+<li><code>%f</code> :  <code>parseFloat(value)</code>  用于除  <code>Symbol</code>  之外的所有值。</li>
+<li><code>%j</code> : JSON。 如果参数包含循环引用，则替换为字符串  <code>'[Circular]'</code> 。</li>
+<li><code>%o</code> :  <code>Object</code> . 具有通用 JavaScript 对象格式的对象的字符串表示形式。 类似于具有选项  <code>&#123; showHidden: true, showProxy: true &#125;</code>  的  <code>util.inspect()</code> 。 这将显示完整的对象，包括不可枚举的属性和代理。</li>
+<li><code>%O</code> :  <code>Object</code> . 具有通用 JavaScript 对象格式的对象的字符串表示形式。 类似于没有选项的  <code>util.inspect()</code> 。 这将显示完整的对象，但不包括不可枚举的属性和代理。</li>
+<li><code>%c</code> :  <code>CSS</code> . 此说明符被忽略，将跳过任何传入的 CSS。</li>
+<li><code>%%</code> : 单个百分号 ( <code>'%'</code> )。 这不消费参数。</li>
+</ul>
+</li>
+<li>
+<p>其他工具函数省略</p>
+</li>
+</ul>
+<h2 id="pngquant工具"><a class="anchor" href="#pngquant工具">#</a> <span class="exturl" data-url="aHR0cHM6Ly9wbmdxdWFudC5vcmcv">pngquant 工具</span></h2>
+<p><code>pngquant</code>  是一个用于压缩 PNG 图像文件的工具。它可以显著减小 PNG 文件的大小，同时保持图像质量和透明度。通过减小文件大小，可以提高网页加载速度，并节省存储空间。 <code>pngquant</code>  提供命令行接口和库，可轻松集成到各种应用程序和脚本中。</p>
+<h2 id="fs模块"><a class="anchor" href="#fs模块">#</a> fs 模块</h2>
+<p>在 Node.js 中， <code>fs</code>  模块是文件系统模块（File System module）的缩写，它提供了与文件系统进行交互的各种功能。通过  <code>fs</code>  模块，你可以执行诸如读取文件、写入文件、更改文件权限、创建目录等操作， <code>Node.js 核心API之一</code> 。</p>
+<h4 id="同步与异步"><a class="anchor" href="#同步与异步">#</a> 同步与异步</h4>
+<ul>
+<li>
+<p>fs 支持同步和异步两种模式 增加了 <code>Sync</code>  fs 就会采用同步的方式运行代码，会阻塞下面的代码，不加 Sync 就是异步的模式不会阻塞。</p>
+</li>
+<li>
+<p>fs 新增了 promise 版本，只需要在引入包后面增加 /promise 即可，fs 便可支持 promise 回调。</p>
+</li>
+<li>
+<p>fs 返回的是一个 buffer 二进制数据 每两个十六进制数字表示一个字节</p>
+</li>
+</ul>
+<h4 id="api"><a class="anchor" href="#api">#</a> api</h4>
+<ul>
+<li><code>fs.readFile</code>  异步读取文件</li>
+<li><code>fs.writeFile</code>  异步写入文件</li>
+<li><code>fs.appendFile</code>  文件异步追加写入内容</li>
+<li><code>fs.copyFile</code>  文件异步拷贝写入</li>
+<li><code>fs.open</code>  异步打开文件</li>
+<li><code>fs.close</code>  异步关闭文件</li>
+<li><code>fs.read</code>  异步读取文件</li>
+<li><code>fs.write</code>  异步将 Buffer 中的数据写入文件</li>
+<li><code>fs.access</code>  异步检查文件是否可读可写</li>
+<li><code>fs.stat</code>  异步获取文件目录的 stats 对象（文件夹信息）</li>
+<li><code>fs.mkdir</code>  异步创建文件夹</li>
+<li><code>fs.readdir</code>  异步读取文件夹</li>
+<li><code>fs.rmdir</code>  异步删除目录</li>
+<li><code>fs.unlink</code>  异步删除文件</li>
+<li>以上方法都有对应的同步执行的方法，在方法名后面加上 Sync 后缀即可。</li>
+</ul>
+<h4 id="fspromises"><a class="anchor" href="#fspromises">#</a> fs/promises</h4>
+<p>node 中 fs 模块的方法提供了 Promise 版本的调用形式，导入即可使用 promise 的使用方式调用 api</p>
+<h4 id="源码"><a class="anchor" href="#源码">#</a> 源码</h4>
+<p>Node.js 中 fs 模块是由 libuv 来进行调度的，文件读取完成之后 libuv 才会将 fs 的结果推入 V8 的队列。</p>
+<h4 id="writefilesync"><a class="anchor" href="#writefilesync">#</a> writeFileSync</h4>
+<ul>
+<li>第一个参数是要写入的文件</li>
+<li>第二个参数是写入的内容</li>
+<li>第三个参数是写入方式配置项，其 flag 有以下配置：
+<ul>
+<li><code>'a'</code> : 打开文件进行追加。 如果文件不存在，则创建该文件。</li>
+<li><code>'ax'</code> : 类似于  <code>'a'</code>  但如果路径存在则失败。</li>
+<li><code>'a+'</code> : 打开文件进行读取和追加。 如果文件不存在，则创建该文件。</li>
+<li><code>'ax+'</code> : 类似于  <code>'a+'</code>  但如果路径存在则失败。</li>
+<li><code>'as'</code> : 以同步模式打开文件进行追加。 如果文件不存在，则创建该文件。</li>
+<li><code>'as+'</code> : 以同步模式打开文件进行读取和追加。 如果文件不存在，则创建该文件。</li>
+<li><code>'r'</code> : 打开文件进行读取。 如果文件不存在，则会发生异常。</li>
+<li><code>'r+'</code> : 打开文件进行读写。 如果文件不存在，则会发生异常。</li>
+<li><code>'rs+'</code> : 以同步模式打开文件进行读写。 指示操作系统绕过本地文件系统缓存。</li>
+<li><code>'w'</code> : 打开文件进行写入。 创建（如果它不存在）或截断（如果它存在）该文件。</li>
+<li><code>'wx'</code> : 类似于  <code>'w'</code>  但如果路径存在则失败。</li>
+<li><code>'w+'</code> : 打开文件进行读写。 创建（如果它不存在）或截断（如果它存在）该文件。</li>
+<li><code>'wx+'</code> : 类似于  <code>'w+'</code>  但如果路径存在则失败。</li>
+</ul>
+</li>
+</ul>
+<p>例如追加文件内容除了可以使用 <code>appendFileSync</code>  之外，还可以：</p>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre>fs<span class="token punctuation">.</span><span class="token function">writeFileSync</span><span class="token punctuation">(</span><span class="token string">'index.txt'</span><span class="token punctuation">,</span> <span class="token string">'追加的内容'</span><span class="token punctuation">,</span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="2"></td><td><pre>    <span class="token literal-property property">flag</span><span class="token operator">:</span> <span class="token string">'a'</span> <span class="token comment">// 配置 options 中的 flag</span></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">)</span></pre></td></tr></table></figure><h4 id="可写流"><a class="anchor" href="#可写流">#</a> 可写流</h4>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">const</span> fs <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'node:fs'</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token keyword">let</span> verse <span class="token operator">=</span> <span class="token punctuation">[</span></pre></td></tr><tr><td data-num="3"></td><td><pre>    <span class="token string">'待到秋来九月八'</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="4"></td><td><pre>    <span class="token string">'我花开后百花杀'</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="5"></td><td><pre>    <span class="token string">'冲天香阵透长安'</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="6"></td><td><pre>    <span class="token string">'满城尽带黄金甲'</span></pre></td></tr><tr><td data-num="7"></td><td><pre><span class="token punctuation">]</span></pre></td></tr><tr><td data-num="8"></td><td><pre><span class="token keyword">let</span> writeStream <span class="token operator">=</span> fs<span class="token punctuation">.</span><span class="token function">createWriteStream</span><span class="token punctuation">(</span><span class="token string">'index.txt'</span><span class="token punctuation">)</span> <span class="token comment">// 创建写入流</span></pre></td></tr><tr><td data-num="9"></td><td><pre>verse<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token parameter">item</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="10"></td><td><pre>    writeStream<span class="token punctuation">.</span><span class="token function">write</span><span class="token punctuation">(</span>item <span class="token operator">+</span> <span class="token string">'\n'</span><span class="token punctuation">)</span> <span class="token comment">// 写入内容</span></pre></td></tr><tr><td data-num="11"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="12"></td><td><pre>writeStream<span class="token punctuation">.</span><span class="token function">end</span><span class="token punctuation">(</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="13"></td><td><pre>writeStream<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">'finish'</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">=></span><span class="token punctuation">&#123;</span> <span class="token comment">// 监听写入完成事件</span></pre></td></tr><tr><td data-num="14"></td><td><pre>    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'写入完成'</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="15"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">)</span></pre></td></tr></table></figure><p>我们可以创建一个可写流 打开一个通道，可以一直写入数据，用于处理大量的数据写入，写入完成之后调用 end 关闭可写流，监听 finish 事件 写入完成</p>
+<h4 id="硬链接-软连接"><a class="anchor" href="#硬链接-软连接">#</a> 硬链接、软连接</h4>
+<h6 id="inode"><a class="anchor" href="#inode">#</a> inode</h6>
+<ul>
+<li>文件存储在磁盘上，磁盘的最小存储单位叫做 <code>扇区</code> ，每个扇区存储 512 字节</li>
+<li>操作系统读取磁盘时，不会一个扇区一个扇区地读取，这样效率太低，而是一次性连续读取多个扇区，多个扇区称之为 <code>块</code></li>
+<li><code>块</code> 是文件读取的最小单位</li>
+<li>文件数据都存储在 <code>块</code> 中，因此需要一个地方存储文件的元信息，这中存储文件元信息的区域就叫做 <code>inode</code> ，索引节点</li>
+<li>创建软链接时生成了新的 <code>inode</code> ，创建硬链接时没有。</li>
+</ul>
+<p><img data-src="/images/Snipaste_2024-05-29_14-07-39.png" alt="扇区、块和inode" /></p>
+<p><strong>inode 中包含信息：</strong></p>
+<ul>
+<li>文件的字节数</li>
+<li>文件拥有者 ID</li>
+<li>文件的 Group ID</li>
+<li>文件读、写、执行权限</li>
+<li>文件的时间戳</li>
+<li>链接数</li>
+<li>文件数据 block 的位置</li>
+</ul>
+<p>每一个  <code>inode</code>  都有一个唯一的标识码 ，上面的输出信息中  <code>ino</code>  就是  <code>inode</code>  的唯一标识码，在  <code>linux</code>  系统内部使用  <code>inode</code>  的标识码来识别文件，并不使用文件名。之前系的</p>
+<p>在  <code>linux</code>  系统中，目录也是一种文件。目录文件包含一系列目录项，每一个目录项由两部分组成：所包含文件的文件名，以及文件名对应的  <code>inode</code>  标识码。我们可以使用  <code>ls -i</code>  来列出目录中的文件以及所有的  <code>inde</code>  标识码。这里也可以解释可能小伙伴们觉得说不通的问题，仅修改目录的读权限，并不能实现读取目录下所有文件内容的原因，最后需要通过递归目录下的文件来进行修改。</p>
+<h6 id="软链接"><a class="anchor" href="#软链接">#</a> 软链接</h6>
+<p>软链接类似于  <code>Window</code>  中的 “快捷方式” 。创建软链接会创建一个新的  <code>inode</code> ，比如为文件  <code>a</code>  创建了软链接文件 b，文件  <code>b</code>  内部会指向  <code>a</code>  的  <code>inode</code> 。当我们读取文件 <code>b</code>  的时候，系统会自动导向文件  <code>a</code>  ，文件  <code>b</code>  就是文件  <code>a</code>  软连接 (或者叫符号链接)。</p>
+<ul>
+<li>访问：创建了软链接后我们就可以使用不同的文件名访问相同的内容，</li>
+<li>修改：修改文件  <code>a</code>  的内容，文件  <code>b</code>  的内容也会发生改变，对文件内容的修改向放映到所有文件。</li>
+<li>删除：当我们删除源文件  <code>a</code>  时，在访问软连接文件 b 是，会报错  <code>&quot;No such file or directory&quot;</code></li>
+</ul>
+<p>可以直接使用  <code>linux</code>  命令  <code>ln -s source target</code>  来创建软链接 (注意：表示  <code>target</code>  “指向”  <code>source</code> ）</p>
+<p><img data-src="/images/Snipaste_2024-05-29_14-12-05.png" alt="软链接" /></p>
+<h6 id="硬链接"><a class="anchor" href="#硬链接">#</a> 硬链接</h6>
+<p>一般情况，一个文件名 &quot;唯一&quot; 对应一个  <code>inode</code> 。但是  <code>linux</code>  允许多个文件名都指向同一个  <code>inode</code> 。表示我们可以使用不同对文件名访问同样的内容；对文件内容进行修改将放映到所有文件；删除一个文件不影响另一个文件对访问。这种机制就被称为 &quot;硬链接&quot;</p>
+<p>硬链接的创建 可以直接使用  <code>linux</code>  命令  <code>ln source target</code>  来创建硬链接（注意： <code>source</code>  已存在的文件，target 是将要建立的链接）</p>
+<p><img data-src="/images/Snipaste_2024-05-29_14-14-11.png" alt="硬链接" /></p>
+<h6 id="创建链接"><a class="anchor" href="#创建链接">#</a> 创建链接</h6>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre>fs<span class="token punctuation">.</span><span class="token function">linkSync</span><span class="token punctuation">(</span><span class="token string">'./index.txt'</span><span class="token punctuation">,</span> <span class="token string">'./index2.txt'</span><span class="token punctuation">)</span> <span class="token comment">// 硬链接</span></pre></td></tr><tr><td data-num="2"></td><td><pre>fs<span class="token punctuation">.</span><span class="token function">symlinkSync</span><span class="token punctuation">(</span><span class="token string">'./index.txt'</span><span class="token punctuation">,</span> <span class="token string">'./index3.txt'</span> <span class="token punctuation">,</span><span class="token string">"file"</span><span class="token punctuation">)</span> <span class="token comment">// 软连接</span></pre></td></tr></table></figure><h6 id="用途"><a class="anchor" href="#用途">#</a> 用途</h6>
+<p><strong>硬链接的作用和用途如下：</strong></p>
+<ol>
+<li>文件共享：硬链接允许多个文件名指向同一个文件，这样可以在不同的位置使用不同的文件名引用相同的内容。这样的共享文件可以节省存储空间，并且在多个位置对文件的修改会反映在所有引用文件上。</li>
+<li>文件备份：通过创建硬链接，可以在不复制文件的情况下创建文件的备份。如果原始文件发生更改，备份文件也会自动更新。这样可以节省磁盘空间，并确保备份文件与原始文件保持同步。</li>
+<li>文件重命名：通过创建硬链接，可以为文件创建一个新的文件名，而无需复制或移动文件。这对于需要更改文件名但保持相同内容和属性的场景非常有用。</li>
+</ol>
+<p><strong>软链接的一些特点和用途如下：</strong></p>
+<ol>
+<li>软链接可以创建指向文件或目录的引用。这使得你可以在不复制或移动文件的情况下引用它们，并在不同位置使用不同的文件名访问相同的内容。</li>
+<li>软链接可以用于创建快捷方式或别名，使得你可以通过一个简短或易记的路径来访问复杂或深层次的目录结构。</li>
+<li>软链接可以用于解决文件或目录的位置变化问题。如果目标文件或目录被移动或重命名，只需更新软链接的目标路径即可，而不需要修改引用该文件或目录的其他代码。</li>
+</ol>
+<h2 id="crypto模块"><a class="anchor" href="#crypto模块">#</a> crypto 模块</h2>
+<p>crypto 模块的目的是为了提供通用的 <code>加密和哈希算法</code> 。用纯 JavaScript 代码实现这些功能不是不可能，但速度会非常慢。nodejs 用 C/C++ 实现这些算法后，通过 crypto 这个模块暴露为 JavaScript 接口，这样用起来方便，运行速度也快。</p>
+<p>密码学是计算机科学中的一个重要领域，它涉及到加密、解密、哈希函数和数字签名等技术。Node.js 是一个流行的服务器端 JavaScript 运行环境，它提供了强大的密码学模块，使开发人员能够轻松地在其应用程序中实现各种密码学功能。本文将介绍密码学的基本概念，并探讨 Node.js 中常用的密码学 API。</p>
+<h4 id="对称加密"><a class="anchor" href="#对称加密">#</a> 对称加密</h4>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre>js复制代码<span class="token keyword">const</span> crypto <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'node:crypto'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="2"></td><td><pre></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token comment">// 生成一个随机的 16 字节的初始化向量 (IV)</span></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token keyword">const</span> iv <span class="token operator">=</span> Buffer<span class="token punctuation">.</span><span class="token function">from</span><span class="token punctuation">(</span>crypto<span class="token punctuation">.</span><span class="token function">randomBytes</span><span class="token punctuation">(</span><span class="token number">16</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="5"></td><td><pre></pre></td></tr><tr><td data-num="6"></td><td><pre><span class="token comment">// 生成一个随机的 32 字节的密钥</span></pre></td></tr><tr><td data-num="7"></td><td><pre><span class="token keyword">const</span> key <span class="token operator">=</span> crypto<span class="token punctuation">.</span><span class="token function">randomBytes</span><span class="token punctuation">(</span><span class="token number">32</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="8"></td><td><pre></pre></td></tr><tr><td data-num="9"></td><td><pre><span class="token comment">// 创建加密实例，使用 AES-256-CBC 算法，提供密钥和初始化向量</span></pre></td></tr><tr><td data-num="10"></td><td><pre><span class="token keyword">const</span> cipher <span class="token operator">=</span> crypto<span class="token punctuation">.</span><span class="token function">createCipheriv</span><span class="token punctuation">(</span><span class="token string">"aes-256-cbc"</span><span class="token punctuation">,</span> key<span class="token punctuation">,</span> iv<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="11"></td><td><pre></pre></td></tr><tr><td data-num="12"></td><td><pre><span class="token comment">// 对输入数据进行加密，并输出加密结果的十六进制表示</span></pre></td></tr><tr><td data-num="13"></td><td><pre>cipher<span class="token punctuation">.</span><span class="token function">update</span><span class="token punctuation">(</span><span class="token string">"小满zs"</span><span class="token punctuation">,</span> <span class="token string">"utf-8"</span><span class="token punctuation">,</span> <span class="token string">"hex"</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="14"></td><td><pre><span class="token keyword">const</span> result <span class="token operator">=</span> cipher<span class="token punctuation">.</span><span class="token function">final</span><span class="token punctuation">(</span><span class="token string">"hex"</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="15"></td><td><pre></pre></td></tr><tr><td data-num="16"></td><td><pre><span class="token comment">// 解密</span></pre></td></tr><tr><td data-num="17"></td><td><pre><span class="token keyword">const</span> de <span class="token operator">=</span> crypto<span class="token punctuation">.</span><span class="token function">createDecipheriv</span><span class="token punctuation">(</span><span class="token string">"aes-256-cbc"</span><span class="token punctuation">,</span> key<span class="token punctuation">,</span> iv<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="18"></td><td><pre>de<span class="token punctuation">.</span><span class="token function">update</span><span class="token punctuation">(</span>result<span class="token punctuation">,</span> <span class="token string">"hex"</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="19"></td><td><pre><span class="token keyword">const</span> decrypted <span class="token operator">=</span> de<span class="token punctuation">.</span><span class="token function">final</span><span class="token punctuation">(</span><span class="token string">"utf-8"</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="20"></td><td><pre></pre></td></tr><tr><td data-num="21"></td><td><pre>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"Decrypted:"</span><span class="token punctuation">,</span> decrypted<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr></table></figure><p>对称加密是一种简单而快速的加密方式，它使用相同的密钥（称为对称密钥）来进行加密和解密。这意味着发送者和接收者在加密和解密过程中都使用相同的密钥。对称加密算法的加密速度很快，适合对大量数据进行加密和解密操作。然而，对称密钥的安全性是一个挑战，因为需要确保发送者和接收者都安全地共享密钥，否则有风险被未授权的人获取密钥并解密数据。</p>
+<h4 id="非对称加密"><a class="anchor" href="#非对称加密">#</a> 非对称加密</h4>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre>js复制代码<span class="token keyword">const</span> crypto <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'node:crypto'</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token comment">// 生成 RSA 密钥对</span></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token keyword">const</span> <span class="token punctuation">&#123;</span> privateKey<span class="token punctuation">,</span> publicKey <span class="token punctuation">&#125;</span> <span class="token operator">=</span> crypto<span class="token punctuation">.</span><span class="token function">generateKeyPairSync</span><span class="token punctuation">(</span><span class="token string">'rsa'</span><span class="token punctuation">,</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="4"></td><td><pre>  <span class="token literal-property property">modulusLength</span><span class="token operator">:</span> <span class="token number">2048</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="6"></td><td><pre></pre></td></tr><tr><td data-num="7"></td><td><pre><span class="token comment">// 要加密的数据</span></pre></td></tr><tr><td data-num="8"></td><td><pre><span class="token keyword">const</span> text <span class="token operator">=</span> <span class="token string">'小满zs'</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="9"></td><td><pre></pre></td></tr><tr><td data-num="10"></td><td><pre><span class="token comment">// 使用公钥进行加密</span></pre></td></tr><tr><td data-num="11"></td><td><pre><span class="token keyword">const</span> encrypted <span class="token operator">=</span> crypto<span class="token punctuation">.</span><span class="token function">publicEncrypt</span><span class="token punctuation">(</span>publicKey<span class="token punctuation">,</span> Buffer<span class="token punctuation">.</span><span class="token function">from</span><span class="token punctuation">(</span>text<span class="token punctuation">,</span> <span class="token string">'utf-8'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="12"></td><td><pre></pre></td></tr><tr><td data-num="13"></td><td><pre><span class="token comment">// 使用私钥进行解密</span></pre></td></tr><tr><td data-num="14"></td><td><pre><span class="token keyword">const</span> decrypted <span class="token operator">=</span> crypto<span class="token punctuation">.</span><span class="token function">privateDecrypt</span><span class="token punctuation">(</span>privateKey<span class="token punctuation">,</span> encrypted<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="15"></td><td><pre></pre></td></tr><tr><td data-num="16"></td><td><pre>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>decrypted<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr></table></figure><p>非对称加密使用一对密钥，分别是公钥和私钥。发送者使用接收者的公钥进行加密，而接收者使用自己的私钥进行解密。公钥可以自由分享给任何人，而私钥必须保密。非对称加密算法提供了更高的安全性，因为即使公钥泄露，只有持有私钥的接收者才能解密数据。然而，非对称加密算法的加密速度相对较慢，不适合加密大量数据。因此，在实际应用中，通常使用非对称加密来交换对称密钥，然后使用对称加密算法来加密实际的数据。</p>
+<h4 id="哈希函数"><a class="anchor" href="#哈希函数">#</a> 哈希函数</h4>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">const</span> crypto <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'node:crypto'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token comment">// 要计算哈希的数据</span></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token keyword">let</span> text <span class="token operator">=</span> <span class="token string">'123456'</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token comment">// 创建哈希对象，并使用 MD5 算法</span></pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token keyword">const</span> hash <span class="token operator">=</span> crypto<span class="token punctuation">.</span><span class="token function">createHash</span><span class="token punctuation">(</span><span class="token string">'md5'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="6"></td><td><pre><span class="token comment">// 更新哈希对象的数据</span></pre></td></tr><tr><td data-num="7"></td><td><pre>hash<span class="token punctuation">.</span><span class="token function">update</span><span class="token punctuation">(</span>text<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="8"></td><td><pre><span class="token comment">// 计算哈希值，并以十六进制字符串形式输出</span></pre></td></tr><tr><td data-num="9"></td><td><pre><span class="token keyword">const</span> hashValue <span class="token operator">=</span> hash<span class="token punctuation">.</span><span class="token function">digest</span><span class="token punctuation">(</span><span class="token string">'hex'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="10"></td><td><pre>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'Text:'</span><span class="token punctuation">,</span> text<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="11"></td><td><pre>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'Hash:'</span><span class="token punctuation">,</span> hashValue<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr></table></figure><p>哈希函数具有以下特点：</p>
+<ol>
+<li>固定长度输出：不论输入数据的大小，哈希函数的输出长度是固定的。例如，常见的哈希函数如 MD5 和 SHA-256 生成的哈希值长度分别为 128 位和 256 位。</li>
+<li>不可逆性：哈希函数是单向的，意味着从哈希值推导出原始输入数据是非常困难的，几乎不可能。即使输入数据发生微小的变化，其哈希值也会完全不同。</li>
+<li>唯一性：哈希函数应该具有较低的碰撞概率，即不同的输入数据生成相同的哈希值的可能性应该非常小。这有助于确保哈希值能够唯一地标识输入数据。</li>
+</ol>
+<p>使用场景</p>
+<ol>
+<li>我们可以避免密码明文传输 使用 md5 加密或者 sha256</li>
+<li>验证文件完整性，读取文件内容生成 md5 如果前端上传的 md5 和后端的读取文件内部的 md5 匹配说明文件是完整的</li>
+</ol>
+<h2 id="md转html"><a class="anchor" href="#md转html">#</a> md 转 html</h2>
+<h4 id="工具"><a class="anchor" href="#工具">#</a> 工具</h4>
+<ul>
+<li>ejs：模板渲染库，使用特定语法填充内容，进行模板渲染</li>
+<li>marked：用于将 Markdown 语法转为 HTML</li>
+<li>browserSync：用于在浏览器实时预览和同步刷新</li>
+</ul>
+<h4 id="使用"><a class="anchor" href="#使用">#</a> 使用</h4>
+<p>index.js</p>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">const</span> ejs <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'ejs'</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 导入 ejs 库，用于渲染模板</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token keyword">const</span> fs <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'node:fs'</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 导入 fs 模块，用于文件系统操作</span></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token keyword">const</span> marked <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'marked'</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 导入 marked 库，用于将 Markdown 转换为 HTML</span></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token keyword">const</span> readme <span class="token operator">=</span> fs<span class="token punctuation">.</span><span class="token function">readFileSync</span><span class="token punctuation">(</span><span class="token string">'README.md'</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 读取 README.md 文件的内容，直接 read 的结果是 buffer 中的数据，通过 toString 方法变为原始内容</span></pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token keyword">const</span> browserSync <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'browser-sync'</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 导入 browser-sync 库，用于实时预览和同步浏览器</span></pre></td></tr><tr><td data-num="6"></td><td><pre><span class="token keyword">const</span> <span class="token function-variable function">openBrowser</span> <span class="token operator">=</span>  <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="7"></td><td><pre>    <span class="token comment">// 创建浏览器服务</span></pre></td></tr><tr><td data-num="8"></td><td><pre>    <span class="token keyword">const</span> browser <span class="token operator">=</span> browserSync<span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="9"></td><td><pre>    <span class="token comment">// 初始化浏览器服务 ，传入目录和主页</span></pre></td></tr><tr><td data-num="10"></td><td><pre>    browser<span class="token punctuation">.</span><span class="token function">init</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="11"></td><td><pre>        <span class="token literal-property property">server</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="12"></td><td><pre>            <span class="token literal-property property">baseDir</span><span class="token operator">:</span> <span class="token string">'./'</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="13"></td><td><pre>            <span class="token literal-property property">index</span><span class="token operator">:</span> <span class="token string">'index.html'</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="14"></td><td><pre>        <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="15"></td><td><pre>    <span class="token punctuation">&#125;</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="16"></td><td><pre>    <span class="token keyword">return</span> browser</pre></td></tr><tr><td data-num="17"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="18"></td><td><pre><span class="token comment">//ejs 模板进行渲染，传入变量</span></pre></td></tr><tr><td data-num="19"></td><td><pre>ejs<span class="token punctuation">.</span><span class="token function">renderFile</span><span class="token punctuation">(</span><span class="token string">'template.ejs'</span><span class="token punctuation">,</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="20"></td><td><pre>    <span class="token literal-property property">content</span><span class="token operator">:</span> marked<span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span>readme<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="21"></td><td><pre>    <span class="token literal-property property">title</span><span class="token operator">:</span><span class="token string">'markdown to html'</span></pre></td></tr><tr><td data-num="22"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token parameter">err<span class="token punctuation">,</span>data</span><span class="token punctuation">)</span><span class="token operator">=></span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="23"></td><td><pre>    <span class="token keyword">if</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="24"></td><td><pre>        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="25"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="26"></td><td><pre>    <span class="token comment">// 将文件内容写入到 index.html</span></pre></td></tr><tr><td data-num="27"></td><td><pre>    <span class="token keyword">let</span> writeStream <span class="token operator">=</span> fs<span class="token punctuation">.</span><span class="token function">createWriteStream</span><span class="token punctuation">(</span><span class="token string">'index.html'</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="28"></td><td><pre>    writeStream<span class="token punctuation">.</span><span class="token function">write</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="29"></td><td><pre>    writeStream<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="30"></td><td><pre>    writeStream<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">'finish'</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">=></span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="31"></td><td><pre>        <span class="token comment">//index.html 写入完毕之后，打开浏览器实时预览</span></pre></td></tr><tr><td data-num="32"></td><td><pre>        <span class="token function">openBrowser</span><span class="token punctuation">(</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="33"></td><td><pre>    <span class="token punctuation">&#125;</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="34"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">)</span></pre></td></tr></table></figure><p>template.ejs</p>
+<figure class="highlight html"><figcaption data-lang="HTML"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token doctype"><span class="token punctuation">&lt;!</span><span class="token doctype-tag">DOCTYPE</span> <span class="token name">html</span><span class="token punctuation">></span></span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>en<span class="token punctuation">"</span></span><span class="token punctuation">></span></span></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">></span></span></pre></td></tr><tr><td data-num="4"></td><td><pre>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>UTF-8<span class="token punctuation">"</span></span><span class="token punctuation">></span></span></pre></td></tr><tr><td data-num="5"></td><td><pre>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>viewport<span class="token punctuation">"</span></span> <span class="token attr-name">content</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>width=device-width, initial-scale=1.0<span class="token punctuation">"</span></span><span class="token punctuation">></span></span></pre></td></tr><tr><td data-num="6"></td><td><pre>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>title</span><span class="token punctuation">></span></span>&lt;%= title %><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>title</span><span class="token punctuation">></span></span></pre></td></tr><tr><td data-num="7"></td><td><pre>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>link</span> <span class="token attr-name">rel</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>stylesheet<span class="token punctuation">"</span></span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>./index.css<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>  <span class="token comment">&lt;!-- 引入 css 样式 --></span></pre></td></tr><tr><td data-num="8"></td><td><pre><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">></span></span></pre></td></tr><tr><td data-num="9"></td><td><pre><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">></span></span></pre></td></tr><tr><td data-num="10"></td><td><pre>    &lt;%- content %></pre></td></tr><tr><td data-num="11"></td><td><pre><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">></span></span></pre></td></tr><tr><td data-num="12"></td><td><pre><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">></span></span></pre></td></tr></table></figure><p>index.css</p>
+<figure class="highlight css"><figcaption data-lang="CSS"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token comment">/* Markdown 通用样式 */</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token comment">/* 设置全局字体样式 */</span></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token selector">body</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="4"></td><td><pre>    <span class="token property">font-family</span><span class="token punctuation">:</span> Arial<span class="token punctuation">,</span> sans-serif<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="5"></td><td><pre>    <span class="token property">font-size</span><span class="token punctuation">:</span> 16px<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="6"></td><td><pre>    <span class="token property">line-height</span><span class="token punctuation">:</span> 1.6<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="7"></td><td><pre>    <span class="token property">color</span><span class="token punctuation">:</span> #333<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="8"></td><td><pre>  <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="9"></td><td><pre>  <span class="token comment">/* 设置标题样式 */</span></pre></td></tr><tr><td data-num="10"></td><td><pre>  <span class="token selector">h1,h2,h3,h4,h5,h6</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="11"></td><td><pre>    <span class="token property">margin-top</span><span class="token punctuation">:</span> 1.3em<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="12"></td><td><pre>    <span class="token property">margin-bottom</span><span class="token punctuation">:</span> 0.6em<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="13"></td><td><pre>    <span class="token property">font-weight</span><span class="token punctuation">:</span> bold<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="14"></td><td><pre>  <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="15"></td><td><pre>  <span class="token selector">h1</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="16"></td><td><pre>    <span class="token property">font-size</span><span class="token punctuation">:</span> 2.2em<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="17"></td><td><pre>  <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="18"></td><td><pre>  <span class="token selector">h2</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="19"></td><td><pre>    <span class="token property">font-size</span><span class="token punctuation">:</span> 1.8em<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="20"></td><td><pre>  <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="21"></td><td><pre>  <span class="token selector">h3</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="22"></td><td><pre>    <span class="token property">font-size</span><span class="token punctuation">:</span> 1.6em<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="23"></td><td><pre>  <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="24"></td><td><pre>  <span class="token selector">h4</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="25"></td><td><pre>    <span class="token property">font-size</span><span class="token punctuation">:</span> 1.4em<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="26"></td><td><pre>  <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="27"></td><td><pre>  <span class="token selector">h5</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="28"></td><td><pre>    <span class="token property">font-size</span><span class="token punctuation">:</span> 1.2em<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="29"></td><td><pre>  <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="30"></td><td><pre>  <span class="token selector">h6</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="31"></td><td><pre>    <span class="token property">font-size</span><span class="token punctuation">:</span> 1em<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="32"></td><td><pre>  <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="33"></td><td><pre>  <span class="token comment">/* 设置段落样式 */</span></pre></td></tr><tr><td data-num="34"></td><td><pre>  <span class="token selector">p</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="35"></td><td><pre>    <span class="token property">margin-bottom</span><span class="token punctuation">:</span> 1.3em<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="36"></td><td><pre>  <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="37"></td><td><pre>  <span class="token comment">/* 设置链接样式 */</span></pre></td></tr><tr><td data-num="38"></td><td><pre>  <span class="token selector">a</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="39"></td><td><pre>    <span class="token property">color</span><span class="token punctuation">:</span> #337ab7<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="40"></td><td><pre>    <span class="token property">text-decoration</span><span class="token punctuation">:</span> none<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="41"></td><td><pre>  <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="42"></td><td><pre>  <span class="token selector">a:hover</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="43"></td><td><pre>    <span class="token property">text-decoration</span><span class="token punctuation">:</span> underline<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="44"></td><td><pre>  <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="45"></td><td><pre>  <span class="token comment">/* 设置列表样式 */</span></pre></td></tr><tr><td data-num="46"></td><td><pre>  <span class="token selector">ul,</pre></td></tr><tr><td data-num="47"></td><td><pre>  ol</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="48"></td><td><pre>    <span class="token property">margin-top</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="49"></td><td><pre>    <span class="token property">margin-bottom</span><span class="token punctuation">:</span> 1.3em<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="50"></td><td><pre>    <span class="token property">padding-left</span><span class="token punctuation">:</span> 2em<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="51"></td><td><pre>  <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="52"></td><td><pre>  <span class="token comment">/* 设置代码块样式 */</span></pre></td></tr><tr><td data-num="53"></td><td><pre>  <span class="token selector">pre</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="54"></td><td><pre>    <span class="token property">background-color</span><span class="token punctuation">:</span> #f7f7f7<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="55"></td><td><pre>    <span class="token property">padding</span><span class="token punctuation">:</span> 1em<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="56"></td><td><pre>    <span class="token property">border-radius</span><span class="token punctuation">:</span> 4px<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="57"></td><td><pre>    <span class="token property">overflow</span><span class="token punctuation">:</span> auto<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="58"></td><td><pre>  <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="59"></td><td><pre>  <span class="token selector">code</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="60"></td><td><pre>    <span class="token property">font-family</span><span class="token punctuation">:</span> Consolas<span class="token punctuation">,</span> Monaco<span class="token punctuation">,</span> Courier<span class="token punctuation">,</span> monospace<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="61"></td><td><pre>    <span class="token property">font-size</span><span class="token punctuation">:</span> 0.9em<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="62"></td><td><pre>    <span class="token property">background-color</span><span class="token punctuation">:</span> #f7f7f7<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="63"></td><td><pre>    <span class="token property">padding</span><span class="token punctuation">:</span> 0.2em 0.4em<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="64"></td><td><pre>    <span class="token property">border-radius</span><span class="token punctuation">:</span> 4px<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="65"></td><td><pre>  <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="66"></td><td><pre>  <span class="token comment">/* 设置引用样式 */</span></pre></td></tr><tr><td data-num="67"></td><td><pre>  <span class="token selector">blockquote</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="68"></td><td><pre>    <span class="token property">margin</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="69"></td><td><pre>    <span class="token property">padding-left</span><span class="token punctuation">:</span> 1em<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="70"></td><td><pre>    <span class="token property">border-left</span><span class="token punctuation">:</span> 4px solid #ddd<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="71"></td><td><pre>    <span class="token property">color</span><span class="token punctuation">:</span> #777<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="72"></td><td><pre>  <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="73"></td><td><pre>  <span class="token comment">/* 设置表格样式 */</span></pre></td></tr><tr><td data-num="74"></td><td><pre>  <span class="token selector">table</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="75"></td><td><pre>    <span class="token property">border-collapse</span><span class="token punctuation">:</span> collapse<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="76"></td><td><pre>    <span class="token property">width</span><span class="token punctuation">:</span> 100%<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="77"></td><td><pre>    <span class="token property">margin-bottom</span><span class="token punctuation">:</span> 1.3em<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="78"></td><td><pre>  <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="79"></td><td><pre>  <span class="token selector">table th,</pre></td></tr><tr><td data-num="80"></td><td><pre>  table td</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="81"></td><td><pre>    <span class="token property">padding</span><span class="token punctuation">:</span> 0.5em<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="82"></td><td><pre>    <span class="token property">border</span><span class="token punctuation">:</span> 1px solid #ccc<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="83"></td><td><pre>  <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="84"></td><td><pre>  <span class="token comment">/* 添加一些额外的样式，如图片居中显示 */</span></pre></td></tr><tr><td data-num="85"></td><td><pre>  <span class="token selector">img</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="86"></td><td><pre>    <span class="token property">display</span><span class="token punctuation">:</span> block<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="87"></td><td><pre>    <span class="token property">margin</span><span class="token punctuation">:</span> 0 auto<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="88"></td><td><pre>    <span class="token property">max-width</span><span class="token punctuation">:</span> 100%<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="89"></td><td><pre>    <span class="token property">height</span><span class="token punctuation">:</span> auto<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="90"></td><td><pre>  <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="91"></td><td><pre>  <span class="token comment">/* 设置代码行号样式 */</span></pre></td></tr><tr><td data-num="92"></td><td><pre>  <span class="token selector">pre code .line-numbers</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="93"></td><td><pre>    <span class="token property">display</span><span class="token punctuation">:</span> inline-block<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="94"></td><td><pre>    <span class="token property">width</span><span class="token punctuation">:</span> 2em<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="95"></td><td><pre>    <span class="token property">padding-right</span><span class="token punctuation">:</span> 1em<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="96"></td><td><pre>    <span class="token property">color</span><span class="token punctuation">:</span> #999<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="97"></td><td><pre>    <span class="token property">text-align</span><span class="token punctuation">:</span> right<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="98"></td><td><pre>    <span class="token property">user-select</span><span class="token punctuation">:</span> none<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="99"></td><td><pre>    <span class="token property">pointer-events</span><span class="token punctuation">:</span> none<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="100"></td><td><pre>    <span class="token property">border-right</span><span class="token punctuation">:</span> 1px solid #ddd<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="101"></td><td><pre>    <span class="token property">margin-right</span><span class="token punctuation">:</span> 0.5em<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="102"></td><td><pre>  <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="103"></td><td><pre>  <span class="token comment">/* 设置代码行样式 */</span></pre></td></tr><tr><td data-num="104"></td><td><pre>  <span class="token selector">pre code .line</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="105"></td><td><pre>    <span class="token property">display</span><span class="token punctuation">:</span> block<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="106"></td><td><pre>    <span class="token property">padding-left</span><span class="token punctuation">:</span> 1.5em<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="107"></td><td><pre>  <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="108"></td><td><pre>  <span class="token comment">/* 设置代码高亮样式 */</span></pre></td></tr><tr><td data-num="109"></td><td><pre>  <span class="token selector">pre code .line.highlighted</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="110"></td><td><pre>    <span class="token property">background-color</span><span class="token punctuation">:</span> #f7f7f7<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="111"></td><td><pre>  <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="112"></td><td><pre>  <span class="token comment">/* 添加一些响应式样式，适应移动设备 */</span></pre></td></tr><tr><td data-num="113"></td><td><pre>  <span class="token atrule"><span class="token rule">@media</span> <span class="token keyword">only</span> screen <span class="token keyword">and</span> <span class="token punctuation">(</span><span class="token property">max-width</span><span class="token punctuation">:</span> 768px<span class="token punctuation">)</span></span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="114"></td><td><pre>    <span class="token selector">body</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="115"></td><td><pre>      <span class="token property">font-size</span><span class="token punctuation">:</span> 14px<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="116"></td><td><pre>      <span class="token property">line-height</span><span class="token punctuation">:</span> 1.5<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="117"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="118"></td><td><pre>    <span class="token selector">h1</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="119"></td><td><pre>      <span class="token property">font-size</span><span class="token punctuation">:</span> 1.8em<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="120"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="121"></td><td><pre>    <span class="token selector">h2</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="122"></td><td><pre>      <span class="token property">font-size</span><span class="token punctuation">:</span> 1.5em<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="123"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="124"></td><td><pre>    <span class="token selector">h3</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="125"></td><td><pre>      <span class="token property">font-size</span><span class="token punctuation">:</span> 1.3em<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="126"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="127"></td><td><pre>    <span class="token selector">h4</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="128"></td><td><pre>      <span class="token property">font-size</span><span class="token punctuation">:</span> 1.1em<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="129"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="130"></td><td><pre>    <span class="token selector">h5</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="131"></td><td><pre>      <span class="token property">font-size</span><span class="token punctuation">:</span> 1em<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="132"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="133"></td><td><pre>    <span class="token selector">h6</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="134"></td><td><pre>      <span class="token property">font-size</span><span class="token punctuation">:</span> 0.9em<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="135"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="136"></td><td><pre>    <span class="token selector">table</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="137"></td><td><pre>      <span class="token property">font-size</span><span class="token punctuation">:</span> 14px<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="138"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="139"></td><td><pre>  <span class="token punctuation">&#125;</span></pre></td></tr></table></figure><h2 id="zlib模块"><a class="anchor" href="#zlib模块">#</a> zlib 模块</h2>
+<h4 id="介绍-2"><a class="anchor" href="#介绍-2">#</a> 介绍</h4>
+<ul>
+<li>Node.js 中 zlib 模块用于对数据提供压缩和解压缩的功能，以便在应用程序中减少数据的传输大小、节省带宽和提高性能</li>
+<li>该模块包含各种压缩算法，包含 Deflate、Gzip 和 Raw Deflate 等</li>
+</ul>
+<h4 id="作用"><a class="anchor" href="#作用">#</a> 作用</h4>
+<ul>
+<li>
+<p>数据压缩，减少数据的大小，这在网络传输和磁盘存储中很有用，可以节省带宽和存储空间</p>
+</li>
+<li>
+<p>数据解压缩</p>
+</li>
+<li>
+<p>流压缩，zlib 模块支持流式的方式进行数据的压缩和解压缩，使得可以对大型文件或者网络数据流进行逐步处理，而不需要将整个数据加载到内存中。</p>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token comment">// 压缩文件（以 Gzip 为例）</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token keyword">const</span> zlib <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'zlib'</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token keyword">const</span> fs <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'node:fs'</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token keyword">const</span> readStream <span class="token operator">=</span> fs<span class="token punctuation">.</span><span class="token function">createReadStream</span><span class="token punctuation">(</span><span class="token string">'./test.txt'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token keyword">const</span> writeStream <span class="token operator">=</span> fs<span class="token punctuation">.</span><span class="token function">createWriteStream</span><span class="token punctuation">(</span><span class="token string">'./test.txt.gz'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="6"></td><td><pre><span class="token comment">// 将 readStream 利用 zlib 进行压缩，pipe 到下一个管道，最后 pipe 到写入流</span></pre></td></tr><tr><td data-num="7"></td><td><pre>readStream<span class="token punctuation">.</span><span class="token function">pipe</span><span class="token punctuation">(</span>zlib<span class="token punctuation">.</span><span class="token function">createGzip</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">pipe</span><span class="token punctuation">(</span>writeStream<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="8"></td><td><pre><span class="token comment">// 解压缩文件</span></pre></td></tr><tr><td data-num="9"></td><td><pre><span class="token keyword">const</span> reStr <span class="token operator">=</span> fs<span class="token punctuation">.</span><span class="token function">createReadStream</span><span class="token punctuation">(</span><span class="token string">'./test.txt.gz'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="10"></td><td><pre><span class="token keyword">const</span> wrStr <span class="token operator">=</span> fs<span class="token punctuation">.</span><span class="token function">createWriteStream</span><span class="token punctuation">(</span><span class="token string">'./t.txt'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="11"></td><td><pre><span class="token keyword">const</span> gunzip <span class="token operator">=</span> zlib<span class="token punctuation">.</span><span class="token function">createGunzip</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="12"></td><td><pre>reStr<span class="token punctuation">.</span><span class="token function">pipe</span><span class="token punctuation">(</span>gunzip<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">pipe</span><span class="token punctuation">(</span>wrStr<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="13"></td><td><pre>gunzip<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">'error'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">err</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="14"></td><td><pre>    console<span class="token punctuation">.</span><span class="token function">error</span><span class="token punctuation">(</span><span class="token string">'Gunzip error:'</span><span class="token punctuation">,</span> err<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="15"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="16"></td><td><pre>  reStr<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">'end'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="17"></td><td><pre>    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'Input file has been read.'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="18"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="19"></td><td><pre>  wrStr<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">'finish'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="20"></td><td><pre>    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'Output file has been written.'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="21"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr></table></figure><h4 id="对比-2"><a class="anchor" href="#对比-2">#</a> 对比</h4>
+<ol>
+<li>压缩算法：Gzip 使用的是 Deflate 压缩算法，该算法结合了 LZ77 算法和哈夫曼编码。LZ77 算法用于数据的重复字符串的替换和引用，而哈夫曼编码用于进一步压缩数据。</li>
+<li>压缩效率：Gzip 压缩通常具有更高的压缩率，因为它使用了哈夫曼编码来进一步压缩数据。哈夫曼编码根据字符的出现频率，将较常见的字符用较短的编码表示，从而减小数据的大小。</li>
+<li>压缩速度：相比于仅使用 Deflate 的方式，Gzip 压缩需要更多的计算和处理时间，因为它还要进行哈夫曼编码的步骤。因此，在压缩速度方面，Deflate 可能比 Gzip 更快。</li>
+<li>应用场景：Gzip 压缩常用于文件压缩、网络传输和 HTTP 响应的内容编码。它广泛应用于 Web 服务器和浏览器之间的数据传输，以减小文件大小和提高网络传输效率。</li>
+<li>deflate 是一种过时的压缩方式，现代浏览器对其支持并不友好</li>
+</ol>
+</li>
+</ul>
+<p><strong>zlib 模块可以用于对发送网络请求返回的数据进行压缩，节省带宽和传输速率。</strong></p>
+<h4 id="brotli"><a class="anchor" href="#brotli">#</a> brotli</h4>
+<ul>
+<li>针对常见的 Web 资源内容，Brotli 的性能比 Gzip 提高了 17-25%；</li>
+<li>当 Brotli 压缩级别为 1 时，压缩率比 Gzip 的最高级别 9 还要高；</li>
+<li>在处理不同的 HTML 文档时，Brotli 依然能提供非常高的压缩率。</li>
+<li>除了 IE 和 Opera Mini 之外，几乎所有主流浏览器都已支持 Brotli 算法。</li>
+<li>尽管 Brotli 在压缩方面表现出色，但随着压缩级别的提高，Brotli 压缩所需的时间也会相应增加。换句话说，Brotli 需要更多的计算能力，这可能意味着更高的设备和软件成本。</li>
+<li>Brotli 要求浏览器必须支持 HTTPS 才能使用。</li>
+</ul>
+<h2 id="http模块"><a class="anchor" href="#http模块">#</a> http 模块</h2>
+<h4 id="介绍-3"><a class="anchor" href="#介绍-3">#</a> 介绍</h4>
+<ul>
+<li>http 模块是 Node.js 中用于创建和处理 HTTP 服务器和客户端的核心模块</li>
+<li>http 模块使得基于 HTTP 协议的应用程序更加简单和灵活</li>
+<li>http 模块也可以用于创建代理服务器，用于转发客户端的请求到其他服务器，代理服务器可以用于负载均衡、缓存、安全过滤或跨域请求等场景。通过在代理服务器上添加逻辑，可以对请求和响应进行修改、记录或过滤。</li>
+<li>http 模块也可以创建文件服务器，用于提供静态文件，通过读取文件并将其作为响应发送给客户端。</li>
+</ul>
+<h4 id="使用-2"><a class="anchor" href="#使用-2">#</a> 使用</h4>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">const</span> http <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'http'</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token keyword">const</span> httpServer <span class="token operator">=</span> http<span class="token punctuation">.</span><span class="token function">createServer</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">req<span class="token punctuation">,</span>res</span><span class="token punctuation">)</span><span class="token operator">=></span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="3"></td><td><pre>    <span class="token keyword">if</span><span class="token punctuation">(</span>req<span class="token punctuation">.</span>method <span class="token operator">===</span> <span class="token string">'POST'</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="4"></td><td><pre>    <span class="token keyword">else</span> <span class="token keyword">if</span><span class="token punctuation">(</span>req<span class="token punctuation">.</span>method <span class="token operator">===</span> <span class="token string">'GET'</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="6"></td><td><pre>httpServer<span class="token punctuation">.</span><span class="token function">listen</span><span class="token punctuation">(</span><span class="token number">98</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">=></span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="7"></td><td><pre>    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'服务器启动，端口：98'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="8"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">)</span></pre></td></tr></table></figure><h4 id="url模块"><a class="anchor" href="#url模块">#</a> url 模块</h4>
+<p>可以通过 url 模块来解析 req 的请求路径，来进一步精细化响应内容。</p>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">const</span> http <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'node:http'</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 引入 http 模块</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token keyword">const</span> url <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'node:url'</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 引入 url 模块</span></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token comment">// 创建 HTTP 服务器，并传入回调函数用于处理请求和生成响应</span></pre></td></tr><tr><td data-num="4"></td><td><pre>http<span class="token punctuation">.</span><span class="token function">createServer</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">req<span class="token punctuation">,</span> res</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="5"></td><td><pre>  <span class="token keyword">const</span> <span class="token punctuation">&#123;</span> pathname<span class="token punctuation">,</span> query <span class="token punctuation">&#125;</span> <span class="token operator">=</span> url<span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span>req<span class="token punctuation">.</span>url<span class="token punctuation">,</span> <span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 解析请求的 URL，获取路径和查询参数</span></pre></td></tr><tr><td data-num="6"></td><td><pre>  <span class="token keyword">if</span> <span class="token punctuation">(</span>req<span class="token punctuation">.</span>method <span class="token operator">===</span> <span class="token string">'POST'</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span> <span class="token comment">// 检查请求方法是否为 POST</span></pre></td></tr><tr><td data-num="7"></td><td><pre>    <span class="token keyword">if</span> <span class="token punctuation">(</span>pathname <span class="token operator">===</span> <span class="token string">'/post'</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span> <span class="token comment">// 检查路径是否为 '/post'</span></pre></td></tr><tr><td data-num="8"></td><td><pre>      <span class="token keyword">let</span> data <span class="token operator">=</span> <span class="token string">''</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="9"></td><td><pre>      req<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">'data'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">chunk</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="10"></td><td><pre>        data <span class="token operator">+=</span> chunk<span class="token punctuation">;</span> <span class="token comment">// 获取 POST 请求的数据</span></pre></td></tr><tr><td data-num="11"></td><td><pre>        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="12"></td><td><pre>      <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="13"></td><td><pre>      req<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">'end'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="14"></td><td><pre>        res<span class="token punctuation">.</span><span class="token function">setHeader</span><span class="token punctuation">(</span><span class="token string">'Content-Type'</span><span class="token punctuation">,</span> <span class="token string">'application/json'</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 设置响应头的 Content-Type 为 'application/json'</span></pre></td></tr><tr><td data-num="15"></td><td><pre>        res<span class="token punctuation">.</span>statusCode <span class="token operator">=</span> <span class="token number">200</span><span class="token punctuation">;</span> <span class="token comment">// 设置响应状态码为 200</span></pre></td></tr><tr><td data-num="16"></td><td><pre>        res<span class="token punctuation">.</span><span class="token function">end</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 将获取到的数据作为响应体返回</span></pre></td></tr><tr><td data-num="17"></td><td><pre>      <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="18"></td><td><pre>    <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="19"></td><td><pre>      res<span class="token punctuation">.</span><span class="token function">setHeader</span><span class="token punctuation">(</span><span class="token string">'Content-Type'</span><span class="token punctuation">,</span> <span class="token string">'application/json'</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 设置响应头的 Content-Type 为 'application/json'</span></pre></td></tr><tr><td data-num="20"></td><td><pre>      res<span class="token punctuation">.</span>statusCode <span class="token operator">=</span> <span class="token number">404</span><span class="token punctuation">;</span> <span class="token comment">// 设置响应状态码为 404</span></pre></td></tr><tr><td data-num="21"></td><td><pre>      res<span class="token punctuation">.</span><span class="token function">end</span><span class="token punctuation">(</span><span class="token string">'Not Found'</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 返回 'Not Found' 作为响应体</span></pre></td></tr><tr><td data-num="22"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="23"></td><td><pre>  <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>req<span class="token punctuation">.</span>method <span class="token operator">===</span> <span class="token string">'GET'</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span> <span class="token comment">// 检查请求方法是否为 GET</span></pre></td></tr><tr><td data-num="24"></td><td><pre>    <span class="token keyword">if</span> <span class="token punctuation">(</span>pathname <span class="token operator">===</span> <span class="token string">'/get'</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span> <span class="token comment">// 检查路径是否为 '/get'</span></pre></td></tr><tr><td data-num="25"></td><td><pre>      console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>query<span class="token punctuation">.</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 打印查询参数中的键名为 'a' 的值</span></pre></td></tr><tr><td data-num="26"></td><td><pre>      res<span class="token punctuation">.</span><span class="token function">end</span><span class="token punctuation">(</span><span class="token string">'get success'</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 返回 'get success' 作为响应体</span></pre></td></tr><tr><td data-num="27"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="28"></td><td><pre>  <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="29"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">listen</span><span class="token punctuation">(</span><span class="token number">98</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="30"></td><td><pre>  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'server is running on port 98'</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 打印服务器启动的信息</span></pre></td></tr><tr><td data-num="31"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr></table></figure><h2 id="动静分离"><a class="anchor" href="#动静分离">#</a> 动静分离</h2>
+<ul>
+<li>动静分离是 Web 服务器架构中常用的优化技术，用于提高网站的性能和可伸缩性</li>
+<li>原理就是将静态资源的请求和动态内容分开处理（通过 url，例如加上 static 后缀表示静态）</li>
+<li>好处在于：
+<ul>
+<li>性能优化（静态资源内容不变，可以利用缓存）</li>
+<li>负载均衡（动态内容请求分发到不同的服务器或服务上，平衡服务器的负载）</li>
+<li>安全性（动态内容往往涉及敏感信息，动静分离可以更好地管理访问控制和安全策略）</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">import</span> http <span class="token keyword">from</span> <span class="token string">'node:http'</span> <span class="token comment">// 导入 http 模块</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token keyword">import</span> fs <span class="token keyword">from</span> <span class="token string">'node:fs'</span> <span class="token comment">// 导入文件系统模块</span></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token keyword">import</span> path <span class="token keyword">from</span> <span class="token string">'node:path'</span> <span class="token comment">// 导入路径处理模块</span></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token keyword">import</span> mime <span class="token keyword">from</span> <span class="token string">'mime'</span> <span class="token comment">// 导入 mime 模块</span></pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token keyword">const</span> server <span class="token operator">=</span> http<span class="token punctuation">.</span><span class="token function">createServer</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">req<span class="token punctuation">,</span> res</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="6"></td><td><pre>    <span class="token keyword">const</span> <span class="token punctuation">&#123;</span> url<span class="token punctuation">,</span> method <span class="token punctuation">&#125;</span> <span class="token operator">=</span> req</pre></td></tr><tr><td data-num="7"></td><td><pre>    <span class="token comment">// 处理静态资源</span></pre></td></tr><tr><td data-num="8"></td><td><pre>    <span class="token keyword">if</span> <span class="token punctuation">(</span>method <span class="token operator">===</span> <span class="token string">'GET'</span> <span class="token operator">&amp;&amp;</span> url<span class="token punctuation">.</span><span class="token function">startsWith</span><span class="token punctuation">(</span><span class="token string">'/static'</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="9"></td><td><pre>        <span class="token keyword">const</span> filePath <span class="token operator">=</span> path<span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span>process<span class="token punctuation">.</span><span class="token function">cwd</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> url<span class="token punctuation">)</span> <span class="token comment">// 获取文件路径</span></pre></td></tr><tr><td data-num="10"></td><td><pre>        <span class="token keyword">const</span> mimeType <span class="token operator">=</span> mime<span class="token punctuation">.</span><span class="token function">getType</span><span class="token punctuation">(</span>filePath<span class="token punctuation">)</span> <span class="token comment">// 获取文件的 MIME 类型</span></pre></td></tr><tr><td data-num="11"></td><td><pre>        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>mimeType<span class="token punctuation">)</span> <span class="token comment">// 打印 MIME 类型</span></pre></td></tr><tr><td data-num="12"></td><td><pre>        fs<span class="token punctuation">.</span><span class="token function">readFile</span><span class="token punctuation">(</span>filePath<span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">err<span class="token punctuation">,</span> data</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span> <span class="token comment">// 读取文件内容</span></pre></td></tr><tr><td data-num="13"></td><td><pre>            <span class="token keyword">if</span> <span class="token punctuation">(</span>err<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="14"></td><td><pre>                res<span class="token punctuation">.</span><span class="token function">writeHead</span><span class="token punctuation">(</span><span class="token number">404</span><span class="token punctuation">,</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="15"></td><td><pre>                    <span class="token string-property property">"Content-Type"</span><span class="token operator">:</span> <span class="token string">"text/plain"</span> <span class="token comment">// 设置响应头为纯文本类型</span></pre></td></tr><tr><td data-num="16"></td><td><pre>                <span class="token punctuation">&#125;</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="17"></td><td><pre>                res<span class="token punctuation">.</span><span class="token function">end</span><span class="token punctuation">(</span><span class="token string">'not found'</span><span class="token punctuation">)</span> <span class="token comment">// 返回 404 Not Found</span></pre></td></tr><tr><td data-num="18"></td><td><pre>            <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="19"></td><td><pre>                res<span class="token punctuation">.</span><span class="token function">writeHead</span><span class="token punctuation">(</span><span class="token number">200</span><span class="token punctuation">,</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="20"></td><td><pre>                    <span class="token string-property property">"Content-Type"</span><span class="token operator">:</span> mimeType<span class="token punctuation">,</span> <span class="token comment">// 设置响应头为对应的 MIME 类型</span></pre></td></tr><tr><td data-num="21"></td><td><pre>                    <span class="token string-property property">"Cache-Control"</span><span class="token operator">:</span> <span class="token string">"public, max-age=3600"</span> <span class="token comment">// 设置缓存控制头</span></pre></td></tr><tr><td data-num="22"></td><td><pre>                <span class="token punctuation">&#125;</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="23"></td><td><pre>                res<span class="token punctuation">.</span><span class="token function">end</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span> <span class="token comment">// 返回文件内容</span></pre></td></tr><tr><td data-num="24"></td><td><pre>            <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="25"></td><td><pre>        <span class="token punctuation">&#125;</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="26"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="27"></td><td><pre>    <span class="token comment">// 处理动态资源</span></pre></td></tr><tr><td data-num="28"></td><td><pre>    <span class="token keyword">if</span> <span class="token punctuation">(</span>url<span class="token punctuation">.</span><span class="token function">startsWith</span><span class="token punctuation">(</span><span class="token string">'/api'</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="29"></td><td><pre>        <span class="token comment">//... 处理动态资源的逻辑</span></pre></td></tr><tr><td data-num="30"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="31"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="32"></td><td><pre>server<span class="token punctuation">.</span><span class="token function">listen</span><span class="token punctuation">(</span><span class="token number">80</span><span class="token punctuation">)</span> <span class="token comment">// 监听端口 80</span></pre></td></tr></table></figure><h2 id="邮件服务"><a class="anchor" href="#邮件服务">#</a> 邮件服务</h2>
+<p>邮件服务可以用于给成员发送邮件、通知成员信息</p>
+<p><strong>工具：</strong></p>
+<ul>
+<li>js-yaml：用于将 yaml 转为 js 对象</li>
+<li>nodemailer：用于创建邮件服务</li>
+</ul>
+<p><strong>使用：</strong></p>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token comment">//node.js 发送邮件</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token keyword">const</span> yamlTrans <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'js-yaml'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token keyword">const</span> fs <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'fs'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token keyword">const</span> nodemailer <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'nodemailer'</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token keyword">const</span> yamlCode <span class="token operator">=</span> fs<span class="token punctuation">.</span><span class="token function">readFileSync</span><span class="token punctuation">(</span><span class="token string">'./data.yaml'</span><span class="token punctuation">,</span><span class="token string">'utf-8'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="6"></td><td><pre><span class="token keyword">const</span> dataObj <span class="token operator">=</span> yamlTrans<span class="token punctuation">.</span><span class="token function">load</span><span class="token punctuation">(</span>yamlCode<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="7"></td><td><pre><span class="token comment">//nodemailer.createTransport 创建 transPort 服务，传入 auth 信息和配置项</span></pre></td></tr><tr><td data-num="8"></td><td><pre><span class="token comment">// 授权码需要到对应官网生成</span></pre></td></tr><tr><td data-num="9"></td><td><pre><span class="token keyword">const</span> transPort <span class="token operator">=</span> nodemailer<span class="token punctuation">.</span><span class="token function">createTransport</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="10"></td><td><pre>    <span class="token literal-property property">serviece</span><span class="token operator">:</span><span class="token string">'qq'</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="11"></td><td><pre>    <span class="token literal-property property">port</span><span class="token operator">:</span><span class="token number">587</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="12"></td><td><pre>    <span class="token literal-property property">host</span><span class="token operator">:</span><span class="token string">'smtp.qq.cmo'</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="13"></td><td><pre>    <span class="token literal-property property">secure</span><span class="token operator">:</span><span class="token boolean">true</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="14"></td><td><pre>    <span class="token literal-property property">auth</span><span class="token operator">:</span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="15"></td><td><pre>        <span class="token literal-property property">pass</span><span class="token operator">:</span>dataObj<span class="token punctuation">.</span>pass<span class="token punctuation">,</span> <span class="token comment">// 授权码需要去官网申请生成</span></pre></td></tr><tr><td data-num="16"></td><td><pre>        <span class="token literal-property property">user</span><span class="token operator">:</span>dataObj<span class="token punctuation">.</span>user</pre></td></tr><tr><td data-num="17"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="18"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="19"></td><td><pre><span class="token comment">//sendMail 方法发送邮件，传入接收方信息</span></pre></td></tr><tr><td data-num="20"></td><td><pre>transPort<span class="token punctuation">.</span><span class="token function">sendMail</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="21"></td><td><pre>    <span class="token literal-property property">to</span><span class="token operator">:</span> send<span class="token punctuation">.</span>qq<span class="token punctuation">.</span>com<span class="token punctuation">,</span></pre></td></tr><tr><td data-num="22"></td><td><pre>    <span class="token literal-property property">from</span><span class="token operator">:</span> dataObj<span class="token punctuation">.</span>user<span class="token punctuation">,</span></pre></td></tr><tr><td data-num="23"></td><td><pre>    <span class="token literal-property property">subject</span><span class="token operator">:</span> <span class="token string">'邮件标题'</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="24"></td><td><pre>    <span class="token literal-property property">text</span><span class="token operator">:</span> <span class="token string">'邮件内容'</span></pre></td></tr><tr><td data-num="25"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">)</span></pre></td></tr></table></figure>
+      <div class="tags">
+          <a href="/tags/node-js/" rel="tag"><i class="ic i-tag"></i> node.js</a>
+      </div>
+  </div>
+
+   <footer>
+
+    <div class="meta">
+  <span class="item">
+    <span class="icon">
+      <i class="ic i-calendar-check"></i>
+    </span>
+    <span class="text">更新于</span>
+    <time title="修改时间：2024-05-30 11:10:39" itemprop="dateModified" datetime="2024-05-30T11:10:39+08:00">2024-05-30</time>
+  </span>
+  <span id="2024/05/24/node/" class="item leancloud_visitors" data-flag-title="Node学习笔记" title="阅读次数">
+      <span class="icon">
+        <i class="ic i-eye"></i>
+      </span>
+      <span class="text">阅读次数</span>
+      <span class="leancloud-visitors-count"></span>
+      <span class="text">次</span>
+  </span>
+</div>
+
+      
+<div class="reward">
+  <button><i class="ic i-heartbeat"></i> 赞赏</button>
+  <p>请我喝[茶]~(￣▽￣)~*</p>
+  <div id="qr">
+      
+      <div>
+        <img data-src="/images/wechatpay.png" alt="dmq 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div>
+        <img data-src="/images/alipay.png" alt="dmq 支付宝">
+        <p>支付宝</p>
+      </div>
+  </div>
+</div>
+
+      
+
+<div id="copyright">
+<ul>
+  <li class="author">
+    <strong>本文作者： </strong>dmq <i class="ic i-at"><em>@</em></i>杜明清的个人博客
+  </li>
+  <li class="link">
+    <strong>本文链接：</strong>
+    <a href="https://dmqweb.cn/2024/05/24/node/" title="Node学习笔记">https://dmqweb.cn/2024/05/24/node/</a>
+  </li>
+  <li class="license">
+    <strong>版权声明： </strong>本站所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+  </footer>
+
+</article>
+
+  </div>
+  
+
+<div class="post-nav">
+    <div class="item left">
+      
+
+  <a href="/2024/05/24/%E5%BE%AE%E5%89%8D%E7%AB%AF/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;s3.uuu.ovh&#x2F;imgs&#x2F;2024&#x2F;04&#x2F;07&#x2F;6e43985af4997748.jpg" title="微前端">
+  <span class="type">上一篇</span>
+  <span class="category"><i class="ic i-flag"></i> 微前端</span>
+  <h3>微前端</h3>
+  </a>
+
+    </div>
+    <div class="item right">
+      
+
+  <a href="/2024/05/27/OSI%E4%B8%83%E5%B1%82%E7%BD%91%E7%BB%9C%E6%A8%A1%E5%9E%8B/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;s3.uuu.ovh&#x2F;imgs&#x2F;2024&#x2F;04&#x2F;13&#x2F;a7144f7fc5d49961.jpg" title="OSI七层网络模型">
+  <span class="type">下一篇</span>
+  <span class="category"><i class="ic i-flag"></i> OSI七层网络模型</span>
+  <h3>OSI七层网络模型</h3>
+  </a>
+
+    </div>
+</div>
+
+  
+  <div class="wrap" id="comments"></div>
+
+
+        </div>
+        <div id="sidebar">
+          
+
+<div class="inner">
+
+  <div class="panels">
+    <div class="inner">
+      <div class="contents panel pjax" data-title="文章目录">
+          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#nodejs"><span class="toc-number">1.</span> <span class="toc-text"> Node.js</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%8B%E7%BB%8D"><span class="toc-number">1.1.</span> <span class="toc-text"> 介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#npm"><span class="toc-number">1.2.</span> <span class="toc-text"> npm</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#npm-install"><span class="toc-number">1.2.0.1.</span> <span class="toc-text"> npm install</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#npmrc%E6%96%87%E4%BB%B6"><span class="toc-number">1.2.0.2.</span> <span class="toc-text"> .npmrc 文件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#package-lockjson"><span class="toc-number">1.2.0.3.</span> <span class="toc-text"> package-lock.json</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#npm-run"><span class="toc-number">1.2.0.4.</span> <span class="toc-text"> npm run</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#npm-%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F"><span class="toc-number">1.2.0.5.</span> <span class="toc-text"> npm 生命周期</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#npx"><span class="toc-number">1.2.0.6.</span> <span class="toc-text"> npx</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#npm%E7%A7%81%E6%9C%8D"><span class="toc-number">1.2.0.7.</span> <span class="toc-text"> npm 私服</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#node%E6%A8%A1%E5%9D%97%E5%8C%96"><span class="toc-number">1.3.</span> <span class="toc-text"> Node 模块化</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#commonjs"><span class="toc-number">1.3.0.1.</span> <span class="toc-text"> CommonJS</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#esm"><span class="toc-number">1.3.0.2.</span> <span class="toc-text"> ESM</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AF%B9%E6%AF%94"><span class="toc-number">1.3.0.3.</span> <span class="toc-text"> 对比</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#require%E6%89%A7%E8%A1%8C%E9%A1%BA%E5%BA%8F"><span class="toc-number">1.3.0.4.</span> <span class="toc-text"> require 执行顺序</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%A8%E5%B1%80%E5%8F%98%E9%87%8F"><span class="toc-number">1.4.</span> <span class="toc-text"> 全局变量</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#global"><span class="toc-number">1.4.0.1.</span> <span class="toc-text"> global</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#__dirname"><span class="toc-number">1.4.0.2.</span> <span class="toc-text"> __dirname</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#__filename"><span class="toc-number">1.4.0.3.</span> <span class="toc-text"> __filename</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#require"><span class="toc-number">1.4.0.4.</span> <span class="toc-text"> require</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#module"><span class="toc-number">1.4.0.5.</span> <span class="toc-text"> module</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#process"><span class="toc-number">1.4.0.6.</span> <span class="toc-text"> process</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#buffer%E7%B1%BB"><span class="toc-number">1.4.0.7.</span> <span class="toc-text"> Buffer 类</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#dom-bom"><span class="toc-number">1.4.0.8.</span> <span class="toc-text"> DOM、BOM</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#path%E6%A8%A1%E5%9D%97"><span class="toc-number">1.5.</span> <span class="toc-text"> path 模块</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#os%E6%A8%A1%E5%9D%97"><span class="toc-number">1.6.</span> <span class="toc-text"> os 模块</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#process%E6%A8%A1%E5%9D%97"><span class="toc-number">1.7.</span> <span class="toc-text"> process 模块</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#child_process%E6%A8%A1%E5%9D%97"><span class="toc-number">1.8.</span> <span class="toc-text"> child_process 模块</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E5%AD%90%E8%BF%9B%E7%A8%8B"><span class="toc-number">1.8.0.1.</span> <span class="toc-text"> 创建子进程</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ffmpeg%E5%B7%A5%E5%85%B7"><span class="toc-number">1.9.</span> <span class="toc-text"> ffmpeg 工具</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#events%E6%A8%A1%E5%9D%97"><span class="toc-number">1.10.</span> <span class="toc-text"> events 模块</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#sse"><span class="toc-number">1.10.0.1.</span> <span class="toc-text"> SSE</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#util%E6%A8%A1%E5%9D%97"><span class="toc-number">1.11.</span> <span class="toc-text"> util 模块</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#pngquant%E5%B7%A5%E5%85%B7"><span class="toc-number">1.12.</span> <span class="toc-text"> pngquant 工具</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#fs%E6%A8%A1%E5%9D%97"><span class="toc-number">1.13.</span> <span class="toc-text"> fs 模块</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%90%8C%E6%AD%A5%E4%B8%8E%E5%BC%82%E6%AD%A5"><span class="toc-number">1.13.0.1.</span> <span class="toc-text"> 同步与异步</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#api"><span class="toc-number">1.13.0.2.</span> <span class="toc-text"> api</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#fspromises"><span class="toc-number">1.13.0.3.</span> <span class="toc-text"> fs&#x2F;promises</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%BA%90%E7%A0%81"><span class="toc-number">1.13.0.4.</span> <span class="toc-text"> 源码</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#writefilesync"><span class="toc-number">1.13.0.5.</span> <span class="toc-text"> writeFileSync</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%AF%E5%86%99%E6%B5%81"><span class="toc-number">1.13.0.6.</span> <span class="toc-text"> 可写流</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%A1%AC%E9%93%BE%E6%8E%A5-%E8%BD%AF%E8%BF%9E%E6%8E%A5"><span class="toc-number">1.13.0.7.</span> <span class="toc-text"> 硬链接、软连接</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#inode"><span class="toc-number">1.13.0.7.0.1.</span> <span class="toc-text"> inode</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E8%BD%AF%E9%93%BE%E6%8E%A5"><span class="toc-number">1.13.0.7.0.2.</span> <span class="toc-text"> 软链接</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E7%A1%AC%E9%93%BE%E6%8E%A5"><span class="toc-number">1.13.0.7.0.3.</span> <span class="toc-text"> 硬链接</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E9%93%BE%E6%8E%A5"><span class="toc-number">1.13.0.7.0.4.</span> <span class="toc-text"> 创建链接</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E7%94%A8%E9%80%94"><span class="toc-number">1.13.0.7.0.5.</span> <span class="toc-text"> 用途</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#crypto%E6%A8%A1%E5%9D%97"><span class="toc-number">1.14.</span> <span class="toc-text"> crypto 模块</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AF%B9%E7%A7%B0%E5%8A%A0%E5%AF%86"><span class="toc-number">1.14.0.1.</span> <span class="toc-text"> 对称加密</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%9D%9E%E5%AF%B9%E7%A7%B0%E5%8A%A0%E5%AF%86"><span class="toc-number">1.14.0.2.</span> <span class="toc-text"> 非对称加密</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%93%88%E5%B8%8C%E5%87%BD%E6%95%B0"><span class="toc-number">1.14.0.3.</span> <span class="toc-text"> 哈希函数</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#md%E8%BD%AChtml"><span class="toc-number">1.15.</span> <span class="toc-text"> md 转 html</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B7%A5%E5%85%B7"><span class="toc-number">1.15.0.1.</span> <span class="toc-text"> 工具</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8"><span class="toc-number">1.15.0.2.</span> <span class="toc-text"> 使用</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#zlib%E6%A8%A1%E5%9D%97"><span class="toc-number">1.16.</span> <span class="toc-text"> zlib 模块</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BB%8B%E7%BB%8D-2"><span class="toc-number">1.16.0.1.</span> <span class="toc-text"> 介绍</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BD%9C%E7%94%A8"><span class="toc-number">1.16.0.2.</span> <span class="toc-text"> 作用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AF%B9%E6%AF%94-2"><span class="toc-number">1.16.0.3.</span> <span class="toc-text"> 对比</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#brotli"><span class="toc-number">1.16.0.4.</span> <span class="toc-text"> brotli</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#http%E6%A8%A1%E5%9D%97"><span class="toc-number">1.17.</span> <span class="toc-text"> http 模块</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BB%8B%E7%BB%8D-3"><span class="toc-number">1.17.0.1.</span> <span class="toc-text"> 介绍</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8-2"><span class="toc-number">1.17.0.2.</span> <span class="toc-text"> 使用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#url%E6%A8%A1%E5%9D%97"><span class="toc-number">1.17.0.3.</span> <span class="toc-text"> url 模块</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%A8%E9%9D%99%E5%88%86%E7%A6%BB"><span class="toc-number">1.18.</span> <span class="toc-text"> 动静分离</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%82%AE%E4%BB%B6%E6%9C%8D%E5%8A%A1"><span class="toc-number">1.19.</span> <span class="toc-text"> 邮件服务</span></a></li></ol></li></ol>
+      </div>
+      <div class="related panel pjax" data-title="系列文章">
+        <ul>
+          <li class="active"><a href="/2024/05/24/node/" rel="bookmark" title="Node学习笔记">Node学习笔记</a></li>
+        </ul>
+      </div>
+      <div class="overview panel" data-title="站点概览">
+        <div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="image" itemprop="image" alt="dmq"
+      data-src="/images/avatar.jpg">
+  <p class="name" itemprop="name">dmq</p>
+  <div class="description" itemprop="description"></div>
+</div>
+
+<nav class="state">
+    <div class="item posts">
+      <a href="/archives/">
+        <span class="count">74</span>
+        <span class="name">文章</span>
+      </a>
+    </div>
+    <div class="item categories">
+      <a href="/categories/">
+        <span class="count">56</span>
+        <span class="name">分类</span>
+      </a>
+    </div>
+    <div class="item tags">
+      <a href="/tags/">
+        <span class="count">96</span>
+        <span class="name">标签</span>
+      </a>
+    </div>
+</nav>
+
+<div class="social">
+      <span class="exturl item github" data-url="aHR0cHM6Ly9naXRodWIuY29tL2RtcTA/dGFiPXJlcG9zaXRvcmllcw==" title="https:&#x2F;&#x2F;github.com&#x2F;dmq0?tab&#x3D;repositories"><i class="ic i-github"></i></span>
+      <span class="exturl item npm" data-url="aHR0cHM6Ly93d3cubnBtanMuY29tL35kbXEwMDA=" title="https:&#x2F;&#x2F;www.npmjs.com&#x2F;~dmq000"><i class="ic i-file"></i></span>
+      <span class="exturl item zhihu" data-url="aHR0cHM6Ly93d3cuemhpaHUuY29tL3Blb3BsZS9kLTg4LTYxLTgz" title="https:&#x2F;&#x2F;www.zhihu.com&#x2F;people&#x2F;d-88-61-83"><i class="ic i-zhihu"></i></span>
+      <span class="exturl item music" data-url="aHR0cHM6Ly9tdXNpYy4xNjMuY29tLyMvdXNlci9ob21lP2lkPTgwMjc4OTk0OTE=" title="https:&#x2F;&#x2F;music.163.com&#x2F;#&#x2F;user&#x2F;home?id&#x3D;8027899491"><i class="ic i-cloud-music"></i></span>
+      <span class="exturl item weibo" data-url="aHR0cHM6Ly93ZWliby5jb20vdS83NjI1OTAxNzE3" title="https:&#x2F;&#x2F;weibo.com&#x2F;u&#x2F;7625901717"><i class="ic i-weibo"></i></span>
+      <span class="exturl item email" data-url="bWFpbHRvOjMyNjc4MDc1MTRAcXEuY29t" title="mailto:3267807514@qq.com"><i class="ic i-envelope"></i></span>
+</div>
+
+<ul class="menu">
+  
+    
+  <li class="item">
+    <a href="/" rel="section"><i class="ic i-home"></i>首页</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/about/" rel="section"><i class="ic i-user"></i>介绍</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/archives/" rel="section"><i class="ic i-list-alt"></i>归档</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/categories/" rel="section"><i class="ic i-th"></i>分类</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/tags/" rel="section"><i class="ic i-tags"></i>标签</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/friends/" rel="section"><i class="ic i-heart"></i>友链</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/links/" rel="section"><i class="ic i-magic"></i>工具</a>
+  </li>
+
+
+</ul>
+
+      </div>
+    </div>
+  </div>
+
+  <ul id="quick">
+    <li class="prev pjax">
+        <a href="/2024/05/24/%E5%BE%AE%E5%89%8D%E7%AB%AF/" rel="prev" title="上一篇"><i class="ic i-chevron-left"></i></a>
+    </li>
+    <li class="up"><i class="ic i-arrow-up"></i></li>
+    <li class="down"><i class="ic i-arrow-down"></i></li>
+    <li class="next pjax">
+        <a href="/2024/05/27/OSI%E4%B8%83%E5%B1%82%E7%BD%91%E7%BB%9C%E6%A8%A1%E5%9E%8B/" rel="next" title="下一篇"><i class="ic i-chevron-right"></i></a>
+    </li>
+    <li class="percent"></li>
+  </ul>
+</div>
+
+
+        </div>
+        <div class="dimmer"></div>
+      </div>
+    </main>
+    <footer id="footer">
+      <div class="inner">
+        <div class="widgets">
+          
+<div class="rpost pjax">
+  <h2>随机文章</h2>
+  <ul>
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E9%A1%B9%E7%9B%AE%E8%B4%A8%E9%87%8F%E6%A3%80%E6%B5%8B/" title="分类于 项目质量检测">项目质量检测</a>
+</div>
+
+    <span><a href="/2024/01/02/%E9%A1%B9%E7%9B%AE%E8%B4%A8%E9%87%8F%E6%A3%80%E6%B5%8B/" title="项目质量检测">项目质量检测</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E6%A1%8C%E9%9D%A2%E7%AB%AF%E5%BC%80%E5%8F%91/" title="分类于 桌面端开发">桌面端开发</a>
+</div>
+
+    <span><a href="/2024/05/21/%E6%A1%8C%E9%9D%A2%E7%AB%AF%E5%BC%80%E5%8F%91/" title="桌面端开发">桌面端开发</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E8%84%9A%E6%89%8B%E6%9E%B6%E5%BC%80%E5%8F%91/" title="分类于 脚手架开发">脚手架开发</a>
+</div>
+
+    <span><a href="/2024/04/12/%E8%84%9A%E6%89%8B%E6%9E%B6/" title="脚手架开发">脚手架开发</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/node-js/" title="分类于 node.js">node.js</a>
+</div>
+
+    <span><a href="/2024/01/02/node.js%E5%86%85%E7%BD%AE%E6%A8%A1%E5%9D%97/" title="node.js内置模块">node.js内置模块</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/v8%E5%BC%95%E6%93%8E%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/" title="分类于 v8引擎编译原理">v8引擎编译原理</a>
+</div>
+
+    <span><a href="/2024/05/21/v8%E5%BC%95%E6%93%8E%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/" title="v8引擎编译原理">v8引擎编译原理</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/JS/" title="分类于 JS">JS</a>
+</div>
+
+    <span><a href="/2024/02/02/serviceWorker/" title="serviceWorker">serviceWorker</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/" title="分类于 面试题">面试题</a>
+</div>
+
+    <span><a href="/2024/04/30/%E6%B7%B1%E6%8B%B7%E8%B4%9D/" title="深拷贝">深拷贝</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/JS/" title="分类于 JS">JS</a>
+</div>
+
+    <span><a href="/2023/12/07/Blob/" title="Blob">Blob</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/HTTP/" title="分类于 HTTP">HTTP</a>
+</div>
+
+    <span><a href="/2023/05/02/HTTP/" title="HTTP">HTTP</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96/" title="分类于 前端工程化">前端工程化</a>
+</div>
+
+    <span><a href="/2024/03/29/%E5%89%8D%E7%AB%AF%E6%A8%A1%E5%9D%97%E5%8C%96/" title="前端模块化">前端模块化</a></span>
+  </li>
+
+  </ul>
+</div>
+<div>
+  <h2>最新评论</h2>
+  <ul class="leancloud-recent-comment"></ul>
+</div>
+
+        </div>
+        <div class="status">
+  <div class="copyright">
+    
+    &copy; 2010 – 
+    <span itemprop="copyrightYear">2024</span>
+    <span class="with-love">
+      <i class="ic i-sakura rotate"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">dmq @ Web blog</span>
+  </div>
+  <div class="powered-by">
+    基于 <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & Theme.<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Shoka</span>
+  </div>
+</div>
+
+      </div>
+    </footer>
+  </div>
+<script data-config type="text/javascript">
+  var LOCAL = {
+    path: '2024/05/24/node/',
+    favicon: {
+      show: "科技引领未来",
+      hide: "欢迎与我交流"
+    },
+    search : {
+      placeholder: "文章搜索",
+      empty: "关于 「 ${query} 」，什么也没搜到",
+      stats: "${time} ms 内找到 ${hits} 条结果"
+    },
+    valine: true,fancybox: true,
+    copyright: '复制成功，转载请遵守 <i class="ic i-creative-commons"></i>BY-NC-SA 协议。',
+    ignores : [
+      function(uri) {
+        return uri.includes('#');
+      },
+      function(uri) {
+        return new RegExp(LOCAL.path+"$").test(uri);
+      }
+    ]
+  };
+</script>
+
+<script src="https://cdn.polyfill.io/v2/polyfill.js"></script>
+
+<script src="//gcore.jsdelivr.net/combine/npm/pace-js@1.0.2/pace.min.js,npm/pjax@0.2.8/pjax.min.js,npm/whatwg-fetch@3.4.0/dist/fetch.umd.min.js,npm/animejs@3.2.0/lib/anime.min.js,npm/algoliasearch@4/dist/algoliasearch-lite.umd.js,npm/instantsearch.js@4/dist/instantsearch.production.min.js,npm/lozad@1/dist/lozad.min.js,npm/quicklink@2/dist/quicklink.umd.js"></script>
+
+<script src="/js/app.js?v=0.2.5"></script>
+
+
+  <script data-pjax>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?9ba187659e850a6910681214f0faa16b";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+</body>
+</html>

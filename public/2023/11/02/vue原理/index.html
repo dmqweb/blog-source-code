@@ -1,0 +1,634 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#FFF">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="icon" type="image/ico" sizes="32x32" href="/images/favicon.ico">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+<link rel="alternate" type="application/rss+xml" title="杜明清的个人博客" href="https://dmqweb.cn/rss.xml" />
+<link rel="alternate" type="application/atom+xml" title="杜明清的个人博客" href="https://dmqweb.cn/atom.xml" />
+<link rel="alternate" type="application/json" title="杜明清的个人博客" href="https://dmqweb.cn/feed.json" />
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Mulish:300,300italic,400,400italic,700,700italic%7CFredericka%20the%20Great:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20JP:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CInconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="/css/app.css?v=0.2.5">
+
+  
+  <meta name="keywords" content="源码,vue" />
+
+
+<link rel="canonical" href="https://dmqweb.cn/2023/11/02/vue%E5%8E%9F%E7%90%86/">
+
+
+
+  <title>
+vue原理 - vue |
+Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
+<meta name="generator" content="Hexo 6.3.0"></head>
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div id="loading">
+    <div class="cat">
+      <div class="body"></div>
+      <div class="head">
+        <div class="face"></div>
+      </div>
+      <div class="foot">
+        <div class="tummy-end"></div>
+        <div class="bottom"></div>
+        <div class="legs left"></div>
+        <div class="legs right"></div>
+      </div>
+      <div class="paw">
+        <div class="hands left"></div>
+        <div class="hands right"></div>
+      </div>
+    </div>
+  </div>
+  <div id="container">
+    <header id="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="inner">
+        <div id="brand">
+          <div class="pjax">
+          
+  <h1 itemprop="name headline">vue原理
+  </h1>
+  
+<div class="meta">
+  <span class="item" title="创建时间：2023-11-02 12:24:04">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <span class="text">发表于</span>
+    <time itemprop="dateCreated datePublished" datetime="2023-11-02T12:24:04+08:00">2023-11-02</time>
+  </span>
+</div>
+
+
+          </div>
+        </div>
+        <nav id="nav">
+  <div class="inner">
+    <div class="toggle">
+      <div class="lines" aria-label="切换导航栏">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </div>
+    </div>
+    <ul class="menu">
+      <li class="item title"><a href="/" rel="start">Web blog</a></li>
+    </ul>
+    <ul class="right">
+      <li class="item theme">
+        <i class="ic i-sun"></i>
+      </li>
+      <li class="item search">
+        <i class="ic i-search"></i>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+      </div>
+      <div id="imgs" class="pjax">
+        <ul>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/04/f480d741324d8eb5.jpg"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/04/cc0be7efc99ac89e.webp"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/13/c95fa1dc9a2ef7b0.jpg"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/15/3ad1c5ee17b91ba4.webp"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/25/0aebf75866635811.jpg"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/13/ba4d76fc0767aeef.jpg"></li>
+        </ul>
+      </div>
+    </header>
+    <div id="waves">
+      <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+        <defs>
+          <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+        </defs>
+        <g class="parallax">
+          <use xlink:href="#gentle-wave" x="48" y="0" />
+          <use xlink:href="#gentle-wave" x="48" y="3" />
+          <use xlink:href="#gentle-wave" x="48" y="5" />
+          <use xlink:href="#gentle-wave" x="48" y="7" />
+        </g>
+      </svg>
+    </div>
+    <main>
+      <div class="inner">
+        <div id="main" class="pjax">
+          
+  <div class="article wrap">
+    
+<div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+<i class="ic i-home"></i>
+<span><a href="/">首页</a></span><i class="ic i-angle-right"></i>
+<span  class="current" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/categories/vue/" itemprop="item" rel="index" title="分类于 vue"><span itemprop="name">vue</span></a>
+<meta itemprop="position" content="1" /></span>
+</div>
+
+    <article itemscope itemtype="http://schema.org/Article" class="post block" lang="zh-CN">
+  <link itemprop="mainEntityOfPage" href="https://dmqweb.cn/2023/11/02/vue%E5%8E%9F%E7%90%86/">
+
+  <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="image" content="/images/avatar.jpg">
+    <meta itemprop="name" content="dmq">
+    <meta itemprop="description" content="👻欢迎一起交流学习👻, ">
+  </span>
+
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="杜明清的个人博客">
+  </span>
+
+  <div class="body md" itemprop="articleBody">
+    
+
+    <h1 id="vue大致流程"><a class="anchor" href="#vue大致流程">#</a> vue 大致流程</h1>
+<h2 id="一-响应式系统"><a class="anchor" href="#一-响应式系统">#</a> 一、响应式系统：</h2>
+<h4 id="reactive"><a class="anchor" href="#reactive">#</a> reactive：</h4>
+<p>创建代理对象（用于收集依赖）</p>
+<p><img data-src="/images/vue1.png" alt="/images/image-20240123164938769" /></p>
+<p><strong>需要注意的是：当使用代理对象的 this 时，其 this 指向普通对象，导致的结果就是后续使用代理对象收集不到使用 this 指定的函数，解决方法是通过 Reflect 反射。</strong></p>
+<p>此时，就创建了代理对象，并将普通对象和代理对象存在 map 中，此时可以通过 Proxy 代理的拦截器收集依赖，但是视图中的赋值并不是响应性的（需要执行依赖）。</p>
+<h4 id="effect"><a class="anchor" href="#effect">#</a> effect：</h4>
+<p><strong>副作用函数，用于触发依赖，更新视图</strong></p>
+<p>首先通过 reactiveEffect 类创建副作用实例：通过实例的 run 方法可以执行里面的函数</p>
+<p><img data-src="/images/vue2.png" alt="/images/image-20240123164938769" /></p>
+<p>通过 track 函数收集依赖。<strong>（在 Proxy 对象的 getter 中执行）</strong></p>
+<p><img data-src="/images/vue3.png" alt="/images/image-20240123164938769" /></p>
+<p>通过 trigger 函数触发依赖  <strong>（在 Proxy 对象的 setter 中执行）</strong></p>
+<p><img data-src="/images/vue4.png" alt="/images/image-20240123164938769" /></p>
+<h4 id="ref函数"><a class="anchor" href="#ref函数">#</a> ref 函数：</h4>
+<p><img data-src="/images/vue5.png" alt="/images/image-20240123164938769" /></p>
+<h4 id="computed函数"><a class="anchor" href="#computed函数">#</a> computed 函数：</h4>
+<p><img data-src="/images/vue7.png" alt="/images/image-20240123164938769" /></p>
+<h3 id="scheduler调度器"><a class="anchor" href="#scheduler调度器">#</a> scheduler 调度器：</h3>
+<p><img data-src="/images/vue8.png" alt="/images/image-20240123164938769" /></p>
+<h3 id="watch函数z"><a class="anchor" href="#watch函数z">#</a> watch 函数：Z</h3>
+<p><img data-src="/images/vue9.png" alt="/images/image-20240123164938769" /></p>
+<h2 id="二-运行时runtime"><a class="anchor" href="#二-运行时runtime">#</a> 二、运行时 runtime：</h2>
+<h4 id="createvnode函数"><a class="anchor" href="#createvnode函数">#</a> createVNode 函数：</h4>
+<p><img data-src="/images/vue10.png" alt="/images/image-20240123164938769" /></p>
+<h4 id="h函数"><a class="anchor" href="#h函数">#</a> h 函数：</h4>
+<p><img data-src="/images/vue11.png" alt="/images/image-20240123164938769" /></p>
+<h4 id="nodeops对象"><a class="anchor" href="#nodeops对象">#</a> nodeOps 对象：</h4>
+<p>封装 dom 元素操作</p>
+<p><img data-src="/images/vue13.png" alt="/images/image-20240123164938769" /></p>
+<h4 id="patchprop函数"><a class="anchor" href="#patchprop函数">#</a> patchProp 函数：</h4>
+<p>根据元素类型（class 属性，style 属性，事件，dom Properties 和其他属性），进行不同的 patch 打补丁操作</p>
+<p><img data-src="/images/vue14.png" alt="/images/image-20240123164938769" /></p>
+<h4 id="render函数"><a class="anchor" href="#render函数">#</a> render 函数：</h4>
+<p><img data-src="/images/vue12.png" alt="/images/image-20240123164938769" /></p>
+<h4 id="组件渲染"><a class="anchor" href="#组件渲染">#</a> 组件渲染：</h4>
+<p><img data-src="/images/vue16.png" alt="/images/image-20240123164938769" /></p>
+<h3 id="patch函数diff算法"><a class="anchor" href="#patch函数diff算法">#</a> patch 函数（diff 算法）：</h3>
+<p><img data-src="/images/vue15.png" alt="/images/image-20240123164938769" /></p>
+<h2 id="三-编译时compile"><a class="anchor" href="#三-编译时compile">#</a> 三、编译时 compile：</h2>
+<p>将 template 模板转为 render 函数。这个过程中共经历了三大步骤：1、解析（解析 template 模板，生成 AST 抽象语法树）；2、转化（转化 AST，生成 JavaScript  AST）；3、生成（生成 render 函数）</p>
+<h4 id="baseparse函数"><a class="anchor" href="#baseparse函数">#</a> baseParse 函数：</h4>
+<p>baseParse 函数<strong>根据 template 模板</strong>，通过有限自动状态机的概念解析得到<strong> tokens</strong>，然后通过扫描 tokens 最终得到<strong> AST</strong>（抽象语法树）。</p>
+<h4 id="transform函数"><a class="anchor" href="#transform函数">#</a> transform 函数:</h4>
+<p>transform 函数将<strong>抽象语法树 AST</strong> 转化为<strong> JavaScript  AST</strong>（抽象语法树）。</p>
+<h4 id="generate函数"><a class="anchor" href="#generate函数">#</a> generate 函数：</h4>
+<p>根据<strong> JavaScript AST</strong>（抽象语法树）<strong>生成 render 函数</strong>。(render 函数的本质是字符串，字符串的换行和空格需要进行处理)。</p>
+<h3 id="compile函数"><a class="anchor" href="#compile函数">#</a> compile 函数：</h3>
+<p>根据<strong>字符串 render 函数</strong>通过<strong> new Function (render)()</strong>  方法创建出 renderFn 函数（这里不用 eval 函数的原因是出于安全性考虑），改名为 compile 函数。</p>
+<h4 id="parseinterpolation函数"><a class="anchor" href="#parseinterpolation函数">#</a> parseInterpolation 函数：</h4>
+<h6 id="处理插值表达式"><a class="anchor" href="#处理插值表达式">#</a> （处理插值表达式）</h6>
+<p>找到 }}  的索引位置，拿到双大括号内部的字符串，通过 trim 方法去除空格拿  到变量，通过 with 语法改变作用域，bind 语法绑定 this 指向从而使用这个变量。</p>
+<h4 id="parseattributes函数"><a class="anchor" href="#parseattributes函数">#</a> parseAttributes 函数：</h4>
+<h6 id="处理props属性v-指令等"><a class="anchor" href="#处理props属性v-指令等">#</a> （处理 props 属性，v - 指令等）</h6>
+<p>通过正则表达式判断是否是 Vue 指令，如果是指令，就返回指令对象，如果不是指令就返回普通属性的对象。然后通过 nameSet 函数拿到 props 属性。</p>
+<h4 id="createstructuraldirectivetransform函数"><a class="anchor" href="#createstructuraldirectivetransform函数">#</a> createStructuralDirectiveTransform 函数：</h4>
+<h6 id="统一处理指令"><a class="anchor" href="#统一处理指令">#</a> （统一处理指令）</h6>
+<h4 id="transform指令系列函数"><a class="anchor" href="#transform指令系列函数">#</a> transform 指令系列函数：</h4>
+<h6 id="transformifv-if"><a class="anchor" href="#transformifv-if">#</a> transformIf(v-if)</h6>
+<p>AST 中添加对应属性，JavascriptAST 中相应变动，在生成 render 函数时，通过 v-if 绑定的变量名，在 render 字符串中添加上三元表达式。</p>
+<h2 id="四-运行时编译时合并"><a class="anchor" href="#四-运行时编译时合并">#</a> 四、运行时 + 编译时合并</h2>
+<p>此时只能导入模块中的函数进行使用，尚未处理合并的逻辑：</p>
+<h3 id="1-render渲染"><a class="anchor" href="#1-render渲染">#</a> 1、render 渲染</h3>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token operator">&lt;</span>script setup<span class="token operator">></span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token keyword">const</span> <span class="token punctuation">&#123;</span> createApp<span class="token punctuation">,</span>h <span class="token punctuation">&#125;</span> <span class="token operator">=</span> Vue<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token keyword">const</span> App <span class="token operator">=</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="4"></td><td><pre>    <span class="token function">render</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="5"></td><td><pre>        <span class="token keyword">return</span> <span class="token function">h</span><span class="token punctuation">(</span><span class="token string">'div'</span><span class="token punctuation">,</span><span class="token string">'hello world'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="6"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="7"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="8"></td><td><pre><span class="token keyword">const</span> app <span class="token operator">=</span> <span class="token function">createApp</span><span class="token punctuation">(</span>App<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="9"></td><td><pre>app<span class="token punctuation">.</span><span class="token function">mount</span><span class="token punctuation">(</span><span class="token string">'#app'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="10"></td><td><pre><span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span></pre></td></tr></table></figure><h4 id="createapp函数"><a class="anchor" href="#createapp函数">#</a> createApp 函数：</h4>
+<p>createApp 函数调用 createAppAPI 函数，传入 render 函数拿到结果</p>
+<h6 id="createappapi函数"><a class="anchor" href="#createappapi函数">#</a> createAppAPI 函数</h6>
+<p>接受 render 函数，返回 createApp 函数，createApp 函数拿到 rootComponent 和 rootProps 作为参数，定义出 app 对象，声明出 component 属性、container 属性和 mount 方法，mount 方法拿 rootContainer 作为参数，通过 createVNode 函数，传入 rootComponent 和 rootProps 创建出 vnode 虚拟节点，然后调用 render 函数，传入 vnode 虚拟节点和 rootContainer 进行执行。最后返回这个 app 对象</p>
+<h4 id="mount函数"><a class="anchor" href="#mount函数">#</a> mount 函数：</h4>
+<p>为了兼容不同的平台（宿主环境），需要去进行不同的处理：</p>
+<p>mount 函数接受参数（选择器字符串或者 dom 元素），通过 nromalizeContainer 函数获取到 dom 元素。mount 方法将 dom 元素作为 rootContainer，通过 createVNode 函数创建出 vnode 虚拟节点，然后调用 render 函数，传入 vnode 虚拟节点和 rootContainer 进行执行。</p>
+<h6 id="normalizecontainer函数"><a class="anchor" href="#normalizecontainer函数">#</a> normalizeContainer 函数：</h6>
+<p>如果参数是选择器字符串，就通过 querySelector 选择出 dom 元素，并返回。</p>
+<h2 id="2-template模板渲染"><a class="anchor" href="#2-template模板渲染">#</a> 2、template 模板渲染</h2>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token operator">&lt;</span>script setup<span class="token operator">></span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token keyword">const</span> <span class="token punctuation">&#123;</span> createApp<span class="token punctuation">,</span>h <span class="token punctuation">&#125;</span> <span class="token operator">=</span> Vue<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token keyword">const</span> App <span class="token operator">=</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="4"></td><td><pre>    <span class="token literal-property property">template</span><span class="token operator">:</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">&lt;div>hello world&lt;/div></span><span class="token template-punctuation string">`</span></span></pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="6"></td><td><pre><span class="token keyword">const</span> app <span class="token operator">=</span> <span class="token function">createApp</span><span class="token punctuation">(</span>App<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="7"></td><td><pre>app<span class="token punctuation">.</span><span class="token function">mount</span><span class="token punctuation">(</span><span class="token string">'#app'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="8"></td><td><pre><span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span></pre></td></tr></table></figure><p>此时 app 中是 template 组件模板，erbushirender 函数，所以需要将模板变为 render 函数。</p>
+<p>在 finishComponentSetup 函数中进行判断：如果当前存在 compile 编译器，并且 component 中不存在 render 函数，就利用 compile 函数生成 render 函数，赋值到 component 组件实例中去，最后赋值给：instance 的 render。</p>
+<h1 id="vue3更新优化"><a class="anchor" href="#vue3更新优化">#</a> Vue3 更新优化</h1>
+<p><span class="exturl" data-url="aHR0cHM6Ly9qdWVqaW4uY24vcG9zdC83MjU0MDkyOTU0NDMxNjY4Mjg0">https://juejin.cn/post/7254092954431668284</span></p>
+<h6 id="1-静态提升"><a class="anchor" href="#1-静态提升">#</a> 1、静态提升</h6>
+<p>Vue3 将  ：<strong>静态的模板</strong>（不存在变化的模板）提<strong>升并进行缓存</strong>，静态的<strong>类等样式进行缓存</strong>，这样不用每次都重新更新</p>
+<h6 id="2-预字符串化"><a class="anchor" href="#2-预字符串化">#</a> 2、预字符串化</h6>
+<p>将<strong>不会变化的静态数据转换为字符串</strong>，以减少运行时的计算和处理。</p>
+<h6 id="3-缓存事件处理函数"><a class="anchor" href="#3-缓存事件处理函数">#</a> 3、缓存事件处理函数</h6>
+<p>Vue3 会将<strong>事件处理函数在编译阶段缓存起来</strong>，避免了重复创建的开销。</p>
+<h6 id="4-block-tree"><a class="anchor" href="#4-block-tree">#</a> 4、Block Tree</h6>
+<p>Vue3 中的 Block Tree 会将<strong>条件渲染 v-if</strong> 和<strong>循环渲染 v-for</strong> 的内容封装为一个单独的 Block，从而避免大量的 VNode 节点创建和销毁。</p>
+<p>此外，Vue3 编译之后的模板会被拆分成多个块，每个块对应一个节点或一组节点，这些快可以被独立地更新和渲染，从而避免不必要的渲染操作。</p>
+<h6 id="5-patchflag"><a class="anchor" href="#5-patchflag">#</a> 5 、patchFlag</h6>
+<p>Vue3 中引入了 PatchFlag 地概念，会<strong>标记 VNode 中哪些部分发生了变化</strong>，从而<strong>只对变化的部分进行比较和更新</strong>。</p>
+
+      <div class="tags">
+          <a href="/tags/%E6%BA%90%E7%A0%81/" rel="tag"><i class="ic i-tag"></i> 源码</a>
+          <a href="/tags/vue/" rel="tag"><i class="ic i-tag"></i> vue</a>
+      </div>
+  </div>
+
+   <footer>
+
+    <div class="meta">
+  <span class="item">
+    <span class="icon">
+      <i class="ic i-calendar-check"></i>
+    </span>
+    <span class="text">更新于</span>
+    <time title="修改时间：2024-05-30 13:26:23" itemprop="dateModified" datetime="2024-05-30T13:26:23+08:00">2024-05-30</time>
+  </span>
+  <span id="2023/11/02/vue原理/" class="item leancloud_visitors" data-flag-title="vue原理" title="阅读次数">
+      <span class="icon">
+        <i class="ic i-eye"></i>
+      </span>
+      <span class="text">阅读次数</span>
+      <span class="leancloud-visitors-count"></span>
+      <span class="text">次</span>
+  </span>
+</div>
+
+      
+<div class="reward">
+  <button><i class="ic i-heartbeat"></i> 赞赏</button>
+  <p>请我喝[茶]~(￣▽￣)~*</p>
+  <div id="qr">
+      
+      <div>
+        <img data-src="/images/wechatpay.png" alt="dmq 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div>
+        <img data-src="/images/alipay.png" alt="dmq 支付宝">
+        <p>支付宝</p>
+      </div>
+  </div>
+</div>
+
+      
+
+<div id="copyright">
+<ul>
+  <li class="author">
+    <strong>本文作者： </strong>dmq <i class="ic i-at"><em>@</em></i>杜明清的个人博客
+  </li>
+  <li class="link">
+    <strong>本文链接：</strong>
+    <a href="https://dmqweb.cn/2023/11/02/vue%E5%8E%9F%E7%90%86/" title="vue原理">https://dmqweb.cn/2023/11/02/vue原理/</a>
+  </li>
+  <li class="license">
+    <strong>版权声明： </strong>本站所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+  </footer>
+
+</article>
+
+  </div>
+  
+
+<div class="post-nav">
+    <div class="item left">
+      
+
+  <a href="/2023/10/24/ThreeJS/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;s3.uuu.ovh&#x2F;imgs&#x2F;2024&#x2F;04&#x2F;28&#x2F;a34792f58e340f69.webp" title="three.js">
+  <span class="type">上一篇</span>
+  <span class="category"><i class="ic i-flag"></i> three.js</span>
+  <h3>three.js</h3>
+  </a>
+
+    </div>
+    <div class="item right">
+      
+
+  <a href="/2023/12/02/%E7%AE%97%E6%B3%95/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;s3.uuu.ovh&#x2F;imgs&#x2F;2024&#x2F;04&#x2F;12&#x2F;8740e71363c6800c.jpg" title="算法与数据结构">
+  <span class="type">下一篇</span>
+  <span class="category"><i class="ic i-flag"></i> 算法</span>
+  <h3>算法与数据结构</h3>
+  </a>
+
+    </div>
+</div>
+
+  
+  <div class="wrap" id="comments"></div>
+
+
+        </div>
+        <div id="sidebar">
+          
+
+<div class="inner">
+
+  <div class="panels">
+    <div class="inner">
+      <div class="contents panel pjax" data-title="文章目录">
+          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#vue%E5%A4%A7%E8%87%B4%E6%B5%81%E7%A8%8B"><span class="toc-number">1.</span> <span class="toc-text"> vue 大致流程</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80-%E5%93%8D%E5%BA%94%E5%BC%8F%E7%B3%BB%E7%BB%9F"><span class="toc-number">1.1.</span> <span class="toc-text"> 一、响应式系统：</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#reactive"><span class="toc-number">1.1.0.1.</span> <span class="toc-text"> reactive：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#effect"><span class="toc-number">1.1.0.2.</span> <span class="toc-text"> effect：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ref%E5%87%BD%E6%95%B0"><span class="toc-number">1.1.0.3.</span> <span class="toc-text"> ref 函数：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#computed%E5%87%BD%E6%95%B0"><span class="toc-number">1.1.0.4.</span> <span class="toc-text"> computed 函数：</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#scheduler%E8%B0%83%E5%BA%A6%E5%99%A8"><span class="toc-number">1.1.1.</span> <span class="toc-text"> scheduler 调度器：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#watch%E5%87%BD%E6%95%B0z"><span class="toc-number">1.1.2.</span> <span class="toc-text"> watch 函数：Z</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C-%E8%BF%90%E8%A1%8C%E6%97%B6runtime"><span class="toc-number">1.2.</span> <span class="toc-text"> 二、运行时 runtime：</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#createvnode%E5%87%BD%E6%95%B0"><span class="toc-number">1.2.0.1.</span> <span class="toc-text"> createVNode 函数：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#h%E5%87%BD%E6%95%B0"><span class="toc-number">1.2.0.2.</span> <span class="toc-text"> h 函数：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#nodeops%E5%AF%B9%E8%B1%A1"><span class="toc-number">1.2.0.3.</span> <span class="toc-text"> nodeOps 对象：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#patchprop%E5%87%BD%E6%95%B0"><span class="toc-number">1.2.0.4.</span> <span class="toc-text"> patchProp 函数：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#render%E5%87%BD%E6%95%B0"><span class="toc-number">1.2.0.5.</span> <span class="toc-text"> render 函数：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BB%84%E4%BB%B6%E6%B8%B2%E6%9F%93"><span class="toc-number">1.2.0.6.</span> <span class="toc-text"> 组件渲染：</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#patch%E5%87%BD%E6%95%B0diff%E7%AE%97%E6%B3%95"><span class="toc-number">1.2.1.</span> <span class="toc-text"> patch 函数（diff 算法）：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89-%E7%BC%96%E8%AF%91%E6%97%B6compile"><span class="toc-number">1.3.</span> <span class="toc-text"> 三、编译时 compile：</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#baseparse%E5%87%BD%E6%95%B0"><span class="toc-number">1.3.0.1.</span> <span class="toc-text"> baseParse 函数：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#transform%E5%87%BD%E6%95%B0"><span class="toc-number">1.3.0.2.</span> <span class="toc-text"> transform 函数:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#generate%E5%87%BD%E6%95%B0"><span class="toc-number">1.3.0.3.</span> <span class="toc-text"> generate 函数：</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#compile%E5%87%BD%E6%95%B0"><span class="toc-number">1.3.1.</span> <span class="toc-text"> compile 函数：</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#parseinterpolation%E5%87%BD%E6%95%B0"><span class="toc-number">1.3.1.1.</span> <span class="toc-text"> parseInterpolation 函数：</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E5%A4%84%E7%90%86%E6%8F%92%E5%80%BC%E8%A1%A8%E8%BE%BE%E5%BC%8F"><span class="toc-number">1.3.1.1.0.1.</span> <span class="toc-text"> （处理插值表达式）</span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#parseattributes%E5%87%BD%E6%95%B0"><span class="toc-number">1.3.1.2.</span> <span class="toc-text"> parseAttributes 函数：</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E5%A4%84%E7%90%86props%E5%B1%9E%E6%80%A7v-%E6%8C%87%E4%BB%A4%E7%AD%89"><span class="toc-number">1.3.1.2.0.1.</span> <span class="toc-text"> （处理 props 属性，v - 指令等）</span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#createstructuraldirectivetransform%E5%87%BD%E6%95%B0"><span class="toc-number">1.3.1.3.</span> <span class="toc-text"> createStructuralDirectiveTransform 函数：</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E7%BB%9F%E4%B8%80%E5%A4%84%E7%90%86%E6%8C%87%E4%BB%A4"><span class="toc-number">1.3.1.3.0.1.</span> <span class="toc-text"> （统一处理指令）</span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#transform%E6%8C%87%E4%BB%A4%E7%B3%BB%E5%88%97%E5%87%BD%E6%95%B0"><span class="toc-number">1.3.1.4.</span> <span class="toc-text"> transform 指令系列函数：</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#transformifv-if"><span class="toc-number">1.3.1.4.0.1.</span> <span class="toc-text"> transformIf(v-if)</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B-%E8%BF%90%E8%A1%8C%E6%97%B6%E7%BC%96%E8%AF%91%E6%97%B6%E5%90%88%E5%B9%B6"><span class="toc-number">1.4.</span> <span class="toc-text"> 四、运行时 + 编译时合并</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-render%E6%B8%B2%E6%9F%93"><span class="toc-number">1.4.1.</span> <span class="toc-text"> 1、render 渲染</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#createapp%E5%87%BD%E6%95%B0"><span class="toc-number">1.4.1.1.</span> <span class="toc-text"> createApp 函数：</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#createappapi%E5%87%BD%E6%95%B0"><span class="toc-number">1.4.1.1.0.1.</span> <span class="toc-text"> createAppAPI 函数</span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#mount%E5%87%BD%E6%95%B0"><span class="toc-number">1.4.1.2.</span> <span class="toc-text"> mount 函数：</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#normalizecontainer%E5%87%BD%E6%95%B0"><span class="toc-number">1.4.1.2.0.1.</span> <span class="toc-text"> normalizeContainer 函数：</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-template%E6%A8%A1%E6%9D%BF%E6%B8%B2%E6%9F%93"><span class="toc-number">1.5.</span> <span class="toc-text"> 2、template 模板渲染</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#vue3%E6%9B%B4%E6%96%B0%E4%BC%98%E5%8C%96"><span class="toc-number">2.</span> <span class="toc-text"> Vue3 更新优化</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#1-%E9%9D%99%E6%80%81%E6%8F%90%E5%8D%87"><span class="toc-number">2.0.0.0.0.1.</span> <span class="toc-text"> 1、静态提升</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#2-%E9%A2%84%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%96"><span class="toc-number">2.0.0.0.0.2.</span> <span class="toc-text"> 2、预字符串化</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#3-%E7%BC%93%E5%AD%98%E4%BA%8B%E4%BB%B6%E5%A4%84%E7%90%86%E5%87%BD%E6%95%B0"><span class="toc-number">2.0.0.0.0.3.</span> <span class="toc-text"> 3、缓存事件处理函数</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#4-block-tree"><span class="toc-number">2.0.0.0.0.4.</span> <span class="toc-text"> 4、Block Tree</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#5-patchflag"><span class="toc-number">2.0.0.0.0.5.</span> <span class="toc-text"> 5 、patchFlag</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></li></ol>
+      </div>
+      <div class="related panel pjax" data-title="系列文章">
+        <ul>
+          <li><a href="/2023/09/02/vue3%E6%BA%90%E7%A0%81%E4%BD%8D%E8%BF%90%E7%AE%97/" rel="bookmark" title="vue3源码中的位运算">vue3源码中的位运算</a></li><li class="active"><a href="/2023/11/02/vue%E5%8E%9F%E7%90%86/" rel="bookmark" title="vue原理">vue原理</a></li>
+        </ul>
+      </div>
+      <div class="overview panel" data-title="站点概览">
+        <div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="image" itemprop="image" alt="dmq"
+      data-src="/images/avatar.jpg">
+  <p class="name" itemprop="name">dmq</p>
+  <div class="description" itemprop="description"></div>
+</div>
+
+<nav class="state">
+    <div class="item posts">
+      <a href="/archives/">
+        <span class="count">74</span>
+        <span class="name">文章</span>
+      </a>
+    </div>
+    <div class="item categories">
+      <a href="/categories/">
+        <span class="count">56</span>
+        <span class="name">分类</span>
+      </a>
+    </div>
+    <div class="item tags">
+      <a href="/tags/">
+        <span class="count">96</span>
+        <span class="name">标签</span>
+      </a>
+    </div>
+</nav>
+
+<div class="social">
+      <span class="exturl item github" data-url="aHR0cHM6Ly9naXRodWIuY29tL2RtcTA/dGFiPXJlcG9zaXRvcmllcw==" title="https:&#x2F;&#x2F;github.com&#x2F;dmq0?tab&#x3D;repositories"><i class="ic i-github"></i></span>
+      <span class="exturl item npm" data-url="aHR0cHM6Ly93d3cubnBtanMuY29tL35kbXEwMDA=" title="https:&#x2F;&#x2F;www.npmjs.com&#x2F;~dmq000"><i class="ic i-file"></i></span>
+      <span class="exturl item zhihu" data-url="aHR0cHM6Ly93d3cuemhpaHUuY29tL3Blb3BsZS9kLTg4LTYxLTgz" title="https:&#x2F;&#x2F;www.zhihu.com&#x2F;people&#x2F;d-88-61-83"><i class="ic i-zhihu"></i></span>
+      <span class="exturl item music" data-url="aHR0cHM6Ly9tdXNpYy4xNjMuY29tLyMvdXNlci9ob21lP2lkPTgwMjc4OTk0OTE=" title="https:&#x2F;&#x2F;music.163.com&#x2F;#&#x2F;user&#x2F;home?id&#x3D;8027899491"><i class="ic i-cloud-music"></i></span>
+      <span class="exturl item weibo" data-url="aHR0cHM6Ly93ZWliby5jb20vdS83NjI1OTAxNzE3" title="https:&#x2F;&#x2F;weibo.com&#x2F;u&#x2F;7625901717"><i class="ic i-weibo"></i></span>
+      <span class="exturl item email" data-url="bWFpbHRvOjMyNjc4MDc1MTRAcXEuY29t" title="mailto:3267807514@qq.com"><i class="ic i-envelope"></i></span>
+</div>
+
+<ul class="menu">
+  
+    
+  <li class="item">
+    <a href="/" rel="section"><i class="ic i-home"></i>首页</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/about/" rel="section"><i class="ic i-user"></i>介绍</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/archives/" rel="section"><i class="ic i-list-alt"></i>归档</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/categories/" rel="section"><i class="ic i-th"></i>分类</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/tags/" rel="section"><i class="ic i-tags"></i>标签</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/friends/" rel="section"><i class="ic i-heart"></i>友链</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/links/" rel="section"><i class="ic i-magic"></i>工具</a>
+  </li>
+
+
+</ul>
+
+      </div>
+    </div>
+  </div>
+
+  <ul id="quick">
+    <li class="prev pjax">
+        <a href="/2023/10/24/ThreeJS/" rel="prev" title="上一篇"><i class="ic i-chevron-left"></i></a>
+    </li>
+    <li class="up"><i class="ic i-arrow-up"></i></li>
+    <li class="down"><i class="ic i-arrow-down"></i></li>
+    <li class="next pjax">
+        <a href="/2023/12/02/%E7%AE%97%E6%B3%95/" rel="next" title="下一篇"><i class="ic i-chevron-right"></i></a>
+    </li>
+    <li class="percent"></li>
+  </ul>
+</div>
+
+
+        </div>
+        <div class="dimmer"></div>
+      </div>
+    </main>
+    <footer id="footer">
+      <div class="inner">
+        <div class="widgets">
+          
+<div class="rpost pjax">
+  <h2>随机文章</h2>
+  <ul>
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" title="分类于 正则表达式">正则表达式</a>
+</div>
+
+    <span><a href="/2023/02/12/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" title="正则表达式">正则表达式</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/JS/" title="分类于 JS">JS</a>
+</div>
+
+    <span><a href="/2023/07/02/forEach/" title="forEach">forEach</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/eslint/" title="分类于 eslint">eslint</a>
+</div>
+
+    <span><a href="/2024/05/17/eslint%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90/" title="eslint源码">eslint源码</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/jQuery/" title="分类于 jQuery">jQuery</a>
+</div>
+
+    <span><a href="/2023/01/02/jQuery%E6%A1%86%E6%9E%B6%E5%BA%94%E7%94%A8/" title="jQuery">jQuery</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E5%BE%AE%E5%89%8D%E7%AB%AF/" title="分类于 微前端">微前端</a>
+</div>
+
+    <span><a href="/2024/05/24/%E5%BE%AE%E5%89%8D%E7%AB%AF/" title="微前端">微前端</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Linux/" title="分类于 Linux">Linux</a>
+</div>
+
+    <span><a href="/2023/01/22/linux%E6%9C%8D%E5%8A%A1%E5%99%A8/" title="Linux">Linux</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E4%B8%89%E6%96%B9%E5%BA%93/" title="分类于 三方库">三方库</a>
+</div>
+
+    <span><a href="/2024/04/16/%E4%B8%89%E6%96%B9%E5%8C%85/" title="三方库">三方库</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" title="分类于 正则表达式">正则表达式</a>
+</div>
+
+    <span><a href="/2024/01/10/%E6%AD%A3%E5%88%99/" title="正则编写方式">正则编写方式</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E8%84%9A%E6%89%8B%E6%9E%B6%E5%BC%80%E5%8F%91/" title="分类于 脚手架开发">脚手架开发</a>
+</div>
+
+    <span><a href="/2024/03/30/%E6%9C%AC%E5%9C%B0%E6%96%87%E4%BB%B6%E9%93%BE%E6%8E%A5/" title="本地文件链接">本地文件链接</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/git/" title="分类于 git">git</a>
+</div>
+
+    <span><a href="/2023/04/02/git%E5%92%8Cgithub/" title="git与github">git与github</a></span>
+  </li>
+
+  </ul>
+</div>
+<div>
+  <h2>最新评论</h2>
+  <ul class="leancloud-recent-comment"></ul>
+</div>
+
+        </div>
+        <div class="status">
+  <div class="copyright">
+    
+    &copy; 2010 – 
+    <span itemprop="copyrightYear">2024</span>
+    <span class="with-love">
+      <i class="ic i-sakura rotate"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">dmq @ Web blog</span>
+  </div>
+  <div class="powered-by">
+    基于 <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & Theme.<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Shoka</span>
+  </div>
+</div>
+
+      </div>
+    </footer>
+  </div>
+<script data-config type="text/javascript">
+  var LOCAL = {
+    path: '2023/11/02/vue原理/',
+    favicon: {
+      show: "科技引领未来",
+      hide: "欢迎与我交流"
+    },
+    search : {
+      placeholder: "文章搜索",
+      empty: "关于 「 ${query} 」，什么也没搜到",
+      stats: "${time} ms 内找到 ${hits} 条结果"
+    },
+    valine: true,fancybox: true,
+    copyright: '复制成功，转载请遵守 <i class="ic i-creative-commons"></i>BY-NC-SA 协议。',
+    ignores : [
+      function(uri) {
+        return uri.includes('#');
+      },
+      function(uri) {
+        return new RegExp(LOCAL.path+"$").test(uri);
+      }
+    ]
+  };
+</script>
+
+<script src="https://cdn.polyfill.io/v2/polyfill.js"></script>
+
+<script src="//gcore.jsdelivr.net/combine/npm/pace-js@1.0.2/pace.min.js,npm/pjax@0.2.8/pjax.min.js,npm/whatwg-fetch@3.4.0/dist/fetch.umd.min.js,npm/animejs@3.2.0/lib/anime.min.js,npm/algoliasearch@4/dist/algoliasearch-lite.umd.js,npm/instantsearch.js@4/dist/instantsearch.production.min.js,npm/lozad@1/dist/lozad.min.js,npm/quicklink@2/dist/quicklink.umd.js"></script>
+
+<script src="/js/app.js?v=0.2.5"></script>
+
+
+  <script data-pjax>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?9ba187659e850a6910681214f0faa16b";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+</body>
+</html>

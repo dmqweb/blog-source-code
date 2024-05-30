@@ -189,15 +189,7 @@ app.mount('#app');
 
 此时app中是template组件模板，erbushirender函数，所以需要将模板变为render函数。
 
-在finishComponentSetup函数中进行判断：如果当前存在compile编译器，并且component中不存在render函数，就利用compile函数生成render函数，赋值到component组件实例中去，最后赋值给：instance的render。
-
-# 
-
-# 
-
-# 
-
-# 
+在finishComponentSetup函数中进行判断：如果当前存在compile编译器，并且component中不存在render函数，就利用compile函数生成render函数，赋值到component组件实例中去，最后赋值给：instance的render。 
 
 # Vue3更新优化
 

@@ -138,12 +138,19 @@ type: "links"
   image: https://picsum.photos/200/200?19
   color: "blue"
   # 多链接参考 yaml 列表格式
-- site: excalidraw绘图
+- site: ionic
   owner: 
-  url: https://excalidraw.com/
-  desc: 在线绘图工具
+  url: https://ionicframework.com/docs
+  desc: 使用前端框架构建桌面应用程序
   image: https://picsum.photos/200/200?20
   color: "pink"
+  # 多链接参考 yaml 列表格式
+- site: web-tracing前端监控
+  owner: 
+  url: https://m-cheng-web.github.io/web-tracing/
+  desc: 前端监控平台
+  image: https://picsum.photos/200/200?101
+  color: "black"
     # 多链接参考 yaml 列表格式
 - site: 我不会canvas
   owner: 

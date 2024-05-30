@@ -1,0 +1,1094 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#FFF">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="icon" type="image/ico" sizes="32x32" href="/images/favicon.ico">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+<link rel="alternate" type="application/rss+xml" title="杜明清的个人博客" href="https://dmqweb.cn/rss.xml" />
+<link rel="alternate" type="application/atom+xml" title="杜明清的个人博客" href="https://dmqweb.cn/atom.xml" />
+<link rel="alternate" type="application/json" title="杜明清的个人博客" href="https://dmqweb.cn/feed.json" />
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Mulish:300,300italic,400,400italic,700,700italic%7CFredericka%20the%20Great:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20JP:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CInconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="/css/app.css?v=0.2.5">
+
+  
+  <meta name="keywords" content="JS,概念" />
+
+
+<link rel="canonical" href="https://dmqweb.cn/2023/10/02/33%E4%B8%AAJavascript%E6%A6%82%E5%BF%B5/">
+
+
+
+  <title>
+33个JavaScript概念 - JS |
+Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
+<meta name="generator" content="Hexo 6.3.0"></head>
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div id="loading">
+    <div class="cat">
+      <div class="body"></div>
+      <div class="head">
+        <div class="face"></div>
+      </div>
+      <div class="foot">
+        <div class="tummy-end"></div>
+        <div class="bottom"></div>
+        <div class="legs left"></div>
+        <div class="legs right"></div>
+      </div>
+      <div class="paw">
+        <div class="hands left"></div>
+        <div class="hands right"></div>
+      </div>
+    </div>
+  </div>
+  <div id="container">
+    <header id="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="inner">
+        <div id="brand">
+          <div class="pjax">
+          
+  <h1 itemprop="name headline">33个JavaScript概念
+  </h1>
+  
+<div class="meta">
+  <span class="item" title="创建时间：2023-10-02 12:24:04">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <span class="text">发表于</span>
+    <time itemprop="dateCreated datePublished" datetime="2023-10-02T12:24:04+08:00">2023-10-02</time>
+  </span>
+</div>
+
+
+          </div>
+        </div>
+        <nav id="nav">
+  <div class="inner">
+    <div class="toggle">
+      <div class="lines" aria-label="切换导航栏">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </div>
+    </div>
+    <ul class="menu">
+      <li class="item title"><a href="/" rel="start">Web blog</a></li>
+    </ul>
+    <ul class="right">
+      <li class="item theme">
+        <i class="ic i-sun"></i>
+      </li>
+      <li class="item search">
+        <i class="ic i-search"></i>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+      </div>
+      <div id="imgs" class="pjax">
+        <ul>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/04/61e9f78d997bc7c9.webp"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/07/a69a9d571bee6f0b.jpg"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/25/b4f20660104f3911.jpg"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/05/05d9a07e0d190274.webp"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/05/d389418a13d92e24.jpg"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/04/f480d741324d8eb5.jpg"></li>
+        </ul>
+      </div>
+    </header>
+    <div id="waves">
+      <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+        <defs>
+          <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+        </defs>
+        <g class="parallax">
+          <use xlink:href="#gentle-wave" x="48" y="0" />
+          <use xlink:href="#gentle-wave" x="48" y="3" />
+          <use xlink:href="#gentle-wave" x="48" y="5" />
+          <use xlink:href="#gentle-wave" x="48" y="7" />
+        </g>
+      </svg>
+    </div>
+    <main>
+      <div class="inner">
+        <div id="main" class="pjax">
+          
+  <div class="article wrap">
+    
+<div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+<i class="ic i-home"></i>
+<span><a href="/">首页</a></span><i class="ic i-angle-right"></i>
+<span  class="current" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/categories/JS/" itemprop="item" rel="index" title="分类于 JS"><span itemprop="name">JS</span></a>
+<meta itemprop="position" content="1" /></span>
+</div>
+
+    <article itemscope itemtype="http://schema.org/Article" class="post block" lang="zh-CN">
+  <link itemprop="mainEntityOfPage" href="https://dmqweb.cn/2023/10/02/33%E4%B8%AAJavascript%E6%A6%82%E5%BF%B5/">
+
+  <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="image" content="/images/avatar.jpg">
+    <meta itemprop="name" content="dmq">
+    <meta itemprop="description" content="👻欢迎一起交流学习👻, ">
+  </span>
+
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="杜明清的个人博客">
+  </span>
+
+  <div class="body md" itemprop="articleBody">
+    
+
+    <h2 id="目录"><a class="anchor" href="#目录">#</a> 目录</h2>
+<ol>
+<li><strong><a href="#1-%E8%B0%83%E7%94%A8%E5%A0%86%E6%A0%88">调用堆栈</a></strong></li>
+<li><strong><a href="#2-%E5%8E%9F%E5%A7%8B%E7%B1%BB%E5%9E%8B">原始类型</a></strong></li>
+<li><strong><a href="#3-%E5%80%BC%E7%B1%BB%E5%9E%8B%E5%92%8C%E5%BC%95%E7%94%A8%E7%B1%BB%E5%9E%8B">值类型和引用类型</a></strong></li>
+<li><strong><a href="#4-%E9%9A%90%E5%BC%8F-%E6%98%BE%E5%BC%8F-%E5%90%8D%E4%B9%89%E5%92%8C%E9%B8%AD%E5%AD%90%E7%B1%BB%E5%9E%8B">隐式，显式，名义和鸭子类型</a></strong></li>
+<li><strong><a href="#5--vs--typeof-vs-instanceof">== 与 ===, typeof 与 instanceof</a></strong></li>
+<li><strong><a href="#6-this-call-apply-%E5%92%8C-bind">this, call, apply 和 bind</a></strong></li>
+<li><strong><a href="#7-%E5%87%BD%E6%95%B0%E4%BD%9C%E7%94%A8%E5%9F%9F-%E5%9D%97%E7%BA%A7%E4%BD%9C%E7%94%A8%E5%9F%9F%E5%92%8C%E8%AF%8D%E6%B3%95%E4%BD%9C%E7%94%A8%E5%9F%9F">函数作用域，块级作用域和词法作用域</a></strong></li>
+<li><strong><a href="#8-%E9%97%AD%E5%8C%85">闭包</a></strong></li>
+<li><strong><a href="#9-map-reduce-filter-%E7%AD%89%E9%AB%98%E9%98%B6%E5%87%BD%E6%95%B0">map, reduce, filter 等高阶函数</a></strong></li>
+<li><strong><a href="#10-%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%92%8C%E8%AF%AD%E5%8F%A5">表达式和语句</a></strong></li>
+<li><strong><a href="#11-%E5%8F%98%E9%87%8F%E6%8F%90%E5%8D%87">变量提升</a></strong></li>
+<li><strong><a href="#12-promise">Promise</a></strong></li>
+<li><strong><a href="#13-%E7%AB%8B%E5%8D%B3%E6%89%A7%E8%A1%8C%E5%87%BD%E6%95%B0-%E6%A8%A1%E5%9D%97%E5%8C%96-%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4">立即执行函数，模块化，命名空间</a></strong></li>
+<li><strong><a href="#14-%E9%80%92%E5%BD%92">递归</a></strong></li>
+<li><strong><a href="#15-%E7%AE%97%E6%B3%95">算法</a></strong></li>
+<li><strong><a href="#16-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84">数据结构</a></strong></li>
+<li><strong><a href="#17-%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97%E5%92%8C%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF">消息队列和事件循环</a></strong></li>
+<li><strong><a href="#18-settimeout-setinterval-%E5%92%8C-requestanimationframe">setTimeout, setInterval 和 requestAnimationFrame</a></strong></li>
+<li><strong><a href="#19-%E7%BB%A7%E6%89%BF-%E5%A4%9A%E6%80%81%E5%92%8C%E4%BB%A3%E7%A0%81%E5%A4%8D%E7%94%A8">继承，多态和代码复用</a></strong></li>
+<li><strong><a href="#20-%E6%8C%89%E4%BD%8D%E6%93%8D%E4%BD%9C%E7%AC%A6-%E7%B1%BB%E6%95%B0%E7%BB%84%E5%AF%B9%E8%B1%A1%E5%92%8C%E7%B1%BB%E5%9E%8B%E5%8C%96%E6%95%B0%E7%BB%84">按位操作符，类数组对象和类型化数组</a></strong></li>
+<li><strong><a href="#21-dom-%E6%A0%91%E5%92%8C%E6%B8%B2%E6%9F%93%E8%BF%87%E7%A8%8B">DOM 树和渲染过程</a></strong></li>
+<li><strong><a href="#22-new-%E4%B8%8E%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0-instanceof-%E4%B8%8E%E5%AE%9E%E4%BE%8B">new 与构造函数，instanceof 与实例</a></strong></li>
+<li><strong><a href="#23-%E5%8E%9F%E5%9E%8B%E7%BB%A7%E6%89%BF%E4%B8%8E%E5%8E%9F%E5%9E%8B%E9%93%BE">原型继承与原型链</a></strong></li>
+<li><strong><a href="#24-objectcreate-%E5%92%8C-objectassign">Object.create 和 Object.assign</a></strong></li>
+<li><strong><a href="#25-%E5%B7%A5%E5%8E%82%E5%87%BD%E6%95%B0%E5%92%8C%E7%B1%BB">工厂函数和类</a></strong></li>
+<li><strong><a href="#26-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F">设计模式</a></strong></li>
+<li><strong><a href="#27-memoization">Memoization</a></strong></li>
+<li><strong><a href="#28-%E7%BA%AF%E5%87%BD%E6%95%B0-%E5%87%BD%E6%95%B0%E5%89%AF%E4%BD%9C%E7%94%A8%E5%92%8C%E7%8A%B6%E6%80%81%E5%8F%98%E5%8C%96">纯函数，函数副作用和状态变化</a></strong></li>
+<li><strong><a href="#29-%E8%80%97%E6%80%A7%E8%83%BD%E6%93%8D%E4%BD%9C%E5%92%8C%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6">耗性能操作和时间复杂度</a></strong></li>
+<li><strong><a href="#30-javascript-%E5%BC%95%E6%93%8E">JavaScript 引擎</a></strong></li>
+<li><strong><a href="#31-%E4%BA%8C%E8%BF%9B%E5%88%B6-%E5%8D%81%E5%85%AD%E8%BF%9B%E5%88%B6-%E5%8D%81%E8%BF%9B%E5%88%B6-%E7%A7%91%E5%AD%A6%E8%AE%B0%E6%95%B0%E6%B3%95">二进制，十进制，十六进制，科学记数法</a></strong></li>
+<li><strong><a href="#32-%E5%81%8F%E5%87%BD%E6%95%B0-%E6%9F%AF%E9%87%8C%E5%8C%96-compose-%E5%92%8C-pipe">偏函数，柯里化，Compose 和 Pipe</a></strong></li>
+<li><strong><a href="#33-%E4%BB%A3%E7%A0%81%E6%95%B4%E6%B4%81%E4%B9%8B%E9%81%93">代码整洁之道</a></strong></li>
+</ol>
+<hr />
+<h2 id="1-调用堆栈"><a class="anchor" href="#1-调用堆栈">#</a> 1. 调用堆栈</h2>
+<h3 id="文章"><a class="anchor" href="#文章">#</a> 文章</h3>
+<ul>
+<li>📖 <span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvemgtQ04vZG9jcy9HbG9zc2FyeS9DYWxsX3N0YWNr">Call Stack — MDN</span></li>
+<li>📖 <span class="exturl" data-url="aHR0cHM6Ly9qdWVqaW4uaW0vcG9zdC81YTA1YjQ1NzZmYjlhMDQ1MTk2OTBkNDI=">[译] JavaScript 如何工作：对引擎、运行时、调用堆栈的概述 —— 掘金</span></li>
+<li>📖 <span class="exturl" data-url="aHR0cHM6Ly9qdWVqaW4uaW0vcG9zdC81YmEzMjE3MWYyNjVkYTBhYjcxOWE2ZDc=">[译] 理解 JavaScript 中的执行上下文和执行栈 —— 掘金</span></li>
+<li>📖 <span class="exturl" data-url="aHR0cHM6Ly9qdWVqaW4uaW0vcG9zdC81OWU4NWVlYmYyNjVkYTQzMGQ1NzFmODk=">这一次，彻底弄懂 JavaScript 执行机制 —— 掘金</span></li>
+<li>📖 <span class="exturl" data-url="aHR0cHM6Ly93d3cub3NjaGluYS5uZXQvdHJhbnNsYXRlL2hvdy1kb2VzLWphdmFzY3JpcHQtYWN0dWFsbHktd29yay1wYXJ0LTE=">解读 JavaScript 之引擎、运行时和堆栈调用 —— 开源中国</span></li>
+<li>📖 <span class="exturl" data-url="aHR0cHM6Ly9qYWtlYXJjaGliYWxkLmNvbS8yMDE1L3Rhc2tzLW1pY3JvdGFza3MtcXVldWVzLWFuZC1zY2hlZHVsZXMv">Tasks, microtasks, queues and schedules —— Jake Archibald</span></li>
+<li>📖 <span class="exturl" data-url="aHR0cHM6Ly9qdWVqaW4uaW0vZW50cnkvNTVkYmQ1MWE2MGIyZjNhOTJhOGY1YmZm">Tasks, microtasks, queues and schedules（译） —— 掘金</span></li>
+</ul>
+<h3 id="视频"><a class="anchor" href="#视频">#</a> 视频</h3>
+<ul>
+<li>📺 <span class="exturl" data-url="aHR0cHM6Ly92LnFxLmNvbS94L3BhZ2UvaDAzNzJibGQ4cmUuaHRtbD9wdGFnPXFxYnJvd3Nlcg==">What is the event loop anyway? —— 腾讯视频 (英文字幕)</span></li>
+<li>📺 <span class="exturl" data-url="aHR0cHM6Ly93d3cuYmlsaWJpbGkuY29tL3ZpZGVvL2F2MzM4MjQ5MzMv">Understanding The JavaScript Call Stack, Event Queue, Event Table, &amp; Event Loop —— Bilibili</span></li>
+<li>📺 <span class="exturl" data-url="aHR0cDovL3d3dy5hY2Z1bi5jbi92L2FjNDQ5NTY0MQ==">JS 中的变量提升、堆栈内存及闭包详解 —— Acfun</span></li>
+<li>📺 <span class="exturl" data-url="aHR0cDovL3d3dy5waHAuY24vY29kZS8yMTE5NC5odG1s">事件循环模型 —— PHP 中文网</span></li>
+<li>📺 <span class="exturl" data-url="aHR0cHM6Ly93d3cueW91dHViZS5jb20vd2F0Y2g/dj13NlFHRWlRY2VPTQ==">Javascript: the Call Stack explained — Coding Blocks India</span></li>
+<li>📺 <span class="exturl" data-url="aHR0cHM6Ly93d3cueW91dHViZS5jb20vd2F0Y2g/dj1XOEFlTXJWdEZMWQ==">The JS Call Stack Explained In 9 Minutes — Colt Steele</span></li>
+<li>📺 <span class="exturl" data-url="aHR0cHM6Ly93d3cueW91dHViZS5jb20vd2F0Y2g/dj1qVDBVU0plTkZFQQ==">JavaScript Execution Stack — Codecademy</span></li>
+<li>📺 <span class="exturl" data-url="aHR0cHM6Ly93d3cueW91dHViZS5jb20vd2F0Y2g/dj13N1FXUWxrTFlfcw==">What is the Call Stack? — Eric Traub</span></li>
+<li>📺 <span class="exturl" data-url="aHR0cHM6Ly93d3cueW91dHViZS5jb20vd2F0Y2g/dj1RMnNGbXF2cEJlMA==">The Call Stack — Kevin Drumm</span></li>
+<li>📺 <span class="exturl" data-url="aHR0cHM6Ly93d3cueW91dHViZS5jb20vd2F0Y2g/dj1aNmExY0x5cTdBYyZhbXA7bGlzdD1QTFdyUVpuRzhsMEU0a2QxVF9ueXVWb3hRVWFZRVdGZ2NE">Understanding JavaScript Execution — Codesmith</span></li>
+<li>📺 <span class="exturl" data-url="aHR0cHM6Ly93d3cueW91dHViZS5jb20vd2F0Y2g/dj1tazBsdTlNS0J0bw==">Call Stack &amp; Event Loop — movies com</span></li>
+</ul>
+<p><strong><a href="#%E7%9B%AE%E5%BD%95">⬆️ 返回目录</a></strong></p>
+<hr />
+<h2 id="2-原始类型"><a class="anchor" href="#2-原始类型">#</a> 2. 原始类型</h2>
+<h3 id="文章-2"><a class="anchor" href="#文章-2">#</a> 文章</h3>
+<ul>
+<li>📖 <span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvemgtQ04vZG9jcy9HbG9zc2FyeS9QcmltaXRpdmU=">原始数据 —— MDN</span></li>
+<li>📖 <span class="exturl" data-url="aHR0cHM6Ly9zZWdtZW50ZmF1bHQuY29tL2EvMTE5MDAwMDAxNzA5MDI3Mg==">[译] JavaScript 是怎样编码数字的 —— SegmentFault</span></li>
+<li>📖 <span class="exturl" data-url="aHR0cHM6Ly95YW5oYWlqaW5nLmNvbS9qYXZhc2NyaXB0LzIwMTQvMDMvMTQvd2hhdC1ldmVyeS1qYXZhc2NyaXB0LWRldmVsb3Blci1zaG91bGQta25vdy1hYm91dC1mbG9hdGluZy1wb2ludHMv">每一个 JavaScript 开发者应该了解的浮点知识 —— 颜海镜</span></li>
+<li>📖 <span class="exturl" data-url="aHR0cHM6Ly93YW5nZG9jLmNvbS9qYXZhc2NyaXB0L3R5cGVzL251bWJlci5odG1s">JavaScript 标准参考教程 (基本语法之数值) —— 阮一峰</span></li>
+<li>📖 <span class="exturl" data-url="aHR0cHM6Ly9qYXZhc2NyaXB0d2VibG9nLndvcmRwcmVzcy5jb20vMjAxMC8wOS8yNy90aGUtc2VjcmV0LWxpZmUtb2YtamF2YXNjcmlwdC1wcmltaXRpdmVzLw==">The Secret Life of JavaScript Primitives —— Angus Croll</span></li>
+</ul>
+<h3 id="视频-2"><a class="anchor" href="#视频-2">#</a> 视频</h3>
+<ul>
+<li>📺 <span class="exturl" data-url="aHR0cHM6Ly93d3cuaW1vb2MuY29tL3ZpZGVvLzU2NzQ=">javascript 六种数据类型 —— 慕课网</span></li>
+<li>📺 <span class="exturl" data-url="aHR0cDovL3d3dy5waHAuY24vY29kZS81ODA4Lmh0bWw=">javascript 视频教程 (数据类型) —— PHP 中文网</span></li>
+<li>📺 <span class="exturl" data-url="aHR0cHM6Ly93d3cueW91dHViZS5jb20vd2F0Y2g/dj05b29ZWVJMZGdfZw==">JavaScript Reference vs Primitive Types — Academind</span></li>
+<li>📺 <span class="exturl" data-url="aHR0cHM6Ly93d3cueW91dHViZS5jb20vd2F0Y2g/dj1Ic2JXUXNTQ0U1WQ==">JavaScript Primitive Types — Simon Sez IT</span></li>
+<li>📺 <span class="exturl" data-url="aHR0cHM6Ly93d3cueW91dHViZS5jb20vd2F0Y2g/dj1GN1liaEticEZpYw==">Javascript Primitive and Reference Types — Baljeet Singh</span></li>
+<li>📺 <span class="exturl" data-url="aHR0cHM6Ly93d3cueW91dHViZS5jb20vd2F0Y2g/dj1lLV9tRHlxbTJvVQ==">Value Types and Reference Types in JavaScript — Programming with Mosh</span></li>
+<li>📺 <span class="exturl" data-url="aHR0cHM6Ly93d3cueW91dHViZS5jb20vd2F0Y2g/dj1xdzNqMEEzREl6UQ==">JavaScript Primitive Data Types — Avelx</span></li>
+<li>📺 <span class="exturl" data-url="aHR0cHM6Ly93d3cueW91dHViZS5jb20vd2F0Y2g/dj1NcUhERHRWWUpSSQ==">Everything you never wanted to know about JavaScript numbers — Bartek Szopka</span></li>
+</ul>
+<p><strong><a href="#%E7%9B%AE%E5%BD%95">⬆️ 返回目录</a></strong></p>
+<hr />
+<h2 id="3-值类型和引用类型"><a class="anchor" href="#3-值类型和引用类型">#</a> 3. 值类型和引用类型</h2>
+<h3 id="文章-3"><a class="anchor" href="#文章-3">#</a> 文章</h3>
+<ul>
+<li>📖 <span class="exturl" data-url="aHR0cDovL3d3dy53M3NjaG9vbC5jb20uY24vanMvcHJvX2pzX3JlZmVyZW5jZXR5cGVzLmFzcA==">ECMAScript 引用类型 —— W3school</span></li>
+<li>📖 <span class="exturl" data-url="aHR0cHM6Ly93d3cuY25ibG9ncy5jb20vbGVpdGluZy9wLzgwODE0MTMuaHRtbA==">js 中的值类型和引用类型的区别 —— 博客园</span></li>
+<li>📖 <span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmZ1bmRlYnVnLmNvbS8yMDE3LzA4LzA5L2V4cGxhaW5fdmFsdWVfcmVmZXJlbmNlX2luX2pzLw==">JavaScript 的值传递和引用传递 —— FunDebug</span></li>
+<li>📖 <span class="exturl" data-url="aHR0cHM6Ly9kb2NzdG9yZS5taWsudWEvb3JlbGx5L3dlYnByb2cvanNjcmlwdC9jaDA0XzA0Lmh0bQ==">Primitive Types &amp; Reference Types in JavaScript —— Bran van der Meer</span></li>
+<li>📖 <span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3hpYW9qaWFfYm9rZS9hcnRpY2xlL2RldGFpbHMvNTQ5MDY1MDk=">JavaScript: Passing by Value or by Reference —— CSDN</span></li>
+<li>📖 <span class="exturl" data-url="aHR0cHM6Ly9zZWdtZW50ZmF1bHQuY29tL2EvMTE5MDAwMDAxNTQxMTE5NQ==">js 值引用和值复制 —— SegmentFault</span></li>
+<li>📖 <span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3p6emFxdWFyaXVzL2FydGljbGUvZGV0YWlscy80OTAyMjM1">js- 引用和复制 (传值和传址) —— CSDN</span></li>
+</ul>
+<h3 id="视频-3"><a class="anchor" href="#视频-3">#</a> 视频</h3>
+<ul>
+<li>📺 <span class="exturl" data-url="aHR0cHM6Ly93d3cueW91dHViZS5jb20vd2F0Y2g/dj1FLWRBbkZkcThrOA==">Javascript Pass by Value vs Pass by Reference — techsith</span></li>
+<li>📺 <span class="exturl" data-url="aHR0cHM6Ly93d3cueW91dHViZS5jb20vd2F0Y2g/dj1mRDB0X0RLUkViRQ==">JavaScript Value vs Reference Types — Programming with Mosh</span></li>
+</ul>
+<p><strong><a href="#%E7%9B%AE%E5%BD%95">⬆️ 返回目录</a></strong></p>
+<hr />
+<h2 id="4-隐式-显式-名义和鸭子类型"><a class="anchor" href="#4-隐式-显式-名义和鸭子类型">#</a> 4. 隐式，显式，名义和鸭子类型</h2>
+<h3 id="文章-4"><a class="anchor" href="#文章-4">#</a> 文章</h3>
+<ul>
+<li>📖 <span class="exturl" data-url="aHR0cDovL3d3dy53M3NjaG9vbC5jb20uY24vanMvcHJvX2pzX3R5cGVjb252ZXJzaW9uLmFzcA==">ECMAScript 类型转换 —— W3school</span></li>
+<li>📖 <span class="exturl" data-url="aHR0cDovL2p1c3RqYXZhYy5jb20vamF2YXNjcmlwdC8yMDEzLzA0LzA4L2phdmFzY3JpcHQtcXVpcmstMS1pbXBsaWNpdC1jb252ZXJzaW9uLW9mLXZhbHVlcy5odG1s">JavaScript 的怪癖 1：隐式类型转换 —— justjavac</span></li>
+<li>📖 <span class="exturl" data-url="aHR0cHM6Ly9qdWVqaW4uaW0vcG9zdC81OWFkMjU4NWYyNjVkYTI0NmEyMGUwMjY=">JavaScript 运算符规则与隐式类型转换详解 —— 掘金</span></li>
+<li>📖 <span class="exturl" data-url="aHR0cHM6Ly9zZWdtZW50ZmF1bHQuY29tL2EvMTE5MDAwMDAwNDQ4MjM4OA==">聊一聊 JS 中的隐式类型转换 —— SegmentFault</span></li>
+<li>📖 <span class="exturl" data-url="aHR0cHM6Ly93d3cuY25ibG9ncy5jb20veXVnZWdlL3AvNTI3Nzg4My5odG1s">有趣的 JavaScript 隐式类型转换 —— 博客园</span></li>
+<li>📖 <span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3lhbmdqdm4vYXJ0aWNsZS9kZXRhaWxzLzQ4Mjg0MTYz">JavaScript 显式类型转换与隐式类型转换 —— CSDN</span></li>
+<li>📖 <span class="exturl" data-url="aHR0cHM6Ly93d3cuamlhbnNodS5jb20vcC83NzdhODliNGVkOWE=">你不知道的 JavaScript（中卷）强制类型转换 —— 简书</span></li>
+<li>📖 <span class="exturl" data-url="aHR0cHM6Ly9pdGhlbHAuaXRob21lLmNvbS50dy9hcnRpY2xlcy8xMDIwMTUxMg==">你懂 JavaScript 嗎？#8 強制轉型 —— cythilya</span></li>
+<li>📖 <span class="exturl" data-url="aHR0cDovL2Jvb2suNTFjdG8uY29tL2FydC8yMDE1MDUvNDc1MTUzLmh0bQ==">动态类型语言和鸭子类型 —— 曾探</span></li>
+<li>📖 <span class="exturl" data-url="aHR0cHM6Ly9mbG93Lm9yZy9lbi9kb2NzL2xhbmcvbm9taW5hbC1zdHJ1Y3R1cmFsLw==">Nominal &amp; Structural Typing —— flow</span></li>
+<li>📖 <span class="exturl" data-url="aHR0cHM6Ly9zdGFja292ZXJmbG93LmNvbS9xdWVzdGlvbnMvMTk5MTU2ODgvd2hhdC1leGFjdGx5LWlzLXR5cGUtY29lcmNpb24taW4tamF2YXNjcmlwdA==">What exactly is Type Coercion in Javascript? —— stackoverflow</span></li>
+<li>📖 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2dldGlmeS9Zb3UtRG9udC1Lbm93LUpTL2Jsb2IvbWFzdGVyL3R5cGVzJTIwJmFtcDslMjBncmFtbWFyL2NoNC5tZA==">You Don't Know JS: Types &amp; Grammar —— github</span></li>
+</ul>
+<h3 id="视频-4"><a class="anchor" href="#视频-4">#</a> 视频</h3>
+<ul>
+<li>📺 <span class="exturl" data-url="aHR0cHM6Ly93d3cuaW1vb2MuY29tL3ZpZGVvLzU2NzU=">javascript 隐式转换 —— 慕课网</span></li>
+<li>📺 <span class="exturl" data-url="aHR0cDovL3d3dy5sZS5jb20vcHR2L3ZwbGF5LzI3NzY3MDA5Lmh0bWw=">Javascript 基础加强 - 类型转换 —— 黑马程序员</span></li>
+</ul>
+<p><strong><a href="#%E7%9B%AE%E5%BD%95">⬆️ 返回目录</a></strong></p>
+<hr />
+<p>&lt;div id=&quot;5--vs--typeof-vs-instanceof&quot;&gt;&lt;/div&gt;</p>
+<h2 id="5-vs-typeof-vs-instanceof"><a class="anchor" href="#5-vs-typeof-vs-instanceof">#</a> 5. == vs ===, typeof vs instanceof</h2>
+<h3 id="文章-5"><a class="anchor" href="#文章-5">#</a> 文章</h3>
+<ul>
+<li>📖 <span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvemgtQ04vZG9jcy9XZWIvSmF2YVNjcmlwdC9FcXVhbGl0eV9jb21wYXJpc29uc19hbmRfc2FtZW5lc3M=">JavaScript 中的相等性判断 —— MDN</span></li>
+<li>📖 <span class="exturl" data-url="aHR0cHM6Ly9qdWVqaW4uaW0vZW50cnkvNTg0OTE4NjEyZjMwMWUwMDU3MTZhZGQ2">js 中 == 和 === 的区别 —— 掘金</span></li>
+<li>📖 <span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3c5NzUzMS9hcnRpY2xlL2RldGFpbHMvODIyNTUyMjU=">== vs === in Javascript —— CSDN</span></li>
+<li>📖 <span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L21ldmlja3kvYXJ0aWNsZS9kZXRhaWxzLzUwMzUzODgx">深入理解 javascript 之 typeof 和 instanceof —— CSDN</span></li>
+<li>📖 <span class="exturl" data-url="aHR0cDovL2p1c3RqYXZhYy5jb20vamF2YXNjcmlwdC8yMDEyLzEyLzIzL3doYXQtaXMtamF2YXNjcmlwdHMtdHlwZW9mLW9wZXJhdG9yLXVzZWQtZm9yLmh0bWw=">JavaScript 的 typeof 的用途 —— justjavac</span></li>
+<li>📖 <span class="exturl" data-url="aHR0cHM6Ly9qdWVqaW4uaW0vcG9zdC81ODM1ODYwNjU3MGMzNTAwNWU0MTQyYmQ=">一张图看懂 Function 和 Object 的关系及简述 instanceof 运算符 —— 掘金</span></li>
+<li>📖 <span class="exturl" data-url="aHR0cHM6Ly9qdWVqaW4uaW0vcG9zdC81YjBiOWI5MDUxODgyNTE1NzczYWU3MTQ=">浅谈 instanceof 和 typeof 的实现原理 —— 掘金</span></li>
+<li>📖 <span class="exturl" data-url="aHR0cHM6Ly9zZWdtZW50ZmF1bHQuY29tL2EvMTE5MDAwMDAwMDczMDk4Mg==">typeof 和 instanceOf 的区别</span></li>
+</ul>
+<p><strong><a href="#%E7%9B%AE%E5%BD%95">⬆️ 返回目录</a></strong></p>
+<hr />
+<h2 id="6-this-call-apply-和-bind"><a class="anchor" href="#6-this-call-apply-和-bind">#</a> 6. this, call, apply 和 bind</h2>
+<h3 id="文章-6"><a class="anchor" href="#文章-6">#</a> 文章</h3>
+<ul>
+<li>📖 <span class="exturl" data-url="aHR0cDovL3d3dy5ydWFueWlmZW5nLmNvbS9ibG9nLzIwMTAvMDQvdXNpbmdfdGhpc19rZXl3b3JkX2luX2phdmFzY3JpcHQuaHRtbA==">Javascript 的 this 用法 —— 阮一峰</span></li>
+<li>📖 <span class="exturl" data-url="aHR0cHM6Ly93d3cuaW1vb2MuY29tL2FydGljbGUvMTc1OA==">学会 JS 的 this 这一篇就够了，根本不用记 —— 慕课网</span></li>
+<li>📖 <span class="exturl" data-url="aHR0cHM6Ly9qdWVqaW4uaW0vcG9zdC81YjlmMTc2YjZmYjlhMDVkMzgyN2QwM2Y=">[译] this（他喵的）到底是什么 — 理解 JavaScript 中的 this、call、apply 和 bind —— 掘金</span></li>
+<li>📖 <span class="exturl" data-url="aHR0cHM6Ly9qdWVqaW4uaW0vcG9zdC81OWJmZTg0MzUxODgyNTMxYjczMGJhYzI=">this、apply、call、bind —— 掘金</span></li>
+<li>📖 <span class="exturl" data-url="aHR0cHM6Ly93d3cuY25ibG9ncy5jb20vdGluZ3l1LWJsb2cvcC82MjEyMzkyLmh0bWw=">使用 call、apply 和 bind 解决 js 中烦人的 this，事件绑定时的 this 和传参问题 —— 博客园</span></li>
+<li>📖 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL0FiaWVsMTAyNC9ibG9nL2lzc3Vlcy8xNg==">call、apply 和 bind 的原生实现 —— github</span></li>
+</ul>
+<h3 id="视频-5"><a class="anchor" href="#视频-5">#</a> 视频</h3>
+<ul>
+<li>📺 <span class="exturl" data-url="aHR0cHM6Ly93d3cuaXFpeWkuY29tL3dfMTlycjFhdWdzZC5odG1s">JavaScript 关于 this 关键字解释 —— 爱奇艺</span></li>
+<li>📺 <span class="exturl" data-url="aHR0cDovL2JhaWR1LmlxaXlpLmNvbS93YXRjaC84NDUzMzU1MzMzODM4NzQ2ODguaHRtbD9wYWdlPXZpZGVvTXVsdGlOZWVk">JS 关于作用域闭包和 this 的综合面试题 —— 百度视频</span></li>
+<li>📺 <span class="exturl" data-url="aHR0cDovL3d3dy5sZS5jb20vcHR2L3ZwbGF5LzI3NDc4NDEzLmh0bWw/Y2g9YmFpZHVfcw==">js 面向对象闭包数组 12. 函数中的 this —— 乐视视频</span></li>
+<li>📺 <span class="exturl" data-url="aHR0cDovL3d3dy5sZS5jb20vcHR2L3ZwbGF5LzI0ODM1OTExLmh0bWw/Y2g9YmFpZHVfcw==">1.3.10-this 指向及 this 应用 —— 乐视视频</span></li>
+<li>📺 <span class="exturl" data-url="aHR0cHM6Ly9zdHVkeS4xNjMuY29tL2NvdXJzZS9pbnRyb2R1Y3Rpb24vNTkwMDA1Lmh0bQ==">珠峰培训 JavaScript 开发课程：关于 this 关键字、闭包作用域 —— 网易云课堂</span></li>
+</ul>
+<p><strong><a href="#%E7%9B%AE%E5%BD%95">⬆️ 返回目录</a></strong></p>
+<hr />
+<h2 id="7-函数作用域-块级作用域和词法作用域"><a class="anchor" href="#7-函数作用域-块级作用域和词法作用域">#</a> 7. 函数作用域，块级作用域和词法作用域</h2>
+<h3 id="文章-7"><a class="anchor" href="#文章-7">#</a> 文章</h3>
+<ul>
+<li>📖 <span class="exturl" data-url="aHR0cHM6Ly93d3cubGlhb3h1ZWZlbmcuY29tL3dpa2kvMDAxNDM0NDQ2Njg5ODY3YjI3MTU3ZTg5NmU3NGQ1MWE4OWMyNWNjOGI0M2JkYjMwMDAvMDAxNDM0NDk5MzE1OTc3M2E0NjRmMzRlMTcyNDcwMGE2ZDVkZDllMjM1Y2ViN2MwMDA=">变量作用域与解构赋值 —— 廖雪峰</span></li>
+<li>📖 <span class="exturl" data-url="aHR0cDovL3d3dy5ydWFueWlmZW5nLmNvbS9ibG9nLzIwMDkvMDgvbGVhcm5pbmdfamF2YXNjcmlwdF9jbG9zdXJlcy5odG1s">学习 Javascript 闭包（Closure） —— 阮一峰</span></li>
+<li>📖 <span class="exturl" data-url="aHR0cHM6Ly9zZWdtZW50ZmF1bHQuY29tL2EvMTE5MDAwMDAwNjY3MTAyMA==">JavaScript 中词法作用域、闭包与跳出闭包 —— SegmentFault</span></li>
+<li>📖 <span class="exturl" data-url="aHR0cHM6Ly9qdWVqaW4uaW0vZW50cnkvNThlNzAwNzdiMTIzZGIxNWViODhkYzdl">JavaScript 深入之词法作用域和动态作用域 —— 掘金</span></li>
+<li>📖 <span class="exturl" data-url="aHR0cHM6Ly9qdWVqaW4uaW0vcG9zdC81YWZiMGFlNTZmYjlhMDdhYTIxMzg0MjU=">深入理解闭包之前置知识 → 作用域与词法作用域 —— 掘金</span></li>
+<li>📖 <span class="exturl" data-url="aHR0cHM6Ly9zdGFja292ZXJmbG93LmNvbS9xdWVzdGlvbnMvMTA0NzQ1NC93aGF0LWlzLWxleGljYWwtc2NvcGU=">What is lexical scope? —— stackoverflow</span></li>
+<li>📖 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2Zpc2hlbmFsL1lvdS1Eb250LUtub3ctSlMvYmxvYi9tYXN0ZXIvc2NvcGUlMjAmYW1wOyUyMGNsb3N1cmVzL2NoMi5tZA==">You Don't Know JS: Scope &amp; Closures —— Kyle Simpson</span></li>
+</ul>
+<p><strong><a href="#%E7%9B%AE%E5%BD%95">⬆️ 返回目录</a></strong></p>
+<hr />
+<h2 id="8-闭包"><a class="anchor" href="#8-闭包">#</a> 8. 闭包</h2>
+<h3 id="文章-8"><a class="anchor" href="#文章-8">#</a> 文章</h3>
+<ul>
+<li>📖 <span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvemgtQ04vZG9jcy9XZWIvSmF2YVNjcmlwdC9DbG9zdXJlcw==">闭包 —— MDN</span></li>
+<li>📖 <span class="exturl" data-url="aHR0cDovL3d3dy53M3NjaG9vbC5jb20uY24vanMvcHJvX2pzX2Z1bmN0aW9uc19jbG9zdXJlcy5hc3A=">ECMAScript 闭包（closure）—— w3school</span></li>
+<li>📖 <span class="exturl" data-url="aHR0cDovL3d3dy5ydWFueWlmZW5nLmNvbS9ibG9nLzIwMDkvMDgvbGVhcm5pbmdfamF2YXNjcmlwdF9jbG9zdXJlcy5odG1s">学习 Javascript 闭包（Closure） —— 阮一峰</span></li>
+<li>📖 <span class="exturl" data-url="aHR0cHM6Ly93d3cubGlhb3h1ZWZlbmcuY29tL3dpa2kvMDAxNDM0NDQ2Njg5ODY3YjI3MTU3ZTg5NmU3NGQ1MWE4OWMyNWNjOGI0M2JkYjMwMDAvMDAxNDM0NDk5MzQ1NDM0NjFjOWQ1ZGZlZWI4NDhmNWI3MmJkMDEyZTExMTNkMTUwMDA=">闭包 —— 廖雪峰</span></li>
+<li>📖 <span class="exturl" data-url="aHR0cHM6Ly93d3cuamlhbnNodS5jb20vcC83OTZlOTAzNzU0ZjE=">一次性搞懂 JavaScript 闭包 —— 简书</span></li>
+<li>📖 <span class="exturl" data-url="aHR0cHM6Ly9zZWdtZW50ZmF1bHQuY29tL2EvMTE5MDAwMDAwNjg3NTY2Mg==">JavaScript 闭包 —— SegmentFault</span></li>
+<li>📖 <span class="exturl" data-url="aHR0cHM6Ly9qdWVqaW4uaW0vZW50cnkvNTgwMGViN2RhMjJiOWQwMDViMzYxNTZl">js 匿名自执行函数中闭包的高级使用 —— 掘金</span></li>
+<li>📖 <span class="exturl" data-url="aHR0cHM6Ly9qdWVqaW4uaW0vZW50cnkvNTlkZjQwNTI1MTg4MjU1MWJmN2U1OGM2">高效使用 JavaScript 闭包 —— 掘金</span></li>
+<li>📖 <span class="exturl" data-url="aHR0cHM6Ly93d3cuY25ibG9ncy5jb20vd2FuZ2Z1cGVuZzE5ODgvcC8zOTc3OTI0Lmh0bWw=">深入理解 JavaScript 原型与闭包 —— 王福朋</span></li>
+</ul>
+<h3 id="视频-6"><a class="anchor" href="#视频-6">#</a> 视频</h3>
+<ul>
+<li>📺 <span class="exturl" data-url="aHR0cDovL3d3dy5pcWl5aS5jb20vd18xOXJyMWFtYWVsLmh0bWw=">JavaScript 闭包和闭包面试题 —— 爱奇艺</span></li>
+<li>📺 <span class="exturl" data-url="aHR0cDovL3d3dy5sZS5jb20vcHR2L3ZwbGF5LzI3NDc4NDEwLmh0bWw=">js 面向对象闭包数组 11. 闭包 —— 乐视</span></li>
+<li>📺 <span class="exturl" data-url="aHR0cDovL3d3dy5sZS5jb20vcHR2L3ZwbGF5LzMwNTA1ODUyLmh0bWw=">白贺翔_函数 (闭包) —— 乐视</span></li>
+</ul>
+<p><strong><a href="#%E7%9B%AE%E5%BD%95">⬆️ 返回目录</a></strong></p>
+<hr />
+<h2 id="9-map-reduce-filter-等高阶函数"><a class="anchor" href="#9-map-reduce-filter-等高阶函数">#</a> 9. map, reduce, filter 等高阶函数</h2>
+<h3 id="文章-9"><a class="anchor" href="#文章-9">#</a> 文章</h3>
+<ul>
+<li>📖 <span class="exturl" data-url="aHR0cHM6Ly93d3cubGlhb3h1ZWZlbmcuY29tL3dpa2kvMDAxNDM0NDQ2Njg5ODY3YjI3MTU3ZTg5NmU3NGQ1MWE4OWMyNWNjOGI0M2JkYjMwMDAvMDAxNDM0NDk5MzU1ODI5ZWFkOTc0ZTU1MDY0NGUyZWJkOWZkOGJiMWIwZGQ3MjEwMDA=">高阶函数 —— 廖雪峰</span></li>
+<li>📖 <span class="exturl" data-url="aHR0cHM6Ly93d3cuemhhbmd4aW54dS5jb20vd29yZHByZXNzLzIwMTMvMDQvZXM1JWU2JTk2JWIwJWU1JWEyJTllJWU2JTk1JWIwJWU3JWJiJTg0JWU2JTk2JWI5JWU2JWIzJTk1Lw==">ES5 中新增的 Array 方法详细说明 —— 张鑫旭</span></li>
+<li>📖 <span class="exturl" data-url="aHR0cHM6Ly9qdWVqaW4uaW0vcG9zdC81ODM1ODA4MDY3ZjM1NjAwNjVlZDRhYjI=">一张图看懂 JavaScript 中数组的迭代方法：forEach、map、filter、reduce、every、some —— 掘金</span></li>
+<li>📖 <span class="exturl" data-url="aHR0cHM6Ly9zZWdtZW50ZmF1bHQuY29tL2EvMTE5MDAwMDAxMjEyNzMyOQ==">Transducing（上）－《JavaScript 轻量级函数式编程》 —— SegmentFault</span></li>
+<li>📖 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL0J1cHRTdEV2ZS9ibG9nL2lzc3Vlcy8xNQ==">JavaScript 函数式编程（三） —— @BuptStEve</span></li>
+</ul>
+<p><strong><a href="#%E7%9B%AE%E5%BD%95">⬆️ 返回目录</a></strong></p>
+<hr />
+<h2 id="10-表达式和语句"><a class="anchor" href="#10-表达式和语句">#</a> 10. 表达式和语句</h2>
+<h3 id="文章-10"><a class="anchor" href="#文章-10">#</a> 文章</h3>
+<ul>
+<li>📖 <span class="exturl" data-url="aHR0cHM6Ly93d3cuY25ibG9ncy5jb20veGlhbnNoZW5nbHUvcC84Mzg2OTE4Lmh0bWw=">js 表达式与语句 —— 博客园</span></li>
+<li>📖 <span class="exturl" data-url="aHR0cHM6Ly9zZWdtZW50ZmF1bHQuY29tL3EvMTAxMDAwMDAwNDEwMjgwNA==">JS 表达式和语句的区别 —— SegmentFault</span></li>
+<li>📖 <span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L21ldHRfc21pdGgvYXJ0aWNsZS9kZXRhaWxzLzc4NzYxMjQ3">JavaScript 中的表达式（expression）和语句 / 声明（statement） —— CSDN</span></li>
+<li>📖 <span class="exturl" data-url="aHR0cHM6Ly9zZWdtZW50ZmF1bHQuY29tL2EvMTE5MDAwMDAwNDU2NTY5Mw==">重讀 Axel 的 Javascript 中的 Expression vs Statement 一文 —— SegmentFault</span></li>
+<li>📖 <span class="exturl" data-url="aHR0cDovLzJhbGl0eS5jb20vMjAxMi8wOS9leHByZXNzaW9ucy12cy1zdGF0ZW1lbnRzLmh0bWw=">Expressions versus statements in JavaScript —— Dr. Axel</span></li>
+</ul>
+<p><strong><a href="#%E7%9B%AE%E5%BD%95">⬆️ 返回目录</a></strong></p>
+<hr />
+<h2 id="11-变量提升"><a class="anchor" href="#11-变量提升">#</a> 11. 变量提升</h2>
+<h3 id="文章-11"><a class="anchor" href="#文章-11">#</a> 文章</h3>
+<ul>
+<li>📖 <span class="exturl" data-url="aHR0cDovL3d3dy5ydW5vb2IuY29tL2pzL2pzLWhvaXN0aW5nLmh0bWw=">JavaScript 变量提升 —— 菜鸟教程</span></li>
+<li>📖 <span class="exturl" data-url="aHR0cHM6Ly9qdWVqaW4uaW0vcG9zdC81OTkwNWJlYTZmYjlhMDNjMzQxOTJjNTE=">ES6 变量作用域与提升：变量的生命周期详解 —— 掘金</span></li>
+<li>📖 <span class="exturl" data-url="aHR0cHM6Ly9zZWdtZW50ZmF1bHQuY29tL2EvMTE5MDAwMDAwNDM0NTM1NSNhcnRpY2xlSGVhZGVyNQ==">[翻译] JavaScript Scoping and Hoisting —— SegmentFault</span></li>
+<li>📖 <span class="exturl" data-url="aHR0cDovL3d3dy5hZGVxdWF0ZWx5Z29vZC5jb20vSmF2YVNjcmlwdC1TY29waW5nLWFuZC1Ib2lzdGluZy5odG1s">JavaScript Scoping and Hoisting —— Ben Cherry</span></li>
+</ul>
+<p><strong><a href="#%E7%9B%AE%E5%BD%95">⬆️ 返回目录</a></strong></p>
+<hr />
+<h2 id="12-promise"><a class="anchor" href="#12-promise">#</a> 12. Promise</h2>
+<h3 id="文章-12"><a class="anchor" href="#文章-12">#</a> 文章</h3>
+<ul>
+<li>📖 <span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvemgtQ04vZG9jcy9XZWIvSmF2YVNjcmlwdC9HdWlkZS9Vc2luZ19wcm9taXNlcw==">使用 promises —— MDN</span></li>
+<li>📖 <span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvemgtQ04vZG9jcy9XZWIvSmF2YVNjcmlwdC9SZWZlcmVuY2UvR2xvYmFsX09iamVjdHMvUHJvbWlzZQ==">Promise —— MDN</span></li>
+<li>📖 <span class="exturl" data-url="aHR0cHM6Ly93d3cubGlhb3h1ZWZlbmcuY29tL3dpa2kvMDAxNDM0NDQ2Njg5ODY3YjI3MTU3ZTg5NmU3NGQ1MWE4OWMyNWNjOGI0M2JkYjMwMDAvMDAxNDM0NTAwODUzOTE1NWU5M2ZjMTYwNDZkNGJiNzg1NDk0MzgxNGM0ZjlkYzIwMDA=">Promise — 廖雪峰</span></li>
+<li>📖 <span class="exturl" data-url="aHR0cHM6Ly93d3cuY25ibG9ncy5jb20vcnVieWxvdXZyZS9wLzM0OTUyODYuaHRtbA==">JavaScript Promise：去而复返 —— 司徒正美</span></li>
+<li>📖 <span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXJzLmdvb2dsZS5jb20vd2ViL2Z1bmRhbWVudGFscy9wcmltZXJzL3Byb21pc2VzI18x">(上面的原文) JavaScript Promise：简介 —— Web Fundamentals</span></li>
+<li>📖 <span class="exturl" data-url="aHR0cHM6Ly9zZWdtZW50ZmF1bHQuY29tL2EvMTE5MDAwMDAxMTgxMzkzNA==">1 分钟读完《10 分钟学会 JavaScript 的 Async/Await》 —— justjavac</span></li>
+<li>📖 <span class="exturl" data-url="aHR0cHM6Ly9qdWVqaW4uaW0vZW50cnkvNTY0OTlhZTE2MGIyZDE0MDRjNGY4ODM0">JavaScript Promise 迷你书（中文版）</span></li>
+<li>📖 <span class="exturl" data-url="aHR0cHM6Ly93d3cuY25ibG9ncy5jb20veXVuZmVpZmVpL3AvNDQ1MzY5MC5odG1s">JavaScript 进阶之路 —— 认识和使用 Promise，重构你的 Js 代码 —— 博客园</span></li>
+</ul>
+<h3 id="视频-7"><a class="anchor" href="#视频-7">#</a> 视频</h3>
+<ul>
+<li>📺 <span class="exturl" data-url="aHR0cHM6Ly93d3cuaW1vb2MuY29tL2xlYXJuLzk0OQ==">Promise 入门 —— 慕课网</span></li>
+</ul>
+<p><strong><a href="#%E7%9B%AE%E5%BD%95">⬆️ 返回目录</a></strong></p>
+<hr />
+<h2 id="13-立即执行函数-模块化-命名空间"><a class="anchor" href="#13-立即执行函数-模块化-命名空间">#</a> 13. 立即执行函数，模块化，命名空间</h2>
+<h3 id="文章-13"><a class="anchor" href="#文章-13">#</a> 文章</h3>
+<ul>
+<li>📖 <span class="exturl" data-url="aHR0cDovL3d3dy5ydWFueWlmZW5nLmNvbS9ibG9nLzIwMTIvMTAvamF2YXNjcmlwdF9tb2R1bGUuaHRtbA==">Javascript 模块化编程（一）：模块的写法 —— 阮一峰</span></li>
+<li>📖 <span class="exturl" data-url="aHR0cHM6Ly93d3cuamlhbnNodS5jb20vcC80ZGJmNGE0YzhlYmI=">javascript 模块化编程 - 详解立即执行函数表达式 —— 简书</span></li>
+<li>📖 <span class="exturl" data-url="aHR0cHM6Ly9qdWVqaW4uaW0vZW50cnkvNTdmZWUzNjBhMjJiOWQwMDViMWQ5YWUz">Javascript 的匿名函数与自执行 —— 掘金</span></li>
+<li>📖 <span class="exturl" data-url="aHR0cHM6Ly9zZWdtZW50ZmF1bHQuY29tL2EvMTE5MDAwMDAwNjk2NjM1OA==">前端模块化 —— 技术选型 —— SegmentFault</span></li>
+<li>📖 <span class="exturl" data-url="aHR0cHM6Ly9zZWdtZW50ZmF1bHQuY29tL2EvMTE5MDAwMDAxNTk5MTg2OSNhcnRpY2xlSGVhZGVyOA==">谈谈 Js 前端模块化规范 —— SegmentFault</span></li>
+<li>📖 <span class="exturl" data-url="aHR0cDovL3dlYi5qb2Jib2xlLmNvbS84NzUzNC8=">函数声明与函数表达式的区别 —— 伯乐在线</span></li>
+</ul>
+<p><strong><a href="#%E7%9B%AE%E5%BD%95">⬆️ 返回目录</a></strong></p>
+<hr />
+<h2 id="14-递归"><a class="anchor" href="#14-递归">#</a> 14. 递归</h2>
+<h3 id="文章-14"><a class="anchor" href="#文章-14">#</a> 文章</h3>
+<ul>
+<li>📖 <span class="exturl" data-url="aHR0cHM6Ly9zZWdtZW50ZmF1bHQuY29tL3EvMTAxMDAwMDAwMzk0MjM0Nw==">求解释 js 递归 —— SegmentFault</span></li>
+<li>📖 <span class="exturl" data-url="aHR0cHM6Ly9qdWVqaW4uaW0vcG9zdC81OTQ4YzBkOGZlODhjMjAwNmE5MzllMmE=">JavaScript 中的递归 —— 掘金</span></li>
+<li>📖 <span class="exturl" data-url="aHR0cHM6Ly9qdWVqaW4uaW0vcG9zdC81OWMxZDkxZDZmYjlhMDBhNTMyNzVmNzk=">递归（上）－《JavaScript 轻量级函数式编程》 —— 掘金</span></li>
+<li>📖 <span class="exturl" data-url="aHR0cHM6Ly9qdWVqaW4uaW0vcG9zdC81OWM4N2ZiNDZmYjlhMDBhNDM3YjFhMmU=">递归（下）－《JavaScript 轻量级函数式编程》 —— 掘金</span></li>
+<li>📖 <span class="exturl" data-url="aHR0cHM6Ly9qdWVqaW4uaW0vcG9zdC81YWNkZDc0ODZmYjlhMDI4Y2E1MzU0N2M=">尾调用和尾递归 —— 掘金</span></li>
+<li>📖 <span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FpYW5xaWFuc3RkL2FydGljbGUvZGV0YWlscy83NTgwNzQ2Mg==">几个经典递归问题用 js 实现 —— CSDN</span></li>
+<li>📖 <span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3hfaV94dy9hcnRpY2xlL2RldGFpbHMvNzIwMjY4Njg=">递归函数的几个例子 —— CSDN</span></li>
+</ul>
+<p><strong><a href="#%E7%9B%AE%E5%BD%95">⬆️ 返回目录</a></strong></p>
+<hr />
+<h2 id="15-算法"><a class="anchor" href="#15-算法">#</a> 15. 算法</h2>
+<h3 id="文章-15"><a class="anchor" href="#文章-15">#</a> 文章</h3>
+<ul>
+<li>📖 <span class="exturl" data-url="aHR0cHM6Ly9qdWVqaW4uaW0vcG9zdC81N2RjZDM5NGEyMmI5ZDAwNjEwYzVlYzg=">十大经典排序算法总结（JavaScript 描述） —— 掘金</span></li>
+<li>📖 <span class="exturl" data-url="aHR0cHM6Ly9qdWVqaW4uaW0vcG9zdC81OTRkZmU3OTUxODgyNTBkNzI1YTIyMGEjY29tbWVudA==">在 JavaScript 中学习数据结构与算法 —— 掘金</span></li>
+<li>📖 <span class="exturl" data-url="aHR0cHM6Ly9qdWVqaW4uaW0vcG9zdC81OGM5ZDVmYjFiNjllNjAwNmI2ODZiY2U=">JS 中可能用得到的全部的排序算法 —— 掘金</span></li>
+<li>📖 <span class="exturl" data-url="aHR0cHM6Ly93d3cuamlhbnNodS5jb20vcC8xYjQwNjhjY2Q1MDU=">JS 家的排序算法 —— 简书</span></li>
+<li>📖 <span class="exturl" data-url="aHR0cHM6Ly9zZWdtZW50ZmF1bHQuY29tL2EvMTE5MDAwMDAwODU5MzcxNQ==">前端常见算法的 JS 实现 —— SegmentFault</span></li>
+<li>📖 <span class="exturl" data-url="aHR0cHM6Ly93d3cuamFja3B1LmNvbS9xaWFuLWR1YW4tbWlhbi1zaGktemhvbmctZGUtY2hhbmctamlhbi1kZS1zdWFuLWZhLXdlbi10aS8=">前端面试中的常见的算法问题 —— 蒲小花的博客</span></li>
+</ul>
+<h3 id="视频-8"><a class="anchor" href="#视频-8">#</a> 视频</h3>
+<ul>
+<li>📺 <span class="exturl" data-url="aHR0cHM6Ly93d3cuaW1vb2MuY29tL2xlYXJuLzg4OA==">Javascript 实现二叉树算法 —— 慕课网</span></li>
+</ul>
+<p><strong><a href="#%E7%9B%AE%E5%BD%95">⬆️ 返回目录</a></strong></p>
+<hr />
+<h2 id="16-数据结构"><a class="anchor" href="#16-数据结构">#</a> 16. 数据结构</h2>
+<h3 id="文章-16"><a class="anchor" href="#文章-16">#</a> 文章</h3>
+<ul>
+<li>📖 <span class="exturl" data-url="aHR0cHM6Ly93d3cuamlhbnNodS5jb20vcC81ZTBlOGQxODMxMDI=">来我们浅谈一下 js 的数据结构 —— 简书</span></li>
+<li>📖 <span class="exturl" data-url="aHR0cHM6Ly93d3cuamlhbnNodS5jb20vbmIvMTY4MzU0OTY=">JavaScript 中的算法与数据结构 —— 简书</span></li>
+<li>📖 <span class="exturl" data-url="aHR0cDovL2Jsb2cuc2luYS5jb20uY24vcy9ibG9nXzdiOWM1ZTQxMDEwMTdtanQuaHRtbA==">学 JS 必看 - JavaScript 数据结构深度剖析 —— 大道至简的博客</span></li>
+<li>📖 <span class="exturl" data-url="aHR0cHM6Ly9qdWVqaW4uaW0vZW50cnkvNTg2ZWZmZTBkYTJmNjAwMDUzZDg1YTlh">js 中基础数据结构数组去重问题 —— 掘金</span></li>
+</ul>
+<h3 id="视频-9"><a class="anchor" href="#视频-9">#</a> 视频</h3>
+<ul>
+<li>📺 📺 <span class="exturl" data-url="aHR0cDovL3d3dy5sZS5jb20vcHR2L3ZwbGF5LzI3NjA2OTY0Lmh0bWw=">JavaScript 数据结构 - 运算符 —— 乐视</span></li>
+</ul>
+<p><strong><a href="#%E7%9B%AE%E5%BD%95">⬆️ 返回目录</a></strong></p>
+<hr />
+<h2 id="17-消息队列和事件循环"><a class="anchor" href="#17-消息队列和事件循环">#</a> 17. 消息队列和事件循环</h2>
+<h3 id="文章-17"><a class="anchor" href="#文章-17">#</a> 文章</h3>
+<ul>
+<li>📖 <span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvemgtQ04vZG9jcy9XZWIvSmF2YVNjcmlwdC9FdmVudExvb3A=">并发模型与事件循环 —— MDN</span></li>
+<li>📖 <span class="exturl" data-url="aHR0cDovL3d3dy5ydWFueWlmZW5nLmNvbS9ibG9nLzIwMTQvMTAvZXZlbnQtbG9vcC5odG1s">JavaScript 运行机制详解：再谈 Event Loop —— 阮一峰</span></li>
+<li>📖 <span class="exturl" data-url="aHR0cHM6Ly93d3cuY25ibG9ncy5jb20vZG9uZy14dS9wLzcwMDAxNjMuaHRtbA==">深入理解 JavaScript 事件循环 —— 博客园</span></li>
+<li>📖 <span class="exturl" data-url="aHR0cHM6Ly96aHVhbmxhbi56aGlodS5jb20vcC8yNjIyOTI5Mw==">深入浅出 Javascript 事件循环机制 —— 知乎</span></li>
+<li>📖 <span class="exturl" data-url="aHR0cHM6Ly9zZWdtZW50ZmF1bHQuY29tL2EvMTE5MDAwMDAxNDk0MDkwNCNhcnRpY2xlSGVhZGVyNw==">JS 事件循环机制（event loop）之宏任务、微任务 —— SegmentFault</span></li>
+<li>📖 <span class="exturl" data-url="aHR0cHM6Ly9zZWdtZW50ZmF1bHQuY29tL2EvMTE5MDAwMDAwNDMyMjM1OA==">JavaScript：彻底理解同步、异步和事件循环 —— SegmentFault</span></li>
+<li>📖 <span class="exturl" data-url="aHR0cHM6Ly9qdWVqaW4uaW0vcG9zdC81YTY1NDdkMGYyNjVkYTNlMjgzYTFkZjc=">从浏览器多进程到 JS 单线程，JS 运行机制最全面的一次梳理 —— 掘金</span></li>
+</ul>
+<p><strong><a href="#%E7%9B%AE%E5%BD%95">⬆️ 返回目录</a></strong></p>
+<hr />
+<h2 id="18-settimeout-setinterval-和-requestanimationframe"><a class="anchor" href="#18-settimeout-setinterval-和-requestanimationframe">#</a> 18. setTimeout, setInterval 和 requestAnimationFrame</h2>
+<h3 id="文章-18"><a class="anchor" href="#文章-18">#</a> 文章</h3>
+<ul>
+<li>📖 <span class="exturl" data-url="aHR0cDovL3d3dy5ydW5vb2IuY29tL2pzcmVmL21ldC13aW4tc2V0dGltZW91dC5odG1s">Window setTimeout () 方法 —— 菜鸟教程</span></li>
+<li>📖 <span class="exturl" data-url="aHR0cDovL3d3dy5ydW5vb2IuY29tL2pzcmVmL21ldC13aW4tc2V0aW50ZXJ2YWwuaHRtbA==">Window setInterval () 方法 —— 菜鸟教程</span></li>
+<li>📖 <span class="exturl" data-url="aHR0cHM6Ly9qdWVqaW4uaW0vcG9zdC81YWE0YzQ3YWYyNjVkYTIzOTg2NmUyMzY=">关于 setTimeout —— 掘金</span></li>
+<li>📖 <span class="exturl" data-url="aHR0cHM6Ly9qdWVqaW4uaW0vcG9zdC81YTc3ZjhjZTUxODgyNTdhNmQ2MzVkNzY=">你不知道的 Javascript：有趣的 setTimeout —— 掘金</span></li>
+<li>📖 <span class="exturl" data-url="aHR0cHM6Ly9qdWVqaW4uaW0vZW50cnkvNTg2MWViZjAxYjY5ZTYwMDZjZTYxZDM4">原来你是这样的 setTimeout —— 掘金</span></li>
+<li>📖 <span class="exturl" data-url="aHR0cHM6Ly9zZWdtZW50ZmF1bHQuY29tL3EvMTAxMDAwMDAwNTk4OTQ5MQ==">setTimeout () 和 setInterval () 本质区别在哪里？ —— SegmentFault</span></li>
+<li>book: <span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvemgtQ04vZG9jcy9XZWIvQVBJL1dpbmRvdy9yZXF1ZXN0QW5pbWF0aW9uRnJhbWU=">window.requestAnimationFrame —— MDN</span></li>
+<li>📖 <span class="exturl" data-url="aHR0cDovL3d3dy5jbmJsb2dzLmNvbS9vbmVwaXhlbC9wLzcwNzg2MTcuaHRtbA==">requestAnimationFrame 知多少？ —— 博客园</span></li>
+<li>📖 <span class="exturl" data-url="aHR0cHM6Ly93d3cuemhhbmd4aW54dS5jb20vd29yZHByZXNzLzIwMTMvMDkvY3NzMy1hbmltYXRpb24tcmVxdWVzdGFuaW1hdGlvbmZyYW1lLXR3ZWVuLSVlNSU4YSVhOCVlNyU5NCViYiVlNyVhZSU5NyVlNiViMyU5NS8=">CSS3 动画那么强，requestAnimationFrame 还有毛线用？ —— 张鑫旭</span></li>
+<li>📖 <span class="exturl" data-url="aHR0cHM6Ly9zZWdtZW50ZmF1bHQuY29tL2EvMTE5MDAwMDAxNDY2MTAzNQ==">「JavaScript 定时器」setInterval、setTimeout 和 requestAnimationFrame 浅析 —— SegmentFault</span></li>
+<li>📖 <span class="exturl" data-url="aHR0cHM6Ly9zZWdtZW50ZmF1bHQuY29tL2EvMTE5MDAwMDAwMDM4NjM2OA==">翻译：setInterval 与 requestAnimationFrame 的时间间隔测试 —— SegmentFault</span></li>
+<li>📖 <span class="exturl" data-url="aHR0cHM6Ly9zZWdtZW50ZmF1bHQuY29tL3EvMTAxMDAwMDAxMzkwOTQzMA==">阿里前端面试题：requestAnimationFrame 实现类似 setInterval 的计时器 —— SegmentFault</span></li>
+</ul>
+<h3 id="视频-10"><a class="anchor" href="#视频-10">#</a> 视频</h3>
+<ul>
+<li>📺 <span class="exturl" data-url="aHR0cDovL3YueW91a3UuY29tL3Zfc2hvdy9pZF9YTlRBNE9UUTBOekEwLmh0bWw=">setTimeout 和 setInterval —— 优酷</span></li>
+</ul>
+<p><strong><a href="#%E7%9B%AE%E5%BD%95">⬆️ 返回目录</a></strong></p>
+<hr />
+<h2 id="19-继承-多态和代码复用"><a class="anchor" href="#19-继承-多态和代码复用">#</a> 19. 继承，多态和代码复用</h2>
+<h3 id="文章-19"><a class="anchor" href="#文章-19">#</a> 文章</h3>
+<ul>
+<li>📖 <span class="exturl" data-url="aHR0cHM6Ly93d3cuY25ibG9ncy5jb20vTGVvX3dsL3AvNTczNDc5NC5odG1s">JS 面向对象编程之：封装、继承、多态 —— 博客园</span></li>
+<li>📖 <span class="exturl" data-url="aHR0cHM6Ly93d3cuamlhbnNodS5jb20vcC81Y2I2OTI2NTg3MDQ=">Javascript 的继承与多态 —— 简书</span></li>
+<li>📖 <span class="exturl" data-url="aHR0cHM6Ly9qdWVqaW4uaW0vcG9zdC81OTM5NmM5NmZlODhjMjAwNmFmYzI3MDc=">js: 面向对象编程，带你认识封装、继承和多态 —— 掘金</span></li>
+<li>📖 <span class="exturl" data-url="aHR0cHM6Ly96aHVhbmxhbi56aGlodS5jb20vcC8zNDY5MzIwOQ==">JavaScript 中的 “多继承” —— 掘金</span></li>
+<li>📖 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL1Rvb0J1Zy9qYXZhc2NyaXB0LnBhdHRlcm5zL2Jsb2IvbWFzdGVyL2NoYXB0ZXI2Lm1hcmtkb3du">代码复用模式 —— github</span></li>
+<li>📖 <span class="exturl" data-url="aHR0cDovL3d3dy5jbmJsb2dzLmNvbS9Ub21YdS9hcmNoaXZlLzIwMTIvMDQvMjQvMjQzODA1MC5odG1s">深入理解 JavaScript：代码复用模式 (推荐篇) —— 汤姆大叔</span></li>
+<li>📖 <span class="exturl" data-url="aHR0cHM6Ly93d3cuY25ibG9ncy5jb20vVG9tWHUvYXJjaGl2ZS8yMDEyLzA0LzIzLzI0MzgwMDUuaHRtbA==">深入理解 JavaScript：代码复用模式 (避免篇) —— 汤姆大叔</span></li>
+</ul>
+<p><strong><a href="#%E7%9B%AE%E5%BD%95">⬆️ 返回目录</a></strong></p>
+<hr />
+<h2 id="20-按位操作符-类数组对象和类型化数组"><a class="anchor" href="#20-按位操作符-类数组对象和类型化数组">#</a> 20. 按位操作符，类数组对象和类型化数组</h2>
+<h3 id="文章-20"><a class="anchor" href="#文章-20">#</a> 文章</h3>
+<ul>
+<li>📖 <span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvemgtQ04vZG9jcy9XZWIvSmF2YVNjcmlwdC9SZWZlcmVuY2UvT3BlcmF0b3JzL0JpdHdpc2VfT3BlcmF0b3Jz">按位操作符 —— MDN</span></li>
+<li>📖 <span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvemgtQ04vZG9jcy9XZWIvSmF2YVNjcmlwdC9UeXBlZF9hcnJheXM=">类数组对象 —— MDN</span></li>
+<li>📖 <span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvemgtQ04vZG9jcy9XZWIvSmF2YVNjcmlwdC9SZWZlcmVuY2UvR2xvYmFsX09iamVjdHMvQXJyYXlCdWZmZXI=">类型化数组 —— MDN</span></li>
+<li>📖 <span class="exturl" data-url="aHR0cHM6Ly93d3cuY25ibG9ncy5jb20vZ3JhZG9sYWJzL3AvNDc2MjEzNC5odG1s">JavaScript ArrayBuffer 浅析 —— 博客园</span></li>
+</ul>
+<p><strong><a href="#%E7%9B%AE%E5%BD%95">⬆️ 返回目录</a></strong></p>
+<hr />
+<h2 id="21-dom-树和渲染过程"><a class="anchor" href="#21-dom-树和渲染过程">#</a> 21. DOM 树和渲染过程</h2>
+<h3 id="文章-21"><a class="anchor" href="#文章-21">#</a> 文章</h3>
+<ul>
+<li>📖 <span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvemgtQ04vZG9jcy9XZWIvQVBJL0RvY3VtZW50X09iamVjdF9Nb2RlbC9Ib3dfdG9fY3JlYXRlX2FfRE9NX3RyZWU=">如何创建一个 DOM 树 —— MDN</span></li>
+<li>📖 <span class="exturl" data-url="aHR0cDovL3d3dy53M3NjaG9vbC5jb20uY24vaHRtbGRvbS9kb21fbm9kZXMuYXNw">HTML DOM 节点 —— W3school</span></li>
+<li>📖 <span class="exturl" data-url="aHR0cDovL2phdmFzY3JpcHQucnVhbnlpZmVuZy5jb20vZG9tL25vZGUuaHRtbA==">DOM 概述 —— 阮一峰</span></li>
+<li>📖 <span class="exturl" data-url="aHR0cHM6Ly93d3cuamlhbnNodS5jb20vcC8xMDAzMWJiMjRkYWY=">《JavaScript 闯关记》之 DOM（上）—— 简书</span></li>
+<li>📖 <span class="exturl" data-url="aHR0cHM6Ly93d3cuamlhbnNodS5jb20vcC83ODliMTZkY2UxNGE=">《JavaScript 闯关记》之 DOM（下）—— 简书</span></li>
+<li>📖 <span class="exturl" data-url="aHR0cHM6Ly9qdWVqaW4uaW0vZW50cnkvNTgzMTRlZmQ4YWMyNDcwMDYxYmIzMGZk">掌握 DOM 操作 —— 掘金</span></li>
+<li>📖 <span class="exturl" data-url="aHR0cHM6Ly93d3cubGlhb3h1ZWZlbmcuY29tL3dpa2kvMDAxNDM0NDQ2Njg5ODY3YjI3MTU3ZTg5NmU3NGQ1MWE4OWMyNWNjOGI0M2JkYjMwMDAvMDAxNDM0NTAwNDk0NDUxMjczZTZiM2RlYzlkNDExZDliYTg0MWRlZThjYWVjNDUwMDA=">操作 DOM —— 廖雪峰</span></li>
+<li>📖 <span class="exturl" data-url="aHR0cHM6Ly9qdWVqaW4uaW0vcG9zdC81OWM2MDY5MTUxODgyNTM5NmY0ZjcxYTE=">原来 CSS 与 JS 是这样阻塞 DOM 解析和渲染的 —— 掘金</span></li>
+</ul>
+<h3 id="视频-11"><a class="anchor" href="#视频-11">#</a> 视频</h3>
+<ul>
+<li>📺 <span class="exturl" data-url="aHR0cHM6Ly93d3cuaW1vb2MuY29tL2xlYXJuLzQ4OA==">DOM 探索之基础详解篇 —— 慕课网</span></li>
+<li>📺 <span class="exturl" data-url="aHR0cHM6Ly93d3cuaW1vb2MuY29tL2xlYXJuLzEzOA==">DOM 事件探秘 —— 慕课网</span></li>
+<li>📺 <span class="exturl" data-url="aHR0cHM6Ly93d3cuaW1vb2MuY29tL2xlYXJuLzUzMA==">jQuery 基础 (二) DOM 篇 —— 慕课网</span></li>
+<li>📺 <span class="exturl" data-url="aHR0cDovL3d3dy5pcWl5aS5jb20vd18xOXJyMTlzMDhsLmh0bWw=">JS 操作 DOM 对象属性和方法 —— 爱奇艺</span></li>
+</ul>
+<p><strong><a href="#%E7%9B%AE%E5%BD%95">⬆️ 返回目录</a></strong></p>
+<hr />
+<h2 id="22-new-与构造函数-instanceof-与实例"><a class="anchor" href="#22-new-与构造函数-instanceof-与实例">#</a> 22. new 与构造函数，instanceof 与实例</h2>
+<h3 id="文章-22"><a class="anchor" href="#文章-22">#</a> 文章</h3>
+<ul>
+<li>📖 <span class="exturl" data-url="aHR0cDovL2phdmFzY3JpcHQucnVhbnlpZmVuZy5jb20vb29wL2Jhc2ljLmh0bWw=">构造函数与 new 命令 —— 阮一峰</span></li>
+<li>📖 <span class="exturl" data-url="aHR0cDovL3d3dy5ydWFueWlmZW5nLmNvbS9ibG9nLzIwMTAvMDUvb2JqZWN0LW9yaWVudGVkX2phdmFzY3JpcHRfaW5oZXJpdGFuY2UuaHRtbA==">Javascript 面向对象编程（二）：构造函数的继承 —— 阮一峰</span></li>
+<li>📖 <span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NwaWN5Qm9pbGVkRmlzaC9hcnRpY2xlL2RldGFpbHMvNzExMjMxNjI=">完整原型链详细图解 (构造函数、原型、实例化对象) —— CSDN</span></li>
+<li>📖 <span class="exturl" data-url="aHR0cDovL3d3dy5waHAuY24vanMtdHV0b3JpYWwtMzc2MjQ2Lmh0bWw=">JavaScript 中构造函数与 new 操作符的实例详解 —— PHP 中文网</span></li>
+<li>📖 <span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3lpbl85OTEvYXJ0aWNsZS9kZXRhaWxzLzgwOTU0NDUz">构造函数、实例、原型、原型链之间的关系 —— CSDN</span></li>
+<li>📖 <span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2NlY2lsaWE2MjAvYXJ0aWNsZS9kZXRhaWxzLzcxMTU4MDQ4">深入理解 JS—instanceof 和原型链 —— CSDN</span></li>
+<li>📖 <span class="exturl" data-url="aHR0cHM6Ly93d3cuamlhbnNodS5jb20vcC8xNWFjNzM5M2JjMWY=">前端基础进阶（九）：详解面向对象、构造函数、原型与原型链 —— 简书</span></li>
+<li>📖 <span class="exturl" data-url="aHR0cHM6Ly93d3cuamlhbnNodS5jb20vcC82MGZmYzQ4MzFiZmY=">js 用 new 实例化对象与直接调用的 this 的区别 —— 简书</span></li>
+<li>📖 <span class="exturl" data-url="aHR0cDovL2p1c3RqYXZhYy5jb20vamF2YXNjcmlwdC8yMDEyLzEyLzIyL2phdmFzY3JpcHQtdmFsdWVzLW5vdC1ldmVyeXRoaW5nLWlzLWFuLW9iamVjdC5odG1s">JavaScript 并非所有的东西都是对象 —— justjavac</span></li>
+<li>📖 <span class="exturl" data-url="aHR0cHM6Ly93d3cuaWJtLmNvbS9kZXZlbG9wZXJ3b3Jrcy9jbi93ZWIvMTMwNl9qaWFuZ2pqX2pzaW5zdGFuY2VvZi8=">JavaScript instanceof 运算符深入剖析 —— IBM</span></li>
+</ul>
+<h3 id="视频-12"><a class="anchor" href="#视频-12">#</a> 视频</h3>
+<ul>
+<li>📺 <span class="exturl" data-url="aHR0cDovL3d3dy5sZS5jb20vcHR2L3ZwbGF5LzI3NzY2ODg5Lmh0bWw=">改良版的构造函数 —— 乐视</span></li>
+</ul>
+<p><strong><a href="#%E7%9B%AE%E5%BD%95">⬆️ 返回目录</a></strong></p>
+<hr />
+<h2 id="23-原型继承与原型链"><a class="anchor" href="#23-原型继承与原型链">#</a> 23. 原型继承与原型链</h2>
+<h3 id="文章-23"><a class="anchor" href="#文章-23">#</a> 文章</h3>
+<ul>
+<li>📖 <span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvemgtQ04vZG9jcy9XZWIvSmF2YVNjcmlwdC9Jbmhlcml0YW5jZV9hbmRfdGhlX3Byb3RvdHlwZV9jaGFpbg==">继承与原型链 —— MDN</span></li>
+<li>📖 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2JpZ2RvdHMvYmxvZy9pc3N1ZXMvMQ==">构造函数、原型与原型链 —— github</span></li>
+<li>📖 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3N0b25lMDA5MC9qYXZhc2NyaXB0LWxlc3NvbnMvdHJlZS9tYXN0ZXIvMi41LVByb3RvdHlwZQ==">原型及原型链 —— github (1269 Star)</span></li>
+<li>📖 <span class="exturl" data-url="aHR0cHM6Ly9zZWdtZW50ZmF1bHQuY29tL2EvMTE5MDAwMDAwNDI4MjIwNg==">理清 javascript 中的面向对象 (一) 原型继承 —— SegmentFault</span></li>
+<li>📖 <span class="exturl" data-url="aHR0cDovL2p1c3RqYXZhYy5jb20vMjAxNS8xMi8wOS9pbmhlcml0YW5jZS1hbmQtdGhlLXByb3RvdHlwZS1jaGFpbi5odG1s">JavaScript：继承和原型链 (译) —— justjavac</span></li>
+<li>📖 <span class="exturl" data-url="aHR0cDovL3d3dy5jbmJsb2dzLmNvbS9zaHVpeWkvcC81MzA1NDM1Lmh0bWw=">三张图搞懂 JavaScript 的原型对象与原型链 —— 博客园</span></li>
+<li>📖 <span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3RoZV9fYXBvbGxvL2FydGljbGUvZGV0YWlscy83Njc3NDY5OA==">一张图让你搞懂 JavaScript 的继承与原型链 —— CSDN</span></li>
+<li>📖 <span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3hpYW90YW9fY3NzL2FydGljbGUvZGV0YWlscy83Mjc4MjQxNg==">JS 高级 -- 原型链 (一看就懂，但 18 岁以下请绕道) —— CSDN</span></li>
+<li>📖 <span class="exturl" data-url="aHR0cHM6Ly93d3cubGlhb3h1ZWZlbmcuY29tL3dpa2kvMDAxNDM0NDQ2Njg5ODY3YjI3MTU3ZTg5NmU3NGQ1MWE4OWMyNWNjOGI0M2JkYjMwMDAvMDAxNDM0NDk5NzAxMzQwNWFiZmI3ZjBlMTkwNGEwNGJhNjg5OGEzODRiMWU5MjUwMDA=">原型继承 —— 廖雪峰</span></li>
+<li>📖 <span class="exturl" data-url="aHR0cHM6Ly9qdWVqaW4uaW0vcG9zdC81OGY5NGM5YmIxMjNkYjQxMTk1MzY5MWI=">JS 原型链与继承别再被问倒了 —— 掘金</span></li>
+<li>📖 <span class="exturl" data-url="aHR0cHM6Ly9qdWVqaW4uaW0vZW50cnkvNTg4NWRiMjIxYjY5ZTYwMDU5MjI1M2U3">征服 JavaScript 面试系列：类继承和原型继承的区别 —— 掘金</span></li>
+<li>📖 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL21xeXFpbmdmZW5nL0Jsb2cvaXNzdWVzLzI=">JavaScript 深入之从原型到原型链 —— 冴羽</span></li>
+<li>📖 <span class="exturl" data-url="aHR0cHM6Ly93d3cuY25ibG9ncy5jb20vd2FuZ2Z1cGVuZzE5ODgvcC8zOTc3OTI0Lmh0bWw=">深入理解 JavaScript 原型与闭包 —— 王福朋</span></li>
+</ul>
+<h3 id="视频-13"><a class="anchor" href="#视频-13">#</a> 视频</h3>
+<ul>
+<li>📺 <span class="exturl" data-url="aHR0cDovL3d3dy5sZS5jb20vcHR2L3ZwbGF5LzI3NTUyNzUzLmh0bWw=">JS 高级 - 07 - 原型链继承 —— 乐视</span></li>
+<li>📺 <span class="exturl" data-url="aHR0cHM6Ly92LnFxLmNvbS94L3BhZ2UvYjA1MTFud2E3ZDMuaHRtbA==">JS 原型对象和原型链简介 —— 腾讯视频</span></li>
+</ul>
+<p><strong><a href="#%E7%9B%AE%E5%BD%95">⬆️ 返回目录</a></strong></p>
+<hr />
+<h2 id="24-objectcreate-和-objectassign"><a class="anchor" href="#24-objectcreate-和-objectassign">#</a> 24. Object.create 和 Object.assign</h2>
+<h3 id="文章-24"><a class="anchor" href="#文章-24">#</a> 文章</h3>
+<ul>
+<li>📖 <span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvemgtQ04vZG9jcy9XZWIvSmF2YVNjcmlwdC9SZWZlcmVuY2UvR2xvYmFsX09iamVjdHMvT2JqZWN0L2NyZWF0ZQ==">Object.create —— MDN</span></li>
+<li>📖 <span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvemgtQ04vZG9jcy9XZWIvSmF2YVNjcmlwdC9SZWZlcmVuY2UvR2xvYmFsX09iamVjdHMvT2JqZWN0L2Fzc2lnbg==">Object.assign —— MDN</span></li>
+<li>📖 <span class="exturl" data-url="aHR0cHM6Ly93d3cuaW1vb2MuY29tL2FydGljbGUvMTc1OTE=">Object.create vs Object.assign —— 慕课网手记</span></li>
+<li>📖 <span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RlZXBMaWVzL2FydGljbGUvZGV0YWlscy81MjkxNTE0Mw==">JS 中的 Object.assign ()、Object.create ()、Object.defineProperty () —— CSDN</span></li>
+<li>📖 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3NhaWtvam9zaC9PYmplY3QtQXNzaWduLURlZXA=">Object-Assign-Deep —— github</span></li>
+</ul>
+<p><strong><a href="#%E7%9B%AE%E5%BD%95">⬆️ 返回目录</a></strong></p>
+<hr />
+<h2 id="25-工厂函数和类"><a class="anchor" href="#25-工厂函数和类">#</a> 25. 工厂函数和类</h2>
+<h3 id="文章-25"><a class="anchor" href="#文章-25">#</a> 文章</h3>
+<ul>
+<li>📖 <span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvemgtQ04vZG9jcy9XZWIvSmF2YVNjcmlwdC9SZWZlcmVuY2UvQ2xhc3Nlcw==">类 —— MDN</span></li>
+<li>📖 <span class="exturl" data-url="aHR0cHM6Ly93d3cubGlhb3h1ZWZlbmcuY29tL3dpa2kvMDAxMzc0NzM4MTI1MDk1Yzk1NWMxZTZkOGJiNDkzMTgyMTAzZmFjOTI3MDc2MmEwMDAvMDAxMzg2ODIwMDQwNzczNzZkMmQ3ZjhjYzhhNGUyYzk5ODJmOTI3ODg1ODgzMjIwMDA=">类和实例 —— 廖雪峰</span></li>
+<li>📖 <span class="exturl" data-url="aHR0cDovL3d3dy5ydWFueWlmZW5nLmNvbS9ibG9nLzIwMTIvMDcvdGhyZWVfd2F5c190b19kZWZpbmVfYV9qYXZhc2NyaXB0X2NsYXNzLmh0bWw=">Javascript 定义类（class）的三种方法 —— 阮一峰</span></li>
+<li>📖 <span class="exturl" data-url="aHR0cHM6Ly9qdWVqaW4uaW0vcG9zdC81OWM4Yzg3NTZmYjlhMDBhNjgxYWU1YmQ=">【译】ES6 的工厂函数 —— 掘金</span></li>
+<li>📖 <span class="exturl" data-url="aHR0cHM6Ly9qdWVqaW4uaW0vZW50cnkvNTg3OTkyYzk2MWZmNGIwMDY1ZWRmMWZm">JavaScript 创建对象之单例、工厂、构造函数模式 —— 掘金</span></li>
+</ul>
+<p><strong><a href="#%E7%9B%AE%E5%BD%95">⬆️ 返回目录</a></strong></p>
+<hr />
+<h2 id="26-设计模式"><a class="anchor" href="#26-设计模式">#</a> 26. 设计模式</h2>
+<h3 id="文章-26"><a class="anchor" href="#文章-26">#</a> 文章</h3>
+<ul>
+<li>📖 <span class="exturl" data-url="aHR0cHM6Ly9qdWVqaW4uaW0vcG9zdC81OWRmNGY3NGYyNjVkYTQzMGYzMTE5MDk=">JavaScript 设计模式 —— 掘金</span></li>
+<li>📖 <span class="exturl" data-url="aHR0cDovL3dpa2kuamlrZXh1ZXl1YW4uY29tL3Byb2plY3QvamF2YXNjcmlwdC1kZXNpZ24tcGF0dGVybnMv">学用 JavaScript 设计模式 —— 极客学院</span></li>
+<li>📖 <span class="exturl" data-url="aHR0cHM6Ly9zZWdtZW50ZmF1bHQuY29tL2EvMTE5MDAwMDAxMDkxNDAzMg==">[面试专题] JS 设计模式 —— SegmentFault</span></li>
+<li>📖 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2x4ai9qYXZhc2NyaXB0LnBhdHRlcm5z">JavaScript Patterns 中译本 —— github</span></li>
+</ul>
+<h3 id="视频-14"><a class="anchor" href="#视频-14">#</a> 视频</h3>
+<ul>
+<li>📺 <span class="exturl" data-url="aHR0cHM6Ly90di5zb2h1LmNvbS92L2RYTXZNalF3TnpZd056UTRMemc1TnpNMk1EQTNMbk5vZEcxcy5odG1s">HTML5 课程大纲 2-11JS 设计模式</span></li>
+</ul>
+<p><strong><a href="#%E7%9B%AE%E5%BD%95">⬆️ 返回目录</a></strong></p>
+<hr />
+<h2 id="27-memoization"><a class="anchor" href="#27-memoization">#</a> 27. Memoization</h2>
+<h3 id="文章-27"><a class="anchor" href="#文章-27">#</a> 文章</h3>
+<ul>
+<li>📖 <span class="exturl" data-url="aHR0cHM6Ly93d3cuY25ibG9ncy5jb20vcnVieWxvdXZyZS9hcmNoaXZlLzIwMDkvMDgvMDYvMTU0MDY3OC5odG1s">JavaScript Memoization —— 司徒正美</span></li>
+<li>📖 <span class="exturl" data-url="aHR0cHM6Ly93d3cuY25ibG9ncy5jb20veWluZ3NodWl6eS9wLzQ1MTcxMDIuaHRtbA==">memoization 提升递归效率 —— 博客园</span></li>
+<li>📖 <span class="exturl" data-url="aHR0cDovL2RldmVsb3Blci41MWN0by5jb20vYXJ0LzIwMTAxMC8yMzE1MTMuaHRt">如何提升 JavaScript 的递归效率 —— 51CTO</span></li>
+<li>📖 <span class="exturl" data-url="aHR0cHM6Ly9zZWdtZW50ZmF1bHQuY29tL2EvMTE5MDAwMDAxNjcwMzEwNg==">JavaScript 高级技巧 Memoization —— SegmentFaut</span></li>
+</ul>
+<p><strong><a href="#%E7%9B%AE%E5%BD%95">⬆️ 返回目录</a></strong></p>
+<hr />
+<h2 id="28-纯函数-函数副作用和状态变化"><a class="anchor" href="#28-纯函数-函数副作用和状态变化">#</a> 28. 纯函数，函数副作用和状态变化</h2>
+<h3 id="文章-28"><a class="anchor" href="#文章-28">#</a> 文章</h3>
+<ul>
+<li>📖 <span class="exturl" data-url="aHR0cDovL2h1emlrZXRhbmcubWFuZ29qdWljZS50b3AvYm9va3MvcmVhY3QvbGVzc29uMzI=">纯函数 (Pure Function) —— React.js 小书</span></li>
+<li>📖 <span class="exturl" data-url="aHR0cHM6Ly9uaW5naGFvLm5ldC9ibG9nLzQ2MzQ=">JavaScript Functional Programming：纯函数 —— 宁皓网</span></li>
+<li>📖 <span class="exturl" data-url="aHR0cHM6Ly93d3cuamI1MS5uZXQvYXJ0aWNsZS8yODA3OS5odG0=">js 函数的副作用分析 —— 脚本之家</span></li>
+<li>📖 <span class="exturl" data-url="aHR0cHM6Ly9qdWVqaW4uaW0vcG9zdC81YjgyYmRiMzUxODgyNTQyZTI0MWVkMzI/dXRtX21lZGl1bT1oYW8uY2FpYmFvamlhbi5jb20mYW1wO3V0bV9zb3VyY2U9aGFvLmNhaWJhb2ppYW4uY29t">如何使用纯函数式 JavaScript 处理脏副作用 —— 掘金</span></li>
+<li>📖 <span class="exturl" data-url="aHR0cDovL3d3dy5jbmJsb2dzLmNvbS96aGFuZ3ljdW4vcC85NDAzMzM1Lmh0bWw=">原生 JavaScript 实现 state 状态管理系统 —— 博客园</span></li>
+<li>📖 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL0J1cHRTdEV2ZS9ibG9nL2lzc3Vlcy8xMA==">JavaScript 函数式编程 —— @BuptStEve</span></li>
+</ul>
+<p><strong><a href="#%E7%9B%AE%E5%BD%95">⬆️ 返回目录</a></strong></p>
+<hr />
+<h2 id="29-耗性能操作和时间复杂度"><a class="anchor" href="#29-耗性能操作和时间复杂度">#</a> 29. 耗性能操作和时间复杂度</h2>
+<h3 id="文章-29"><a class="anchor" href="#文章-29">#</a> 文章</h3>
+<ul>
+<li>📖 <span class="exturl" data-url="aHR0cHM6Ly9qdWVqaW4uaW0vZW50cnkvNTkzZjU2NTI4ZDZkODEwMDU4YTM1NWY0">时间复杂度 O (log n) 意味着什么？ —— 掘金</span></li>
+<li>📖 <span class="exturl" data-url="aHR0cHM6Ly9qdWVqaW4uaW0vZW50cnkvNWE0OWY3ZDM2ZmI5YTA0NTBhNjdiMjY5">算法的时间复杂度和空间复杂度 —— 掘金</span></li>
+<li>📖 <span class="exturl" data-url="aHR0cHM6Ly9qdWVqaW4uaW0vcG9zdC81OGQxNWYxMDQ0ZDkwNDAwNjkxODM0ZDQ=">算法（一）时间复杂度 —— 掘金</span></li>
+<li>📖 <span class="exturl" data-url="aHR0cDovL3d3dy5icmFkb25jb2RlLmNvbS9ibG9nLzIwMTIvMDQvYmlnLW8tYWxnb3JpdGhtLWV4YW1wbGVzLWluLWphdmFzY3JpcHQuaHRtbA==">Big O Search Algorithms in JavaScript —— Bradley Braithwaite</span></li>
+<li>📖 <span class="exturl" data-url="aHR0cHM6Ly93d3cuamVubmlmZXJibGFuZC5jb20vdGltZS1jb21wbGV4aXR5LWFuYWx5c2lzLWluLWphdmFzY3JpcHQv">Time Complexity Analysis in JavaScript — Jennifer Bland</span></li>
+</ul>
+<p><strong><a href="#%E7%9B%AE%E5%BD%95">⬆️ 返回目录</a></strong></p>
+<hr />
+<h2 id="30-javascript-引擎"><a class="anchor" href="#30-javascript-引擎">#</a> 30. JavaScript 引擎</h2>
+<h3 id="文章-30"><a class="anchor" href="#文章-30">#</a> 文章</h3>
+<ul>
+<li>📖 <span class="exturl" data-url="aHR0cHM6Ly9iYWlrZS5iYWlkdS5jb20vaXRlbS9qYXZhc2NyaXB0JUU1JUJDJTk1JUU2JTkzJThFLzUzNTYxMDg=">javascript 引擎 —— 百度百科</span></li>
+<li>📖 <span class="exturl" data-url="aHR0cHM6Ly9iYWlrZS5iYWlkdS5jb20vaXRlbS9WOC82MTc4MTI1">V8 (JavaScript 引擎) —— 百度百科</span></li>
+<li>📖 <span class="exturl" data-url="aHR0cHM6Ly9qdWVqaW4uaW0vcG9zdC81YTYzMDlmNzZmYjlhMDFjYWIyODU4YjE=">图解搞懂 JavaScript 引擎 Event Loop —— 掘金</span> 3</li>
+<li>📖 <span class="exturl" data-url="aHR0cHM6Ly9zZWdtZW50ZmF1bHQuY29tL2EvMTE5MDAwMDAxMDgxOTAyMA==">V8 JavaScript 引擎：高性能的 ES2015+ —— justjavac</span></li>
+<li>📖 <span class="exturl" data-url="aHR0cHM6Ly9zZWdtZW50ZmF1bHQuY29tL2EvMTE5MDAwMDAxMjgwNjYzNw==">10 分钟理解 JS 引擎的执行机制 —— SegmentFaut</span></li>
+<li>📖 <span class="exturl" data-url="aHR0cHM6Ly93d3cuY25ibG9ncy5jb20vd2VpcmRvUWkvcC82NjA5ODExLmh0bWw=">V8 javascript 引擎 —— 博客园</span></li>
+</ul>
+<p><strong><a href="#%E7%9B%AE%E5%BD%95">⬆️ 返回目录</a></strong></p>
+<hr />
+<h2 id="31-二进制-十六进制-十进制-科学记数法"><a class="anchor" href="#31-二进制-十六进制-十进制-科学记数法">#</a> 31. 二进制，十六进制，十进制，科学记数法</h2>
+<h3 id="文章-31"><a class="anchor" href="#文章-31">#</a> 文章</h3>
+<ul>
+<li>📖 <span class="exturl" data-url="aHR0cDovL3d3dy5jbmJsb2dzLmNvbS9nYWl6YWkvcC80MjMzNzgwLmh0bWw=">二、八、十、十六进制转换 (图解篇) —— 博客园</span></li>
+<li>📖 <span class="exturl" data-url="aHR0cHM6Ly9qdWVqaW4uaW0vcG9zdC81YjkzZGFkYWYyNjVkYTBhODU3YTU4YTM=">JavaScript 读写二进制数据 —— 掘金</span></li>
+</ul>
+<h3 id="视频-15"><a class="anchor" href="#视频-15">#</a> 视频</h3>
+<ul>
+<li>📺 <span class="exturl" data-url="aHR0cDovL2JhaXNoaS5iYWlkdS5jb20vd2F0Y2gvNzg3MzA2MDk2MzQ3MTQ3ODQ1Ni5odG1s">二进制、十进制、十六进制互相转化很难吗？ —— 百度视频</span></li>
+</ul>
+<p><strong><a href="#%E7%9B%AE%E5%BD%95">⬆️ 返回目录</a></strong></p>
+<hr />
+<h2 id="32-偏函数-柯里化-compose-和-pipe"><a class="anchor" href="#32-偏函数-柯里化-compose-和-pipe">#</a> 32. 偏函数，柯里化，Compose 和 Pipe</h2>
+<h3 id="文章-32"><a class="anchor" href="#文章-32">#</a> 文章</h3>
+<ul>
+<li>📖 <span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQyMTI5MDYzL2FydGljbGUvZGV0YWlscy84MTg3NDMxNA==">Javascript 函数式编程之偏函数 —— CSDN</span></li>
+<li>📖 <span class="exturl" data-url="aHR0cHM6Ly9zZWdtZW50ZmF1bHQuY29tL2EvMTE5MDAwMDAxMDY4NjE0NA==">JavaScript 专题之偏函数 —— SegmentFault</span></li>
+<li>📖 <span class="exturl" data-url="aHR0cHM6Ly9zZWdtZW50ZmF1bHQuY29tL3EvMTAxMDAwMDAwODYyNjA1OA==">柯里化和偏函数有什么区别？ —— SegmentFault</span></li>
+<li>📖 <span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L25ld2Vhc3RzdW4vYXJ0aWNsZS9kZXRhaWxzLzc1OTQ3Nzg1">Javascript 偏函数与柯里化 —— CSDN</span></li>
+<li>📖 <span class="exturl" data-url="aHR0cHM6Ly9sbGg5MTEwMDEuZ2l0Ym9va3MuaW8vbW9zdGx5LWFkZXF1YXRlLWd1aWRlLWNoaW5lc2UvY29udGVudC9jaDQuaHRtbA==">柯里化 (curry) —— JS 函数式编程指南</span></li>
+<li>📖 <span class="exturl" data-url="aHR0cHM6Ly9sbGg5MTEwMDEuZ2l0Ym9va3MuaW8vbW9zdGx5LWFkZXF1YXRlLWd1aWRlLWNoaW5lc2UvY29udGVudC9jaDUuaHRtbA==">代码组合 (compose) —— JS 函数式编程指南</span></li>
+<li>📖 <span class="exturl" data-url="aHR0cHM6Ly9zZWdtZW50ZmF1bHQuY29tL2EvMTE5MDAwMDAwODM5NDc0OQ==">关于 javascript 函数式编程中 compose 的实现 —— SegmentFault</span></li>
+<li>📖 <span class="exturl" data-url="aHR0cHM6Ly9zZWdtZW50ZmF1bHQuY29tL2EvMTE5MDAwMDAxMTQ0NzE2NA==">实现 compose 的五种思路 —— SegmentFault</span></li>
+<li>📖 <span class="exturl" data-url="aHR0cHM6Ly9zZWdtZW50ZmF1bHQuY29tL2EvMTE5MDAwMDAxNTEwMjgwNA==">JavaScript 函数式编程之函数组合函数 compose 和 pipe 的实现 —— SegmentFault</span></li>
+<li>📖 <span class="exturl" data-url="aHR0cHM6Ly9qdWVqaW4uaW0vcG9zdC81OWE2MmYzZDZmYjlhMDI0ODM2M2ZkOWQjY29tbWVudA==">JavaScript 轻量级函数式编程 - 第 4 章：组合函数 —— 掘金</span></li>
+<li>📖 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL0J1cHRTdEV2ZS9ibG9nL2lzc3Vlcy8xMQ==">JavaScript 函数式编程（二） —— @BuptStEve</span></li>
+</ul>
+<p><strong><a href="#%E7%9B%AE%E5%BD%95">⬆️ 返回目录</a></strong></p>
+<hr />
+<h2 id="33-代码整洁之道"><a class="anchor" href="#33-代码整洁之道">#</a> 33. 代码整洁之道</h2>
+<h3 id="文章-33"><a class="anchor" href="#文章-33">#</a> 文章</h3>
+<ul>
+<li>📖 <span class="exturl" data-url="aHR0cHM6Ly93d3cuemNmeS5jYy9hcnRpY2xlL2NsZWFuLWNvZGUtamF2YXNjcmlwdC1yZWFkbWUtbWQtYXQtbWFzdGVyLXJ5YW5tY2Rlcm1vdHQtY2xlYW4tY29kZS1qYXZhc2NyaXB0LWdpdGh1Yi0yMjczLmh0bWw=">[译] JavaScript 代码整洁之道 —— 边城</span></li>
+<li>📖 <span class="exturl" data-url="aHR0cDovL3d3dy5ydWFueWlmZW5nLmNvbS9ibG9nLzIwMTIvMDQvamF2YXNjcmlwdF9wcm9ncmFtbWluZ19zdHlsZS5odG1s">Javascript 编程风格 —— 阮一峰</span></li>
+<li>📖 <span class="exturl" data-url="aHR0cHM6Ly9qdWVqaW4uaW0vcG9zdC81YTViMmE1YzZmYjlhMDFjYmM2ZTU5Zjk=">重构 - 代码整洁之道 —— 掘金</span></li>
+<li>📖 <span class="exturl" data-url="aHR0cHM6Ly9qdWVqaW4uaW0vcG9zdC81YTdkNzE4MzZmYjlhMDYzNDM1ZWNmNTE=">让你的代码更简短，更整洁，更易读的 ES6 小技巧 —— 掘金</span></li>
+<li>📖 <span class="exturl" data-url="aHR0cDovL2Jsb2cuam9iYm9sZS5jb20vMjM2MTcv">Web 前端：11 个让你代码整洁的原则 —— 伯乐在线</span></li>
+<li>📖 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3J5YW5tY2Rlcm1vdHQvY2xlYW4tY29kZS1qYXZhc2NyaXB0">Clean Code concepts adapted for JavaScript —— ryanmcdermott</span></li>
+</ul>
+<p>&lt;br&gt;</p>
+<p><strong><a href="#%E7%9B%AE%E5%BD%95">⬆️ 返回目录</a></strong></p>
+<hr />
+
+      <div class="tags">
+          <a href="/tags/JS/" rel="tag"><i class="ic i-tag"></i> JS</a>
+          <a href="/tags/%E6%A6%82%E5%BF%B5/" rel="tag"><i class="ic i-tag"></i> 概念</a>
+      </div>
+  </div>
+
+   <footer>
+
+    <div class="meta">
+  <span class="item">
+    <span class="icon">
+      <i class="ic i-calendar-check"></i>
+    </span>
+    <span class="text">更新于</span>
+    <time title="修改时间：2024-05-20 09:02:34" itemprop="dateModified" datetime="2024-05-20T09:02:34+08:00">2024-05-20</time>
+  </span>
+  <span id="2023/10/02/33个Javascript概念/" class="item leancloud_visitors" data-flag-title="33个JavaScript概念" title="阅读次数">
+      <span class="icon">
+        <i class="ic i-eye"></i>
+      </span>
+      <span class="text">阅读次数</span>
+      <span class="leancloud-visitors-count"></span>
+      <span class="text">次</span>
+  </span>
+</div>
+
+      
+<div class="reward">
+  <button><i class="ic i-heartbeat"></i> 赞赏</button>
+  <p>请我喝[茶]~(￣▽￣)~*</p>
+  <div id="qr">
+      
+      <div>
+        <img data-src="/images/wechatpay.png" alt="dmq 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div>
+        <img data-src="/images/alipay.png" alt="dmq 支付宝">
+        <p>支付宝</p>
+      </div>
+  </div>
+</div>
+
+      
+
+<div id="copyright">
+<ul>
+  <li class="author">
+    <strong>本文作者： </strong>dmq <i class="ic i-at"><em>@</em></i>杜明清的个人博客
+  </li>
+  <li class="link">
+    <strong>本文链接：</strong>
+    <a href="https://dmqweb.cn/2023/10/02/33%E4%B8%AAJavascript%E6%A6%82%E5%BF%B5/" title="33个JavaScript概念">https://dmqweb.cn/2023/10/02/33个Javascript概念/</a>
+  </li>
+  <li class="license">
+    <strong>版权声明： </strong>本站所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+  </footer>
+
+</article>
+
+  </div>
+  
+
+<div class="post-nav">
+    <div class="item left">
+      
+
+  <a href="/2023/09/02/ArrayBuffer/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;s3.uuu.ovh&#x2F;imgs&#x2F;2024&#x2F;04&#x2F;06&#x2F;936b9e7ccd02d444.jpg" title="ArrayBuffer">
+  <span class="type">上一篇</span>
+  <span class="category"><i class="ic i-flag"></i> JS</span>
+  <h3>ArrayBuffer</h3>
+  </a>
+
+    </div>
+    <div class="item right">
+      
+
+  <a href="/2023/10/09/%E6%B5%8F%E8%A7%88%E5%99%A8%E6%89%A7%E8%A1%8C%E5%8E%9F%E7%90%86/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;s3.uuu.ovh&#x2F;imgs&#x2F;2024&#x2F;04&#x2F;13&#x2F;2376b10e610925e4.jpg" title="浏览器执行原理">
+  <span class="type">下一篇</span>
+  <span class="category"><i class="ic i-flag"></i> 浏览器</span>
+  <h3>浏览器执行原理</h3>
+  </a>
+
+    </div>
+</div>
+
+  
+  <div class="wrap" id="comments"></div>
+
+
+        </div>
+        <div id="sidebar">
+          
+
+<div class="inner">
+
+  <div class="panels">
+    <div class="inner">
+      <div class="contents panel pjax" data-title="文章目录">
+          <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%AE%E5%BD%95"><span class="toc-number">1.</span> <span class="toc-text"> 目录</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E8%B0%83%E7%94%A8%E5%A0%86%E6%A0%88"><span class="toc-number">2.</span> <span class="toc-text"> 1. 调用堆栈</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%87%E7%AB%A0"><span class="toc-number">2.1.</span> <span class="toc-text"> 文章</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%86%E9%A2%91"><span class="toc-number">2.2.</span> <span class="toc-text"> 视频</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E5%8E%9F%E5%A7%8B%E7%B1%BB%E5%9E%8B"><span class="toc-number">3.</span> <span class="toc-text"> 2. 原始类型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%87%E7%AB%A0-2"><span class="toc-number">3.1.</span> <span class="toc-text"> 文章</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%86%E9%A2%91-2"><span class="toc-number">3.2.</span> <span class="toc-text"> 视频</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E5%80%BC%E7%B1%BB%E5%9E%8B%E5%92%8C%E5%BC%95%E7%94%A8%E7%B1%BB%E5%9E%8B"><span class="toc-number">4.</span> <span class="toc-text"> 3. 值类型和引用类型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%87%E7%AB%A0-3"><span class="toc-number">4.1.</span> <span class="toc-text"> 文章</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%86%E9%A2%91-3"><span class="toc-number">4.2.</span> <span class="toc-text"> 视频</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E9%9A%90%E5%BC%8F-%E6%98%BE%E5%BC%8F-%E5%90%8D%E4%B9%89%E5%92%8C%E9%B8%AD%E5%AD%90%E7%B1%BB%E5%9E%8B"><span class="toc-number">5.</span> <span class="toc-text"> 4. 隐式，显式，名义和鸭子类型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%87%E7%AB%A0-4"><span class="toc-number">5.1.</span> <span class="toc-text"> 文章</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%86%E9%A2%91-4"><span class="toc-number">5.2.</span> <span class="toc-text"> 视频</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-vs-typeof-vs-instanceof"><span class="toc-number">6.</span> <span class="toc-text"> 5. &#x3D;&#x3D; vs &#x3D;&#x3D;&#x3D;, typeof vs instanceof</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%87%E7%AB%A0-5"><span class="toc-number">6.1.</span> <span class="toc-text"> 文章</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-this-call-apply-%E5%92%8C-bind"><span class="toc-number">7.</span> <span class="toc-text"> 6. this, call, apply 和 bind</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%87%E7%AB%A0-6"><span class="toc-number">7.1.</span> <span class="toc-text"> 文章</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%86%E9%A2%91-5"><span class="toc-number">7.2.</span> <span class="toc-text"> 视频</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-%E5%87%BD%E6%95%B0%E4%BD%9C%E7%94%A8%E5%9F%9F-%E5%9D%97%E7%BA%A7%E4%BD%9C%E7%94%A8%E5%9F%9F%E5%92%8C%E8%AF%8D%E6%B3%95%E4%BD%9C%E7%94%A8%E5%9F%9F"><span class="toc-number">8.</span> <span class="toc-text"> 7. 函数作用域，块级作用域和词法作用域</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%87%E7%AB%A0-7"><span class="toc-number">8.1.</span> <span class="toc-text"> 文章</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-%E9%97%AD%E5%8C%85"><span class="toc-number">9.</span> <span class="toc-text"> 8. 闭包</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%87%E7%AB%A0-8"><span class="toc-number">9.1.</span> <span class="toc-text"> 文章</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%86%E9%A2%91-6"><span class="toc-number">9.2.</span> <span class="toc-text"> 视频</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-map-reduce-filter-%E7%AD%89%E9%AB%98%E9%98%B6%E5%87%BD%E6%95%B0"><span class="toc-number">10.</span> <span class="toc-text"> 9. map, reduce, filter 等高阶函数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%87%E7%AB%A0-9"><span class="toc-number">10.1.</span> <span class="toc-text"> 文章</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10-%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%92%8C%E8%AF%AD%E5%8F%A5"><span class="toc-number">11.</span> <span class="toc-text"> 10. 表达式和语句</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%87%E7%AB%A0-10"><span class="toc-number">11.1.</span> <span class="toc-text"> 文章</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#11-%E5%8F%98%E9%87%8F%E6%8F%90%E5%8D%87"><span class="toc-number">12.</span> <span class="toc-text"> 11. 变量提升</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%87%E7%AB%A0-11"><span class="toc-number">12.1.</span> <span class="toc-text"> 文章</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#12-promise"><span class="toc-number">13.</span> <span class="toc-text"> 12. Promise</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%87%E7%AB%A0-12"><span class="toc-number">13.1.</span> <span class="toc-text"> 文章</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%86%E9%A2%91-7"><span class="toc-number">13.2.</span> <span class="toc-text"> 视频</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#13-%E7%AB%8B%E5%8D%B3%E6%89%A7%E8%A1%8C%E5%87%BD%E6%95%B0-%E6%A8%A1%E5%9D%97%E5%8C%96-%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4"><span class="toc-number">14.</span> <span class="toc-text"> 13. 立即执行函数，模块化，命名空间</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%87%E7%AB%A0-13"><span class="toc-number">14.1.</span> <span class="toc-text"> 文章</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#14-%E9%80%92%E5%BD%92"><span class="toc-number">15.</span> <span class="toc-text"> 14. 递归</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%87%E7%AB%A0-14"><span class="toc-number">15.1.</span> <span class="toc-text"> 文章</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#15-%E7%AE%97%E6%B3%95"><span class="toc-number">16.</span> <span class="toc-text"> 15. 算法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%87%E7%AB%A0-15"><span class="toc-number">16.1.</span> <span class="toc-text"> 文章</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%86%E9%A2%91-8"><span class="toc-number">16.2.</span> <span class="toc-text"> 视频</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#16-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84"><span class="toc-number">17.</span> <span class="toc-text"> 16. 数据结构</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%87%E7%AB%A0-16"><span class="toc-number">17.1.</span> <span class="toc-text"> 文章</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%86%E9%A2%91-9"><span class="toc-number">17.2.</span> <span class="toc-text"> 视频</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#17-%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97%E5%92%8C%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF"><span class="toc-number">18.</span> <span class="toc-text"> 17. 消息队列和事件循环</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%87%E7%AB%A0-17"><span class="toc-number">18.1.</span> <span class="toc-text"> 文章</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#18-settimeout-setinterval-%E5%92%8C-requestanimationframe"><span class="toc-number">19.</span> <span class="toc-text"> 18. setTimeout, setInterval 和 requestAnimationFrame</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%87%E7%AB%A0-18"><span class="toc-number">19.1.</span> <span class="toc-text"> 文章</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%86%E9%A2%91-10"><span class="toc-number">19.2.</span> <span class="toc-text"> 视频</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#19-%E7%BB%A7%E6%89%BF-%E5%A4%9A%E6%80%81%E5%92%8C%E4%BB%A3%E7%A0%81%E5%A4%8D%E7%94%A8"><span class="toc-number">20.</span> <span class="toc-text"> 19. 继承，多态和代码复用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%87%E7%AB%A0-19"><span class="toc-number">20.1.</span> <span class="toc-text"> 文章</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#20-%E6%8C%89%E4%BD%8D%E6%93%8D%E4%BD%9C%E7%AC%A6-%E7%B1%BB%E6%95%B0%E7%BB%84%E5%AF%B9%E8%B1%A1%E5%92%8C%E7%B1%BB%E5%9E%8B%E5%8C%96%E6%95%B0%E7%BB%84"><span class="toc-number">21.</span> <span class="toc-text"> 20. 按位操作符，类数组对象和类型化数组</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%87%E7%AB%A0-20"><span class="toc-number">21.1.</span> <span class="toc-text"> 文章</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#21-dom-%E6%A0%91%E5%92%8C%E6%B8%B2%E6%9F%93%E8%BF%87%E7%A8%8B"><span class="toc-number">22.</span> <span class="toc-text"> 21. DOM 树和渲染过程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%87%E7%AB%A0-21"><span class="toc-number">22.1.</span> <span class="toc-text"> 文章</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%86%E9%A2%91-11"><span class="toc-number">22.2.</span> <span class="toc-text"> 视频</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#22-new-%E4%B8%8E%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0-instanceof-%E4%B8%8E%E5%AE%9E%E4%BE%8B"><span class="toc-number">23.</span> <span class="toc-text"> 22. new 与构造函数，instanceof 与实例</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%87%E7%AB%A0-22"><span class="toc-number">23.1.</span> <span class="toc-text"> 文章</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%86%E9%A2%91-12"><span class="toc-number">23.2.</span> <span class="toc-text"> 视频</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#23-%E5%8E%9F%E5%9E%8B%E7%BB%A7%E6%89%BF%E4%B8%8E%E5%8E%9F%E5%9E%8B%E9%93%BE"><span class="toc-number">24.</span> <span class="toc-text"> 23. 原型继承与原型链</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%87%E7%AB%A0-23"><span class="toc-number">24.1.</span> <span class="toc-text"> 文章</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%86%E9%A2%91-13"><span class="toc-number">24.2.</span> <span class="toc-text"> 视频</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#24-objectcreate-%E5%92%8C-objectassign"><span class="toc-number">25.</span> <span class="toc-text"> 24. Object.create 和 Object.assign</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%87%E7%AB%A0-24"><span class="toc-number">25.1.</span> <span class="toc-text"> 文章</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#25-%E5%B7%A5%E5%8E%82%E5%87%BD%E6%95%B0%E5%92%8C%E7%B1%BB"><span class="toc-number">26.</span> <span class="toc-text"> 25. 工厂函数和类</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%87%E7%AB%A0-25"><span class="toc-number">26.1.</span> <span class="toc-text"> 文章</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#26-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F"><span class="toc-number">27.</span> <span class="toc-text"> 26. 设计模式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%87%E7%AB%A0-26"><span class="toc-number">27.1.</span> <span class="toc-text"> 文章</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%86%E9%A2%91-14"><span class="toc-number">27.2.</span> <span class="toc-text"> 视频</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#27-memoization"><span class="toc-number">28.</span> <span class="toc-text"> 27. Memoization</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%87%E7%AB%A0-27"><span class="toc-number">28.1.</span> <span class="toc-text"> 文章</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#28-%E7%BA%AF%E5%87%BD%E6%95%B0-%E5%87%BD%E6%95%B0%E5%89%AF%E4%BD%9C%E7%94%A8%E5%92%8C%E7%8A%B6%E6%80%81%E5%8F%98%E5%8C%96"><span class="toc-number">29.</span> <span class="toc-text"> 28. 纯函数，函数副作用和状态变化</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%87%E7%AB%A0-28"><span class="toc-number">29.1.</span> <span class="toc-text"> 文章</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#29-%E8%80%97%E6%80%A7%E8%83%BD%E6%93%8D%E4%BD%9C%E5%92%8C%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6"><span class="toc-number">30.</span> <span class="toc-text"> 29. 耗性能操作和时间复杂度</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%87%E7%AB%A0-29"><span class="toc-number">30.1.</span> <span class="toc-text"> 文章</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#30-javascript-%E5%BC%95%E6%93%8E"><span class="toc-number">31.</span> <span class="toc-text"> 30. JavaScript 引擎</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%87%E7%AB%A0-30"><span class="toc-number">31.1.</span> <span class="toc-text"> 文章</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#31-%E4%BA%8C%E8%BF%9B%E5%88%B6-%E5%8D%81%E5%85%AD%E8%BF%9B%E5%88%B6-%E5%8D%81%E8%BF%9B%E5%88%B6-%E7%A7%91%E5%AD%A6%E8%AE%B0%E6%95%B0%E6%B3%95"><span class="toc-number">32.</span> <span class="toc-text"> 31. 二进制，十六进制，十进制，科学记数法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%87%E7%AB%A0-31"><span class="toc-number">32.1.</span> <span class="toc-text"> 文章</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%86%E9%A2%91-15"><span class="toc-number">32.2.</span> <span class="toc-text"> 视频</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#32-%E5%81%8F%E5%87%BD%E6%95%B0-%E6%9F%AF%E9%87%8C%E5%8C%96-compose-%E5%92%8C-pipe"><span class="toc-number">33.</span> <span class="toc-text"> 32. 偏函数，柯里化，Compose 和 Pipe</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%87%E7%AB%A0-32"><span class="toc-number">33.1.</span> <span class="toc-text"> 文章</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#33-%E4%BB%A3%E7%A0%81%E6%95%B4%E6%B4%81%E4%B9%8B%E9%81%93"><span class="toc-number">34.</span> <span class="toc-text"> 33. 代码整洁之道</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%87%E7%AB%A0-33"><span class="toc-number">34.1.</span> <span class="toc-text"> 文章</span></a></li></ol></li></ol>
+      </div>
+      <div class="related panel pjax" data-title="系列文章">
+        <ul>
+          <li><a href="/2023/07/02/forEach/" rel="bookmark" title="forEach">forEach</a></li><li><a href="/2023/09/02/ArrayBuffer/" rel="bookmark" title="ArrayBuffer">ArrayBuffer</a></li><li class="active"><a href="/2023/10/02/33%E4%B8%AAJavascript%E6%A6%82%E5%BF%B5/" rel="bookmark" title="33个JavaScript概念">33个JavaScript概念</a></li><li><a href="/2023/12/02/%E9%9A%90%E5%BC%8F%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2/" rel="bookmark" title="JS类型转换">JS类型转换</a></li><li><a href="/2023/12/07/Blob/" rel="bookmark" title="Blob">Blob</a></li><li><a href="/2023/12/08/DataView/" rel="bookmark" title="DataView">DataView</a></li><li><a href="/2023/12/08/NaN/" rel="bookmark" title="NaN历史遗留问题">NaN历史遗留问题</a></li><li><a href="/2023/12/11/typedArray/" rel="bookmark" title="JS中类型化数组typedArray">JS中类型化数组typedArray</a></li><li><a href="/2023/12/21/%E6%9C%80%E5%A4%A7%E5%AE%89%E5%85%A8%E6%95%B0/" rel="bookmark" title="最大安全数与最大安全整数">最大安全数与最大安全整数</a></li><li><a href="/2024/01/11/webworker/" rel="bookmark" title="webWorker">webWorker</a></li><li><a href="/2024/02/02/serviceWorker/" rel="bookmark" title="serviceWorker">serviceWorker</a></li><li><a href="/2024/05/08/%E5%87%BD%E6%95%B0%E9%87%8D%E8%BD%BD/" rel="bookmark" title="函数重载">函数重载</a></li>
+        </ul>
+      </div>
+      <div class="overview panel" data-title="站点概览">
+        <div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="image" itemprop="image" alt="dmq"
+      data-src="/images/avatar.jpg">
+  <p class="name" itemprop="name">dmq</p>
+  <div class="description" itemprop="description"></div>
+</div>
+
+<nav class="state">
+    <div class="item posts">
+      <a href="/archives/">
+        <span class="count">74</span>
+        <span class="name">文章</span>
+      </a>
+    </div>
+    <div class="item categories">
+      <a href="/categories/">
+        <span class="count">56</span>
+        <span class="name">分类</span>
+      </a>
+    </div>
+    <div class="item tags">
+      <a href="/tags/">
+        <span class="count">96</span>
+        <span class="name">标签</span>
+      </a>
+    </div>
+</nav>
+
+<div class="social">
+      <span class="exturl item github" data-url="aHR0cHM6Ly9naXRodWIuY29tL2RtcTA/dGFiPXJlcG9zaXRvcmllcw==" title="https:&#x2F;&#x2F;github.com&#x2F;dmq0?tab&#x3D;repositories"><i class="ic i-github"></i></span>
+      <span class="exturl item npm" data-url="aHR0cHM6Ly93d3cubnBtanMuY29tL35kbXEwMDA=" title="https:&#x2F;&#x2F;www.npmjs.com&#x2F;~dmq000"><i class="ic i-file"></i></span>
+      <span class="exturl item zhihu" data-url="aHR0cHM6Ly93d3cuemhpaHUuY29tL3Blb3BsZS9kLTg4LTYxLTgz" title="https:&#x2F;&#x2F;www.zhihu.com&#x2F;people&#x2F;d-88-61-83"><i class="ic i-zhihu"></i></span>
+      <span class="exturl item music" data-url="aHR0cHM6Ly9tdXNpYy4xNjMuY29tLyMvdXNlci9ob21lP2lkPTgwMjc4OTk0OTE=" title="https:&#x2F;&#x2F;music.163.com&#x2F;#&#x2F;user&#x2F;home?id&#x3D;8027899491"><i class="ic i-cloud-music"></i></span>
+      <span class="exturl item weibo" data-url="aHR0cHM6Ly93ZWliby5jb20vdS83NjI1OTAxNzE3" title="https:&#x2F;&#x2F;weibo.com&#x2F;u&#x2F;7625901717"><i class="ic i-weibo"></i></span>
+      <span class="exturl item email" data-url="bWFpbHRvOjMyNjc4MDc1MTRAcXEuY29t" title="mailto:3267807514@qq.com"><i class="ic i-envelope"></i></span>
+</div>
+
+<ul class="menu">
+  
+    
+  <li class="item">
+    <a href="/" rel="section"><i class="ic i-home"></i>首页</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/about/" rel="section"><i class="ic i-user"></i>介绍</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/archives/" rel="section"><i class="ic i-list-alt"></i>归档</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/categories/" rel="section"><i class="ic i-th"></i>分类</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/tags/" rel="section"><i class="ic i-tags"></i>标签</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/friends/" rel="section"><i class="ic i-heart"></i>友链</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/links/" rel="section"><i class="ic i-magic"></i>工具</a>
+  </li>
+
+
+</ul>
+
+      </div>
+    </div>
+  </div>
+
+  <ul id="quick">
+    <li class="prev pjax">
+        <a href="/2023/09/02/ArrayBuffer/" rel="prev" title="上一篇"><i class="ic i-chevron-left"></i></a>
+    </li>
+    <li class="up"><i class="ic i-arrow-up"></i></li>
+    <li class="down"><i class="ic i-arrow-down"></i></li>
+    <li class="next pjax">
+        <a href="/2023/10/09/%E6%B5%8F%E8%A7%88%E5%99%A8%E6%89%A7%E8%A1%8C%E5%8E%9F%E7%90%86/" rel="next" title="下一篇"><i class="ic i-chevron-right"></i></a>
+    </li>
+    <li class="percent"></li>
+  </ul>
+</div>
+
+
+        </div>
+        <div class="dimmer"></div>
+      </div>
+    </main>
+    <footer id="footer">
+      <div class="inner">
+        <div class="widgets">
+          
+<div class="rpost pjax">
+  <h2>随机文章</h2>
+  <ul>
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Node-js/" title="分类于 Node.js">Node.js</a>
+</div>
+
+    <span><a href="/2024/05/24/node/" title="Node学习笔记">Node学习笔记</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/react/" title="分类于 react">react</a>
+</div>
+
+    <span><a href="/2023/12/02/react/" title="react笔记">react笔记</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E9%A1%B9%E7%9B%AE%E8%B4%A8%E9%87%8F%E6%A3%80%E6%B5%8B/" title="分类于 项目质量检测">项目质量检测</a>
+</div>
+
+    <span><a href="/2024/01/02/%E9%A1%B9%E7%9B%AE%E8%B4%A8%E9%87%8F%E6%A3%80%E6%B5%8B/" title="项目质量检测">项目质量检测</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/JS/" title="分类于 JS">JS</a>
+</div>
+
+    <span><a href="/2023/12/08/DataView/" title="DataView">DataView</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Vue/" title="分类于 Vue">Vue</a>
+</div>
+
+    <span><a href="/2023/01/12/Vue%E6%9D%82%E8%AE%B0/" title="Vue使用笔记">Vue使用笔记</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/vue-router%E5%8E%9F%E7%90%86/" title="分类于 vue-router原理">vue-router原理</a>
+</div>
+
+    <span><a href="/2024/04/12/vue-router/" title="vue-router">vue-router</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/eslint/" title="分类于 eslint">eslint</a>
+</div>
+
+    <span><a href="/2024/05/17/eslint%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90/" title="eslint源码">eslint源码</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E6%9D%82%E8%AE%B0/" title="分类于 杂记">杂记</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/%E6%9D%82%E8%AE%B0/%E5%B7%A5%E5%85%B7%E5%87%BD%E6%95%B0/" title="分类于 工具函数">工具函数</a>
+</div>
+
+    <span><a href="/2023/06/02/learn/" title="杂记与工具库函数">杂记与工具库函数</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/typeScript/" title="分类于 typeScript">typeScript</a>
+</div>
+
+    <span><a href="/2023/12/11/TS/" title="typeScript笔记">typeScript笔记</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/JS/" title="分类于 JS">JS</a>
+</div>
+
+    <span><a href="/2024/01/11/webworker/" title="webWorker">webWorker</a></span>
+  </li>
+
+  </ul>
+</div>
+<div>
+  <h2>最新评论</h2>
+  <ul class="leancloud-recent-comment"></ul>
+</div>
+
+        </div>
+        <div class="status">
+  <div class="copyright">
+    
+    &copy; 2010 – 
+    <span itemprop="copyrightYear">2024</span>
+    <span class="with-love">
+      <i class="ic i-sakura rotate"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">dmq @ Web blog</span>
+  </div>
+  <div class="powered-by">
+    基于 <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & Theme.<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Shoka</span>
+  </div>
+</div>
+
+      </div>
+    </footer>
+  </div>
+<script data-config type="text/javascript">
+  var LOCAL = {
+    path: '2023/10/02/33个Javascript概念/',
+    favicon: {
+      show: "科技引领未来",
+      hide: "欢迎与我交流"
+    },
+    search : {
+      placeholder: "文章搜索",
+      empty: "关于 「 ${query} 」，什么也没搜到",
+      stats: "${time} ms 内找到 ${hits} 条结果"
+    },
+    valine: true,fancybox: true,
+    copyright: '复制成功，转载请遵守 <i class="ic i-creative-commons"></i>BY-NC-SA 协议。',
+    ignores : [
+      function(uri) {
+        return uri.includes('#');
+      },
+      function(uri) {
+        return new RegExp(LOCAL.path+"$").test(uri);
+      }
+    ]
+  };
+</script>
+
+<script src="https://cdn.polyfill.io/v2/polyfill.js"></script>
+
+<script src="//gcore.jsdelivr.net/combine/npm/pace-js@1.0.2/pace.min.js,npm/pjax@0.2.8/pjax.min.js,npm/whatwg-fetch@3.4.0/dist/fetch.umd.min.js,npm/animejs@3.2.0/lib/anime.min.js,npm/algoliasearch@4/dist/algoliasearch-lite.umd.js,npm/instantsearch.js@4/dist/instantsearch.production.min.js,npm/lozad@1/dist/lozad.min.js,npm/quicklink@2/dist/quicklink.umd.js"></script>
+
+<script src="/js/app.js?v=0.2.5"></script>
+
+
+  <script data-pjax>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?9ba187659e850a6910681214f0faa16b";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+</body>
+</html>
