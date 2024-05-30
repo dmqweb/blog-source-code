@@ -2064,6 +2064,9 @@ main >.inner {
   padding-top: 3.625rem;
   height: 100vh;
 }
+#sidebar.affix .panels .toc-number {
+  display: none !important;
+}
 #sidebar >.inner {
   position: relative;
   width: 15rem;
@@ -2093,6 +2096,9 @@ main >.inner {
 .panels .panel {
   display: none;
   padding: 0.875rem 0.9375rem 2rem;
+}
+.toc-number {
+  display: none !important;
 }
 .dimmer {
   display: none;
