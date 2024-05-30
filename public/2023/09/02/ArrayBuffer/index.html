@@ -102,12 +102,12 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
       </div>
       <div id="imgs" class="pjax">
         <ul>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/06/d8aa12b30683676e.jpg"></li>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/13/9404a557b00200f4.jpg"></li>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/07/be4bd9184664725b.webp"></li>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/07/6e43985af4997748.jpg"></li>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/28/979e0f45da318aa7.webp"></li>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/07/2600bb35f2cdf6cf.jpg"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/04/25ef11a84cfafbef.jpg"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/04/3149a0cc49823a9c.jpg"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/03/29/b0675aed15ca0334.jpg"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/13/ba4d76fc0767aeef.jpg"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/28/dc01f095118914ac.webp"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/25/0aebf75866635811.jpg"></li>
         </ul>
       </div>
     </header>
@@ -153,25 +153,12 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
   <div class="body md" itemprop="articleBody">
     
 
-    <h1 id="ArrayBuffer"><a href="#ArrayBuffer" class="headerlink" title="ArrayBuffer:"></a>ArrayBuffer:</h1><p>ArrayBuffer 是 JavaScript 中用于表示通用的固定长度的二进制数据缓冲区的对象。它可以在内存中分配一块连续的内存空间，用于存储二进制数据。</p>
+    <h1 id="arraybuffer"><a class="anchor" href="#arraybuffer">#</a> ArrayBuffer:</h1>
+<p>ArrayBuffer 是 JavaScript 中用于表示通用的固定长度的二进制数据缓冲区的对象。它可以在内存中分配一块连续的内存空间，用于存储二进制数据。</p>
 <p>ArrayBuffer 对象本身只是一个占用了一定字节数的内存块，它没有提供直接的方法来读取或写入数据。为了操作 ArrayBuffer 中的数据，我们需要使用不同的视图（如 TypedArray 或 DataView）来读取、写入和操作底层的二进制数据。</p>
 <p>在内存中，ArrayBuffer 对象以连续的字节序列表示。这意味着存储在 ArrayBuffer 中的数据是紧密排列的，没有额外的空隙或填充。每个字节都有一个唯一的地址，我们可以通过偏移量来访问和操作特定位置的字节。</p>
 <p>以下是一个示例，展示了如何创建和使用 ArrayBuffer：</p>
-<pre><code class="js">javascriptCopy Code// 创建一个包含 16 字节的 ArrayBuffer
-const buffer = new ArrayBuffer(16);
-
-// 使用一个 Int32Array 视图来读取和写入数据
-const int32Array = new Int32Array(buffer);
-
-// 写入数据
-int32Array[0] = 42;
-int32Array[1] = 99;
-
-// 读取数据
-console.log(int32Array[0]); // 输出 42
-console.log(int32Array[1]); // 输出 99
-</code></pre>
-<p>在上述示例中，我们创建了一个长度为 16 字节的 ArrayBuffer。然后，我们使用 Int32Array 视图来操作这个 ArrayBuffer，将数据写入到数组中，并通过下标直接访问和读取数据。在内存中，这些数据被紧密排列在连续的字节中。</p>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre>javascriptCopy Code<span class="token comment">// 创建一个包含 16 字节的 ArrayBuffer</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token keyword">const</span> buffer <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayBuffer</span><span class="token punctuation">(</span><span class="token number">16</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="3"></td><td><pre></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token comment">// 使用一个 Int32Array 视图来读取和写入数据</span></pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token keyword">const</span> int32Array <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Int32Array</span><span class="token punctuation">(</span>buffer<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="6"></td><td><pre></pre></td></tr><tr><td data-num="7"></td><td><pre><span class="token comment">// 写入数据</span></pre></td></tr><tr><td data-num="8"></td><td><pre>int32Array<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">42</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="9"></td><td><pre>int32Array<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">99</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="10"></td><td><pre></pre></td></tr><tr><td data-num="11"></td><td><pre><span class="token comment">// 读取数据</span></pre></td></tr><tr><td data-num="12"></td><td><pre>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>int32Array<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 输出 42</span></pre></td></tr><tr><td data-num="13"></td><td><pre>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>int32Array<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 输出 99</span></pre></td></tr></table></figure><p>在上述示例中，我们创建了一个长度为 16 字节的 ArrayBuffer。然后，我们使用 Int32Array 视图来操作这个 ArrayBuffer，将数据写入到数组中，并通过下标直接访问和读取数据。在内存中，这些数据被紧密排列在连续的字节中。</p>
 <p>需要注意的是，ArrayBuffer 的长度是固定的，一旦分配了特定大小的内存空间，就无法改变它的大小。如果我们需要更改数据的长度，我们需要创建一个新的 ArrayBuffer，并将旧数据拷贝到新的 ArrayBuffer 中。</p>
 <p>总之，ArrayBuffer 提供了一种在 JavaScript 中操作底层二进制数据的机制，它在内存中以连续的字节序列表示，可以用于存储和操作各种类型的二进制数据。</p>
 
@@ -247,7 +234,7 @@ console.log(int32Array[1]); // 输出 99
     <div class="item left">
       
 
-  <a href="/2023/09/02/vue3%E6%BA%90%E7%A0%81%E4%BD%8D%E8%BF%90%E7%AE%97/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;s3.uuu.ovh&#x2F;imgs&#x2F;2024&#x2F;04&#x2F;12&#x2F;b04c50f26fdc9c19.jpg" title="vue3源码中的位运算">
+  <a href="/2023/09/02/vue3%E6%BA%90%E7%A0%81%E4%BD%8D%E8%BF%90%E7%AE%97/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;s3.uuu.ovh&#x2F;imgs&#x2F;2024&#x2F;04&#x2F;07&#x2F;517ddd40a038fa1b.jpg" title="vue3源码中的位运算">
   <span class="type">上一篇</span>
   <span class="category"><i class="ic i-flag"></i> vue</span>
   <h3>vue3源码中的位运算</h3>
@@ -257,7 +244,7 @@ console.log(int32Array[1]); // 输出 99
     <div class="item right">
       
 
-  <a href="/2023/10/02/33%E4%B8%AAJavascript%E6%A6%82%E5%BF%B5/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;s3.uuu.ovh&#x2F;imgs&#x2F;2024&#x2F;04&#x2F;25&#x2F;1276fcec5eb7990e.webp" title="33个JavaScript概念">
+  <a href="/2023/10/02/33%E4%B8%AAJavascript%E6%A6%82%E5%BF%B5/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;s3.uuu.ovh&#x2F;imgs&#x2F;2024&#x2F;04&#x2F;15&#x2F;6cedcb364082ed12.webp" title="33个JavaScript概念">
   <span class="type">下一篇</span>
   <span class="category"><i class="ic i-flag"></i> JS</span>
   <h3>33个JavaScript概念</h3>
@@ -279,7 +266,7 @@ console.log(int32Array[1]); // 输出 99
   <div class="panels">
     <div class="inner">
       <div class="contents panel pjax" data-title="文章目录">
-          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#ArrayBuffer"><span class="toc-number">1.</span> <span class="toc-text">ArrayBuffer:</span></a></li></ol>
+          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#arraybuffer"><span class="toc-number">1.</span> <span class="toc-text"> ArrayBuffer:</span></a></li></ol>
       </div>
       <div class="related panel pjax" data-title="系列文章">
         <ul>
@@ -397,50 +384,40 @@ console.log(int32Array[1]); // 输出 99
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/JS/" title="分类于 JS">JS</a>
+<a href="/categories/vue/" title="分类于 vue">vue</a>
 </div>
 
-    <span><a href="/2023/12/11/typedArray/" title="JS中类型化数组typedArray">JS中类型化数组typedArray</a></span>
+    <span><a href="/2023/09/02/vue3%E6%BA%90%E7%A0%81%E4%BD%8D%E8%BF%90%E7%AE%97/" title="vue3源码中的位运算">vue3源码中的位运算</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/Node-js/" title="分类于 Node.js">Node.js</a>
+<a href="/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/" title="分类于 面试题">面试题</a>
 </div>
 
-    <span><a href="/2024/05/24/node/" title="Node学习笔记">Node学习笔记</a></span>
+    <span><a href="/2024/04/30/%E6%B7%B1%E6%8B%B7%E8%B4%9D/" title="深拷贝">深拷贝</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/%E7%AE%97%E6%B3%95/" title="分类于 算法">算法</a>
+<a href="/categories/vue-router%E5%8E%9F%E7%90%86/" title="分类于 vue-router原理">vue-router原理</a>
 </div>
 
-    <span><a href="/2023/12/02/%E7%AE%97%E6%B3%95/" title="算法与数据结构">算法与数据结构</a></span>
+    <span><a href="/2024/04/12/vue-router/" title="vue-router">vue-router</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" title="分类于 正则表达式">正则表达式</a>
+<a href="/categories/vue/" title="分类于 vue">vue</a>
 </div>
 
-    <span><a href="/2023/02/12/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" title="正则表达式">正则表达式</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/JS/" title="分类于 JS">JS</a>
-</div>
-
-    <span><a href="/2023/12/02/%E9%9A%90%E5%BC%8F%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2/" title="JS类型转换">JS类型转换</a></span>
+    <span><a href="/2023/11/02/vue%E5%8E%9F%E7%90%86/" title="vue原理">vue原理</a></span>
   </li>
 
       
@@ -457,10 +434,10 @@ console.log(int32Array[1]); // 输出 99
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/%E5%AE%B9%E5%99%A8%E5%8C%96%E8%BF%90%E7%BB%B4%E6%93%8D%E4%BD%9C/" title="分类于 容器化运维操作">容器化运维操作</a>
+<a href="/categories/HTTP/" title="分类于 HTTP">HTTP</a>
 </div>
 
-    <span><a href="/2024/02/02/%E5%AE%B9%E5%99%A8%E5%8C%96%E8%BF%90%E7%BB%B4%E6%93%8D%E4%BD%9C/" title="容器化运维操作">容器化运维操作</a></span>
+    <span><a href="/2023/05/02/HTTP/" title="HTTP">HTTP</a></span>
   </li>
 
       
@@ -470,27 +447,37 @@ console.log(int32Array[1]); // 输出 99
 <a href="/categories/JS/" title="分类于 JS">JS</a>
 </div>
 
-    <span><a href="/2024/05/08/%E5%87%BD%E6%95%B0%E9%87%8D%E8%BD%BD/" title="函数重载">函数重载</a></span>
+    <span><a href="/2023/12/02/%E9%9A%90%E5%BC%8F%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2/" title="JS类型转换">JS类型转换</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/react/" title="分类于 react">react</a>
+<a href="/categories/%E9%A1%B9%E7%9B%AE%E8%B4%A8%E9%87%8F%E6%A3%80%E6%B5%8B/" title="分类于 项目质量检测">项目质量检测</a>
 </div>
 
-    <span><a href="/2023/12/02/react/" title="react笔记">react笔记</a></span>
+    <span><a href="/2024/01/02/%E9%A1%B9%E7%9B%AE%E8%B4%A8%E9%87%8F%E6%A3%80%E6%B5%8B/" title="项目质量检测">项目质量检测</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/jQuery/" title="分类于 jQuery">jQuery</a>
+<a href="/categories/v8%E5%BC%95%E6%93%8E%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/" title="分类于 v8引擎编译原理">v8引擎编译原理</a>
 </div>
 
-    <span><a href="/2023/01/02/jQuery%E6%A1%86%E6%9E%B6%E5%BA%94%E7%94%A8/" title="jQuery">jQuery</a></span>
+    <span><a href="/2024/05/21/v8%E5%BC%95%E6%93%8E%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/" title="v8引擎编译原理">v8引擎编译原理</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/JS/" title="分类于 JS">JS</a>
+</div>
+
+    <span><a href="/2023/12/08/DataView/" title="DataView">DataView</a></span>
   </li>
 
   </ul>

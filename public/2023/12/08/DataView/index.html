@@ -102,12 +102,12 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
       </div>
       <div id="imgs" class="pjax">
         <ul>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/06/d8aa12b30683676e.jpg"></li>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/25/1276fcec5eb7990e.webp"></li>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/06/63e9f1e7097ba6fb.jpg"></li>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/15/64f47485ad1e6bed.jpg"></li>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/06/603b3532eacee81b.webp"></li>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/28/6b39a7fcfcafff7b.webp"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/28/9363f420a16ea998.webp"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/28/a34792f58e340f69.webp"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/03/29/5c162f03529c2f38.jpg"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/25/d919179c20f6fc96.jpg"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/28/dc01f095118914ac.webp"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/28/91b1bdcfda8d22da.webp"></li>
         </ul>
       </div>
     </header>
@@ -153,24 +153,11 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
   <div class="body md" itemprop="articleBody">
     
 
-    <h1 id="DataView视图："><a href="#DataView视图：" class="headerlink" title="DataView视图："></a>DataView视图：</h1><p>DataView 是 JavaScript 中的一个类型化数组视图，用于以不同的字节序（如大端序或小端序）和不同的数据类型（如整数、浮点数等）来读取和写入 ArrayBuffer 中的二进制数据。与 TypedArray 不同，DataView 可以指定任意的字节偏移量和长度，可以更加灵活地操作二进制数据。</p>
+    <h1 id="dataview视图"><a class="anchor" href="#dataview视图">#</a> DataView 视图：</h1>
+<p>DataView 是 JavaScript 中的一个类型化数组视图，用于以不同的字节序（如大端序或小端序）和不同的数据类型（如整数、浮点数等）来读取和写入 ArrayBuffer 中的二进制数据。与 TypedArray 不同，DataView 可以指定任意的字节偏移量和长度，可以更加灵活地操作二进制数据。</p>
 <p>以下是一个使用 DataView 读取 ArrayBuffer 中的二进制数据的示例：</p>
-<pre><code class="js">javascriptCopy Code// 创建一个包含 8 字节的 ArrayBuffer
-const buffer = new ArrayBuffer(8);
-
-// 使用一个 DataView 视图来读取和写入数据
-const dataView = new DataView(buffer);
-
-// 写入数据
-dataView.setInt16(0, 42); // 在第 1 和第 2 个字节中写入 42
-dataView.setInt32(2, -100); // 在第 3 到第 6 个字节中写入 -100
-
-// 读取数据
-console.log(dataView.getInt16(0)); // 输出 42
-console.log(dataView.getInt32(2)); // 输出 -100
-</code></pre>
-<p>在上述示例中，我们创建了一个长度为 8 字节的 ArrayBuffer。然后，我们使用一个 DataView 视图来操作这个 ArrayBuffer，分别在前两个字节和后四个字节中写入两个不同的数据，然后通过 DataView 的方法来读取这些数据。</p>
-<p>需要注意的是，DataView 的方法名都以数据类型名称开头，并以字节偏移量作为第一个参数。例如，setInt16(offset, value) 方法将一个 16 位整数值写入到指定偏移量处，而 getInt32(offset) 方法则从指定偏移量处读取一个 32 位整数值。这些方法还可以接受一个可选的第二个参数，用于指定字节序，以帮助正确地解释二进制数据。</p>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre>javascriptCopy Code<span class="token comment">// 创建一个包含 8 字节的 ArrayBuffer</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token keyword">const</span> buffer <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayBuffer</span><span class="token punctuation">(</span><span class="token number">8</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="3"></td><td><pre></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token comment">// 使用一个 DataView 视图来读取和写入数据</span></pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token keyword">const</span> dataView <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">DataView</span><span class="token punctuation">(</span>buffer<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="6"></td><td><pre></pre></td></tr><tr><td data-num="7"></td><td><pre><span class="token comment">// 写入数据</span></pre></td></tr><tr><td data-num="8"></td><td><pre>dataView<span class="token punctuation">.</span><span class="token function">setInt16</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">42</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 在第 1 和第 2 个字节中写入 42</span></pre></td></tr><tr><td data-num="9"></td><td><pre>dataView<span class="token punctuation">.</span><span class="token function">setInt32</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 在第 3 到第 6 个字节中写入 -100</span></pre></td></tr><tr><td data-num="10"></td><td><pre></pre></td></tr><tr><td data-num="11"></td><td><pre><span class="token comment">// 读取数据</span></pre></td></tr><tr><td data-num="12"></td><td><pre>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>dataView<span class="token punctuation">.</span><span class="token function">getInt16</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 输出 42</span></pre></td></tr><tr><td data-num="13"></td><td><pre>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>dataView<span class="token punctuation">.</span><span class="token function">getInt32</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 输出 -100</span></pre></td></tr></table></figure><p>在上述示例中，我们创建了一个长度为 8 字节的 ArrayBuffer。然后，我们使用一个 DataView 视图来操作这个 ArrayBuffer，分别在前两个字节和后四个字节中写入两个不同的数据，然后通过 DataView 的方法来读取这些数据。</p>
+<p>需要注意的是，DataView 的方法名都以数据类型名称开头，并以字节偏移量作为第一个参数。例如，setInt16 (offset, value) 方法将一个 16 位整数值写入到指定偏移量处，而 getInt32 (offset) 方法则从指定偏移量处读取一个 32 位整数值。这些方法还可以接受一个可选的第二个参数，用于指定字节序，以帮助正确地解释二进制数据。</p>
 <p>总之，DataView 提供了一种灵活和可定制的方式来读取和写入 ArrayBuffer 中的二进制数据，可以指定不同的字节序和数据类型，并支持任意偏移量和长度。</p>
 
       <div class="tags">
@@ -245,7 +232,7 @@ console.log(dataView.getInt32(2)); // 输出 -100
     <div class="item left">
       
 
-  <a href="/2023/12/08/NaN/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;s3.uuu.ovh&#x2F;imgs&#x2F;2024&#x2F;04&#x2F;05&#x2F;05d9a07e0d190274.webp" title="NaN历史遗留问题">
+  <a href="/2023/12/08/NaN/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;s3.uuu.ovh&#x2F;imgs&#x2F;2024&#x2F;04&#x2F;12&#x2F;b04c50f26fdc9c19.jpg" title="NaN历史遗留问题">
   <span class="type">上一篇</span>
   <span class="category"><i class="ic i-flag"></i> JS</span>
   <h3>NaN历史遗留问题</h3>
@@ -255,7 +242,7 @@ console.log(dataView.getInt32(2)); // 输出 -100
     <div class="item right">
       
 
-  <a href="/2023/12/11/typedArray/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;s3.uuu.ovh&#x2F;imgs&#x2F;2024&#x2F;04&#x2F;15&#x2F;effaa43770a5e6bc.jpg" title="JS中类型化数组typedArray">
+  <a href="/2023/12/11/typedArray/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;s3.uuu.ovh&#x2F;imgs&#x2F;2024&#x2F;04&#x2F;06&#x2F;a2c97e7bd0c6ecd6.webp" title="JS中类型化数组typedArray">
   <span class="type">下一篇</span>
   <span class="category"><i class="ic i-flag"></i> JS</span>
   <h3>JS中类型化数组typedArray</h3>
@@ -277,7 +264,7 @@ console.log(dataView.getInt32(2)); // 输出 -100
   <div class="panels">
     <div class="inner">
       <div class="contents panel pjax" data-title="文章目录">
-          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#DataView%E8%A7%86%E5%9B%BE%EF%BC%9A"><span class="toc-number">1.</span> <span class="toc-text">DataView视图：</span></a></li></ol>
+          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#dataview%E8%A7%86%E5%9B%BE"><span class="toc-number">1.</span> <span class="toc-text"> DataView 视图：</span></a></li></ol>
       </div>
       <div class="related panel pjax" data-title="系列文章">
         <ul>
@@ -405,20 +392,30 @@ console.log(dataView.getInt32(2)); // 输出 -100
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/%E4%B8%89%E6%96%B9%E5%BA%93/" title="分类于 三方库">三方库</a>
+<a href="/categories/OSI%E4%B8%83%E5%B1%82%E7%BD%91%E7%BB%9C%E6%A8%A1%E5%9E%8B/" title="分类于 OSI七层网络模型">OSI七层网络模型</a>
 </div>
 
-    <span><a href="/2024/04/16/%E4%B8%89%E6%96%B9%E5%8C%85/" title="三方库">三方库</a></span>
+    <span><a href="/2024/05/27/OSI%E4%B8%83%E5%B1%82%E7%BD%91%E7%BB%9C%E6%A8%A1%E5%9E%8B/" title="OSI七层网络模型">OSI七层网络模型</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/webpack/" title="分类于 webpack">webpack</a>
+<a href="/categories/%E5%BE%AE%E5%89%8D%E7%AB%AF/" title="分类于 微前端">微前端</a>
 </div>
 
-    <span><a href="/2023/10/21/webpack/" title="webpack笔记">webpack笔记</a></span>
+    <span><a href="/2024/05/24/%E5%BE%AE%E5%89%8D%E7%AB%AF/" title="微前端">微前端</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E4%B8%9A%E5%8A%A1%E5%A4%84%E7%90%86/" title="分类于 业务处理">业务处理</a>
+</div>
+
+    <span><a href="/2024/03/29/%E6%9C%AC%E5%9C%B0%E9%A2%84%E8%A7%88%E5%9B%BE%E7%89%87/" title="本地预览图片">本地预览图片</a></span>
   </li>
 
       
@@ -428,27 +425,37 @@ console.log(dataView.getInt32(2)); // 输出 -100
 <a href="/categories/JS/" title="分类于 JS">JS</a>
 </div>
 
-    <span><a href="/2023/12/08/NaN/" title="NaN历史遗留问题">NaN历史遗留问题</a></span>
+    <span><a href="/2023/12/11/typedArray/" title="JS中类型化数组typedArray">JS中类型化数组typedArray</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/ajax/" title="分类于 ajax">ajax</a>
+<a href="/categories/three-js/" title="分类于 three.js">three.js</a>
 </div>
 
-    <span><a href="/2023/01/08/ajax/" title="ajax">ajax</a></span>
+    <span><a href="/2023/10/24/ThreeJS/" title="three.js">three.js</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/esbuild/" title="分类于 esbuild">esbuild</a>
+<a href="/categories/JS/" title="分类于 JS">JS</a>
 </div>
 
-    <span><a href="/2024/05/17/esbuild/" title="esbuild">esbuild</a></span>
+    <span><a href="/2023/12/21/%E6%9C%80%E5%A4%A7%E5%AE%89%E5%85%A8%E6%95%B0/" title="最大安全数与最大安全整数">最大安全数与最大安全整数</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/JS/" title="分类于 JS">JS</a>
+</div>
+
+    <span><a href="/2024/02/02/serviceWorker/" title="serviceWorker">serviceWorker</a></span>
   </li>
 
       
@@ -465,30 +472,10 @@ console.log(dataView.getInt32(2)); // 输出 -100
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/JS/" title="分类于 JS">JS</a>
+<a href="/categories/%E6%9D%82%E8%AE%B0/" title="分类于 杂记">杂记</a>
 </div>
 
-    <span><a href="/2024/05/08/%E5%87%BD%E6%95%B0%E9%87%8D%E8%BD%BD/" title="函数重载">函数重载</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/%E6%A1%8C%E9%9D%A2%E7%AB%AF%E5%BC%80%E5%8F%91/" title="分类于 桌面端开发">桌面端开发</a>
-</div>
-
-    <span><a href="/2024/05/21/%E6%A1%8C%E9%9D%A2%E7%AB%AF%E5%BC%80%E5%8F%91/" title="桌面端开发">桌面端开发</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/vue/" title="分类于 vue">vue</a>
-</div>
-
-    <span><a href="/2023/11/02/vue%E5%8E%9F%E7%90%86/" title="vue原理">vue原理</a></span>
+    <span><a href="/2023/01/01/%E6%9D%82%E8%AE%B0/" title="杂记">杂记</a></span>
   </li>
 
   </ul>

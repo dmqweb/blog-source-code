@@ -102,12 +102,12 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
       </div>
       <div id="imgs" class="pjax">
         <ul>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/04/61e9f78d997bc7c9.webp"></li>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/25/0edddbac6c1e1908.webp"></li>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/13/c95fa1dc9a2ef7b0.jpg"></li>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/25/1e63bc89310bfa29.jpg"></li>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/04/eff89867286d822f.webp"></li>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/03/29/a93636ae09845d36.jpg"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/25/1b093314ebaab948.jpg"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/06/d8aa12b30683676e.jpg"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/28/b9f6c169ea5daebe.webp"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/05/ec66a7160398848b.webp"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/04/025bf3f9fc1cf452.webp"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/25/37c45c250c8e6e2b.jpg"></li>
         </ul>
       </div>
     </header>
@@ -153,58 +153,69 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
   <div class="body md" itemprop="articleBody">
     
 
-    <h1 id="OSI七层网络模型"><a href="#OSI七层网络模型" class="headerlink" title="OSI七层网络模型"></a>OSI七层网络模型</h1><p><img data-src="/images/e3cc1860482648d5a2b2f6bac23280d3~tplv-k3u1fbpfcp-zoom-in-crop-mark_1512_0_0_0.webp" alt="images"></p>
-<h1 id="七、应用层（应用）"><a href="#七、应用层（应用）" class="headerlink" title="七、应用层（应用）"></a>七、应用层（应用）</h1><p>应用层就是我们最接近我们、最常用的一层，例如：</p>
+    <h1 id="osi七层网络模型"><a class="anchor" href="#osi七层网络模型">#</a> OSI 七层网络模型</h1>
+<p><img data-src="/images/e3cc1860482648d5a2b2f6bac23280d3~tplv-k3u1fbpfcp-zoom-in-crop-mark_1512_0_0_0.webp" alt="images" /></p>
+<h1 id="七-应用层应用"><a class="anchor" href="#七-应用层应用">#</a> 七、应用层（应用）</h1>
+<p>应用层就是我们最接近我们、最常用的一层，例如：</p>
 <ul>
-<li>ajax调用接口发送<strong>http请求</strong></li>
-<li>使用<strong>DNS域名查询</strong>系统</li>
-<li><strong>邮件协议SMTP</strong></li>
-<li><strong>websock长连接</strong></li>
-<li><strong>SSH协议</strong></li>
+<li>ajax 调用接口发送<strong> http 请求</strong></li>
+<li>使用<strong> DNS 域名查询</strong>系统</li>
+<li><strong>邮件协议 SMTP</strong></li>
+<li><strong>websock 长连接</strong></li>
+<li><strong>SSH 协议</strong></li>
 <li>等。</li>
 </ul>
-<h1 id="六、表示层（安全、压缩、翻译）"><a href="#六、表示层（安全、压缩、翻译）" class="headerlink" title="六、表示层（安全、压缩、翻译）"></a>六、表示层（安全、压缩、翻译）</h1><p>表示层做了几件重要的事情如：</p>
+<h1 id="六-表示层安全-压缩-翻译"><a class="anchor" href="#六-表示层安全-压缩-翻译">#</a> 六、表示层（安全、压缩、翻译）</h1>
+<p>表示层做了几件重要的事情如：</p>
 <ul>
 <li>压缩</li>
 <li>安全（数据发送前进行加密，在接受者的表示层进行解密）</li>
 <li>程序在网络中的翻译官（对图片文件等格式进行解码和编码）</li>
 </ul>
-<h1 id="五、会话层（检查点机制）"><a href="#五、会话层（检查点机制）" class="headerlink" title="五、会话层（检查点机制）"></a>五、会话层（检查点机制）</h1><ul>
+<h1 id="五-会话层检查点机制"><a class="anchor" href="#五-会话层检查点机制">#</a> 五、会话层（检查点机制）</h1>
+<ul>
 <li>会话层是在发送方和接收方之间进行通信时创建、维持、之后终止或断开连接的地方</li>
 <li>会话层定义了一种机制，允许发送方和接收方启动或停止请求会话，当及当双方发生拥塞时仍然能保持对话</li>
 <li>会话层包含了一种<strong>检查点的机制</strong>来维持可靠会话，检查点定义了一个最接近成功通信的点，并且定义了当发生内容丢失或者损坏时需要回滚以便回复丢失或损坏数据的点，即断点下载的原理</li>
 </ul>
-<h1 id="四、传输层（TCP、UDP连接）"><a href="#四、传输层（TCP、UDP连接）" class="headerlink" title="四、传输层（TCP、UDP连接）"></a>四、传输层（TCP、UDP连接）</h1><ul>
+<h1 id="四-传输层tcp-udp连接"><a class="anchor" href="#四-传输层tcp-udp连接">#</a> 四、传输层（TCP、UDP 连接）</h1>
+<ul>
 <li>传输层主要就是定义端口号，以及控流和校验</li>
-<li>TCP（面向连接的协议并且TCP是可靠的），因为TCP会进行三报文握手和四报文挥手，所以是可靠的，但是这样会降低速度</li>
-<li>UDP（UDP没有三报文握手和四报文挥手，因此不够稳定，但是速度快，常用于直播和游戏）</li>
+<li>TCP（面向连接的协议并且 TCP 是可靠的），因为 TCP 会进行三报文握手和四报文挥手，所以是可靠的，但是这样会降低速度</li>
+<li>UDP（UDP 没有三报文握手和四报文挥手，因此不够稳定，但是速度快，常用于直播和游戏）</li>
 </ul>
-<h1 id="三、网络层（IP地址）"><a href="#三、网络层（IP地址）" class="headerlink" title="三、网络层（IP地址）"></a>三、网络层（IP地址）</h1><ul>
-<li>网络层是最复杂的一层，在网络层定义了IP</li>
+<h1 id="三-网络层ip地址"><a class="anchor" href="#三-网络层ip地址">#</a> 三、网络层（IP 地址）</h1>
+<ul>
+<li>网络层是最复杂的一层，在网络层定义了 IP</li>
 <li>网络层控制数据链路层与传输层之间的信息转发，建立，维持和终止网络的连接。</li>
-<li>数据链路层的数据在网络层被转换为数据包，然后通过路径选择、分段组合、顺序、进&#x2F;出路由等控制，将信息从一个网络设备传送到另一个网络设备</li>
-<li>寻址：对网络层而言使用IP地址来唯一标识互联网上的设备，网络层依靠IP地址进行相互通信（类似于数据链路层的MAC地址）</li>
+<li>数据链路层的数据在网络层被转换为数据包，然后通过路径选择、分段组合、顺序、进 / 出路由等控制，将信息从一个网络设备传送到另一个网络设备</li>
+<li>寻址：对网络层而言使用 IP 地址来唯一标识互联网上的设备，网络层依靠 IP 地址进行相互通信（类似于数据链路层的 MAC 地址）</li>
 <li>路由：在同一个网络中的内部通信并不需要网络层设备，仅仅靠数据链路层就可以完成相互通信，对于不同的网络之间相互通信则必须借助路由器等三层设备。</li>
 <li>如果所有的使用互联网的用户在同一个网段中，<strong>会产生广播风暴，所以要将用户进行划分</strong>，让他们在不同的网段中，自己在自己的小网段中广播。而<strong>互联网就是这无数的子网络构成的一个巨型网络</strong>。</li>
-<li>在网络层中引入了一套新的地址，让我们能够区分不同的网段。这套地址就叫做“网络地址”，简称“网址”。于是，<strong>”网络层”出现以后，每台计算机有了两种地址</strong>，<strong>一种是MAC地址，另一种是网络地址</strong>。两种地址之间没有任何联系，MAC地址是绑定在网卡上的，网络地址则是管理员分配的，它们只是随机组合在一起。<strong>网络地址帮助我们确定计算机所在的子网络，MAC地址则将数据包送到该子网络中的目标网卡。</strong>因此，从逻辑上可以推断，必定是先处理网络地址，然后再处理MAC地址。</li>
-<li>这一层中有一个<strong>规定网络地址的协议，叫做IP协议</strong>，它所定义的地址，就被称为IP地址。</li>
-<li>目前，广泛采用的是IP协议第四版，简称IPv4。这个版本规定，网络地址由32个二进制位组成。因为IPv4的地址已经不够用了，所以现在推广IPv6，</li>
+<li>在网络层中引入了一套新的地址，让我们能够区分不同的网段。这套地址就叫做 “网络地址”，简称 “网址”。于是，<strong>” 网络层” 出现以后，每台计算机有了两种地址</strong>，<strong>一种是 MAC 地址，另一种是网络地址</strong>。两种地址之间没有任何联系，MAC 地址是绑定在网卡上的，网络地址则是管理员分配的，它们只是随机组合在一起。** 网络地址帮助我们确定计算机所在的子网络，MAC 地址则将数据包送到该子网络中的目标网卡。** 因此，从逻辑上可以推断，必定是先处理网络地址，然后再处理 MAC 地址。</li>
+<li>这一层中有一个<strong>规定网络地址的协议，叫做 IP 协议</strong>，它所定义的地址，就被称为 IP 地址。</li>
+<li>目前，广泛采用的是 IP 协议第四版，简称 IPv4。这个版本规定，网络地址由 32 个二进制位组成。因为 IPv4 的地址已经不够用了，所以现在推广 IPv6，</li>
 </ul>
-<h1 id="二、数据链路层（MAC地址）"><a href="#二、数据链路层（MAC地址）" class="headerlink" title="二、数据链路层（MAC地址）"></a>二、数据链路层（MAC地址）</h1><ul>
+<h1 id="二-数据链路层mac地址"><a class="anchor" href="#二-数据链路层mac地址">#</a> 二、数据链路层（MAC 地址）</h1>
+<ul>
 <li>建立逻辑连接、进行硬件地址寻址、差错校验等功能（底层网络定义协议）</li>
-<li>及比特组合成字节进而组合成帧，用MAC地址访问介质，此时可以发现错误但不能纠正。</li>
-<li>MAC地址是每个网卡的唯一标识，有了MAC地址就能知道谁是接收者，谁是发送者，并且知道了数据的内容，并且进行分组。</li>
+<li>及比特组合成字节进而组合成帧，用 MAC 地址访问介质，此时可以发现错误但不能纠正。</li>
+<li>MAC 地址是每个网卡的唯一标识，有了 MAC 地址就能知道谁是接收者，谁是发送者，并且知道了数据的内容，并且进行分组。</li>
 <li>传播数据是通过广播的方式进行传输，在局域网中的所有计算机都能接收到消息</li>
 </ul>
-<h1 id="一、物理层（物理信道）"><a href="#一、物理层（物理信道）" class="headerlink" title="一、物理层（物理信道）"></a>一、物理层（物理信道）</h1><ul>
-<li><p>物理层是直接和物理介质打交道的。</p>
+<h1 id="一-物理层物理信道"><a class="anchor" href="#一-物理层物理信道">#</a> 一、物理层（物理信道）</h1>
+<ul>
+<li>
+<p>物理层是直接和物理介质打交道的。</p>
 </li>
-<li><p>物理层的设备 网卡，网线，集线器，中继器，调制解调器</p>
+<li>
+<p>物理层的设备 网卡，网线，集线器，中继器，调制解调器</p>
 </li>
 </ul>
 <p><strong>物理层信道：</strong></p>
 <ul>
-<li><p>有线信道</p>
+<li>
+<p>有线信道</p>
 <ul>
 <li>明线（平行架设在电线杆上的架空线路）</li>
 <li>对称电缆（对多双绞线组成）</li>
@@ -212,11 +223,12 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
 <li>光纤（利用光在纤维中的反射原理进行传输）</li>
 </ul>
 </li>
-<li><p>无线信道</p>
+<li>
+<p>无线信道</p>
 <p>以辐射无线电波为传输方式无线信道主要有地波传输，天波传输和视距传输 例如：卫星通讯，电台广播</p>
 </li>
 </ul>
-<p>物理层通过以上的方式，会获取他们对应的传送信号，电压，转换成010101010101但是数据还未组织，仅作为原始的电气电压处理<code>单位为bit</code></p>
+<p>物理层通过以上的方式，会获取他们对应的传送信号，电压，转换成 010101010101 但是数据还未组织，仅作为原始的电气电压处理 <code>单位为bit</code></p>
 
       <div class="tags">
           <a href="/tags/OSI%E4%B8%83%E5%B1%82%E7%BD%91%E7%BB%9C%E6%A8%A1%E5%9E%8B/" rel="tag"><i class="ic i-tag"></i> OSI七层网络模型</a>
@@ -289,7 +301,7 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
     <div class="item left">
       
 
-  <a href="/2024/05/24/node/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;s3.uuu.ovh&#x2F;imgs&#x2F;2024&#x2F;04&#x2F;12&#x2F;4508f1e9b6c8e047.jpg" title="Node学习笔记">
+  <a href="/2024/05/24/node/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;s3.uuu.ovh&#x2F;imgs&#x2F;2024&#x2F;04&#x2F;07&#x2F;971b0200f59eab4c.jpg" title="Node学习笔记">
   <span class="type">上一篇</span>
   <span class="category"><i class="ic i-flag"></i> Node.js</span>
   <h3>Node学习笔记</h3>
@@ -313,7 +325,7 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
   <div class="panels">
     <div class="inner">
       <div class="contents panel pjax" data-title="文章目录">
-          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#OSI%E4%B8%83%E5%B1%82%E7%BD%91%E7%BB%9C%E6%A8%A1%E5%9E%8B"><span class="toc-number">1.</span> <span class="toc-text">OSI七层网络模型</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%83%E3%80%81%E5%BA%94%E7%94%A8%E5%B1%82%EF%BC%88%E5%BA%94%E7%94%A8%EF%BC%89"><span class="toc-number">2.</span> <span class="toc-text">七、应用层（应用）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%85%AD%E3%80%81%E8%A1%A8%E7%A4%BA%E5%B1%82%EF%BC%88%E5%AE%89%E5%85%A8%E3%80%81%E5%8E%8B%E7%BC%A9%E3%80%81%E7%BF%BB%E8%AF%91%EF%BC%89"><span class="toc-number">3.</span> <span class="toc-text">六、表示层（安全、压缩、翻译）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%94%E3%80%81%E4%BC%9A%E8%AF%9D%E5%B1%82%EF%BC%88%E6%A3%80%E6%9F%A5%E7%82%B9%E6%9C%BA%E5%88%B6%EF%BC%89"><span class="toc-number">4.</span> <span class="toc-text">五、会话层（检查点机制）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9B%9B%E3%80%81%E4%BC%A0%E8%BE%93%E5%B1%82%EF%BC%88TCP%E3%80%81UDP%E8%BF%9E%E6%8E%A5%EF%BC%89"><span class="toc-number">5.</span> <span class="toc-text">四、传输层（TCP、UDP连接）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E7%BD%91%E7%BB%9C%E5%B1%82%EF%BC%88IP%E5%9C%B0%E5%9D%80%EF%BC%89"><span class="toc-number">6.</span> <span class="toc-text">三、网络层（IP地址）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82%EF%BC%88MAC%E5%9C%B0%E5%9D%80%EF%BC%89"><span class="toc-number">7.</span> <span class="toc-text">二、数据链路层（MAC地址）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E7%89%A9%E7%90%86%E5%B1%82%EF%BC%88%E7%89%A9%E7%90%86%E4%BF%A1%E9%81%93%EF%BC%89"><span class="toc-number">8.</span> <span class="toc-text">一、物理层（物理信道）</span></a></li></ol>
+          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#osi%E4%B8%83%E5%B1%82%E7%BD%91%E7%BB%9C%E6%A8%A1%E5%9E%8B"><span class="toc-number">1.</span> <span class="toc-text"> OSI 七层网络模型</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%83-%E5%BA%94%E7%94%A8%E5%B1%82%E5%BA%94%E7%94%A8"><span class="toc-number">2.</span> <span class="toc-text"> 七、应用层（应用）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%85%AD-%E8%A1%A8%E7%A4%BA%E5%B1%82%E5%AE%89%E5%85%A8-%E5%8E%8B%E7%BC%A9-%E7%BF%BB%E8%AF%91"><span class="toc-number">3.</span> <span class="toc-text"> 六、表示层（安全、压缩、翻译）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%94-%E4%BC%9A%E8%AF%9D%E5%B1%82%E6%A3%80%E6%9F%A5%E7%82%B9%E6%9C%BA%E5%88%B6"><span class="toc-number">4.</span> <span class="toc-text"> 五、会话层（检查点机制）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9B%9B-%E4%BC%A0%E8%BE%93%E5%B1%82tcp-udp%E8%BF%9E%E6%8E%A5"><span class="toc-number">5.</span> <span class="toc-text"> 四、传输层（TCP、UDP 连接）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%89-%E7%BD%91%E7%BB%9C%E5%B1%82ip%E5%9C%B0%E5%9D%80"><span class="toc-number">6.</span> <span class="toc-text"> 三、网络层（IP 地址）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%8C-%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82mac%E5%9C%B0%E5%9D%80"><span class="toc-number">7.</span> <span class="toc-text"> 二、数据链路层（MAC 地址）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%80-%E7%89%A9%E7%90%86%E5%B1%82%E7%89%A9%E7%90%86%E4%BF%A1%E9%81%93"><span class="toc-number">8.</span> <span class="toc-text"> 一、物理层（物理信道）</span></a></li></ol>
       </div>
       <div class="related panel pjax" data-title="系列文章">
         <ul>
@@ -429,40 +441,50 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/%E8%84%9A%E6%89%8B%E6%9E%B6%E5%BC%80%E5%8F%91/" title="分类于 脚手架开发">脚手架开发</a>
+<a href="/categories/Sass/" title="分类于 Sass">Sass</a>
 </div>
 
-    <span><a href="/2024/04/12/%E8%84%9A%E6%89%8B%E6%9E%B6/" title="脚手架开发">脚手架开发</a></span>
+    <span><a href="/2023/01/10/Sass/" title="Sass笔记">Sass笔记</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/%E5%89%8D%E7%AB%AF%E7%9B%91%E6%8E%A7/" title="分类于 前端监控">前端监控</a>
+<a href="/categories/react/" title="分类于 react">react</a>
 </div>
 
-    <span><a href="/2024/04/29/%E5%89%8D%E7%AB%AF%E7%9B%91%E6%8E%A7/" title="前端监控">前端监控</a></span>
+    <span><a href="/2023/12/02/react/" title="react笔记">react笔记</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/whistle/" title="分类于 whistle">whistle</a>
+<a href="/categories/esbuild/" title="分类于 esbuild">esbuild</a>
 </div>
 
-    <span><a href="/2024/05/17/whistle%E4%BD%BF%E7%94%A8/" title="whistle抓包">whistle抓包</a></span>
+    <span><a href="/2024/05/17/esbuild/" title="esbuild">esbuild</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/%E5%BE%AE%E5%89%8D%E7%AB%AF/" title="分类于 微前端">微前端</a>
+<a href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" title="分类于 设计模式">设计模式</a>
 </div>
 
-    <span><a href="/2024/05/24/%E5%BE%AE%E5%89%8D%E7%AB%AF/" title="微前端">微前端</a></span>
+    <span><a href="/2024/03/02/%E8%BD%AF%E4%BB%B6%E6%A8%A1%E5%BC%8F%E8%AE%BE%E8%AE%A1%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="设计模式">设计模式</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E4%B8%9A%E5%8A%A1%E5%A4%84%E7%90%86/" title="分类于 业务处理">业务处理</a>
+</div>
+
+    <span><a href="/2024/03/29/%E6%9C%AC%E5%9C%B0%E9%A2%84%E8%A7%88%E5%9B%BE%E7%89%87/" title="本地预览图片">本地预览图片</a></span>
   </li>
 
       
@@ -472,37 +494,17 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
 <a href="/categories/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" title="分类于 正则表达式">正则表达式</a>
 </div>
 
-    <span><a href="/2024/01/10/%E6%AD%A3%E5%88%99/" title="正则编写方式">正则编写方式</a></span>
+    <span><a href="/2023/02/12/%E4%B8%AD%E5%89%8D%E5%8F%B0%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" title="正则表达式">正则表达式</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/%E7%AE%97%E6%B3%95/" title="分类于 算法">算法</a>
+<a href="/categories/Linux/" title="分类于 Linux">Linux</a>
 </div>
 
-    <span><a href="/2023/06/02/%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" title="图片上传解决方案">图片上传解决方案</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/vue/" title="分类于 vue">vue</a>
-</div>
-
-    <span><a href="/2023/09/02/vue3%E6%BA%90%E7%A0%81%E4%BD%8D%E8%BF%90%E7%AE%97/" title="vue3源码中的位运算">vue3源码中的位运算</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/%E5%A4%8D%E6%9D%82%E4%B8%9A%E5%8A%A1%E9%83%A8%E7%BD%B2%E4%B8%8E%E4%BC%98%E5%8C%96/" title="分类于 复杂业务部署与优化">复杂业务部署与优化</a>
-</div>
-
-    <span><a href="/2024/04/12/%E5%A4%8D%E6%9D%82%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2%E4%B8%8A%E7%BA%BF/" title="复杂业务部署与优化">复杂业务部署与优化</a></span>
+    <span><a href="/2023/01/22/linux%E6%9C%8D%E5%8A%A1%E5%99%A8/" title="Linux">Linux</a></span>
   </li>
 
       
@@ -513,6 +515,16 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
 </div>
 
     <span><a href="/2023/05/02/git%20github%E7%AC%94%E8%AE%B0%EF%BC%88%E6%A6%82%E5%BF%B5%EF%BC%89/" title="git笔记">git笔记</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/JS/" title="分类于 JS">JS</a>
+</div>
+
+    <span><a href="/2023/12/08/NaN/" title="NaN历史遗留问题">NaN历史遗留问题</a></span>
   </li>
 
       

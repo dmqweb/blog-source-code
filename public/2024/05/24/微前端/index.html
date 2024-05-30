@@ -102,12 +102,12 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
       </div>
       <div id="imgs" class="pjax">
         <ul>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/15/6d859d49c9d65157.jpg"></li>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/03/29/a93636ae09845d36.jpg"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/28/dc01f095118914ac.webp"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/07/d94cad8780c8c094.jpg"></li>
           <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/25/0edddbac6c1e1908.webp"></li>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/03/29/4e134f025ae53f2b.jpg"></li>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/04/64e30381ceb47acd.webp"></li>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/25/37c45c250c8e6e2b.jpg"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/04/4b93d7d24397b567.jpg"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/12/65788b6548e9e58f.jpg"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/04/eff89867286d822f.webp"></li>
         </ul>
       </div>
     </header>
@@ -153,16 +153,20 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
   <div class="body md" itemprop="articleBody">
     
 
-    <h1 id="微前端介绍"><a href="#微前端介绍" class="headerlink" title="微前端介绍"></a>微前端介绍</h1><p>微前端按业务功能将一整块前端应用分解成一系列更小的、更内聚的微前端应用，同时通过明确的交互协议来管理这些应用间的依赖关系，实现不同业务的解耦合。并将每个前端应用交给独立团队负责，各自独立开发、独立部署、充分利用并行性。</p>
+    <h1 id="微前端介绍"><a class="anchor" href="#微前端介绍">#</a> 微前端介绍</h1>
+<p>微前端按业务功能将一整块前端应用分解成一系列更小的、更内聚的微前端应用，同时通过明确的交互协议来管理这些应用间的依赖关系，实现不同业务的解耦合。并将每个前端应用交给独立团队负责，各自独立开发、独立部署、充分利用并行性。</p>
 <ul>
-<li>微前端是一种架构风格，monorepo是一种开发策略，模块联邦是一种打包和部署方式<ul>
+<li>微前端是一种架构风格，monorepo 是一种开发策略，模块联邦是一种打包和部署方式
+<ul>
 <li>微前端将大型的前端应用分解成一组小的、独立的前端服务，每一个小的前端服务可以由不同的团队独立开发、部署和维护。微前端的目标是提高大型前端项目的可维护性、可扩展性和灵活性</li>
-<li>monorepo是一种开发策略（技巧），它将多个项目或服务的代码放在一个单一的版本控制系统仓库中，有助于简化依赖管理、代码共享和团队协作。对于工具库能更好的暴露单独模块。</li>
-<li>模块联邦是Webpack5引入的一个特性，允许将多个Webpack项目远程接入、联合起来，形成一个单一的应用，每个模块可以独立开发和部署，同时共享彼此的代码，模块联邦是一种新的打包和部署前端应用的方式。</li>
+<li>monorepo 是一种开发策略（技巧），它将多个项目或服务的代码放在一个单一的版本控制系统仓库中，有助于简化依赖管理、代码共享和团队协作。对于工具库能更好的暴露单独模块。</li>
+<li>模块联邦是 Webpack5 引入的一个特性，允许将多个 Webpack 项目远程接入、联合起来，形成一个单一的应用，每个模块可以独立开发和部署，同时共享彼此的代码，模块联邦是一种新的打包和部署前端应用的方式。</li>
 </ul>
 </li>
 </ul>
-<h1 id="微前端应用"><a href="#微前端应用" class="headerlink" title="微前端应用"></a>微前端应用</h1><h2 id="EMP"><a href="#EMP" class="headerlink" title="EMP"></a><span class="exturl" data-url="aHR0cHM6Ly9lbXAyLm5ldGxpZnkuYXBwLw==">EMP</span></h2><p>模块联邦技术，微前端构建方案，是基于 webpack 5 module federation 的微前端方案。</p>
+<h1 id="微前端应用"><a class="anchor" href="#微前端应用">#</a> 微前端应用</h1>
+<h2 id="emp"><a class="anchor" href="#emp">#</a> <span class="exturl" data-url="aHR0cHM6Ly9lbXAyLm5ldGxpZnkuYXBwLw==">EMP</span></h2>
+<p>模块联邦技术，微前端构建方案，是基于 webpack 5 module federation 的微前端方案。</p>
 <p><strong>特点</strong></p>
 <ol>
 <li>webpack 联邦编译可以保证所有子应用依赖解耦；</li>
@@ -176,9 +180,11 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
 <li>子应用保活、多应用激活无法实现；</li>
 <li>主、子应用的路由可能发生冲突；</li>
 </ol>
-<p>底层原理 这个东西有点类似于拆包，也可以叫模块共享，例如React有个模块可以共享给Vue项目用Vue2的组件可以共享给Vue3用。</p>
-<h2 id="single-spa"><a href="#single-spa" class="headerlink" title="single-spa"></a><span class="exturl" data-url="aHR0cHM6Ly96aC1oYW5zLnNpbmdsZS1zcGEuanMub3JnL2RvY3MvZ2V0dGluZy1zdGFydGVkLW92ZXJ2aWV3">single-spa</span></h2><p>single-spa是微前端的基础框架，乾坤框架就是基于single-spa来实现的，在single-spa的基础上做了一层封装，也解决了single-spa的一些缺陷。</p>
-<h2 id="乾坤"><a href="#乾坤" class="headerlink" title="乾坤"></a><span class="exturl" data-url="aHR0cHM6Ly9saW5rLmp1ZWppbi5jbi8/dGFyZ2V0PWh0dHBzOi8vcWlhbmt1bi51bWlqcy5vcmcvemgv">乾坤</span></h2><p><strong>特点</strong></p>
+<p>底层原理 这个东西有点类似于拆包，也可以叫模块共享，例如 React 有个模块可以共享给 Vue 项目用 Vue2 的组件可以共享给 Vue3 用。</p>
+<h2 id="single-spa"><a class="anchor" href="#single-spa">#</a> <span class="exturl" data-url="aHR0cHM6Ly96aC1oYW5zLnNpbmdsZS1zcGEuanMub3JnL2RvY3MvZ2V0dGluZy1zdGFydGVkLW92ZXJ2aWV3">single-spa</span></h2>
+<p>single-spa 是微前端的基础框架，乾坤框架就是基于 single-spa 来实现的，在 single-spa 的基础上做了一层封装，也解决了 single-spa 的一些缺陷。</p>
+<h2 id="乾坤"><a class="anchor" href="#乾坤">#</a> <span class="exturl" data-url="aHR0cHM6Ly9saW5rLmp1ZWppbi5jbi8/dGFyZ2V0PWh0dHBzJTNBJTJGJTJGcWlhbmt1bi51bWlqcy5vcmclMkZ6aCUyRg==">乾坤</span></h2>
+<p><strong>特点</strong></p>
 <ol>
 <li>html entry 的方式引入子应用，相比 js entry 极大的降低了应用改造的成本；</li>
 <li>完备的沙箱方案，js 沙箱做了 SnapshotSandbox、LegacySandbox、ProxySandbox 三套渐进增强方案，css 沙箱做了 strictStyleIsolation、experimentalStyleIsolation 两套适用不同场景的方案；</li>
@@ -191,102 +197,44 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
 <li>无法同时激活多个子应用，也不支持子应用保活；</li>
 <li>无法支持 vite 等 esmodule 脚本运行；</li>
 </ol>
-<h2 id="无界"><a href="#无界" class="headerlink" title="无界"></a><span class="exturl" data-url="aHR0cHM6Ly9saW5rLmp1ZWppbi5jbi8/dGFyZ2V0PWh0dHBzOi8vd3VqaWUtbWljcm8uZ2l0aHViLmlvL2RvYy9hcGkvYnVzLmh0bWw=">无界</span></h2><p><strong>特点</strong></p>
+<h2 id="无界"><a class="anchor" href="#无界">#</a> <span class="exturl" data-url="aHR0cHM6Ly9saW5rLmp1ZWppbi5jbi8/dGFyZ2V0PWh0dHBzJTNBJTJGJTJGd3VqaWUtbWljcm8uZ2l0aHViLmlvJTJGZG9jJTJGYXBpJTJGYnVzLmh0bWw=">无界</span></h2>
+<p><strong>特点</strong></p>
 <ol>
 <li>接入简单只需要四五行代码</li>
-<li>不需要针对vite额外处理</li>
+<li>不需要针对 vite 额外处理</li>
 <li>预加载</li>
 <li>应用保活机制</li>
 </ol>
 <p><strong>不足</strong></p>
 <ol>
-<li>隔离js使用一个空的iframe进行隔离</li>
-<li>子应用axios需要自行适配</li>
-<li>iframe沙箱的src设置了主应用的host，初始化iframe的时候需要等待iframe的location.orign从’about:blank’初始化为主应用的host，这个采用的计时器去等待的不是很悠亚。</li>
+<li>隔离 js 使用一个空的 iframe 进行隔离</li>
+<li>子应用 axios 需要自行适配</li>
+<li>iframe 沙箱的 src 设置了主应用的 host，初始化 iframe 的时候需要等待 iframe 的 location.orign 从 'about:blank' 初始化为主应用的 host，这个采用的计时器去等待的不是很悠亚。</li>
 </ol>
-<p>底层原理 使用shadowDom 隔离css，js使用空的iframe隔离，通讯使用的是proxy</p>
-<h4 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h4><p>无界的原理就是使用开启影子dom来进行样式的隔离，通过使用attachShadow方法开启影子dom（继承HTMLElement），获得的shadow影子dom添加template（无界的初始模板）为子元素，这样就进行了样式隔离，最后通过window.customElement.define注册dom元素wu-jie，使用标签即可。</p>
+<p>底层原理 使用 shadowDom 隔离 css，js 使用空的 iframe 隔离，通讯使用的是 proxy</p>
+<h4 id="原理"><a class="anchor" href="#原理">#</a> 原理</h4>
+<p>无界的原理就是使用开启影子 dom 来进行样式的隔离，通过使用 attachShadow 方法开启影子 dom（继承 HTMLElement），获得的 shadow 影子 dom 添加 template（无界的初始模板）为子元素，这样就进行了样式隔离，最后通过 window.customElement.define 注册 dom 元素 wu-jie，使用标签即可。</p>
 <p>index.js：</p>
-<pre><code class="js">window.onload = () =&gt; &#123;
-    class WuJie extends HTMLElement &#123;
-        constructor() &#123;
-            super()
-            this.init()
-            this.getAttr(&#39;url&#39;)
-        &#125;
-        init() &#123;
-          const shadow =  this.attachShadow(&#123; mode: &quot;open&quot; &#125;) //开启影子dom 也就是样式隔离
-          const template = document.querySelector(&#39;#wu-jie&#39;) as HTMLTemplateElement
-          console.log(template);
-          shadow.appendChild(template.content.cloneNode(true))
-        &#125;
-        getAttr (str:string) &#123;
-           console.log(&#39;获取参数&#39;,this.getAttribute(str));
-        &#125;
-        //生命周期自动触发有东西插入
-        connectedCallback () &#123;
-           console.log(&#39;类似于vue 的mounted&#39;);
-        &#125;
-        //生命周期卸载
-        disconnectedCallback () &#123;
-              console.log(&#39;类似于vue 的destory&#39;);
-        &#125;
-        //跟watch类似
-        attributeChangedCallback (name:any, oldVal:any, newVal:any) &#123;
-            console.log(&#39;跟vue 的watch 类似 有属性发生变化自动触发&#39;);
-        &#125;
-    &#125;
-    window.customElements.define(&#39;wu-jie&#39;, WuJie)
-&#125;
-</code></pre>
-<p>index.html：</p>
-<pre><code class="html">&lt;!DOCTYPE html&gt;
-&lt;html lang=&quot;en&quot;&gt;
-&lt;head&gt;
-    &lt;meta charset=&quot;UTF-8&quot;&gt;
-    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot;&gt;
-    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
-    &lt;title&gt;Document&lt;/title&gt;
-    &lt;script src=&quot;./index.js&quot;&gt;&lt;/script&gt;
-&lt;/head&gt;
-&lt;body&gt;
-    &lt;!--外层写一个div测试隔离--&gt;
-    &lt;div&gt;我是div&lt;/div&gt;
-    &lt;wu-jie url=&quot;xxxxxx&quot;&gt;&lt;/wu-jie&gt;
-    &lt;template id=&quot;wu-jie&quot;&gt;
-       &lt;!--div的样式是作用于全局的--&gt;
-        &lt;style&gt;
-            div &#123;
-                background: red;
-            &#125;
-        &lt;/style&gt;
-         &lt;div&gt;
-            样式隔离的
-         &lt;/div&gt;
-    &lt;/template&gt;
-&lt;/body&gt;
-&lt;/html&gt;
-</code></pre>
-<h4 id="预加载"><a href="#预加载" class="headerlink" title="预加载"></a>预加载</h4><p>使用：</p>
-<p>需要从wujie的实例导出<code>preloadApp</code>,参数跟<code>startApp</code> 一致，预加载必须开启exec选项</p>
-<pre><code class="js">preloadApp(&#123; name: &quot;vue3&quot;, url: &quot;http://127.0.0.1:5174/&quot;, exec: true &#125;)
-preloadApp(&#123; name: &quot;react&quot;, url: &quot;http://127.0.0.1:5175/&quot;, exec: true &#125;)
-</code></pre>
-<ul>
-<li>exec代表是否进行预加载，默认值是true</li>
-<li>js的执行模式，由于子应用的执行会阻塞主应用的渲染线程，当设置为true时js采取类似于react fiber的模式方式间断执行，每个js文件的执行都包裹在<code>requestidlecallback</code>中，每执行一个js文件后就可以返回去响应外部的输入，不会造成浏览器渲染和加载之间的冲突从而造成卡顿，但是这个颗粒度是js文件，所以应该保证js文件不应过大。</li>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre>window<span class="token punctuation">.</span><span class="token function-variable function">onload</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="2"></td><td><pre>    <span class="token keyword">class</span> <span class="token class-name">WuJie</span> <span class="token keyword">extends</span> <span class="token class-name">HTMLElement</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="3"></td><td><pre>        <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="4"></td><td><pre>            <span class="token keyword">super</span><span class="token punctuation">(</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="5"></td><td><pre>            <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">init</span><span class="token punctuation">(</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="6"></td><td><pre>            <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">getAttr</span><span class="token punctuation">(</span><span class="token string">'url'</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="7"></td><td><pre>        <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="8"></td><td><pre>        <span class="token function">init</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="9"></td><td><pre>          <span class="token keyword">const</span> shadow <span class="token operator">=</span>  <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">attachShadow</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span> <span class="token literal-property property">mode</span><span class="token operator">:</span> <span class="token string">"open"</span> <span class="token punctuation">&#125;</span><span class="token punctuation">)</span> <span class="token comment">// 开启影子 dom 也就是样式隔离</span></pre></td></tr><tr><td data-num="10"></td><td><pre>          <span class="token keyword">const</span> template <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">querySelector</span><span class="token punctuation">(</span><span class="token string">'#wu-jie'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> HTMLTemplateElement</pre></td></tr><tr><td data-num="11"></td><td><pre>          console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>template<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="12"></td><td><pre>          shadow<span class="token punctuation">.</span><span class="token function">appendChild</span><span class="token punctuation">(</span>template<span class="token punctuation">.</span>content<span class="token punctuation">.</span><span class="token function">cloneNode</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="13"></td><td><pre>        <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="14"></td><td><pre>        <span class="token function">getAttr</span> <span class="token punctuation">(</span><span class="token parameter"><span class="token literal-property property">str</span><span class="token operator">:</span>string</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="15"></td><td><pre>           console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'获取参数'</span><span class="token punctuation">,</span><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">getAttribute</span><span class="token punctuation">(</span>str<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="16"></td><td><pre>        <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="17"></td><td><pre>        <span class="token comment">// 生命周期自动触发有东西插入</span></pre></td></tr><tr><td data-num="18"></td><td><pre>        <span class="token function">connectedCallback</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="19"></td><td><pre>           console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'类似于vue 的mounted'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="20"></td><td><pre>        <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="21"></td><td><pre>        <span class="token comment">// 生命周期卸载</span></pre></td></tr><tr><td data-num="22"></td><td><pre>        <span class="token function">disconnectedCallback</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="23"></td><td><pre>              console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'类似于vue 的destory'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="24"></td><td><pre>        <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="25"></td><td><pre>        <span class="token comment">// 跟 watch 类似</span></pre></td></tr><tr><td data-num="26"></td><td><pre>        <span class="token function">attributeChangedCallback</span> <span class="token punctuation">(</span><span class="token parameter"><span class="token literal-property property">name</span><span class="token operator">:</span>any<span class="token punctuation">,</span> <span class="token literal-property property">oldVal</span><span class="token operator">:</span>any<span class="token punctuation">,</span> <span class="token literal-property property">newVal</span><span class="token operator">:</span>any</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="27"></td><td><pre>            console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'跟vue 的watch 类似 有属性发生变化自动触发'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="28"></td><td><pre>        <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="29"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="30"></td><td><pre>    window<span class="token punctuation">.</span>customElements<span class="token punctuation">.</span><span class="token function">define</span><span class="token punctuation">(</span><span class="token string">'wu-jie'</span><span class="token punctuation">,</span> WuJie<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="31"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr></table></figure><p>index.html：</p>
+<figure class="highlight html"><figcaption data-lang="HTML"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token doctype"><span class="token punctuation">&lt;!</span><span class="token doctype-tag">DOCTYPE</span> <span class="token name">html</span><span class="token punctuation">></span></span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>en<span class="token punctuation">"</span></span><span class="token punctuation">></span></span></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">></span></span></pre></td></tr><tr><td data-num="4"></td><td><pre>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>UTF-8<span class="token punctuation">"</span></span><span class="token punctuation">></span></span></pre></td></tr><tr><td data-num="5"></td><td><pre>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">http-equiv</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>X-UA-Compatible<span class="token punctuation">"</span></span> <span class="token attr-name">content</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>IE=edge<span class="token punctuation">"</span></span><span class="token punctuation">></span></span></pre></td></tr><tr><td data-num="6"></td><td><pre>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>viewport<span class="token punctuation">"</span></span> <span class="token attr-name">content</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>width=device-width, initial-scale=1.0<span class="token punctuation">"</span></span><span class="token punctuation">></span></span></pre></td></tr><tr><td data-num="7"></td><td><pre>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>title</span><span class="token punctuation">></span></span>Document<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>title</span><span class="token punctuation">></span></span></pre></td></tr><tr><td data-num="8"></td><td><pre>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>./index.js<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token script"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span></pre></td></tr><tr><td data-num="9"></td><td><pre><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">></span></span></pre></td></tr><tr><td data-num="10"></td><td><pre><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">></span></span></pre></td></tr><tr><td data-num="11"></td><td><pre>    <span class="token comment">&lt;!-- 外层写一个 div 测试隔离 --></span></pre></td></tr><tr><td data-num="12"></td><td><pre>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">></span></span>我是div<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></pre></td></tr><tr><td data-num="13"></td><td><pre>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>wu-jie</span> <span class="token attr-name">url</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>xxxxxx<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>wu-jie</span><span class="token punctuation">></span></span></pre></td></tr><tr><td data-num="14"></td><td><pre>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>wu-jie<span class="token punctuation">"</span></span><span class="token punctuation">></span></span></pre></td></tr><tr><td data-num="15"></td><td><pre>       <span class="token comment">&lt;!--div 的样式是作用于全局的 --></span></pre></td></tr><tr><td data-num="16"></td><td><pre>        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span><span class="token punctuation">></span></span><span class="token style"><span class="token language-css"></pre></td></tr><tr><td data-num="17"></td><td><pre>            <span class="token selector">div</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="18"></td><td><pre>                <span class="token property">background</span><span class="token punctuation">:</span> red<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="19"></td><td><pre>            <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="20"></td><td><pre>        </span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">></span></span></pre></td></tr><tr><td data-num="21"></td><td><pre>         <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">></span></span></pre></td></tr><tr><td data-num="22"></td><td><pre>            样式隔离的</pre></td></tr><tr><td data-num="23"></td><td><pre>         <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></pre></td></tr><tr><td data-num="24"></td><td><pre>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">></span></span></pre></td></tr><tr><td data-num="25"></td><td><pre><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">></span></span></pre></td></tr><tr><td data-num="26"></td><td><pre><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">></span></span></pre></td></tr></table></figure><h4 id="预加载"><a class="anchor" href="#预加载">#</a> 预加载</h4>
+<p>使用：</p>
+<p>需要从 wujie 的实例导出 <code>preloadApp</code> , 参数跟 <code>startApp</code>  一致，预加载必须开启 exec 选项</p>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">preloadApp</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span> <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">"vue3"</span><span class="token punctuation">,</span> <span class="token literal-property property">url</span><span class="token operator">:</span> <span class="token string">"http://127.0.0.1:5174/"</span><span class="token punctuation">,</span> <span class="token literal-property property">exec</span><span class="token operator">:</span> <span class="token boolean">true</span> <span class="token punctuation">&#125;</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token function">preloadApp</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span> <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">"react"</span><span class="token punctuation">,</span> <span class="token literal-property property">url</span><span class="token operator">:</span> <span class="token string">"http://127.0.0.1:5175/"</span><span class="token punctuation">,</span> <span class="token literal-property property">exec</span><span class="token operator">:</span> <span class="token boolean">true</span> <span class="token punctuation">&#125;</span><span class="token punctuation">)</span></pre></td></tr></table></figure><ul>
+<li>exec 代表是否进行预加载，默认值是 true</li>
+<li>js 的执行模式，由于子应用的执行会阻塞主应用的渲染线程，当设置为 true 时 js 采取类似于 react fiber 的模式方式间断执行，每个 js 文件的执行都包裹在 <code>requestidlecallback</code>  中，每执行一个 js 文件后就可以返回去响应外部的输入，不会造成浏览器渲染和加载之间的冲突从而造成卡顿，但是这个颗粒度是 js 文件，所以应该保证 js 文件不应过大。</li>
 </ul>
 <p>浏览器一帧之内要做的事情：</p>
 <ul>
 <li>处理用于输入（事件）</li>
 <li>执行定时任务</li>
-<li>执行requestAnimationFrame</li>
-<li>执行dom的回流和重绘</li>
+<li>执行 requestAnimationFrame</li>
+<li>执行 dom 的回流和重绘</li>
 <li>计算更新涂层的更新指令</li>
-<li>绘制指令合并主线程，如果有空余时间执行requestidlecallbask</li>
+<li>绘制指令合并主线程，如果有空余时间执行 requestidlecallbask</li>
 </ul>
-<p>react也有该机制 但是react并没有用 <code>requestidlecallback</code>，说是这个东西经过测试可能会超过16ms，超过16ms绘制就会看起来很卡 所以react16是用的 <code>requestAnimationFrame + postMessage</code> 实现的那为什么不用<code>setTimeOut</code> setTimeOut 及时为0 也会有一个最小毫秒延迟4ms，所以是用了postMessage，react18又换成了<code>MessageChannel</code> 实现了队列方式去执行任务。</p>
-<h2 id="micro-app"><a href="#micro-app" class="headerlink" title="micro-app"></a><span class="exturl" data-url="aHR0cHM6Ly9saW5rLmp1ZWppbi5jbi8/dGFyZ2V0PWh0dHBzOi8vemVyb2luZy5qZC5jb20vbWljcm8tYXBwL2RvY3MuaHRtbCUyMy8=">micro-app</span></h2><p>micro-app 是基于 webcomponent + qiankun sandbox 的微前端方案。</p>
+<p>react 也有该机制 但是 react 并没有用  <code>requestidlecallback</code> ，说是这个东西经过测试可能会超过 16ms，超过 16ms 绘制就会看起来很卡 所以 react16 是用的  <code>requestAnimationFrame + postMessage</code>  实现的那为什么不用 <code>setTimeOut</code>  setTimeOut 及时为 0 也会有一个最小毫秒延迟 4ms，所以是用了 postMessage，react18 又换成了 <code>MessageChannel</code>  实现了队列方式去执行任务。</p>
+<h2 id="micro-app"><a class="anchor" href="#micro-app">#</a> <span class="exturl" data-url="aHR0cHM6Ly9saW5rLmp1ZWppbi5jbi8/dGFyZ2V0PWh0dHBzJTNBJTJGJTJGemVyb2luZy5qZC5jb20lMkZtaWNyby1hcHAlMkZkb2NzLmh0bWwlMjMlMkY=">micro-app</span></h2>
+<p>micro-app 是基于 webcomponent + qiankun sandbox 的微前端方案。</p>
 <p><strong>特点</strong></p>
 <ol>
 <li>使用 webcomponet 加载子应用相比 single-spa 这种注册监听方案更加优雅；</li>
@@ -300,10 +248,11 @@ preloadApp(&#123; name: &quot;react&quot;, url: &quot;http://127.0.0.1:5175/&quo
 <li>支持 vite 运行，但必须使用 plugin 改造子应用，且 js 代码没办法做沙箱隔离；</li>
 <li>对于不支持 webcompnent 的浏览器没有做降级处理；</li>
 </ol>
-<p>底层原理 js隔离跟qiankun类似也是使用proxy + with，css隔离自定义前缀类似于scoped</p>
-<h1 id="模块联邦"><a href="#模块联邦" class="headerlink" title="模块联邦"></a>模块联邦</h1><p>模块联邦是跟<code>webpack5</code>强耦合的，是基于webpack5内置插件的 无须安装</p>
+<p>底层原理 js 隔离跟 qiankun 类似也是使用 proxy + with，css 隔离自定义前缀类似于 scoped</p>
+<h1 id="模块联邦"><a class="anchor" href="#模块联邦">#</a> 模块联邦</h1>
+<p>模块联邦是跟 <code>webpack5</code>  强耦合的，是基于 webpack5 内置插件的 无须安装</p>
 <p>它相当于是一个去中心化技术，它可以让多个独立构建的应用之间，动态的调用彼此的模块。这种运行机制，可以让我们轻松的拆分应用，真正做到跨应用的模块共享。</p>
-<p>配置过程就是在webpack.config.js中配置ModuleFederationPlugin插件，打完包之后观察会发现其实就是import函数动态加载，使用模块联邦的好处就在于之前当多个项目共有的模块改变时，每一个项目都需要重新install一下，而使用模块联邦之后，就相当于动态导入，免去了重新install的过程（由项目的克隆转为类似软链接的过程）。</p>
+<p>配置过程就是在 webpack.config.js 中配置 ModuleFederationPlugin 插件，打完包之后观察会发现其实就是 import 函数动态加载，使用模块联邦的好处就在于之前当多个项目共有的模块改变时，每一个项目都需要重新 install 一下，而使用模块联邦之后，就相当于动态导入，免去了重新 install 的过程（由项目的克隆转为类似软链接的过程）。</p>
 
       <div class="tags">
           <a href="/tags/%E5%BE%AE%E5%89%8D%E7%AB%AF/" rel="tag"><i class="ic i-tag"></i> 微前端</a>
@@ -376,7 +325,7 @@ preloadApp(&#123; name: &quot;react&quot;, url: &quot;http://127.0.0.1:5175/&quo
     <div class="item left">
       
 
-  <a href="/2024/05/23/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;s3.uuu.ovh&#x2F;imgs&#x2F;2024&#x2F;04&#x2F;28&#x2F;02824114036dc293.webp" title="网络安全">
+  <a href="/2024/05/23/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;s3.uuu.ovh&#x2F;imgs&#x2F;2024&#x2F;04&#x2F;13&#x2F;2376b10e610925e4.jpg" title="网络安全">
   <span class="type">上一篇</span>
   <span class="category"><i class="ic i-flag"></i> 网络安全</span>
   <h3>网络安全</h3>
@@ -386,7 +335,7 @@ preloadApp(&#123; name: &quot;react&quot;, url: &quot;http://127.0.0.1:5175/&quo
     <div class="item right">
       
 
-  <a href="/2024/05/24/node/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;s3.uuu.ovh&#x2F;imgs&#x2F;2024&#x2F;04&#x2F;13&#x2F;9404a557b00200f4.jpg" title="Node学习笔记">
+  <a href="/2024/05/24/node/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;s3.uuu.ovh&#x2F;imgs&#x2F;2024&#x2F;04&#x2F;04&#x2F;3149a0cc49823a9c.jpg" title="Node学习笔记">
   <span class="type">下一篇</span>
   <span class="category"><i class="ic i-flag"></i> Node.js</span>
   <h3>Node学习笔记</h3>
@@ -408,7 +357,7 @@ preloadApp(&#123; name: &quot;react&quot;, url: &quot;http://127.0.0.1:5175/&quo
   <div class="panels">
     <div class="inner">
       <div class="contents panel pjax" data-title="文章目录">
-          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%BE%AE%E5%89%8D%E7%AB%AF%E4%BB%8B%E7%BB%8D"><span class="toc-number">1.</span> <span class="toc-text">微前端介绍</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%BE%AE%E5%89%8D%E7%AB%AF%E5%BA%94%E7%94%A8"><span class="toc-number">2.</span> <span class="toc-text">微前端应用</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#EMP"><span class="toc-number">2.1.</span> <span class="toc-text">EMP</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#single-spa"><span class="toc-number">2.2.</span> <span class="toc-text">single-spa</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B9%BE%E5%9D%A4"><span class="toc-number">2.3.</span> <span class="toc-text">乾坤</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%97%A0%E7%95%8C"><span class="toc-number">2.4.</span> <span class="toc-text">无界</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8E%9F%E7%90%86"><span class="toc-number">2.4.0.1.</span> <span class="toc-text">原理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%A2%84%E5%8A%A0%E8%BD%BD"><span class="toc-number">2.4.0.2.</span> <span class="toc-text">预加载</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#micro-app"><span class="toc-number">2.5.</span> <span class="toc-text">micro-app</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%A8%A1%E5%9D%97%E8%81%94%E9%82%A6"><span class="toc-number">3.</span> <span class="toc-text">模块联邦</span></a></li></ol>
+          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%BE%AE%E5%89%8D%E7%AB%AF%E4%BB%8B%E7%BB%8D"><span class="toc-number">1.</span> <span class="toc-text"> 微前端介绍</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%BE%AE%E5%89%8D%E7%AB%AF%E5%BA%94%E7%94%A8"><span class="toc-number">2.</span> <span class="toc-text"> 微前端应用</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#emp"><span class="toc-number">2.1.</span> <span class="toc-text"> EMP</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#single-spa"><span class="toc-number">2.2.</span> <span class="toc-text"> single-spa</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B9%BE%E5%9D%A4"><span class="toc-number">2.3.</span> <span class="toc-text"> 乾坤</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%97%A0%E7%95%8C"><span class="toc-number">2.4.</span> <span class="toc-text"> 无界</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8E%9F%E7%90%86"><span class="toc-number">2.4.0.1.</span> <span class="toc-text"> 原理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%A2%84%E5%8A%A0%E8%BD%BD"><span class="toc-number">2.4.0.2.</span> <span class="toc-text"> 预加载</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#micro-app"><span class="toc-number">2.5.</span> <span class="toc-text"> micro-app</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%A8%A1%E5%9D%97%E8%81%94%E9%82%A6"><span class="toc-number">3.</span> <span class="toc-text"> 模块联邦</span></a></li></ol>
       </div>
       <div class="related panel pjax" data-title="系列文章">
         <ul>
@@ -526,40 +475,40 @@ preloadApp(&#123; name: &quot;react&quot;, url: &quot;http://127.0.0.1:5175/&quo
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/jQuery/" title="分类于 jQuery">jQuery</a>
+<a href="/categories/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%BC%8F/" title="分类于 开发模式">开发模式</a>
 </div>
 
-    <span><a href="/2023/01/02/jQuery%E6%A1%86%E6%9E%B6%E5%BA%94%E7%94%A8/" title="jQuery">jQuery</a></span>
+    <span><a href="/2024/03/29/TDD/" title="TDD测试驱动开发">TDD测试驱动开发</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" title="分类于 正则表达式">正则表达式</a>
+<a href="/categories/git/" title="分类于 git">git</a>
 </div>
 
-    <span><a href="/2023/02/12/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" title="正则表达式">正则表达式</a></span>
+    <span><a href="/2023/05/02/git%20github%E7%AC%94%E8%AE%B0%EF%BC%88%E6%A6%82%E5%BF%B5%EF%BC%89/" title="git笔记">git笔记</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/HTTP/" title="分类于 HTTP">HTTP</a>
+<a href="/categories/Linux/" title="分类于 Linux">Linux</a>
 </div>
 
-    <span><a href="/2023/05/02/HTTP/" title="HTTP">HTTP</a></span>
+    <span><a href="/2023/01/22/linux%E6%9C%8D%E5%8A%A1%E5%99%A8/" title="Linux">Linux</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/vue/" title="分类于 vue">vue</a>
+<a href="/categories/typeScript/" title="分类于 typeScript">typeScript</a>
 </div>
 
-    <span><a href="/2023/11/02/vue%E5%8E%9F%E7%90%86/" title="vue原理">vue原理</a></span>
+    <span><a href="/2023/12/11/TS/" title="typeScript笔记">typeScript笔记</a></span>
   </li>
 
       
@@ -569,27 +518,39 @@ preloadApp(&#123; name: &quot;react&quot;, url: &quot;http://127.0.0.1:5175/&quo
 <a href="/categories/JS/" title="分类于 JS">JS</a>
 </div>
 
-    <span><a href="/2023/12/21/%E6%9C%80%E5%A4%A7%E5%AE%89%E5%85%A8%E6%95%B0/" title="最大安全数与最大安全整数">最大安全数与最大安全整数</a></span>
+    <span><a href="/2023/12/08/NaN/" title="NaN历史遗留问题">NaN历史遗留问题</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/%E5%89%8D%E7%AB%AF%E7%9B%91%E6%8E%A7/" title="分类于 前端监控">前端监控</a>
+<a href="/categories/JS/" title="分类于 JS">JS</a>
 </div>
 
-    <span><a href="/2024/04/29/%E5%89%8D%E7%AB%AF%E7%9B%91%E6%8E%A7/" title="前端监控">前端监控</a></span>
+    <span><a href="/2023/12/08/DataView/" title="DataView">DataView</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/webpack/" title="分类于 webpack">webpack</a>
+<a href="/categories/json-server/" title="分类于 json-server">json-server</a>
 </div>
 
-    <span><a href="/2023/10/21/webpack/" title="webpack笔记">webpack笔记</a></span>
+    <span><a href="/2023/01/09/json-server%E6%95%99%E7%A8%8B/" title="json-server">json-server</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E6%9D%82%E8%AE%B0/" title="分类于 杂记">杂记</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/%E6%9D%82%E8%AE%B0/%E5%B7%A5%E5%85%B7%E5%87%BD%E6%95%B0/" title="分类于 工具函数">工具函数</a>
+</div>
+
+    <span><a href="/2023/06/02/learn/" title="杂记与工具库函数">杂记与工具库函数</a></span>
   </li>
 
       
@@ -606,20 +567,10 @@ preloadApp(&#123; name: &quot;react&quot;, url: &quot;http://127.0.0.1:5175/&quo
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/%E7%AE%97%E6%B3%95/" title="分类于 算法">算法</a>
+<a href="/categories/v8%E5%BC%95%E6%93%8E%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/" title="分类于 v8引擎编译原理">v8引擎编译原理</a>
 </div>
 
-    <span><a href="/2023/06/02/%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" title="图片上传解决方案">图片上传解决方案</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90%E4%B8%8E%E9%83%A8%E7%BD%B2/" title="分类于 持续集成与部署">持续集成与部署</a>
-</div>
-
-    <span><a href="/2024/02/03/%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90%E4%B8%8E%E6%8C%81%E7%BB%AD%E9%83%A8%E7%BD%B2/" title="持续集成与持续部署">持续集成与持续部署</a></span>
+    <span><a href="/2024/05/21/v8%E5%BC%95%E6%93%8E%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/" title="v8引擎编译原理">v8引擎编译原理</a></span>
   </li>
 
   </ul>

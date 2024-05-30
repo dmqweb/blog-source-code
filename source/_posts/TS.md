@@ -355,6 +355,37 @@ function area(shape:Shape){
 
 ### 类型守护 is
 
+类型守护的意义就在于`类型的倒推`，由结果推导出变量的具体类型（收缩变量的类型范围），这样当结果已经知道时，就可以推导出变量为unknow或其他等一些未知的类型。
+
+例如：
+
+当变量使用unknown类型，判定结果为boolean类型时，不使用as关键字就无法在后面使用value对应的方法，因为它的类型是unknown。
+
+```ts
+const isString=(value:unknown):boolean=>typeof value==='string';
+function test(value:unknown):string{
+    if(isString(value)){
+      // value.charCodeAt(0) , 抛出错误，需要使用as
+      (value as string).charCodeAt(0);
+    }
+	return ''
+}
+```
+
+使用is类型守护，当结果类型已知时，就可以倒推出变量的类型（收缩类型），进而可以使用对应的方法
+
+```ts
+const isString=(value:unknown):value is string=>typeof value==='string';
+function test(value:unknown):string{
+    if(isString(value)){
+		value.charCodeAt(0) // is变量守护后，倒推出value为string类型
+    }
+	return ''
+}
+```
+
+
+
 ```ts
 /**
  * 类型守护

@@ -102,12 +102,12 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
       </div>
       <div id="imgs" class="pjax">
         <ul>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/06/a2c97e7bd0c6ecd6.webp"></li>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/15/229ca07a8d7b6e02.jpg"></li>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/04/cc0be7efc99ac89e.webp"></li>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/05/f58f811a8b6cbdbb.jpg"></li>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/28/a34792f58e340f69.webp"></li>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/25/1e63bc89310bfa29.jpg"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/15/66e62db68b7b65eb.webp"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/06/63e9f1e7097ba6fb.jpg"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/25/0edddbac6c1e1908.webp"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/28/91b1bdcfda8d22da.webp"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/04/025bf3f9fc1cf452.webp"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/25/0aebf75866635811.jpg"></li>
         </ul>
       </div>
     </header>
@@ -153,8 +153,10 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
   <div class="body md" itemprop="articleBody">
     
 
-    <h2 id="所使用的基础组件"><a href="#所使用的基础组件" class="headerlink" title="所使用的基础组件"></a>所使用的基础组件</h2><p>代码托管在Github上，使用github集成的Travis CI自动触发CI流程。在CI中自动build新的image上传到Docker Hub。然后通过sshpass远程登录server触发部署脚本。部署脚本pull新的image然后部署。</p>
-<h2 id="Dockerfile"><a href="#Dockerfile" class="headerlink" title="Dockerfile"></a>Dockerfile</h2><p>由于项目都是基于python的，所以dockerfile比较简单：</p>
+    <h2 id="所使用的基础组件"><a class="anchor" href="#所使用的基础组件">#</a> 所使用的基础组件</h2>
+<p>代码托管在 Github 上，使用 github 集成的 Travis CI 自动触发 CI 流程。在 CI 中自动 build 新的 image 上传到 Docker Hub。然后通过 sshpass 远程登录 server 触发部署脚本。部署脚本 pull 新的 image 然后部署。</p>
+<h2 id="dockerfile"><a class="anchor" href="#dockerfile">#</a> Dockerfile</h2>
+<p>由于项目都是基于 python 的，所以 dockerfile 比较简单：</p>
 <pre><code>FROM ubuntu:latest
 MAINTAINER Shaobo Liu &lt;shaobo@mkdef.com&gt;
 LABEL Description=&quot;This image is used to flask-kraken&quot;
@@ -176,18 +178,19 @@ LABEL Description=&quot;This image is used to flask-kraken&quot;
 <pre><code>RUN apt-get update -y
 RUN apt-get install -y python3-pip python3-dev build-essential
 </code></pre>
-<p>安装python3，如果有其他的工具或者lib，也要写在这里。</p>
+<p>安装 python3，如果有其他的工具或者 lib，也要写在这里。</p>
 <pre><code>COPY src /app
 COPY requirements.txt /app
 WORKDIR /app
 RUN pip3 install -r requirements.txt
 </code></pre>
-<p>复制源代码到docker里，然后切换工作目录，安装三方依赖。 有时候这里需要安装一些系统级的依赖，比如lxml或者psycopg2之类的，就需要加到前面<code>apt-get install</code>里去。</p>
+<p>复制源代码到 docker 里，然后切换工作目录，安装三方依赖。 有时候这里需要安装一些系统级的依赖，比如 lxml 或者 psycopg2 之类的，就需要加到前面 <code>apt-get install</code>  里去。</p>
 <pre><code>ENTRYPOINT [&quot;python3&quot;]
 CMD [&quot;app.py&quot;]
 </code></pre>
-<p>最后是需要执行的命令。根据docker的userguide，一个image最好只干一件事。</p>
-<h2 id="Travis-CI"><a href="#Travis-CI" class="headerlink" title="Travis CI"></a>Travis CI</h2><p>在项目根目录添加<code>.travis.yml</code>来定义CI流程</p>
+<p>最后是需要执行的命令。根据 docker 的 userguide，一个 image 最好只干一件事。</p>
+<h2 id="travis-ci"><a class="anchor" href="#travis-ci">#</a> Travis CI</h2>
+<p>在项目根目录添加 <code>.travis.yml</code>  来定义 CI 流程</p>
 <pre><code>sudo: required
 
 language: python
@@ -213,19 +216,20 @@ after_success:
   - docker push shaobol/kraken:$TRAVIS_BRANCH-$TRAVIS_BUILD_ID;
   - sshpass -p $VPS_PASSWORD ssh -o stricthostkeychecking=no root@45.32.137.234 &quot;sudo /home/saukymo/kraken/deploy.sh $TRAVIS_BRANCH-$TRAVIS_BUILD_ID&quot;
 </code></pre>
-<p>这里就不一一分解了，具体可以参考Travis的官方文档。</p>
-<p>主要介绍一下这个部分和其他部分是怎么联动的。首先Travis和Github是有集成服务的，在<code>Setting -&gt; integrations &amp; services</code>里选择添加Travis就可以了。然后在Travis上就可以设置相应的CI流程了，默认是master有新的commit就会自动触发一次CI。</p>
-<p>每次CI结束后的结果可以通过<span class="exturl" data-url="aHR0cHM6Ly90cmF2aXMtY2kub3JnL3NhdWt5bW8vb2Rlcy5zdmc/YnJhbmNoPW1hc3Rlcg==">badge</span>查看。</p>
-<p>重点在于测试完成后build和push docker image的过程</p>
+<p>这里就不一一分解了，具体可以参考 Travis 的官方文档。</p>
+<p>主要介绍一下这个部分和其他部分是怎么联动的。首先 Travis 和 Github 是有集成服务的，在 <code>Setting -&gt; integrations &amp; services</code>  里选择添加 Travis 就可以了。然后在 Travis 上就可以设置相应的 CI 流程了，默认是 master 有新的 commit 就会自动触发一次 CI。</p>
+<p>每次 CI 结束后的结果可以通过<span class="exturl" data-url="aHR0cHM6Ly90cmF2aXMtY2kub3JnL3NhdWt5bW8vb2Rlcy5zdmc/YnJhbmNoPW1hc3Rlcg=="> badge</span> 查看。</p>
+<p>重点在于测试完成后 build 和 push docker image 的过程</p>
 <pre><code>after_success:
   - docker login -u=&quot;$DOCKER_USERNAME&quot; -p=&quot;$DOCKER_PASSWORD&quot;
   - docker build -t shaobol/kraken:$TRAVIS_BRANCH-$TRAVIS_BUILD_ID . 
   - docker push shaobol/kraken:$TRAVIS_BRANCH-$TRAVIS_BUILD_ID;
 </code></pre>
-<p>敏感信息这里全部通过Travis的Environment Variables。这样可以避免因为公开而泄露。</p>
-<p>如果需要将一些敏感信息传递到image里面去，可以通过<code>--build-arg</code>参数传递进去，然后保存为环境变量，参考<span class="exturl" data-url="aHR0cHM6Ly9kb2NzLmRvY2tlci5jb20vZW5naW5lL3JlZmVyZW5jZS9idWlsZGVyLyNsYWJlbA==">reference</span></p>
-<p>最后通过<code>sshpass</code>执行部署脚本，这一步也可以使用<code>ansible</code>代替。</p>
-<h2 id="docker-部署脚本"><a href="#docker-部署脚本" class="headerlink" title="docker 部署脚本"></a>docker 部署脚本</h2><pre><code>#!/bin/bash
+<p>敏感信息这里全部通过 Travis 的 Environment Variables。这样可以避免因为公开而泄露。</p>
+<p>如果需要将一些敏感信息传递到 image 里面去，可以通过 <code>--build-arg</code>  参数传递进去，然后保存为环境变量，参考<span class="exturl" data-url="aHR0cHM6Ly9kb2NzLmRvY2tlci5jb20vZW5naW5lL3JlZmVyZW5jZS9idWlsZGVyLyNsYWJlbA=="> reference</span></p>
+<p>最后通过 <code>sshpass</code>  执行部署脚本，这一步也可以使用 <code>ansible</code>  代替。</p>
+<h2 id="docker-部署脚本"><a class="anchor" href="#docker-部署脚本">#</a> docker 部署脚本</h2>
+<pre><code>#!/bin/bash
 
 docker pull shaobol/odes:$1
 
@@ -235,7 +239,7 @@ fi
 
 docker run -d --name odes -p 9000:9000 --link postgres:postgres shaobol/odes:$1
 </code></pre>
-<p>脚本很简单，接收CI传过来的参数(image tag)，pull新的image，然后干掉之前的container，run一个新的。这样就完成了update整个过程。</p>
+<p>脚本很简单，接收 CI 传过来的参数 (image tag)，pull 新的 image，然后干掉之前的 container，run 一个新的。这样就完成了 update 整个过程。</p>
 
       <div class="tags">
           <a href="/tags/Travis/" rel="tag"><i class="ic i-tag"></i> Travis</a>
@@ -309,7 +313,7 @@ docker run -d --name odes -p 9000:9000 --link postgres:postgres shaobol/odes:$1
     <div class="item left">
       
 
-  <a href="/2023/12/02/react/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;s3.uuu.ovh&#x2F;imgs&#x2F;2024&#x2F;04&#x2F;15&#x2F;3ad1c5ee17b91ba4.webp" title="react笔记">
+  <a href="/2023/12/02/react/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;s3.uuu.ovh&#x2F;imgs&#x2F;2024&#x2F;04&#x2F;12&#x2F;35b09cafcea9fd29.webp" title="react笔记">
   <span class="type">上一篇</span>
   <span class="category"><i class="ic i-flag"></i> react</span>
   <h3>react笔记</h3>
@@ -319,7 +323,7 @@ docker run -d --name odes -p 9000:9000 --link postgres:postgres shaobol/odes:$1
     <div class="item right">
       
 
-  <a href="/2023/12/07/Blob/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;s3.uuu.ovh&#x2F;imgs&#x2F;2024&#x2F;04&#x2F;05&#x2F;f0ab0ce587c99d2f.webp" title="Blob">
+  <a href="/2023/12/07/Blob/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;s3.uuu.ovh&#x2F;imgs&#x2F;2024&#x2F;04&#x2F;12&#x2F;f63f09ff2084b1f3.jpg" title="Blob">
   <span class="type">下一篇</span>
   <span class="category"><i class="ic i-flag"></i> JS</span>
   <h3>Blob</h3>
@@ -341,7 +345,7 @@ docker run -d --name odes -p 9000:9000 --link postgres:postgres shaobol/odes:$1
   <div class="panels">
     <div class="inner">
       <div class="contents panel pjax" data-title="文章目录">
-          <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%89%80%E4%BD%BF%E7%94%A8%E7%9A%84%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6"><span class="toc-number">1.</span> <span class="toc-text">所使用的基础组件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Dockerfile"><span class="toc-number">2.</span> <span class="toc-text">Dockerfile</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Travis-CI"><span class="toc-number">3.</span> <span class="toc-text">Travis CI</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#docker-%E9%83%A8%E7%BD%B2%E8%84%9A%E6%9C%AC"><span class="toc-number">4.</span> <span class="toc-text">docker 部署脚本</span></a></li></ol>
+          <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%89%80%E4%BD%BF%E7%94%A8%E7%9A%84%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6"><span class="toc-number">1.</span> <span class="toc-text"> 所使用的基础组件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#dockerfile"><span class="toc-number">2.</span> <span class="toc-text"> Dockerfile</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#travis-ci"><span class="toc-number">3.</span> <span class="toc-text"> Travis CI</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#docker-%E9%83%A8%E7%BD%B2%E8%84%9A%E6%9C%AC"><span class="toc-number">4.</span> <span class="toc-text"> docker 部署脚本</span></a></li></ol>
       </div>
       <div class="related panel pjax" data-title="系列文章">
         <ul>
@@ -459,80 +463,20 @@ docker run -d --name odes -p 9000:9000 --link postgres:postgres shaobol/odes:$1
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/%E7%AE%97%E6%B3%95/" title="分类于 算法">算法</a>
+<a href="/categories/Node-js/" title="分类于 Node.js">Node.js</a>
 </div>
 
-    <span><a href="/2023/12/02/%E7%AE%97%E6%B3%95/" title="算法与数据结构">算法与数据结构</a></span>
+    <span><a href="/2024/05/24/node/" title="Node学习笔记">Node学习笔记</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/%E9%A1%B9%E7%9B%AE%E8%B4%A8%E9%87%8F%E6%A3%80%E6%B5%8B/" title="分类于 项目质量检测">项目质量检测</a>
+<a href="/categories/JS/" title="分类于 JS">JS</a>
 </div>
 
-    <span><a href="/2024/01/02/%E9%A1%B9%E7%9B%AE%E8%B4%A8%E9%87%8F%E6%A3%80%E6%B5%8B/" title="项目质量检测">项目质量检测</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" title="分类于 设计模式">设计模式</a>
-</div>
-
-    <span><a href="/2024/03/02/%E8%BD%AF%E4%BB%B6%E6%A8%A1%E5%BC%8F%E8%AE%BE%E8%AE%A1%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="设计模式">设计模式</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/%E7%AE%97%E6%B3%95/" title="分类于 算法">算法</a>
-</div>
-
-    <span><a href="/2023/06/02/%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" title="图片上传解决方案">图片上传解决方案</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/typeScript/" title="分类于 typeScript">typeScript</a>
-</div>
-
-    <span><a href="/2023/12/11/TS/" title="typeScript笔记">typeScript笔记</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/%E5%A4%8D%E6%9D%82%E4%B8%9A%E5%8A%A1%E9%83%A8%E7%BD%B2%E4%B8%8E%E4%BC%98%E5%8C%96/" title="分类于 复杂业务部署与优化">复杂业务部署与优化</a>
-</div>
-
-    <span><a href="/2024/04/12/%E5%A4%8D%E6%9D%82%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2%E4%B8%8A%E7%BA%BF/" title="复杂业务部署与优化">复杂业务部署与优化</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/Linux/" title="分类于 Linux">Linux</a>
-</div>
-
-    <span><a href="/2023/01/22/linux%E6%9C%8D%E5%8A%A1%E5%99%A8/" title="Linux">Linux</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/%E6%B5%8F%E8%A7%88%E5%99%A8/" title="分类于 浏览器">浏览器</a>
-</div>
-
-    <span><a href="/2023/10/09/%E6%B5%8F%E8%A7%88%E5%99%A8%E6%89%A7%E8%A1%8C%E5%8E%9F%E7%90%86/" title="浏览器执行原理">浏览器执行原理</a></span>
+    <span><a href="/2023/12/08/DataView/" title="DataView">DataView</a></span>
   </li>
 
       
@@ -549,10 +493,70 @@ docker run -d --name odes -p 9000:9000 --link postgres:postgres shaobol/odes:$1
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/Node-js/" title="分类于 Node.js">Node.js</a>
+<a href="/categories/%E5%89%8D%E7%AB%AF%E7%9B%91%E6%8E%A7/" title="分类于 前端监控">前端监控</a>
 </div>
 
-    <span><a href="/2024/05/24/node/" title="Node学习笔记">Node学习笔记</a></span>
+    <span><a href="/2024/04/29/%E5%89%8D%E7%AB%AF%E7%9B%91%E6%8E%A7/" title="前端监控">前端监控</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/JS/" title="分类于 JS">JS</a>
+</div>
+
+    <span><a href="/2023/12/11/typedArray/" title="JS中类型化数组typedArray">JS中类型化数组typedArray</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" title="分类于 数据库">数据库</a>
+</div>
+
+    <span><a href="/2023/12/02/%E6%95%B0%E6%8D%AE%E5%BA%93/" title="数据库">数据库</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E6%9D%82%E8%AE%B0/" title="分类于 杂记">杂记</a>
+</div>
+
+    <span><a href="/2023/01/01/%E6%9D%82%E8%AE%B0/" title="杂记">杂记</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/JS/" title="分类于 JS">JS</a>
+</div>
+
+    <span><a href="/2024/01/11/webworker/" title="webWorker">webWorker</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/JS%E8%BF%9B%E9%98%B6/" title="分类于 JS进阶">JS进阶</a>
+</div>
+
+    <span><a href="/2023/08/02/JS/" title="JS进阶">JS进阶</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E4%B8%9A%E5%8A%A1%E5%A4%84%E7%90%86/" title="分类于 业务处理">业务处理</a>
+</div>
+
+    <span><a href="/2024/03/29/%E6%9C%AC%E5%9C%B0%E9%A2%84%E8%A7%88%E5%9B%BE%E7%89%87/" title="本地预览图片">本地预览图片</a></span>
   </li>
 
   </ul>
