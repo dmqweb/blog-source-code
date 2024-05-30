@@ -7,11 +7,9 @@ tags:
 - webpack
 - 前端工程化
 ---
-# babel
+# [babel](*https://babeljs.io/setup*)
 
-*//官网：  https://babeljs.io/setup*
-
-######   1执行编译的命令*
+######   1执行编译的命令
 
 在package.json文件中添加执行babel的命令
 
