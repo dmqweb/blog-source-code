@@ -8,6 +8,8 @@
   {{ partial('_partials/head/head.njk', {}, {cache: true}) }}
   {{ partial('_partials/head/head_unique.njk') }}
   <title>{% block title %}{% endblock %}{{ alternate + " = " if alternate }}{{ title }}{{ " = "+subtitle if subtitle }}</title>
+  <meta name="keywords" content="前端开发, HTML, CSS, JavaScript, 博客">
+  <meta name="description" content="探索前端开发的无限可能。本博客提供最新的前端知识库，以及实用的开发技巧和最佳实践。加入我们的社区，共同成长。">
 </head>
 <body itemscope itemtype="http://schema.org/WebPage">
   <div id="loading">

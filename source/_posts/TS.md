@@ -5,6 +5,7 @@ categories:
 - typeScript
 tags:
 - typeScript
+sticky: true
 ---
 # TS
 
@@ -70,7 +71,24 @@ let a : number | string =0
 let a1 : 1 | 0 =0;
 ```
 
-枚举类型
+### 枚举类型
+
+enmu类型代表选取多个中的一个，枚举类型相当于对象和类型的结合，既可以当变量使用，也可以作为类型进行约束。可以使用enum约束变量的类型，限制使用函数时只能传入enum中的属性。
+
+**例如：**
+
+```js
+enum STATUS {
+    OPEN = 'OPEN',
+    CLOSE = 'CLOSE',
+  }
+  const clickSwitch = (current: STATUS) => { //限制只能传入
+    return '测试'
+  }
+  clickSwitch(STATUS.OPEN)
+```
+
+**基本使用：**
 
 ```ts
 /**
@@ -384,7 +402,7 @@ function test(value:unknown):string{
 }
 ```
 
-
+**使用：**
 
 ```ts
 /**
@@ -633,6 +651,8 @@ console.log(str!.length); // 不报错，使用非空断言操作符 ! 告诉编
 
 ### this关键字
 
+ts在函数中使用this关键字时，由于其类型要约束，因此需要在函数定义参数处声明其类型，声明方式：使用this关键字作为第一个参数，ts会自动识别这是在为this定义类型，后面参数接收和传参时和正常一样。
+
 ```ts
 /**
  * this关键字
@@ -649,7 +669,48 @@ const valid2 = {
     val:1,
     double
 }
-// valid2.double() 此时报错，因为balid2中对象没有value属性
+// valid2.double() 此时报错，因为valid2中对象没有value属性
+```
+
+### declare关键字
+
+ts中declare关键字就是用于告诉编译器，某个类型存在，并且在当前页面可以使用。
+
+declare关键字可以描述：
+
+- 变量（const、let、var 命令声明）
+- type 或者 interface 命令声明的类型
+- class
+- enum
+- 函数（function）
+- 模块（module）
+- 命名空间（namespace）
+
+```js
+declare function sayHello(name:string):void;
+sayHello('张三');
+```
+
+### module关键字
+
+当我们在使用非TypeScript编写的库的时候，他们并没有自己的类型，在ts项目中引入的时候就会抛出错误，这时候通常在`.d.ts`文件中进行定义。也可以使用`module关键字`来声明某个模块的类型
+
+```ts
+declare module "url" {
+    export interface Url {
+        protocol?: string;
+        hostname?: string;
+        pathname?: string;
+    }
+
+    export function parse(urlStr: string, parseQueryString?, slashesDenoteHost?): Url;
+}
+```
+
+如果想要快速使用，而忽略其类型校验，可以进行简写：
+
+```ts
+declare module "url"
 ```
 
 ### typeof操作符

@@ -34,6 +34,8 @@
   <title>
 vue原理 - vue |
 Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
+  <meta name="keywords" content="前端开发, HTML, CSS, JavaScript, 博客">
+  <meta name="description" content="探索前端开发的无限可能。本博客提供最新的前端知识库，以及实用的开发技巧和最佳实践。加入我们的社区，共同成长。">
 <meta name="generator" content="Hexo 6.3.0"></head>
 <body itemscope itemtype="http://schema.org/WebPage">
   <div id="loading">
@@ -102,12 +104,12 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
       </div>
       <div id="imgs" class="pjax">
         <ul>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/12/3368de466b008234.webp"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/07/5804c6f23029288b.jpg"></li>
           <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/06/63e9f1e7097ba6fb.jpg"></li>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/05/f09ce1d151936963.jpg"></li>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/04/3149a0cc49823a9c.jpg"></li>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/03/29/5c162f03529c2f38.jpg"></li>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/15/6cedcb364082ed12.webp"></li>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/06/ba62f09d8f302a0f.jpg"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/06/109323f5add23044.jpg"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/05/d3c578870618de4e.webp"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/13/a7144f7fc5d49961.jpg"></li>
         </ul>
       </div>
     </header>
@@ -155,6 +157,14 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
 
     <h1 id="vue大致流程"><a class="anchor" href="#vue大致流程">#</a> vue 大致流程</h1>
 <h2 id="一-响应式系统"><a class="anchor" href="#一-响应式系统">#</a> 一、响应式系统：</h2>
+<ul>
+<li>响应式的目的就是为了解决计算机语言的程序性</li>
+<li>vue2 采用 <code>Object.defineProperty</code>  的方式来代理对象的属性，但是这个 api 有个问题就是需要先显式地去声明这个对象的属性（属性需要先写出来），就导致向对象添加属性或删除属性时兼管不到。</li>
+<li>vue3 中通过 <code>Proxy</code>  来代理整个对象，就解决了这个问题，但由于我们操作的都是返回的代理对象，并且在调用时打点调用（上下文是代理对象，监听不到源对象的 get 和 set），所以需要使用 <code>reflect</code>  方法指定执行上下文。</li>
+<li>代理到源对象的 get 和 set 方法后，就将当前的响应性表（也可以看成是桶，结构是 weakMap (对象名，map (属性名，set 副作用集合))），源对象执行 get 方法时，会收集当前副作用函数，存储到表中，执行 set 方法时，会将表中对应的副作用函数拿出来遍历执行。</li>
+</ul>
+<h2 id="reactivity模块"><a class="anchor" href="#reactivity模块">#</a> reactivity 模块</h2>
+<p><img data-src="/images/Snipaste_2024-05-31_14-44-09.png" alt="/images/image-20240123164938769" /></p>
 <h4 id="reactive"><a class="anchor" href="#reactive">#</a> reactive：</h4>
 <p>创建代理对象（用于收集依赖）</p>
 <p><img data-src="/images/vue1.png" alt="/images/image-20240123164938769" /></p>
@@ -257,7 +267,7 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
       <i class="ic i-calendar-check"></i>
     </span>
     <span class="text">更新于</span>
-    <time title="修改时间：2024-05-30 13:26:23" itemprop="dateModified" datetime="2024-05-30T13:26:23+08:00">2024-05-30</time>
+    <time title="修改时间：2024-05-31 14:46:52" itemprop="dateModified" datetime="2024-05-31T14:46:52+08:00">2024-05-31</time>
   </span>
   <span id="2023/11/02/vue原理/" class="item leancloud_visitors" data-flag-title="vue原理" title="阅读次数">
       <span class="icon">
@@ -315,7 +325,7 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
     <div class="item left">
       
 
-  <a href="/2023/10/24/ThreeJS/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;s3.uuu.ovh&#x2F;imgs&#x2F;2024&#x2F;04&#x2F;04&#x2F;3149a0cc49823a9c.jpg" title="three.js">
+  <a href="/2023/10/24/ThreeJS/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;s3.uuu.ovh&#x2F;imgs&#x2F;2024&#x2F;04&#x2F;05&#x2F;f09ce1d151936963.jpg" title="three.js">
   <span class="type">上一篇</span>
   <span class="category"><i class="ic i-flag"></i> three.js</span>
   <h3>three.js</h3>
@@ -325,7 +335,7 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
     <div class="item right">
       
 
-  <a href="/2023/12/02/%E9%9A%90%E5%BC%8F%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;s3.uuu.ovh&#x2F;imgs&#x2F;2024&#x2F;04&#x2F;15&#x2F;807885ba1421e9b4.jpg" title="JS类型转换">
+  <a href="/2023/12/02/%E9%9A%90%E5%BC%8F%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;s3.uuu.ovh&#x2F;imgs&#x2F;2024&#x2F;04&#x2F;05&#x2F;f58f811a8b6cbdbb.jpg" title="JS类型转换">
   <span class="type">下一篇</span>
   <span class="category"><i class="ic i-flag"></i> JS</span>
   <h3>JS类型转换</h3>
@@ -347,7 +357,7 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
   <div class="panels">
     <div class="inner">
       <div class="contents panel pjax" data-title="文章目录">
-          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#vue%E5%A4%A7%E8%87%B4%E6%B5%81%E7%A8%8B"><span class="toc-number">1.</span> <span class="toc-text"> vue 大致流程</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80-%E5%93%8D%E5%BA%94%E5%BC%8F%E7%B3%BB%E7%BB%9F"><span class="toc-number">1.1.</span> <span class="toc-text"> 一、响应式系统：</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#reactive"><span class="toc-number">1.1.0.1.</span> <span class="toc-text"> reactive：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#effect"><span class="toc-number">1.1.0.2.</span> <span class="toc-text"> effect：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ref%E5%87%BD%E6%95%B0"><span class="toc-number">1.1.0.3.</span> <span class="toc-text"> ref 函数：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#computed%E5%87%BD%E6%95%B0"><span class="toc-number">1.1.0.4.</span> <span class="toc-text"> computed 函数：</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#scheduler%E8%B0%83%E5%BA%A6%E5%99%A8"><span class="toc-number">1.1.1.</span> <span class="toc-text"> scheduler 调度器：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#watch%E5%87%BD%E6%95%B0z"><span class="toc-number">1.1.2.</span> <span class="toc-text"> watch 函数：Z</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C-%E8%BF%90%E8%A1%8C%E6%97%B6runtime"><span class="toc-number">1.2.</span> <span class="toc-text"> 二、运行时 runtime：</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#createvnode%E5%87%BD%E6%95%B0"><span class="toc-number">1.2.0.1.</span> <span class="toc-text"> createVNode 函数：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#h%E5%87%BD%E6%95%B0"><span class="toc-number">1.2.0.2.</span> <span class="toc-text"> h 函数：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#nodeops%E5%AF%B9%E8%B1%A1"><span class="toc-number">1.2.0.3.</span> <span class="toc-text"> nodeOps 对象：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#patchprop%E5%87%BD%E6%95%B0"><span class="toc-number">1.2.0.4.</span> <span class="toc-text"> patchProp 函数：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#render%E5%87%BD%E6%95%B0"><span class="toc-number">1.2.0.5.</span> <span class="toc-text"> render 函数：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BB%84%E4%BB%B6%E6%B8%B2%E6%9F%93"><span class="toc-number">1.2.0.6.</span> <span class="toc-text"> 组件渲染：</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#patch%E5%87%BD%E6%95%B0diff%E7%AE%97%E6%B3%95"><span class="toc-number">1.2.1.</span> <span class="toc-text"> patch 函数（diff 算法）：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89-%E7%BC%96%E8%AF%91%E6%97%B6compile"><span class="toc-number">1.3.</span> <span class="toc-text"> 三、编译时 compile：</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#baseparse%E5%87%BD%E6%95%B0"><span class="toc-number">1.3.0.1.</span> <span class="toc-text"> baseParse 函数：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#transform%E5%87%BD%E6%95%B0"><span class="toc-number">1.3.0.2.</span> <span class="toc-text"> transform 函数:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#generate%E5%87%BD%E6%95%B0"><span class="toc-number">1.3.0.3.</span> <span class="toc-text"> generate 函数：</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#compile%E5%87%BD%E6%95%B0"><span class="toc-number">1.3.1.</span> <span class="toc-text"> compile 函数：</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#parseinterpolation%E5%87%BD%E6%95%B0"><span class="toc-number">1.3.1.1.</span> <span class="toc-text"> parseInterpolation 函数：</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E5%A4%84%E7%90%86%E6%8F%92%E5%80%BC%E8%A1%A8%E8%BE%BE%E5%BC%8F"><span class="toc-number">1.3.1.1.0.1.</span> <span class="toc-text"> （处理插值表达式）</span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#parseattributes%E5%87%BD%E6%95%B0"><span class="toc-number">1.3.1.2.</span> <span class="toc-text"> parseAttributes 函数：</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E5%A4%84%E7%90%86props%E5%B1%9E%E6%80%A7v-%E6%8C%87%E4%BB%A4%E7%AD%89"><span class="toc-number">1.3.1.2.0.1.</span> <span class="toc-text"> （处理 props 属性，v - 指令等）</span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#createstructuraldirectivetransform%E5%87%BD%E6%95%B0"><span class="toc-number">1.3.1.3.</span> <span class="toc-text"> createStructuralDirectiveTransform 函数：</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E7%BB%9F%E4%B8%80%E5%A4%84%E7%90%86%E6%8C%87%E4%BB%A4"><span class="toc-number">1.3.1.3.0.1.</span> <span class="toc-text"> （统一处理指令）</span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#transform%E6%8C%87%E4%BB%A4%E7%B3%BB%E5%88%97%E5%87%BD%E6%95%B0"><span class="toc-number">1.3.1.4.</span> <span class="toc-text"> transform 指令系列函数：</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#transformifv-if"><span class="toc-number">1.3.1.4.0.1.</span> <span class="toc-text"> transformIf(v-if)</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B-%E8%BF%90%E8%A1%8C%E6%97%B6%E7%BC%96%E8%AF%91%E6%97%B6%E5%90%88%E5%B9%B6"><span class="toc-number">1.4.</span> <span class="toc-text"> 四、运行时 + 编译时合并</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-render%E6%B8%B2%E6%9F%93"><span class="toc-number">1.4.1.</span> <span class="toc-text"> 1、render 渲染</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#createapp%E5%87%BD%E6%95%B0"><span class="toc-number">1.4.1.1.</span> <span class="toc-text"> createApp 函数：</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#createappapi%E5%87%BD%E6%95%B0"><span class="toc-number">1.4.1.1.0.1.</span> <span class="toc-text"> createAppAPI 函数</span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#mount%E5%87%BD%E6%95%B0"><span class="toc-number">1.4.1.2.</span> <span class="toc-text"> mount 函数：</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#normalizecontainer%E5%87%BD%E6%95%B0"><span class="toc-number">1.4.1.2.0.1.</span> <span class="toc-text"> normalizeContainer 函数：</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-template%E6%A8%A1%E6%9D%BF%E6%B8%B2%E6%9F%93"><span class="toc-number">1.5.</span> <span class="toc-text"> 2、template 模板渲染</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#vue3%E6%9B%B4%E6%96%B0%E4%BC%98%E5%8C%96"><span class="toc-number">2.</span> <span class="toc-text"> Vue3 更新优化</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#1-%E9%9D%99%E6%80%81%E6%8F%90%E5%8D%87"><span class="toc-number">2.0.0.0.0.1.</span> <span class="toc-text"> 1、静态提升</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#2-%E9%A2%84%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%96"><span class="toc-number">2.0.0.0.0.2.</span> <span class="toc-text"> 2、预字符串化</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#3-%E7%BC%93%E5%AD%98%E4%BA%8B%E4%BB%B6%E5%A4%84%E7%90%86%E5%87%BD%E6%95%B0"><span class="toc-number">2.0.0.0.0.3.</span> <span class="toc-text"> 3、缓存事件处理函数</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#4-block-tree"><span class="toc-number">2.0.0.0.0.4.</span> <span class="toc-text"> 4、Block Tree</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#5-patchflag"><span class="toc-number">2.0.0.0.0.5.</span> <span class="toc-text"> 5 、patchFlag</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></li></ol>
+          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#vue%E5%A4%A7%E8%87%B4%E6%B5%81%E7%A8%8B"><span class="toc-number">1.</span> <span class="toc-text"> vue 大致流程</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80-%E5%93%8D%E5%BA%94%E5%BC%8F%E7%B3%BB%E7%BB%9F"><span class="toc-number">1.1.</span> <span class="toc-text"> 一、响应式系统：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#reactivity%E6%A8%A1%E5%9D%97"><span class="toc-number">1.2.</span> <span class="toc-text"> reactivity 模块</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#reactive"><span class="toc-number">1.2.0.1.</span> <span class="toc-text"> reactive：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#effect"><span class="toc-number">1.2.0.2.</span> <span class="toc-text"> effect：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ref%E5%87%BD%E6%95%B0"><span class="toc-number">1.2.0.3.</span> <span class="toc-text"> ref 函数：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#computed%E5%87%BD%E6%95%B0"><span class="toc-number">1.2.0.4.</span> <span class="toc-text"> computed 函数：</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#scheduler%E8%B0%83%E5%BA%A6%E5%99%A8"><span class="toc-number">1.2.1.</span> <span class="toc-text"> scheduler 调度器：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#watch%E5%87%BD%E6%95%B0z"><span class="toc-number">1.2.2.</span> <span class="toc-text"> watch 函数：Z</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C-%E8%BF%90%E8%A1%8C%E6%97%B6runtime"><span class="toc-number">1.3.</span> <span class="toc-text"> 二、运行时 runtime：</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#createvnode%E5%87%BD%E6%95%B0"><span class="toc-number">1.3.0.1.</span> <span class="toc-text"> createVNode 函数：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#h%E5%87%BD%E6%95%B0"><span class="toc-number">1.3.0.2.</span> <span class="toc-text"> h 函数：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#nodeops%E5%AF%B9%E8%B1%A1"><span class="toc-number">1.3.0.3.</span> <span class="toc-text"> nodeOps 对象：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#patchprop%E5%87%BD%E6%95%B0"><span class="toc-number">1.3.0.4.</span> <span class="toc-text"> patchProp 函数：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#render%E5%87%BD%E6%95%B0"><span class="toc-number">1.3.0.5.</span> <span class="toc-text"> render 函数：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BB%84%E4%BB%B6%E6%B8%B2%E6%9F%93"><span class="toc-number">1.3.0.6.</span> <span class="toc-text"> 组件渲染：</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#patch%E5%87%BD%E6%95%B0diff%E7%AE%97%E6%B3%95"><span class="toc-number">1.3.1.</span> <span class="toc-text"> patch 函数（diff 算法）：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89-%E7%BC%96%E8%AF%91%E6%97%B6compile"><span class="toc-number">1.4.</span> <span class="toc-text"> 三、编译时 compile：</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#baseparse%E5%87%BD%E6%95%B0"><span class="toc-number">1.4.0.1.</span> <span class="toc-text"> baseParse 函数：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#transform%E5%87%BD%E6%95%B0"><span class="toc-number">1.4.0.2.</span> <span class="toc-text"> transform 函数:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#generate%E5%87%BD%E6%95%B0"><span class="toc-number">1.4.0.3.</span> <span class="toc-text"> generate 函数：</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#compile%E5%87%BD%E6%95%B0"><span class="toc-number">1.4.1.</span> <span class="toc-text"> compile 函数：</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#parseinterpolation%E5%87%BD%E6%95%B0"><span class="toc-number">1.4.1.1.</span> <span class="toc-text"> parseInterpolation 函数：</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E5%A4%84%E7%90%86%E6%8F%92%E5%80%BC%E8%A1%A8%E8%BE%BE%E5%BC%8F"><span class="toc-number">1.4.1.1.0.1.</span> <span class="toc-text"> （处理插值表达式）</span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#parseattributes%E5%87%BD%E6%95%B0"><span class="toc-number">1.4.1.2.</span> <span class="toc-text"> parseAttributes 函数：</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E5%A4%84%E7%90%86props%E5%B1%9E%E6%80%A7v-%E6%8C%87%E4%BB%A4%E7%AD%89"><span class="toc-number">1.4.1.2.0.1.</span> <span class="toc-text"> （处理 props 属性，v - 指令等）</span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#createstructuraldirectivetransform%E5%87%BD%E6%95%B0"><span class="toc-number">1.4.1.3.</span> <span class="toc-text"> createStructuralDirectiveTransform 函数：</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E7%BB%9F%E4%B8%80%E5%A4%84%E7%90%86%E6%8C%87%E4%BB%A4"><span class="toc-number">1.4.1.3.0.1.</span> <span class="toc-text"> （统一处理指令）</span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#transform%E6%8C%87%E4%BB%A4%E7%B3%BB%E5%88%97%E5%87%BD%E6%95%B0"><span class="toc-number">1.4.1.4.</span> <span class="toc-text"> transform 指令系列函数：</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#transformifv-if"><span class="toc-number">1.4.1.4.0.1.</span> <span class="toc-text"> transformIf(v-if)</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B-%E8%BF%90%E8%A1%8C%E6%97%B6%E7%BC%96%E8%AF%91%E6%97%B6%E5%90%88%E5%B9%B6"><span class="toc-number">1.5.</span> <span class="toc-text"> 四、运行时 + 编译时合并</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-render%E6%B8%B2%E6%9F%93"><span class="toc-number">1.5.1.</span> <span class="toc-text"> 1、render 渲染</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#createapp%E5%87%BD%E6%95%B0"><span class="toc-number">1.5.1.1.</span> <span class="toc-text"> createApp 函数：</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#createappapi%E5%87%BD%E6%95%B0"><span class="toc-number">1.5.1.1.0.1.</span> <span class="toc-text"> createAppAPI 函数</span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#mount%E5%87%BD%E6%95%B0"><span class="toc-number">1.5.1.2.</span> <span class="toc-text"> mount 函数：</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#normalizecontainer%E5%87%BD%E6%95%B0"><span class="toc-number">1.5.1.2.0.1.</span> <span class="toc-text"> normalizeContainer 函数：</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-template%E6%A8%A1%E6%9D%BF%E6%B8%B2%E6%9F%93"><span class="toc-number">1.6.</span> <span class="toc-text"> 2、template 模板渲染</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#vue3%E6%9B%B4%E6%96%B0%E4%BC%98%E5%8C%96"><span class="toc-number">2.</span> <span class="toc-text"> Vue3 更新优化</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#1-%E9%9D%99%E6%80%81%E6%8F%90%E5%8D%87"><span class="toc-number">2.0.0.0.0.1.</span> <span class="toc-text"> 1、静态提升</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#2-%E9%A2%84%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%96"><span class="toc-number">2.0.0.0.0.2.</span> <span class="toc-text"> 2、预字符串化</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#3-%E7%BC%93%E5%AD%98%E4%BA%8B%E4%BB%B6%E5%A4%84%E7%90%86%E5%87%BD%E6%95%B0"><span class="toc-number">2.0.0.0.0.3.</span> <span class="toc-text"> 3、缓存事件处理函数</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#4-block-tree"><span class="toc-number">2.0.0.0.0.4.</span> <span class="toc-text"> 4、Block Tree</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#5-patchflag"><span class="toc-number">2.0.0.0.0.5.</span> <span class="toc-text"> 5 、patchFlag</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></li></ol>
       </div>
       <div class="related panel pjax" data-title="系列文章">
         <ul>
@@ -465,60 +475,20 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/ajax/" title="分类于 ajax">ajax</a>
+<a href="/categories/JS/" title="分类于 JS">JS</a>
 </div>
 
-    <span><a href="/2023/01/08/ajax/" title="ajax">ajax</a></span>
+    <span><a href="/2023/07/02/forEach/" title="forEach">forEach</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/%E5%BE%AE%E5%89%8D%E7%AB%AF/" title="分类于 微前端">微前端</a>
+<a href="/categories/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" title="分类于 正则表达式">正则表达式</a>
 </div>
 
-    <span><a href="/2024/05/24/%E5%BE%AE%E5%89%8D%E7%AB%AF/" title="微前端">微前端</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/%E9%A1%B9%E7%9B%AE%E8%B4%A8%E9%87%8F%E6%A3%80%E6%B5%8B/" title="分类于 项目质量检测">项目质量检测</a>
-</div>
-
-    <span><a href="/2024/01/02/%E9%A1%B9%E7%9B%AE%E8%B4%A8%E9%87%8F%E6%A3%80%E6%B5%8B/" title="项目质量检测">项目质量检测</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90%E4%B8%8E%E9%83%A8%E7%BD%B2/" title="分类于 持续集成与部署">持续集成与部署</a>
-</div>
-
-    <span><a href="/2024/02/03/%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90%E4%B8%8E%E6%8C%81%E7%BB%AD%E9%83%A8%E7%BD%B2/" title="持续集成与持续部署">持续集成与持续部署</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/git/" title="分类于 git">git</a>
-</div>
-
-    <span><a href="/2023/05/02/git%20github%E7%AC%94%E8%AE%B0%EF%BC%88%E6%A6%82%E5%BF%B5%EF%BC%89/" title="git笔记">git笔记</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/webpack/" title="分类于 webpack">webpack</a>
-</div>
-
-    <span><a href="/2023/10/21/webpack/" title="webpack笔记">webpack笔记</a></span>
+    <span><a href="/2023/02/12/%E4%B8%AD%E5%89%8D%E5%8F%B0%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" title="正则表达式">正则表达式</a></span>
   </li>
 
       
@@ -528,37 +498,77 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
 <a href="/categories/JS/" title="分类于 JS">JS</a>
 </div>
 
-    <span><a href="/2023/12/21/%E6%9C%80%E5%A4%A7%E5%AE%89%E5%85%A8%E6%95%B0/" title="最大安全数与最大安全整数">最大安全数与最大安全整数</a></span>
+    <span><a href="/2023/12/02/%E9%9A%90%E5%BC%8F%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2/" title="JS类型转换">JS类型转换</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/typeScript/" title="分类于 typeScript">typeScript</a>
+<a href="/categories/git/" title="分类于 git">git</a>
 </div>
 
-    <span><a href="/2023/12/11/TS/" title="typeScript笔记">typeScript笔记</a></span>
+    <span><a href="/2023/04/02/git%E5%92%8Cgithub/" title="git与github">git与github</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/%E6%B5%8F%E8%A7%88%E5%99%A8/" title="分类于 浏览器">浏览器</a>
+<a href="/categories/JS/" title="分类于 JS">JS</a>
 </div>
 
-    <span><a href="/2023/10/09/%E6%B5%8F%E8%A7%88%E5%99%A8%E6%89%A7%E8%A1%8C%E5%8E%9F%E7%90%86/" title="浏览器执行原理">浏览器执行原理</a></span>
+    <span><a href="/2023/09/02/ArrayBuffer/" title="ArrayBuffer">ArrayBuffer</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/%E5%A4%8D%E6%9D%82%E4%B8%9A%E5%8A%A1%E9%83%A8%E7%BD%B2%E4%B8%8E%E4%BC%98%E5%8C%96/" title="分类于 复杂业务部署与优化">复杂业务部署与优化</a>
+<a href="/categories/%E4%B8%89%E6%96%B9%E5%BA%93/" title="分类于 三方库">三方库</a>
 </div>
 
-    <span><a href="/2024/04/12/%E5%A4%8D%E6%9D%82%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2%E4%B8%8A%E7%BA%BF/" title="复杂业务部署与优化">复杂业务部署与优化</a></span>
+    <span><a href="/2024/04/16/%E4%B8%89%E6%96%B9%E5%8C%85/" title="三方库">三方库</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/JS/" title="分类于 JS">JS</a>
+</div>
+
+    <span><a href="/2024/02/02/serviceWorker/" title="serviceWorker">serviceWorker</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/vue/" title="分类于 vue">vue</a>
+</div>
+
+    <span><a href="/2023/09/02/vue3%E6%BA%90%E7%A0%81%E4%BD%8D%E8%BF%90%E7%AE%97/" title="vue3源码中的位运算">vue3源码中的位运算</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/OSI%E4%B8%83%E5%B1%82%E7%BD%91%E7%BB%9C%E6%A8%A1%E5%9E%8B/" title="分类于 OSI七层网络模型">OSI七层网络模型</a>
+</div>
+
+    <span><a href="/2024/05/27/OSI%E4%B8%83%E5%B1%82%E7%BD%91%E7%BB%9C%E6%A8%A1%E5%9E%8B/" title="OSI七层网络模型">OSI七层网络模型</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/" title="分类于 计算机组成原理">计算机组成原理</a>
+</div>
+
+    <span><a href="/2024/01/02/%E7%BC%93%E5%AD%98%E3%80%81%E5%86%85%E5%AD%98%E3%80%81CPU%E7%9F%A5%E8%AF%86%E7%82%B9%E8%A7%A3%E6%9E%90%E7%AC%94%E8%AE%B0/" title="计组知识点">计组知识点</a></span>
   </li>
 
   </ul>
