@@ -989,6 +989,75 @@ http.createServer((req, res) => {
 });
 ```
 
+## net模块
+
+**介绍：**
+
+- net模块是Node.js的核心模块之一，提供了用于创建基于网络的应用程序的API
+- net模块主要用于**创建TCP服务器和TCP客户端，以及处理网络通信**
+
+**应用场景：**
+
+- 服务端之间的通讯
+
+  - 服务端之间的通讯可以直接使用TCP通讯，而不需要上升到http层
+
+  - server.js（TCP层面的服务端）
+
+    ```js
+    const net = require('net')
+    const server = net.createServer((client)=>{
+      setTimeout(() => {
+      client.write('发送TCP内容')
+      }, 1000);
+    })
+    server.listen(3000,()=>{
+      console.log('3000端口启动服务');
+    })
+    ```
+
+  - connection.js（TCP层面的客户端）
+
+    ```js
+    const net = require('net')
+    const connection = net.createConnection({
+      host:'127.0.0.1',
+      port:3000
+    })
+    connection.on('data',(data)=>{
+      console.log(data.toString());
+    })
+    ```
+
+- 从传输层实现http协议
+
+  ```js
+  const net = require('net');
+  const html = `<h1>TCP Server</h1>`
+  const reposneHeader = [
+      'HTTP/1.1 200 OK',
+      'Content-Type: text/html',
+      'Content-Length: ' + html.length,
+      'Server: Nodejs',
+      '\r\n',
+      html
+  ]
+  const http = net.createServer((connect)=>{
+    connect.on('data',(data)=>{
+      console.log(data.toString().slice(0,3));
+      if(data.toString().startsWith('GET')){
+        connect.write(reposneHeader.join('\r\n')) //向TCP连接中写入html响应
+        connect.end()
+      }
+    })
+  })
+  http.listen(3000,()=>{
+    console.log('服务启动');
+  })
+  ```
+
+  
+
 ## 动静分离
 
 - 动静分离是Web服务器架构中常用的优化技术，用于提高网站的性能和可伸缩性
@@ -1035,7 +1104,7 @@ server.listen(80) // 监听端口80
 
 ## 邮件服务
 
-邮件服务可以用于给成员发送邮件、通知成员信息
+邮件服务可以用于给成员发送邮件、通知成员信息，在node.js上创建邮件服务，需要提供授权码。
 
 **工具：**
 
@@ -1069,6 +1138,915 @@ transPort.sendMail({
     from: dataObj.user,
     subject: '邮件标题',
     text: '邮件内容'
+})
+```
+
+## 防盗链
+
+防盗链是指在网页或其他资源中，通过直接链接的方式链接到其他网站上的图片、视频或者其他媒体文件，显示在自己的网页上，这种行为通常会给被链接的网站带来额外的带宽消耗和资源浪费，而且可能侵犯了原始网站的版权。采用措施有：
+
+- **通过HTTP引用检查**：（查看请求来源地址，不匹配则不提供资源）
+- **使用Referrer检查**：检查HTTP请求中的Referrer字段，该字段指示了请求资源的来源页面（不匹配则不提供服务）
+- **使用访问控制列表**（ACL）：网站管理员可以配置服务器的访问控制列表，只允许特定的域名或IP地址访问资源，其他来源的请求将被拒绝。
+- **使用防盗链插件或脚本**：一些网站平台和内容管理系统提供了专门的插件或脚本来防止盗链。这些工具可以根据需要配置，阻止来自未经授权的网站的盗链请求。
+- **使用水印技术**：在图片或视频上添加水印可以帮助识别盗链行为，并提醒用户资源的来源。
+
+```js
+import express from 'express';
+const app = express();
+const whitelist = ['localhost'];
+//防盗链中间件
+const preventHotLinking = (req,res,next)=>{
+    const referer = req.get('referer'); //请求中的referrer字段标识请求来源
+    if(referer){
+        const {hostname} = new URL(referer);
+        if(!whistlist.includes(hostname)){
+            res.status(403).send('我不允许你访问我的资源');
+            return;
+        }
+    }
+    next();
+};
+app.use(preventHotLinking);
+app.listen(3000,()=>{
+    console.log('3000端口启动')
+})
+```
+
+## 响应头和请求头
+
+**响应头：**
+
+- HTTP响应头（HTTP response headers）是在HTTP响应中发送的元数据信息，用于描述响应的特性、内容和行为。他们以键值对的形式出现。每个键值对由一个标头字段和响应值组成。
+
+  ```http
+  Access-Control-Allow-Origin: *
+  Cache-Control:public, max-age=0, must-revalidate
+  Content-Type:text/html; charset=utf-8
+  Server:nginx
+  Date:Mon, 08 Jan 2024 18:32:47 GMT
+  ```
+
+**cors：**
+
+- 跨域资源共享（CORS）是一种机制，用于在浏览器中实现跨域请求访问资源的权限控制。
+
+- 当一个网页通过XMLHttpRequest或者Fetch Api进行跨域请求时，浏览器会根据同源策略进行限制。
+- 同源策略要求请求的协议、域名和端口号必须一致。
+
+**请求头：**
+
+- Accept：指定客户端能够处理的内容类型。
+
+- Accept-Language：指定客户端偏好的自然语言。
+
+- Content-Language：指定请求或响应实体的自然语言。
+
+- Content-Type：指定请求或响应实体的媒体类型。
+
+- DNT (Do Not Track)：指示客户端不希望被跟踪。
+
+- Origin：指示请求的源（协议、域名和端口）。
+
+- User-Agent：包含发起请求的用户代理的信息。
+
+- Referer：指示当前请求的源 URL。
+
+- Content-type: application/x-www-form-urlencoded | multipart/form-data |  text/plain
+
+**请求方法支持：**
+
+服务端默认只支持GET、POST、HEAD、OPTIONS请求，使用其他 restful api请求方法需要添加响应头`Access-Control-Allow-Methods: *`
+
+## SSE
+
+- SSE（Server-Sent-Events）是一种在客户端和服务器之间实现单向事件流的机制，允许服务器主动向客户端发送事件数据，在SSE中可以自定义事件来完成。
+
+- SSE核心就是：
+  - 前端通过`EventSource` 来注册事件源，监听对应事件。
+  - 后端通过设置响应头`Content-Type`为：`text/event-stream` 之后 发送具有特定类型的事件数据。
+
+**前端：**
+
+```js
+const sse = new EventSource('http://localhost:3000/sse');
+sse.addEventListener('test',(event)=>{
+    console.log(event.data);
+})
+```
+
+**后端：**
+
+```js
+app.get('/sse'(req,res)=>{
+    res.setHeader('Content-Type','text/event-stream'); //设置事件响应头
+    res.status(200);
+    setInterval(()=>{
+        res.write('event: test\n'); // 发送对应的事件
+        res.write('data: ' + new Date().getTime() + '\n\n');
+    },1000)
+})
+```
+
+## ORM框架
+
+- ORM(Object Relation Map)：对象关系映射，常用于为关系型数据库提供类型安全的支持。
+
+#### [knex](https://knexjs.org/guide/query-builder.html#select)
+
+- knex是一个基于JavaScript的查询生成器
+- knex允许使用JavaScript代码来生成和执行SQL查询语句
+- knex提供了一种简单和直观的方式来与关系型数据库进行交互，而无需编写SQL语句
+- 可以使用knex来定义表结构，执行查询、插入、更新和删除等操作。
+
+**连接数据库：**
+
+```js
+import knex from 'knex';
+const db = knex({
+    client: "mysql2",
+    connection:{
+        user:root,
+        password:'123456',
+        host:localhost,
+        port:3306,
+        database:test
+    }
+})
+```
+
+增删改查详见官网。
+
+**事务：**
+
+事务相当于分组的一个概念，可以使用事务来确保一组数据库操作的原子性，要么全部成功提交，要么全部回滚。
+
+#### [prisma](https://prisma.yoga/getting-started)
+
+Prisma 和 Knex 都是现代的 Node.js ORM（对象关系映射）库，它们可以帮助开发者以面向对象的方式来操作数据库。尽管它们的目标相似，但它们在设计理念、功能特性和使用方式上存在一些区别：
+
+- prisma和TypeScript联系紧密
+- prisma提供强大的类型安全
+
+[prisma CLI](https://www.npmjs.com/package/prisma)
+
+prisma对应的脚手架可以快速创建模板结构。
+
+## 设计模式
+
+#### MVC
+
+**概念：**
+
+- MVC是一种常用的软件架构模式，用于设计和组织应用程序的代码
+
+- 它将应用程序分为三个主要的组件：模型(Model)、视图(view)和控制器(Controller)，各自负责不同的模块
+
+**作用：**
+
+- MVC将应用程序的逻辑数据等和界面相分离，以提高代码的可维护性、可扩展性和可重用性。
+- 通过将不同职责分配给不同组件，MVC提供了一种清晰的结构使得开发人员更好的管理应用程序的各个部分
+
+#### loC控制反转
+
+**概念：**
+
+- 控制反转（IoC）是一种设计原则，它将组件的控制权从组件自身转移到外部容器。
+
+- 传统上，组件负责自己的创建和管理，而控制反转则将这个责任转给了一个外部的容器或框架。容器负责创建组件实例并管理它们的生命周期，组件只需声明自己所需的依赖关系，并通过容器获取这些依赖。
+
+- loC控制反转使得组件更加松耦合、可测试和可维护。
+
+**依赖注入：**
+
+- 依赖注入（DI）是实现控制反转的一种具体技术。
+
+- 它通过将组件的依赖关系从组件内部移动到外部容器来实现松耦合。
+
+- 组件不再负责创建或管理它所依赖的其他组件，而是通过构造函数、属性或方法参数等方式将依赖关系注入到组件中。
+
+- 依赖注入可以通过构造函数注入（Constructor Injection）、属性注入（Property Injection）或方法注入（Method Injection）等方式实现。
+
+**工具包：**
+
+可以使用inversify、reflect-metadata、inversify-express-utils来实现。
+
+## JWT
+
+**介绍：**
+
+JWT（JSON Web Token）是一种开放的标准，是一种基于JSON的安全令牌，用于在客户端和服务端之间传输信息。
+
+**组成：**
+
+JWT由三部分组成，它们通过点（.）进行分隔：
+
+1. Header（头部）：包含了令牌的类型和使用的加密算法等信息。通常采用Base64编码表示。
+2. Payload（负载）：包含了身份验证和授权等信息，如用户ID、角色、权限等。也可以自定义其他相关信息。同样采用Base64编码表示。
+3. Signature（签名）：使用指定的密钥对头部和负载进行签名，以确保令牌的完整性和真实性。
+
+**工作流程：**
+
+1. 用户通过提供有效的凭证（例如用户名和密码）进行身份验证。
+2. 服务器验证凭证，并生成一个JWT作为响应。JWT包含了用户的身份信息和其他必要的数据。
+3. 服务器将JWT发送给客户端。
+4. 客户端在后续的请求中，将JWT放入请求的头部或其他适当的位置。
+5. 服务器在接收到请求时，验证JWT的签名以确保其完整性和真实性。如果验证通过，服务器使用JWT中的信息进行授权和身份验证。
+
+## Redis
+
+**内存存储系统**
+
+**介绍：**
+
+Redis（Remote Dictionary Server）是一个开源的内存数据结构存储系统，提供了一个高效的键值存储解决方案，并支持多种数据结构，如：string字符串、hashes哈希、lists列表、sets集合和sorted sets有序集合等等。
+
+**应用：**
+
+Redis被广泛应用于缓存、消息队列和实时统计等场景。
+
+**特点：**
+
+- 内存存储，因此具有快速的读写功能，能持久化数据到硬盘，以便在重新启动后恢复数据
+- 多种数据结构，Redis支持多种数据结构
+- 发布/订阅，Redis支持发布订阅模式，允许多个客户端订阅同一个或多个频道，以接收实时发布的消息，这使得Redis可以用于实时消息系统
+- 事务支持，Redis支持事务，可以将多个命令打包成一个原子操作执行，确保命令要么全部成功，要么全部失败
+- 持久化，Redis提供两种持久化数据的方式：
+  - RDB（Redis Database），RDB是将数据以快照的形式保存到磁盘。
+  - AOF（Append Only File），AOF是将每个写操作追加到文件中，确保数据在意外宕机或重启后的持久性
+- 高可用性，Redis支持主从复制和Sentine哨兵机制，通过主从复制可以创建多个Redis实例的副本，以提高读取性和容错能力。`sentinel`是一个用于监控和自动故障转移的系统，可以在主节点宕机时自动将节点提升为主节点。
+- 缓存，Redis的快速读写能力和灵活的数据结构使其被广泛应用于缓存层，它可以将常用的数据存储在内存中，以加快数据访问速度，减轻后端数据库的负载。
+- 实时统计，Redis的计数器和有序集合等数据结构使其非常适合实时统计的场景，可以存储和更新计数器，并对有序集合进行排名和范围查询，用于统计和排行榜功能。
+
+**安装**
+
+安装文件，配置环境变量，然后启动即可。
+
+连接redis服务可以使用Navicate或者在vscode中下载对应的插件。
+
+**发布订阅模式：**
+
+在redis中，发布订阅模式通过命令：publish、subscribe、unsubscribe、psubscribe命令和punsubscribe命令来进行操作。
+
+**事务：**
+
+- redis支持事务，允许用户将多个命令打包在一起作为一个单元进行执行，事务提供了一种原子性操作的机制，要么所有命令都执行成功，要么所有命令都不成功。
+- Redis的事务不支持回滚操作，如果在事务执行期间发生错误，事务会继续执行，而不会会回滚已执行的命令。
+- Redis事务常用命令：
+  - multi：开启一个事务
+  - exec：执行事务中所有命令
+  - watch：对一个或多个键进行监视
+  - discard：取消事务，清空事务队列中的命令。
+
+**redis持久化：**
+
+- RDB（Redis Database）持久化
+  - RDB持久化是一种快照的形式，会将内存中的数据定期保存到磁盘上。
+  - 可以通过配置Redis服务器，设置自动触发RDB快照的条件，比如指定时间间隔或指定操作次数自动保存。
+  - RDB持久化生成的快照文件是二进制文件，包含了Redis数据的完整状态。
+  - 在恢复数据时，可以通过加载快照文件将数据重新加载到内存中。
+- RDB使用：
+  - 找到redis的redis.conf文件，配置其中的save字段。
+  - 或者在redis启动的命令行中输入save，手动保存快照。
+- AOF（Append Only File）持久化
+  - AOF持久化记录了Redis服务器执行的所有写操作命令，在文件中以追加的方式保存
+  - 当redis重启时，可以重新执行AOF文件中保存的命令，以重新构建数据集。相比于RDB持久化，AOF持久化提供了更好的数据恢复保证，因为它记录了每个写操作，而不是快照的形式。
+  - AOF文件相对于RDB文件更大，恢复数据的速度可能会比较慢。
+- AOF使用：
+  - redus.conf文件的appendonly字段设置为yes。
+
+**redis主从复制：**
+
+- redis主从复制是一种数据复制和同步机制，其中一个redis服务器（主服务器）将其数据复制到一个或多个其他Redis服务器（从服务器）中，主从复制提供了数据冗余备份、读写分离和故障恢复等功能。
+
+**ioredis：在node.js中与Redis进行交互的三方库。**
+
+## lua
+
+轻量级、可嵌入的脚本语言。
+
+**介绍：**
+
+- lua是一种轻量级、高效、可嵌入的脚本语言，被广泛应用于嵌入式系统、游戏开发、Web应用和脚本编写等领域。
+- 其设计目标之一就是作为扩展和嵌入式脚本语言，可以与其他编程语言无缝集成。
+- 在redius中可以直接执行lua脚本（.lua文件）。
+- web应用为了增强性能和可扩展性，通常将Lua、Redis和Nginx结合使用，以构建高性能的Web应用程序或API服务。
+
+[安装](https://www.lua.org/)
+
+## corn表达式
+
+corn表达式是一种用汉语指定定时任务执行时间的字符串表示形式，由6个或7个字段组成，每个字段表示任务执行的时间单位和范围。
+
+**格式为：**
+
+```markdown
+*    *    *    *    *    *
+┬    ┬    ┬    ┬    ┬    ┬
+│    │    │    │    │    │
+│    │    │    │    │    └── 星期（0 - 6，0表示星期日）
+│    │    │    │    └───── 月份（1 - 12）
+│    │    │    └────────── 日（1 - 31）
+│    │    └─────────────── 小时（0 - 23）
+│    └──────────────────── 分钟（0 - 59）
+└───────────────────────── 秒（0 - 59）
+```
+
+常见的Cron表达式示例：
+
+- `* * * * * *`：每秒执行一次任务。
+- `0 * * * * *`：每分钟的整点执行一次任务。
+- `0 0 * * * *`：每小时的整点执行一次任务。
+- `0 0 * * * *`：每天的午夜执行一次任务。
+- `0 0 * * 1 *`：每周一的午夜执行一次任务。
+- `0 0 1 * * *`：每月的1号午夜执行一次任务。
+- `0 0 1 1 * *`：每年的1月1日午夜执行一次任务。
+
+**掘金定时自动签到：**
+
+```js
+const schedule = require('node-schedule')
+const axios = require('axios');
+const aid = '******' //输入掘金账号的aid
+const uid = '******' //输入掘金账号的uid
+const cookie = '******' //输入在掘金的cookie
+schedule.scheduleJob('48 15 * * *',()=>{
+    //corn表达式表示43分钟15小时每天每月每星期（每天15点43分）点执行
+    axios.post(`https://api.juejin.cn/growth_api/v1/check_in?aid=${aid}&uid=${uid}`,{},{
+        headers:{
+            referer: 'https://juejin.cn/',
+            cookie: `sessionid=${}`
+        }
+    }).then(res=>{
+        console.log('签到成功');
+    }).catch(err=>{
+        console.log('出现错误',err);
+    })
+})
+```
+
+## serverLess
+
+**介绍：**
+
+- serverLess并不是一项技术，而是一个架构模型（无服务器架构）。
+- 在传统模式下，部署一个服务需要选择服务器（linux、windows等），并且需要安装环境，熟悉操作系统命令，知晓安全知识等，都需要一定的成本，serverLess的核心思想就是让开发者更多关注业务本身而不是服务器运行成本。
+
+**Faas：函数即服务**
+
+FaaS是一种Serverless计算模型，它允许开发人员编写和部署函数代码，而无需关心底层的服务器管理。在FaaS中，开发人员只需关注函数的实现和逻辑，将其上传到云平台上，平台会负责函数的运行和扩展。当有请求触发函数时，云平台会自动为函数提供所需的计算资源，并根据请求量进行弹性扩展。这种按需计算的模式使开发人员可以更专注于业务逻辑的实现，同时实现了资源的高效利用。
+
+每个函数即一个服务，函数内只需处理业务，可以使用BASS层提供的服务已完成业务，无需关心背后计算资源的问题。
+
+**Baas：后端即服务**
+
+后端即服务是一种提供面向移动应用和Web应用的后端功能的云服务模型。BaaS为开发人员提供了一组预构建的后端服务，如用户身份验证、数据库存储、文件存储、推送通知等，以简化应用程序的开发和管理。开发人员可以使用BaaS平台提供的API和SDK，直接集成这些功能到他们的应用中，而无需自己构建和维护后端基础设施。
+
+对后端的资源当成一种服务，如文件存储，数据存储，推送服务，身份验证。该层只需提供对应的服务，无需关心业务。定义为底层基础服务，由其他服务调用，正常不触及用户终端。
+
+**脚手架快速编写：https://www.npmjs.com/package/@serverless-devs/s**
+
+## webSocket
+
+**传统HTTP的不足：**
+
+- 传统HTTP是一种单向请求--响应协议，客户端发送请求之后，服务器才会响应并返回相应的数据。
+
+- 在传统HTTP中，客户端需要主动发送请求才能获取服务器上的资源，而且每次请求都需要重新建立连接，这种方式在实时通信和持续获取资源的场景下效率较低。
+
+**Socket：**
+
+socket提供了实时的双向通信能力，可以实时地传输数据。客户端和服务器之间的通信是即时的，数据的传输和响应几乎是实时完成的，不需要轮询或定时发送请求。
+
+**node中使用webSocket：**
+
+- **客户端：**
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        html,
+        body,
+        .room {
+            height: 100%;
+            width: 100%;
+        }
+        .room {
+            display: flex;
+        }
+        .left {
+            width: 300px;
+            border-right: 0.5px solid #f5f5f5;
+            background: #333;
+        }
+        .right {
+            background: #1c1c1c;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .header {
+            background: #8d0eb0;
+            color: white;
+            padding: 10px;
+            box-sizing: border-box;
+            font-size: 20px;
+        }
+        .main {
+            flex: 1;
+            padding: 10px;
+            box-sizing: border-box;
+            font-size: 20px;
+            overflow: auto;
+        }
+        .main-chat {
+            color: green;
+        }
+        .footer {
+            min-height: 200px;
+            border-top: 1px solid green;
+        }
+        .footer .ipt {
+            width: 100%;
+            height: 100%;
+            color: green;
+            outline: none;
+            font-size: 20px;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+        .groupList {
+            height: 100%;
+            overflow: auto;
+        }
+        .groupList-items {
+            height: 50px;
+            width: 100%;
+            background: #131313;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+    </style>
+</head>
+<div class="room">
+    <div class="left">
+        <div class="groupList">
+        </div>
+    </div>
+    <div class="right">
+        <header class="header">聊天室</header>
+        <main class="main">
+        </main>
+        <footer class="footer">
+            <div class="ipt" contenteditable></div>
+        </footer>
+    </div>
+</div>
+<body>
+    <script type="module">
+        const sendMessage = (message) => {
+            const div = document.createElement('div');
+            div.className = 'main-chat';
+            div.innerText = `${message.user}:${message.text}`;
+            main.appendChild(div)
+        }
+        const groupEl = document.querySelector('.groupList');
+        const main = document.querySelector('.main');
+        import { io } from "https://cdn.socket.io/4.7.4/socket.io.esm.min.js";
+        const name = prompt('请输入你的名字');
+        const room = prompt('请输入房间号');
+        const socket = io('ws://localhost:3000');
+        //键盘按下发送消息
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                const ipt = document.querySelector('.ipt');
+                socket.emit('message', {
+                    text: ipt.innerText,
+                    room: room,
+                    user: name
+                });
+                sendMessage({
+                    text: ipt.innerText,
+                    user: name,
+                })
+                ipt.innerText = '';
+            }
+        })
+        //连接成功socket
+        socket.on('connect', () => {
+            socket.emit('join', { name, room });//加入一个房间
+            socket.on('message', (message) => {
+                sendMessage(message)
+            })
+            socket.on('groupList', (groupList) => {
+                console.log(groupList);
+                groupEl.innerHTML = ''
+                Object.keys(groupList).forEach(key => {
+                    const item = document.createElement('div');
+                    item.className = 'groupList-items';
+                    item.innerText = `房间名称:${key} 房间人数:${groupList[key].length}`
+                    groupEl.appendChild(item)
+                })
+            })
+        })
+    </script>
+</body>
+</html>
+```
+
+- **服务端：**
+
+```js
+import http from 'http'
+import { Server } from 'socket.io'
+import express from 'express'
+const app = express()
+app.use('*', (req, res, next) => {
+    res.setHeader("Access-Control-Allow-Origin", "*");
+    res.setHeader("Access-Control-Allow-Headers", "*");
+    res.setHeader("Access-Control-Allow-Methods", "*");
+    next();
+})
+const server = http.createServer(app)
+const io = new Server(server, {
+    cors: true //允许跨域
+})
+const groupList = {}
+/**
+ * [{1008:[{name,room,id}]}]
+ */
+io.on('connection', (socket) => {
+    //加入房间
+    socket.on('join', ({ name, room }) => {
+        socket.join(room)
+        if (groupList[room]) {
+            groupList[room].push({ name, room, id: socket.id })
+        } else {
+            groupList[room] = [{ name, room, id: socket.id }]
+        }
+        socket.emit('message', { user: '管理员', text: `${name}进入了房间` })
+        socket.emit('groupList', groupList)
+        socket.broadcast.emit('groupList', groupList)
+    })
+    //发送消息
+    socket.on('message', ({ text, room, user }) => {
+        socket.broadcast.to(room).emit('message', {
+            text,
+            user
+        })
+    })
+    //断开链接内置事件
+    socket.on('disconnect', () => {
+        Object.keys(groupList).forEach(key => {
+            let leval = groupList[key].find(item => item.id === socket.id)
+            if (leval) {
+                socket.broadcast.to(leval.room).emit('message', { user: '管理员', text: `${leval.name}离开了房间` })
+            }
+            groupList[key] = groupList[key].filter(item => item.id !== socket.id)
+        })
+        socket.broadcast.emit('groupList', groupList)
+    })
+});
+server.listen(3000, () => {
+    console.log('listening on :3000');
+});
+```
+
+## 爬虫
+
+**介绍：**
+
+- 爬虫也称为网络爬虫或网络蜘蛛，是指一种自动化程序或脚本，用于在互联网上浏览和提取信息。
+- 爬虫模拟人类在网页上的行为，通过HTTP协议发送请求，获取网页内容，然后解析并提取需要的内容。
+- 在node中使用爬虫需要借助模拟浏览器环境的包（如 puppeteer）来模拟浏览器环境。
+
+**工具：**
+
+- puppeteer（模拟浏览器环境）
+
+**使用：**
+
+npm包：
+
+```bash
+npm i puppeteer
+```
+
+index.js：
+
+```js
+import puppeteer from "puppeteer";
+const btnText = process.argv[2];
+const browser = await puppeteer.launch({
+    headless:false, //取消无头模式
+})
+const page = await browser.newPage(); //打开一个页面
+console.log(page);
+page.setViewport({ width:1920,height:1080 }); //设置页面宽高
+await page.goto('https://juejin.cn/'); //跳转
+await page.waitForSelector('.side-navigator-wrap'); //等待元素出现
+const elements = await page.$$('.side-navigator-wrap .nav-item-wrap span') //获取元素
+const articleList = [];
+const collectFunc = async()=>{
+    await page.waitForSelector('.entry-list')
+    const elements = await page.$$('.entry-list .title-row a')
+    for await (let el of elements) {
+        const text = await el.getProperty('innerText')
+        const name = await text.jsonValue()
+        articleList.push(name)
+    }
+    console.log(articleList)
+}
+for await (let el of elements) {
+    const text = await el.getProperty('innerText') //获取span的属性
+    const name = await text.jsonValue() //获取内容
+    if (name.trim() === (btnText || '前端')) {
+        await el.click() //自动点击对应的菜单
+        collectFunc() //调用函数
+    }
+}
+```
+
+**可以结合node子进程跑python脚本，使用pip仓库中相应的包和功能。**
+
+## C++扩展
+
+Node.js在IO方面具有极强的能力，但是对CPU密集型的任务有所不足，为了填补这部分缺点，node.js支持C/C++为其编写原生的nodejs插件，补充这方面能力。
+
+**node.js中C++扩展：**
+
+c++编写的代码能够被编译成一个动态链接库(dll),可以被nodejs require引入使用，后缀是`.node`
+
+.node文件的原理就是(`window dll`) (`Mac dylib`) (`Linux so`)
+
+c++扩展编写语法
+
+- NAN(Native Abstractions for Nodejs) 一次编写，到处编译
+  - 因为 Nodejs和V8都更新的很快所有每个版本的方法名也不一样，对我们开发造成了很大的问题例如
+  - 0.50版本 `Echo(const Prototype&proto)`
+  - 3.00版本 `Echo(Object<Prototype>& proto)`
+
+- NAN的就是一堆宏判断，判断各种版本的API，用来实现兼容所以他会到处编译
+  - N-API(node-api) 无需重新编译
+  - 基于C的API
+  - c++ 封装 node-addon-api
+
+N-API 是一个更现代的选择，它提供了一个稳定的、跨版本的 API，使得你的插件可以在不同版本的 Node.js 上运行，而无需修改代码。这大大简化了编写和维护插件的过程。
+
+对于 C++，可以使用 node-addon-api，这是 N-API 的一个封装，提供了一个更易于使用的 C++ API。这将使你的代码更易于阅读和维护。
+
+**使用场景**
+
+1. 使用C++编写的Nodejs库如`node-sass` `node-jieba` 等
+2. CPU密集型应用
+3. 代码保护
+
+**需要安装C++编辑器：**
+
+```bash
+npm install --global --production windows-build-tools #管理员运行
+#如果安装过python 以及c++开发软件就不需要装这个了
+npm install node-gyp -g #全局安装
+npm install node-addon-api -D #装到项目里
+```
+
+**使用：**
+
+**cpu.cpp：**
+
+```c++
+
+#define NAPI_VERSION 3  //指定addon版本
+#define NAPI_CPP_EXCEPTIONS //启用 Node.js N-API 中的 C++ 异常支持
+#include <napi.h>  //addon API
+#include <windows.h> //windwos API
+
+Napi::Value GetScreenSize(const Napi::CallbackInfo& info) {
+    Napi::Env env = info.Env(); //指定环境
+
+    int cx = GetSystemMetrics(SM_CXSCREEN); //获取设备宽
+    int cy = GetSystemMetrics(SM_CYSCREEN); //获取设备高
+
+    Napi::Object result = Napi::Object::New(env); //创建一个对象
+    result.Set("width", cx);
+    result.Set("height", cy);
+
+    return result; //返回对象
+}
+
+Napi::Object Init(Napi::Env env, Napi::Object exports) {
+    //抛出一个函数  getScreenSize 
+    exports.Set("getScreenSize", Napi::Function::New(env, GetScreenSize));
+    return exports;
+}
+//addon固定语法 必须抛出这个方法
+NODE_API_MODULE(NODE_GYP_MODULE_NAME, Init)
+```
+
+**binding.gyp：**
+
+```python
+{
+    "targets":[
+        {
+            "target_name": "cpu", //名称
+            "sources": [ "cpu.cpp" ], //指定文件
+            "include_dirs": [
+                 "<!@(node -p \"require('node-addon-api').include\")" //引入addon
+            ]
+        }
+    ]
+}
+```
+
+**index.js：**
+
+```js
+const addon = require('./build/Release/cpu.node')
+console.log(addon.getScreenSize())
+```
+
+**命令行中打包addon：**
+
+```bash
+node-gyp configure #生成配置文件
+node-gyp build  #打包addon
+```
+
+## 大文件上传
+
+大文件上传方案：
+
+- 大文件分片：将大文件切分成较小的片段（通常称为分片或者块），然后逐个上传这些分片
+  - 优点是：提高上传的稳定性，因为上传失败时只需要重新上传该分片而不需要重新上传整个文件，同时分片上传还可以利用多个网络连接并行上传多个分片，提高上传速度。
+- 断点续传：如果上传中止，断点传输可以记录已成功上传的分片信息，以便在恢复上传时继续上传未完成的任务，而不是重新上传整个文件
+  - 优点是可以大大减少上传失败的影响，并节省时间和带宽。
+
+前端：
+
+```html
+<script>
+    const fileDOM = document.getElementById('file');
+    fileDOM.addEventListener('change',(e)=>{
+        const file = e.target.files[0];
+        //对文件进行分片
+        const chunks = sliceFile(file);
+        //上传分片数据
+        postChunksData(chunks);
+    })
+    function sliceFile(file,size=1024 * 1024 * 4) {
+        const chunks = [];
+        for(let i=0;i<file.size;i+=size){
+            chunks.push(file.slice(i , i + size));
+        }
+        return chunks;
+    }
+    function postChunksData(chunks) {
+        const list = [];
+        for(let i=0;i<chunks.length;i++){
+            //使用formData上传所有分片
+            const formData = new FormData();
+            formData.append('index',i);
+            formData.append('total',chunks.length);
+            formData.append('fileName','分片文件');
+            formData.append('file',chunks[i]);
+            list.push(fetch('http://localhost:3000/up',{
+                method:'POST',
+                body: formData,
+            }))
+        }
+        //上传完所有分片之后将文件合并
+        Promise.all(list).then(res => {
+            fetch('http://localhost:3000/merge',{
+                method:"POST",
+                headers:{
+                    "Content-Type":"application/json"
+                },
+                body:JSON.stringify({
+                    fileName:"分片上传文件",
+                })
+            }).then(res=>{
+                console.log(res);
+            })
+        })
+    }    
+</script>
+```
+
+服务端：
+
+```js
+import express from 'express'
+import multer from 'multer'
+import cors from 'cors'
+import fs from 'node:fs'
+import path from 'node:path'
+const storage = multer.diskStorage({
+    destination: (req, file, cb) => {
+        cb(null, 'uploads/')
+    },
+    filename: (req, file, cb) => {
+        cb(null, `${req.body.index}-${req.body.fileName}`)
+    }
+})
+const upload = multer({ storage })
+const app = express()
+app.use(cors())
+app.use(express.json())
+// 使用multer将数据存到服务器磁盘中
+app.post('/up', upload.single('file'), (req, res) => {
+    res.send('ok')
+})
+// 使用fs.appendFileSync将切片文件进行合成
+app.post('/merge', async (req, res) => {
+    const uploadPath = './uploads'
+    let files = fs.readdirSync(path.join(process.cwd(), uploadPath))
+    files = files.sort((a, b) => a.split('-')[0] - b.split('-')[0])
+    const writePath = path.join(process.cwd(), `video`, `${req.body.fileName}.mp4`)
+    files.forEach((item) => {
+        fs.appendFileSync(writePath, fs.readFileSync(path.join(process.cwd(), uploadPath, item)))
+        fs.unlinkSync(path.join(process.cwd(), uploadPath, item))
+    })
+    res.send('ok')
+})
+app.listen(3000, () => {
+    console.log('Server is running on port 3000')
+})
+```
+
+## 文件流下载
+
+- 文件流下载是一种将文件内容通过流的形式发送给客户端，实现文件下载的方法，适用于处理大型文件或者需要实时生成文件内容的情况。
+
+- 核心知识响应头：
+  - Content-Type指定下载文件的MIME类型
+    - `application/octet-stream`（二进制流数据）
+    - `application/pdf`：Adobe PDF 文件。
+    - `application/json`：JSON 数据文件
+    - `image/jpeg`：JPEG 图像文件
+  - `Content-Disposition` 指定服务器返回的内容在浏览器中的处理方式。它可以用于控制文件下载、内联显示或其他处理方式
+    - `attachment`：指示浏览器将响应内容作为附件下载。通常与 `filename` 参数一起使用，用于指定下载文件的名称
+    - `inline`：指示浏览器直接在浏览器窗口中打开响应内容，如果内容是可识别的文件类型（例如图片或 PDF），则在浏览器中内联显示
+
+前端：
+
+```html
+<script>
+         const btn = document.getElementById('btn')
+         btn.onclick = () => {
+            fetch('http://localhost:3000/download',{
+                method:"post",
+                body:JSON.stringify({
+                    fileName:'1.png'
+                }),
+                headers:{
+                    "Content-Type":"application/json"
+                }
+            }).then(res=>res.arrayBuffer()).then(res=>{ //请求到stream流式数据后，通过res.arrayBuffer方法获得Buffer数据，用Blob容器存储二进制缓冲数据，通过URL.createObjectURL创建URL地址，赋给a标签进行下载。
+                const blob = new Blob([res],{type:'image/png'})
+                const url = URL.createObjectURL(blob)
+                const a = document.createElement('a')
+                a.href = url
+                a.download = '1.png'
+                a.click()
+            })
+         }
+     </script>
+```
+
+服务端：
+
+```js
+import express from 'express'
+import fs from 'fs'
+import path from 'path'
+import cors from 'cors'
+const app = express()
+app.use(cors())
+app.use(express.json())
+app.use(express.static('./static'))
+app.post('/download', function (req, res) { //当请求download路径时，通过fs读取文件数据，设置响应头后返回文件数据
+    const fileName = req.body.fileName
+    const filePath = path.join(process.cwd(), './static', fileName)
+    const content = fs.readFileSync(filePath)
+    res.setHeader('Content-Type', 'application/octet-stream')
+    res.setHeader('Content-Disposition', 'attachment;filename=' + fileName)
+    res.send(content)
+})
+app.listen(3000, () => {
+    console.log('http://localhost:3000')
 })
 ```
 

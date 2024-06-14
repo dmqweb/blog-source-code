@@ -4,14 +4,32 @@ date: 2022-05-27 13:47:40
 type: "links"
 ---
 
-
 {% links %}
+
+- site: w3（查概念）
+  owner: 
+  url: https://www.w3schools.com/whatis/whatis_w3js.asp
+  desc: w3查看前端概念
+  image: https://picsum.photos/200/200?239
+  color: ""
+
+# 多链接参考 yaml 列表格式
+
 - site: 走之底
   owner: 
   url: https://zzd.show/
   desc: 技术工具站
   image: https://picsum.photos/200/200?2
   color: "gray"
+# 多链接参考 yaml 列表格式
+
+- site: CE修改器
+  owner: 
+  url: https://mod.3dmgame.com/mod/140848
+  desc: 修改内存和进程中的数据
+  image: https://picsum.photos/200/200?208
+  color: "yellow"
+
 # 多链接参考 yaml 列表格式
 - site: 抽象语法树
   owner: 
@@ -213,4 +231,4 @@ type: "links"
   desc: AI大模型仓库
   image: https://picsum.photos/200/200?28
   color: 
-{% endlinks %}
+  {% endlinks %}
