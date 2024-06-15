@@ -8,7 +8,7 @@
     "algolia": "set HEXO_ALGOLIA_INDEXING_KEY=bfa5090f87840ffa546f9e1cb4bc1ef0 && hexo algolia",
     "serve": "hexo clean && hexo g && hexo s",
     "new": "hexo new --categories vue --tags vue,面试题   标题",
-    "push": "git add . && git commit -m 'pushRemote' && git push gitee"
+    "push": "git pull && git add . && git commit -m 'pushRemote' && git push gitee"
   },
   "hexo": {
     "version": "6.3.0"
