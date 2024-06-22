@@ -6,3 +6,5 @@ npm run addPost
 npm run new 
 # 推送到远程
 npm run push
+# master分支是最新的代码同步
+# dev分支是旧版的代码同步
