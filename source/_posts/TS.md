@@ -1232,3 +1232,180 @@ function minxinArray<T, K>(arr1: T[], arr2: K[]): (T | K)[] {
   return result;
 }
 ```
+# --------------------------------------
+# 项目中使用 ts
+
+## 注意事项
+
+- 直接在类型定义文件.d.ts 中书写类型，任意文件夹中直接使用，ts 会自动找对应类型
+- declare namespace 定义命名空间，这样可以防止使用混乱，还可以防止变量命名冲突
+- - ```ts
+    declare namespace Test {
+      type Person = {
+        name: string;
+        age: number;
+      };
+    }
+    ```
+- .d.ts 文件可以统一写在 types 文件夹中，也可以写在就近文件夹中
+- 三方库声明支持：当一个三方库中没有定义类型文件时，可以自己手写一个类型声明模块，例如
+- - ```ts
+    declare module "antd-dayjs-webpack-plugin";
+    ```
+- declare function 定义 TS 环境中已存在的 JS 运行时函数，不能用于定义自己手写的函数，常用于定义约束 es 语法内置的函数类型
+- - ```ts
+    declare function eval(x: string): any;
+    ```
+- declare 声明类型、接口等无效，只能用于声明 function、module 和 namespace
+- 类型定义时，不能写默认参数值
+- 只允许在函数或构造函数实现中使用参数初始化表达式（即参数默认值）
+- 鸭子比对法的含义就是：当一个变量被类型约束之后，可以使用包含全部该类型声明，但类型声明更多的变量或字面量对该变量进行赋值
+- 索引签名允许定义一个对象类型，该类型可以通过索引访问其属性，并且这些属性的值可以是相同的类型。
+- ts 只支持两种索引签名：字符串和数字，可以同时使用两种类型的索引，但是数字索引的返回值必须是字符串索引返回值类型的子类型。
+- typeof 操作符用于提取某个变量或类的类型
+- keyof 操作符用于提取某个类型的字面量类型
+- - ```ts
+    type test = {
+      name: "zhang";
+      age: 18;
+    };
+    let a: keyof test;
+    a = "name";
+    a = "age";
+    ```
+- - ```ts
+    interface NumberDictionary {
+      [index: string]: number;
+      length: number; // 可以，length是number类型
+      name: string; // 错误，`name`的类型与索引类型返回值的类型不匹配
+    }
+    ```
+- 索引签名可以结合 TS 高级类型特性使用，例如：映射类型
+- - ```ts
+    // 这里OptionsFlags是一个映射类型，它将T类型的所有键映射为boolean类型的值，通过索引签名实现这一点
+    type OptionsFlags<T> = {
+      [P in keyof T]: boolean;
+    };
+    ```
+- 元组用于精确数组中每一项的类型，当添加越界的元素时，类型会被限制为元组中每个类型的联合类型
+- - ```ts
+    let arr: [string, number];
+    arr = ["1", 0];
+    arr.push(1);
+    arr.push(null); //报错
+    ```
+- lib.es5.d.ts 中自定义的高级泛型
+
+- - ArrayLike 泛型：类数组类型
+
+- - Partial 泛型 全部属性变为：可选类型
+
+- - - ```ts
+      // Partial可选泛型
+      interface User {
+        name: string;
+        age: number;
+      }
+      // 将User类型全部的属性变为可选类型
+      type UserPartial = Partial<User>;
+      ```
+
+- - Required 泛型 全部属性变为：必选类型
+- - - ```ts
+      // Required必选泛型
+      interface User1 {
+        id?: string;
+        sex?: number;
+      }
+      //将User1类型全部的属性变为必选类型
+      type UserRequired = Required<User1>;
+      ```
+
+- - Readonly 泛型 全部属性变为：只读类型
+- - - ```ts
+      // Readonly泛型
+      type User2 = {
+        name: string;
+        id: number;
+      };
+      // 将User2的全部类型变为只读类型
+      interface UserReadOnly extends Readonly<User2> {}
+      ```
+
+- - Pick 泛型：从类型 T 中选取部分值的类型，创建一个新的类型。（泛型使用时需要传入类型和选取的类型属性）
+- - - ```ts
+      // Pick泛型，选取部分类型
+      type User3 = {
+        name: string;
+        age: number;
+        id: number;
+      };
+      // 选取User3类型中的部分值和类型
+      type UserPicked = Pick<User3, "name" | "age">;
+      ```
+- - Record 泛型：构造一个类型，其键为第一个泛型参数类型，值为第二个泛型参数类型
+
+```ts
+// Record泛型，指定对某一类键的类型统一约束
+type User4 = {
+  age: number;
+  id: number;
+};
+// 对键为string类型的值进行约束，相当于{ [key:string]:number; }
+type UserRecored = Record<string, number>;
+```
+
+- - Exclude 泛型：排除类型中的某一个类型选项！（适用于对象类型）
+- - - ```ts
+      // Exclude排除泛型，用于在类型中排除某些类型选项！！
+      type Unicode = "foo" | "bar" | "baz";
+      type userExclude = Exclude<Unicode, "foo">;
+      ```
+- - Extract 泛型：指定类型中的某一个类型选项！
+- - - ```ts
+      // Extract精确泛型，选择某个类型选项！进行精确
+      type Unicode1 = "foo" | "bar" | "baz";
+      type UserExtract = Extract<Unicode1, "baz">;
+      ```
+
+- - Omit 泛型：创建一个新的类型，排除类型中指定类型（第二个参数类型）（适用于联合类型）
+- - - ```ts
+      // Omit泛型
+      type User5 = {
+        name: string;
+        age: 13;
+      };
+      // 创建新类型，排除给定类型
+      type UserOmit = Omit<User5, "age">;
+      ```
+- - type NonNullable<T> = T & {};内置的排除 undefined 和 null 的泛型（巧妙使用了条件类型去精确类型）。
+- - - &在交叉类型中，具有多种类型全部的属性和方法，这里传入空对象不会对原来造成影响，但是使用了&条件类型，就会通过类型排除和类型首位精确定义类型定义。
+- - Parameters 泛型，用于提取出函数参数的类型，并将其封装为元组
+- - ConstructorParameters 泛型，用于提取出构造函数的参数类型（传入 typeof dmq 类），并将其封装为元组
+- - ReturnType 泛型，用于提取函数返回值的类型
+- - Awaited 泛型：尝试推断一个具有 then 方法（Promise）的最终完成值的类型
+- - - ```ts
+      function fetchUser(): Promise<{ id: number; name: string }> {
+        return new Promise((resolve) => {
+          resolve({ id: 1, name: "张三" });
+        });
+      }
+      type User = Awaited<ReturnType<typeof fetchUser>>;
+      ```
+- - instanceType 泛型：获取一个构造函数类型的实例类型
+- - - ```ts
+      type InstanceTyped = InstanceType<typeof MyClass>; //MyClass
+      ```
+- - Uppercase Lowercase 泛型，将一个字符串类型的所有字符转为大（小）写
+- - - ```ts
+      type UpperHello = Uppercase<"hello">;
+      ```
+- - Capitalize 泛型，将字符串类型的首字符转为大写
+
+## react 项目中使用 TS
+
+> 配置 ts.config.json
+
+- lib 选项表示编译过程中需要引入的库文件列表，react 项目中必须在 lib 中包含 dom 选项
+- jsx 选项表示编译过程中如何处理 jsx 语法，react 项目中配置为 preserve，保留给 babel 处理即可，也可以配置为 react-jsx
+  其余部分详见[官网](https://zh-hans.react.dev/learn/typescript)
