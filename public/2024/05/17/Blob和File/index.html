@@ -1,0 +1,746 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#FFF">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="icon" type="image/ico" sizes="32x32" href="/images/favicon.ico">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+<link rel="alternate" type="application/rss+xml" title="杜明清的个人博客" href="https://dmqweb.cn/rss.xml" />
+<link rel="alternate" type="application/atom+xml" title="杜明清的个人博客" href="https://dmqweb.cn/atom.xml" />
+<link rel="alternate" type="application/json" title="杜明清的个人博客" href="https://dmqweb.cn/feed.json" />
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Mulish:300,300italic,400,400italic,700,700italic%7CFredericka%20the%20Great:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20JP:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CInconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="/css/app.css?v=0.2.5">
+
+  
+  <meta name="keywords" content="Blob,FileReader" />
+
+
+<link rel="canonical" href="https://dmqweb.cn/2024/05/17/Blob%E5%92%8CFile/">
+
+
+
+  <title>
+Blob、File和FileReader - Blob |
+Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
+  <meta name="keywords" content="前端开发, HTML, CSS, JavaScript, 博客">
+  <meta name="description" content="探索前端开发的无限可能。本博客提供最新的前端知识库，以及实用的开发技巧和最佳实践。加入我们的社区，共同成长。">
+<meta name="generator" content="Hexo 6.3.0"></head>
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div id="loading">
+    <div class="cat">
+      <div class="body"></div>
+      <div class="head">
+        <div class="face"></div>
+      </div>
+      <div class="foot">
+        <div class="tummy-end"></div>
+        <div class="bottom"></div>
+        <div class="legs left"></div>
+        <div class="legs right"></div>
+      </div>
+      <div class="paw">
+        <div class="hands left"></div>
+        <div class="hands right"></div>
+      </div>
+    </div>
+  </div>
+  <div id="container">
+    <header id="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="inner">
+        <div id="brand">
+          <div class="pjax">
+          
+  <h1 itemprop="name headline">Blob、File和FileReader
+  </h1>
+  
+<div class="meta">
+  <span class="item" title="创建时间：2024-05-17 10:22:13">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <span class="text">发表于</span>
+    <time itemprop="dateCreated datePublished" datetime="2024-05-17T10:22:13+08:00">2024-05-17</time>
+  </span>
+</div>
+
+
+          </div>
+        </div>
+        <nav id="nav">
+  <div class="inner">
+    <div class="toggle">
+      <div class="lines" aria-label="切换导航栏">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </div>
+    </div>
+    <ul class="menu">
+      <li class="item title"><a href="/" rel="start">Web blog</a></li>
+    </ul>
+    <ul class="right">
+      <li class="item theme">
+        <i class="ic i-sun"></i>
+      </li>
+      <li class="item search">
+        <i class="ic i-search"></i>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+      </div>
+      <div id="imgs" class="pjax">
+        <ul>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/13/ba4d76fc0767aeef.jpg"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/12/b04c50f26fdc9c19.jpg"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/05/5f5c15d0d8ceb4d1.jpg"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/12/35b09cafcea9fd29.webp"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/15/21b7a3f222ccbcb6.jpg"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/05/f0ab0ce587c99d2f.webp"></li>
+        </ul>
+      </div>
+    </header>
+    <div id="waves">
+      <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+        <defs>
+          <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+        </defs>
+        <g class="parallax">
+          <use xlink:href="#gentle-wave" x="48" y="0" />
+          <use xlink:href="#gentle-wave" x="48" y="3" />
+          <use xlink:href="#gentle-wave" x="48" y="5" />
+          <use xlink:href="#gentle-wave" x="48" y="7" />
+        </g>
+      </svg>
+    </div>
+    <main>
+      <div class="inner">
+        <div id="main" class="pjax">
+          
+  <div class="article wrap">
+    
+<div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+<i class="ic i-home"></i>
+<span><a href="/">首页</a></span><i class="ic i-angle-right"></i>
+<span  class="current" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/categories/Blob/" itemprop="item" rel="index" title="分类于 Blob"><span itemprop="name">Blob</span></a>
+<meta itemprop="position" content="1" /></span>
+</div>
+
+    <article itemscope itemtype="http://schema.org/Article" class="post block" lang="zh-CN">
+  <link itemprop="mainEntityOfPage" href="https://dmqweb.cn/2024/05/17/Blob%E5%92%8CFile/">
+
+  <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="image" content="/images/avatar.jpg">
+    <meta itemprop="name" content="dmq">
+    <meta itemprop="description" content="👻欢迎一起交流学习👻, ">
+  </span>
+
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="杜明清的个人博客">
+  </span>
+
+  <div class="body md" itemprop="articleBody">
+    
+
+    <h1 id="blob"><a class="anchor" href="#blob">#</a> Blob</h1>
+<p>Blob 的全称为：binary larget object（二进制大对象），blob 的本质是一个 js 对象，里面可以存储大量的二进制编码的数据。</p>
+<h3 id="特点"><a class="anchor" href="#特点">#</a> 特点：</h3>
+<ul>
+<li>不可修改</li>
+<li>只能使用 FileReader 读取内容</li>
+<li>存储大量二进制数据的 js 对象</li>
+</ul>
+<h3 id="使用"><a class="anchor" href="#使用">#</a> 使用：</h3>
+<p><strong>new Blob(array,options)</strong></p>
+<ul>
+<li>
+<p>array 是由 ArrayBuffer、ArrayBufferView、Blob 和 DOMString 对象构成的，将对被放进 blob 中</p>
+</li>
+<li>
+<p>options 配置项有：</p>
+<ul>
+<li>
+<p>type：默认值为：” “，表示将会被放入到 blob 中的数组内容的 MIME 类型。</p>
+</li>
+<li>
+<p>endings：默认值为：”transparent“，用于指定包含行结束符 \n 的字符串如何被写入，不常用。</p>
+<table>
+<thead>
+<tr>
+<th>MIME 类型</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>text/plain</td>
+<td>纯文本文档</td>
+</tr>
+<tr>
+<td>text/html</td>
+<td>HTML 文档</td>
+</tr>
+<tr>
+<td>text/javascript</td>
+<td>JavaScript 文档</td>
+</tr>
+<tr>
+<td>text/css</td>
+<td>CSS 文件</td>
+</tr>
+<tr>
+<td>application/json</td>
+<td>JSON 文件</td>
+</tr>
+<tr>
+<td>application/pdf</td>
+<td>pdf 文件</td>
+</tr>
+<tr>
+<td>application/xml</td>
+<td>XML 文件</td>
+</tr>
+<tr>
+<td>image/jpeg</td>
+<td>JPEG 文件</td>
+</tr>
+<tr>
+<td>image/png</td>
+<td>PNG 文件</td>
+</tr>
+<tr>
+<td>image/gif</td>
+<td>GIF 文件</td>
+</tr>
+<tr>
+<td>image/svg+xml</td>
+<td>SVG+XML 文件</td>
+</tr>
+<tr>
+<td>audio/mpeg</td>
+<td>MP3 文件</td>
+</tr>
+<tr>
+<td>video/mpeg</td>
+<td>MP4 文件</td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">let</span> blob <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Blob</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'hello world'</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token punctuation">&#123;</span><span class="token literal-property property">type</span><span class="token operator">:</span><span class="token string">"text/plain"</span><span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr></table></figure><h3 id="分片"><a class="anchor" href="#分片">#</a> 分片：</h3>
+<p>Blob 对象内置了 slice () 方法用来将 blob 对象分片</p>
+<p>其有三个参数：</p>
+<p>start：设置切片的起点，即切片开始位置。默认值为 0，这意味着切片应该从第一个字节开始；</p>
+<p>end：设置切片的结束点，会对该位置之前的数据进行切片。默认值为 blob.size；</p>
+<p>contentType：设置新 blob 的 MIME 类型。如果省略 type，则默认为 blob 的原始值。</p>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">let</span> blob <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Blob</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'hello world'</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token punctuation">&#123;</span><span class="token literal-property property">type</span><span class="token operator">:</span><span class="token string">"text/plain"</span><span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token keyword">let</span> blob1 <span class="token operator">=</span> blob<span class="token punctuation">.</span><span class="token function">slice</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token string">"text/plain"</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr></table></figure><h3 id="读取"><a class="anchor" href="#读取">#</a> 读取：</h3>
+<p>blob 对象只能通过 FileReader 读取内容。</p>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">let</span> blob <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Blob</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'hello world'</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token punctuation">&#123;</span><span class="token literal-property property">type</span><span class="token operator">:</span><span class="token string">"text/plain"</span><span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token keyword">let</span> reader <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">fileReader</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="3"></td><td><pre>reader<span class="token punctuation">.</span><span class="token function">readAsText</span><span class="token punctuation">(</span>blob<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="4"></td><td><pre>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>reader<span class="token punctuation">.</span>result<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr></table></figure><h1 id="file"><a class="anchor" href="#file">#</a> File</h1>
+<h3 id="介绍"><a class="anchor" href="#介绍">#</a> 介绍：</h3>
+<p>File 对象是特殊的 Blob 对象。是基于 Blob 对象的进一步封装，js 中主要有两种方式获得 FIle 对象：</p>
+<ol>
+<li>input 元素选择后返回的 FileList 对象（通过 change 事件的 event.target.files 获取）</li>
+<li>文件拖放操作生成的 DataTransfer 对象（通过 ondrop 事件的 event.dataTransfer.files 获取）</li>
+</ol>
+<h1 id="filereader"><a class="anchor" href="#filereader">#</a> FileReader</h1>
+<h3 id="介绍-2"><a class="anchor" href="#介绍-2">#</a> 介绍：</h3>
+<p>FileReader 用于读取 Blob 对象（包含 File 对象）内容的方法，通过 result 属性获取。</p>
+<ul>
+<li>
+<p>readAsArrayBuffer 方法：读取为 ArrayBuffer</p>
+</li>
+<li>
+<p>readAsDataURL 方法：读取为 data:URL 的 Base64 字符串表示文件内容</p>
+</li>
+<li>
+<p>readAsText 方法：读取为原始 text 文件内容</p>
+</li>
+<li>
+<p>readAsBinaryString 方法：读取为原始二进制数据</p>
+<p>但是直接使用此方法还是会得到原始的文本内容，因为二进制数据需要使用 ArrayBuffer 对象来进行处理。</p>
+</li>
+</ul>
+<h1 id="arraybuffer"><a class="anchor" href="#arraybuffer">#</a> ArrayBuffer</h1>
+<h3 id="介绍-3"><a class="anchor" href="#介绍-3">#</a> 介绍：</h3>
+<p>ArrayBuffer 可以理解为一个特殊的数组，其本身是一个黑盒，不能直接读写所存储的数据，需要借助视图对象来读写。它只是一个用于存储二进制数据的缓冲区，创建时只能传一个空间大小 biteLength。</p>
+<p><strong>读写 ArrayBuffer 的方式：</strong></p>
+<ol>
+<li>TypedArray</li>
+<li>DataView</li>
+<li>TextDecoder</li>
+<li>用 Blob 存储，然后用 FileReader 读写</li>
+</ol>
+<h3 id="方法"><a class="anchor" href="#方法">#</a> 方法：</h3>
+<p>ArrayBuffer 提供了一个 slice 方法用于切片。参数为：开始位置，结束位置和解析类型。</p>
+<h3 id="使用-2"><a class="anchor" href="#使用-2">#</a> 使用：</h3>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">const</span> buffer <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayBuffer</span><span class="token punctuation">(</span><span class="token number">32</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="2"></td><td><pre>buffer<span class="token punctuation">.</span><span class="token function">slice</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token string">'text/plain'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr></table></figure><h1 id="typedarray"><a class="anchor" href="#typedarray">#</a> TypedArray</h1>
+<p>TypedArray 只是一个概念，提供了一种机制来解读 ArrayBuffer 中的数据（相当于一个视图，将 ArrayBuffer 中的数据进行展示和操作），实际上是那九个类型对象（每个类型对应一个特定的数据类型和大小）：</p>
+<ul>
+<li><code>Int8Array</code> ：8 位有符号整数</li>
+<li><code>Uint8Array</code> ：8 位无符号整数</li>
+<li><code>Int16Array</code> ：16 位有符号整数</li>
+<li><code>Uint16Array</code> ：16 位无符号整数</li>
+<li><code>Int32Array</code> ：32 位有符号整数</li>
+<li><code>Uint32Array</code> ：32 位无符号整数</li>
+<li><code>Float32Array</code> ：32 位浮点数</li>
+<li><code>Float64Array</code> ：64 位浮点数</li>
+</ul>
+<h3 id="使用-3"><a class="anchor" href="#使用-3">#</a> 使用：</h3>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">const</span> buffer <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayBuffer</span><span class="token punctuation">(</span><span class="token number">32</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token keyword">const</span> slice <span class="token operator">=</span> buffer<span class="token punctuation">.</span><span class="token function">slice</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token string">'text/plain'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token keyword">const</span> sliceView <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Int8Array</span><span class="token punctuation">(</span>slice<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="4"></td><td><pre>sliceView<span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">20</span><span class="token punctuation">,</span><span class="token number">30</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="5"></td><td><pre>sliceView<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">value<span class="token punctuation">,</span>index</span><span class="token punctuation">)</span><span class="token operator">=></span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="6"></td><td><pre>    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>value<span class="token punctuation">,</span>index<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="7"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">)</span></pre></td></tr></table></figure><h1 id="dataview"><a class="anchor" href="#dataview">#</a> DataView</h1>
+<h3 id="读取-2"><a class="anchor" href="#读取-2">#</a> 读取：</h3>
+<p>DataView 数据视图可以用于读写 buffer,DataView 实例提供了许多方法来读取内存，他们呢的参数都是一个字节序号。表示开始读取的字节位置：</p>
+<ul>
+<li>getInt8：读取 1 个字节，返回一个 8 位整数</li>
+<li>getUint8：读取 1 个字节，返回一个无符号 8 位整数</li>
+<li>getInt16：读取 2 个字节，返回一个 16 位整数</li>
+<li>getUnit16：读取 2 个字节，返回一个无符号 16 位整数</li>
+<li>getInt32：读取 4 个字节，返回一个 32 位整数</li>
+<li>getUnit32：读取 4 个字节，返回一个无符号 32 位整数</li>
+<li>getFloat32：读取 4 个字节，返回一个 32 位浮点数</li>
+<li>getUnit64：读取 8 个字节，返回一个 64 位浮点数</li>
+</ul>
+<h3 id="写入"><a class="anchor" href="#写入">#</a> 写入：</h3>
+<p>DataView 实例提供以下方法写入内存，他们都接受两个参数，第一个参数表示开始写入数据的字节序号，第二个参数为写入的数据：</p>
+<ul>
+<li>setInt8：写入 1 个字节的 8 位整数</li>
+<li>setUint8：写入 1 个字节的 8 位无符号整数</li>
+<li>setInt16：写入 2 个字节的 16 位整数</li>
+<li>setUint16：写入 2 个字节的 16 位无符号整数</li>
+<li>setInt32：写入 4 个字节的 32 位整数</li>
+<li>setUnit32：写入 4 个字节的 32 位无符号整数</li>
+<li>setFloat32：写入 4 个字节的 32 位浮点数</li>
+<li>setFloat64：写入 8 个自己的 64 位浮点数</li>
+</ul>
+<h1 id="object-url"><a class="anchor" href="#object-url">#</a> Object URL</h1>
+<p>Object URL 是一个用于表示 File Object 或者 Blob Object 的 URL，可以将 **Blob 对象（包括 File 对象）** 变为一个 URL 地址。</p>
+<h3 id="使用-4"><a class="anchor" href="#使用-4">#</a> 使用：</h3>
+<p>使用 URL.createObjectURL 来创建。</p>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">const</span> blob <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Blob</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'你好世界'</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token punctuation">&#123;</span><span class="token literal-property property">type</span><span class="token operator">:</span><span class="token string">'text/plain'</span><span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token keyword">const</span> newUrl <span class="token operator">=</span> <span class="token constant">URL</span><span class="token punctuation">.</span><span class="token function">createObjectURL</span><span class="token punctuation">(</span>blob<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr></table></figure><h1 id="base64编码"><a class="anchor" href="#base64编码">#</a> base64 编码</h1>
+<h3 id="介绍-4"><a class="anchor" href="#介绍-4">#</a> 介绍：</h3>
+<p>base64 是一个保存二进制数据的工具，将多种形式的二进制数据或其构成的文件<strong>以 ASCII 的形式保存</strong>，因为很多地方不支持直接的二进制文件保存或呈现，比如可以将图片直接转换成 base64 码嵌入 HTML 文档中，而避免使用网络 http 加载图片。另外，将数据编码为 base64 进行传输，然后解码获得数据，可以一定程度上保证数据的完整并且不用在传输过程中修改这些数据，避免在传输过程中可能出现的问题；</p>
+<h3 id="组成"><a class="anchor" href="#组成">#</a> 组成：</h3>
+<p><code>A-Z a-z 0-9 + /</code>  共 64 个字符组成；</p>
+<h3 id="使用-5"><a class="anchor" href="#使用-5">#</a> 使用：</h3>
+<p>JS 中有两个函数用于 base64 格式（ASCII 码）的转换:</p>
+<ul>
+<li>
+<p>btoa ()：编码（Binary To ASCII  二进制转 ASCII）</p>
+<p>该函数用于将二进制转为 Base64 字符串（ASCII 码）</p>
+</li>
+<li>
+<p>atob ()：解码（ASCII To Binary  ASCII 码转二进制）</p>
+<p>该函数用于将 Base64 字符串（ASCII 码）解码为二进制</p>
+</li>
+</ul>
+<h3 id="注意"><a class="anchor" href="#注意">#</a> 注意：</h3>
+<p>btoa 和 atob 方法有个弊端就是只能处理拉丁字符集内的字符，其不包括中文或非西欧语言的字符（<strong>只能处理单字节字符</strong>）。要处理多字节字符需要使用 TextEncoder API 将字符串转为 Uint8Array，然后手动将这些字节转为一个字符串（String.fromCharCode）。</p>
+<h1 id="textencoder"><a class="anchor" href="#textencoder">#</a> TextEncoder</h1>
+<h3 id="介绍-5"><a class="anchor" href="#介绍-5">#</a> 介绍：</h3>
+<p>TextEncoder 构造函数创建一个编码器，encode 方法用于将字符串编码为一个 UTF-8 编码文本的 Uint8Array 视图。</p>
+<h3 id="使用-6"><a class="anchor" href="#使用-6">#</a> 使用：</h3>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">const</span> encoder <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">TextEncoder</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token keyword">const</span> view <span class="token operator">=</span> encoder<span class="token punctuation">.</span><span class="token function">encode</span><span class="token punctuation">(</span><span class="token string">"$"</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="3"></td><td><pre>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>view<span class="token punctuation">)</span></pre></td></tr></table></figure>
+      <div class="tags">
+          <a href="/tags/Blob/" rel="tag"><i class="ic i-tag"></i> Blob</a>
+          <a href="/tags/FileReader/" rel="tag"><i class="ic i-tag"></i> FileReader</a>
+      </div>
+  </div>
+
+   <footer>
+
+    <div class="meta">
+  <span class="item">
+    <span class="icon">
+      <i class="ic i-calendar-check"></i>
+    </span>
+    <span class="text">更新于</span>
+    <time title="修改时间：2024-06-22 10:21:17" itemprop="dateModified" datetime="2024-06-22T10:21:17+08:00">2024-06-22</time>
+  </span>
+  <span id="2024/05/17/Blob和File/" class="item leancloud_visitors" data-flag-title="Blob、File和FileReader" title="阅读次数">
+      <span class="icon">
+        <i class="ic i-eye"></i>
+      </span>
+      <span class="text">阅读次数</span>
+      <span class="leancloud-visitors-count"></span>
+      <span class="text">次</span>
+  </span>
+</div>
+
+      
+<div class="reward">
+  <button><i class="ic i-heartbeat"></i> 赞赏</button>
+  <p>请我喝[茶]~(￣▽￣)~*</p>
+  <div id="qr">
+      
+      <div>
+        <img data-src="/images/wechatpay.png" alt="dmq 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div>
+        <img data-src="/images/alipay.png" alt="dmq 支付宝">
+        <p>支付宝</p>
+      </div>
+  </div>
+</div>
+
+      
+
+<div id="copyright">
+<ul>
+  <li class="author">
+    <strong>本文作者： </strong>dmq <i class="ic i-at"><em>@</em></i>杜明清的个人博客
+  </li>
+  <li class="link">
+    <strong>本文链接：</strong>
+    <a href="https://dmqweb.cn/2024/05/17/Blob%E5%92%8CFile/" title="Blob、File和FileReader">https://dmqweb.cn/2024/05/17/Blob和File/</a>
+  </li>
+  <li class="license">
+    <strong>版权声明： </strong>本站所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+  </footer>
+
+</article>
+
+  </div>
+  
+
+<div class="post-nav">
+    <div class="item left">
+      
+
+  <a href="/2024/05/17/esbuild/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;s3.uuu.ovh&#x2F;imgs&#x2F;2024&#x2F;04&#x2F;13&#x2F;ba4d76fc0767aeef.jpg" title="esbuild">
+  <span class="type">上一篇</span>
+  <span class="category"><i class="ic i-flag"></i> esbuild</span>
+  <h3>esbuild</h3>
+  </a>
+
+    </div>
+    <div class="item right">
+      
+
+  <a href="/2024/05/21/v8%E5%BC%95%E6%93%8E%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;s3.uuu.ovh&#x2F;imgs&#x2F;2024&#x2F;04&#x2F;05&#x2F;5f5c15d0d8ceb4d1.jpg" title="v8引擎编译原理">
+  <span class="type">下一篇</span>
+  <span class="category"><i class="ic i-flag"></i> v8引擎编译原理</span>
+  <h3>v8引擎编译原理</h3>
+  </a>
+
+    </div>
+</div>
+
+  
+  <div class="wrap" id="comments"></div>
+
+
+        </div>
+        <div id="sidebar">
+          
+
+<div class="inner">
+
+  <div class="panels">
+    <div class="inner">
+      <div class="contents panel pjax" data-title="文章目录">
+          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#blob"><span class="toc-number">1.</span> <span class="toc-text"> Blob</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%89%B9%E7%82%B9"><span class="toc-number">1.0.1.</span> <span class="toc-text"> 特点：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8"><span class="toc-number">1.0.2.</span> <span class="toc-text"> 使用：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%86%E7%89%87"><span class="toc-number">1.0.3.</span> <span class="toc-text"> 分片：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%BB%E5%8F%96"><span class="toc-number">1.0.4.</span> <span class="toc-text"> 读取：</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#file"><span class="toc-number">2.</span> <span class="toc-text"> File</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%8B%E7%BB%8D"><span class="toc-number">2.0.1.</span> <span class="toc-text"> 介绍：</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#filereader"><span class="toc-number">3.</span> <span class="toc-text"> FileReader</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%8B%E7%BB%8D-2"><span class="toc-number">3.0.1.</span> <span class="toc-text"> 介绍：</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#arraybuffer"><span class="toc-number">4.</span> <span class="toc-text"> ArrayBuffer</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%8B%E7%BB%8D-3"><span class="toc-number">4.0.1.</span> <span class="toc-text"> 介绍：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%B9%E6%B3%95"><span class="toc-number">4.0.2.</span> <span class="toc-text"> 方法：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8-2"><span class="toc-number">4.0.3.</span> <span class="toc-text"> 使用：</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#typedarray"><span class="toc-number">5.</span> <span class="toc-text"> TypedArray</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8-3"><span class="toc-number">5.0.1.</span> <span class="toc-text"> 使用：</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#dataview"><span class="toc-number">6.</span> <span class="toc-text"> DataView</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%BB%E5%8F%96-2"><span class="toc-number">6.0.1.</span> <span class="toc-text"> 读取：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%86%99%E5%85%A5"><span class="toc-number">6.0.2.</span> <span class="toc-text"> 写入：</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#object-url"><span class="toc-number">7.</span> <span class="toc-text"> Object URL</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8-4"><span class="toc-number">7.0.1.</span> <span class="toc-text"> 使用：</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#base64%E7%BC%96%E7%A0%81"><span class="toc-number">8.</span> <span class="toc-text"> base64 编码</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%8B%E7%BB%8D-4"><span class="toc-number">8.0.1.</span> <span class="toc-text"> 介绍：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%84%E6%88%90"><span class="toc-number">8.0.2.</span> <span class="toc-text"> 组成：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8-5"><span class="toc-number">8.0.3.</span> <span class="toc-text"> 使用：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B3%A8%E6%84%8F"><span class="toc-number">8.0.4.</span> <span class="toc-text"> 注意：</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#textencoder"><span class="toc-number">9.</span> <span class="toc-text"> TextEncoder</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%8B%E7%BB%8D-5"><span class="toc-number">9.0.1.</span> <span class="toc-text"> 介绍：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8-6"><span class="toc-number">9.0.2.</span> <span class="toc-text"> 使用：</span></a></li></ol></li></ol></li></ol>
+      </div>
+      <div class="related panel pjax" data-title="系列文章">
+        <ul>
+          <li class="active"><a href="/2024/05/17/Blob%E5%92%8CFile/" rel="bookmark" title="Blob、File和FileReader">Blob、File和FileReader</a></li>
+        </ul>
+      </div>
+      <div class="overview panel" data-title="站点概览">
+        <div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="image" itemprop="image" alt="dmq"
+      data-src="/images/avatar.jpg">
+  <p class="name" itemprop="name">dmq</p>
+  <div class="description" itemprop="description"></div>
+</div>
+
+<nav class="state">
+    <div class="item posts">
+      <a href="/archives/">
+        <span class="count">76</span>
+        <span class="name">文章</span>
+      </a>
+    </div>
+    <div class="item categories">
+      <a href="/categories/">
+        <span class="count">55</span>
+        <span class="name">分类</span>
+      </a>
+    </div>
+    <div class="item tags">
+      <a href="/tags/">
+        <span class="count">97</span>
+        <span class="name">标签</span>
+      </a>
+    </div>
+</nav>
+
+<div class="social">
+      <span class="exturl item github" data-url="aHR0cHM6Ly9naXRodWIuY29tL2RtcTA/dGFiPXJlcG9zaXRvcmllcw==" title="https:&#x2F;&#x2F;github.com&#x2F;dmq0?tab&#x3D;repositories"><i class="ic i-github"></i></span>
+      <span class="exturl item npm" data-url="aHR0cHM6Ly93d3cubnBtanMuY29tL35kbXEwMDA=" title="https:&#x2F;&#x2F;www.npmjs.com&#x2F;~dmq000"><i class="ic i-file"></i></span>
+      <span class="exturl item zhihu" data-url="aHR0cHM6Ly93d3cuemhpaHUuY29tL3Blb3BsZS9kLTg4LTYxLTgz" title="https:&#x2F;&#x2F;www.zhihu.com&#x2F;people&#x2F;d-88-61-83"><i class="ic i-zhihu"></i></span>
+      <span class="exturl item music" data-url="aHR0cHM6Ly9tdXNpYy4xNjMuY29tLyMvdXNlci9ob21lP2lkPTgwMjc4OTk0OTE=" title="https:&#x2F;&#x2F;music.163.com&#x2F;#&#x2F;user&#x2F;home?id&#x3D;8027899491"><i class="ic i-cloud-music"></i></span>
+      <span class="exturl item weibo" data-url="aHR0cHM6Ly93ZWliby5jb20vdS83NjI1OTAxNzE3" title="https:&#x2F;&#x2F;weibo.com&#x2F;u&#x2F;7625901717"><i class="ic i-weibo"></i></span>
+      <span class="exturl item email" data-url="bWFpbHRvOjMyNjc4MDc1MTRAcXEuY29t" title="mailto:3267807514@qq.com"><i class="ic i-envelope"></i></span>
+</div>
+
+<ul class="menu">
+  
+    
+  <li class="item">
+    <a href="/" rel="section"><i class="ic i-home"></i>首页</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/about/" rel="section"><i class="ic i-user"></i>介绍</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/archives/" rel="section"><i class="ic i-list-alt"></i>归档</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/categories/" rel="section"><i class="ic i-th"></i>分类</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/tags/" rel="section"><i class="ic i-tags"></i>标签</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/friends/" rel="section"><i class="ic i-heart"></i>友链</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/links/" rel="section"><i class="ic i-magic"></i>工具</a>
+  </li>
+
+
+</ul>
+
+      </div>
+    </div>
+  </div>
+
+  <ul id="quick">
+    <li class="prev pjax">
+        <a href="/2024/05/17/esbuild/" rel="prev" title="上一篇"><i class="ic i-chevron-left"></i></a>
+    </li>
+    <li class="up"><i class="ic i-arrow-up"></i></li>
+    <li class="down"><i class="ic i-arrow-down"></i></li>
+    <li class="next pjax">
+        <a href="/2024/05/21/v8%E5%BC%95%E6%93%8E%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/" rel="next" title="下一篇"><i class="ic i-chevron-right"></i></a>
+    </li>
+    <li class="percent"></li>
+  </ul>
+</div>
+
+
+        </div>
+        <div class="dimmer"></div>
+      </div>
+    </main>
+    <footer id="footer">
+      <div class="inner">
+        <div class="widgets">
+          
+<div class="rpost pjax">
+  <h2>随机文章</h2>
+  <ul>
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" title="分类于 正则表达式">正则表达式</a>
+</div>
+
+    <span><a href="/2024/01/10/%E6%AD%A3%E5%88%99/" title="正则理念">正则理念</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/JS/" title="分类于 JS">JS</a>
+</div>
+
+    <span><a href="/2024/05/08/%E5%87%BD%E6%95%B0%E9%87%8D%E8%BD%BD/" title="函数重载">函数重载</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/JS/" title="分类于 JS">JS</a>
+</div>
+
+    <span><a href="/2024/01/11/webworker/" title="webWorker">webWorker</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/jQuery/" title="分类于 jQuery">jQuery</a>
+</div>
+
+    <span><a href="/2023/01/02/jQuery%E6%A1%86%E6%9E%B6%E5%BA%94%E7%94%A8/" title="jQuery">jQuery</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/whistle/" title="分类于 whistle">whistle</a>
+</div>
+
+    <span><a href="/2024/05/17/whistle%E4%BD%BF%E7%94%A8/" title="whistle抓包">whistle抓包</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E6%B5%8F%E8%A7%88%E5%99%A8/" title="分类于 浏览器">浏览器</a>
+</div>
+
+    <span><a href="/2023/10/09/%E6%B5%8F%E8%A7%88%E5%99%A8%E6%89%A7%E8%A1%8C%E5%8E%9F%E7%90%86/" title="浏览器执行原理">浏览器执行原理</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/" title="分类于 面试题">面试题</a>
+</div>
+
+    <span><a href="/2024/04/30/%E6%B7%B1%E6%8B%B7%E8%B4%9D/" title="深拷贝">深拷贝</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/HTTP/" title="分类于 HTTP">HTTP</a>
+</div>
+
+    <span><a href="/2023/05/02/HTTP/" title="HTTP">HTTP</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/JS/" title="分类于 JS">JS</a>
+</div>
+
+    <span><a href="/2023/12/07/Blob/" title="Blob">Blob</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%BC%8F/" title="分类于 开发模式">开发模式</a>
+</div>
+
+    <span><a href="/2024/03/29/TDD/" title="TDD测试驱动开发">TDD测试驱动开发</a></span>
+  </li>
+
+  </ul>
+</div>
+<div>
+  <h2>最新评论</h2>
+  <ul class="leancloud-recent-comment"></ul>
+</div>
+
+        </div>
+        <div class="status">
+  <div class="copyright">
+    
+    &copy; 2010 – 
+    <span itemprop="copyrightYear">2024</span>
+    <span class="with-love">
+      <i class="ic i-sakura rotate"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">dmq @ Web blog</span>
+  </div>
+  <div class="powered-by">
+    基于 <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & Theme.<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Shoka</span>
+  </div>
+</div>
+
+      </div>
+    </footer>
+  </div>
+<script data-config type="text/javascript">
+  var LOCAL = {
+    path: '2024/05/17/Blob和File/',
+    favicon: {
+      show: "科技引领未来",
+      hide: "欢迎与我交流"
+    },
+    search : {
+      placeholder: "文章搜索",
+      empty: "关于 「 ${query} 」，什么也没搜到",
+      stats: "${time} ms 内找到 ${hits} 条结果"
+    },
+    valine: true,fancybox: true,
+    copyright: '复制成功，转载请遵守 <i class="ic i-creative-commons"></i>BY-NC-SA 协议。',
+    ignores : [
+      function(uri) {
+        return uri.includes('#');
+      },
+      function(uri) {
+        return new RegExp(LOCAL.path+"$").test(uri);
+      }
+    ]
+  };
+</script>
+
+<script src="https://cdn.polyfill.io/v2/polyfill.js"></script>
+
+<script src="//gcore.jsdelivr.net/combine/npm/pace-js@1.0.2/pace.min.js,npm/pjax@0.2.8/pjax.min.js,npm/whatwg-fetch@3.4.0/dist/fetch.umd.min.js,npm/animejs@3.2.0/lib/anime.min.js,npm/algoliasearch@4/dist/algoliasearch-lite.umd.js,npm/instantsearch.js@4/dist/instantsearch.production.min.js,npm/lozad@1/dist/lozad.min.js,npm/quicklink@2/dist/quicklink.umd.js"></script>
+
+<script src="/js/app.js?v=0.2.5"></script>
+
+
+  <script data-pjax>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?9ba187659e850a6910681214f0faa16b";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+</body>
+</html>
