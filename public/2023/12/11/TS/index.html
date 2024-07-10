@@ -104,12 +104,12 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
       </div>
       <div id="imgs" class="pjax">
         <ul>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/15/3ad1c5ee17b91ba4.webp"></li>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/07/be4bd9184664725b.webp"></li>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/28/91b1bdcfda8d22da.webp"></li>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/04/f480d741324d8eb5.jpg"></li>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/03/29/5c162f03529c2f38.jpg"></li>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/06/a2c97e7bd0c6ecd6.webp"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/04/cc0be7efc99ac89e.webp"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/12/65788b6548e9e58f.jpg"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/03/29/b0675aed15ca0334.jpg"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/03/29/a93636ae09845d36.jpg"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/12/61baca9d80b5756d.jpg"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/28/02824114036dc293.webp"></li>
         </ul>
       </div>
     </header>
@@ -368,7 +368,307 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
 或者当需要对泛型的类型进一步约束时，可以使用泛型去继承 interface 接口。</p>
 </blockquote>
 <figure class="highlight ts"><figcaption data-lang="TypeScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">interface</span> <span class="token class-name">hasNameProperty</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="2"></td><td><pre>  name<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token keyword">function</span> <span class="token generic-function"><span class="token function">nameToUpperCase</span><span class="token generic class-name"><span class="token operator">&lt;</span><span class="token constant">T</span> <span class="token keyword">extends</span> hasNameProperty<span class="token operator">></span></span></span><span class="token punctuation">(</span>obj<span class="token operator">:</span> <span class="token constant">T</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token constant">T</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="5"></td><td><pre>  obj<span class="token punctuation">.</span>name<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="6"></td><td><pre>  <span class="token keyword">return</span> obj<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="7"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr></table></figure><h3 id="多泛型"><a class="anchor" href="#多泛型">#</a> 多泛型</h3>
-<figure class="highlight ts"><figcaption data-lang="TypeScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">function</span> <span class="token generic-function"><span class="token function">minxinArray</span><span class="token generic class-name"><span class="token operator">&lt;</span><span class="token constant">T</span><span class="token punctuation">,</span> <span class="token constant">K</span><span class="token operator">></span></span></span><span class="token punctuation">(</span>arr1<span class="token operator">:</span> <span class="token constant">T</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span> arr2<span class="token operator">:</span> <span class="token constant">K</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token constant">T</span> <span class="token operator">|</span> <span class="token constant">K</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="2"></td><td><pre>  <span class="token keyword">if</span> <span class="token punctuation">(</span>arr1<span class="token punctuation">.</span>length <span class="token operator">!==</span> arr2<span class="token punctuation">.</span>length<span class="token punctuation">)</span> <span class="token keyword">throw</span> <span class="token function">Error</span><span class="token punctuation">(</span><span class="token string">"长度"</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="3"></td><td><pre>  <span class="token keyword">let</span> result<span class="token operator">:</span> <span class="token punctuation">(</span><span class="token constant">T</span> <span class="token operator">|</span> <span class="token constant">K</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="4"></td><td><pre>  <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> arr1<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="5"></td><td><pre>    result<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>arr1<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="6"></td><td><pre>    result<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>arr2<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="7"></td><td><pre>  <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="8"></td><td><pre>  <span class="token keyword">return</span> result<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="9"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr></table></figure>
+<figure class="highlight ts"><figcaption data-lang="TypeScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">function</span> <span class="token generic-function"><span class="token function">minxinArray</span><span class="token generic class-name"><span class="token operator">&lt;</span><span class="token constant">T</span><span class="token punctuation">,</span> <span class="token constant">K</span><span class="token operator">></span></span></span><span class="token punctuation">(</span>arr1<span class="token operator">:</span> <span class="token constant">T</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span> arr2<span class="token operator">:</span> <span class="token constant">K</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token constant">T</span> <span class="token operator">|</span> <span class="token constant">K</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="2"></td><td><pre>  <span class="token keyword">if</span> <span class="token punctuation">(</span>arr1<span class="token punctuation">.</span>length <span class="token operator">!==</span> arr2<span class="token punctuation">.</span>length<span class="token punctuation">)</span> <span class="token keyword">throw</span> <span class="token function">Error</span><span class="token punctuation">(</span><span class="token string">"长度"</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="3"></td><td><pre>  <span class="token keyword">let</span> result<span class="token operator">:</span> <span class="token punctuation">(</span><span class="token constant">T</span> <span class="token operator">|</span> <span class="token constant">K</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="4"></td><td><pre>  <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> arr1<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="5"></td><td><pre>    result<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>arr1<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="6"></td><td><pre>    result<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>arr2<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="7"></td><td><pre>  <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="8"></td><td><pre>  <span class="token keyword">return</span> result<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="9"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr></table></figure><h1 id="--2"><a class="anchor" href="#--2">#</a> --------------------------------------</h1>
+<h1 id="项目中使用-ts"><a class="anchor" href="#项目中使用-ts">#</a> 项目中使用 ts</h1>
+<h2 id="注意事项"><a class="anchor" href="#注意事项">#</a> 注意事项</h2>
+<ul>
+<li>
+<p>直接在类型定义文件.d.ts 中书写类型，任意文件夹中直接使用，ts 会自动找对应类型</p>
+</li>
+<li>
+<p>declare namespace 定义命名空间，这样可以防止使用混乱，还可以防止变量命名冲突</p>
+</li>
+<li>
+<ul>
+<li>
+<figure class="highlight ts"><figcaption data-lang="TypeScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">declare</span> <span class="token keyword">namespace</span> Test <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="2"></td><td><pre>  <span class="token keyword">type</span> <span class="token class-name">Person</span> <span class="token operator">=</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="3"></td><td><pre>    name<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="4"></td><td><pre>    age<span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="5"></td><td><pre>  <span class="token punctuation">&#125;</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="6"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li>
+<p>.d.ts 文件可以统一写在 types 文件夹中，也可以写在就近文件夹中</p>
+</li>
+<li>
+<p>三方库声明支持：当一个三方库中没有定义类型文件时，可以自己手写一个类型声明模块，例如</p>
+</li>
+<li>
+<ul>
+<li>
+<figure class="highlight ts"><figcaption data-lang="TypeScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">declare</span> <span class="token keyword">module</span> <span class="token string">"antd-dayjs-webpack-plugin"</span><span class="token punctuation">;</span></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li>
+<p>declare function 定义 TS 环境中已存在的 JS 运行时函数，不能用于定义自己手写的函数，常用于定义约束 es 语法内置的函数类型</p>
+</li>
+<li>
+<ul>
+<li>
+<figure class="highlight ts"><figcaption data-lang="TypeScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">declare</span> <span class="token keyword">function</span> <span class="token function">eval</span><span class="token punctuation">(</span>x<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">any</span><span class="token punctuation">;</span></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li>
+<p>declare 声明类型、接口等无效，只能用于声明 function、module 和 namespace</p>
+</li>
+<li>
+<p>类型定义时，不能写默认参数值</p>
+</li>
+<li>
+<p>只允许在函数或构造函数实现中使用参数初始化表达式（即参数默认值）</p>
+</li>
+<li>
+<p>鸭子比对法的含义就是：当一个变量被类型约束之后，可以使用包含全部该类型声明，但类型声明更多的变量或字面量对该变量进行赋值</p>
+</li>
+<li>
+<p>索引签名允许定义一个对象类型，该类型可以通过索引访问其属性，并且这些属性的值可以是相同的类型。</p>
+</li>
+<li>
+<p>ts 只支持两种索引签名：字符串和数字，可以同时使用两种类型的索引，但是数字索引的返回值必须是字符串索引返回值类型的子类型。</p>
+</li>
+<li>
+<p>typeof 操作符用于提取某个变量或类的类型</p>
+</li>
+<li>
+<p>keyof 操作符用于提取某个类型的字面量类型</p>
+</li>
+<li>
+<ul>
+<li>
+<figure class="highlight ts"><figcaption data-lang="TypeScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">type</span> <span class="token class-name">test</span> <span class="token operator">=</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="2"></td><td><pre>  name<span class="token operator">:</span> <span class="token string">"zhang"</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="3"></td><td><pre>  age<span class="token operator">:</span> <span class="token number">18</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token keyword">let</span> a<span class="token operator">:</span> <span class="token keyword">keyof</span> test<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="6"></td><td><pre>a <span class="token operator">=</span> <span class="token string">"name"</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="7"></td><td><pre>a <span class="token operator">=</span> <span class="token string">"age"</span><span class="token punctuation">;</span></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li>
+<ul>
+<li>
+<figure class="highlight ts"><figcaption data-lang="TypeScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">interface</span> <span class="token class-name">NumberDictionary</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="2"></td><td><pre>  <span class="token punctuation">[</span>index<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">]</span><span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="3"></td><td><pre>  length<span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">;</span> <span class="token comment">// 可以，length 是 number 类型</span></pre></td></tr><tr><td data-num="4"></td><td><pre>  name<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">;</span> <span class="token comment">// 错误，`name` 的类型与索引类型返回值的类型不匹配</span></pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li>
+<p>索引签名可以结合 TS 高级类型特性使用，例如：映射类型</p>
+</li>
+<li>
+<ul>
+<li>
+<figure class="highlight ts"><figcaption data-lang="TypeScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token comment">// 这里 OptionsFlags 是一个映射类型，它将 T 类型的所有键映射为 boolean 类型的值，通过索引签名实现这一点</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token keyword">type</span> <span class="token class-name">OptionsFlags<span class="token operator">&lt;</span><span class="token constant">T</span><span class="token operator">></span></span> <span class="token operator">=</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="3"></td><td><pre>  <span class="token punctuation">[</span><span class="token constant">P</span> <span class="token keyword">in</span> <span class="token keyword">keyof</span> <span class="token constant">T</span><span class="token punctuation">]</span><span class="token operator">:</span> <span class="token builtin">boolean</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">;</span></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li>
+<p>元组用于精确数组中每一项的类型，当添加越界的元素时，类型会被限制为元组中每个类型的联合类型</p>
+</li>
+<li>
+<ul>
+<li>
+<figure class="highlight ts"><figcaption data-lang="TypeScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">let</span> arr<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token builtin">string</span><span class="token punctuation">,</span> <span class="token builtin">number</span><span class="token punctuation">]</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="2"></td><td><pre>arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">"1"</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="3"></td><td><pre>arr<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="4"></td><td><pre>arr<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 报错</span></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li>
+<p>lib.es5.d.ts 中自定义的高级泛型</p>
+</li>
+<li>
+<ul>
+<li>ArrayLike 泛型：类数组类型</li>
+</ul>
+</li>
+<li>
+<ul>
+<li>Partial 泛型 全部属性变为：可选类型</li>
+</ul>
+</li>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<figure class="highlight ts"><figcaption data-lang="TypeScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token comment">// Partial 可选泛型</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token keyword">interface</span> <span class="token class-name">User</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="3"></td><td><pre>  name<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="4"></td><td><pre>  age<span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="6"></td><td><pre><span class="token comment">// 将 User 类型全部的属性变为可选类型</span></pre></td></tr><tr><td data-num="7"></td><td><pre><span class="token keyword">type</span> <span class="token class-name">UserPartial</span> <span class="token operator">=</span> Partial<span class="token operator">&lt;</span>User<span class="token operator">></span><span class="token punctuation">;</span></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<ul>
+<li>Required 泛型 全部属性变为：必选类型</li>
+</ul>
+</li>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<figure class="highlight ts"><figcaption data-lang="TypeScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token comment">// Required 必选泛型</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token keyword">interface</span> <span class="token class-name">User1</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="3"></td><td><pre>  id<span class="token operator">?</span><span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="4"></td><td><pre>  sex<span class="token operator">?</span><span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="6"></td><td><pre><span class="token comment">// 将 User1 类型全部的属性变为必选类型</span></pre></td></tr><tr><td data-num="7"></td><td><pre><span class="token keyword">type</span> <span class="token class-name">UserRequired</span> <span class="token operator">=</span> Required<span class="token operator">&lt;</span>User1<span class="token operator">></span><span class="token punctuation">;</span></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<ul>
+<li>Readonly 泛型 全部属性变为：只读类型</li>
+</ul>
+</li>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<figure class="highlight ts"><figcaption data-lang="TypeScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token comment">// Readonly 泛型</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token keyword">type</span> <span class="token class-name">User2</span> <span class="token operator">=</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="3"></td><td><pre>  name<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="4"></td><td><pre>  id<span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="6"></td><td><pre><span class="token comment">// 将 User2 的全部类型变为只读类型</span></pre></td></tr><tr><td data-num="7"></td><td><pre><span class="token keyword">interface</span> <span class="token class-name">UserReadOnly</span> <span class="token keyword">extends</span> <span class="token class-name">Readonly<span class="token operator">&lt;</span>User2<span class="token operator">></span></span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<ul>
+<li>Pick 泛型：从类型 T 中选取部分值的类型，创建一个新的类型。（泛型使用时需要传入类型和选取的类型属性）</li>
+</ul>
+</li>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<figure class="highlight ts"><figcaption data-lang="TypeScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token comment">// Pick 泛型，选取部分类型</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token keyword">type</span> <span class="token class-name">User3</span> <span class="token operator">=</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="3"></td><td><pre>  name<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="4"></td><td><pre>  age<span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="5"></td><td><pre>  id<span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="6"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="7"></td><td><pre><span class="token comment">// 选取 User3 类型中的部分值和类型</span></pre></td></tr><tr><td data-num="8"></td><td><pre><span class="token keyword">type</span> <span class="token class-name">UserPicked</span> <span class="token operator">=</span> Pick<span class="token operator">&lt;</span>User3<span class="token punctuation">,</span> <span class="token string">"name"</span> <span class="token operator">|</span> <span class="token string">"age"</span><span class="token operator">></span><span class="token punctuation">;</span></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<ul>
+<li>Record 泛型：构造一个类型，其键为第一个泛型参数类型，值为第二个泛型参数类型</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight ts"><figcaption data-lang="TypeScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token comment">// Record 泛型，指定对某一类键的类型统一约束</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token keyword">type</span> <span class="token class-name">User4</span> <span class="token operator">=</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="3"></td><td><pre>  age<span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="4"></td><td><pre>  id<span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="6"></td><td><pre><span class="token comment">// 对键为 string 类型的值进行约束，相当于 &#123;[key:string]:number; &#125;</span></pre></td></tr><tr><td data-num="7"></td><td><pre><span class="token keyword">type</span> <span class="token class-name">UserRecored</span> <span class="token operator">=</span> Record<span class="token operator">&lt;</span><span class="token builtin">string</span><span class="token punctuation">,</span> <span class="token builtin">number</span><span class="token operator">></span><span class="token punctuation">;</span></pre></td></tr></table></figure><ul>
+<li>
+<ul>
+<li>Exclude 泛型：排除类型中的某一个类型选项！（适用于对象类型）</li>
+</ul>
+</li>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<figure class="highlight ts"><figcaption data-lang="TypeScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token comment">// Exclude 排除泛型，用于在类型中排除某些类型选项！！</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token keyword">type</span> <span class="token class-name">Unicode</span> <span class="token operator">=</span> <span class="token string">"foo"</span> <span class="token operator">|</span> <span class="token string">"bar"</span> <span class="token operator">|</span> <span class="token string">"baz"</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token keyword">type</span> <span class="token class-name">userExclude</span> <span class="token operator">=</span> Exclude<span class="token operator">&lt;</span>Unicode<span class="token punctuation">,</span> <span class="token string">"foo"</span><span class="token operator">></span><span class="token punctuation">;</span></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<ul>
+<li>Extract 泛型：指定类型中的某一个类型选项！</li>
+</ul>
+</li>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<figure class="highlight ts"><figcaption data-lang="TypeScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token comment">// Extract 精确泛型，选择某个类型选项！进行精确</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token keyword">type</span> <span class="token class-name">Unicode1</span> <span class="token operator">=</span> <span class="token string">"foo"</span> <span class="token operator">|</span> <span class="token string">"bar"</span> <span class="token operator">|</span> <span class="token string">"baz"</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token keyword">type</span> <span class="token class-name">UserExtract</span> <span class="token operator">=</span> Extract<span class="token operator">&lt;</span>Unicode1<span class="token punctuation">,</span> <span class="token string">"baz"</span><span class="token operator">></span><span class="token punctuation">;</span></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<ul>
+<li>Omit 泛型：创建一个新的类型，排除类型中指定类型（第二个参数类型）（适用于联合类型）</li>
+</ul>
+</li>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<figure class="highlight ts"><figcaption data-lang="TypeScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token comment">// Omit 泛型</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token keyword">type</span> <span class="token class-name">User5</span> <span class="token operator">=</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="3"></td><td><pre>  name<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="4"></td><td><pre>  age<span class="token operator">:</span> <span class="token number">13</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="6"></td><td><pre><span class="token comment">// 创建新类型，排除给定类型</span></pre></td></tr><tr><td data-num="7"></td><td><pre><span class="token keyword">type</span> <span class="token class-name">UserOmit</span> <span class="token operator">=</span> Omit<span class="token operator">&lt;</span>User5<span class="token punctuation">,</span> <span class="token string">"age"</span><span class="token operator">></span><span class="token punctuation">;</span></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<ul>
+<li>type NonNullable&lt;T&gt; = T &amp; {}; 内置的排除 undefined 和 null 的泛型（巧妙使用了条件类型去精确类型）。</li>
+</ul>
+</li>
+<li>
+<ul>
+<li>
+<ul>
+<li>&amp; 在交叉类型中，具有多种类型全部的属性和方法，这里传入空对象不会对原来造成影响，但是使用了 &amp; 条件类型，就会通过类型排除和类型首位精确定义类型定义。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<ul>
+<li>Parameters 泛型，用于提取出函数参数的类型，并将其封装为元组</li>
+</ul>
+</li>
+<li>
+<ul>
+<li>ConstructorParameters 泛型，用于提取出构造函数的参数类型（传入 typeof dmq 类），并将其封装为元组</li>
+</ul>
+</li>
+<li>
+<ul>
+<li>ReturnType 泛型，用于提取函数返回值的类型</li>
+</ul>
+</li>
+<li>
+<ul>
+<li>Awaited 泛型：尝试推断一个具有 then 方法（Promise）的最终完成值的类型</li>
+</ul>
+</li>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<figure class="highlight ts"><figcaption data-lang="TypeScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">function</span> <span class="token function">fetchUser</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">Promise</span><span class="token operator">&lt;</span><span class="token punctuation">&#123;</span> id<span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">;</span> name<span class="token operator">:</span> <span class="token builtin">string</span> <span class="token punctuation">&#125;</span><span class="token operator">></span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="2"></td><td><pre>  <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name"><span class="token builtin">Promise</span></span><span class="token punctuation">(</span><span class="token punctuation">(</span>resolve<span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="3"></td><td><pre>    <span class="token function">resolve</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span> id<span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span> name<span class="token operator">:</span> <span class="token string">"张三"</span> <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="4"></td><td><pre>  <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="6"></td><td><pre><span class="token keyword">type</span> <span class="token class-name">User</span> <span class="token operator">=</span> Awaited<span class="token operator">&lt;</span>ReturnType<span class="token operator">&lt;</span><span class="token keyword">typeof</span> fetchUser<span class="token operator">>></span><span class="token punctuation">;</span></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<ul>
+<li>instanceType 泛型：获取一个构造函数类型的实例类型</li>
+</ul>
+</li>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<figure class="highlight ts"><figcaption data-lang="TypeScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">type</span> <span class="token class-name">InstanceTyped</span> <span class="token operator">=</span> InstanceType<span class="token operator">&lt;</span><span class="token keyword">typeof</span> MyClass<span class="token operator">></span><span class="token punctuation">;</span> <span class="token comment">//MyClass</span></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<ul>
+<li>Uppercase Lowercase 泛型，将一个字符串类型的所有字符转为大（小）写</li>
+</ul>
+</li>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<figure class="highlight ts"><figcaption data-lang="TypeScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">type</span> <span class="token class-name">UpperHello</span> <span class="token operator">=</span> Uppercase<span class="token operator">&lt;</span><span class="token string">"hello"</span><span class="token operator">></span><span class="token punctuation">;</span></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<ul>
+<li>Capitalize 泛型，将字符串类型的首字符转为大写</li>
+</ul>
+</li>
+</ul>
+<h2 id="react-项目中使用-ts"><a class="anchor" href="#react-项目中使用-ts">#</a> react 项目中使用 TS</h2>
+<blockquote>
+<p>配置 ts.config.json</p>
+</blockquote>
+<ul>
+<li>lib 选项表示编译过程中需要引入的库文件列表，react 项目中必须在 lib 中包含 dom 选项</li>
+<li>jsx 选项表示编译过程中如何处理 jsx 语法，react 项目中配置为 preserve，保留给 babel 处理即可，也可以配置为 react-jsx<br />
+ 其余部分详见<span class="exturl" data-url="aHR0cHM6Ly96aC1oYW5zLnJlYWN0LmRldi9sZWFybi90eXBlc2NyaXB0">官网</span></li>
+</ul>
+
       <div class="tags">
           <a href="/tags/typeScript/" rel="tag"><i class="ic i-tag"></i> typeScript</a>
       </div>
@@ -382,7 +682,7 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
       <i class="ic i-calendar-check"></i>
     </span>
     <span class="text">更新于</span>
-    <time title="修改时间：2024-07-08 07:25:29" itemprop="dateModified" datetime="2024-07-08T07:25:29+08:00">2024-07-08</time>
+    <time title="修改时间：2024-07-10 23:48:08" itemprop="dateModified" datetime="2024-07-10T23:48:08+08:00">2024-07-10</time>
   </span>
   <span id="2023/12/11/TS/" class="item leancloud_visitors" data-flag-title="typeScript笔记" title="阅读次数">
       <span class="icon">
@@ -440,7 +740,7 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
     <div class="item left">
       
 
-  <a href="/2023/12/11/typedArray/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;s3.uuu.ovh&#x2F;imgs&#x2F;2024&#x2F;04&#x2F;04&#x2F;61e9f78d997bc7c9.webp" title="JS中类型化数组typedArray">
+  <a href="/2023/12/11/typedArray/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;s3.uuu.ovh&#x2F;imgs&#x2F;2024&#x2F;04&#x2F;06&#x2F;63e9f1e7097ba6fb.jpg" title="JS中类型化数组typedArray">
   <span class="type">上一篇</span>
   <span class="category"><i class="ic i-flag"></i> JS</span>
   <h3>JS中类型化数组typedArray</h3>
@@ -450,7 +750,7 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
     <div class="item right">
       
 
-  <a href="/2023/12/21/%E6%9C%80%E5%A4%A7%E5%AE%89%E5%85%A8%E6%95%B0/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;s3.uuu.ovh&#x2F;imgs&#x2F;2024&#x2F;04&#x2F;15&#x2F;d888a622df52afa7.webp" title="最大安全数与最大安全整数">
+  <a href="/2023/12/21/%E6%9C%80%E5%A4%A7%E5%AE%89%E5%85%A8%E6%95%B0/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;s3.uuu.ovh&#x2F;imgs&#x2F;2024&#x2F;04&#x2F;25&#x2F;0edddbac6c1e1908.webp" title="最大安全数与最大安全整数">
   <span class="type">下一篇</span>
   <span class="category"><i class="ic i-flag"></i> JS</span>
   <h3>最大安全数与最大安全整数</h3>
@@ -472,7 +772,7 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
   <div class="panels">
     <div class="inner">
       <div class="contents panel pjax" data-title="文章目录">
-          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#ts"><span class="toc-number">1.</span> <span class="toc-text"> TS</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9A%E4%B9%89%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="toc-number">1.0.1.</span> <span class="toc-text"> 定义数据类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%83%E7%BB%84"><span class="toc-number">1.0.2.</span> <span class="toc-text"> 元组</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%81%94%E5%90%88%E7%B1%BB%E5%9E%8B"><span class="toc-number">1.0.3.</span> <span class="toc-text"> 联合类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AD%97%E9%9D%A2%E9%87%8F%E7%B1%BB%E5%9E%8B"><span class="toc-number">1.0.4.</span> <span class="toc-text"> 字面量类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9E%9A%E4%B8%BE%E7%B1%BB%E5%9E%8B"><span class="toc-number">1.0.5.</span> <span class="toc-text"> 枚举类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#any-%E5%92%8C-unknown-%E7%B1%BB%E5%9E%8B"><span class="toc-number">1.0.6.</span> <span class="toc-text"> any 和 unknown 类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#void-undefined-%E5%92%8C-never-%E7%B1%BB%E5%9E%8B"><span class="toc-number">1.0.7.</span> <span class="toc-text"> void、undefined 和 never 类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%B1%BB%E5%9E%8B%E6%96%AD%E8%A8%80"><span class="toc-number">1.0.8.</span> <span class="toc-text"> 类型断言</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%87%BD%E6%95%B0%E7%9A%84%E5%A3%B0%E6%98%8E"><span class="toc-number">1.0.9.</span> <span class="toc-text"> 函数的声明</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B7%E4%BD%93%E5%AF%B9%E8%B1%A1%E7%B1%BB%E5%9E%8B"><span class="toc-number">1.0.10.</span> <span class="toc-text"> 具体对象类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8E%A5%E5%8F%A3-interface"><span class="toc-number">1.0.11.</span> <span class="toc-text"> 接口 interface</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%B1%BB%E5%92%8C%E6%8E%A5%E5%8F%A3"><span class="toc-number">1.0.12.</span> <span class="toc-text"> 类和接口</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%B1%BB%E7%9A%84%E8%AE%BF%E9%97%AE%E4%BF%AE%E9%A5%B0%E7%AC%A6"><span class="toc-number">1.0.13.</span> <span class="toc-text"> 类的访问修饰符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B3%9B%E5%9E%8B-t"><span class="toc-number">1.0.14.</span> <span class="toc-text"> 泛型 &lt;T&gt;</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B3%9B%E5%9E%8B%E6%98%AF%E4%BB%80%E4%B9%88"><span class="toc-number">1.0.14.1.</span> <span class="toc-text"> 泛型是什么</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%B1%BB%E5%9E%8B-type"><span class="toc-number">1.0.15.</span> <span class="toc-text"> 类型 type</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%B1%BB%E5%9E%8B%E5%AE%88%E6%8A%A4-is"><span class="toc-number">1.0.16.</span> <span class="toc-text"> 类型守护 is</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%87%BD%E6%95%B0%E9%87%8D%E8%BD%BD"><span class="toc-number">1.0.17.</span> <span class="toc-text"> 函数重载</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%87%BD%E6%95%B0%E7%AD%BE%E5%90%8D"><span class="toc-number">1.0.18.</span> <span class="toc-text"> 函数签名</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%87%BD%E6%95%B0%E5%89%AF%E4%BD%9C%E7%94%A8"><span class="toc-number">1.0.19.</span> <span class="toc-text"> 函数副作用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%87%BD%E6%95%B0%E5%8F%82%E6%95%B0%E4%BF%AE%E9%A5%B0%E7%AC%A6"><span class="toc-number">1.0.20.</span> <span class="toc-text"> 函数参数修饰符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%8C%E9%87%8D%E6%96%AD%E8%A8%80"><span class="toc-number">1.0.21.</span> <span class="toc-text"> 双重断言</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%B8%8D%E5%8F%AF%E6%9B%B4%E6%94%B9"><span class="toc-number">1.0.22.</span> <span class="toc-text"> 字符串不可更改</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%B8%E9%87%8F%E6%96%AD%E8%A8%80-as-const"><span class="toc-number">1.0.23.</span> <span class="toc-text"> 常量断言 as const</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9D%9E%E7%A9%BA%E6%96%AD%E8%A8%80"><span class="toc-number">1.0.24.</span> <span class="toc-text"> 非空断言！</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#this-%E5%85%B3%E9%94%AE%E5%AD%97"><span class="toc-number">1.0.25.</span> <span class="toc-text"> this 关键字</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#declare-%E5%85%B3%E9%94%AE%E5%AD%97"><span class="toc-number">1.0.26.</span> <span class="toc-text"> declare 关键字</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#module-%E5%85%B3%E9%94%AE%E5%AD%97"><span class="toc-number">1.0.27.</span> <span class="toc-text"> module 关键字</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#typeof-%E6%93%8D%E4%BD%9C%E7%AC%A6"><span class="toc-number">1.0.28.</span> <span class="toc-text"> typeof 操作符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#keyof-%E6%93%8D%E4%BD%9C%E7%AC%A6"><span class="toc-number">1.0.29.</span> <span class="toc-text"> keyof 操作符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%B1%BB%E5%9E%8B%E6%9F%A5%E6%89%BE"><span class="toc-number">1.0.30.</span> <span class="toc-text"> 类型查找</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%B1%BB%E5%9E%8B%E6%98%A0%E5%B0%84"><span class="toc-number">1.0.31.</span> <span class="toc-text"> 类型映射</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%B1%BB%E5%9E%8B%E4%BF%AE%E9%A5%B0%E7%AC%A6"><span class="toc-number">1.0.32.</span> <span class="toc-text"> 类型修饰符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#interface-%E5%92%8C-type-%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-number">1.0.33.</span> <span class="toc-text"> interface 和 type 的区别</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#-"><span class="toc-number">2.</span> <span class="toc-text"> --------------------------------</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">3.</span> <span class="toc-text"> </span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#ts-%E8%BF%9B%E9%98%B6"><span class="toc-number">4.</span> <span class="toc-text"> ts 进阶</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6-tsconfigjson"><span class="toc-number">4.1.</span> <span class="toc-text"> 配置文件 ts.config.json</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E6%96%B9%E5%BA%93"><span class="toc-number">4.2.</span> <span class="toc-text"> 三方库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E7%B1%BB%E5%9E%8B"><span class="toc-number">4.3.</span> <span class="toc-text"> 基本类型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B1%BB%E5%9E%8B%E5%88%AB%E5%90%8D"><span class="toc-number">4.4.</span> <span class="toc-text"> 类型别名</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%BD%E6%95%B0%E9%87%8D%E8%BD%BD-2"><span class="toc-number">4.5.</span> <span class="toc-text"> 函数重载</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%AF%E9%80%89%E5%8F%82%E6%95%B0"><span class="toc-number">4.6.</span> <span class="toc-text"> 可选参数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%89%A9%E5%B1%95%E7%B1%BB%E5%9E%8B"><span class="toc-number">4.7.</span> <span class="toc-text"> 扩展类型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%89%A9%E5%B1%95%E7%B1%BB%E5%9E%8B-type"><span class="toc-number">4.7.1.</span> <span class="toc-text"> 扩展类型 type</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9E%9A%E4%B8%BE-enum"><span class="toc-number">4.7.2.</span> <span class="toc-text"> 枚举 enum</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8E%A5%E5%8F%A3-interface-2"><span class="toc-number">4.7.3.</span> <span class="toc-text"> 接口 interface</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A8%A1%E5%9D%97%E8%A7%A3%E6%9E%90"><span class="toc-number">4.8.</span> <span class="toc-text"> 模块解析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B1%BB%E5%9E%8B%E5%85%BC%E5%AE%B9%E6%80%A7"><span class="toc-number">4.9.</span> <span class="toc-text"> 类型兼容性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BF%AE%E9%A5%B0%E7%AC%A6"><span class="toc-number">4.10.</span> <span class="toc-text"> 修饰符</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#readonly"><span class="toc-number">4.10.1.</span> <span class="toc-text"> readonly</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%BF%E9%97%AE%E4%BF%AE%E9%A5%B0%E7%AC%A6"><span class="toc-number">4.10.2.</span> <span class="toc-text"> 访问修饰符</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B1%BB-class"><span class="toc-number">4.11.</span> <span class="toc-text"> 类 class</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B3%9B%E5%9E%8B"><span class="toc-number">4.12.</span> <span class="toc-text"> 泛型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%87%BD%E6%95%B0%E4%B8%AD%E4%BD%BF%E7%94%A8%E6%B3%9B%E5%9E%8B"><span class="toc-number">4.12.1.</span> <span class="toc-text"> 函数中使用泛型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%B1%BB%E5%9E%8B%E5%88%AB%E5%90%8D%E4%B8%AD%E4%BD%BF%E7%94%A8%E6%B3%9B%E5%9E%8B"><span class="toc-number">4.12.2.</span> <span class="toc-text"> 类型别名中使用泛型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8E%A5%E5%8F%A3%E4%B8%AD%E4%BD%BF%E7%94%A8%E6%B3%9B%E5%9E%8B"><span class="toc-number">4.12.3.</span> <span class="toc-text"> 接口中使用泛型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%B1%BB%E4%B8%AD%E4%BD%BF%E7%94%A8%E6%B3%9B%E5%9E%8B"><span class="toc-number">4.12.4.</span> <span class="toc-text"> 类中使用泛型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B3%9B%E5%9E%8B%E7%BB%A7%E6%89%BF"><span class="toc-number">4.12.5.</span> <span class="toc-text"> 泛型继承</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%9A%E6%B3%9B%E5%9E%8B"><span class="toc-number">4.12.6.</span> <span class="toc-text"> 多泛型</span></a></li></ol></li></ol></li></ol>
+          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#ts"><span class="toc-number">1.</span> <span class="toc-text"> TS</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9A%E4%B9%89%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="toc-number">1.0.1.</span> <span class="toc-text"> 定义数据类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%83%E7%BB%84"><span class="toc-number">1.0.2.</span> <span class="toc-text"> 元组</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%81%94%E5%90%88%E7%B1%BB%E5%9E%8B"><span class="toc-number">1.0.3.</span> <span class="toc-text"> 联合类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AD%97%E9%9D%A2%E9%87%8F%E7%B1%BB%E5%9E%8B"><span class="toc-number">1.0.4.</span> <span class="toc-text"> 字面量类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9E%9A%E4%B8%BE%E7%B1%BB%E5%9E%8B"><span class="toc-number">1.0.5.</span> <span class="toc-text"> 枚举类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#any-%E5%92%8C-unknown-%E7%B1%BB%E5%9E%8B"><span class="toc-number">1.0.6.</span> <span class="toc-text"> any 和 unknown 类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#void-undefined-%E5%92%8C-never-%E7%B1%BB%E5%9E%8B"><span class="toc-number">1.0.7.</span> <span class="toc-text"> void、undefined 和 never 类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%B1%BB%E5%9E%8B%E6%96%AD%E8%A8%80"><span class="toc-number">1.0.8.</span> <span class="toc-text"> 类型断言</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%87%BD%E6%95%B0%E7%9A%84%E5%A3%B0%E6%98%8E"><span class="toc-number">1.0.9.</span> <span class="toc-text"> 函数的声明</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B7%E4%BD%93%E5%AF%B9%E8%B1%A1%E7%B1%BB%E5%9E%8B"><span class="toc-number">1.0.10.</span> <span class="toc-text"> 具体对象类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8E%A5%E5%8F%A3-interface"><span class="toc-number">1.0.11.</span> <span class="toc-text"> 接口 interface</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%B1%BB%E5%92%8C%E6%8E%A5%E5%8F%A3"><span class="toc-number">1.0.12.</span> <span class="toc-text"> 类和接口</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%B1%BB%E7%9A%84%E8%AE%BF%E9%97%AE%E4%BF%AE%E9%A5%B0%E7%AC%A6"><span class="toc-number">1.0.13.</span> <span class="toc-text"> 类的访问修饰符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B3%9B%E5%9E%8B-t"><span class="toc-number">1.0.14.</span> <span class="toc-text"> 泛型 &lt;T&gt;</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B3%9B%E5%9E%8B%E6%98%AF%E4%BB%80%E4%B9%88"><span class="toc-number">1.0.14.1.</span> <span class="toc-text"> 泛型是什么</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%B1%BB%E5%9E%8B-type"><span class="toc-number">1.0.15.</span> <span class="toc-text"> 类型 type</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%B1%BB%E5%9E%8B%E5%AE%88%E6%8A%A4-is"><span class="toc-number">1.0.16.</span> <span class="toc-text"> 类型守护 is</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%87%BD%E6%95%B0%E9%87%8D%E8%BD%BD"><span class="toc-number">1.0.17.</span> <span class="toc-text"> 函数重载</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%87%BD%E6%95%B0%E7%AD%BE%E5%90%8D"><span class="toc-number">1.0.18.</span> <span class="toc-text"> 函数签名</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%87%BD%E6%95%B0%E5%89%AF%E4%BD%9C%E7%94%A8"><span class="toc-number">1.0.19.</span> <span class="toc-text"> 函数副作用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%87%BD%E6%95%B0%E5%8F%82%E6%95%B0%E4%BF%AE%E9%A5%B0%E7%AC%A6"><span class="toc-number">1.0.20.</span> <span class="toc-text"> 函数参数修饰符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%8C%E9%87%8D%E6%96%AD%E8%A8%80"><span class="toc-number">1.0.21.</span> <span class="toc-text"> 双重断言</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%B8%8D%E5%8F%AF%E6%9B%B4%E6%94%B9"><span class="toc-number">1.0.22.</span> <span class="toc-text"> 字符串不可更改</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%B8%E9%87%8F%E6%96%AD%E8%A8%80-as-const"><span class="toc-number">1.0.23.</span> <span class="toc-text"> 常量断言 as const</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9D%9E%E7%A9%BA%E6%96%AD%E8%A8%80"><span class="toc-number">1.0.24.</span> <span class="toc-text"> 非空断言！</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#this-%E5%85%B3%E9%94%AE%E5%AD%97"><span class="toc-number">1.0.25.</span> <span class="toc-text"> this 关键字</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#declare-%E5%85%B3%E9%94%AE%E5%AD%97"><span class="toc-number">1.0.26.</span> <span class="toc-text"> declare 关键字</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#module-%E5%85%B3%E9%94%AE%E5%AD%97"><span class="toc-number">1.0.27.</span> <span class="toc-text"> module 关键字</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#typeof-%E6%93%8D%E4%BD%9C%E7%AC%A6"><span class="toc-number">1.0.28.</span> <span class="toc-text"> typeof 操作符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#keyof-%E6%93%8D%E4%BD%9C%E7%AC%A6"><span class="toc-number">1.0.29.</span> <span class="toc-text"> keyof 操作符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%B1%BB%E5%9E%8B%E6%9F%A5%E6%89%BE"><span class="toc-number">1.0.30.</span> <span class="toc-text"> 类型查找</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%B1%BB%E5%9E%8B%E6%98%A0%E5%B0%84"><span class="toc-number">1.0.31.</span> <span class="toc-text"> 类型映射</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%B1%BB%E5%9E%8B%E4%BF%AE%E9%A5%B0%E7%AC%A6"><span class="toc-number">1.0.32.</span> <span class="toc-text"> 类型修饰符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#interface-%E5%92%8C-type-%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-number">1.0.33.</span> <span class="toc-text"> interface 和 type 的区别</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#-"><span class="toc-number">2.</span> <span class="toc-text"> --------------------------------</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">3.</span> <span class="toc-text"> </span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#ts-%E8%BF%9B%E9%98%B6"><span class="toc-number">4.</span> <span class="toc-text"> ts 进阶</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6-tsconfigjson"><span class="toc-number">4.1.</span> <span class="toc-text"> 配置文件 ts.config.json</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E6%96%B9%E5%BA%93"><span class="toc-number">4.2.</span> <span class="toc-text"> 三方库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E7%B1%BB%E5%9E%8B"><span class="toc-number">4.3.</span> <span class="toc-text"> 基本类型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B1%BB%E5%9E%8B%E5%88%AB%E5%90%8D"><span class="toc-number">4.4.</span> <span class="toc-text"> 类型别名</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%BD%E6%95%B0%E9%87%8D%E8%BD%BD-2"><span class="toc-number">4.5.</span> <span class="toc-text"> 函数重载</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%AF%E9%80%89%E5%8F%82%E6%95%B0"><span class="toc-number">4.6.</span> <span class="toc-text"> 可选参数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%89%A9%E5%B1%95%E7%B1%BB%E5%9E%8B"><span class="toc-number">4.7.</span> <span class="toc-text"> 扩展类型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%89%A9%E5%B1%95%E7%B1%BB%E5%9E%8B-type"><span class="toc-number">4.7.1.</span> <span class="toc-text"> 扩展类型 type</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9E%9A%E4%B8%BE-enum"><span class="toc-number">4.7.2.</span> <span class="toc-text"> 枚举 enum</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8E%A5%E5%8F%A3-interface-2"><span class="toc-number">4.7.3.</span> <span class="toc-text"> 接口 interface</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A8%A1%E5%9D%97%E8%A7%A3%E6%9E%90"><span class="toc-number">4.8.</span> <span class="toc-text"> 模块解析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B1%BB%E5%9E%8B%E5%85%BC%E5%AE%B9%E6%80%A7"><span class="toc-number">4.9.</span> <span class="toc-text"> 类型兼容性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BF%AE%E9%A5%B0%E7%AC%A6"><span class="toc-number">4.10.</span> <span class="toc-text"> 修饰符</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#readonly"><span class="toc-number">4.10.1.</span> <span class="toc-text"> readonly</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%BF%E9%97%AE%E4%BF%AE%E9%A5%B0%E7%AC%A6"><span class="toc-number">4.10.2.</span> <span class="toc-text"> 访问修饰符</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B1%BB-class"><span class="toc-number">4.11.</span> <span class="toc-text"> 类 class</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B3%9B%E5%9E%8B"><span class="toc-number">4.12.</span> <span class="toc-text"> 泛型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%87%BD%E6%95%B0%E4%B8%AD%E4%BD%BF%E7%94%A8%E6%B3%9B%E5%9E%8B"><span class="toc-number">4.12.1.</span> <span class="toc-text"> 函数中使用泛型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%B1%BB%E5%9E%8B%E5%88%AB%E5%90%8D%E4%B8%AD%E4%BD%BF%E7%94%A8%E6%B3%9B%E5%9E%8B"><span class="toc-number">4.12.2.</span> <span class="toc-text"> 类型别名中使用泛型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8E%A5%E5%8F%A3%E4%B8%AD%E4%BD%BF%E7%94%A8%E6%B3%9B%E5%9E%8B"><span class="toc-number">4.12.3.</span> <span class="toc-text"> 接口中使用泛型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%B1%BB%E4%B8%AD%E4%BD%BF%E7%94%A8%E6%B3%9B%E5%9E%8B"><span class="toc-number">4.12.4.</span> <span class="toc-text"> 类中使用泛型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B3%9B%E5%9E%8B%E7%BB%A7%E6%89%BF"><span class="toc-number">4.12.5.</span> <span class="toc-text"> 泛型继承</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%9A%E6%B3%9B%E5%9E%8B"><span class="toc-number">4.12.6.</span> <span class="toc-text"> 多泛型</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#--2"><span class="toc-number">5.</span> <span class="toc-text"> --------------------------------------</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%A1%B9%E7%9B%AE%E4%B8%AD%E4%BD%BF%E7%94%A8-ts"><span class="toc-number">6.</span> <span class="toc-text"> 项目中使用 ts</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"><span class="toc-number">6.1.</span> <span class="toc-text"> 注意事项</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#react-%E9%A1%B9%E7%9B%AE%E4%B8%AD%E4%BD%BF%E7%94%A8-ts"><span class="toc-number">6.2.</span> <span class="toc-text"> react 项目中使用 TS</span></a></li></ol></li></ol>
       </div>
       <div class="related panel pjax" data-title="系列文章">
         <ul>
@@ -590,101 +890,100 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
   <li class="item">
     
 <div class="breadcrumb">
+<a href="/categories/%E6%89%8B%E5%86%99JS%E6%BA%90%E7%A0%81/" title="分类于 手写JS源码">手写JS源码</a>
+</div>
+
+    <span><a href="/2023/06/02/JS%E6%89%8B%E5%86%99/" title="手写JS源码">手写JS源码</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/" title="分类于 面试题">面试题</a>
+</div>
+
+    <span><a href="/2024/04/30/%E6%B7%B1%E6%8B%B7%E8%B4%9D/" title="深拷贝">深拷贝</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/typeScript/" title="分类于 typeScript">typeScript</a>
+</div>
+
+    <span><a href="/2023/12/11/TS/" title="typeScript笔记">typeScript笔记</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
 <a href="/categories/JS/" title="分类于 JS">JS</a>
 </div>
 
-    <span><a href="/2024/02/02/serviceWorker/" title="serviceWorker">serviceWorker</a></span>
+    <span><a href="/2023/09/02/ArrayBuffer/" title="ArrayBuffer">ArrayBuffer</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/" title="分类于 前端性能优化">前端性能优化</a>
+<a href="/categories/Travis%E5%92%8CDocker/" title="分类于 Travis和Docker">Travis和Docker</a>
 </div>
 
-    <span><a href="/2024/03/02/%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/" title="前端性能优化">前端性能优化</a></span>
+    <span><a href="/2023/12/02/Travis%20CI%E5%92%8CDocker%E7%9A%84%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90/" title="Travis和Docker的持续集成">Travis和Docker的持续集成</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/Sass/" title="分类于 Sass">Sass</a>
+<a href="/categories/eslint/" title="分类于 eslint">eslint</a>
 </div>
 
-    <span><a href="/2023/01/10/Sass/" title="Sass笔记">Sass笔记</a></span>
+    <span><a href="/2024/05/17/eslint%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90/" title="eslint源码">eslint源码</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/" title="分类于 自动化测试">自动化测试</a>
+<a href="/categories/JS/" title="分类于 JS">JS</a>
 </div>
 
-    <span><a href="/2024/03/02/%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/" title="自动化测试">自动化测试</a></span>
+    <span><a href="/2023/12/08/DataView/" title="DataView">DataView</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/Vue/" title="分类于 Vue">Vue</a>
+<a href="/categories/JS/" title="分类于 JS">JS</a>
 </div>
 
-    <span><a href="/2023/01/12/Vue%E6%9D%82%E8%AE%B0/" title="Vue使用笔记">Vue使用笔记</a></span>
+    <span><a href="/2023/12/02/%E9%9A%90%E5%BC%8F%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2/" title="JS类型转换">JS类型转换</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
+<a href="/categories/vue/" title="分类于 vue">vue</a>
 </div>
 
-    <span><a href="/2024/06/22/%E8%BD%AF%E4%BB%B6%E6%A8%A1%E5%BC%8F%E8%AE%BE%E8%AE%A1%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="未命名">未命名</a></span>
+    <span><a href="/2023/09/02/vue3%E6%BA%90%E7%A0%81%E4%BD%8D%E8%BF%90%E7%AE%97/" title="vue3源码中的位运算">vue3源码中的位运算</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96/" title="分类于 前端工程化">前端工程化</a>
+<a href="/categories/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" title="分类于 正则表达式">正则表达式</a>
 </div>
 
-    <span><a href="/2024/03/29/%E5%89%8D%E7%AB%AF%E6%A8%A1%E5%9D%97%E5%8C%96/" title="前端模块化">前端模块化</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/%E6%9D%82%E8%AE%B0/" title="分类于 杂记">杂记</a>
-<i class="ic i-angle-right"></i>
-<a href="/categories/%E6%9D%82%E8%AE%B0/%E5%B7%A5%E5%85%B7%E5%87%BD%E6%95%B0/" title="分类于 工具函数">工具函数</a>
-</div>
-
-    <span><a href="/2023/06/02/learn/" title="杂记与工具库函数">杂记与工具库函数</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/Blob/" title="分类于 Blob">Blob</a>
-</div>
-
-    <span><a href="/2024/05/17/Blob%E5%92%8CFile/" title="Blob、File和FileReader">Blob、File和FileReader</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/%E9%A1%B9%E7%9B%AE%E8%B4%A8%E9%87%8F%E6%A3%80%E6%B5%8B/" title="分类于 项目质量检测">项目质量检测</a>
-</div>
-
-    <span><a href="/2024/01/02/%E9%A1%B9%E7%9B%AE%E8%B4%A8%E9%87%8F%E6%A3%80%E6%B5%8B/" title="项目质量检测">项目质量检测</a></span>
+    <span><a href="/2024/01/10/%E6%AD%A3%E5%88%99/" title="正则理念">正则理念</a></span>
   </li>
 
   </ul>
