@@ -6,13 +6,13 @@ categories:
 tags:
 - Vue
 ---
-## Vue注意事项
+# Vue注意事项
 
 一、使用watch监听数组时：
 
 当使用watch监听数组时，要将deep设置为true，这样才能监听到数组内部的操作，而不是只监听引用是否变化，当需要使用newValue和oldValue时，监听部分需要写数组的拷贝而不是数组本身（否则当数组引用不变而堆数据变化时，oldValue和newValue都是变化之后的数值。）
 
-## Vue项目创建过程：
+# Vue项目创建过程：
 
 （
 ①创建项目 `vue create 项目名`
@@ -27,7 +27,7 @@ vue中结合网络数据库开发应用（axios网络请求库）、
 前端避雷技术：Jequry、Angular js、php、rubian rails构建应用程序
 form-serialize插件获取表单的各项
 
-## Vue知识点
+# Vue知识点
 
 {
 
@@ -74,7 +74,98 @@ Vue文件分类：将Vue文件分为页面文件和可复用的文件
 （一、父组件给子组件传值：①父组件使用子组件时，:绑定值，并在data中注册②子组件props中注册相同名称的值）
 （二、子组件给父组件传值：①在子组件中使用this.$emit方法自定义一个事件并传值②在父组件中使用该事件通过函数操作传来的值）
 
-## 十一、Vue-router
+## effct高级
+
+### effectScope
+
+**effectScope是vue3.2新增的一个api，用于创建一个副作用作用域，内部自动捕获副作用，进行响应化设置。**
+
+```js
+// 一个scope可以执行一个run函数（接受一个函数作为参数，返回该函数的返回值，并且捕获所有在该函数执行过程中创建的effect，包括可以创建effect的API）
+// 例如：computed，watch，watchEffect等。
+let a = 1;
+const scope = effectScope();
+scope.run(()=>{
+ const doubled = computed(()=>a * 2);
+ watch(doubled,()=>console.log(doubled.value))
+ watchEffect(()=>{ //watchEffect函数会自动检测内部的effect副作用，进行响应化设置
+  console.log('Count',doubled.value);
+ })
+})
+scope.stop();
+// 当调用scope.stop)()函数时，所有被捕获的effect都会被取消，包括nested scopes也会被递归取消
+```
+
+### 嵌套scope
+
+嵌套scope也会被他们的父级scope收集，并且当父级scope销毁的时候，所有的后代scope也会被递归销毁。
+
+```js
+const scope = effectScope()
+scope.run(() => {
+  const doubled = computed(() => counter.value * 2)
+  // not need to get the stop handler, it will be collected by the outer scope
+  effectScope().run(() => {
+    watch(doubled, () => console.log(doubled.value))
+  })
+  watchEffect(() => console.log('Count: ', doubled.value))
+})
+// dispose all effects, including those in the nested scopes
+scope.stop()
+```
+
+**effectScope接受一个参数可以在分离模式下创建，detached scope不会被父级collect**
+
+```js
+let nestedScope
+const parentScope = effectScope()
+parentScope.run(() => {
+  const doubled = computed(() => counter.value * 2)
+  // with the detected flag,
+  // the scope will not be collected and disposed by the outer scope
+  nestedScope = effectScope(true /* detached */)
+  nestedScope.run(() => {
+    watch(doubled, () => console.log(doubled.value))
+  })
+  watchEffect(() => console.log('Count: ', doubled.value))
+})
+// disposes all effects, but not `nestedScope`
+parentScope.stop()
+// stop the nested scope only when appropriate
+nestedScope.stop()
+```
+
+### onScopeDispose
+
+全局钩子函数，相当于副作用域中的onUnmounted功能，不同的是它工作在scope中，而不是当前instance中。
+
+这使得composable functions可以通过他们的scope清楚他们的副作用。
+
+> 需要注意的是: 由于 setup() 默认会为当前 instance 创建一个 scope，所以当没有明确声明一个scope的时候，onScopeDispose等同于onUnmounted。
+
+```js
+import { onScopeDispose } from 'vue'
+const scope = effectScope()
+scope.run(() => {
+  onScopeDispose(() => {
+    console.log('cleaned!')
+  })
+})
+scope.stop() // logs 'cleaned!'
+```
+
+### getCurrentScope
+
+通过getCurrentScope函数,可以获得当前scope作用域
+
+```js
+import {getCurrentScope} from 'vue';
+getCurrentScope(); //返回当前scope作用域或者undefined
+```
+
+
+
+# Vue-router
 
 ①安装npm i vue-router@(vue2用3的版本,vue3用4版本)
 
@@ -122,6 +213,8 @@ new Vue({
   render: h => h(App)
 }).$mount('#app');
 ```
+
+effect
 
 ###### 十二、跨组件传值（没有引用关系）
 
@@ -348,7 +441,7 @@ arr.reduce((sum,obj)=>{函数体},0)  返回累加和sum，sum的初始值为0�
 
 
 
-## Vue项目工具
+# Vue项目工具
 
 ###### 1、vant组件库（移动端vue组件库）
 
@@ -385,7 +478,7 @@ postcss-pxtorem （ 配合webpack , 自动将 px 转成 rem ）
 
 `}}}`
 
-## Vuex介绍
+# Vuex介绍
 
 ```js
 npm  install vuex --save
@@ -692,436 +785,5 @@ new Vue({
     <h1>这是count：{{ $store.state.count }}</h1>
   </div>
 </template>
-### 项目中使用vuex
-
-一、在src文件中新建store下新建modules下新建 模块名 . js文件
-
-二、模块中结构：
-
-```vue
-export default{
-namespaced:true , state{} , mutations:{} , actions:{}       }
-```
-
-三、在store下index.js中引入定义的模块
-
-```vue
-import  模块名  from  '路径'
-export  default  new  Vuex.Store({
-state:{} , mutations:{} , actions:{} , modules:{模块名1，模块名2}     })
-```
-
-
-
-###### 封装
-
-1、新建
-文件夹store-->在文件夹下新建store.js-->进行以下配置
-
-import Vuex from 'vuex'
-import Vue from 'vue'
-
-Vue.use(Vuex)
-
-const store = new Vuex.Store({
-    state:{
-      count:0,
-    },
-  })
-
-export default store    //将值导出给main.js
- 2、main.js文件
-import Vue from 'vue'
-import App from './App.vue'
-import router from './router'
-import store from '@/store/store'    //引入
-
-Vue.config.productionTip = false
-
-new Vue({
-  router,
-  store,    //使用
-  render: h => h(App)
-}).$mount('#app')
-四、state状态存放
-1、简介
-用于存放全局变量，供任意组件访问
-
-2、使用：$store.state.变量名
-（1）在store.js这个封装文件，定义需要的变量
-
-import Vuex from 'vuex'
-import Vue from 'vue'
-
-Vue.use(Vuex)
-
-const store = new Vuex.Store({
-    state:{
-      count:0,
-      userInfo:[
-        {
-            name:'申小兮',
-            age:18,
-        },
-        {
-            name:'老墨',
-            age:34,
-        },
-      ]
-    },
-  })
-
-export default store
-
-（2）在任意vue文件进行输出，显示
-
-<template>
-  <div class="home">
-    <h1>这是count：{{ $store.state.count }}</h1>
-    <h1>卖鱼的{{ $store.state.userInfo[1].name }}</h1>
-    <!-- <HelloWorld msg="Welcome to Your Vue.js App"/> -->
-  </div>
-</template>
-
-<script>
-// @ is an alias to /src
-
-export default {
-  name: 'HomeView',
-  created(){
-    console.log('count',this.$store.state.count);
-    console.log('userInfo',this.$store.state.userInfo);
-  }
-}
-</script>
-
-
-
-###### getters状态派生
-
-1、简介
-有时候我们需要从 store 中的 state 中派生出一些状态，类似Vue中的computed计算属性的功能，例如：格式化数据等。
-
-处理数据：当我们想用或修改的数据，在多个组件或页面，且需要统一修改时，这个状态可以很方便进行修改。
-
-使用：$store.getters.变量名
-
-2、参数
-（1）state参数：每个getters都是一个方法，接受 state 作为其第一个参数，用来访问vuex中的state数据
-
-import Vuex from 'vuex'
-import Vue from 'vue'
-
-Vue.use(Vuex)
-
-const store = new Vuex.Store({
-    state:{
-      count:0,
-      userInfo:[
-        {
-            name:'申小兮',
-            age:18,
-        },
-        {
-            name:'老墨',
-            age:34,
-        },
-      ]
-    },
-    getters:{
-        info(state){
-            console.log(state);
-            return `告诉${state.userInfo[1].name}，我想吃鱼了`
-        }
-    }
-  })
-
-export default store
-
-<template>
-  <div class="home">
-    <h1>这是count：{{ $store.state.count }}</h1>
-    <h1>卖鱼的{{ $store.state.userInfo[1].name }}</h1>
-    <h2>{{ $store.getters.info }}</h2>
-    <!-- <HelloWorld msg="Welcome to Your Vue.js App"/> -->
-  </div>
-</template>
-
-<script>
-// @ is an alias to /src
-
-export default {
-  name: 'HomeView',
-  created(){
-    // console.log('count',this.$store.state.count);
-    // console.log('userInfo',this.$store.state.userInfo);
-    console.log('getters',this.$store.getters.info);
-  }
-}
-</script>
-
-
-
- （2）getter参数：获取自己本身的数据
-
-getters:{
-    info(state,getter){
-        console.log('state：',state);
-        console.log('getter：',getter);
-        return `告诉${state.userInfo[1].name}，我想吃鱼了`
-    }
-}
-
-
-3、绑定点击改值事件
-事件的错误使用
-
-<template>
-  <div class="home">
-    <h1>这是count：{{ $store.state.count }}</h1>
-    <div>
-      <button @click="add">+</button>
-      <button @click="sub">-</button>
-    </div>
-  </div>
-</template>
-
-<script>
-export default {
-  name: 'HomeView',
-  created(){
-    console.log('getters',this.$store.getters.info);
-  },
-  methods:{
-    add(){
-      this.$store.state.count++
-    },
-    sub(){
-
-    }
-  }
-}
-</script>
-
-
-
-观察上图发现：在点击改变count值时，虽然页面跟着变化了，但是vuex检测系统并没有变化，只有鼠标去触发才会更新
-
-那么怎样才能正确修改count值呢？这时候就要介绍第三个状态mutations🧐
-
-###### mutations状态修改
-
-1、简介
-更改 Vuex 的 store 中的状态的唯一方法是提交 mutation。每个 mutation 都有一个字符串的 事件类型 (type) 和 一个 回调函数 (handler)，类似Vue【子向父通信】的emit
-
-每个mutations都是一个方法，接受 state 作为第一个参数，payload 作为第二个参数
-
-（1）state：用来访问vuex中的state数据
-
-（2）payload：获取此次mutation提交的数据荷载
-
-注意：mutation中不能在异步函数里修改state值，必须是同步函数
-
-2、使用
-（1）提交形式：$store.commit(type, payload)
-
-（2）state参数
-
-mutations:{
-    addCount(state){
-        console.log('M',state);
-        state.count++
-    }
-}
-add(){
-    this.$store.commit('addCount')
-},
-（3）payload参数
-
-mutations:{
-    addCount(state,payload){
-        console.log('M',state);
-        state.count+=payload
-    }
-}
-add(){
-  this.$store.commit('addCount',10)
-},
-
-
- （4）对象写法
-
-add(){
-  this.$store.commit({
-    type:'addCount',
-    num:10
-  })
-},
-mutations:{
-    addCount(state,payload){
-        console.log('M',state);
-        state.count+=payload.num
-    }
-}
-3、模拟接口
-（1）例子1：接口是异步的，我们用定时器类比
-
-mutations:{
-    getStudentInfo(state){
-        setTimeout(()=>{
-            let info = {name:"张三",age:43}
-            state.studentInfo.push(info)
-        })
-    }
-}
-created(){
-  this.$store.commit('getStudentInfo')
-},
-<h3>{{ $store.state.studentInfo }}</h3>
-（2） 例子2：在异步中改变count
-
-addCount(state,payload){
-    console.log('M',state);
-    setTimeout(()=>{
-        state.count+=payload.num
-    })
-},
-
-
- 这时候发现，vue编译器每次会比实际数据慢一次，这个问题是为什么？因为mutation无法处理异步问题
-
-注意：mutation必须是同步函数，这时候就引出第四个状态actions，来解决mutation的异步问题
-
-###### actions状态修改
-
-1、简介
-Action 类似于 mutation，不同的是Action用于提交mutation，而不是直接变更状态；且Action 可以包含任意异步操作
-
-2、使用
-每个Action都是一个方法，接受 context 作为第一个参数，payload 作为第二个参数
-
-（1）提交形式：$store.dispatch(type, payload)
-
-（2）参数
-
-①context参数：store实例对象，用以调用mutation、访问state
-
-②payload参数：获取此次mutation提交的数据荷载
-
-（3）解决第六大点mutations无法解决的异步问题
-
-mutations:{
-    addCount(state,payload){
-        console.log('M',state);
-        state.count+=payload.num
-    },
-    getStudentInfo(state,payload){
-        state.studentInfo = payload
-    }
-},
-actions:{
-    getInfoApi(context){
-        setTimeout(()=>{
-            let info = {name:"张三",age:43}
-            context.commit('getStudentInfo',info)
-        })
-    },
-    addTime(context){
-        setTimeout(()=>{
-            context.commit({type:'addCount',num:10})
-        })
-    }
-}
-
-methods:{
-  add(){
-    this.$store.dispatch('addTime')
-  },
-  sub(){
-    this.$store.dispatch('getInfoApi')
-  }
-}
-
-<template>
-  <div class="home">
-    <h1>这是count：{{ $store.state.count }}</h1>
-    <div>
-      <button @click="add">+</button>
-      <button @click="sub">-</button>
-    </div>
-    <h3>{{ $store.state.studentInfo }}</h3>
-  </div>
-<template>
-
-（5）几个状态使用的连接
-
-①State：存储数据。调用语句$store.state.变量名
-②Getter：更好的处理数据，但是无法实时改变后台数据。调用语句$store.getter.变量名
-③Mutation：任意更改state的数据，但是只允许同步函数。调用语句$store.commit(type, payload)
-④Action：不能改state数据，但是可以帮助mutation做异步操作。调用语句$store.dispatch(type, payload)
-
-八、Module模块化
-1、简介
-（1）原因：由于使用单一状态树，应用的所有状态会集中到一个比较大的对象。当应用变得非常复杂时，store 对象就有可能变得相当臃肿。
-
-（2）解决：为了解决以上问题，Vuex 允许我们将 store 分割成模块（module）。每个模块拥有自己的 state、mutation、action、getter。
-
-2、理解
-将 store 内的state、mutation、action、getter每个完整的对象分割成一个个单独的模块（module），然后写成一个变量导入。
-
-通常是在做大项目时候才会用上
-
-3、例子
-这里举一个简易的例子
-
-（1）将state、mutation、action、getter单独到外面
-
-import Vuex from "vuex";
-import Vue from "vue";
-
-Vue.use(Vuex);
-
-const moduleA = {
-  namespaced: true, //命名空间
-  state: {
-    count: 0,
-  },
-};
-
-const store = new Vuex.Store({
-  modules: {
-    a: moduleA,
-  },
-});
-
-export default store;
-
-（2）这时候获取及显示数据的写法要有所改变
-
-<template>
-  <div class="about">
-    <h1>这是count：{{ $store.state.a.count }}</h1>
-    <!-- <h1>This is an about page</h1> -->
-  </div>
-</template>
-4、相关文档
-小伙伴们可以查看文档，深入学习🧐
-
-Module | Vuex
-Vue.js 的中心化状态管理方案
-https://vuex.vuejs.org/zh/guide/modules.html
-
-九、拓展
-1、关于vuex编写登录模块的思想流程
-
-
-
- 2、vue-cookie的使用，小伙伴们可以在下面这个网站进行学习
-————————————————
-版权声明：本文为CSDN博主「五秒法则」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
-原文链接：https://blog.csdn.net/qq_51478745/article/details/129582717
-
-
-
 
 
