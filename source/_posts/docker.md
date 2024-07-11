@@ -5,6 +5,9 @@ categories: Docker
 date: 2024-07-08 10:26:39
 ---
 
+![Docker](https://dmqweb.cn/images/Docker.pdf)
+![Docker大纲](https://dmqweb.cn/images/Docker大纲.pdf)
+
 # 虚拟机
 
 > 虚拟机是使用虚拟化的技术，使用抽象逻辑对物理计算机的模拟，包含整个操作系统和其中的应用程式。

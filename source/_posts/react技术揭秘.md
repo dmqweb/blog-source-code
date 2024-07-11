@@ -137,6 +137,31 @@ Renderer 渲染器根据 Reconciler 为虚拟 DOM 打的标记，同步执行对
 - 当前帧没有剩余时间
 
   > 由于调度器和协调器的工作都在内存中进行，不会更新到页面上，所以即使反复中断，对用户来说也无感
+# Fiber介绍
+
+> Fiber 其实是一个数据结构，需要记录节点和节点之间的关系，在Fiber架构中的任务是可以中断执行的，继续执行时会丢弃原来完成的工作从头再来（数据不可变的原因），并且即使重新执行中断的任务，对用户侧来说也是无感的，因为Fiber架构的视图更新是后缓冲区视图 替换 前缓冲区视图的过程。
+> 顺便理解一下componentWillMount、componentWillReceiveProps、componentWillUpdate这三个钩子被废弃的原因：因为render阶段是异步执行、可被中断的，再次回来的时候有可能会丢弃已经完成的工作从头再来，这样就可能会导致Fiber节点在render阶段重复调用`componentWillMount`这几个钩子，导致不符合开发者预期，并且当这几个钩子中存在副作用时，就会出现问题。
+```js
+// Fiber中关键字段
+{
+  type, //DOM类型
+  key, //reconciler在协调过程中，决定该fiber是否要复用
+  child, //组件render函数返回值
+  sibling,
+  return, //return属性指向父节点
+  pendingProps,
+  memoizedProps,
+  pendingWorkPriority,
+  alternate,
+  ...
+}
+```
+
+# Fiber架构
+Fiber架构出现的原因：
+>  由于JS单线程执行，并且React15版本的reconciler协调阶段只能一次执行完，不能被中途打断，这就导致：当更新渲染的执行任务较多时，协调阶段一次执行的时间花费就很长，这时就会出现掉帧、卡顿的现象。由此推出Fiber架构
+Fiber架构实现逻辑：
+> Fiber架构通过生成器函数，将任务分给一个个的迭代器执行，迭代器完成执行任务的过程发生在浏览器空闲阶段，这样就不会阻塞UI的渲染。（由于RequestIdleCallback存在兼容性问题、并且在大量用户操作的时候不够稳定，因此使用RequestAnimationFrame和disPatchEvent消息队列来完成）
 
 # Fiber 架构心智模型
 
