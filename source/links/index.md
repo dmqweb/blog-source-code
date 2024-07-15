@@ -23,12 +23,32 @@ type: "links"
   color: "gray"
 # 多链接参考 yaml 列表格式
 
+- site: 打包构建工具比对
+  owner: 
+  url: https://bundlers.tooling.report/#summary
+  desc: 前端打包构建工具比对
+  image: https://picsum.photos/200/200?02
+  color: "green"
+
+# 多链接参考 yaml 列表格式
+
 - site: CE修改器
   owner: 
   url: https://mod.3dmgame.com/mod/140848
   desc: 修改内存和进程中的数据
   image: https://picsum.photos/200/200?208
   color: "yellow"
+
+
+
+# 多链接参考 yaml 列表格式
+
+- site: 九帝博客
+  owner: 
+  url: https://blog.shenzjd.com/
+  desc: 九帝博客和资源
+  image: https://picsum.photos/200/200?001
+  color: "red"
 
 # 多链接参考 yaml 列表格式
 - site: 抽象语法树
