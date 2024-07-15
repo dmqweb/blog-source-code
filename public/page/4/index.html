@@ -91,12 +91,12 @@
       </div>
       <div id="imgs" class="pjax">
         <ul>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/12/65788b6548e9e58f.jpg"></li>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/13/9404a557b00200f4.jpg"></li>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/07/971b0200f59eab4c.jpg"></li>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/15/64f47485ad1e6bed.jpg"></li>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/25/1276fcec5eb7990e.webp"></li>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/04/3149a0cc49823a9c.jpg"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/13/ba4d76fc0767aeef.jpg"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/25/0aebf75866635811.jpg"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/05/8c79eda29fb3b505.jpg"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/04/eff89867286d822f.webp"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/25/0edddbac6c1e1908.webp"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/05/9c07b3ea7f1e2a1c.jpg"></li>
         </ul>
       </div>
     </header>
@@ -122,7 +122,73 @@
         
 <article class="item">
   <div class="cover">
-    <a href="/2023/12/08/DataView/" itemprop="url" title="DataView"><img data-src="https://s3.uuu.ovh/imgs/2024/04/15/d888a622df52afa7.webp"></a>
+    <a href="/2023/12/21/%E6%9C%80%E5%A4%A7%E5%AE%89%E5%85%A8%E6%95%B0/" itemprop="url" title="最大安全数与最大安全整数"><img data-src="https://s3.uuu.ovh/imgs/2024/04/05/5f5c15d0d8ceb4d1.jpg"></a>
+  </div>
+  <div class="info">
+    
+<div class="meta">
+  <span class="item" title="创建时间：2023-12-21 12:24:04">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <time itemprop="dateCreated datePublished" datetime="2023-12-21T12:24:04+08:00">2023-12-21</time>
+  </span>
+</div>
+
+    <h3><a href="/2023/12/21/%E6%9C%80%E5%A4%A7%E5%AE%89%E5%85%A8%E6%95%B0/" itemprop="url" title="最大安全数与最大安全整数">最大安全数与最大安全整数</a></h3>
+    <div class="excerpt">
+        # Number.MAX_VALUE 最大数
+Number.MAX_VALUE 静态数据属性表示在 JavaScript 中可表示的最大数值，数值为：2 的 1024 次方 - 1，或大约 1.7976931348623157E+308。
+（原因是由于：一个字节（byte）8 比特（bit），但是数字类型占用一个字节，JS 最大用 1kb（1024 个字节）来存储 number）
+大于最大数的数据会被返回：Infinity
+# Number.MAX_SAFE_INTEGER 最大安全整数
+Number.MAX_SAFE_INTEGER 为：（253 –...
+    </div>
+    <div class="meta footer">
+      <span>
+        <a href="/categories/JS/" itemprop="url" title="JS"><i class="ic i-flag"></i>JS</a>
+      </span>
+    </div>
+    <a href="/2023/12/21/%E6%9C%80%E5%A4%A7%E5%AE%89%E5%85%A8%E6%95%B0/" itemprop="url" title="最大安全数与最大安全整数" class="btn">more...</a>
+  </div>
+</article>
+
+        
+<article class="item">
+  <div class="cover">
+    <a href="/2023/12/11/typedArray/" itemprop="url" title="JS中类型化数组typedArray"><img data-src="https://s3.uuu.ovh/imgs/2024/04/25/0edddbac6c1e1908.webp"></a>
+  </div>
+  <div class="info">
+    
+<div class="meta">
+  <span class="item" title="创建时间：2023-12-11 12:24:04">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <time itemprop="dateCreated datePublished" datetime="2023-12-11T12:24:04+08:00">2023-12-11</time>
+  </span>
+</div>
+
+    <h3><a href="/2023/12/11/typedArray/" itemprop="url" title="JS中类型化数组typedArray">JS中类型化数组typedArray</a></h3>
+    <div class="excerpt">
+        #JS 中类型化数组（typed array）
+JavaScript 的类型化数组是一种特殊的数组，可以存储和操作固定类型的数据，如整数、浮点数、字节等。相比于普通的 JavaScript 数组，类型化数组有以下几个优点：
+更加高效：类型化数组在内存中是连续存储的，这意味着它们可以更快地被读取和写入。此外，它们还允许我们直接访问底层的二进制数据，而不需要进行类型转换或拷贝操作。
+更加节省空间：由于类型化数组只能存储固定类型的数据，因此它们使用的内存空间可以更加紧凑。例如，使用 Int8Array 数组可以将每个元素压缩为 1 个字节，而使用普通的 JavaScript 数组则需要至少 8...
+    </div>
+    <div class="meta footer">
+      <span>
+        <a href="/categories/JS/" itemprop="url" title="JS"><i class="ic i-flag"></i>JS</a>
+      </span>
+    </div>
+    <a href="/2023/12/11/typedArray/" itemprop="url" title="JS中类型化数组typedArray" class="btn">more...</a>
+  </div>
+</article>
+
+        
+<article class="item">
+  <div class="cover">
+    <a href="/2023/12/08/DataView/" itemprop="url" title="DataView"><img data-src="https://s3.uuu.ovh/imgs/2024/04/15/21b7a3f222ccbcb6.jpg"></a>
   </div>
   <div class="info">
     
@@ -154,7 +220,7 @@ javascriptCopy Code// 创建一个包含 8 字节的 ArrayBufferconst buffer = n
         
 <article class="item">
   <div class="cover">
-    <a href="/2023/12/08/NaN/" itemprop="url" title="NaN历史遗留问题"><img data-src="https://s3.uuu.ovh/imgs/2024/04/07/6e43985af4997748.jpg"></a>
+    <a href="/2023/12/08/NaN/" itemprop="url" title="NaN历史遗留问题"><img data-src="https://s3.uuu.ovh/imgs/2024/04/15/9d4994abd78e2f72.jpg"></a>
   </div>
   <div class="info">
     
@@ -185,7 +251,7 @@ NaN === NaN //false;Object.is(NaN,NaN) //true// 除此之外，延申:+0 === -0 
         
 <article class="item">
   <div class="cover">
-    <a href="/2023/12/07/Blob/" itemprop="url" title="Blob"><img data-src="https://s3.uuu.ovh/imgs/2024/04/07/971b0200f59eab4c.jpg"></a>
+    <a href="/2023/12/07/Blob/" itemprop="url" title="Blob"><img data-src="https://s3.uuu.ovh/imgs/2024/04/28/f7a6eb62965e0dec.webp"></a>
   </div>
   <div class="info">
     
@@ -217,7 +283,7 @@ Blob 对象可以通过 new Blob () 构造函数创建，传入一个数组作�
         
 <article class="item">
   <div class="cover">
-    <a href="/2023/12/02/Travis%20CI%E5%92%8CDocker%E7%9A%84%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90/" itemprop="url" title="Travis和Docker的持续集成"><img data-src="https://s3.uuu.ovh/imgs/2024/04/05/f09ce1d151936963.jpg"></a>
+    <a href="/2023/12/02/Travis%20CI%E5%92%8CDocker%E7%9A%84%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90/" itemprop="url" title="Travis和Docker的持续集成"><img data-src="https://s3.uuu.ovh/imgs/2024/04/06/a16303594a53d8d1.jpg"></a>
   </div>
   <div class="info">
     
@@ -250,7 +316,7 @@ FROM ubuntu:latestMAINTAINER Shaobo Liu &amp;lt;shaobo@mkdef.com&gt;LABEL...
         
 <article class="item">
   <div class="cover">
-    <a href="/2023/12/02/react/" itemprop="url" title="react笔记"><img data-src="https://s3.uuu.ovh/imgs/2024/04/25/0aebf75866635811.jpg"></a>
+    <a href="/2023/12/02/react/" itemprop="url" title="react笔记"><img data-src="https://s3.uuu.ovh/imgs/2024/04/07/2600bb35f2cdf6cf.jpg"></a>
   </div>
   <div class="info">
     
@@ -291,7 +357,7 @@ state 就像每次渲染的快照，并且不会同步更新，react 中当 stat
         
 <article class="item">
   <div class="cover">
-    <a href="/2023/12/02/%E6%95%B0%E6%8D%AE%E5%BA%93/" itemprop="url" title="数据库"><img data-src="https://s3.uuu.ovh/imgs/2024/04/12/8740e71363c6800c.jpg"></a>
+    <a href="/2023/12/02/%E6%95%B0%E6%8D%AE%E5%BA%93/" itemprop="url" title="数据库"><img data-src="https://s3.uuu.ovh/imgs/2024/04/15/807885ba1421e9b4.jpg"></a>
   </div>
   <div class="info">
     
@@ -335,7 +401,7 @@ state 就像每次渲染的快照，并且不会同步更新，react 中当 stat
         
 <article class="item">
   <div class="cover">
-    <a href="/2023/12/02/%E9%9A%90%E5%BC%8F%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2/" itemprop="url" title="JS类型转换"><img data-src="https://s3.uuu.ovh/imgs/2024/04/04/61e9f78d997bc7c9.webp"></a>
+    <a href="/2023/12/02/%E9%9A%90%E5%BC%8F%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2/" itemprop="url" title="JS类型转换"><img data-src="https://s3.uuu.ovh/imgs/2024/04/06/63e9f1e7097ba6fb.jpg"></a>
   </div>
   <div class="info">
     
@@ -381,7 +447,7 @@ state 就像每次渲染的快照，并且不会同步更新，react 中当 stat
         
 <article class="item">
   <div class="cover">
-    <a href="/2023/10/24/ThreeJS/" itemprop="url" title="three.js"><img data-src="https://s3.uuu.ovh/imgs/2024/04/15/d888a622df52afa7.webp"></a>
+    <a href="/2023/10/24/ThreeJS/" itemprop="url" title="three.js"><img data-src="https://s3.uuu.ovh/imgs/2024/04/25/b4f20660104f3911.jpg"></a>
   </div>
   <div class="info">
     
@@ -405,81 +471,6 @@ https://juejin.cn/post/7197324377943081019
       </span>
     </div>
     <a href="/2023/10/24/ThreeJS/" itemprop="url" title="three.js" class="btn">more...</a>
-  </div>
-</article>
-
-        
-<article class="item">
-  <div class="cover">
-    <a href="/2023/10/21/webpack/" itemprop="url" title="webpack笔记"><img data-src="https://s3.uuu.ovh/imgs/2024/04/04/25ef11a84cfafbef.jpg"></a>
-  </div>
-  <div class="info">
-    
-<div class="meta">
-  <span class="item" title="创建时间：2023-10-21 12:24:04">
-    <span class="icon">
-      <i class="ic i-calendar"></i>
-    </span>
-    <time itemprop="dateCreated datePublished" datetime="2023-10-21T12:24:04+08:00">2023-10-21</time>
-  </span>
-</div>
-
-    <h3><a href="/2023/10/21/webpack/" itemprop="url" title="webpack笔记">webpack笔记</a></h3>
-    <div class="excerpt">
-        # babel
-# 1 执行编译的命令
-在 package.json 文件中添加执行 babel 的命令
-（在 scripts 中添加：&amp;quot;build&amp;quot;:&amp;quot;babel src -d dist&amp;quot;）
-
-babel src --out-dir dist*
-
-# 2.Babel 的配置文件
-
-安装配置文件 npm install @babel/preset-env@7.11.0--save-dev
-
-创建配置文件.babelrc,...
-    </div>
-    <div class="meta footer">
-      <span>
-        <a href="/categories/webpack/" itemprop="url" title="webpack"><i class="ic i-flag"></i>webpack</a>
-      </span>
-    </div>
-    <a href="/2023/10/21/webpack/" itemprop="url" title="webpack笔记" class="btn">more...</a>
-  </div>
-</article>
-
-        
-<article class="item">
-  <div class="cover">
-    <a href="/2023/10/09/%E6%B5%8F%E8%A7%88%E5%99%A8%E6%89%A7%E8%A1%8C%E5%8E%9F%E7%90%86/" itemprop="url" title="浏览器执行原理"><img data-src="https://s3.uuu.ovh/imgs/2024/04/04/f480d741324d8eb5.jpg"></a>
-  </div>
-  <div class="info">
-    
-<div class="meta">
-  <span class="item" title="创建时间：2023-10-09 12:24:04">
-    <span class="icon">
-      <i class="ic i-calendar"></i>
-    </span>
-    <time itemprop="dateCreated datePublished" datetime="2023-10-09T12:24:04+08:00">2023-10-09</time>
-  </span>
-</div>
-
-    <h3><a href="/2023/10/09/%E6%B5%8F%E8%A7%88%E5%99%A8%E6%89%A7%E8%A1%8C%E5%8E%9F%E7%90%86/" itemprop="url" title="浏览器执行原理">浏览器执行原理</a></h3>
-    <div class="excerpt">
-        # 事件循环
-浏览器的进程模型
-# 何为进程？
-程序运行需要有它自己专属的内存空间，可以把这块内存空间简单的理解为进程
-
-每个应用至少有一个进程，进程之间相互独立，即使要通信，也需要双方同意。
-#...
-    </div>
-    <div class="meta footer">
-      <span>
-        <a href="/categories/%E6%B5%8F%E8%A7%88%E5%99%A8/" itemprop="url" title="浏览器"><i class="ic i-flag"></i>浏览器</a>
-      </span>
-    </div>
-    <a href="/2023/10/09/%E6%B5%8F%E8%A7%88%E5%99%A8%E6%89%A7%E8%A1%8C%E5%8E%9F%E7%90%86/" itemprop="url" title="浏览器执行原理" class="btn">more...</a>
   </div>
 </article>
 
@@ -518,19 +509,19 @@ babel src --out-dir dist*
 <nav class="state">
     <div class="item posts">
       <a href="/archives/">
-        <span class="count">76</span>
+        <span class="count">79</span>
         <span class="name">文章</span>
       </a>
     </div>
     <div class="item categories">
       <a href="/categories/">
-        <span class="count">55</span>
+        <span class="count">59</span>
         <span class="name">分类</span>
       </a>
     </div>
     <div class="item tags">
       <a href="/tags/">
-        <span class="count">97</span>
+        <span class="count">98</span>
         <span class="name">标签</span>
       </a>
     </div>
@@ -617,70 +608,10 @@ babel src --out-dir dist*
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" title="分类于 正则表达式">正则表达式</a>
+<a href="/categories/JS%E8%BF%9B%E9%98%B6/" title="分类于 JS进阶">JS进阶</a>
 </div>
 
-    <span><a href="/2024/01/10/%E6%AD%A3%E5%88%99/" title="正则理念">正则理念</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/JS/" title="分类于 JS">JS</a>
-</div>
-
-    <span><a href="/2023/12/08/DataView/" title="DataView">DataView</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/%E9%A1%B9%E7%9B%AE%E8%B4%A8%E9%87%8F%E6%A3%80%E6%B5%8B/" title="分类于 项目质量检测">项目质量检测</a>
-</div>
-
-    <span><a href="/2024/01/02/%E9%A1%B9%E7%9B%AE%E8%B4%A8%E9%87%8F%E6%A3%80%E6%B5%8B/" title="项目质量检测">项目质量检测</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/%E7%AE%97%E6%B3%95/" title="分类于 算法">算法</a>
-</div>
-
-    <span><a href="/2023/12/02/%E7%AE%97%E6%B3%95/" title="算法与数据结构">算法与数据结构</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/ajax/" title="分类于 ajax">ajax</a>
-</div>
-
-    <span><a href="/2023/01/08/ajax/" title="ajax">ajax</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/jQuery/" title="分类于 jQuery">jQuery</a>
-</div>
-
-    <span><a href="/2023/01/02/jQuery%E6%A1%86%E6%9E%B6%E5%BA%94%E7%94%A8/" title="jQuery">jQuery</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/%E8%84%9A%E6%89%8B%E6%9E%B6%E5%BC%80%E5%8F%91/" title="分类于 脚手架开发">脚手架开发</a>
-</div>
-
-    <span><a href="/2024/04/12/%E8%84%9A%E6%89%8B%E6%9E%B6/" title="脚手架开发">脚手架开发</a></span>
+    <span><a href="/2023/08/02/JS/" title="JS进阶">JS进阶</a></span>
   </li>
 
       
@@ -697,20 +628,82 @@ babel src --out-dir dist*
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/%E5%BC%80%E6%BA%90%E5%8D%8F%E8%AE%AE/" title="分类于 开源协议">开源协议</a>
+<a href="/categories/%E5%AE%B9%E5%99%A8%E5%8C%96%E8%BF%90%E7%BB%B4%E6%93%8D%E4%BD%9C/" title="分类于 容器化运维操作">容器化运维操作</a>
 </div>
 
-    <span><a href="/2023/02/02/%E5%BC%80%E6%BA%90%E5%8D%8F%E8%AE%AE/" title="常见开源协议">常见开源协议</a></span>
+    <span><a href="/2024/02/02/%E5%AE%B9%E5%99%A8%E5%8C%96%E8%BF%90%E7%BB%B4%E6%93%8D%E4%BD%9C/" title="容器化运维操作">容器化运维操作</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" title="分类于 正则表达式">正则表达式</a>
+<a href="/categories/git/" title="分类于 git">git</a>
 </div>
 
-    <span><a href="/2023/02/12/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" title="正则表达式">正则表达式</a></span>
+    <span><a href="/2023/05/02/git%20github%E7%AC%94%E8%AE%B0%EF%BC%88%E6%A6%82%E5%BF%B5%EF%BC%89/" title="git笔记">git笔记</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E4%B8%9A%E5%8A%A1%E5%A4%84%E7%90%86/" title="分类于 业务处理">业务处理</a>
+</div>
+
+    <span><a href="/2024/03/29/%E6%9C%AC%E5%9C%B0%E9%A2%84%E8%A7%88%E5%9B%BE%E7%89%87/" title="本地预览图片">本地预览图片</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/" title="分类于 性能优化">性能优化</a>
+</div>
+
+    <span><a href="/2024/05/11/%E6%80%A7%E8%83%BD%E6%8C%87%E6%A0%87/" title="性能指标">性能指标</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E7%AE%97%E6%B3%95/" title="分类于 算法">算法</a>
+</div>
+
+    <span><a href="/2023/06/02/%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" title="图片上传解决方案">图片上传解决方案</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" title="分类于 网络安全">网络安全</a>
+</div>
+
+    <span><a href="/2024/05/23/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" title="网络安全">网络安全</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E6%89%8B%E5%86%99JS%E6%BA%90%E7%A0%81/" title="分类于 手写JS源码">手写JS源码</a>
+</div>
+
+    <span><a href="/2023/06/02/JS%E6%89%8B%E5%86%99/" title="手写JS源码">手写JS源码</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E6%9D%82%E8%AE%B0/" title="分类于 杂记">杂记</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/%E6%9D%82%E8%AE%B0/%E5%B7%A5%E5%85%B7%E5%87%BD%E6%95%B0/" title="分类于 工具函数">工具函数</a>
+</div>
+
+    <span><a href="/2023/06/02/learn/" title="杂记与工具库函数">杂记与工具库函数</a></span>
   </li>
 
   </ul>
