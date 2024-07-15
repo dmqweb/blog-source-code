@@ -104,12 +104,12 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
       </div>
       <div id="imgs" class="pjax">
         <ul>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/04/025bf3f9fc1cf452.webp"></li>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/15/d888a622df52afa7.webp"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/05/921096d78816dacc.jpg"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/07/be4bd9184664725b.webp"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/15/effaa43770a5e6bc.jpg"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/28/dc01f095118914ac.webp"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/13/a7144f7fc5d49961.jpg"></li>
           <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/12/61baca9d80b5756d.jpg"></li>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/13/c95fa1dc9a2ef7b0.jpg"></li>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/15/21b7a3f222ccbcb6.jpg"></li>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/07/6e43985af4997748.jpg"></li>
         </ul>
       </div>
     </header>
@@ -307,6 +307,22 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
 </blockquote>
 </li>
 </ul>
+<h1 id="fiber介绍"><a class="anchor" href="#fiber介绍">#</a> Fiber 介绍</h1>
+<blockquote>
+<p>Fiber 其实是一个数据结构，需要记录节点和节点之间的关系，在 Fiber 架构中的任务是可以中断执行的，继续执行时会丢弃原来完成的工作从头再来（数据不可变的原因），并且即使重新执行中断的任务，对用户侧来说也是无感的，因为 Fiber 架构的视图更新是后缓冲区视图 替换 前缓冲区视图的过程。<br />
+顺便理解一下 componentWillMount、componentWillReceiveProps、componentWillUpdate 这三个钩子被废弃的原因：因为 render 阶段是异步执行、可被中断的，再次回来的时候有可能会丢弃已经完成的工作从头再来，这样就可能会导致 Fiber 节点在 render 阶段重复调用 <code>componentWillMount</code>  这几个钩子，导致不符合开发者预期，并且当这几个钩子中存在副作用时，就会出现问题。</p>
+</blockquote>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token comment">// Fiber 中关键字段</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="3"></td><td><pre>  type<span class="token punctuation">,</span> <span class="token comment">//DOM 类型</span></pre></td></tr><tr><td data-num="4"></td><td><pre>  key<span class="token punctuation">,</span> <span class="token comment">//reconciler 在协调过程中，决定该 fiber 是否要复用</span></pre></td></tr><tr><td data-num="5"></td><td><pre>  child<span class="token punctuation">,</span> <span class="token comment">// 组件 render 函数返回值</span></pre></td></tr><tr><td data-num="6"></td><td><pre>  sibling<span class="token punctuation">,</span></pre></td></tr><tr><td data-num="7"></td><td><pre>  <span class="token keyword">return</span><span class="token punctuation">,</span> <span class="token comment">//return 属性指向父节点</span></pre></td></tr><tr><td data-num="8"></td><td><pre>  pendingProps<span class="token punctuation">,</span></pre></td></tr><tr><td data-num="9"></td><td><pre>  memoizedProps<span class="token punctuation">,</span></pre></td></tr><tr><td data-num="10"></td><td><pre>  pendingWorkPriority<span class="token punctuation">,</span></pre></td></tr><tr><td data-num="11"></td><td><pre>  alternate<span class="token punctuation">,</span></pre></td></tr><tr><td data-num="12"></td><td><pre>  <span class="token operator">...</span></pre></td></tr><tr><td data-num="13"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr></table></figure><h1 id="fiber架构"><a class="anchor" href="#fiber架构">#</a> Fiber 架构</h1>
+<p>Fiber 架构出现的原因：</p>
+<blockquote>
+<p>由于 JS 单线程执行，并且 React15 版本的 reconciler 协调阶段只能一次执行完，不能被中途打断，这就导致：当更新渲染的执行任务较多时，协调阶段一次执行的时间花费就很长，这时就会出现掉帧、卡顿的现象。由此推出 Fiber 架构<br />
+ Fiber 架构实现逻辑：<br />
+Fiber 架构通过生成器函数，将任务分给一个个的迭代器执行，迭代器完成执行任务的过程发生在浏览器空闲阶段，这样就不会阻塞 UI 的渲染。（由于 RequestIdleCallback 存在兼容性问题、并且在大量用户操作的时候不够稳定，因此使用 RequestAnimationFrame 和 disPatchEvent 消息队列来完成）</p>
+</blockquote>
+<h1 id="双缓冲更新机制"><a class="anchor" href="#双缓冲更新机制">#</a> 双缓冲更新机制</h1>
+<blockquote>
+<p>双缓冲更新机制就是：在视图需要进行更新时，通过在后台更新新的 fiber 树，如果遇到优先级更高的任务，就暂停当前的执行 (conscrent 模型) 任务，此时，即使更新到一半，对于用户侧来说也是无影响的，当整个新的 fiber 树构建完成之后，才会去用新的 fiber 树替换掉旧的 fiber 树.</p>
+</blockquote>
 <h1 id="fiber-架构心智模型"><a class="anchor" href="#fiber-架构心智模型">#</a> Fiber 架构心智模型</h1>
 <h3 id="代数效应"><a class="anchor" href="#代数效应">#</a> 代数效应</h3>
 <ul>
@@ -434,7 +450,7 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
       <i class="ic i-calendar-check"></i>
     </span>
     <span class="text">更新于</span>
-    <time title="修改时间：2024-07-01 08:17:44" itemprop="dateModified" datetime="2024-07-01T08:17:44+08:00">2024-07-01</time>
+    <time title="修改时间：2024-07-12 16:02:44" itemprop="dateModified" datetime="2024-07-12T16:02:44+08:00">2024-07-12</time>
   </span>
   <span id="2024/01/29/react技术揭秘/" class="item leancloud_visitors" data-flag-title="react技术揭秘" title="阅读次数">
       <span class="icon">
@@ -492,7 +508,7 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
     <div class="item left">
       
 
-  <a href="/2024/01/11/webworker/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;s3.uuu.ovh&#x2F;imgs&#x2F;2024&#x2F;04&#x2F;04&#x2F;025bf3f9fc1cf452.webp" title="webWorker">
+  <a href="/2024/01/11/webworker/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;s3.uuu.ovh&#x2F;imgs&#x2F;2024&#x2F;04&#x2F;13&#x2F;9404a557b00200f4.jpg" title="webWorker">
   <span class="type">上一篇</span>
   <span class="category"><i class="ic i-flag"></i> JS</span>
   <h3>webWorker</h3>
@@ -502,7 +518,7 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
     <div class="item right">
       
 
-  <a href="/2024/02/02/serviceWorker/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;s3.uuu.ovh&#x2F;imgs&#x2F;2024&#x2F;04&#x2F;06&#x2F;d8aa12b30683676e.jpg" title="serviceWorker">
+  <a href="/2024/02/02/serviceWorker/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;s3.uuu.ovh&#x2F;imgs&#x2F;2024&#x2F;04&#x2F;04&#x2F;3149a0cc49823a9c.jpg" title="serviceWorker">
   <span class="type">下一篇</span>
   <span class="category"><i class="ic i-flag"></i> JS</span>
   <h3>serviceWorker</h3>
@@ -524,7 +540,7 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
   <div class="panels">
     <div class="inner">
       <div class="contents panel pjax" data-title="文章目录">
-          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#react-%E7%90%86%E5%BF%B5"><span class="toc-number">1.</span> <span class="toc-text"> React 理念</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#react-%E7%90%86%E5%BF%B5-2"><span class="toc-number">1.0.1.</span> <span class="toc-text"> react 理念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9A%BE%E7%82%B9%E9%99%90%E5%88%B6"><span class="toc-number">1.0.2.</span> <span class="toc-text"> 难点限制</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#react15-%E6%9E%B6%E6%9E%84"><span class="toc-number">2.</span> <span class="toc-text"> React15 架构</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%8F%E8%B0%83%E5%99%A8"><span class="toc-number">2.0.1.</span> <span class="toc-text"> 协调器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B8%B2%E6%9F%93%E5%99%A8"><span class="toc-number">2.0.2.</span> <span class="toc-text"> 渲染器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BC%BA%E7%82%B9"><span class="toc-number">2.0.3.</span> <span class="toc-text"> 缺点</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#react16-%E6%9E%B6%E6%9E%84"><span class="toc-number">3.</span> <span class="toc-text"> React16 架构</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B0%83%E5%BA%A6%E5%99%A8"><span class="toc-number">3.0.1.</span> <span class="toc-text"> 调度器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%8F%E8%B0%83%E5%99%A8-2"><span class="toc-number">3.0.2.</span> <span class="toc-text"> 协调器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B8%B2%E6%9F%93%E5%99%A8-2"><span class="toc-number">3.0.3.</span> <span class="toc-text"> 渲染器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B5%81%E7%A8%8B"><span class="toc-number">3.0.4.</span> <span class="toc-text"> 流程</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#fiber-%E6%9E%B6%E6%9E%84%E5%BF%83%E6%99%BA%E6%A8%A1%E5%9E%8B"><span class="toc-number">4.</span> <span class="toc-text"> Fiber 架构心智模型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%A3%E6%95%B0%E6%95%88%E5%BA%94"><span class="toc-number">4.0.1.</span> <span class="toc-text"> 代数效应</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#fiber"><span class="toc-number">4.0.2.</span> <span class="toc-text"> Fiber</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#fiber-%E5%8E%9F%E7%90%86"><span class="toc-number">5.</span> <span class="toc-text"> Fiber 原理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8E%9F%E5%9B%A0"><span class="toc-number">5.0.1.</span> <span class="toc-text"> 原因</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A6%82%E5%BF%B5"><span class="toc-number">5.0.2.</span> <span class="toc-text"> 概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8E%9F%E7%90%86"><span class="toc-number">5.0.3.</span> <span class="toc-text"> 原理</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#diff-%E7%AE%97%E6%B3%95"><span class="toc-number">6.</span> <span class="toc-text"> diff 算法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%95%E8%8A%82%E7%82%B9-diff"><span class="toc-number">6.0.1.</span> <span class="toc-text"> 单节点 diff</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%9A%E8%8A%82%E7%82%B9-diff"><span class="toc-number">6.0.2.</span> <span class="toc-text"> 多节点 diff</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">6.1.</span> <span class="toc-text"> </span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0-usestate"><span class="toc-number">7.</span> <span class="toc-text"> 实现 useState</span></a></li></ol>
+          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#react-%E7%90%86%E5%BF%B5"><span class="toc-number">1.</span> <span class="toc-text"> React 理念</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#react-%E7%90%86%E5%BF%B5-2"><span class="toc-number">1.0.1.</span> <span class="toc-text"> react 理念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9A%BE%E7%82%B9%E9%99%90%E5%88%B6"><span class="toc-number">1.0.2.</span> <span class="toc-text"> 难点限制</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#react15-%E6%9E%B6%E6%9E%84"><span class="toc-number">2.</span> <span class="toc-text"> React15 架构</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%8F%E8%B0%83%E5%99%A8"><span class="toc-number">2.0.1.</span> <span class="toc-text"> 协调器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B8%B2%E6%9F%93%E5%99%A8"><span class="toc-number">2.0.2.</span> <span class="toc-text"> 渲染器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BC%BA%E7%82%B9"><span class="toc-number">2.0.3.</span> <span class="toc-text"> 缺点</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#react16-%E6%9E%B6%E6%9E%84"><span class="toc-number">3.</span> <span class="toc-text"> React16 架构</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B0%83%E5%BA%A6%E5%99%A8"><span class="toc-number">3.0.1.</span> <span class="toc-text"> 调度器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%8F%E8%B0%83%E5%99%A8-2"><span class="toc-number">3.0.2.</span> <span class="toc-text"> 协调器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B8%B2%E6%9F%93%E5%99%A8-2"><span class="toc-number">3.0.3.</span> <span class="toc-text"> 渲染器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B5%81%E7%A8%8B"><span class="toc-number">3.0.4.</span> <span class="toc-text"> 流程</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#fiber%E4%BB%8B%E7%BB%8D"><span class="toc-number">4.</span> <span class="toc-text"> Fiber 介绍</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#fiber%E6%9E%B6%E6%9E%84"><span class="toc-number">5.</span> <span class="toc-text"> Fiber 架构</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8F%8C%E7%BC%93%E5%86%B2%E6%9B%B4%E6%96%B0%E6%9C%BA%E5%88%B6"><span class="toc-number">6.</span> <span class="toc-text"> 双缓冲更新机制</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#fiber-%E6%9E%B6%E6%9E%84%E5%BF%83%E6%99%BA%E6%A8%A1%E5%9E%8B"><span class="toc-number">7.</span> <span class="toc-text"> Fiber 架构心智模型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%A3%E6%95%B0%E6%95%88%E5%BA%94"><span class="toc-number">7.0.1.</span> <span class="toc-text"> 代数效应</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#fiber"><span class="toc-number">7.0.2.</span> <span class="toc-text"> Fiber</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#fiber-%E5%8E%9F%E7%90%86"><span class="toc-number">8.</span> <span class="toc-text"> Fiber 原理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8E%9F%E5%9B%A0"><span class="toc-number">8.0.1.</span> <span class="toc-text"> 原因</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A6%82%E5%BF%B5"><span class="toc-number">8.0.2.</span> <span class="toc-text"> 概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8E%9F%E7%90%86"><span class="toc-number">8.0.3.</span> <span class="toc-text"> 原理</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#diff-%E7%AE%97%E6%B3%95"><span class="toc-number">9.</span> <span class="toc-text"> diff 算法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%95%E8%8A%82%E7%82%B9-diff"><span class="toc-number">9.0.1.</span> <span class="toc-text"> 单节点 diff</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%9A%E8%8A%82%E7%82%B9-diff"><span class="toc-number">9.0.2.</span> <span class="toc-text"> 多节点 diff</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">9.1.</span> <span class="toc-text"> </span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0-usestate"><span class="toc-number">10.</span> <span class="toc-text"> 实现 useState</span></a></li></ol>
       </div>
       <div class="related panel pjax" data-title="系列文章">
         <ul>
@@ -542,19 +558,19 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
 <nav class="state">
     <div class="item posts">
       <a href="/archives/">
-        <span class="count">76</span>
+        <span class="count">79</span>
         <span class="name">文章</span>
       </a>
     </div>
     <div class="item categories">
       <a href="/categories/">
-        <span class="count">55</span>
+        <span class="count">59</span>
         <span class="name">分类</span>
       </a>
     </div>
     <div class="item tags">
       <a href="/tags/">
-        <span class="count">97</span>
+        <span class="count">98</span>
         <span class="name">标签</span>
       </a>
     </div>
@@ -642,60 +658,80 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
   <li class="item">
     
 <div class="breadcrumb">
+<a href="/categories/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96/" title="分类于 前端工程化">前端工程化</a>
+</div>
+
+    <span><a href="/2024/03/29/%E5%89%8D%E7%AB%AF%E6%A8%A1%E5%9D%97%E5%8C%96/" title="前端模块化">前端模块化</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E6%B8%B2%E6%9F%93%E6%A8%A1%E5%BC%8F/" title="分类于 渲染模式">渲染模式</a>
+</div>
+
+    <span><a href="/2023/05/17/%E6%B8%B2%E6%9F%93%E6%A8%A1%E5%BC%8F/" title="渲染模式">渲染模式</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
 <a href="/categories/JS/" title="分类于 JS">JS</a>
 </div>
 
-    <span><a href="/2024/05/08/%E5%87%BD%E6%95%B0%E9%87%8D%E8%BD%BD/" title="函数重载">函数重载</a></span>
+    <span><a href="/2024/01/11/webworker/" title="webWorker">webWorker</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90%E4%B8%8E%E9%83%A8%E7%BD%B2/" title="分类于 持续集成与部署">持续集成与部署</a>
+<a href="/categories/TDD/" title="分类于 TDD">TDD</a>
 </div>
 
-    <span><a href="/2024/02/03/%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90%E4%B8%8E%E6%8C%81%E7%BB%AD%E9%83%A8%E7%BD%B2/" title="持续集成与持续部署">持续集成与持续部署</a></span>
+    <span><a href="/2024/03/30/jest/" title="jest">jest</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/vue-router%E5%8E%9F%E7%90%86/" title="分类于 vue-router原理">vue-router原理</a>
+<a href="/categories/%E7%AE%97%E6%B3%95/" title="分类于 算法">算法</a>
 </div>
 
-    <span><a href="/2024/04/12/vue-router/" title="vue-router">vue-router</a></span>
+    <span><a href="/2023/06/02/%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" title="图片上传解决方案">图片上传解决方案</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/%E5%AE%B9%E5%99%A8%E5%8C%96%E8%BF%90%E7%BB%B4%E6%93%8D%E4%BD%9C/" title="分类于 容器化运维操作">容器化运维操作</a>
+<a href="/categories/%E6%B5%8F%E8%A7%88%E5%99%A8/" title="分类于 浏览器">浏览器</a>
 </div>
 
-    <span><a href="/2024/02/02/%E5%AE%B9%E5%99%A8%E5%8C%96%E8%BF%90%E7%BB%B4%E6%93%8D%E4%BD%9C/" title="容器化运维操作">容器化运维操作</a></span>
+    <span><a href="/2023/10/09/%E6%B5%8F%E8%A7%88%E5%99%A8%E6%89%A7%E8%A1%8C%E5%8E%9F%E7%90%86/" title="浏览器执行原理">浏览器执行原理</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/%E9%A1%B9%E7%9B%AE%E8%B4%A8%E9%87%8F%E6%A3%80%E6%B5%8B/" title="分类于 项目质量检测">项目质量检测</a>
+<a href="/categories/%E4%B8%89%E6%96%B9%E5%BA%93/" title="分类于 三方库">三方库</a>
 </div>
 
-    <span><a href="/2024/01/02/%E9%A1%B9%E7%9B%AE%E8%B4%A8%E9%87%8F%E6%A3%80%E6%B5%8B/" title="项目质量检测">项目质量检测</a></span>
+    <span><a href="/2024/04/16/%E4%B8%89%E6%96%B9%E5%8C%85/" title="三方库">三方库</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/" title="分类于 自动化测试">自动化测试</a>
+<a href="/categories/jenkins%E9%85%8D%E5%90%88git-hook%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90/" title="分类于 jenkins配合git hook持续集成">jenkins配合git hook持续集成</a>
 </div>
 
-    <span><a href="/2024/03/02/%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/" title="自动化测试">自动化测试</a></span>
+    <span><a href="/2024/02/02/%E4%BD%BF%E7%94%A8Jenkins%E9%85%8D%E5%90%88github%20hook%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90/" title="jenkins配合git hook持续集成">jenkins配合git hook持续集成</a></span>
   </li>
 
       
@@ -712,30 +748,10 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/JS/" title="分类于 JS">JS</a>
+<a href="/categories/react/" title="分类于 react">react</a>
 </div>
 
-    <span><a href="/2023/09/02/ArrayBuffer/" title="ArrayBuffer">ArrayBuffer</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/" title="分类于 面试题">面试题</a>
-</div>
-
-    <span><a href="/2024/04/30/%E6%B7%B1%E6%8B%B7%E8%B4%9D/" title="深拷贝">深拷贝</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/" title="分类于 前端性能优化">前端性能优化</a>
-</div>
-
-    <span><a href="/2024/03/02/%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/" title="前端性能优化">前端性能优化</a></span>
+    <span><a href="/2024/01/29/react%E6%8A%80%E6%9C%AF%E6%8F%AD%E7%A7%98/" title="react技术揭秘">react技术揭秘</a></span>
   </li>
 
   </ul>

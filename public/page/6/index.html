@@ -91,12 +91,12 @@
       </div>
       <div id="imgs" class="pjax">
         <ul>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/05/d3c578870618de4e.webp"></li>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/12/3368de466b008234.webp"></li>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/13/7056b573eacc540d.jpg"></li>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/28/02824114036dc293.webp"></li>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/28/f7a6eb62965e0dec.webp"></li>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/12/b04c50f26fdc9c19.jpg"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/07/2600bb35f2cdf6cf.jpg"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/04/025bf3f9fc1cf452.webp"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/07/d94cad8780c8c094.jpg"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/07/517ddd40a038fa1b.jpg"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/12/35b09cafcea9fd29.webp"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/06/ba62f09d8f302a0f.jpg"></li>
         </ul>
       </div>
     </header>
@@ -122,7 +122,74 @@
         
 <article class="item">
   <div class="cover">
-    <a href="/2023/06/02/%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" itemprop="url" title="图片上传解决方案"><img data-src="https://s3.uuu.ovh/imgs/2024/04/15/6d859d49c9d65157.jpg"></a>
+    <a href="/2023/06/02/JS%E6%89%8B%E5%86%99/" itemprop="url" title="手写JS源码"><img data-src="https://s3.uuu.ovh/imgs/2024/04/05/9c07b3ea7f1e2a1c.jpg"></a>
+  </div>
+  <div class="info">
+    
+<div class="meta">
+  <span class="item" title="创建时间：2023-06-02 12:24:04">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <time itemprop="dateCreated datePublished" datetime="2023-06-02T12:24:04+08:00">2023-06-02</time>
+  </span>
+</div>
+
+    <h3><a href="/2023/06/02/JS%E6%89%8B%E5%86%99/" itemprop="url" title="手写JS源码">手写JS源码</a></h3>
+    <div class="excerpt">
+        # new 关键字
+new 关键字实现分为三步：
+1、根据构造函数的原型创建新的对象
+2、执行构造函数，绑定 this 指向为新对象，传入参数
+3、返回执行后的结果
+function myNew(constructor,...args)&amp;#123; // 创建对象，原型为构造函数的原型对象 const obj = Object.create(constructor.prototype); // 执行构造函数，传入创建的对象和参数 const res = constructor.apply(obj,args); // 注意 apply 方法是函数对象的方法，普通对象不可用 return...
+    </div>
+    <div class="meta footer">
+      <span>
+        <a href="/categories/%E6%89%8B%E5%86%99JS%E6%BA%90%E7%A0%81/" itemprop="url" title="手写JS源码"><i class="ic i-flag"></i>手写JS源码</a>
+      </span>
+    </div>
+    <a href="/2023/06/02/JS%E6%89%8B%E5%86%99/" itemprop="url" title="手写JS源码" class="btn">more...</a>
+  </div>
+</article>
+
+        
+<article class="item">
+  <div class="cover">
+    <a href="/2023/06/02/learn/" itemprop="url" title="杂记与工具库函数"><img data-src="https://s3.uuu.ovh/imgs/2024/04/07/a69a9d571bee6f0b.jpg"></a>
+  </div>
+  <div class="info">
+    
+<div class="meta">
+  <span class="item" title="创建时间：2023-06-02 12:24:04">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <time itemprop="dateCreated datePublished" datetime="2023-06-02T12:24:04+08:00">2023-06-02</time>
+  </span>
+</div>
+
+    <h3><a href="/2023/06/02/learn/" itemprop="url" title="杂记与工具库函数">杂记与工具库函数</a></h3>
+    <div class="excerpt">
+        # NaN 历史遗留问题
+由于历史遗留问题，NaN 的内部做了 hash 处理，使得每一次 NaN 返回的结果都不同。
+NaN === NaN //false;Object.is(NaN,NaN) //true// 除此之外，延申:+0 === -0 // 返回 trueObject.is(+0 , -0) // 返回 false# 原型
+构造函数的 prototype（原型对象）就是其实例的原型（_proto _）-
+new...
+    </div>
+    <div class="meta footer">
+      <span>
+        <a href="/categories/%E6%9D%82%E8%AE%B0/%E5%B7%A5%E5%85%B7%E5%87%BD%E6%95%B0/" itemprop="url" title="工具函数"><i class="ic i-flag"></i>工具函数</a>
+      </span>
+    </div>
+    <a href="/2023/06/02/learn/" itemprop="url" title="杂记与工具库函数" class="btn">more...</a>
+  </div>
+</article>
+
+        
+<article class="item">
+  <div class="cover">
+    <a href="/2023/06/02/%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" itemprop="url" title="图片上传解决方案"><img data-src="https://s3.uuu.ovh/imgs/2024/03/29/a93636ae09845d36.jpg"></a>
   </div>
   <div class="info">
     
@@ -157,7 +224,7 @@ URL scheme 、
         
 <article class="item">
   <div class="cover">
-    <a href="/2023/05/17/%E6%B8%B2%E6%9F%93%E6%A8%A1%E5%BC%8F/" itemprop="url" title="渲染模式"><img data-src="https://s3.uuu.ovh/imgs/2024/04/28/91b1bdcfda8d22da.webp"></a>
+    <a href="/2023/05/17/%E6%B8%B2%E6%9F%93%E6%A8%A1%E5%BC%8F/" itemprop="url" title="渲染模式"><img data-src="https://s3.uuu.ovh/imgs/2024/04/28/02824114036dc293.webp"></a>
   </div>
   <div class="info">
     
@@ -186,7 +253,7 @@ URL scheme 、
         
 <article class="item">
   <div class="cover">
-    <a href="/2023/05/02/git%20github%E7%AC%94%E8%AE%B0%EF%BC%88%E6%A6%82%E5%BF%B5%EF%BC%89/" itemprop="url" title="git笔记"><img data-src="https://s3.uuu.ovh/imgs/2024/03/29/4e134f025ae53f2b.jpg"></a>
+    <a href="/2023/05/02/git%20github%E7%AC%94%E8%AE%B0%EF%BC%88%E6%A6%82%E5%BF%B5%EF%BC%89/" itemprop="url" title="git笔记"><img data-src="https://s3.uuu.ovh/imgs/2024/04/25/1276fcec5eb7990e.webp"></a>
   </div>
   <div class="info">
     
@@ -237,7 +304,7 @@ git...
         
 <article class="item">
   <div class="cover">
-    <a href="/2023/05/02/HTTP/" itemprop="url" title="HTTP"><img data-src="https://s3.uuu.ovh/imgs/2024/04/13/7056b573eacc540d.jpg"></a>
+    <a href="/2023/05/02/HTTP/" itemprop="url" title="HTTP"><img data-src="https://s3.uuu.ovh/imgs/2024/04/07/971b0200f59eab4c.jpg"></a>
   </div>
   <div class="info">
     
@@ -285,7 +352,7 @@ git...
         
 <article class="item">
   <div class="cover">
-    <a href="/2023/04/02/git%E5%92%8Cgithub/" itemprop="url" title="git与github"><img data-src="https://s3.uuu.ovh/imgs/2024/04/04/f480d741324d8eb5.jpg"></a>
+    <a href="/2023/04/02/git%E5%92%8Cgithub/" itemprop="url" title="git与github"><img data-src="https://s3.uuu.ovh/imgs/2024/04/05/8c79eda29fb3b505.jpg"></a>
   </div>
   <div class="info">
     
@@ -327,7 +394,7 @@ git...
         
 <article class="item">
   <div class="cover">
-    <a href="/2023/02/12/%E4%B8%AD%E5%89%8D%E5%8F%B0%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" itemprop="url" title="正则表达式"><img data-src="https://s3.uuu.ovh/imgs/2024/04/12/61baca9d80b5756d.jpg"></a>
+    <a href="/2023/02/12/%E4%B8%AD%E5%89%8D%E5%8F%B0%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" itemprop="url" title="正则表达式"><img data-src="https://s3.uuu.ovh/imgs/2024/04/04/cc0be7efc99ac89e.webp"></a>
   </div>
   <div class="info">
     
@@ -361,7 +428,7 @@ webpack 进行构建时，默认只会抓取并构建整个应用，然后才能
         
 <article class="item">
   <div class="cover">
-    <a href="/2023/02/12/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" itemprop="url" title="正则表达式"><img data-src="https://s3.uuu.ovh/imgs/2024/04/28/979e0f45da318aa7.webp"></a>
+    <a href="/2023/02/12/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" itemprop="url" title="正则表达式"><img data-src="https://s3.uuu.ovh/imgs/2024/04/28/6b39a7fcfcafff7b.webp"></a>
   </div>
   <div class="info">
     
@@ -401,119 +468,40 @@ var reg = /张/方法：
         
 <article class="item">
   <div class="cover">
-    <a href="/2023/02/02/%E5%BC%80%E6%BA%90%E5%8D%8F%E8%AE%AE/" itemprop="url" title="常见开源协议"><img data-src="https://s3.uuu.ovh/imgs/2024/04/13/a7144f7fc5d49961.jpg"></a>
+    <a href="/2023/02/10/md/" itemprop="url" title="markdown"><img data-src="https://s3.uuu.ovh/imgs/2024/04/15/6d859d49c9d65157.jpg"></a>
   </div>
   <div class="info">
     
 <div class="meta">
-  <span class="item" title="创建时间：2023-02-02 12:24:04">
+  <span class="item" title="创建时间：2023-02-10 02:24:04">
     <span class="icon">
       <i class="ic i-calendar"></i>
     </span>
-    <time itemprop="dateCreated datePublished" datetime="2023-02-02T12:24:04+08:00">2023-02-02</time>
+    <time itemprop="dateCreated datePublished" datetime="2023-02-10T02:24:04+08:00">2023-02-10</time>
   </span>
 </div>
 
-    <h3><a href="/2023/02/02/%E5%BC%80%E6%BA%90%E5%8D%8F%E8%AE%AE/" itemprop="url" title="常见开源协议">常见开源协议</a></h3>
+    <h3><a href="/2023/02/10/md/" itemprop="url" title="markdown">markdown</a></h3>
     <div class="excerpt">
-        # 常见的开源协议
-# 1：Apache License 2.0
-这是一个著名的非盈利开源组织 Apache 采用的协议，它励代码共享和尊重原作者的著作权，同时也允许代码修改，再发布（作为开源或商业软件）。
+        # diff 代码块
+const unique = (arr)=&gt;&amp;#123;- return Array.from(new Set(arr))+ return [...new Set(arr)];&amp;#125;# 待办 (ctrl+shift+x)
 
-要求
+[ ]
 
-在代码中保留作者提供的协议和版权信息
-如果修改了代码，则必须在被修改的文件中进行说明。
+# 折叠
+&amp;lt;details&amp;gt;
+&amp;lt;summary&amp;gt;展开查看规范&amp;lt;/summary&amp;gt;
+这是展开后的内容1
+&amp;lt;/details&amp;gt;
 
-允许的权利
-商用、分发、修改、专利授权、私用
-、附加协议
-禁止项
-
-禁止因使用等造成影响责任承担、也就是说免责申明
-不能使用相应的商标。
-
-提示：商业软件可以使用，也可以修改使用 Apache 协议的代码。
-#...
+&amp;lt;details&amp;gt; &amp;lt;summary...
     </div>
     <div class="meta footer">
       <span>
-        <a href="/categories/%E5%BC%80%E6%BA%90%E5%8D%8F%E8%AE%AE/" itemprop="url" title="开源协议"><i class="ic i-flag"></i>开源协议</a>
+        <a href="/categories/markdown/" itemprop="url" title="markdown"><i class="ic i-flag"></i>markdown</a>
       </span>
     </div>
-    <a href="/2023/02/02/%E5%BC%80%E6%BA%90%E5%8D%8F%E8%AE%AE/" itemprop="url" title="常见开源协议" class="btn">more...</a>
-  </div>
-</article>
-
-        
-<article class="item">
-  <div class="cover">
-    <a href="/2023/01/22/linux%E6%9C%8D%E5%8A%A1%E5%99%A8/" itemprop="url" title="Linux"><img data-src="https://s3.uuu.ovh/imgs/2024/04/05/05d9a07e0d190274.webp"></a>
-  </div>
-  <div class="info">
-    
-<div class="meta">
-  <span class="item" title="创建时间：2023-01-22 12:24:04">
-    <span class="icon">
-      <i class="ic i-calendar"></i>
-    </span>
-    <time itemprop="dateCreated datePublished" datetime="2023-01-22T12:24:04+08:00">2023-01-22</time>
-  </span>
-</div>
-
-    <h3><a href="/2023/01/22/linux%E6%9C%8D%E5%8A%A1%E5%99%A8/" itemprop="url" title="Linux">Linux</a></h3>
-    <div class="excerpt">
-        # Linux 服务器
-Linux 是操作系统：
-Linux 作为自由软件和开放源代码软件发展中最著名的例子，背靠社区与商业化的使用，使其得到了广泛的应用与发展。
-Linux 无处不在：
-世界上 500 个最快的超级计算机 90％以上运行 Linux 发行版或变种，包括最快的前 10 名超级计算机运行的都是基于 Linux 内核的操作系统。Linux 也广泛应用在嵌入式系统上，如手机（Mobile Phone）、平板电脑（Tablet）、路由器（Router）、电视（TV）和电子游戏机等。在移动设备上广泛使用的 Android 操作系统就是创建在 Linux 内核之上。
-学习 Linux...
-    </div>
-    <div class="meta footer">
-      <span>
-        <a href="/categories/Linux/" itemprop="url" title="Linux"><i class="ic i-flag"></i>Linux</a>
-      </span>
-    </div>
-    <a href="/2023/01/22/linux%E6%9C%8D%E5%8A%A1%E5%99%A8/" itemprop="url" title="Linux" class="btn">more...</a>
-  </div>
-</article>
-
-        
-<article class="item">
-  <div class="cover">
-    <a href="/2023/01/12/Vue%E6%9D%82%E8%AE%B0/" itemprop="url" title="Vue使用笔记"><img data-src="https://s3.uuu.ovh/imgs/2024/04/06/d8aa12b30683676e.jpg"></a>
-  </div>
-  <div class="info">
-    
-<div class="meta">
-  <span class="item" title="创建时间：2023-01-12 12:24:04">
-    <span class="icon">
-      <i class="ic i-calendar"></i>
-    </span>
-    <time itemprop="dateCreated datePublished" datetime="2023-01-12T12:24:04+08:00">2023-01-12</time>
-  </span>
-</div>
-
-    <h3><a href="/2023/01/12/Vue%E6%9D%82%E8%AE%B0/" itemprop="url" title="Vue使用笔记">Vue使用笔记</a></h3>
-    <div class="excerpt">
-        # Vue 注意事项
-一、使用 watch 监听数组时：
-当使用 watch 监听数组时，要将 deep 设置为 true，这样才能监听到数组内部的操作，而不是只监听引用是否变化，当需要使用 newValue 和 oldValue 时，监听部分需要写数组的拷贝而不是数组本身（否则当数组引用不变而堆数据变化时，oldValue 和 newValue 都是变化之后的数值。）
-# Vue 项目创建过程：
-（
-①创建项目 vue create 项目名
-②安装开发依赖： yarn add 包名@版本号 -D
-③安装生产依赖: yarn add 包名 ，并在 main.js 中引入和全局属性
-）
-css...
-    </div>
-    <div class="meta footer">
-      <span>
-        <a href="/categories/Vue/" itemprop="url" title="Vue"><i class="ic i-flag"></i>Vue</a>
-      </span>
-    </div>
-    <a href="/2023/01/12/Vue%E6%9D%82%E8%AE%B0/" itemprop="url" title="Vue使用笔记" class="btn">more...</a>
+    <a href="/2023/02/10/md/" itemprop="url" title="markdown" class="btn">more...</a>
   </div>
 </article>
 
@@ -552,19 +540,19 @@ css...
 <nav class="state">
     <div class="item posts">
       <a href="/archives/">
-        <span class="count">76</span>
+        <span class="count">79</span>
         <span class="name">文章</span>
       </a>
     </div>
     <div class="item categories">
       <a href="/categories/">
-        <span class="count">55</span>
+        <span class="count">59</span>
         <span class="name">分类</span>
       </a>
     </div>
     <div class="item tags">
       <a href="/tags/">
-        <span class="count">97</span>
+        <span class="count">98</span>
         <span class="name">标签</span>
       </a>
     </div>
@@ -651,30 +639,10 @@ css...
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/vue-router%E5%8E%9F%E7%90%86/" title="分类于 vue-router原理">vue-router原理</a>
+<a href="/categories/Docker/" title="分类于 Docker">Docker</a>
 </div>
 
-    <span><a href="/2024/04/12/vue-router/" title="vue-router">vue-router</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/" title="分类于 计算机组成原理">计算机组成原理</a>
-</div>
-
-    <span><a href="/2024/01/02/%E7%BC%93%E5%AD%98%E3%80%81%E5%86%85%E5%AD%98%E3%80%81CPU%E7%9F%A5%E8%AF%86%E7%82%B9%E8%A7%A3%E6%9E%90%E7%AC%94%E8%AE%B0/" title="计组知识点">计组知识点</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/Linux/" title="分类于 Linux">Linux</a>
-</div>
-
-    <span><a href="/2023/01/22/linux%E6%9C%8D%E5%8A%A1%E5%99%A8/" title="Linux">Linux</a></span>
+    <span><a href="/2024/07/08/docker/" title="Docker">Docker</a></span>
   </li>
 
       
@@ -691,30 +659,60 @@ css...
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/%E6%9D%82%E8%AE%B0/" title="分类于 杂记">杂记</a>
+<a href="/categories/JS/" title="分类于 JS">JS</a>
 </div>
 
-    <span><a href="/2023/01/01/%E6%9D%82%E8%AE%B0/" title="杂记">杂记</a></span>
+    <span><a href="/2023/10/02/33%E4%B8%AAJavascript%E6%A6%82%E5%BF%B5/" title="33个JavaScript概念">33个JavaScript概念</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" title="分类于 网络安全">网络安全</a>
+<a href="/categories/%E7%AE%97%E6%B3%95/" title="分类于 算法">算法</a>
 </div>
 
-    <span><a href="/2024/05/23/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" title="网络安全">网络安全</a></span>
+    <span><a href="/2023/12/02/%E7%AE%97%E6%B3%95/" title="算法与数据结构">算法与数据结构</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/%E4%B8%89%E6%96%B9%E5%BA%93/" title="分类于 三方库">三方库</a>
+<a href="/categories/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" title="分类于 正则表达式">正则表达式</a>
 </div>
 
-    <span><a href="/2024/04/16/%E4%B8%89%E6%96%B9%E5%8C%85/" title="三方库">三方库</a></span>
+    <span><a href="/2023/02/12/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" title="正则表达式">正则表达式</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/OSI%E4%B8%83%E5%B1%82%E7%BD%91%E7%BB%9C%E6%A8%A1%E5%9E%8B/" title="分类于 OSI七层网络模型">OSI七层网络模型</a>
+</div>
+
+    <span><a href="/2024/05/27/OSI%E4%B8%83%E5%B1%82%E7%BD%91%E7%BB%9C%E6%A8%A1%E5%9E%8B/" title="OSI七层网络模型">OSI七层网络模型</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/JS/" title="分类于 JS">JS</a>
+</div>
+
+    <span><a href="/2024/01/11/webworker/" title="webWorker">webWorker</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/JS/" title="分类于 JS">JS</a>
+</div>
+
+    <span><a href="/2023/07/02/forEach/" title="forEach">forEach</a></span>
   </li>
 
       
@@ -731,20 +729,10 @@ css...
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/jQuery/" title="分类于 jQuery">jQuery</a>
+<a href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" title="分类于 设计模式">设计模式</a>
 </div>
 
-    <span><a href="/2023/01/02/jQuery%E6%A1%86%E6%9E%B6%E5%BA%94%E7%94%A8/" title="jQuery">jQuery</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/react/" title="分类于 react">react</a>
-</div>
-
-    <span><a href="/2023/12/02/react/" title="react笔记">react笔记</a></span>
+    <span><a href="/2024/07/07/%E8%BD%AF%E4%BB%B6%E6%A8%A1%E5%BC%8F%E8%AE%BE%E8%AE%A1%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="设计模式">设计模式</a></span>
   </li>
 
   </ul>
