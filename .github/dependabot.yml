@@ -1,7 +1,20 @@
+# dependabot.yml文件是github Dependabot的配置文件，用于定义Dependabot如何自动维护项目依赖
+# github dependabot是一个功能强大的工具，可以自动帮助项目保持依赖项的最新状态，通过拉取请求来更新依赖项
+
 version: 2
 updates:
-- package-ecosystem: npm
-  directory: "/"
+- package-ecosystem: npm # 指定包管理器类型
+  directory: "/" # 指定包含依赖性文件的目录
   schedule:
-    interval: daily
-  open-pull-requests-limit: 20
+    interval: daily # 指定更新检查频率
+  open-pull-requests-limit: 20 # 限制同时打开的拉去请求的数量
+  versioning-strategy: "auto" # 限制版本控制策略
+  ignore: # 忽略特定的依赖项更新
+    - dependency-name: "express"
+      versions: ["^2.0.0"]
+  labels: # 拉取请求的标签
+    - "dependencies"
+  milestone: 1 # 拉取请求的里程碑
+  reviewers: # 拉取请求的审查者
+    - "dmqweb"
+  target-branch: "main"
