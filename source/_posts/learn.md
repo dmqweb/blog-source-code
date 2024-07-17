@@ -30,7 +30,7 @@ new Object().__proto__===Object.prototype
 ```
 
 【原型链图解】
-
+![/images/image-20240123164938769](/images/原型链.png)
 ```js
 obj.__proto__------Object.prototype-------null
 func.__proto__--------Function.prototype-------Object.prototype----------null
