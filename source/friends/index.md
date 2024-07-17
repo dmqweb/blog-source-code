@@ -32,13 +32,20 @@ type: "friends"
   desc: Warbler博客
   image: https://picsum.photos/200/200?10
   color: "green"
-        # 多链接参考 yaml 列表格式
+# 多链接参考 yaml 列表格式
+- site: 云游君博客
+  owner: 
+  url: https://www.yunyoujun.cn/about
+  desc: 云游君博客
+  image: https://picsum.photos/200/200?19
+  color: "red"
+# 多链接参考 yaml 列表格式
 - site: 张鑫旭博客
   owner: 
   url: https://www.zhangxinxu.com/wordpress/
   desc: 张鑫旭博客网站
   image: https://picsum.photos/200/200?18
-  color: "pink"
+  color: "red"
   # 多链接参考 yaml 列表格式
 - site: 霍春阳博客
   owner: 霍春阳
@@ -52,7 +59,7 @@ type: "friends"
   url: https://justjavac.com/
   desc: 迷度博客网站
   image: https://picsum.photos/200/200?19
-  color: "blue"
+  color: "red"
 # 多链接参考 yaml 列表格式
 - site: 张洪Heo
   owner: 张洪
