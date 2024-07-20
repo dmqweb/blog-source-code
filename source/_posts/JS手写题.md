@@ -1,11 +1,11 @@
 ---
-title: 手写JS源码
+title: JS手写题
 date: 2023-6-2 12:24:4
 categories:
-- 手写JS源码
+- JS手写题
 tags:
+- JS手写题
 - 手写JS源码
-- JS底层
 ---
 # new关键字
 

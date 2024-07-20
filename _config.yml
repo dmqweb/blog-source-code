@@ -221,6 +221,12 @@ feed:
         enable: true
         template: "themes/shoka/layout/_alternate/json.ejs"
         output: "feed.json"
+# Show number of visitors to each article.
+# You can visit https://leancloud.cn get AppID and AppKey.
+leancloud_visitors:
+  enable: true
+  app_id: # 你的app-id 
+  app_key: # 你的app-key
 
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
