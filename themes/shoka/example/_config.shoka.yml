@@ -48,7 +48,7 @@ symbols_count_time:
   suffix: "mins."
 footer:
   # Specify the date when the site was setup. If not defined, current year will be used.
-  since: 2010
+  since: 2022
   count: true
 
 post:
@@ -65,14 +65,34 @@ post:
 valine:
   appId: UTj70E2f04wg59oi4eBtXpJn-gzGzoHsz
   appKey: zWX0gPeLYV4mAS3S2fTUQHPy
-  placeholder: ヽ(○´∀`)ﾉ♪ # Comment box placeholder
+  placeholder: 在这里踊跃发表吧！⚡注意友好交流哦💣，文章教程中相关报错可📸，欢迎交流学习💪 # Comment box placeholder
+  avatar: retro # Gravatar style : mp, identicon, monsterid, wavatar, robohash, retro
   pageSize: 10 # Pagination size
   lang: zh-CN
+  visitor: true # Article reading statistic
+  NoRecordIP: false # Whether to record the commenter IP
+  serverURLs: # When the custom domain name is enabled, fill it in here (it will be detected automatically by default, no need to fill in)
+  tagMeta:
+    visitor: 新朋友
+    master: 主人
+    friend: 小伙伴
+    investor: 金主粑粑
+  tagColor:
+    master: "var(--color-orange)"
+    friend: "var(--color-aqua)"
+    investor: "var(--color-pink)"
   tagMember:
     master:
-      # - deea5a8d259d17182a53be1772e4c182
-    friend:
-      - deea5a8d259d17182a53be1772e4c182
+      - 12c57913345e5c20107ae76a8d1cf703
+      - 12C57913345E5C20107AE76A8D1CF703
+      - 345E5C20107AE76A
+      - 345e5c20107ae76a
+      # - hash of master@email.com
+      # - hash of master2@email.com
+    friends:
+      # - hash of friend@email.com
+      # - hash of friend2@email.com
+  powerMode: true
 
 # bgm
 audio:

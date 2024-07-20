@@ -11,3 +11,4 @@ date: 2024-05-21 19:35:27
 - 接着`contextBridge`中的`expostInMainWorld`方法返回的是`process.linkedBinding.exposeAPIInWorld`方法。
 ![Electron.pdf](https://dmqweb.cn/images/Electron.pdf)
 [Electron pdf笔记](https://dmqweb.cn/images/Electron.pdf)
+# 最近有些忙，未完待续哈

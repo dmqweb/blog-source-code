@@ -135,18 +135,18 @@ widgets:
 
 footer:
   # Specify the date when the site was setup. If not defined, current year will be used.
-  since: 2010
+  since: 2022
   icon:
     name: sakura rotate
     # Change the color of icon, using Hex Code.
     color: "#ffc0cb"
   # Dependencies: https://github.com/theme-next/hexo-symbols-count-time
-  count: false
+  count: true
   powered: true
 
 post:
   # Dependencies: https://github.com/theme-next/hexo-symbols-count-time
-  count: false
+  count: true
 
 # Reward (Donate)
 reward:
@@ -165,7 +165,6 @@ tagcloud:
   start: "#72cecf" # Start color (hex, rgba, hsla or color keywords)
   end: "#ffbac3" # End color (hex, rgba, hsla or color keywords)
   amount: 200 # Amount of tags, change it if you have more than 200 tags
-
 
 # ---------------------------------------------------------------
 # Third Party Plugins & Services Settings
@@ -186,14 +185,13 @@ creative_commons:
 valine:
   appId: UTj70E2f04wg59oi4eBtXpJn-gzGzoHsz
   appKey: zWX0gPeLYV4mAS3S2fTUQHPy
-  placeholder: 欢迎评论，期待与你交流！！🫡🫡 # Comment box placeholder
-  avatar: mp # Gravatar style : mp, identicon, monsterid, wavatar, robohash, retro
+  placeholder: 在这里踊跃发表吧！⚡注意友好交流哦💣，文章教程中相关报错可📸，欢迎交流学习💪 # Comment box placeholder
+  avatar: retro # Gravatar style : mp, identicon, monsterid, wavatar, robohash, retro
   pageSize: 10 # Pagination size
   lang: zh-CN
   visitor: true # Article reading statistic
   NoRecordIP: false # Whether to record the commenter IP
   serverURLs: # When the custom domain name is enabled, fill it in here (it will be detected automatically by default, no need to fill in)
-  powerMode: true
   tagMeta:
     visitor: 新朋友
     master: 主人
@@ -205,24 +203,27 @@ valine:
     investor: "var(--color-pink)"
   tagMember:
     master:
+      - 12c57913345e5c20107ae76a8d1cf703
+      - 12C57913345E5C20107AE76A8D1CF703
+      - 345E5C20107AE76A
+      - 345e5c20107ae76a
       # - hash of master@email.com
       # - hash of master2@email.com
-    friend:
+    friends:
       # - hash of friend@email.com
       # - hash of friend2@email.com
-    investor:
-      # - hash of investor1@email.com
+  powerMode: true
 
 # bgm
 audio:
   - title: 安静氛围
     list:
-     - https://music.163.com/#/playlist?id=2943811283
-     - https://music.163.com/#/playlist?id=2297706586
+      - https://music.163.com/#/playlist?id=2943811283
+      - https://music.163.com/#/playlist?id=2297706586
   - title: 高昂热情
     list:
-     - https://music.163.com/#/playlist?id=2031842656
-     - https://music.163.com/#/playlist?id=2031842656
+      - https://music.163.com/#/playlist?id=2031842656
+      - https://music.163.com/#/playlist?id=2031842656
 
 # random image api
 image_server: # "https://acg.xydwz.cn/api/api.php"
@@ -240,12 +241,12 @@ algolia:
     - gallery
     - photos
     - tags
-    
+
 # Algolia Search
 # For more information: https://www.algolia.com
 algolia_search:
   enable: true
-  
+
 search:
   enable: true
   path: search.json # search.xml
@@ -253,9 +254,9 @@ search:
   format: html
   limit: 10000
   content: true
-  unescape: true  
-  preload:  true  
-  trigger: "auto" 
+  unescape: true
+  preload: true
+  trigger: "auto"
   pageSize: 10
 
 local_search:
@@ -305,7 +306,6 @@ baidu_site_verification:
 
 # Enable baidu push so that the blog will push the url to baidu automatically which is very helpful for SEO.
 baidu_push: false
-
 
 #! ---------------------------------------------------------------
 #! DO NOT EDIT THE FOLLOWING `vendors` SETTINGS

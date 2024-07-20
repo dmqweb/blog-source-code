@@ -2229,3 +2229,5 @@ HTTP缓存分为两大类：强缓存和协商缓存。这两种缓存都是通�
 # Node中事件循环
 
 https://www.cnblogs.com/goloving/p/16523648.html
+
+> 本篇出于学习[node.js教程](https://juejin.cn/column/7274893714970918969)后所整理，内容中有大量引用和参照，详细可点击前去了解

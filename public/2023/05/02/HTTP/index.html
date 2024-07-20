@@ -1,0 +1,1153 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#FFF">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="icon" type="image/ico" sizes="32x32" href="/images/favicon.ico">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+<link rel="alternate" type="application/rss+xml" title="杜明清的个人博客" href="https://dmqweb.cn/rss.xml" />
+<link rel="alternate" type="application/atom+xml" title="杜明清的个人博客" href="https://dmqweb.cn/atom.xml" />
+<link rel="alternate" type="application/json" title="杜明清的个人博客" href="https://dmqweb.cn/feed.json" />
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Mulish:300,300italic,400,400italic,700,700italic%7CFredericka%20the%20Great:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20JP:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CInconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="/css/app.css?v=0.2.5">
+
+  
+  <meta name="keywords" content="HTTP,协议" />
+
+
+<link rel="canonical" href="https://dmqweb.cn/2023/05/02/HTTP/">
+
+
+
+  <title>
+HTTP - HTTP |
+Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
+  <meta name="keywords" content="前端开发, HTML, CSS, JavaScript, 博客">
+  <meta name="description" content="探索前端开发的无限可能。本博客提供最新的前端知识库，以及实用的开发技巧和最佳实践。加入我们的社区，共同成长。">
+<meta name="generator" content="Hexo 6.3.0"></head>
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div id="loading">
+    <div class="cat">
+      <div class="body"></div>
+      <div class="head">
+        <div class="face"></div>
+      </div>
+      <div class="foot">
+        <div class="tummy-end"></div>
+        <div class="bottom"></div>
+        <div class="legs left"></div>
+        <div class="legs right"></div>
+      </div>
+      <div class="paw">
+        <div class="hands left"></div>
+        <div class="hands right"></div>
+      </div>
+    </div>
+  </div>
+  <div id="container">
+    <header id="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="inner">
+        <div id="brand">
+          <div class="pjax">
+          
+  <h1 itemprop="name headline">HTTP
+  </h1>
+  
+<div class="meta">
+  <span class="item" title="创建时间：2023-05-02 02:24:04">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <span class="text">发表于</span>
+    <time itemprop="dateCreated datePublished" datetime="2023-05-02T02:24:04+08:00">2023-05-02</time>
+  </span>
+  <span class="item" title="本文字数">
+    <span class="icon">
+      <i class="ic i-pen"></i>
+    </span>
+    <span class="text">本文字数</span>
+    <span>10k</span>
+    <span class="text">字</span>
+  </span>
+  <span class="item" title="阅读时长">
+    <span class="icon">
+      <i class="ic i-clock"></i>
+    </span>
+    <span class="text">阅读时长</span>
+    <span>10 分钟</span>
+  </span>
+</div>
+
+
+          </div>
+        </div>
+        <nav id="nav">
+  <div class="inner">
+    <div class="toggle">
+      <div class="lines" aria-label="切换导航栏">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </div>
+    </div>
+    <ul class="menu">
+      <li class="item title"><a href="/" rel="start">Web blog</a></li>
+    </ul>
+    <ul class="right">
+      <li class="item theme">
+        <i class="ic i-sun"></i>
+      </li>
+      <li class="item search">
+        <i class="ic i-search"></i>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+      </div>
+      <div id="imgs" class="pjax">
+        <ul>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/15/21b7a3f222ccbcb6.jpg"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/04/64e30381ceb47acd.webp"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/04/025bf3f9fc1cf452.webp"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/13/ba4d76fc0767aeef.jpg"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/04/eff89867286d822f.webp"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/15/66e62db68b7b65eb.webp"></li>
+        </ul>
+      </div>
+    </header>
+    <div id="waves">
+      <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+        <defs>
+          <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+        </defs>
+        <g class="parallax">
+          <use xlink:href="#gentle-wave" x="48" y="0" />
+          <use xlink:href="#gentle-wave" x="48" y="3" />
+          <use xlink:href="#gentle-wave" x="48" y="5" />
+          <use xlink:href="#gentle-wave" x="48" y="7" />
+        </g>
+      </svg>
+    </div>
+    <main>
+      <div class="inner">
+        <div id="main" class="pjax">
+          
+  <div class="article wrap">
+    
+<div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+<i class="ic i-home"></i>
+<span><a href="/">首页</a></span><i class="ic i-angle-right"></i>
+<span  class="current" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/categories/HTTP/" itemprop="item" rel="index" title="分类于 HTTP"><span itemprop="name">HTTP</span></a>
+<meta itemprop="position" content="1" /></span>
+</div>
+
+    <article itemscope itemtype="http://schema.org/Article" class="post block" lang="zh-CN">
+  <link itemprop="mainEntityOfPage" href="https://dmqweb.cn/2023/05/02/HTTP/">
+
+  <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="image" content="/images/avatar.jpg">
+    <meta itemprop="name" content="dmq">
+    <meta itemprop="description" content="👻欢迎一起交流学习👻, ">
+  </span>
+
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="杜明清的个人博客">
+  </span>
+
+  <div class="body md" itemprop="articleBody">
+    
+
+    <h1 id="目录"><a class="anchor" href="#目录">#</a> #目录</h1>
+<blockquote>
+<p>[TOC]</p>
+</blockquote>
+<h1 id="浅学浏览器工作原理"><a class="anchor" href="#浅学浏览器工作原理">#</a> 浅学浏览器工作原理</h1>
+<h1 id="一-浏览器工作流程概览"><a class="anchor" href="#一-浏览器工作流程概览">#</a> 一、<strong>浏览器工作流程</strong>概览</h1>
+<blockquote>
+<p>・浏览器首先使用 HTTP 协议或者 HTTPS 协议，向服务端请求页面；</p>
+<p>・把请求回来的 HTML 代码经过解析，构建成 DOM 树；</p>
+<p>・计算 DOM 树上的 CSS 属性；</p>
+<p>・根据 CSS 属性对元素逐个进行渲染，得到内存中的 <code>位图</code> ①；</p>
+<p>・一个可选的步骤是对位图进行合成，这会极大地增加后续绘制的速度；</p>
+<p>・合成之后，再绘制到界面上。</p>
+<p><img data-src="/images/image-20210621175650437.png" alt="该图来自视频课程截图" /></p>
+</blockquote>
+<h3 id="位图"><a class="anchor" href="#位图">#</a> 位图</h3>
+<blockquote>
+<p>位图，又称为点阵图像、像素图或栅格图像，是由像素（图片元素）的单个点组成。这些点可以进行不同的排列和染色以构成图样。</p>
+<p>位图的单位：像素（Pixel）</p>
+</blockquote>
+<h1 id="二-http协议底层原理概览"><a class="anchor" href="#二-http协议底层原理概览">#</a> 二、HTTP 协议底层原理概览</h1>
+<blockquote>
+<p>Http 是基于 Tcp 协议基础上出现的，HTTP 在 Tcp 基础上规定了 Request 与 Response</p>
+<p>http1 标准:</p>
+<ul>
+<li>HTTP1.1 <span class="exturl" data-url="aHR0cHM6Ly90b29scy5pZXRmLm9yZy9odG1sL3JmYzI2MTY=">https://tools.ietf.org/html/rfc2616</span></li>
+<li>HTTP1.1 <span class="exturl" data-url="aHR0cHM6Ly90b29scy5pZXRmLm9yZy9odG1sL3JmYzcyMzQ=">https://tools.ietf.org/html/rfc7234</span></li>
+</ul>
+<p>http2 标准: <span class="exturl" data-url="aHR0cHM6Ly90b29scy5pZXRmLm9yZy9odG1sL3JmYzI4MTg=">https://tools.ietf.org/html/rfc2818</span></p>
+<p>HTTPS 标准: <span class="exturl" data-url="aHR0cHM6Ly90b29scy5pZXRmLm9yZy9odG1sL3JmYzI4MTg=">https://tools.ietf.org/html/rfc2818</span></p>
+</blockquote>
+<h2 id="1http请求是一种规则无状态无记忆"><a class="anchor" href="#1http请求是一种规则无状态无记忆">#</a> 1.HTTP 请求：是一种规则，无状态，无记忆：</h2>
+<h3 id="i-http请求过程"><a class="anchor" href="#i-http请求过程">#</a> Ⅰ- HTTP 请求过程</h3>
+<blockquote>
+<p>（1）建立 TCP 连接</p>
+<p>（2）web 浏览器向 web 服务器发送请求指令</p>
+<p>（3）web 浏览器发送请求头信息</p>
+<p>（4）web 服务器应答</p>
+<p>（5）web 服务器发送应答头信息</p>
+<p>（6）web 服务器向浏览器发送数据</p>
+<p>（7）web 服务器关闭 TCP 连接</p>
+</blockquote>
+<h3 id="ii-http请求的四个组成部分"><a class="anchor" href="#ii-http请求的四个组成部分">#</a> Ⅱ- HTTP 请求的四个组成部分：</h3>
+<blockquote>
+<p>a、HTTP 请求方法或者动作 (GET/POST)</p>
+<p>b、正在请求的 URL</p>
+<p>c、请求头，包含客户环境信息、身份信息等</p>
+<p>d、请求体（正文），包含客户提交的查询字符串信息、表单信息</p>
+</blockquote>
+<h3 id="iii-http响应的三个组成部分"><a class="anchor" href="#iii-http响应的三个组成部分">#</a> Ⅲ- HTTP 响应的三个组成部分：</h3>
+<blockquote>
+<p>a、一个数字和文字组成的转态码。作用：显示请求是否成功</p>
+<p>b、响应头，包含服务器类型、日期、内容类型、长度等</p>
+<p>c、响应体，即响应正文，字符串、HTML 等</p>
+</blockquote>
+<h2 id="2-http-协议格式"><a class="anchor" href="#2-http-协议格式">#</a> 2、<strong>HTTP</strong> <strong>协议格式</strong></h2>
+<blockquote>
+<p><img data-src="/images/image-20210622195949961.png" alt="/images//image-20210622195949961" /></p>
+</blockquote>
+<h3 id="i-http-method"><a class="anchor" href="#i-http-method">#</a> Ⅰ- <strong>HTTP Method</strong></h3>
+<blockquote>
+<p>GET POST  HEAD PUT  DELETE CONNECT   <code>OPTIONS TRACE(通常这两种是调试时才使用的)</code></p>
+</blockquote>
+<h3 id="ii-http-status-code"><a class="anchor" href="#ii-http-status-code">#</a> Ⅱ- <strong>HTTP Status code</strong></h3>
+<blockquote>
+<p>・1xx：临时回应，表示客户端请继续。</p>
+<p>・2xx：请求成功。 =&gt; 表示用户请求被正确接收、理解和处理，如 200</p>
+<p>・3xx: 表示请求的目标有变化，希望客户端进一步处理。 =&gt; 做定向使用  如 nginx 请求转发 再如 303 前端使用重定向</p>
+<p>・4xx：客户端请求错误。</p>
+<p>・5xx：服务端请求错误。</p>
+</blockquote>
+<h3 id="iii-http-head"><a class="anchor" href="#iii-http-head">#</a> Ⅲ- <strong>HTTP Head</strong></h3>
+<h4 id="1-request-header"><a class="anchor" href="#1-request-header">#</a> ① <em>Request Header</em></h4>
+<blockquote>
+<p><img data-src="/images/image-20210622202103234.png" alt="/images//image-20210622202103234" /></p>
+</blockquote>
+<h4 id="2-response-header"><a class="anchor" href="#2-response-header">#</a> ② <em>Response Header</em></h4>
+<blockquote>
+<p><img data-src="/images/image-20210622202158322.png" alt="/images//image-20210622202158322" /></p>
+</blockquote>
+<h4 id="3-http-request-body"><a class="anchor" href="#3-http-request-body">#</a> ③ <em><strong>HTTP Request Body</strong></em></h4>
+<blockquote>
+<p>・application/json 				  --&gt; 最常用的 json 格式</p>
+<p>・application/x-www-form-urlencoded  --&gt; 常用的 from 表单提交格式</p>
+<p>・multipart/form-data   			 --&gt; 常用的文件上传格式</p>
+<p>・text/xml               			--&gt; 常用 xml 文件格式</p>
+</blockquote>
+<h4 id="4-http-head"><a class="anchor" href="#4-http-head">#</a> ④ <em>HTTP head</em></h4>
+<blockquote>
+<p>略</p>
+</blockquote>
+<h2 id="3-osi模型图"><a class="anchor" href="#3-osi模型图">#</a> 3、OSI 模型图</h2>
+<blockquote>
+<p><img data-src="/images/image-20210622203341816.png" alt="" /></p>
+</blockquote>
+<h2 id="4-数据传输简单基础原理服务端浏览器postget"><a class="anchor" href="#4-数据传输简单基础原理服务端浏览器postget">#</a> 4、数据传输简单基础原理 =&gt;(服务端，浏览器，POST,GET)</h2>
+<blockquote>
+<h5 id="1-浏览器访问原理"><a class="anchor" href="#1-浏览器访问原理">#</a> 1. 浏览器访问原理 =&gt;</h5>
+<ul>
+<li><code>协议=&gt;ip=&gt;端口=&gt;uri</code></li>
+</ul>
+<h5 id="2-服务端前端数据传输过程"><a class="anchor" href="#2-服务端前端数据传输过程">#</a> 2. 服务端 (前端) 数据传输过程 =&gt;</h5>
+<ul>
+<li><code>控制层=&gt;逻辑层=&gt;数据层=&gt;后端(数据持久层)</code></li>
+</ul>
+<h5 id="3-get与post区别"><a class="anchor" href="#3-get与post区别">#</a> 3. GET 与 POST 区别:=&gt;</h5>
+<ul>
+<li>GET 是进行明文传递，POST 非明文请求数据放在请求体中</li>
+</ul>
+</blockquote>
+<h2 id="5-请求响应与跨域概念"><a class="anchor" href="#5-请求响应与跨域概念">#</a> 5、请求响应与跨域概念</h2>
+<blockquote>
+<h5 id="1reqrequest请求对象"><a class="anchor" href="#1reqrequest请求对象">#</a> 1.req:request（请求对象）=&gt;</h5>
+<ul>
+<li>
+<pre><code>代表,所有跟请求有关的东西都在req对象里头,包括请求参数 请求头 请求头 cookie
+</code></pre>
+</li>
+</ul>
+<h5 id="2resresponse响应对象"><a class="anchor" href="#2resresponse响应对象">#</a> 2.res:response（响应对象）=&gt;</h5>
+<ul>
+<li>所有响应客户端的东西都在 res 里头，包括相应参数，响应头 (跨域处理就是在这)</li>
+</ul>
+<h5 id="3跨域请求的本质与原理"><a class="anchor" href="#3跨域请求的本质与原理">#</a> 3. 跨域请求的本质与原理 =&gt;</h5>
+<ul>
+<li>
+<p>当一个请求 url 的协议、域名、端口三者之间任意一个与当前页面 url 不同即为跨域</p>
+</li>
+<li>
+<p>请求本质是成功的，但是浏览器判断本次请求不安全</p>
+</li>
+</ul>
+</blockquote>
+<h1 id="目录-2"><a class="anchor" href="#目录-2">#</a> #目录</h1>
+<blockquote>
+<p>[TOC]</p>
+</blockquote>
+<h1 id="从url输入到页面展现这中间发生了什么"><a class="anchor" href="#从url输入到页面展现这中间发生了什么">#</a> 从 URL 输入到页面展现，这中间发生了什么？</h1>
+<blockquote>
+<p>完整流程图<img data-src="/images/image-20210623183143882.png" alt="/images//image-20210623183143882" /></p>
+<p>总体来说分为以下几个过程：</p>
+<ul>
+<li>DNS 解析：将域名解析成 IP 地址</li>
+<li>TCP 连接：TCP 三次握手</li>
+<li>发送 HTTP 请求</li>
+<li>服务器处理请求并返回 HTTP 报文</li>
+<li>浏览器解析渲染页面</li>
+<li>断开连接：TCP 四次挥手</li>
+</ul>
+</blockquote>
+<h2 id="一-什么是url"><a class="anchor" href="#一-什么是url">#</a> 一、什么是 URL？</h2>
+<p>URL（Uniform Resource Locator），统一资源定位符，用于定位互联网上资源，俗称网址。</p>
+<p><strong> <code>scheme</code> : //  <code>host</code> . <code>domain</code> : <code>port</code>  /  <code>path</code>  / <code>filename</code>  ? <code> query</code>  #  <code>fragment</code> </strong></p>
+<blockquote>
+<ul>
+<li>scheme       - 定义因特网服务的类型。常见的协议有 http、https、ftp、file - 其中最常见的类型是 http，而 https 则是进行加密的网络传输。</li>
+<li>host         - 定义域主机（http 的默认主机是 www）</li>
+<li>domain       - 定义因特网域名，比如 <span class="exturl" data-url="aHR0cDovL2JhaWR1LmNvbQ==">baidu.com</span></li>
+<li>port         - 定义主机上的端口号（http 的默认端口号是 80）</li>
+<li>path         - 定义服务器上的路径（如缺省则文档必须位于网站的根目录中）。</li>
+<li>filename     - 定义文档 / 资源的名称  (如缺省文件必须位于前面 <code>path</code>  后的根目录中)</li>
+<li>query        - 即？后的查询参数  <code>可以缺省</code></li>
+<li>fragment     - 即 # 后的 hash 值，一般用来定位到某个位置   <code>可以缺省</code></li>
+</ul>
+<p>举个栗子:</p>
+<p><img data-src="/images/image-20210623184854722.png" alt="/images//image-20210623184854722" /></p>
+</blockquote>
+<h2 id="二-dns域名解析"><a class="anchor" href="#二-dns域名解析">#</a> 二、DNS 域名解析</h2>
+<blockquote>
+<p>在浏览器输入网址后，首先要经过域名解析，因为浏览器并不能直接通过域名找到对应的服务器，而是要通过 IP 地址</p>
+</blockquote>
+<h3 id="1-ip地址是什么"><a class="anchor" href="#1-ip地址是什么">#</a> 1、IP 地址是什么？</h3>
+<blockquote>
+<p>IP 地址是指互联网协议地址，是 IP Address 的缩写。IP 地址是 IP 协议提供的一种统一的地址格式，它为互联网上的每一个网络和每一台主机分配一个逻辑地址，以此来屏蔽物理地址的差异。</p>
+</blockquote>
+<h3 id="2-域名是什么"><a class="anchor" href="#2-域名是什么">#</a> 2、域名是什么？</h3>
+<blockquote>
+<p><code>域名就相当于 IP 地址乔装打扮的伪装者，带着一副面具。它的作用就是便于记忆和沟通的一组服务器的地址</code> 。用户通常使用主机名或域名来访问对方的计算机，而不是直接通过 IP 地址访问。因为与 IP 地址的一组纯数字相比，用字母配合数字的表示形式来指定计算机名更符合人类的记忆习惯。但要让计算机去理解名称，相对而言就变得困难了。因为计算机更擅长处理一长串数字。为了解决上述的问题，DNS 服务应运而生</p>
+<p>举个栗子:<a target="_blank" rel="noopener" href="https://gitee.com/hongjilin"> <code>47.100.xxx.xxx.xx:80/hongjilin</code> </a>===<a target="_blank" rel="noopener" href="https://gitee.com/hongjilin"> <code>gitee.com/hongjilin</code> </a>, 对于我们肯定是<a target="_blank" rel="noopener" href="https://gitee.com/hongjilin"> <code>gitee.com/hongjilin</code> </a> 更便于记忆，而对计算机而言更擅长前者</p>
+</blockquote>
+<h3 id="3-什么是域名解析"><a class="anchor" href="#3-什么是域名解析">#</a> 3、什么是域名解析？</h3>
+<blockquote>
+<p>DNS 协议提供通过域名查找 IP 地址，或逆向从 IP 地址反查域名的服务。<strong> <code>DNS 是一个网络服务器，我们的域名解析简单来说就是在 DNS 上记录一条信息记录</code> </strong></p>
+<p>举个栗子  <code>baidu.com</code>  <mark>解析</mark> &gt;  <code>220.114.23.56(服务器外网IP地址)80(服务器端口)</code></p>
+</blockquote>
+<h3 id="4-浏览器如何通过域名去查询-url-对应的-ip-呢"><a class="anchor" href="#4-浏览器如何通过域名去查询-url-对应的-ip-呢">#</a> 4、浏览器如何通过域名去查询 URL 对应的 IP 呢？</h3>
+<blockquote>
+<ul>
+<li>浏览器缓存：浏览器会按照一定的频率缓存 DNS 记录。</li>
+<li>操作系统缓存：如果浏览器缓存中找不到需要的 DNS 记录，那就去操作系统中找。</li>
+<li>路由缓存：路由器也有 DNS 缓存。</li>
+<li>ISP 的 DNS 服务器：ISP 是互联网服务提供商 (Internet Service Provider) 的简称，ISP 有专门的 DNS 服务器应对 DNS 查询请求。</li>
+<li>根服务器：ISP 的 DNS 服务器还找不到的话，它就会向根服务器发出请求，进行递归查询（DNS <span class="exturl" data-url="aHR0cDovL3huLS00NHFyNmFiYTk2bGQ0ZWRhNjN4ZXkyY2ZhMTExYXAzNnEuY29t">服务器先问根域名服务器.com</span> 域名服务器的 IP 地址，然后再问.baidu 域名服务器，依次类推）</li>
+</ul>
+<p><img data-src="/images/image-20210623191500569.png" alt="/images//image-20210623191500569" /></p>
+<p><code>结论</code> :<strong> 浏览器通过向 DNS 服务器发送域名，DNS 服务器查询到与域名相对应的 IP 地址，然后返回给浏览器，浏览器再将 IP 地址打在协议上，同时请求参数也会在协议搭载，然后一并发送给对应的服务器。</strong></p>
+</blockquote>
+<h3 id="5-dns的优化与应用"><a class="anchor" href="#5-dns的优化与应用">#</a> 5、DNS 的优化与应用</h3>
+<blockquote>
+<ol>
+<li>DNS 缓存  <code>DNS存在着多级缓存</code> ，从离浏览器的距离排序的话，有以下几种:  <code>浏览器缓存，系统缓存，路由器缓存，IPS服务器缓存，根域名服务器缓存，顶级域名服务器缓存，主域名服务器缓存</code> 。</li>
+<li>DNS 负载均衡 <code>(DNS重定向) DNS负载均衡技术</code> 的实现原理是在 DNS 服务器中为同一个主机名配置多个 IP 地址，在应答 DNS 查询时， DNS 服务器对每个查询将以 DNS 文件中主机记录的 IP 地址按顺序返回不同的解析结果，将客户端的访问 引导到不同的机器上去，使得不同的客户端访问不同的服务器，从而达到负载均衡的目的。</li>
+</ol>
+<ul>
+<li>大家耳熟能详的 CDN (Content Delivery Network) 就是利用 DNS 的重定向技术，DNS 服务器会返回一个跟 用户最接近的点的 IP 地址给用户，CDN 节点的服务器负责响应用户的请求，提供所需的内容。</li>
+</ul>
+<ol start="3">
+<li>dns-prefetch  <code>DNS Prefetch 是一种 DNS 预解析技术</code> 。当你浏览网页时，浏览器会在加载网页时对网页中的域名进行解析缓存，这样在你单击当前网页中的连接时就无需进行 DNS 的解析，减少用户等待时间，提高用户体验。</li>
+</ol>
+</blockquote>
+<h2 id="三-tcp三次握手"><a class="anchor" href="#三-tcp三次握手">#</a> 三、TCP 三次握手</h2>
+<blockquote>
+<p><strong>HTTP 请求分为三个部分： <code>TCP 三次握手</code> 、http 请求响应信息、关闭 TCP 连接。</strong></p>
+<ol>
+<li>比喻图</li>
+</ol>
+<p><img data-src="/images/image-20210623192336724.png" alt="/images//image-20210623192336724" /></p>
+<ol start="2">
+<li>三次握手时序图 (该图来自<span class="exturl" data-url="aHR0cHM6Ly9qdWVqaW4uY24vdXNlci8zMzg2MTUxNTQ1ODY5Nzgz"> williamife</span>)</li>
+</ol>
+<p><img data-src="/images/1692e4385f72aae4" alt="img" /></p>
+</blockquote>
+<h3 id="1-tcp三次握手的过程如下"><a class="anchor" href="#1-tcp三次握手的过程如下">#</a> 1、TCP 三次握手的过程如下:</h3>
+<blockquote>
+<p>客户端发送一个带 SYN=1，Seq=X 的数据包到服务器端口 <code>（第一次握手，由浏览器发起，告诉服务器我要发送请求了）</code></p>
+<p>服务器发回一个带 SYN=1， ACK=X+1， Seq=Y 的响应包以示传达确认信息 <code>（第二次握手，由服务器发起，告诉浏览器我准备接受了，你赶紧发送吧）</code></p>
+<p>客户端再回传一个带 ACK=Y+1， Seq=Z 的数据包，代表 “握手结束” <code>（第三次握手，由浏览器发送，告诉服务器，我马上就发了，准备接受吧）</code></p>
+</blockquote>
+<h3 id="2-为何需要三次握手"><a class="anchor" href="#2-为何需要三次握手">#</a> 2、为何需要三次握手？</h3>
+<blockquote>
+<p>“三次握手” 的目的是 “<strong> <code>为了防止已失效的连接请求报文段突然又传送到了服务端，因而产生错误</code> </strong>”。</p>
+</blockquote>
+<h2 id="四-发送-http-请求"><a class="anchor" href="#四-发送-http-请求">#</a> 四、发送 HTTP 请求</h2>
+<blockquote>
+<p>TCP 三次握手结束后，开始发送 HTTP 请求报文。</p>
+</blockquote>
+<h2 id="五-服务器处理请求并返回-http-报文"><a class="anchor" href="#五-服务器处理请求并返回-http-报文">#</a> 五、服务器处理请求并返回 HTTP 报文</h2>
+<h3 id="1-服务器"><a class="anchor" href="#1-服务器">#</a> 1、服务器</h3>
+<blockquote>
+<p>服务器是网络环境中的高性能计算机，它侦听网络上的其他计算机（客户机）提交的服务请求，并提供相应的服务，比如网页服务、文件下载服务、邮件服务、视频服务。而客户端主要的功能是浏览网页、看视频、听音乐等等，两者截然不同。 每台服务器上都会安装处理请求的应用 ——web server。常见的 web server 产品有 apache、nginx、IIS 或 Lighttpd 等。<br />
+<strong> <code>web server</code>  担任管控的角色</strong>，对于不同用户发送的请求，会结合配置文件，把不同请求委托给服务器上处理相应请求的程序进行处理（常见的 web server 产品有 apache、 <code>nginx</code> 、IIS、Lighttpd 等），然后返回后台程序处理产生的结果作为响应。</p>
+</blockquote>
+<h3 id="2-http-响应报文"><a class="anchor" href="#2-http-响应报文">#</a> 2、http 响应报文</h3>
+<blockquote>
+<p>此处同上</p>
+</blockquote>
+<h2 id="六-浏览器解析渲染页面"><a class="anchor" href="#六-浏览器解析渲染页面">#</a> 六、浏览器解析渲染页面</h2>
+<blockquote>
+<p>相关详细内容包括如何优化已在‘浏览器解析渲染页面原理及回流重绘优化笔记’中有叙述  --》 <strong><span class="exturl" data-url="aHR0cHM6Ly9naXRlZS5jb20vaG9uZ2ppbGluL2hvbmdzLXN0dWR5LW5vdGVzL3RyZWUvbWFzdGVyLyVFNyVCQyU5NiVFNyVBOCU4Ql8lRTUlODklOEQlRTclQUIlQUYlRTUlQkMlODAlRTUlOEYlOTElRTUlQUQlQTYlRTQlQjklQTAlRTclQUMlOTQlRTglQUUlQjAvQ2hyb21lJUU1JUJDJTgwJUU1JThGJTkxJUU0JUJEJUJGJUU3JTk0JUE4JUU1JThGJThBJUU1JUFEJUE2JUU0JUI5JUEwJUU3JUFDJTk0JUU4JUFFJUIwLyVFNiVCNSU4RiVFOCVBNyU4OCVFNSU5OSVBOCVFOCVBNyVBMyVFNiU5RSU5MCVFNiVCOCVCMiVFNiU5RiU5MyVFOSVBMSVCNSVFOSU5RCVBMiVFNSU4RSU5RiVFNyU5MCU4NiVFNSU4RiU4QSVFNSU5QiU5RSVFNiVCNSU4MSVFOSU4NyU4RCVFNyVCQiU5OCVFNCVCQyU5OCVFNSU4QyU5NiVFNyVBQyU5NCVFOCVBRSVCMA==">浏览器解析渲染页面原理及回流重绘优化笔记</span></strong></p>
+<p>浏览器解析渲染页面分为一下五个步骤：</p>
+<ol>
+<li>根据 HTML 解析出 DOM 树</li>
+<li>根据 CSS 解析生成 CSS 规则树</li>
+<li>结合 DOM 树和 CSS 规则树，生成渲染树</li>
+<li>根据渲染树计算每一个节点的信息</li>
+<li>根据计算好的信息绘制页面</li>
+</ol>
+</blockquote>
+<h3 id="1-根据html解析dom树"><a class="anchor" href="#1-根据html解析dom树">#</a> 1、根据 HTML 解析 DOM 树</h3>
+<blockquote>
+<ul>
+<li>根据 HTML 的内容，将标签按照结构解析成为 DOM 树，DOM 树解析的过程是一个深度优先遍历。即先构建当前节点的所有子节点，再构建下一个兄弟节点。</li>
+<li>在读取 HTML 文档，构建 DOM 树的过程中，若遇到 script 标签，则 DOM 树的构建会暂停，直至脚本执行完毕。</li>
+</ul>
+</blockquote>
+<h3 id="2-根据css解析生成css规则树-cssom树"><a class="anchor" href="#2-根据css解析生成css规则树-cssom树">#</a> 2、根据 CSS 解析生成 CSS 规则树 --》【CSSOM 树】</h3>
+<blockquote>
+<ul>
+<li>解析 CSS 规则树时 js 执行将暂停，直至 CSS 规则树就绪。</li>
+<li>浏览器在 CSS 规则树生成之前不会进行渲染。</li>
+</ul>
+</blockquote>
+<h3 id="3-结合dom树和css规则树生成渲染树"><a class="anchor" href="#3-结合dom树和css规则树生成渲染树">#</a> 3、结合 DOM 树和 CSS 规则树，生成渲染树</h3>
+<blockquote>
+<ul>
+<li>DOM 树和 CSS 规则树全部准备好了以后，浏览器才会开始构建渲染树。</li>
+<li>精简 CSS 并可以加快 CSS 规则树的构建，从而加快页面相应速度。</li>
+</ul>
+</blockquote>
+<h3 id="4-根据渲染树计算每一个节点的信息布局"><a class="anchor" href="#4-根据渲染树计算每一个节点的信息布局">#</a> 4、根据渲染树计算每一个节点的信息（布局）</h3>
+<blockquote>
+<ul>
+<li>布局：通过渲染树中渲染对象的信息，计算出每一个渲染对象的位置和尺寸</li>
+<li>回流：在布局完成后，发现了某个部分发生了变化影响了布局，那就需要倒回去重新渲染。</li>
+</ul>
+</blockquote>
+<h3 id="5-根据计算好的信息绘制页面"><a class="anchor" href="#5-根据计算好的信息绘制页面">#</a> 5、根据计算好的信息绘制页面</h3>
+<blockquote>
+<ul>
+<li>绘制阶段，系统会遍历呈现树，并调用呈现器的 “paint” 方法，将呈现器的内容显示在屏幕上。</li>
+<li>重绘：某个元素的背景颜色，文字颜色等，不影响元素周围或内部布局的属性，将只会引起浏览器的 <code>重绘</code> 。</li>
+<li>回流：某个元素的尺寸发生了变化，则需重新计算渲染树，重新渲染。</li>
+</ul>
+</blockquote>
+<h2 id="七-断开连接"><a class="anchor" href="#七-断开连接">#</a> 七、断开连接</h2>
+<p><strong>当数据传送完毕，需要断开 tcp 连接，此时发起 tcp 四次挥手</strong>。<br />
+<img data-src="%E6%B5%85%E6%9E%90%E4%BB%8E%E8%BE%93%E5%85%A5URL%E5%88%B0%E9%A1%B5%E9%9D%A2%E5%B1%95%E7%A4%BA%E8%BF%99%E4%B8%AD%E9%97%B4%E5%8F%91%E7%94%9F%E4%BA%86%E4%BB%80%E4%B9%88%E4%B8%AD%E7%9A%84%E5%9B%BE%E7%89%87/1460000017184713.png" alt="img" /></p>
+<ul>
+<li><strong>发起方向被动方发送报文，Fin、Ack、Seq，表示已经没有数据传输了。并进入 FIN_WAIT_1 状态</strong>。(第一次挥手：由浏览器发起的，发送给服务器，我请求报文发送完了，你准备关闭吧)</li>
+<li><strong>被动方发送报文，Ack、Seq，表示同意关闭请求。此时主机发起方进入 FIN_WAIT_2 状态</strong>。(第二次挥手：由服务器发起的，告诉浏览器，我请求报文接受完了，我准备关闭了，你也准备吧)</li>
+<li><strong>被动方向发起方发送报文段，Fin、Ack、Seq，请求关闭连接。并进入 LAST_ACK 状态</strong>。(第三次挥手：由服务器发起，告诉浏览器，我响应报文发送完了，你准备关闭吧)</li>
+<li><strong>发起方向被动方发送报文段，Ack、Seq。然后进入等待 TIME_WAIT 状态。被动方收到发起方的报文段以后关闭连接。发起方等待一定时间未收到回复，则正常关闭</strong>。(第四次挥手：由浏览器发起，告诉服务器，我响应报文接受完了，我准备关闭了，你也准备吧)</li>
+</ul>
+<h2 id="1-前端缓存"><a class="anchor" href="#1-前端缓存">#</a> 1、前端缓存</h2>
+<blockquote>
+<p>当我们第一次访问网站时，电脑会把网站上的图片与数据下载到电脑上，当我们再次访问该网站时，网站就会从电脑中直接加载出来，这就是缓存</p>
+<ul>
+<li>web 缓存是指一个 Web 资源 (如 html 页面、图、JS 等) 存在于 web 服务器和客户端 (浏览器) 之间的副本</li>
+<li>缓存会根据进来的请求保存输出内容的副本：当下一个请求来到的时候，如果是相同的 Url, 缓存会根据缓存机制决定是直接使用副本响应访问请求还是像源服务器再次发起请求</li>
+</ul>
+</blockquote>
+<h3 id="i-缓存有哪些好处"><a class="anchor" href="#i-缓存有哪些好处">#</a> Ⅰ - 缓存有哪些好处</h3>
+<blockquote>
+<ul>
+<li>缓解服务端压力，不用每次都去请求某些数据</li>
+<li>提升性能，打开本地资源肯定比请求服务器来的更快</li>
+<li>减少宽带消耗，当我们使用缓存的时候，只会产生很小的网络消耗，至于为什么打开本地资源也会产生网络消耗？</li>
+</ul>
+</blockquote>
+<h3 id="ii-前端缓存种类"><a class="anchor" href="#ii-前端缓存种类">#</a> Ⅱ - 前端缓存种类</h3>
+<blockquote>
+<ol>
+<li>数据库缓存</li>
+<li>CDN 缓存</li>
+<li>代理服务器缓存</li>
+<li>浏览器缓存</li>
+</ol>
+<p><strong>此图截取自网上相关文章</strong></p>
+<p><img data-src="/images/image-20211027182618788.png" alt="/images//image-20211027182618788" /></p>
+</blockquote>
+<h2 id="2-什么是浏览器缓存策略"><a class="anchor" href="#2-什么是浏览器缓存策略">#</a> 2、什么是浏览器缓存策略</h2>
+<blockquote>
+<p>良好的缓存策略可以降低资源的重复加载从而提高页面整体加载速度，通常浏览器缓存策略分为两种结果</p>
+<ul>
+<li>强缓存</li>
+<li>协商缓存</li>
+</ul>
+<p><img data-src="/images/image-20211027184535569.png" alt="/images//image-20211027184535569" /></p>
+</blockquote>
+<h3 id="i-基本原理"><a class="anchor" href="#i-基本原理">#</a> Ⅰ - 基本原理</h3>
+<blockquote>
+<ul>
+<li>浏览器在加载资源时，根据请求头的  <code>Expires(过期时间)</code>  和 <code>chche-control(缓存控制)</code>  判断是否命中强缓存，命中则直接从缓存中读取资源，不会发送到服务器</li>
+<li>如果没有命中强缓存，浏览器一定会发送一个请求到服务器，通过 <code>last-modified</code>  和 <code>etag</code>  验证资源是否命中协商缓存，如果命中，服务器回将这个请求返回，但是不会返回这个资源的数据，依然是从缓存中读取资源</li>
+<li>如果前面两者都没有命中，则直接从服务器加载资源</li>
+</ul>
+</blockquote>
+<h3 id="ii-根据什么规则缓存"><a class="anchor" href="#ii-根据什么规则缓存">#</a> Ⅱ - 根据什么规则缓存</h3>
+<blockquote>
+<ol>
+<li><strong>新鲜度</strong> (过期机制): 也就是缓存副本有效期。一个缓存副本必须满足以下条件，浏览器会认为它是有效的，足够新的</li>
+</ol>
+<ul>
+<li>含有完整的过期时间控制头信息 (HTTP 协议报头), 并且仍在有效期内</li>
+<li>浏览器已经使用过这个缓存副本，并且在一个会话中已经检查过新鲜度</li>
+<li><strong>通常是强缓存阶段使用的机制</strong></li>
+</ul>
+<ol start="2">
+<li><strong>校验值</strong> (验证机制): 服务器返回资源的时候有时在控制头信息带上这个资源的实体标签 <code>Etag</code> ,</li>
+</ol>
+<ul>
+<li>它可以用来作为浏览器再次请求过程的校验标识</li>
+<li>如果发现校验标识不匹配，说明资源已经被修改或者过期，浏览器需要重新获取资源内容</li>
+<li><strong>所以通常是协商缓存中使用的机制</strong></li>
+</ul>
+</blockquote>
+<h3 id="iii-http缓存的两个阶段"><a class="anchor" href="#iii-http缓存的两个阶段">#</a> Ⅲ - HTTP 缓存的两个阶段</h3>
+<blockquote>
+<p>浏览器缓存一般分为两类: <strong>强缓存</strong> (也称本地缓存) 和 <strong>协商缓存</strong> (也称弱缓存)</p>
+<h6 id="强缓存阶段"><a class="anchor" href="#强缓存阶段">#</a> 强缓存阶段</h6>
+<blockquote>
+<p>浏览器发送请求前，会去缓存里查看是否命中强缓存，如果命中，则直接从缓存中读取资源，不会发送请求到服务器；</p>
+</blockquote>
+<h6 id="协商缓存阶段"><a class="anchor" href="#协商缓存阶段">#</a> 协商缓存阶段</h6>
+<blockquote>
+<p>当强缓存没有命中时，浏览器一定会向服务器发起请求</p>
+</blockquote>
+<blockquote>
+<ul>
+<li>服务器会根据  <code>request header</code>  中的一些字段来判断是否命中协商缓存</li>
+<li>如果命中，服务端会返回 304 响应，但是不会携带任何响应实体，只是高速浏览器可以直接从浏览器缓存中获取这个资源</li>
+<li>如果 <strong>强缓存</strong> 和 <strong>协商缓存</strong> 都没有命中，则直接从服务器加载资源</li>
+</ul>
+</blockquote>
+<p><img data-src="/images/image-20211027190616969.png" alt="/images//image-20211027190616969" /></p>
+</blockquote>
+<h3 id="iv-优先级"><a class="anchor" href="#iv-优先级">#</a> Ⅳ - 优先级</h3>
+<blockquote>
+<ul>
+<li><code>Cache-Control</code>  优先级大于  <code>expires</code></li>
+<li><code>Etag</code>  优先级大于  <code>last - Modified/if-Modified-since</code> , 同时存在时会以 Etag 为准</li>
+</ul>
+</blockquote>
+<h3 id="v-浏览器缓存流程图"><a class="anchor" href="#v-浏览器缓存流程图">#</a> Ⅴ - 浏览器缓存流程图</h3>
+<blockquote>
+<p><img data-src="/images/image-20211027190721706.png" alt="/images//image-20211027190721706" /></p>
+</blockquote>
+<h2 id="3-强缓存与协商缓存"><a class="anchor" href="#3-强缓存与协商缓存">#</a> 3、强缓存与协商缓存</h2>
+<h3 id="i-强缓存"><a class="anchor" href="#i-强缓存">#</a> Ⅰ - 强缓存</h3>
+<blockquote>
+<h6 id="通过expires过yu期和cache-control缓存控制器两种响应头实现"><a class="anchor" href="#通过expires过yu期和cache-control缓存控制器两种响应头实现">#</a> 通过 <code>Expires(过yu期)</code>  和 <code>cache-control(缓存控制器)</code>  两种响应头实现</h6>
+<p>浏览器在加载资源时，根据请求头的  <code>Expires(过期时间)</code>  和 <code>chche-control(缓存控制)</code>  判断是否命中强缓存，命中则直接从缓存中读取资源，不会发送到服务器</p>
+</blockquote>
+<h4 id="1-expires过期"><a class="anchor" href="#1-expires过期">#</a> ①  Expires (过期)</h4>
+<blockquote>
+<p><code>Expires</code>  是 http1.0 提出的表示资源过期时间的 header, 它描述的是一个绝对时间，由服务端返回；当我们准备再次发起请求时，本地时间未超过这个设置的时间，那么就不会真正的发出请求，而是读取缓存</p>
+<p>expires 受限于本地时间，如果修改了本地时间，可能会造成缓存失效</p>
+</blockquote>
+<h4 id="2-cache-control"><a class="anchor" href="#2-cache-control">#</a> ②  cache-control</h4>
+<blockquote>
+<p><code>cache-control</code>  出现于 HTTP1.1, 优先级高于 Expires , 表示的是相对时间</p>
+<ul>
+<li><code>cache-control:no-cache</code>  的响应实际上是可以存储在本地缓存去中的，只是在与原始服务器进行新鲜度再验证之前，缓存不能将其提供给客户端使用</li>
+<li><code>Cache-Control: no-store</code>  真正的不缓存到本地</li>
+<li><code>Cache-Control: public</code>  可以被所有用户缓存 (多用户共享), 包括终端和 CDN 等中间代理服务器</li>
+<li><code>Cache-Control: private</code>  只能被终端浏览器缓存（而且是私有缓存），不允许中继缓存服务器进行缓存</li>
+</ul>
+<p>Cache-Control 除了在响应中使用，在请求中也可以使用。我们用开发者工具来模拟下请求时带上 Cache-Control：勾选 Disable cache，刷新页面，可以看到 Request Headers 中有个字段 Cache-Control: no-cache。</p>
+<p><img data-src="/images/image-20220225160543826.png" alt="/images//image-20220225160543826" /></p>
+</blockquote>
+<h3 id="ii-协商缓存"><a class="anchor" href="#ii-协商缓存">#</a> Ⅱ - 协商缓存</h3>
+<blockquote>
+<h6 id="协商缓存是通过last-modifiedif-modified-since和etag-if-none-match这两对header来管理的"><a class="anchor" href="#协商缓存是通过last-modifiedif-modified-since和etag-if-none-match这两对header来管理的">#</a> 协商缓存是通过 <code>【Last-Modified，If-Modified-Since】</code> 和 <code>【ETag、If-None-Match】</code> 这两对 Header 来管理的</h6>
+<ul>
+<li>当浏览器对某个资源的请求没有命中强缓存 (换句话说就是: <strong>强缓存失效后</strong>)</li>
+<li>就会发一个请求到服务器，验证协商缓存是否命中；</li>
+<li>如果协商缓存命中，请求响应返回的 http 状态为 <code>304</code>  并且会显示一个 <code>Not Modified(未修改的)</code>  的字符串</li>
+</ul>
+</blockquote>
+<h4 id="1-last-modifiedif-modified-since"><a class="anchor" href="#1-last-modifiedif-modified-since">#</a> ①  Last-Modified，If-Modified-Since</h4>
+<blockquote>
+<ol>
+<li><code>Last-Modified</code>  表示本地文件最后修改日期</li>
+</ol>
+<ul>
+<li>浏览器会在 request header 加上  <code>If-Modified-Since</code>  (上此返回的 <code>Last-Modified</code>  的值)</li>
+<li>询问服务器在该日期后资源是否有更新</li>
+<li>有更新的话就会将新的资源发送过来</li>
+</ul>
+<ol start="2">
+<li>但如果在本地打开缓存文件，就会造成 <code>Last-Modified</code>  的修改，所以在 HTTP1.1 中出现了 <code>Etag</code></li>
+<li>当资源过期时（使用 <code>Cache-Control</code>  标识的 max-age/s-maxage）</li>
+</ol>
+<ul>
+<li>发现资源具有 <code>Last-Msodified</code>  声明，则向服务器请求时带上头  <code>If-Modified-Since</code> （即响应头中的 <code>Last-Modified</code>  值），表示请求时间。</li>
+<li>这个时候服务器收到请求后发现有头 <code>If-Modified-Since</code>  则与<strong>被请求资源</strong>的最后修改时间进行比对</li>
+<li>若最后修改时间较新，说明资源有被改动过，将新资源返回并返回状态 <code>200</code> ，否则返回 <code>304</code>  表示资源没被更新使用缓存即可。</li>
+</ul>
+</blockquote>
+<h4 id="2-etag-if-none-match"><a class="anchor" href="#2-etag-if-none-match">#</a> ② ETag、If-None-Match</h4>
+<blockquote>
+<ol>
+<li><code>Etag</code>  就行是一个直问，资源变化都会导致 Etag 变化，跟最后修改时间没有关系，Etag 可以保证每一个资源都是唯一的</li>
+<li>当资源过期时（使用 Cache-Control 标识的 max-age/s-maxage）</li>
+</ol>
+<ul>
+<li>发现资源具有 <code>Etage</code>  声明，则向服务器请求时带上头 <code>If-None-Match</code> （即响应头中 <code>Etag</code>  的值）</li>
+<li>服务器收到请求后发现有头 <code>If-None-Match</code>  则与被请求资源的相应校验串进行比对</li>
+<li>决定返回 200 或 304（<strong>注意：服务器会优先验证 If-None-Match</strong>）</li>
+</ul>
+<h6 id="两者优先级"><a class="anchor" href="#两者优先级">#</a> 两者优先级？</h6>
+<blockquote>
+<p><strong> <code>ETag</code>  的优先级比 <code>Last-Modified</code>  更高</strong></p>
+</blockquote>
+<blockquote>
+<p>具体为什么要用 <code>ETag</code> ，主要出于下面几种情况考虑：</p>
+</blockquote>
+<blockquote>
+<ul>
+<li>一些文件也许会周期性的更改，但是它的内容并不会改变 (仅仅只改变了修改时间), 这种时候我们并不希望客户端认为这个文件被修改了，而重新 GET</li>
+<li>某些文件修改非常频繁，比如在秒以下的时间内进行修改 (比如说 1s 内修改了 N 次), 而其他方法检查到的粒度是 s 级的，这种修改无法判断</li>
+<li>某些服务器不能精确的得到文件的最后修改时间</li>
+</ul>
+</blockquote>
+<h6 id="服务端返回-304-流程图"><a class="anchor" href="#服务端返回-304-流程图">#</a> 服务端返回 304 流程图</h6>
+<p><img data-src="/images/image-20211027175045937-16353282573951.png" alt="/images//image-20211027175045937" /></p>
+</blockquote>
+<h3 id="iii-强缓存与协商缓存简单异同点"><a class="anchor" href="#iii-强缓存与协商缓存简单异同点">#</a> Ⅲ - 强缓存与协商缓存简单异同点</h3>
+<blockquote>
+<ul>
+<li><strong>相同点</strong>：如果命中，都是从客户端缓存中加载资源，而不是从服务器加载资源数据</li>
+<li><strong>不同点</strong>：强缓存不发送请求到服务器，协商缓存会发送请求到服务器</li>
+</ul>
+</blockquote>
+<h2 id="4-常见几种状态码的区别"><a class="anchor" href="#4-常见几种状态码的区别">#</a> 4、常见几种状态码的区别</h2>
+<blockquote>
+<p>缓存中: 200 状态码总是强缓存，304 总是协商缓存</p>
+<ul>
+<li><code>200</code> : 强缓存 <code>expires/Cache-Control</code>  失效时，返回新的资源文件</li>
+<li><code>200(form cache)</code> : 强缓存两者都存在且未过期； <code>Cache-Control</code>  优先 <code>Expirs</code>  (默认就是这个优先级) 时 --&gt; 浏览器从本地获取资源成功  (这个状态还能更详细分类，在下面再给出详解)</li>
+<li><code>304(Not Modified)</code> : 协商缓存 <code>Last-modified/Etag</code>  没有过期时，服务端返回状态码 304</li>
+</ul>
+<h6 id="这里给出个截图安装了中文包所以显示的中文"><a class="anchor" href="#这里给出个截图安装了中文包所以显示的中文">#</a> 这里给出个截图 (安装了中文包，所以显示的中文)</h6>
+<p><img data-src="/images/image-20211102140503290.png" alt="/images//image-20211102140503290" /></p>
+</blockquote>
+<h2 id="5-缓存位置"><a class="anchor" href="#5-缓存位置">#</a> 5、缓存位置</h2>
+<blockquote>
+<h6 id="强缓存我们会把资源放在-memory-cache内存缓存和disk-cache磁盘缓存-中那么他们的区别在哪呢为何要如此区分"><a class="anchor" href="#强缓存我们会把资源放在-memory-cache内存缓存和disk-cache磁盘缓存-中那么他们的区别在哪呢为何要如此区分">#</a> 强缓存我们会把资源放在  <code>memory cache(内存缓存)</code>  和 <code>disk cache(磁盘缓存)</code>  中，那么他们的区别在哪呢？为何要如此区分？</h6>
+<p><img data-src="/images/image-20211102140503290.png" alt="/images//image-20211102140503290" /></p>
+<ul>
+<li>存储图像和网页等资源主要存储在 <code>disk cache(磁盘存储)</code></li>
+<li>操作系统缓存文件等资源大部分都会缓存在 <code>memory cache</code>  中</li>
+<li>具体操作浏览器自动分配，看谁的资源利用率不高就给谁</li>
+<li>查找浏览器缓存时会按照  <code>Service Worker</code>  --&gt;  <code>Memory Cache</code>  --&gt;  <code>Disk Cache</code>  --&gt;   <code>Push Cache</code></li>
+</ul>
+</blockquote>
+<h3 id="i-service-worker"><a class="anchor" href="#i-service-worker">#</a> Ⅰ -  Service Worker</h3>
+<blockquote>
+<ul>
+<li>是运行在浏览器背后的独立线程，一般可以用来实现缓存功能.</li>
+<li>使用 <code>Service Worker</code>  的话，因为其中涉及到请求拦截，所以传输协议必须为 <code>HTTPS</code>  来保障安全</li>
+<li><code>Service Worker</code>  的缓存和浏览器其他内建的缓存机制不同，它可以让我们自由控制缓存那些文件，如何匹配缓存、读取缓存，并且缓存时持续性的</li>
+</ul>
+</blockquote>
+<h3 id="ii-memory-cache"><a class="anchor" href="#ii-memory-cache">#</a> Ⅱ - Memory Cache</h3>
+<blockquote>
+<ul>
+<li><strong>内存中的缓存</strong>：主要包含的是当前页面中已经抓取到的资源：例如页面下载的样式、脚本、图片等</li>
+<li>读取 <strong>内存</strong> 中的数据肯定比 <strong>磁盘</strong> 的快</li>
+<li><strong>内存缓存</strong> 虽然读取高效，但是缓存持续性很短，会随着进程的释放而释放：如我们关闭了 tab 页面，内存中的缓存也就被释放了</li>
+</ul>
+</blockquote>
+<h3 id="iii-disk-cache"><a class="anchor" href="#iii-disk-cache">#</a> Ⅲ -  Disk Cache</h3>
+<blockquote>
+<ul>
+<li>存储在 <strong>硬盘</strong> 中的缓存，读取速度慢点，但是什么都能存储到磁盘中，比之  <code>Memory Cache</code>  胜在容量和存储时效性上</li>
+<li>在所有浏览器缓存中， <code>Disk Cache</code>  覆盖面基本是最大的</li>
+<li>他会根据  <code>HTTP Header</code>  中的字段判断哪些资源需要缓存，哪些资源可以不请求直接使用，哪些资源已经过期需要重新请求</li>
+<li>并且即便在跨站点的情况下，相同地址的资源一旦被硬盘缓存下来，就不会再去请求数据，绝大部分数据都来自 <code>Disk Cache</code></li>
+<li><strong>磁盘缓存</strong> 比 <strong>内存缓存</strong> 慢的多</li>
+</ul>
+<h6 id="举个"><a class="anchor" href="#举个">#</a> 举个🌰</h6>
+<blockquote>
+<p>从远程 Web 服务器直接提取访问文件可能需要 <strong>500 毫秒 (半秒)</strong>, 那么磁盘访问可能需要 <strong>10~20 毫秒</strong>；而内存访问可能只需要 <strong>100 纳秒</strong>；更高级的还有 <strong>L1 缓存访问</strong> 只需要 0.5 纳秒 (最快和最小的 CPU 缓存，详见此笔记 <span class="exturl" data-url="aHR0cHM6Ly9naXRlZS5jb20vaG9uZ2ppbGluL2hvbmdzLXN0dWR5LW5vdGVzL2Jsb2IvbWFzdGVyLyVFNyVCQyU5NiVFNyVBOCU4Ql8lRTclQUUlOTclRTYlQjMlOTUlRTUlOEYlOEElRTglQUYlQkUlRTclQTglOEIlRTUlOUYlQkElRTclQTElODAlRTUlQUQlQTYlRTQlQjklQTAlRTclQUMlOTQlRTglQUUlQjAvJUU4JUFFJUExJUU3JUFFJTk3JUU2JTlDJUJBJUU3JUJCJTg0JUU2JTg4JTkwJUU1JThFJTlGJUU3JTkwJTg2LyVFNyVCQyU5MyVFNSVBRCU5OCVFMyU4MCU4MSVFNSU4NiU4NSVFNSVBRCU5OCVFMyU4MCU4MUNQVSVFNyU5RiVBNSVFOCVBRiU4NiVFNyU4MiVCOSVFOCVBNyVBMyVFNiU5RSU5MCVFNyVBQyU5NCVFOCVBRSVCMC5tZCMlRTUlOUIlOUJjcHUlRTclOUElODQlRTUlQTQlOUElRTclQkElQTclRTclQkMlOTMlRTUlQUQlOTglRTklQUIlOTglRTklODAlOUYlRTclQkMlOTMlRTUlQUQlOTg=">缓存、内存、CPU 知识点解析</span> )</p>
+</blockquote>
+</blockquote>
+<h3 id="iv-prefetch-cache预取缓存"><a class="anchor" href="#iv-prefetch-cache预取缓存">#</a> Ⅳ -  prefetch cache (预取缓存)</h3>
+<blockquote>
+<ul>
+<li><strong>link</strong> 标签带上 <strong>prefetch</strong> , 再次加载时会出现</li>
+<li><code>prefetch</code>  是 <strong>预加载</strong> 的一种方式：被标记为  <code>prefetch</code>  的资源，将会被浏览器在空闲时间加载</li>
+</ul>
+</blockquote>
+<h3 id="v-push-cache"><a class="anchor" href="#v-push-cache">#</a> Ⅴ -  Push Cache</h3>
+<blockquote>
+<ul>
+<li><code>Push Cache(推送缓存)</code>  是 <strong>HTTP/2</strong> 中的内容，当以上三种缓存都没有命中时，它才会被使用</li>
+<li>它只在 <strong>会话 (Session)</strong> 中存在，一旦会话结束就会被释放，并且缓存时间也会很短暂</li>
+<li>在 Chrome 浏览器中只有 <strong>5 分钟</strong> 左右，同时它也并非严格执行 HTTP 头中的缓存指令</li>
+</ul>
+</blockquote>
+<h3 id="vi-cpu-内存-硬盘概述"><a class="anchor" href="#vi-cpu-内存-硬盘概述">#</a> Ⅵ -  CPU、内存、硬盘概述</h3>
+<blockquote>
+<h6 id="可能有小伙伴对于此处知识点没什么直观的概念此处给出一个大概叙述-想了解更多的话此部分知识点本人有专门梳理笔记文件"><a class="anchor" href="#可能有小伙伴对于此处知识点没什么直观的概念此处给出一个大概叙述-想了解更多的话此部分知识点本人有专门梳理笔记文件">#</a> 可能有小伙伴对于此处知识点没什么直观的概念，此处给出一个大概叙述；想了解更多的话此部分知识点本人有专门梳理笔记文件</h6>
+<h6 id="-点我传送"><a class="anchor" href="#-点我传送">#</a> --&gt; <span class="exturl" data-url="aHR0cHM6Ly9naXRlZS5jb20vaG9uZ2ppbGluL2hvbmdzLXN0dWR5LW5vdGVzL2Jsb2IvbWFzdGVyLyVFNyVCQyU5NiVFNyVBOCU4Ql8lRTclQUUlOTclRTYlQjMlOTUlRTUlOEYlOEElRTglQUYlQkUlRTclQTglOEIlRTUlOUYlQkElRTclQTElODAlRTUlQUQlQTYlRTQlQjklQTAlRTclQUMlOTQlRTglQUUlQjAvJUU4JUFFJUExJUU3JUFFJTk3JUU2JTlDJUJBJUU3JUJCJTg0JUU2JTg4JTkwJUU1JThFJTlGJUU3JTkwJTg2LyVFNyVCQyU5MyVFNSVBRCU5OCVFMyU4MCU4MSVFNSU4NiU4NSVFNSVBRCU5OCVFMyU4MCU4MUNQVSVFNyU5RiVBNSVFOCVBRiU4NiVFNyU4MiVCOSVFOCVBNyVBMyVFNiU5RSU5MCVFNyVBQyU5NCVFOCVBRSVCMC5tZA==">点我传送</span></h6>
+<ul>
+<li>CPU、内存、硬盘都是计算机的主要组成部分</li>
+<li><strong>CPU</strong>: 中央处理单元的缩写，也叫做  <code>处理器</code> ，是计算机的运算核心和控制核心；电脑靠 CPU 来运算、控制。让电脑各个部件顺利工作，起到协调作用</li>
+<li><strong>硬盘</strong>：存储资料和软件等数据的设备，有容量大、断电数据不丢失的特点</li>
+<li><strong>内存</strong>：负责 <strong>硬盘</strong> 等硬件上的数据与 <strong>CPU</strong> 之间数据的交换处理。特点是:  <code>体积小</code> 、 <code>速度快</code> 、 <code>有电可存</code> 、 <code>无电清空</code> ，即电脑在开机状态时内存中可存储数据，关机后将自动清空其中的所有数据</li>
+</ul>
+</blockquote>
+<h2 id="6-强缓存有协商缓存的区别"><a class="anchor" href="#6-强缓存有协商缓存的区别">#</a> 6、强缓存有协商缓存的区别</h2>
+<blockquote>
+<p>这里再次总结整理一下两者之间的区别</p>
+<ul>
+<li>强缓存不发请求到服务端，所以有时候资源更新了浏览器还不知道；</li>
+<li>但是协商缓存会发请求到服务器，所以资源是否更新，服务器肯定知道</li>
+<li>大部分 web 服务器都默认开启协商缓存</li>
+</ul>
+</blockquote>
+<h2 id="7-刷新对于强缓存和协商缓存的影响"><a class="anchor" href="#7-刷新对于强缓存和协商缓存的影响">#</a> 7、刷新对于强缓存和协商缓存的影响</h2>
+<blockquote>
+<ul>
+<li>当  <code>ctrl+F5</code>  强制刷新网页时：直接从服务器加载，<strong>跳过强缓存和协商缓存</strong></li>
+<li>当 f5 刷新网页时，跳过强缓存，但是会检查协商缓存</li>
+<li>浏览器地址写入 URL 并回车：浏览器发现缓存中有这个文件了，就不用继续请求了，直接去缓存拿 (最快)</li>
+</ul>
+</blockquote>
+
+      <div class="tags">
+          <a href="/tags/HTTP/" rel="tag"><i class="ic i-tag"></i> HTTP</a>
+          <a href="/tags/%E5%8D%8F%E8%AE%AE/" rel="tag"><i class="ic i-tag"></i> 协议</a>
+      </div>
+  </div>
+
+   <footer>
+
+    <div class="meta">
+  <span class="item">
+    <span class="icon">
+      <i class="ic i-calendar-check"></i>
+    </span>
+    <span class="text">更新于</span>
+    <time title="修改时间：2024-07-09 13:16:59" itemprop="dateModified" datetime="2024-07-09T13:16:59+08:00">2024-07-09</time>
+  </span>
+  <span id="2023/05/02/HTTP/" class="item leancloud_visitors" data-flag-title="HTTP" title="阅读次数">
+      <span class="icon">
+        <i class="ic i-eye"></i>
+      </span>
+      <span class="text">阅读次数</span>
+      <span class="leancloud-visitors-count"></span>
+      <span class="text">次</span>
+  </span>
+</div>
+
+      
+<div class="reward">
+  <button><i class="ic i-heartbeat"></i> 赞赏</button>
+  <p>请我喝[茶]~(￣▽￣)~*</p>
+  <div id="qr">
+      
+      <div>
+        <img data-src="/images/wechatpay.png" alt="dmq 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div>
+        <img data-src="/images/alipay.png" alt="dmq 支付宝">
+        <p>支付宝</p>
+      </div>
+  </div>
+</div>
+
+      
+
+<div id="copyright">
+<ul>
+  <li class="author">
+    <strong>本文作者： </strong>dmq <i class="ic i-at"><em>@</em></i>杜明清的个人博客
+  </li>
+  <li class="link">
+    <strong>本文链接：</strong>
+    <a href="https://dmqweb.cn/2023/05/02/HTTP/" title="HTTP">https://dmqweb.cn/2023/05/02/HTTP/</a>
+  </li>
+  <li class="license">
+    <strong>版权声明： </strong>本站所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+  </footer>
+
+</article>
+
+  </div>
+  
+
+<div class="post-nav">
+    <div class="item left">
+      
+
+  <a href="/2023/04/02/git%E5%92%8Cgithub/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;s3.uuu.ovh&#x2F;imgs&#x2F;2024&#x2F;04&#x2F;05&#x2F;05d9a07e0d190274.webp" title="git与github">
+  <span class="type">上一篇</span>
+  <span class="category"><i class="ic i-flag"></i> git</span>
+  <h3>git与github</h3>
+  </a>
+
+    </div>
+    <div class="item right">
+      
+
+  <a href="/2023/05/02/git%20github%E7%AC%94%E8%AE%B0%EF%BC%88%E6%A6%82%E5%BF%B5%EF%BC%89/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;s3.uuu.ovh&#x2F;imgs&#x2F;2024&#x2F;03&#x2F;29&#x2F;5c162f03529c2f38.jpg" title="git笔记">
+  <span class="type">下一篇</span>
+  <span class="category"><i class="ic i-flag"></i> git</span>
+  <h3>git笔记</h3>
+  </a>
+
+    </div>
+</div>
+
+  
+  <div class="wrap" id="comments"></div>
+
+
+        </div>
+        <div id="sidebar">
+          
+
+<div class="inner">
+
+  <div class="panels">
+    <div class="inner">
+      <div class="contents panel pjax" data-title="文章目录">
+          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%9B%AE%E5%BD%95"><span class="toc-number">1.</span> <span class="toc-text"> #目录</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%B5%85%E5%AD%A6%E6%B5%8F%E8%A7%88%E5%99%A8%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86"><span class="toc-number">2.</span> <span class="toc-text"> 浅学浏览器工作原理</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%80-%E6%B5%8F%E8%A7%88%E5%99%A8%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B%E6%A6%82%E8%A7%88"><span class="toc-number">3.</span> <span class="toc-text"> 一、浏览器工作流程概览</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%8D%E5%9B%BE"><span class="toc-number">3.0.1.</span> <span class="toc-text"> 位图</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%8C-http%E5%8D%8F%E8%AE%AE%E5%BA%95%E5%B1%82%E5%8E%9F%E7%90%86%E6%A6%82%E8%A7%88"><span class="toc-number">4.</span> <span class="toc-text"> 二、HTTP 协议底层原理概览</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1http%E8%AF%B7%E6%B1%82%E6%98%AF%E4%B8%80%E7%A7%8D%E8%A7%84%E5%88%99%E6%97%A0%E7%8A%B6%E6%80%81%E6%97%A0%E8%AE%B0%E5%BF%86"><span class="toc-number">4.1.</span> <span class="toc-text"> 1.HTTP 请求：是一种规则，无状态，无记忆：</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#i-http%E8%AF%B7%E6%B1%82%E8%BF%87%E7%A8%8B"><span class="toc-number">4.1.1.</span> <span class="toc-text"> Ⅰ- HTTP 请求过程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ii-http%E8%AF%B7%E6%B1%82%E7%9A%84%E5%9B%9B%E4%B8%AA%E7%BB%84%E6%88%90%E9%83%A8%E5%88%86"><span class="toc-number">4.1.2.</span> <span class="toc-text"> Ⅱ- HTTP 请求的四个组成部分：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#iii-http%E5%93%8D%E5%BA%94%E7%9A%84%E4%B8%89%E4%B8%AA%E7%BB%84%E6%88%90%E9%83%A8%E5%88%86"><span class="toc-number">4.1.3.</span> <span class="toc-text"> Ⅲ- HTTP 响应的三个组成部分：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-http-%E5%8D%8F%E8%AE%AE%E6%A0%BC%E5%BC%8F"><span class="toc-number">4.2.</span> <span class="toc-text"> 2、HTTP 协议格式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#i-http-method"><span class="toc-number">4.2.1.</span> <span class="toc-text"> Ⅰ- HTTP Method</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ii-http-status-code"><span class="toc-number">4.2.2.</span> <span class="toc-text"> Ⅱ- HTTP Status code</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#iii-http-head"><span class="toc-number">4.2.3.</span> <span class="toc-text"> Ⅲ- HTTP Head</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-request-header"><span class="toc-number">4.2.3.1.</span> <span class="toc-text"> ① Request Header</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-response-header"><span class="toc-number">4.2.3.2.</span> <span class="toc-text"> ② Response Header</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-http-request-body"><span class="toc-number">4.2.3.3.</span> <span class="toc-text"> ③ HTTP Request Body</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-http-head"><span class="toc-number">4.2.3.4.</span> <span class="toc-text"> ④ HTTP head</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-osi%E6%A8%A1%E5%9E%8B%E5%9B%BE"><span class="toc-number">4.3.</span> <span class="toc-text"> 3、OSI 模型图</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E6%95%B0%E6%8D%AE%E4%BC%A0%E8%BE%93%E7%AE%80%E5%8D%95%E5%9F%BA%E7%A1%80%E5%8E%9F%E7%90%86%E6%9C%8D%E5%8A%A1%E7%AB%AF%E6%B5%8F%E8%A7%88%E5%99%A8postget"><span class="toc-number">4.4.</span> <span class="toc-text"> 4、数据传输简单基础原理 &#x3D;&gt;(服务端，浏览器，POST,GET)</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-%E6%B5%8F%E8%A7%88%E5%99%A8%E8%AE%BF%E9%97%AE%E5%8E%9F%E7%90%86"><span class="toc-number">4.4.0.0.1.</span> <span class="toc-text"> 1. 浏览器访问原理 &#x3D;&gt;</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-%E6%9C%8D%E5%8A%A1%E7%AB%AF%E5%89%8D%E7%AB%AF%E6%95%B0%E6%8D%AE%E4%BC%A0%E8%BE%93%E8%BF%87%E7%A8%8B"><span class="toc-number">4.4.0.0.2.</span> <span class="toc-text"> 2. 服务端 (前端) 数据传输过程 &#x3D;&gt;</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-get%E4%B8%8Epost%E5%8C%BA%E5%88%AB"><span class="toc-number">4.4.0.0.3.</span> <span class="toc-text"> 3. GET 与 POST 区别:&#x3D;&gt;</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E8%AF%B7%E6%B1%82%E5%93%8D%E5%BA%94%E4%B8%8E%E8%B7%A8%E5%9F%9F%E6%A6%82%E5%BF%B5"><span class="toc-number">4.5.</span> <span class="toc-text"> 5、请求响应与跨域概念</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1reqrequest%E8%AF%B7%E6%B1%82%E5%AF%B9%E8%B1%A1"><span class="toc-number">4.5.0.0.1.</span> <span class="toc-text"> 1.req:request（请求对象）&#x3D;&gt;</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2resresponse%E5%93%8D%E5%BA%94%E5%AF%B9%E8%B1%A1"><span class="toc-number">4.5.0.0.2.</span> <span class="toc-text"> 2.res:response（响应对象）&#x3D;&gt;</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3%E8%B7%A8%E5%9F%9F%E8%AF%B7%E6%B1%82%E7%9A%84%E6%9C%AC%E8%B4%A8%E4%B8%8E%E5%8E%9F%E7%90%86"><span class="toc-number">4.5.0.0.3.</span> <span class="toc-text"> 3. 跨域请求的本质与原理 &#x3D;&gt;</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%9B%AE%E5%BD%95-2"><span class="toc-number">5.</span> <span class="toc-text"> #目录</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BB%8Eurl%E8%BE%93%E5%85%A5%E5%88%B0%E9%A1%B5%E9%9D%A2%E5%B1%95%E7%8E%B0%E8%BF%99%E4%B8%AD%E9%97%B4%E5%8F%91%E7%94%9F%E4%BA%86%E4%BB%80%E4%B9%88"><span class="toc-number">6.</span> <span class="toc-text"> 从 URL 输入到页面展现，这中间发生了什么？</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80-%E4%BB%80%E4%B9%88%E6%98%AFurl"><span class="toc-number">6.1.</span> <span class="toc-text"> 一、什么是 URL？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C-dns%E5%9F%9F%E5%90%8D%E8%A7%A3%E6%9E%90"><span class="toc-number">6.2.</span> <span class="toc-text"> 二、DNS 域名解析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-ip%E5%9C%B0%E5%9D%80%E6%98%AF%E4%BB%80%E4%B9%88"><span class="toc-number">6.2.1.</span> <span class="toc-text"> 1、IP 地址是什么？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E5%9F%9F%E5%90%8D%E6%98%AF%E4%BB%80%E4%B9%88"><span class="toc-number">6.2.2.</span> <span class="toc-text"> 2、域名是什么？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E4%BB%80%E4%B9%88%E6%98%AF%E5%9F%9F%E5%90%8D%E8%A7%A3%E6%9E%90"><span class="toc-number">6.2.3.</span> <span class="toc-text"> 3、什么是域名解析？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E6%B5%8F%E8%A7%88%E5%99%A8%E5%A6%82%E4%BD%95%E9%80%9A%E8%BF%87%E5%9F%9F%E5%90%8D%E5%8E%BB%E6%9F%A5%E8%AF%A2-url-%E5%AF%B9%E5%BA%94%E7%9A%84-ip-%E5%91%A2"><span class="toc-number">6.2.4.</span> <span class="toc-text"> 4、浏览器如何通过域名去查询 URL 对应的 IP 呢？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-dns%E7%9A%84%E4%BC%98%E5%8C%96%E4%B8%8E%E5%BA%94%E7%94%A8"><span class="toc-number">6.2.5.</span> <span class="toc-text"> 5、DNS 的优化与应用</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89-tcp%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B"><span class="toc-number">6.3.</span> <span class="toc-text"> 三、TCP 三次握手</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-tcp%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B%E7%9A%84%E8%BF%87%E7%A8%8B%E5%A6%82%E4%B8%8B"><span class="toc-number">6.3.1.</span> <span class="toc-text"> 1、TCP 三次握手的过程如下:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E4%B8%BA%E4%BD%95%E9%9C%80%E8%A6%81%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B"><span class="toc-number">6.3.2.</span> <span class="toc-text"> 2、为何需要三次握手？</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B-%E5%8F%91%E9%80%81-http-%E8%AF%B7%E6%B1%82"><span class="toc-number">6.4.</span> <span class="toc-text"> 四、发送 HTTP 请求</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%94-%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%A4%84%E7%90%86%E8%AF%B7%E6%B1%82%E5%B9%B6%E8%BF%94%E5%9B%9E-http-%E6%8A%A5%E6%96%87"><span class="toc-number">6.5.</span> <span class="toc-text"> 五、服务器处理请求并返回 HTTP 报文</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="toc-number">6.5.1.</span> <span class="toc-text"> 1、服务器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-http-%E5%93%8D%E5%BA%94%E6%8A%A5%E6%96%87"><span class="toc-number">6.5.2.</span> <span class="toc-text"> 2、http 响应报文</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%AD-%E6%B5%8F%E8%A7%88%E5%99%A8%E8%A7%A3%E6%9E%90%E6%B8%B2%E6%9F%93%E9%A1%B5%E9%9D%A2"><span class="toc-number">6.6.</span> <span class="toc-text"> 六、浏览器解析渲染页面</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E6%A0%B9%E6%8D%AEhtml%E8%A7%A3%E6%9E%90dom%E6%A0%91"><span class="toc-number">6.6.1.</span> <span class="toc-text"> 1、根据 HTML 解析 DOM 树</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E6%A0%B9%E6%8D%AEcss%E8%A7%A3%E6%9E%90%E7%94%9F%E6%88%90css%E8%A7%84%E5%88%99%E6%A0%91-cssom%E6%A0%91"><span class="toc-number">6.6.2.</span> <span class="toc-text"> 2、根据 CSS 解析生成 CSS 规则树 --》【CSSOM 树】</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E7%BB%93%E5%90%88dom%E6%A0%91%E5%92%8Ccss%E8%A7%84%E5%88%99%E6%A0%91%E7%94%9F%E6%88%90%E6%B8%B2%E6%9F%93%E6%A0%91"><span class="toc-number">6.6.3.</span> <span class="toc-text"> 3、结合 DOM 树和 CSS 规则树，生成渲染树</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E6%A0%B9%E6%8D%AE%E6%B8%B2%E6%9F%93%E6%A0%91%E8%AE%A1%E7%AE%97%E6%AF%8F%E4%B8%80%E4%B8%AA%E8%8A%82%E7%82%B9%E7%9A%84%E4%BF%A1%E6%81%AF%E5%B8%83%E5%B1%80"><span class="toc-number">6.6.4.</span> <span class="toc-text"> 4、根据渲染树计算每一个节点的信息（布局）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-%E6%A0%B9%E6%8D%AE%E8%AE%A1%E7%AE%97%E5%A5%BD%E7%9A%84%E4%BF%A1%E6%81%AF%E7%BB%98%E5%88%B6%E9%A1%B5%E9%9D%A2"><span class="toc-number">6.6.5.</span> <span class="toc-text"> 5、根据计算好的信息绘制页面</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%83-%E6%96%AD%E5%BC%80%E8%BF%9E%E6%8E%A5"><span class="toc-number">6.7.</span> <span class="toc-text"> 七、断开连接</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E5%89%8D%E7%AB%AF%E7%BC%93%E5%AD%98"><span class="toc-number">6.8.</span> <span class="toc-text"> 1、前端缓存</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#i-%E7%BC%93%E5%AD%98%E6%9C%89%E5%93%AA%E4%BA%9B%E5%A5%BD%E5%A4%84"><span class="toc-number">6.8.1.</span> <span class="toc-text"> Ⅰ - 缓存有哪些好处</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ii-%E5%89%8D%E7%AB%AF%E7%BC%93%E5%AD%98%E7%A7%8D%E7%B1%BB"><span class="toc-number">6.8.2.</span> <span class="toc-text"> Ⅱ - 前端缓存种类</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E4%BB%80%E4%B9%88%E6%98%AF%E6%B5%8F%E8%A7%88%E5%99%A8%E7%BC%93%E5%AD%98%E7%AD%96%E7%95%A5"><span class="toc-number">6.9.</span> <span class="toc-text"> 2、什么是浏览器缓存策略</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#i-%E5%9F%BA%E6%9C%AC%E5%8E%9F%E7%90%86"><span class="toc-number">6.9.1.</span> <span class="toc-text"> Ⅰ - 基本原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ii-%E6%A0%B9%E6%8D%AE%E4%BB%80%E4%B9%88%E8%A7%84%E5%88%99%E7%BC%93%E5%AD%98"><span class="toc-number">6.9.2.</span> <span class="toc-text"> Ⅱ - 根据什么规则缓存</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#iii-http%E7%BC%93%E5%AD%98%E7%9A%84%E4%B8%A4%E4%B8%AA%E9%98%B6%E6%AE%B5"><span class="toc-number">6.9.3.</span> <span class="toc-text"> Ⅲ - HTTP 缓存的两个阶段</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E5%BC%BA%E7%BC%93%E5%AD%98%E9%98%B6%E6%AE%B5"><span class="toc-number">6.9.3.0.0.1.</span> <span class="toc-text"> 强缓存阶段</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E5%8D%8F%E5%95%86%E7%BC%93%E5%AD%98%E9%98%B6%E6%AE%B5"><span class="toc-number">6.9.3.0.0.2.</span> <span class="toc-text"> 协商缓存阶段</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#iv-%E4%BC%98%E5%85%88%E7%BA%A7"><span class="toc-number">6.9.4.</span> <span class="toc-text"> Ⅳ - 优先级</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#v-%E6%B5%8F%E8%A7%88%E5%99%A8%E7%BC%93%E5%AD%98%E6%B5%81%E7%A8%8B%E5%9B%BE"><span class="toc-number">6.9.5.</span> <span class="toc-text"> Ⅴ - 浏览器缓存流程图</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E5%BC%BA%E7%BC%93%E5%AD%98%E4%B8%8E%E5%8D%8F%E5%95%86%E7%BC%93%E5%AD%98"><span class="toc-number">6.10.</span> <span class="toc-text"> 3、强缓存与协商缓存</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#i-%E5%BC%BA%E7%BC%93%E5%AD%98"><span class="toc-number">6.10.1.</span> <span class="toc-text"> Ⅰ - 强缓存</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E9%80%9A%E8%BF%87expires%E8%BF%87yu%E6%9C%9F%E5%92%8Ccache-control%E7%BC%93%E5%AD%98%E6%8E%A7%E5%88%B6%E5%99%A8%E4%B8%A4%E7%A7%8D%E5%93%8D%E5%BA%94%E5%A4%B4%E5%AE%9E%E7%8E%B0"><span class="toc-number">6.10.1.0.0.1.</span> <span class="toc-text"> 通过 Expires(过yu期)  和 cache-control(缓存控制器)  两种响应头实现</span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-expires%E8%BF%87%E6%9C%9F"><span class="toc-number">6.10.1.1.</span> <span class="toc-text"> ①  Expires (过期)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-cache-control"><span class="toc-number">6.10.1.2.</span> <span class="toc-text"> ②  cache-control</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ii-%E5%8D%8F%E5%95%86%E7%BC%93%E5%AD%98"><span class="toc-number">6.10.2.</span> <span class="toc-text"> Ⅱ - 协商缓存</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E5%8D%8F%E5%95%86%E7%BC%93%E5%AD%98%E6%98%AF%E9%80%9A%E8%BF%87last-modifiedif-modified-since%E5%92%8Cetag-if-none-match%E8%BF%99%E4%B8%A4%E5%AF%B9header%E6%9D%A5%E7%AE%A1%E7%90%86%E7%9A%84"><span class="toc-number">6.10.2.0.0.1.</span> <span class="toc-text"> 协商缓存是通过 【Last-Modified，If-Modified-Since】 和 【ETag、If-None-Match】 这两对 Header 来管理的</span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-last-modifiedif-modified-since"><span class="toc-number">6.10.2.1.</span> <span class="toc-text"> ①  Last-Modified，If-Modified-Since</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-etag-if-none-match"><span class="toc-number">6.10.2.2.</span> <span class="toc-text"> ② ETag、If-None-Match</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E4%B8%A4%E8%80%85%E4%BC%98%E5%85%88%E7%BA%A7"><span class="toc-number">6.10.2.2.0.1.</span> <span class="toc-text"> 两者优先级？</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E6%9C%8D%E5%8A%A1%E7%AB%AF%E8%BF%94%E5%9B%9E-304-%E6%B5%81%E7%A8%8B%E5%9B%BE"><span class="toc-number">6.10.2.2.0.2.</span> <span class="toc-text"> 服务端返回 304 流程图</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#iii-%E5%BC%BA%E7%BC%93%E5%AD%98%E4%B8%8E%E5%8D%8F%E5%95%86%E7%BC%93%E5%AD%98%E7%AE%80%E5%8D%95%E5%BC%82%E5%90%8C%E7%82%B9"><span class="toc-number">6.10.3.</span> <span class="toc-text"> Ⅲ - 强缓存与协商缓存简单异同点</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E5%B8%B8%E8%A7%81%E5%87%A0%E7%A7%8D%E7%8A%B6%E6%80%81%E7%A0%81%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-number">6.11.</span> <span class="toc-text"> 4、常见几种状态码的区别</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E8%BF%99%E9%87%8C%E7%BB%99%E5%87%BA%E4%B8%AA%E6%88%AA%E5%9B%BE%E5%AE%89%E8%A3%85%E4%BA%86%E4%B8%AD%E6%96%87%E5%8C%85%E6%89%80%E4%BB%A5%E6%98%BE%E7%A4%BA%E7%9A%84%E4%B8%AD%E6%96%87"><span class="toc-number">6.11.0.0.0.1.</span> <span class="toc-text"> 这里给出个截图 (安装了中文包，所以显示的中文)</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E7%BC%93%E5%AD%98%E4%BD%8D%E7%BD%AE"><span class="toc-number">6.12.</span> <span class="toc-text"> 5、缓存位置</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E5%BC%BA%E7%BC%93%E5%AD%98%E6%88%91%E4%BB%AC%E4%BC%9A%E6%8A%8A%E8%B5%84%E6%BA%90%E6%94%BE%E5%9C%A8-memory-cache%E5%86%85%E5%AD%98%E7%BC%93%E5%AD%98%E5%92%8Cdisk-cache%E7%A3%81%E7%9B%98%E7%BC%93%E5%AD%98-%E4%B8%AD%E9%82%A3%E4%B9%88%E4%BB%96%E4%BB%AC%E7%9A%84%E5%8C%BA%E5%88%AB%E5%9C%A8%E5%93%AA%E5%91%A2%E4%B8%BA%E4%BD%95%E8%A6%81%E5%A6%82%E6%AD%A4%E5%8C%BA%E5%88%86"><span class="toc-number">6.12.0.0.0.1.</span> <span class="toc-text"> 强缓存我们会把资源放在  memory cache(内存缓存)  和 disk cache(磁盘缓存)  中，那么他们的区别在哪呢？为何要如此区分？</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#i-service-worker"><span class="toc-number">6.12.1.</span> <span class="toc-text"> Ⅰ -  Service Worker</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ii-memory-cache"><span class="toc-number">6.12.2.</span> <span class="toc-text"> Ⅱ - Memory Cache</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#iii-disk-cache"><span class="toc-number">6.12.3.</span> <span class="toc-text"> Ⅲ -  Disk Cache</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E4%B8%BE%E4%B8%AA"><span class="toc-number">6.12.3.0.0.1.</span> <span class="toc-text"> 举个🌰</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#iv-prefetch-cache%E9%A2%84%E5%8F%96%E7%BC%93%E5%AD%98"><span class="toc-number">6.12.4.</span> <span class="toc-text"> Ⅳ -  prefetch cache (预取缓存)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#v-push-cache"><span class="toc-number">6.12.5.</span> <span class="toc-text"> Ⅴ -  Push Cache</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#vi-cpu-%E5%86%85%E5%AD%98-%E7%A1%AC%E7%9B%98%E6%A6%82%E8%BF%B0"><span class="toc-number">6.12.6.</span> <span class="toc-text"> Ⅵ -  CPU、内存、硬盘概述</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E5%8F%AF%E8%83%BD%E6%9C%89%E5%B0%8F%E4%BC%99%E4%BC%B4%E5%AF%B9%E4%BA%8E%E6%AD%A4%E5%A4%84%E7%9F%A5%E8%AF%86%E7%82%B9%E6%B2%A1%E4%BB%80%E4%B9%88%E7%9B%B4%E8%A7%82%E7%9A%84%E6%A6%82%E5%BF%B5%E6%AD%A4%E5%A4%84%E7%BB%99%E5%87%BA%E4%B8%80%E4%B8%AA%E5%A4%A7%E6%A6%82%E5%8F%99%E8%BF%B0-%E6%83%B3%E4%BA%86%E8%A7%A3%E6%9B%B4%E5%A4%9A%E7%9A%84%E8%AF%9D%E6%AD%A4%E9%83%A8%E5%88%86%E7%9F%A5%E8%AF%86%E7%82%B9%E6%9C%AC%E4%BA%BA%E6%9C%89%E4%B8%93%E9%97%A8%E6%A2%B3%E7%90%86%E7%AC%94%E8%AE%B0%E6%96%87%E4%BB%B6"><span class="toc-number">6.12.6.0.0.1.</span> <span class="toc-text"> 可能有小伙伴对于此处知识点没什么直观的概念，此处给出一个大概叙述；想了解更多的话此部分知识点本人有专门梳理笔记文件</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#-%E7%82%B9%E6%88%91%E4%BC%A0%E9%80%81"><span class="toc-number">6.12.6.0.0.2.</span> <span class="toc-text"> --&gt; 点我传送</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-%E5%BC%BA%E7%BC%93%E5%AD%98%E6%9C%89%E5%8D%8F%E5%95%86%E7%BC%93%E5%AD%98%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-number">6.13.</span> <span class="toc-text"> 6、强缓存有协商缓存的区别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-%E5%88%B7%E6%96%B0%E5%AF%B9%E4%BA%8E%E5%BC%BA%E7%BC%93%E5%AD%98%E5%92%8C%E5%8D%8F%E5%95%86%E7%BC%93%E5%AD%98%E7%9A%84%E5%BD%B1%E5%93%8D"><span class="toc-number">6.14.</span> <span class="toc-text"> 7、刷新对于强缓存和协商缓存的影响</span></a></li></ol></li></ol>
+      </div>
+      <div class="related panel pjax" data-title="系列文章">
+        <ul>
+          <li class="active"><a href="/2023/05/02/HTTP/" rel="bookmark" title="HTTP">HTTP</a></li>
+        </ul>
+      </div>
+      <div class="overview panel" data-title="站点概览">
+        <div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="image" itemprop="image" alt="dmq"
+      data-src="/images/avatar.jpg">
+  <p class="name" itemprop="name">dmq</p>
+  <div class="description" itemprop="description"></div>
+</div>
+
+<nav class="state">
+    <div class="item posts">
+      <a href="/archives/">
+        <span class="count">79</span>
+        <span class="name">文章</span>
+      </a>
+    </div>
+    <div class="item categories">
+      <a href="/categories/">
+        <span class="count">59</span>
+        <span class="name">分类</span>
+      </a>
+    </div>
+    <div class="item tags">
+      <a href="/tags/">
+        <span class="count">98</span>
+        <span class="name">标签</span>
+      </a>
+    </div>
+</nav>
+
+<div class="social">
+      <span class="exturl item github" data-url="aHR0cHM6Ly9naXRodWIuY29tL2RtcTA/dGFiPXJlcG9zaXRvcmllcw==" title="https:&#x2F;&#x2F;github.com&#x2F;dmq0?tab&#x3D;repositories"><i class="ic i-github"></i></span>
+      <span class="exturl item npm" data-url="aHR0cHM6Ly93d3cubnBtanMuY29tL35kbXEwMDA=" title="https:&#x2F;&#x2F;www.npmjs.com&#x2F;~dmq000"><i class="ic i-file"></i></span>
+      <span class="exturl item zhihu" data-url="aHR0cHM6Ly93d3cuemhpaHUuY29tL3Blb3BsZS9kLTg4LTYxLTgz" title="https:&#x2F;&#x2F;www.zhihu.com&#x2F;people&#x2F;d-88-61-83"><i class="ic i-zhihu"></i></span>
+      <span class="exturl item music" data-url="aHR0cHM6Ly9tdXNpYy4xNjMuY29tLyMvdXNlci9ob21lP2lkPTgwMjc4OTk0OTE=" title="https:&#x2F;&#x2F;music.163.com&#x2F;#&#x2F;user&#x2F;home?id&#x3D;8027899491"><i class="ic i-cloud-music"></i></span>
+      <span class="exturl item weibo" data-url="aHR0cHM6Ly93ZWliby5jb20vdS83NjI1OTAxNzE3" title="https:&#x2F;&#x2F;weibo.com&#x2F;u&#x2F;7625901717"><i class="ic i-weibo"></i></span>
+      <span class="exturl item email" data-url="bWFpbHRvOjMyNjc4MDc1MTRAcXEuY29t" title="mailto:3267807514@qq.com"><i class="ic i-envelope"></i></span>
+</div>
+
+<ul class="menu">
+  
+    
+  <li class="item">
+    <a href="/" rel="section"><i class="ic i-home"></i>首页</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/about/" rel="section"><i class="ic i-user"></i>介绍</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/archives/" rel="section"><i class="ic i-list-alt"></i>归档</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/categories/" rel="section"><i class="ic i-th"></i>分类</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/tags/" rel="section"><i class="ic i-tags"></i>标签</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/friends/" rel="section"><i class="ic i-heart"></i>友链</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/links/" rel="section"><i class="ic i-magic"></i>工具</a>
+  </li>
+
+
+</ul>
+
+      </div>
+    </div>
+  </div>
+
+  <ul id="quick">
+    <li class="prev pjax">
+        <a href="/2023/04/02/git%E5%92%8Cgithub/" rel="prev" title="上一篇"><i class="ic i-chevron-left"></i></a>
+    </li>
+    <li class="up"><i class="ic i-arrow-up"></i></li>
+    <li class="down"><i class="ic i-arrow-down"></i></li>
+    <li class="next pjax">
+        <a href="/2023/05/02/git%20github%E7%AC%94%E8%AE%B0%EF%BC%88%E6%A6%82%E5%BF%B5%EF%BC%89/" rel="next" title="下一篇"><i class="ic i-chevron-right"></i></a>
+    </li>
+    <li class="percent"></li>
+  </ul>
+</div>
+
+
+        </div>
+        <div class="dimmer"></div>
+      </div>
+    </main>
+    <footer id="footer">
+      <div class="inner">
+        <div class="widgets">
+          
+<div class="rpost pjax">
+  <h2>随机文章</h2>
+  <ul>
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/" title="分类于 面试题">面试题</a>
+</div>
+
+    <span><a href="/2024/04/30/%E6%B7%B1%E6%8B%B7%E8%B4%9D/" title="深拷贝">深拷贝</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/JS/" title="分类于 JS">JS</a>
+</div>
+
+    <span><a href="/2024/02/02/serviceWorker/" title="serviceWorker">serviceWorker</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/OSI%E4%B8%83%E5%B1%82%E7%BD%91%E7%BB%9C%E6%A8%A1%E5%9E%8B/" title="分类于 OSI七层网络模型">OSI七层网络模型</a>
+</div>
+
+    <span><a href="/2024/05/27/OSI%E4%B8%83%E5%B1%82%E7%BD%91%E7%BB%9C%E6%A8%A1%E5%9E%8B/" title="OSI七层网络模型">OSI七层网络模型</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E6%B5%8F%E8%A7%88%E5%99%A8/" title="分类于 浏览器">浏览器</a>
+</div>
+
+    <span><a href="/2023/10/09/%E6%B5%8F%E8%A7%88%E5%99%A8%E6%89%A7%E8%A1%8C%E5%8E%9F%E7%90%86/" title="浏览器执行原理">浏览器执行原理</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/JS/" title="分类于 JS">JS</a>
+</div>
+
+    <span><a href="/2023/12/02/%E9%9A%90%E5%BC%8F%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2/" title="JS类型转换">JS类型转换</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/JS/" title="分类于 JS">JS</a>
+</div>
+
+    <span><a href="/2023/12/11/typedArray/" title="JS中类型化数组typedArray">JS中类型化数组typedArray</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/eslint/" title="分类于 eslint">eslint</a>
+</div>
+
+    <span><a href="/2024/05/17/eslint%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90/" title="eslint源码">eslint源码</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E6%9D%82%E8%AE%B0/" title="分类于 杂记">杂记</a>
+</div>
+
+    <span><a href="/2023/01/01/%E6%9D%82%E8%AE%B0/" title="杂记">杂记</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/react/" title="分类于 react">react</a>
+</div>
+
+    <span><a href="/2024/01/29/react%E6%8A%80%E6%9C%AF%E6%8F%AD%E7%A7%98/" title="react技术揭秘">react技术揭秘</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E8%84%9A%E6%89%8B%E6%9E%B6%E5%BC%80%E5%8F%91/" title="分类于 脚手架开发">脚手架开发</a>
+</div>
+
+    <span><a href="/2024/03/30/%E6%9C%AC%E5%9C%B0%E6%96%87%E4%BB%B6%E9%93%BE%E6%8E%A5/" title="本地文件链接">本地文件链接</a></span>
+  </li>
+
+  </ul>
+</div>
+<div>
+  <h2>最新评论</h2>
+  <ul class="leancloud-recent-comment"></ul>
+</div>
+
+        </div>
+        <div class="status">
+  <div class="copyright">
+    
+    &copy; 2022 – 
+    <span itemprop="copyrightYear">2024</span>
+    <span class="with-love">
+      <i class="ic i-sakura rotate"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">dmq @ Web blog</span>
+  </div>
+  <div class="count">
+    <span class="post-meta-item-icon">
+      <i class="ic i-chart-area"></i>
+    </span>
+    <span title="站点总字数">810k 字</span>
+
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="ic i-coffee"></i>
+    </span>
+    <span title="站点阅读时长">12:16</span>
+  </div>
+  <div class="powered-by">
+    基于 <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & Theme.<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Shoka</span>
+  </div>
+</div>
+
+      </div>
+    </footer>
+  </div>
+<script data-config type="text/javascript">
+  var LOCAL = {
+    path: '2023/05/02/HTTP/',
+    favicon: {
+      show: "科技引领未来",
+      hide: "欢迎与我交流"
+    },
+    search : {
+      placeholder: "文章搜索",
+      empty: "关于 「 ${query} 」，什么也没搜到",
+      stats: "${time} ms 内找到 ${hits} 条结果"
+    },
+    valine: true,fancybox: true,
+    copyright: '复制成功，转载请遵守 <i class="ic i-creative-commons"></i>BY-NC-SA 协议。',
+    ignores : [
+      function(uri) {
+        return uri.includes('#');
+      },
+      function(uri) {
+        return new RegExp(LOCAL.path+"$").test(uri);
+      }
+    ]
+  };
+</script>
+
+<script src="https://cdn.polyfill.io/v2/polyfill.js"></script>
+
+<script src="//gcore.jsdelivr.net/combine/npm/pace-js@1.0.2/pace.min.js,npm/pjax@0.2.8/pjax.min.js,npm/whatwg-fetch@3.4.0/dist/fetch.umd.min.js,npm/animejs@3.2.0/lib/anime.min.js,npm/algoliasearch@4/dist/algoliasearch-lite.umd.js,npm/instantsearch.js@4/dist/instantsearch.production.min.js,npm/lozad@1/dist/lozad.min.js,npm/quicklink@2/dist/quicklink.umd.js"></script>
+
+<script src="/js/app.js?v=0.2.5"></script>
+
+
+  <script data-pjax>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?9ba187659e850a6910681214f0faa16b";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+</body>
+</html>

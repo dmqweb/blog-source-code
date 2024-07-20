@@ -106,11 +106,11 @@ valine:
   appId: UTj70E2f04wg59oi4eBtXpJn-gzGzoHsz
   appKey: zWX0gPeLYV4mAS3S2fTUQHPy
   placeholder: ヽ(○´∀`)ﾉ♪ # Comment box placeholder
-  avatar: mp # Gravatar style : mp, identicon, monsterid, wavatar, robohash, retro
+  avatar: retro # Gravatar style : mp, identicon, monsterid, wavatar, robohash, retro
   pageSize: 10 # Pagination size
   lang: zh-CN
   visitor: true # 文章访问量统计
-  NoRecordIP: false # 不记录 IP
+  NoRecordIP: true # 不记录 IP
   # serverURLs:  When the custom domain name is enabled, fill it in here (it will be detected automatically by default, no need to fill in)
   powerMode: true # 默认打开评论框输入特效
   tagMeta:
@@ -223,10 +223,10 @@ feed:
         output: "feed.json"
 # Show number of visitors to each article.
 # You can visit https://leancloud.cn get AppID and AppKey.
-leancloud_visitors:
-  enable: true
-  app_id: UTj70E2f04wg59oi4eBtXpJn-gzGzoHsz
-  app_key: zWX0gPeLYV4mAS3S2fTUQHPy
+# leancloud_visitors:
+#   enable: true
+#   app_id: UTj70E2f04wg59oi4eBtXpJn-gzGzoHsz
+#   app_key: zWX0gPeLYV4mAS3S2fTUQHPy
 
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment

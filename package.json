@@ -4,20 +4,20 @@
   "private": true,
   "scripts": {
     "editPost": "hexo clean && hexo generate && hexo deploy",
-    "deploy":"hexo deploy",
+    "deploy": "hexo deploy",
     "addPost": "hexo clean && hexo g && hexo deploy && set HEXO_ALGOLIA_INDEXING_KEY=bfa5090f87840ffa546f9e1cb4bc1ef0 && hexo algolia",
     "algolia": "set HEXO_ALGOLIA_INDEXING_KEY=bfa5090f87840ffa546f9e1cb4bc1ef0 && hexo algolia",
-    "serve": "hexo clean && hexo g && hexo s",
-    "preserve":"echo 服务开始启动",
-    "postserve":"echo 启动成功",
+    "serve": "hexo clean && hexo g --debug && hexo s",
+    "preserve": "echo 服务开始启动",
+    "postserve": "echo 启动成功",
     "new": "hexo new --categories vue --tags vue,面试题   标题",
     "push": "git add . && git commit -m 'pushRemote' && git push gitee",
-    "postpush":"echo 推送成功",
+    "postpush": "echo 推送成功",
     "pull": "git pull gitee master",
     "commit": "git add . && git commit -m 'feat:新增面试题'",
-    "c":"hexo clean",
-    "g":"hexo generate",
-    "d":"hexo deploy"
+    "c": "hexo clean",
+    "g": "hexo generate",
+    "d": "hexo deploy"
   },
   "hexo": {
     "version": "6.3.0"
@@ -37,6 +37,7 @@
     "hexo-renderer-multi-markdown-it": "^0.1.5",
     "hexo-renderer-stylus": "^2.1.0",
     "hexo-server": "^3.0.0",
+    "hexo-symbols-count-time": "^0.7.1",
     "hexo-theme-landscape": "^0.0.3",
     "pangu": "^4.0.7"
   },
