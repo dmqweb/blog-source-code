@@ -225,8 +225,8 @@ feed:
 # You can visit https://leancloud.cn get AppID and AppKey.
 leancloud_visitors:
   enable: true
-  app_id: # 你的app-id 
-  app_key: # 你的app-key
+  app_id: UTj70E2f04wg59oi4eBtXpJn-gzGzoHsz
+  app_key: zWX0gPeLYV4mAS3S2fTUQHPy
 
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
