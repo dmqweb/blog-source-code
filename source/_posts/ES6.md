@@ -974,7 +974,6 @@ Promise.race([requestImg('images/2.png'), timeout()]).then((data) => {
   
   let result = test()
   console.log(result)  //即便代码里test函数什么都没返回，我们依然打出了Promise对象
-  复制代码
   ```
 
 - **await必须在async函数里使用，不能单独使用**
@@ -1009,7 +1008,7 @@ Promise.race([requestImg('images/2.png'), timeout()]).then((data) => {
 ### Async/Await的用法
 
 - 使用await，函数必须用async标识
-- await后面跟的是一个Promise实例
+- await后面跟的是一个Promise实例，最后返回的是Promise.resolved后的值,不是Promise的话会被封装为一个Promise
 
 ```javascript
 function loadImg(src) {
@@ -1078,7 +1077,7 @@ const makeRequest = () => {
         })
     })
 }
-复制代码
+
 ```
 
 使用async/await的话，代码会变得异常简单和直观
@@ -1089,14 +1088,14 @@ const makeRequest = async () => {
   const value2 = await promise2(value1)
   return promise3(value1, value2)
 }
-复制代码
+
 ```
 
 - **提高可读性**
 
 下面示例中，需要获取数据，然后根据返回数据决定是直接返回，还是继续获取更多的数据。
 
-```kotlin
+```js
 const makeRequest = () => {
   return getJSON()
     .then(data => {
@@ -1112,12 +1111,12 @@ const makeRequest = () => {
       }
     })
 }
-复制代码
+
 ```
 
 代码嵌套（6层）可读性较差，它们传达的意思只是需要将最终结果传递到最外层的Promise。使用async/await编写可以大大地提高可读性:
 
-```kotlin
+```js
 const makeRequest = async () => {
   const data = await getJSON()
   if (data.needsAnotherRequest) {
@@ -1129,7 +1128,7 @@ const makeRequest = async () => {
     return data    
   }
 }
-复制代码
+
 ```
 
 ## Class的基本用法
@@ -1156,7 +1155,12 @@ ES6 提供了更接近传统语言的写法，引入了 Class（类）这个概�
 
 基本上，ES6 的`class`可以看作只是一个语法糖，它的绝大部分功能，ES5 都可以做到，新的`class`写法只是让对象原型的写法更加清晰、更像面向对象编程的语法而已。上面的代码用 ES6 的`class`改写，就是下面这样
 
-```kotlin
+# async补充
+> async关键字修饰的函数相当于一个语法糖，会将后面跟随的函数进行封装，变为一个返回Promise的函数，也就是说：async修饰的函数的返回值一定是Promise对象。
+# await补充
+> await关键字修饰的一定是一个Promise对象，如果不是JS内部会对该值进行封装，封装为一个Promise对象，Promise内部resolve的返回值，就是await修饰后的Promise的返回值，如果Promise内部reject了，就会抛出异常，这时就可以使用try catch进行捕获。
+
+```js
 class Person {
     // constructor方法 是类的默认方法,通过new命令生成对象实例时,自动调用该方法,一个类必须有constructor方法,如果没有定义,会被默认添加
     constructor(name, age) {
