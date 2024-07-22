@@ -26,7 +26,7 @@ ECMAScript 6.0（以下简称 ES6）是 JavaScript 语言的下一代标准，�
 }
 console.log(a); //a is not defined
 console.log(b); //20
-复制代码
+ 
 ```
 
 ### 不存在变量提升
@@ -44,7 +44,7 @@ var c = 30;
 //let的情况
 console.log(c);// 报错ReferenceError
 let c = 30;
-复制代码
+ 
 ```
 
 #### 不允许重复声明
@@ -59,7 +59,7 @@ console.log(c); //报错
 function func(arg) {
   let arg; // 报错
 }
-复制代码
+ 
 ```
 
 ### 暂时性死区
@@ -81,7 +81,7 @@ function foo(a){
 }
 var a = 10;
 foo(a);
-复制代码
+ 
 ```
 
 #### 原因二：用来计数的循环遍历泄露为全局变量
@@ -94,7 +94,7 @@ for(var i = 0; i < 10; i++){
     }
 }
 console.log(arr[5]());
-复制代码
+ 
 ```
 
 变量`i`只用来控制循环，但是循环结束后，它并没有消失，用于变量提升，泄露成了全局变量。
@@ -120,7 +120,7 @@ for(let i = 0; i < 10; i++){
         return i;
     }
 }
-复制代码
+ 
 ```
 
 ### const基本用法-声明只读的常量
@@ -132,7 +132,7 @@ const a = 10;
 a = 20;//报错
 
 const b; //报错
-复制代码
+ 
 ```
 
 ### 与`let`命令相同点
@@ -155,7 +155,7 @@ const oBox = document.querySelector('.box');
 let id = 1,name = '小马哥';
 let htmlTel = "<ul><li><p>id:" + id + "</p><p>name:" + name + "</p></li></ul>";
 oBox.innerHTML = htmlTel;
-复制代码
+ 
 ```
 
 上面的这种写法相当繁琐不方便,ES6引入了模板字符串解决这个问题
@@ -167,7 +167,7 @@ let htmlTel = `<ul>
     <p>name:${name}</p>
     </li>
 </ul>`;
-复制代码
+ 
 ```
 
 ## 解构赋值
@@ -184,14 +184,14 @@ let htmlTel = `<ul>
 let a = 1;
 let b = 2;
 let c = 3;
-复制代码
+ 
 ```
 
 ES6允许我们这样写:
 
 ```js
 let [a,b,c] = [1,2,3];
-复制代码
+ 
 ```
 
 > 如果解构不成功，变量的值就等于`undefined`
@@ -199,15 +199,15 @@ let [a,b,c] = [1,2,3];
 ```js
 let [foo] = [];
 let [bar, foo] = [1];
-复制代码
+ 
 foo`的值都会等于`undefined
 ```
-
+### 
 ### 对象解构
 
 解构可以用于对象
 
-```bash
+```js
 let node = {
     type:'identifier',
     name:'foo'
@@ -215,7 +215,7 @@ let node = {
 
 let {type,name} = node;
 console.log(type,name)//identifier foo
-复制代码
+ 
 ```
 
 对象的解构赋值时，可以对属性忽略和使用剩余运算符
@@ -233,14 +233,14 @@ let {a} = obj;
 //剩余运算符 使用此法将其它属性展开到一个对象中存储
 let {a,...res} = obj;
 console.log(a,res);
-复制代码
+ 
 ```
 
 **默认值**
 
 ```css
 let {a,b = 10} = {a:20};
-复制代码
+ 
 ```
 
 ### 函数参数解构赋值
@@ -253,7 +253,7 @@ function add([x, y]){
 }
 
 add([1, 2]); // 3
-复制代码
+ 
 ```
 
 使用默认值
@@ -265,7 +265,7 @@ function addCart(n,num=0){
 }
 addCart(10);//10
 addCart(10,20); //30
-复制代码
+ 
 ```
 
 ### 用途
@@ -276,7 +276,7 @@ addCart(10,20); //30
   let x = 1;
   let y = 2;
   let [x,y] = [y,x];
-  复制代码
+   
   ```
 
   上面代码交换变量`x`和`y`的值，这样的写法不仅简洁，而且易读，语义非常清晰。
@@ -302,7 +302,7 @@ addCart(10,20); //30
     };
   }
   let { foo, bar } = example();
-  复制代码
+   
   ```
 
 - 函数参数的定义
@@ -317,7 +317,7 @@ addCart(10,20); //30
   // 参数是一组无次序的值
   function f({x, y, z}) { ... }
   f({z: 3, y: 2, x: 1});
-  复制代码
+   
   ```
 
 - 提取JSON数据
@@ -335,7 +335,7 @@ addCart(10,20); //30
   //对象的解构赋值的内部机制，是先找到同名属性，然后再赋给对应的变量。真正被赋值的是后者，而不是前者
   console.log(id, status, number);
   // 42, "OK", [867, 5309]
-  复制代码
+   
   ```
 
 - 函数参数的默认值
@@ -348,7 +348,7 @@ addCart(10,20); //30
   const {ajax} = require('xxx')
   
   ajax()
-  复制代码
+   
   ```
 
 ## 函数的扩展
@@ -357,7 +357,7 @@ addCart(10,20); //30
 
 ES6之前，不能直接为函数的参数指定默认值，只能采用变通的方法
 
-```bash
+```js
 function log(x,y){
     y = y || 'world';
     console.log(x,y);
@@ -365,12 +365,12 @@ function log(x,y){
 log('hello');//hello world
 log('hello','china') //hello china
 log('hello','')//hello world
-复制代码
+ 
 ```
 
 ES6 允许为函数的参数设置默认值，即直接写在参数定义的后面。
 
-```arduino
+``` js
 function log(x, y = 'World') {
   console.log(x, y);
 }
@@ -378,7 +378,7 @@ function log(x, y = 'World') {
 log('Hello') // Hello World
 log('Hello', 'China') // Hello China
 log('Hello', '') // Hello
-复制代码
+ 
 ```
 
 > ES6 的写法还有两个好处：首先，阅读代码的人，可以立刻意识到哪些参数是可以省略的，不用查看函数体或文档；其次，有利于将来的代码优化，即使未来的版本在对外接口中，彻底拿掉这个参数，也不会导致以前的代码无法运行。
@@ -393,7 +393,7 @@ function add2(a, b = getVal(5)) {
     return a + b;
 }
 console.log(add2(10));
-复制代码
+ 
 ```
 
 **小练习**
@@ -410,7 +410,7 @@ function m1({x = 0, y = 0} = {}) {
 function m2({x, y} = { x: 0, y: 0 }) {
   return [x, y];
 }
-复制代码
+ 
 ```
 
 上面两种写法都对函数的参数设定了默认值，区别是写法一函数参数的默认值是空对象，但是设置了对象解构赋值的默认值；写法二函数参数的默认值是一个有具体属性的对象，但是没有设置对象解构赋值的默认值。
@@ -434,14 +434,14 @@ m2({}) // [undefined, undefined]
 
 m1({z: 3}) // [0, 0]
 m2({z: 3}) // [undefined, undefined]
-复制代码
+ 
 ```
 
 ### rest参数
 
 ES6 引入 rest 参数（形式为`...变量名`），用于获取函数的多余参数，这样就不需要使用`arguments`对象了。rest 参数搭配的变量是一个数组，该变量将多余的参数放入数组中。
 
-```bash
+```js
 function add(...values) {
  
   let sum = 0;
@@ -454,7 +454,7 @@ function add(...values) {
 }
 
 add(2, 5, 3) // 10
-复制代码
+ 
 ```
 
 上面代码的`add`函数是一个求和函数，利用 rest 参数，可以向该函数传入任意数目的参数。
@@ -489,7 +489,7 @@ let doThing = () => {
 //如果箭头函数直接返回一个对象，必须在对象外面加上括号，否则会报错。
 let getId = id => ({id: id,name: 'mjj'}) //注意
 let obj = getId(1);
-复制代码
+ 
 ```
 
 ### 箭头函数的作用
@@ -499,7 +499,7 @@ let obj = getId(1);
   ```js
   const isEven = n => n % 2 == 0;
   const square = n => n * n;
-  复制代码
+   
   ```
 
 - 简化回调函数
@@ -512,7 +512,7 @@ let obj = getId(1);
   
   // 箭头函数写法
   [1,2,3].map(x => x * x);
-  复制代码
+   
   ```
 
 ### 使用注意点
@@ -564,7 +564,7 @@ let obj = getId(1);
       }
   }
   PageHandler.init();
-  复制代码
+   
   ```
 
 - 箭头函数中没有arguments对象
@@ -575,7 +575,7 @@ let obj = getId(1);
       return a + b;
   }
   console.log(getVal(1,2)); //arguments is not defined
-  复制代码
+   
   ```
 
 - 箭头函数不能使用new关键字来实例化对象
@@ -583,7 +583,7 @@ let obj = getId(1);
   ```ini
   let Person = ()=>{}
   let p1 = new Person();// Person is not a constructor
-  复制代码
+   
   ```
 
 ## 对象的扩展
@@ -615,7 +615,7 @@ function getPoint() {
 
 getPoint()
 // {x:1, y:10}
-复制代码
+ 
 ```
 
 #### 对象扩展运算符
@@ -624,7 +624,7 @@ getPoint()
 const [a, ...b] = [1, 2, 3];
 a // 1
 b // [2, 3]
-复制代码
+ 
 ```
 
 #### 解构赋值
@@ -636,7 +636,7 @@ let { x, y, ...z } = { x: 1, y: 2, a: 3, b: 4 };
 x // 1
 y // 2
 z // { a: 3, b: 4 }
-复制代码
+ 
 ```
 
 > 解构赋值必须是最后一个参数，否则会报错
@@ -644,7 +644,7 @@ z // { a: 3, b: 4 }
 > ```csharp
 > let { ...x, y, z } = obj; // 句法错误
 > let { x, ...y, ...z } = obj; // 句法错误
-> 复制代码
+>  
 > ```
 
 ### 扩展运算符
@@ -655,7 +655,7 @@ z // { a: 3, b: 4 }
 let z = { a: 3, b: 4 };
 let n = { ...z };
 n // { a: 3, b: 4 }
-复制代码
+ 
 ```
 
 扩展运算符可以用于合并两个对象。
@@ -664,7 +664,7 @@ n // { a: 3, b: 4 }
 let ab = { ...a, ...b };
 // 等同于
 let ab = Object.assign({}, a, b);
-复制代码
+ 
 ```
 
 ## Promise 对象
@@ -722,7 +722,7 @@ let p = new Promise((resolve,reject)=>{
 	}, 1000)
 })
 
-复制代码
+ 
 ```
 
 ### Promise的状态和值
@@ -758,7 +758,7 @@ p.then((data)=>{
 }).then(data=>{
     console.log(data);
 })
-复制代码
+ 
 ```
 
 promise的then方法返回一个promise对象，所以可以继续链式调用
@@ -776,7 +776,7 @@ function timeout(ms) {
 timeout(1000).then((value) => {
     console.log(value);
 })
-复制代码
+ 
 ```
 
 ### then方法的规则
@@ -829,7 +829,7 @@ getJSON('https://free-api.heweather.net/s6/weather/now?location=beijing&key=4693
 }).then((HeWeather6)=>{
     console.log(HeWeather6);
 })
-复制代码
+ 
 ```
 
 ### catch方法
@@ -851,7 +851,7 @@ getJSON('https://free-api.heweather.net/s6/weather/now?location=beijing&key=4693
 }).catch(err=>{
     console.log(err);   
 })
-复制代码
+ 
 ```
 
 ### resolve()
@@ -864,20 +864,20 @@ let p = Promise.resolve('foo');
 p.then((val)=>{
     console.log(val);
 })
-复制代码
+ 
 ```
 
 ### reject()
 
 `reject()`方法返回一个新的Promise实例，该实例的状态为rejected
 
-```vbnet
+```js
 let p2 = Promise.reject(new Error('出错了'));
 //等价于 let p2 = new Promise((resolve,reject)=>reject(new Error('出错了)));
 p2.catch(err => {
     console.log(err);
 })
-复制代码
+ 
 ```
 
 ### all()方法
@@ -886,7 +886,7 @@ all()方法提供了并行执行异步操作的能力，并且再所有异步操
 
 试想一个页面聊天系统，我们需要从两个不同的URL分别获得用户的的个人信息和好友列表，这两个任务是可以并行执行的，用Promise.all实现如下
 
-```javascript
+```js
 let meInfoPro = new Promise( (resolve, reject)=> {
     setTimeout(resolve, 500, 'P1');
 });
@@ -1154,7 +1154,8 @@ console.log(p);
 ES6 提供了更接近传统语言的写法，引入了 Class（类）这个概念，作为对象的模板。通过`class`关键字，可以定义类。
 
 基本上，ES6 的`class`可以看作只是一个语法糖，它的绝大部分功能，ES5 都可以做到，新的`class`写法只是让对象原型的写法更加清晰、更像面向对象编程的语法而已。上面的代码用 ES6 的`class`改写，就是下面这样
-
+# new关键字补充
+> 当使用new关键字调用一个构造函数或者类时，会创建一个虚拟上下文，包含new.target指向这个构造函数或者类，当构造完毕后返回构造的实例，并且销毁这个虚拟上下文（不管内部是否引用new.target）。
 # async补充
 > async关键字修饰的函数相当于一个语法糖，会将后面跟随的函数进行封装，变为一个返回Promise的函数，也就是说：async修饰的函数的返回值一定是Promise对象。
 # await补充

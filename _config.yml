@@ -232,5 +232,5 @@ feed:
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
   type: 'git'
-  repo: git@github.com:dmq0/dmq0.github.io.git
+  repo: https://github.com/dmqweb/dmqweb.github.io.git
   branch: master

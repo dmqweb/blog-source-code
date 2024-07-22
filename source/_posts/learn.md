@@ -276,15 +276,6 @@ class ClassWithPrivateField {
 
 **拖拽事件：dragenter、dragover、drop**
 
-# new关键字的实现：
-
-```js
-const mynew = function(constroctor,...argus){
-    const obj = Object.create(constroctor.prototype)
-    const res = obj.apply(obj,argus);
-    return (res && typeof res === 'object') ?res:obj;
-}
-```
 
 # 将字符串转换为二进制形式
 ```js

@@ -88,7 +88,7 @@
             "url": "https://dmqweb.cn/2024/05/21/electron/",
             "title": "electron",
             "date_published": "2024-05-21T11:35:27.000Z",
-            "content_html": "<p><strong>Electron 中 preload 模块最为重要，它的源码逻辑如下：</strong></p>\n<ul>\n<li>首先 electron 中封装了 c++ 模块对接 node.js 的 addon 模块，方法是：在头文件中标注了：#include &lt;node/addon.h&gt;</li>\n<li>此 c++ 模块将 app 实例绑定 (linkedBinding) 到 process 上，app 实例中有 <code>exposeAPIInWorld</code>  方法</li>\n<li>接着 <code>contextBridge</code>  中的 <code>expostInMainWorld</code>  方法返回的是 <code>process.linkedBinding.exposeAPIInWorld</code>  方法。<br />\n<img data-src=\"https://dmqweb.cn/images/Electron.pdf\" alt=\"Electron.pdf\" /><br />\n<a href=\"https://dmqweb.cn/images/Electron.pdf\">Electron pdf 笔记</a></li>\n</ul>\n",
+            "content_html": "<p><strong>Electron 中 preload 模块最为重要，它的源码逻辑如下：</strong></p>\n<ul>\n<li>首先 electron 中封装了 c++ 模块对接 node.js 的 addon 模块，方法是：在头文件中标注了：#include &lt;node/addon.h&gt;</li>\n<li>此 c++ 模块将 app 实例绑定 (linkedBinding) 到 process 上，app 实例中有 <code>exposeAPIInWorld</code>  方法</li>\n<li>接着 <code>contextBridge</code>  中的 <code>expostInMainWorld</code>  方法返回的是 <code>process.linkedBinding.exposeAPIInWorld</code>  方法。<br />\n<img data-src=\"https://dmqweb.cn/images/Electron.pdf\" alt=\"Electron.pdf\" /><br />\n<a href=\"https://dmqweb.cn/images/Electron.pdf\">Electron pdf 笔记</a></li>\n</ul>\n<h1 id=\"最近有些忙未完待续哈\"><a class=\"anchor\" href=\"#最近有些忙未完待续哈\">#</a> 最近有些忙，未完待续哈</h1>\n",
             "tags": [
                 "electron",
                 "electron"
