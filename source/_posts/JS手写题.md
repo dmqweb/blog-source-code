@@ -28,7 +28,24 @@ function A (){
 const ab = myNew(A)
 console.log(ab);
 ```
-
+# 手写class
+```js
+function Example(name) {
+    if(!new.target) throw new TypeError("该函数应该使用new来调用");
+    this.name = name
+}
+Object.definePropertie(Example.prototype,"init",{
+    enumerable:false,
+    value: function () {
+        'use strict';
+        if(new.target) throw new Error("init函数不能使用new来调用");
+        let fn = function () {
+            console.log(this.name);
+        }
+        fn.call(this);
+    }
+})
+```
 # 闭包的简单使用
 
 ```js
