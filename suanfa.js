@@ -41,3 +41,27 @@ function curried(fn) {
         }
     }
 }
+/**
+ * 状态模式,状态模式允许一个对象在其内部改变的时候去改变它的行为，对象看起来修改了它的类
+ */
+class State{
+    constructor(state){
+        this.state=state;
+    }
+    handle(context){
+        // State的handle方法，改变灯光状态
+        console.log(`this is ${this.state} light`);
+        context.setState(this);
+    }
+}
+class Context{
+    constructor(){
+        this.state = null;
+    }
+    getState(){
+        return this.state
+    }
+    setState(){
+        this.state = state;
+    }
+}
