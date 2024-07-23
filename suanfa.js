@@ -27,6 +27,6 @@ function myInstanceOf(left,right) {
  * 实现Object.create
  */
 // 参数一：proto 二：属性对象
-// Object.myCreate = function () {
+Object.myCreate = function (proto,propertyObj) {
     
-// }
+}
