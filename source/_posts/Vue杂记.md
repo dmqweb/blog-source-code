@@ -545,7 +545,7 @@ computed:{ ...mapState(['键名'])  }
 
 （2）组件在组件函数中，通过如下，调用state中的函数并传参
 
-```vue
+```Vue
 this.$store.commit（'函数名'，形参）
 //main.js中：
 mutations:{函数名：}
@@ -583,7 +583,7 @@ methods中：{...mapMutations(['键名1，键名2']) ,
 
 子组件中导入，methods方法中使用：
 
-```vue
+```Vue
 ...mapActions(['函数名','函数名2']，)
 //子组件函数中调用（如下）  或者直接在子组件触发事件上使用函数 @click="函数名(形参)"
 子组件函数(){
@@ -609,13 +609,13 @@ this.函数名2(形参)  }
 
 （1）定义子模块Modules （在main.js中Vuex.Store中：）
 
-```vue
+```Vue
 modules:{  子模块name1:{state:{ 键：值 }} ， 子模块name2:{state:{ 键：值 }}  } 
 ```
 
 （2）组件中使用
 
-```vue
+```Vue
 $store.state.子模块name.子模块键
 ```
 
@@ -623,7 +623,7 @@ $store.state.子模块name.子模块键
 
 在getters中定义，之后直接使用自定义的名称（①引入mapGetters，②在computed中扩展 ：...mapGetters(['自定义名1'，'名2'])）
 
-```vue
+```Vue
 getters:{  自定义名  : state => state.子模块名.子模块键 ，    }
 ```
 
@@ -635,7 +635,7 @@ getters:{  自定义名  : state => state.子模块名.子模块键 ，    }
 
 （1）使用命名空间：
 
-```vue
+```Vue
 modules:{  子模块名1： namespaced:true   ,state:{....},.....   }
 ```
 
