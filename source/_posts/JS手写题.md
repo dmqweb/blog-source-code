@@ -504,3 +504,265 @@ Function.prototype.myBind = function (thisContext) {
     }
 }
 ```
+# instanceof
+```javascript
+
+function myInstanceOf(left,right) {
+    //判断left是不是right的子类，遍历left的原型链，看是否有right
+    if(typeof left !== "object") throw new TypeError("Left-hand side of myInstanceOf is not an object");
+    if(typeof right !== "object") throw new TypeError("Right-hand side of myInstanceOf is not an object");
+    while (Object.getPrototypeOf(left)) {
+        left = Object.getPrototypeOf(left);
+        if(left === Object.getPrototypeOf(right)){
+            return true;
+        }
+    }
+    return false;
+}
+```
+# 实现Object.create
+```javascript
+// 参数一：proto 二：属性对象
+Object.myCreate = function (proto,propertyObj) {
+    if(typeof proto !== "object" && typeof proto !== "function"){
+        throw new TypeError("object prototype may not be an object or null")
+    }
+    if(propertyObj === null){
+        new TypeError("Cannot convert undefined or null to object");
+    }
+    function F() {}
+    F.prototype = proto;
+    const obj = new F();
+    if(propertyObj !== undefined){
+        Object.defineProperties(obj,propertyObj)
+    }
+    //模拟Object.create(null)
+    if(proto === null){
+        obj.__proto__ = null;
+    }
+    return obj;
+}
+```
+# 实现Object.assign
+```javascript
+Object.myAssign = function (target,...source) {
+    if(target == null){
+        throw new TypeError("Cannot convert undefined or null to object")
+    }
+    // 确保是一个对象类型
+    let resObj = Object(target);
+    source.forEach(item=>{
+        if(item != null){
+            //如果key属性是在
+            for(let key in item){
+                //如果key是原型上的方法
+                if(item.hasOwnProperty(key)){
+                    resObj[key] = item[key];
+                }
+            }
+        }
+    })
+    return resObj;
+}
+```
+
+# Promise 实现
+
+```javascript
+const PENDING = "PENDING";
+const FULFILLED = "FULFILLED";
+const REJECTED = "REJECTED";
+const resolvemyPromise = (myPromise2, x, resolve, reject) => {
+  if (myPromise2 === x) {
+    return reject(
+      new TypeError("Chaining cycle detected for myPromise #<myPromise>")
+    );
+  }
+  let called;
+  if ((typeof x === "object" && x != null) || typeof x === "function") {
+    try {
+      let then = x.then;
+      if (typeof then === "function") {
+        then.call(
+          x,
+          (y) => {
+            if (called) return;
+            called = true;
+            resolvemyPromise(myPromise2, y, resolve, reject);
+          },
+          (r) => {
+            if (called) return;
+            called = true;
+            reject(r);
+          }
+        );
+      } else {
+        resolve(x);
+      }
+    } catch (e) {
+      if (called) return;
+      called = true;
+      reject(e);
+    }
+  } else {
+    resolve(x);
+  }
+};
+class myPromise {
+  constructor(executor) {
+    this.status = PENDING; //状态
+    this.value = undefined; //值
+    this.reason = undefined; //原因
+    this.onResolvedCallbacks = []; //成功回调数组
+    this.onRejectedCallbacks = []; //失败回调数组
+    let resolve = (value) => {
+      if (value instanceof myPromise) {
+        return value.then(resolve, reject);
+      }
+      if (this.status === PENDING) {
+        this.status = FULFILLED;
+        this.value = value;
+        this.onResolvedCallbacks.forEach((fn) => fn());
+      }
+    };
+    let reject = (reason) => {
+      if (this.status === PENDING) {
+        this.status = REJECTED;
+        this.reason = reason;
+        this.onRejectedCallbacks.forEach((fn) => fn());
+      }
+    };
+    try {
+      executor(resolve, reject);
+    } catch (error) {
+      reject(error);
+    }
+  }
+  then(onFulfilled, onRejected) {
+    onFulfilled = typeof onFulfilled === "function" ? onFulfilled : (v) => v;
+    onRejected =
+      typeof onRejected === "function"
+        ? onRejected
+        : (err) => {
+            throw err;
+          };
+    let myPromise2 = new myPromise((resolve, reject) => {
+      if (this.status === FULFILLED) {
+        setTimeout(() => {
+          try {
+            let x = onFulfilled(this.value);
+            resolvemyPromise(myPromise2, x, resolve, reject);
+          } catch (e) {
+            reject(e);
+          }
+        }, 0);
+      }
+      if (this.status === REJECTED) {
+        setTimeout(() => {
+          try {
+            let x = onRejected(this.reason);
+            resolvemyPromise(myPromise2, x, resolve, reject);
+          } catch (e) {
+            reject(e);
+          }
+        }, 0);
+      }
+      if (this.status === PENDING) {
+        this.onResolvedCallbacks.push(() => {
+          setTimeout(() => {
+            try {
+              let x = onFulfilled(this.value);
+              resolvemyPromise(myPromise2, x, resolve, reject);
+            } catch (e) {
+              reject(e);
+            }
+          }, 0);
+        });
+        this.onRejectedCallbacks.push(() => {
+          setTimeout(() => {
+            try {
+              let x = onRejected(this.reason);
+              resolvemyPromise(myPromise2, x, resolve, reject);
+            } catch (e) {
+              reject(e);
+            }
+          }, 0);
+        });
+      }
+    });
+    return myPromise2;
+  }
+  catch(errCallback) {
+    return this.then(null, errCallback);
+  }
+  finally(callback) {
+    return this.then(
+      (value) => {
+        return myPromise.resolve(callback()).then(() => value);
+      },
+      (reason) => {
+        return myPromise.resolve(callback()).then(() => {
+          throw reason;
+        });
+      }
+    );
+  }
+  static resolve(data) {
+    return new myPromise((resolve, reject) => {
+      resolve(data);
+    });
+  }
+  static reject(reason) {
+    return new myPromise((resolve, reject) => {
+      reject(reason);
+    });
+  }
+  static all(values) {
+    if (!Array.isArray(values)) {
+      const type = typeof values;
+      return new TypeError(`TypeError: ${type} ${values} is not iterable`);
+    }
+    return new myPromise((resolve, reject) => {
+      let resultArr = [];
+      let orderIndex = 0;
+      const processResultByKey = (value, index) => {
+        resultArr[index] = value;
+        if (++orderIndex === values.length) {
+          resolve(resultArr);
+        }
+      };
+      for (let i = 0; i < values.length; i++) {
+        let value = values[i];
+        if (value && typeof value.then === "function") {
+          value.then((value) => {
+            processResultByKey(value, i);
+          }, reject);
+        } else {
+          processResultByKey(value, i);
+        }
+      }
+    });
+  }
+  static race(myPromises) {
+    return new myPromise((resolve, reject) => {
+      for (let i = 0; i < myPromises.length; i++) {
+        let val = myPromises[i];
+        if (val && typeof val.then === "function") {
+          val.then(resolve, reject);
+        } else {
+          resolve(val);
+        }
+      }
+    });
+  }
+}
+myPromise.defer = myPromise.deferred = function () {
+  let dtd = {};
+  dtd.myPromise = new myPromise((resolve, reject) => {
+    dtd.resolve = resolve;
+    dtd.reject = reject;
+  });
+  return dtd;
+};
+export default MyPromise;
+```
