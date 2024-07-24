@@ -78,7 +78,7 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
       <i class="ic i-pen"></i>
     </span>
     <span class="text">本文字数</span>
-    <span>999</span>
+    <span>1.1k</span>
     <span class="text">字</span>
   </span>
   <span class="item" title="阅读时长">
@@ -119,12 +119,12 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
       </div>
       <div id="imgs" class="pjax">
         <ul>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/13/a7144f7fc5d49961.jpg"></li>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/03/29/4e134f025ae53f2b.jpg"></li>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/07/971b0200f59eab4c.jpg"></li>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/15/effaa43770a5e6bc.jpg"></li>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/25/15ba2d11a4dda9ca.jpg"></li>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/13/7056b573eacc540d.jpg"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/05/f58f811a8b6cbdbb.jpg"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/06/d8aa12b30683676e.jpg"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/06/ba62f09d8f302a0f.jpg"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/25/d919179c20f6fc96.jpg"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/07/5804c6f23029288b.jpg"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/28/b9f6c169ea5daebe.webp"></li>
         </ul>
       </div>
     </header>
@@ -170,9 +170,11 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
   <div class="body md" itemprop="articleBody">
     
 
-    <h1 id="前端网络安全"><a href="#前端网络安全" class="headerlink" title="前端网络安全"></a>前端网络安全</h1><h2 id="1-XSS-跨站脚本攻击"><a href="#1-XSS-跨站脚本攻击" class="headerlink" title="#1. XSS 跨站脚本攻击"></a><span class="exturl" data-url="aHR0cHM6Ly96eHBzdXBlci5naXRodWIuaW8vYWR2YW5jZWRfZnJvbnRfZW5kL2Jvb2svYnJvd3Nlci9zYWZlLmh0bWwjXzEteHNzLSVFOCVCNyVBOCVFNyVBQiU5OSVFOCU4NCU5QSVFNiU5QyVBQyVFNiU5NCVCQiVFNSU4NyVCQg==">#</span>1. XSS 跨站脚本攻击</h2><p><strong>原理</strong></p>
+    <h1 id="前端网络安全"><a class="anchor" href="#前端网络安全">#</a> 前端网络安全</h1>
+<h2 id=""><a class="anchor" href="#">#</a> <span class="exturl" data-url="aHR0cHM6Ly96eHBzdXBlci5naXRodWIuaW8vYWR2YW5jZWRfZnJvbnRfZW5kL2Jvb2svYnJvd3Nlci9zYWZlLmh0bWwjXzEteHNzLSVFOCVCNyVBOCVFNyVBQiU5OSVFOCU4NCU5QSVFNiU5QyVBQyVFNiU5NCVCQiVFNSU4NyVCQg==">#</span>1. XSS 跨站脚本攻击</h2>
+<p><strong>原理</strong></p>
 <blockquote>
-<p>XSS 是常见的 Web 攻击技术之一.所谓的跨站脚本攻击指得是:恶意攻击者往 Web 页面里注入恶意 Script 代码，用户浏览这些网页时，就会执行其中的恶意代码，可对用户进行盗取 cookie 信息、会话劫持等各种攻击。</p>
+<p>XSS 是常见的 Web 攻击技术之一。所谓的跨站脚本攻击指得是：恶意攻击者往 Web 页面里注入恶意 Script 代码，用户浏览这些网页时，就会执行其中的恶意代码，可对用户进行盗取 cookie 信息、会话劫持等各种攻击。</p>
 </blockquote>
 <p><strong>危害</strong></p>
 <p>1、<strong>盗取各类用户帐号</strong>，如机器登录帐号、用户网银帐号、各类管理员帐号</p>
@@ -184,10 +186,11 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
 <p>7、<strong>控制受害者机器向其它网站发起攻击</strong></p>
 <p><strong>前端如何处理</strong></p>
 <ul>
-<li>过滤用户的输入信息，禁止用户在输入的过程中输入 “&lt;”, “&gt;”, “引号”, “$”, “_”</li>
-<li>核心的用户身份标示或 token 保存在 Cookie 中,Cookie 中一定要加 “HTTPOnly” 在结尾，保证只有在 html 操作时才能将 cookie 中的内容发送出去，在 JS 中无法获得用户的 Cookie 信息</li>
+<li>过滤用户的输入信息，禁止用户在输入的过程中输入 &quot;&lt;&quot;, &quot;&gt;&quot;, &quot;引号&quot;, &quot;$&quot;, &quot;_&quot;</li>
+<li>核心的用户身份标示或 token 保存在 Cookie 中，Cookie 中一定要加 “HTTPOnly” 在结尾，保证只有在 html 操作时才能将 cookie 中的内容发送出去，在 JS 中无法获得用户的 Cookie 信息</li>
 </ul>
-<h2 id="2-CSRF-网络攻击"><a href="#2-CSRF-网络攻击" class="headerlink" title="#2. CSRF 网络攻击"></a><span class="exturl" data-url="aHR0cHM6Ly96eHBzdXBlci5naXRodWIuaW8vYWR2YW5jZWRfZnJvbnRfZW5kL2Jvb2svYnJvd3Nlci9zYWZlLmh0bWwjXzItY3NyZi0lRTclQkQlOTElRTclQkIlOUMlRTYlOTQlQkIlRTUlODclQkI=">#</span>2. CSRF 网络攻击</h2><p><strong>原理</strong></p>
+<h2 id="-2"><a class="anchor" href="#-2">#</a> <span class="exturl" data-url="aHR0cHM6Ly96eHBzdXBlci5naXRodWIuaW8vYWR2YW5jZWRfZnJvbnRfZW5kL2Jvb2svYnJvd3Nlci9zYWZlLmh0bWwjXzItY3NyZi0lRTclQkQlOTElRTclQkIlOUMlRTYlOTQlQkIlRTUlODclQkI=">#</span>2. CSRF 网络攻击</h2>
+<p><strong>原理</strong></p>
 <blockquote>
 <p>CSRF（Cross-site request forgery）跨站请求伪造，也被称为 “One Click Attack” 或者 Session Riding，通常缩写为 CSRF 或者 XSRF，是一种对网站的恶意利用。尽管听起来像跨站脚本（XSS），但它与 XSS 非常不同，XSS 利用站点内的信任用户，而 CSRF 则通过伪装来自受信任用户的请求来利用受信任的网站。与 XSS 攻击相比，CSRF 攻击往往不大流行（因此对其进行防范的资源也相当稀少）和难以防范，所以被认为比 XSS 更具危险性。</p>
 </blockquote>
@@ -199,7 +202,8 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
 <li>阻止第三方网站请求接口</li>
 <li>请求时附带验证信息，比如验证码或者 Token</li>
 </ul>
-<h2 id="3-DDOS-攻击"><a href="#3-DDOS-攻击" class="headerlink" title="#3. DDOS 攻击"></a><span class="exturl" data-url="aHR0cHM6Ly96eHBzdXBlci5naXRodWIuaW8vYWR2YW5jZWRfZnJvbnRfZW5kL2Jvb2svYnJvd3Nlci9zYWZlLmh0bWwjXzMtZGRvcy0lRTYlOTQlQkIlRTUlODclQkI=">#</span>3. DDOS 攻击</h2><p><strong>原理</strong></p>
+<h2 id="-3"><a class="anchor" href="#-3">#</a> <span class="exturl" data-url="aHR0cHM6Ly96eHBzdXBlci5naXRodWIuaW8vYWR2YW5jZWRfZnJvbnRfZW5kL2Jvb2svYnJvd3Nlci9zYWZlLmh0bWwjXzMtZGRvcy0lRTYlOTQlQkIlRTUlODclQkI=">#</span>3. DDOS 攻击</h2>
+<p><strong>原理</strong></p>
 <blockquote>
 <p>DDOS 攻击，它在短时间内发起大量请求，耗尽服务器的资源，无法响应正常的访问，造成网站实质下线。</p>
 </blockquote>
@@ -284,7 +288,7 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
     <div class="item left">
       
 
-  <a href="/2024/05/21/electron/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;s3.uuu.ovh&#x2F;imgs&#x2F;2024&#x2F;04&#x2F;12&#x2F;3368de466b008234.webp" title="electron">
+  <a href="/2024/05/21/electron/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;s3.uuu.ovh&#x2F;imgs&#x2F;2024&#x2F;04&#x2F;05&#x2F;5f5c15d0d8ceb4d1.jpg" title="electron">
   <span class="type">上一篇</span>
   <span class="category"><i class="ic i-flag"></i> electron</span>
   <h3>electron</h3>
@@ -294,7 +298,7 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
     <div class="item right">
       
 
-  <a href="/2024/05/24/%E5%BE%AE%E5%89%8D%E7%AB%AF/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;s3.uuu.ovh&#x2F;imgs&#x2F;2024&#x2F;03&#x2F;29&#x2F;b0675aed15ca0334.jpg" title="微前端">
+  <a href="/2024/05/24/%E5%BE%AE%E5%89%8D%E7%AB%AF/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;s3.uuu.ovh&#x2F;imgs&#x2F;2024&#x2F;03&#x2F;29&#x2F;a93636ae09845d36.jpg" title="微前端">
   <span class="type">下一篇</span>
   <span class="category"><i class="ic i-flag"></i> 微前端</span>
   <h3>微前端</h3>
@@ -316,7 +320,7 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
   <div class="panels">
     <div class="inner">
       <div class="contents panel pjax" data-title="文章目录">
-          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%89%8D%E7%AB%AF%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8"><span class="toc-number">1.</span> <span class="toc-text">前端网络安全</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-XSS-%E8%B7%A8%E7%AB%99%E8%84%9A%E6%9C%AC%E6%94%BB%E5%87%BB"><span class="toc-number">1.1.</span> <span class="toc-text">#1. XSS 跨站脚本攻击</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-CSRF-%E7%BD%91%E7%BB%9C%E6%94%BB%E5%87%BB"><span class="toc-number">1.2.</span> <span class="toc-text">#2. CSRF 网络攻击</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-DDOS-%E6%94%BB%E5%87%BB"><span class="toc-number">1.3.</span> <span class="toc-text">#3. DDOS 攻击</span></a></li></ol></li></ol>
+          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%89%8D%E7%AB%AF%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8"><span class="toc-number">1.</span> <span class="toc-text"> 前端网络安全</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">1.1.</span> <span class="toc-text"> #1. XSS 跨站脚本攻击</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#-2"><span class="toc-number">1.2.</span> <span class="toc-text"> #2. CSRF 网络攻击</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#-3"><span class="toc-number">1.3.</span> <span class="toc-text"> #3. DDOS 攻击</span></a></li></ol></li></ol>
       </div>
       <div class="related panel pjax" data-title="系列文章">
         <ul>
@@ -434,100 +438,100 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/react/" title="分类于 react">react</a>
+<a href="/categories/electron/" title="分类于 electron">electron</a>
 </div>
 
-    <span><a href="/2023/12/02/react/" title="react笔记">react笔记</a></span>
+    <span><a href="/2024/05/21/electron/" title="electron">electron</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96/" title="分类于 前端工程化">前端工程化</a>
+<a href="/categories/%E8%84%9A%E6%89%8B%E6%9E%B6%E5%BC%80%E5%8F%91/" title="分类于 脚手架开发">脚手架开发</a>
 </div>
 
-    <span><a href="/2024/03/29/%E5%89%8D%E7%AB%AF%E6%A8%A1%E5%9D%97%E5%8C%96/" title="前端模块化">前端模块化</a></span>
+    <span><a href="/2024/04/12/%E8%84%9A%E6%89%8B%E6%9E%B6/" title="脚手架开发">脚手架开发</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/" title="分类于 前端性能优化">前端性能优化</a>
+<a href="/categories/%E5%BE%AE%E5%89%8D%E7%AB%AF/" title="分类于 微前端">微前端</a>
 </div>
 
-    <span><a href="/2024/03/02/%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/" title="前端性能优化">前端性能优化</a></span>
+    <span><a href="/2024/05/24/%E5%BE%AE%E5%89%8D%E7%AB%AF/" title="微前端">微前端</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/TDD/" title="分类于 TDD">TDD</a>
+<a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/" title="分类于 计算机组成原理">计算机组成原理</a>
 </div>
 
-    <span><a href="/2024/03/30/jest/" title="jest">jest</a></span>
+    <span><a href="/2023/07/02/%E6%B5%AE%E7%82%B9%E6%95%B0%E5%AD%98%E5%82%A8/" title="浮点数存储">浮点数存储</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/git/" title="分类于 git">git</a>
+<a href="/categories/OSI%E4%B8%83%E5%B1%82%E7%BD%91%E7%BB%9C%E6%A8%A1%E5%9E%8B/" title="分类于 OSI七层网络模型">OSI七层网络模型</a>
 </div>
 
-    <span><a href="/2023/04/02/git%E5%92%8Cgithub/" title="git与github">git与github</a></span>
+    <span><a href="/2024/05/27/OSI%E4%B8%83%E5%B1%82%E7%BD%91%E7%BB%9C%E6%A8%A1%E5%9E%8B/" title="OSI七层网络模型">OSI七层网络模型</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/JS/" title="分类于 JS">JS</a>
+<a href="/categories/%E5%BC%80%E6%BA%90%E5%8D%8F%E8%AE%AE/" title="分类于 开源协议">开源协议</a>
 </div>
 
-    <span><a href="/2023/10/02/33%E4%B8%AAJavascript%E6%A6%82%E5%BF%B5/" title="33个JavaScript概念">33个JavaScript概念</a></span>
+    <span><a href="/2023/02/02/%E5%BC%80%E6%BA%90%E5%8D%8F%E8%AE%AE/" title="常见开源协议">常见开源协议</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" title="分类于 解决方案">解决方案</a>
+<a href="/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" title="分类于 操作系统">操作系统</a>
 </div>
 
-    <span><a href="/2023/06/02/%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" title="解决方案">解决方案</a></span>
+    <span><a href="/2024/07/23/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" title="操作系统">操作系统</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" title="分类于 数据库">数据库</a>
+<a href="/categories/%E5%A4%8D%E6%9D%82%E4%B8%9A%E5%8A%A1%E9%83%A8%E7%BD%B2%E4%B8%8E%E4%BC%98%E5%8C%96/" title="分类于 复杂业务部署与优化">复杂业务部署与优化</a>
 </div>
 
-    <span><a href="/2023/12/02/%E6%95%B0%E6%8D%AE%E5%BA%93/" title="数据库">数据库</a></span>
+    <span><a href="/2024/04/12/%E5%A4%8D%E6%9D%82%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2%E4%B8%8A%E7%BA%BF/" title="复杂业务部署与优化">复杂业务部署与优化</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/" title="分类于 自动化测试">自动化测试</a>
+<a href="/categories/jQuery/" title="分类于 jQuery">jQuery</a>
 </div>
 
-    <span><a href="/2024/03/02/%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/" title="自动化测试">自动化测试</a></span>
+    <span><a href="/2023/01/02/jQuery%E6%A1%86%E6%9E%B6%E5%BA%94%E7%94%A8/" title="jQuery">jQuery</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" title="分类于 正则表达式">正则表达式</a>
+<a href="/categories/%E6%B5%8F%E8%A7%88%E5%99%A8/" title="分类于 浏览器">浏览器</a>
 </div>
 
-    <span><a href="/2024/01/10/%E6%AD%A3%E5%88%99/" title="正则理念">正则理念</a></span>
+    <span><a href="/2023/10/09/%E6%B5%8F%E8%A7%88%E5%99%A8%E6%B8%B2%E6%9F%93%E5%8E%9F%E7%90%86/" title="浏览器渲染原理">浏览器渲染原理</a></span>
   </li>
 
   </ul>
@@ -552,13 +556,13 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
     <span class="post-meta-item-icon">
       <i class="ic i-chart-area"></i>
     </span>
-    <span title="站点总字数">938k 字</span>
+    <span title="站点总字数">943k 字</span>
 
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="ic i-coffee"></i>
     </span>
-    <span title="站点阅读时长">14:12</span>
+    <span title="站点阅读时长">14:17</span>
   </div>
   <div class="powered-by">
     基于 <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & Theme.<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Shoka</span>
@@ -593,7 +597,7 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
   };
 </script>
 
-<script src="https://cdn.polyfill.io/v2/polyfill.js"></script>
+<script src="https://polyfill.alicdn.com/polyfill.min.js?features=Promise%2CArray.prototype.includes"></script>
 
 <script src="//gcore.jsdelivr.net/combine/npm/pace-js@1.0.2/pace.min.js,npm/pjax@0.2.8/pjax.min.js,npm/whatwg-fetch@3.4.0/dist/fetch.umd.min.js,npm/animejs@3.2.0/lib/anime.min.js,npm/algoliasearch@4/dist/algoliasearch-lite.umd.js,npm/instantsearch.js@4/dist/instantsearch.production.min.js,npm/lozad@1/dist/lozad.min.js,npm/quicklink@2/dist/quicklink.umd.js"></script>
 

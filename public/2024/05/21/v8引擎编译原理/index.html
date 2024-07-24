@@ -78,7 +78,7 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
       <i class="ic i-pen"></i>
     </span>
     <span class="text">本文字数</span>
-    <span>2.6k</span>
+    <span>2.5k</span>
     <span class="text">字</span>
   </span>
   <span class="item" title="阅读时长">
@@ -119,12 +119,12 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
       </div>
       <div id="imgs" class="pjax">
         <ul>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/15/64f47485ad1e6bed.jpg"></li>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/28/52565b5ee960b9b5.webp"></li>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/07/2600bb35f2cdf6cf.jpg"></li>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/06/109323f5add23044.jpg"></li>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/05/921096d78816dacc.jpg"></li>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/25/1276fcec5eb7990e.webp"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/05/9c07b3ea7f1e2a1c.jpg"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/15/6d859d49c9d65157.jpg"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/06/a2c97e7bd0c6ecd6.webp"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/03/29/5c162f03529c2f38.jpg"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/07/6e43985af4997748.jpg"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/04/025bf3f9fc1cf452.webp"></li>
         </ul>
       </div>
     </header>
@@ -170,104 +170,89 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
   <div class="body md" itemprop="articleBody">
     
 
-    <h1 id="v8-执行-JS"><a href="#v8-执行-JS" class="headerlink" title="v8 执行 JS"></a>v8 执行 JS</h1><p><img data-src="/images/image123.png" alt="alt text"></p>
-<h1 id="v8-引擎介绍"><a href="#v8-引擎介绍" class="headerlink" title="v8 引擎介绍"></a>v8 引擎介绍</h1><p>Blink 内核用于解析 HTML、DOM、CSS 渲染、嵌入了 v8 引擎用于解析 Javascript</p>
-<p>V8 是谷歌的开源高性能 JavaScript 和 WebAssembly 引擎，用 C++编写。它被用于 Chrome 和 Node.js 等。<strong>用于解析并执行 JavaScript 代码。</strong></p>
-<h1 id="执行过程"><a href="#执行过程" class="headerlink" title="执行过程"></a>执行过程</h1><ul>
-<li>初始化运行环境<ul>
+    <h1 id="v8-执行-js"><a class="anchor" href="#v8-执行-js">#</a> v8 执行 JS</h1>
+<p><img data-src="/images/image123.png" alt="alt text" /></p>
+<h1 id="v8-引擎介绍"><a class="anchor" href="#v8-引擎介绍">#</a> v8 引擎介绍</h1>
+<p>Blink 内核用于解析 HTML、DOM、CSS 渲染、嵌入了 v8 引擎用于解析 Javascript</p>
+<p>V8 是谷歌的开源高性能 JavaScript 和 WebAssembly 引擎，用 C++ 编写。它被用于 Chrome 和 Node.js 等。<strong>用于解析并执行 JavaScript 代码。</strong></p>
+<h1 id="执行过程"><a class="anchor" href="#执行过程">#</a> 执行过程</h1>
+<ul>
+<li>初始化运行环境
+<ul>
 <li>堆栈空间</li>
 <li>全局执行上下文</li>
 <li>全局作用域</li>
 <li>事件循环系统</li>
 </ul>
 </li>
-<li>利用 Scanner 扫描器将输入的代码词法分析成 tokens<ul>
+<li>利用 Scanner 扫描器将输入的代码词法分析成 tokens
+<ul>
 <li>分析的结果就是一个个的 tokens 对象组成的数组</li>
 <li>分析的过程利用了有限自动状态机的概念</li>
 </ul>
 </li>
-<li>利用 parser 解析器将 tokens 转化为抽象语法树<ul>
+<li>利用 parser 解析器将 tokens 转化为抽象语法树
+<ul>
 <li>根据分析 tokens 构造出一种树形关系结构</li>
 <li><strong>预解析</strong>：在 JS 代码执行之前对代码进行可选的预处理，用于提高执行效率</li>
 <li><strong>延迟解析</strong>：只有代码执行到的部分才会去解析，节省了不必要的时间和开销，提高了 JavaScript 的执行效率，其中 vite 脚手架就是利用了这个优点（还有 esbuild 打包快的优势），提高了效率。</li>
 </ul>
 </li>
-<li>利用 <code>ignation解释器</code>将 AST（抽象语法树）转为字节码（不直接转为机器码？）<ul>
-<li>当年v8以超越同行10倍的运行速度而备受青睐,其本质原因是当时v8将JS源码直接编译为机器码,使得首次运行速度和后续执行速度都很快,但也存在一个问题就是内存占用太大,并且编译时占用太多时间</li>
-<li>字节码使得v8能够很好的进行优化与反优化,当执行代码时,对机器码的存储和复用等操作时都十分繁琐(存储占用大,分析繁琐等),但是分析字节码就更加容易一些</li>
+<li>利用  <code>ignation解释器</code> 将 AST（抽象语法树）转为字节码（不直接转为机器码？）
+<ul>
+<li>当年 v8 以超越同行 10 倍的运行速度而备受青睐，其本质原因是当时 v8 将 JS 源码直接编译为机器码，使得首次运行速度和后续执行速度都很快，但也存在一个问题就是内存占用太大，并且编译时占用太多时间</li>
+<li>字节码使得 v8 能够很好的进行优化与反优化，当执行代码时，对机器码的存储和复用等操作时都十分繁琐 (存储占用大，分析繁琐等), 但是分析字节码就更加容易一些</li>
 <li>字节码跨平台能力强</li>
 <li>字节码更快的加载和解析执行</li>
 <li>动态优化易操作</li>
 <li>代码安全性</li>
 </ul>
 </li>
-<li>利用 <code>TurboFan编译器</code>将字节码转为 CPU 和 ARM 识别的机器码</li>
+<li>利用  <code>TurboFan编译器</code> 将字节码转为 CPU 和 ARM 识别的机器码</li>
 </ul>
-<h1 id="v8-中的对象结构"><a href="#v8-中的对象结构" class="headerlink" title="v8 中的对象结构"></a>v8 中的对象结构</h1><h3 id="常规属性和排序属性"><a href="#常规属性和排序属性" class="headerlink" title="常规属性和排序属性"></a>常规属性和排序属性</h3><ul>
+<h1 id="v8-中的对象结构"><a class="anchor" href="#v8-中的对象结构">#</a> v8 中的对象结构</h1>
+<h3 id="常规属性和排序属性"><a class="anchor" href="#常规属性和排序属性">#</a> 常规属性和排序属性</h3>
+<ul>
 <li>v8 中的对象主要分为三个指针构成的，分别是：隐藏类、常规属性和排序属性。</li>
 <li>对象的属性数字会从小到大排列，字符串会按照原创建顺序</li>
 <li>对象中数字属性被称为排序属性，字符串属性被称为常规属性</li>
 </ul>
-<h3 id="快属性和慢属性"><a href="#快属性和慢属性" class="headerlink" title="快属性和慢属性"></a>快属性和慢属性</h3><ul>
+<h3 id="快属性和慢属性"><a class="anchor" href="#快属性和慢属性">#</a> 快属性和慢属性</h3>
+<ul>
 <li>JS 对象很多属性是在原型链上进行查找，这样就会很慢，v8 将部分常规属性（10 个）直接存储到对象本身（对象内属性），以提高属性的查询效率。</li>
 <li>快属性容量是 10 个。</li>
 </ul>
-<h3 id="封装、继承、多态"><a href="#封装、继承、多态" class="headerlink" title="封装、继承、多态"></a>封装、继承、多态</h3><ul>
+<h3 id="封装-继承-多态"><a class="anchor" href="#封装-继承-多态">#</a> 封装、继承、多态</h3>
+<ul>
 <li>封装就是将抽象出来的数据和对数据的操作封装在一起，数据在内部被保护，程序其他部分只有通过成员才能对数据进行操作</li>
 <li>继承：有原型链继承、寄生继承和 call、apply 借用法继承。</li>
 <li>多态就是函数重载：同一个函数可以根据调用的情况（参数类型和数量等）来进行不同的操作。</li>
 </ul>
-<h1 id="隐藏类"><a href="#隐藏类" class="headerlink" title="隐藏类"></a>隐藏类</h1><p>JavaScript 是一门动态语言，其各种不确定性导致 JavaScript 的执行效率要远低于静态语言，V8 为了提升 JavaScript 的执行效率，借鉴了很多静态语言的特性，比如：JIT 机制，为了加速运算而引入了内联缓存，为了提升对象的属性访问速度而引入了隐藏类。</p>
+<h1 id="隐藏类"><a class="anchor" href="#隐藏类">#</a> 隐藏类</h1>
+<p>JavaScript 是一门动态语言，其各种不确定性导致 JavaScript 的执行效率要远低于静态语言，V8 为了提升 JavaScript 的执行效率，借鉴了很多静态语言的特性，比如：JIT 机制，为了加速运算而引入了内联缓存，为了提升对象的属性访问速度而引入了隐藏类。</p>
 <p>隐藏类是 V8 引擎在运行时自动生成和管理的数据结构，用于跟踪对象的属性和方法，相当于提前定义好对象的形状，以便于提高操作对象的效率。</p>
-<h3 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h3><ul>
+<h3 id="原因"><a class="anchor" href="#原因">#</a> 原因</h3>
+<ul>
 <li>当 JavaScript 运行时，例如查找对象上的某一个属性，V8 引擎会通过快慢属性去查找，整个过程非常耗时，因为 V8 在使用一个对象时，并不知道对象的具体形状（属性方法等）</li>
-<li>而 C++在声明一个对象前就需要定义该对象的结构，C++代码执行前是需要被编译的，编译时对象的结构就已经固定，也就是当代码执行时，对象的形状是无法改变</li>
+<li>而 C<ins> 在声明一个对象前就需要定义该对象的结构，C</ins> 代码执行前是需要被编译的，编译时对象的结构就已经固定，也就是当代码执行时，对象的形状是无法改变</li>
 <li>所以 V8 引入了隐藏类的概念，用于跟踪对象的属性和方法以此在内存中快速查找对象属性</li>
 </ul>
-<h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><p>隐藏类就是把 JavaScript 的对象也进行静态化，<code>我们假设这个对象不会删除和新增</code>，这样形状就固定了</p>
+<h3 id="介绍"><a class="anchor" href="#介绍">#</a> 介绍</h3>
+<p>隐藏类就是把 JavaScript 的对象也进行静态化， <code>我们假设这个对象不会删除和新增</code> ，这样形状就固定了</p>
 <p>满足条件之后 V8 就会创建隐藏类，在这个隐藏类会创建对象的基础属性</p>
-<p>在 V8 引擎中，每个隐藏类都有一个编号（<code>map id</code>），用于唯一标识该隐藏类</p>
+<p>在 V8 引擎中，每个隐藏类都有一个编号（ <code>map id</code> ），用于唯一标识该隐藏类</p>
 <p>举个例子，假设我们有以下两个对象：</p>
-<pre><code class="javascript">let obj1 = &#123; name: 1, age: 2 &#125;;
-let obj2 = &#123; name: 1, age: 2, address: 3 &#125;;
-</code></pre>
-<p>这两个对象具有相同的形状，即都有属性<code>name</code>和<code>age</code>，但<code>obj2</code>还额外有一个属性<code>address</code>。V8 会为它们生成两个不同的隐藏类</p>
-<pre><code class="sh">// 隐藏类1：包含属性name和age
-HiddenClass_1
-├── map_id: 1
-├── property_names: [&#39;name&#39;, &#39;age&#39;]
-├── transitions: &#123;&#125;
-└── prototype: Object.prototype
-
-// 隐藏类2：包含属性name、age和address
-HiddenClass_2
-├── map_id: 2
-├── property_names: [&#39;name&#39;, &#39;age&#39;, &#39;address&#39;]
-├── transitions:
-│   ├── a: HiddenClass_1
-│   ├── b: HiddenClass_1
-│   └── c: null
-└── prototype: Object.prototype
-</code></pre>
-<p>可以看到，隐藏类 1 包含属性<code>name</code>和<code>age</code>，没有过渡表；而隐藏类 2 包含属性<code>name</code>、<code>age</code>和<code>address</code>，其中属性<code>name</code>和<code>age</code>的过渡表指向隐藏类 1，属性<code>address</code>没有过渡表，表示该属性是新添加的</p>
+<figure class="highlight javascript"><figcaption data-lang="javascript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">let</span> obj1 <span class="token operator">=</span> <span class="token punctuation">&#123;</span> <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token literal-property property">age</span><span class="token operator">:</span> <span class="token number">2</span> <span class="token punctuation">&#125;</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token keyword">let</span> obj2 <span class="token operator">=</span> <span class="token punctuation">&#123;</span> <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token literal-property property">age</span><span class="token operator">:</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token literal-property property">address</span><span class="token operator">:</span> <span class="token number">3</span> <span class="token punctuation">&#125;</span><span class="token punctuation">;</span></pre></td></tr></table></figure><p>这两个对象具有相同的形状，即都有属性 <code>name</code>  和 <code>age</code> ，但 <code>obj2</code>  还额外有一个属性 <code>address</code> 。V8 会为它们生成两个不同的隐藏类</p>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre>// 隐藏类1：包含属性name和age</pre></td></tr><tr><td data-num="2"></td><td><pre>HiddenClass_1</pre></td></tr><tr><td data-num="3"></td><td><pre>├── map_id: <span class="token number">1</span></pre></td></tr><tr><td data-num="4"></td><td><pre>├── property_names: <span class="token punctuation">[</span><span class="token string">'name'</span>, <span class="token string">'age'</span><span class="token punctuation">]</span></pre></td></tr><tr><td data-num="5"></td><td><pre>├── transitions: <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="6"></td><td><pre>└── prototype: Object.prototype</pre></td></tr><tr><td data-num="7"></td><td><pre></pre></td></tr><tr><td data-num="8"></td><td><pre>// 隐藏类2：包含属性name、age和address</pre></td></tr><tr><td data-num="9"></td><td><pre>HiddenClass_2</pre></td></tr><tr><td data-num="10"></td><td><pre>├── map_id: <span class="token number">2</span></pre></td></tr><tr><td data-num="11"></td><td><pre>├── property_names: <span class="token punctuation">[</span><span class="token string">'name'</span>, <span class="token string">'age'</span>, <span class="token string">'address'</span><span class="token punctuation">]</span></pre></td></tr><tr><td data-num="12"></td><td><pre>├── transitions:</pre></td></tr><tr><td data-num="13"></td><td><pre>│   ├── a: HiddenClass_1</pre></td></tr><tr><td data-num="14"></td><td><pre>│   ├── b: HiddenClass_1</pre></td></tr><tr><td data-num="15"></td><td><pre>│   └── c: null</pre></td></tr><tr><td data-num="16"></td><td><pre>└── prototype: Object.prototype</pre></td></tr></table></figure><p>可以看到，隐藏类 1 包含属性 <code>name</code>  和 <code>age</code> ，没有过渡表；而隐藏类 2 包含属性 <code>name</code> 、 <code>age</code>  和 <code>address</code> ，其中属性 <code>name</code>  和 <code>age</code>  的过渡表指向隐藏类 1，属性 <code>address</code>  没有过渡表，表示该属性是新添加的</p>
 <p><strong>如果两个对象属性一样呢？</strong></p>
 <p>如果两个对象具有相同的属性，它们将共享同一个隐藏类。具体来说，当两个对象的属性顺序和类型都相同时，V8 会为它们生成一个共享的隐藏类。</p>
 <p>举个例子，假设我们有以下两个对象：</p>
-<pre><code class="ini">let obj1 = &#123; name: 1, age: 2 &#125;;
-let obj2 = &#123; name: 1, age: 2 &#125;;
-</code></pre>
-<p>这两个对象具有相同的形状，即都有属性<code>name</code>和<code>age</code>，且属性的顺序和类型完全一致。V8 会为它们生成一个共享的隐藏类，如下所示：</p>
-<pre><code class="javascript">HiddenClass_1
-├── map_id: 1
-├── property_names: [&#39;name&#39;, &#39;age&#39;]
-├── transitions: &#123;&#125;
-└── prototype: Object.prototype
-</code></pre>
-<p>可以看到，隐藏类 1 包含属性<code>name</code>和<code>age</code>，没有过渡表，而且两个对象都<code>共享</code>这个隐藏类。</p>
+<figure class="highlight ini"><figcaption data-lang="ini"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token key attr-name">let obj1</span> <span class="token punctuation">=</span> <span class="token value attr-value">&#123; name: 1, age: 2 &#125;;</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token key attr-name">let obj2</span> <span class="token punctuation">=</span> <span class="token value attr-value">&#123; name: 1, age: 2 &#125;;</span></pre></td></tr></table></figure><p>这两个对象具有相同的形状，即都有属性 <code>name</code>  和 <code>age</code> ，且属性的顺序和类型完全一致。V8 会为它们生成一个共享的隐藏类，如下所示：</p>
+<figure class="highlight javascript"><figcaption data-lang="javascript"></figcaption><table><tr><td data-num="1"></td><td><pre>HiddenClass_1</pre></td></tr><tr><td data-num="2"></td><td><pre>├── map_id<span class="token operator">:</span> <span class="token number">1</span></pre></td></tr><tr><td data-num="3"></td><td><pre>├── property_names<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">'name'</span><span class="token punctuation">,</span> <span class="token string">'age'</span><span class="token punctuation">]</span></pre></td></tr><tr><td data-num="4"></td><td><pre>├── transitions<span class="token operator">:</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="5"></td><td><pre>└── prototype<span class="token operator">:</span> <span class="token class-name">Object</span><span class="token punctuation">.</span>prototype</pre></td></tr></table></figure><p>可以看到，隐藏类 1 包含属性 <code>name</code>  和 <code>age</code> ，没有过渡表，而且两个对象都 <code>共享</code> 这个隐藏类。</p>
 <blockquote>
 <p>这种共享隐藏类的机制可以节省内存空间，因为不同的对象可以共享相同的隐藏类结构。</p>
 </blockquote>
-<p><img data-src="/images/Snipaste_2024-05-28_21-49-19.png" alt="JavaScript隐藏类机制"></p>
+<p><img data-src="/images/Snipaste_2024-05-28_21-49-19.png" alt="JavaScript隐藏类机制" /></p>
 
       <div class="tags">
           <a href="/tags/v8%E5%BC%95%E6%93%8E/" rel="tag"><i class="ic i-tag"></i> v8引擎</a>
@@ -341,7 +326,7 @@ let obj2 = &#123; name: 1, age: 2 &#125;;
     <div class="item left">
       
 
-  <a href="/2024/05/17/Blob%E5%92%8CFile/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;s3.uuu.ovh&#x2F;imgs&#x2F;2024&#x2F;04&#x2F;05&#x2F;5f5c15d0d8ceb4d1.jpg" title="Blob、File和FileReader">
+  <a href="/2024/05/17/Blob%E5%92%8CFile/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;s3.uuu.ovh&#x2F;imgs&#x2F;2024&#x2F;04&#x2F;12&#x2F;3368de466b008234.webp" title="Blob、File和FileReader">
   <span class="type">上一篇</span>
   <span class="category"><i class="ic i-flag"></i> Blob</span>
   <h3>Blob、File和FileReader</h3>
@@ -351,7 +336,7 @@ let obj2 = &#123; name: 1, age: 2 &#125;;
     <div class="item right">
       
 
-  <a href="/2024/05/21/electron/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;s3.uuu.ovh&#x2F;imgs&#x2F;2024&#x2F;04&#x2F;04&#x2F;025bf3f9fc1cf452.webp" title="electron">
+  <a href="/2024/05/21/electron/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;s3.uuu.ovh&#x2F;imgs&#x2F;2024&#x2F;04&#x2F;15&#x2F;3ad1c5ee17b91ba4.webp" title="electron">
   <span class="type">下一篇</span>
   <span class="category"><i class="ic i-flag"></i> electron</span>
   <h3>electron</h3>
@@ -373,7 +358,7 @@ let obj2 = &#123; name: 1, age: 2 &#125;;
   <div class="panels">
     <div class="inner">
       <div class="contents panel pjax" data-title="文章目录">
-          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#v8-%E6%89%A7%E8%A1%8C-JS"><span class="toc-number">1.</span> <span class="toc-text">v8 执行 JS</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#v8-%E5%BC%95%E6%93%8E%E4%BB%8B%E7%BB%8D"><span class="toc-number">2.</span> <span class="toc-text">v8 引擎介绍</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%89%A7%E8%A1%8C%E8%BF%87%E7%A8%8B"><span class="toc-number">3.</span> <span class="toc-text">执行过程</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#v8-%E4%B8%AD%E7%9A%84%E5%AF%B9%E8%B1%A1%E7%BB%93%E6%9E%84"><span class="toc-number">4.</span> <span class="toc-text">v8 中的对象结构</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%B8%E8%A7%84%E5%B1%9E%E6%80%A7%E5%92%8C%E6%8E%92%E5%BA%8F%E5%B1%9E%E6%80%A7"><span class="toc-number">4.0.1.</span> <span class="toc-text">常规属性和排序属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BF%AB%E5%B1%9E%E6%80%A7%E5%92%8C%E6%85%A2%E5%B1%9E%E6%80%A7"><span class="toc-number">4.0.2.</span> <span class="toc-text">快属性和慢属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B0%81%E8%A3%85%E3%80%81%E7%BB%A7%E6%89%BF%E3%80%81%E5%A4%9A%E6%80%81"><span class="toc-number">4.0.3.</span> <span class="toc-text">封装、继承、多态</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%9A%90%E8%97%8F%E7%B1%BB"><span class="toc-number">5.</span> <span class="toc-text">隐藏类</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8E%9F%E5%9B%A0"><span class="toc-number">5.0.1.</span> <span class="toc-text">原因</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%8B%E7%BB%8D"><span class="toc-number">5.0.2.</span> <span class="toc-text">介绍</span></a></li></ol></li></ol></li></ol>
+          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#v8-%E6%89%A7%E8%A1%8C-js"><span class="toc-number">1.</span> <span class="toc-text"> v8 执行 JS</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#v8-%E5%BC%95%E6%93%8E%E4%BB%8B%E7%BB%8D"><span class="toc-number">2.</span> <span class="toc-text"> v8 引擎介绍</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%89%A7%E8%A1%8C%E8%BF%87%E7%A8%8B"><span class="toc-number">3.</span> <span class="toc-text"> 执行过程</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#v8-%E4%B8%AD%E7%9A%84%E5%AF%B9%E8%B1%A1%E7%BB%93%E6%9E%84"><span class="toc-number">4.</span> <span class="toc-text"> v8 中的对象结构</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%B8%E8%A7%84%E5%B1%9E%E6%80%A7%E5%92%8C%E6%8E%92%E5%BA%8F%E5%B1%9E%E6%80%A7"><span class="toc-number">4.0.1.</span> <span class="toc-text"> 常规属性和排序属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BF%AB%E5%B1%9E%E6%80%A7%E5%92%8C%E6%85%A2%E5%B1%9E%E6%80%A7"><span class="toc-number">4.0.2.</span> <span class="toc-text"> 快属性和慢属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B0%81%E8%A3%85-%E7%BB%A7%E6%89%BF-%E5%A4%9A%E6%80%81"><span class="toc-number">4.0.3.</span> <span class="toc-text"> 封装、继承、多态</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%9A%90%E8%97%8F%E7%B1%BB"><span class="toc-number">5.</span> <span class="toc-text"> 隐藏类</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8E%9F%E5%9B%A0"><span class="toc-number">5.0.1.</span> <span class="toc-text"> 原因</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%8B%E7%BB%8D"><span class="toc-number">5.0.2.</span> <span class="toc-text"> 介绍</span></a></li></ol></li></ol></li></ol>
       </div>
       <div class="related panel pjax" data-title="系列文章">
         <ul>
@@ -491,40 +476,20 @@ let obj2 = &#123; name: 1, age: 2 &#125;;
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/vue/" title="分类于 vue">vue</a>
+<a href="/categories/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96/" title="分类于 前端工程化">前端工程化</a>
 </div>
 
-    <span><a href="/2023/09/02/vue3%E6%BA%90%E7%A0%81%E4%BD%8D%E8%BF%90%E7%AE%97/" title="vue3源码中的位运算">vue3源码中的位运算</a></span>
+    <span><a href="/2024/03/29/%E5%89%8D%E7%AB%AF%E6%A8%A1%E5%9D%97%E5%8C%96/" title="前端模块化">前端模块化</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%BC%8F/" title="分类于 开发模式">开发模式</a>
+<a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/" title="分类于 计算机组成原理">计算机组成原理</a>
 </div>
 
-    <span><a href="/2024/03/29/TDD/" title="TDD测试驱动开发">TDD测试驱动开发</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/%E5%BC%80%E6%BA%90%E5%8D%8F%E8%AE%AE/" title="分类于 开源协议">开源协议</a>
-</div>
-
-    <span><a href="/2023/02/02/%E5%BC%80%E6%BA%90%E5%8D%8F%E8%AE%AE/" title="常见开源协议">常见开源协议</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/JS/" title="分类于 JS">JS</a>
-</div>
-
-    <span><a href="/2024/01/11/webworker/" title="webWorker">webWorker</a></span>
+    <span><a href="/2023/07/02/%E6%B5%AE%E7%82%B9%E6%95%B0%E5%AD%98%E5%82%A8/" title="浮点数存储">浮点数存储</a></span>
   </li>
 
       
@@ -541,30 +506,50 @@ let obj2 = &#123; name: 1, age: 2 &#125;;
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" title="分类于 解决方案">解决方案</a>
+<a href="/categories/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%BC%8F/" title="分类于 开发模式">开发模式</a>
 </div>
 
-    <span><a href="/2023/06/02/%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" title="解决方案">解决方案</a></span>
+    <span><a href="/2024/03/29/TDD/" title="TDD测试驱动开发">TDD测试驱动开发</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86/" title="分类于 版本管理">版本管理</a>
+<a href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" title="分类于 网络安全">网络安全</a>
 </div>
 
-    <span><a href="/2024/01/23/%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86/" title="版本管理">版本管理</a></span>
+    <span><a href="/2024/05/23/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" title="网络安全">网络安全</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/" title="分类于 计算机组成原理">计算机组成原理</a>
+<a href="/categories/Vue/" title="分类于 Vue">Vue</a>
 </div>
 
-    <span><a href="/2024/01/02/%E7%BC%93%E5%AD%98%E3%80%81%E5%86%85%E5%AD%98%E3%80%81CPU%E7%9F%A5%E8%AF%86%E7%82%B9%E8%A7%A3%E6%9E%90%E7%AC%94%E8%AE%B0/" title="计组知识点">计组知识点</a></span>
+    <span><a href="/2023/01/12/Vue%E6%9D%82%E8%AE%B0/" title="Vue使用笔记">Vue使用笔记</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/JS/" title="分类于 JS">JS</a>
+</div>
+
+    <span><a href="/2023/12/11/typedArray/" title="JS中类型化数组typedArray">JS中类型化数组typedArray</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/HTTP/" title="分类于 HTTP">HTTP</a>
+</div>
+
+    <span><a href="/2023/05/02/HTTP/" title="HTTP">HTTP</a></span>
   </li>
 
       
@@ -581,10 +566,10 @@ let obj2 = &#123; name: 1, age: 2 &#125;;
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/git/" title="分类于 git">git</a>
+<a href="/categories/%E5%BC%80%E6%BA%90%E5%8D%8F%E8%AE%AE/" title="分类于 开源协议">开源协议</a>
 </div>
 
-    <span><a href="/2023/04/02/git%E5%92%8Cgithub/" title="git与github">git与github</a></span>
+    <span><a href="/2023/02/02/%E5%BC%80%E6%BA%90%E5%8D%8F%E8%AE%AE/" title="常见开源协议">常见开源协议</a></span>
   </li>
 
   </ul>
@@ -609,13 +594,13 @@ let obj2 = &#123; name: 1, age: 2 &#125;;
     <span class="post-meta-item-icon">
       <i class="ic i-chart-area"></i>
     </span>
-    <span title="站点总字数">938k 字</span>
+    <span title="站点总字数">943k 字</span>
 
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="ic i-coffee"></i>
     </span>
-    <span title="站点阅读时长">14:12</span>
+    <span title="站点阅读时长">14:17</span>
   </div>
   <div class="powered-by">
     基于 <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & Theme.<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Shoka</span>
@@ -650,7 +635,7 @@ let obj2 = &#123; name: 1, age: 2 &#125;;
   };
 </script>
 
-<script src="https://cdn.polyfill.io/v2/polyfill.js"></script>
+<script src="https://polyfill.alicdn.com/polyfill.min.js?features=Promise%2CArray.prototype.includes"></script>
 
 <script src="//gcore.jsdelivr.net/combine/npm/pace-js@1.0.2/pace.min.js,npm/pjax@0.2.8/pjax.min.js,npm/whatwg-fetch@3.4.0/dist/fetch.umd.min.js,npm/animejs@3.2.0/lib/anime.min.js,npm/algoliasearch@4/dist/algoliasearch-lite.umd.js,npm/instantsearch.js@4/dist/instantsearch.production.min.js,npm/lozad@1/dist/lozad.min.js,npm/quicklink@2/dist/quicklink.umd.js"></script>
 

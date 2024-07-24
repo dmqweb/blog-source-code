@@ -119,12 +119,12 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
       </div>
       <div id="imgs" class="pjax">
         <ul>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/05/ec66a7160398848b.webp"></li>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/28/b9f6c169ea5daebe.webp"></li>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/12/b04c50f26fdc9c19.jpg"></li>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/04/4b93d7d24397b567.jpg"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/28/a34792f58e340f69.webp"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/12/f63f09ff2084b1f3.jpg"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/25/1b093314ebaab948.jpg"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/03/29/a93636ae09845d36.jpg"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/28/91b1bdcfda8d22da.webp"></li>
           <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/15/21b7a3f222ccbcb6.jpg"></li>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/12/8740e71363c6800c.jpg"></li>
         </ul>
       </div>
     </header>
@@ -170,27 +170,33 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
   <div class="body md" itemprop="articleBody">
     
 
-    <h2 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h2><ul>
+    <h2 id="环境"><a class="anchor" href="#环境">#</a> 环境</h2>
+<ul>
 <li>Centos 7.4</li>
 <li>JDK 1.8</li>
 </ul>
-<h2 id="主要步骤"><a href="#主要步骤" class="headerlink" title="主要步骤"></a>主要步骤</h2><p>以下包含相关所有的步骤，可根据现有环境进行跳过</p>
+<h2 id="主要步骤"><a class="anchor" href="#主要步骤">#</a> 主要步骤</h2>
+<p>以下包含相关所有的步骤，可根据现有环境进行跳过</p>
 <ol>
-<li>安装JDK</li>
-<li>安装Centos</li>
-<li>Jenkins和Github配置</li>
+<li>安装 JDK</li>
+<li>安装 Centos</li>
+<li>Jenkins 和 Github 配置</li>
 <li>配置任务</li>
 </ol>
-<h3 id="安装JDK"><a href="#安装JDK" class="headerlink" title="安装JDK"></a>安装JDK</h3><p>Jenkins需要JDK才可以运行，我们首先安装JDK</p>
-<h4 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h4><p><span class="exturl" data-url="aHR0cDovL3d3dy5vcmFjbGUuY29tL3RlY2huZXR3b3JrL2phdmEvamF2YXNlL2Rvd25sb2Fkcy9qZGs4LWRvd25sb2Fkcy0yMTMzMTUxLmh0bWw=">下载链接查看地址</span></p>
-<p>首先点击Accept License Agreement，选择Linux对应版本</p>
-<p><strong>注</strong>若想要直接获取下载链接，使用wget进行下载是不行的，我们可以先点击链接进行下载，然后在chrome中的下载任务中查看下载链接进行复制。</p>
+<h3 id="安装jdk"><a class="anchor" href="#安装jdk">#</a> 安装 JDK</h3>
+<p>Jenkins 需要 JDK 才可以运行，我们首先安装 JDK</p>
+<h4 id="下载"><a class="anchor" href="#下载">#</a> 下载</h4>
+<p><span class="exturl" data-url="aHR0cDovL3d3dy5vcmFjbGUuY29tL3RlY2huZXR3b3JrL2phdmEvamF2YXNlL2Rvd25sb2Fkcy9qZGs4LWRvd25sb2Fkcy0yMTMzMTUxLmh0bWw=">下载链接查看地址</span></p>
+<p>首先点击 Accept License Agreement，选择 Linux 对应版本</p>
+<p><strong>注</strong>若想要直接获取下载链接，使用 wget 进行下载是不行的，我们可以先点击链接进行下载，然后在 chrome 中的下载任务中查看下载链接进行复制。</p>
 <pre><code>cd /usr/local/src
 wget `your download url`
 </code></pre>
-<h4 id="解压"><a href="#解压" class="headerlink" title="解压"></a>解压</h4><pre><code>tar -zxvf jdk-8u91-linux-x64.tar.gz
+<h4 id="解压"><a class="anchor" href="#解压">#</a> 解压</h4>
+<pre><code>tar -zxvf jdk-8u91-linux-x64.tar.gz
 </code></pre>
-<h4 id="环境变量"><a href="#环境变量" class="headerlink" title="环境变量"></a>环境变量</h4><p>将以下内容追加到 &#x2F;etc&#x2F;profile末尾,替换你对应的解压路径</p>
+<h4 id="环境变量"><a class="anchor" href="#环境变量">#</a> 环境变量</h4>
+<p>将以下内容追加到 /etc/profile 末尾，替换你对应的解压路径</p>
 <pre><code>JAVA_HOME=/usr/local/tools/jdk1.8.0_144
 
 JRE_HOME=$JAVA_HOME/jre
@@ -201,11 +207,14 @@ CLASSPATH=:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar:$JRE_HOME/lib/dt.jar
 
 export JAVA_HOME JRE_HOME PATH CLASSPATH
 </code></pre>
-<h4 id="启用配置"><a href="#启用配置" class="headerlink" title="启用配置"></a>启用配置</h4><pre><code>source /etc/profile
+<h4 id="启用配置"><a class="anchor" href="#启用配置">#</a> 启用配置</h4>
+<pre><code>source /etc/profile
 </code></pre>
-<h4 id="查看版本"><a href="#查看版本" class="headerlink" title="查看版本"></a>查看版本</h4><pre><code>java -version
+<h4 id="查看版本"><a class="anchor" href="#查看版本">#</a> 查看版本</h4>
+<pre><code>java -version
 </code></pre>
-<h3 id="安装Centos"><a href="#安装Centos" class="headerlink" title="安装Centos"></a>安装Centos</h3><p>使用yum进行安装</p>
+<h3 id="安装centos"><a class="anchor" href="#安装centos">#</a> 安装 Centos</h3>
+<p>使用 yum 进行安装</p>
 <pre><code>#安装自动选择最快源的插件
 $ yum install yum-fastestmirror -y
 #添加Jenkins源:
@@ -214,38 +223,53 @@ $ sudo rpm --import http://pkg.jenkins-ci.org/redhat/jenkins-ci.org.key
  #安装jenkins
 $ yum install jenkins
 </code></pre>
-<h4 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h4><pre><code>service jenkins start
+<h4 id="启动"><a class="anchor" href="#启动">#</a> 启动</h4>
+<pre><code>service jenkins start
 </code></pre>
-<h4 id="更改端口"><a href="#更改端口" class="headerlink" title="更改端口"></a>更改端口</h4><pre><code>vim /etc/sysconfig/jenkins
+<h4 id="更改端口"><a class="anchor" href="#更改端口">#</a> 更改端口</h4>
+<pre><code>vim /etc/sysconfig/jenkins
 service jenkins restart
 </code></pre>
-<h3 id="Jenkins和Github配置"><a href="#Jenkins和Github配置" class="headerlink" title="Jenkins和Github配置"></a>Jenkins和Github配置</h3><p>这里的配置就比较多了，主要是在github上生成key,然后在Jenkins与项目进行绑定即可</p>
-<h4 id="初始化Jenkins"><a href="#初始化Jenkins" class="headerlink" title="初始化Jenkins"></a>初始化Jenkins</h4><p>这几步非常简单，按照提示进行即可</p>
+<h3 id="jenkins和github配置"><a class="anchor" href="#jenkins和github配置">#</a> Jenkins 和 Github 配置</h3>
+<p>这里的配置就比较多了，主要是在 github 上生成 key, 然后在 Jenkins 与项目进行绑定即可</p>
+<h4 id="初始化jenkins"><a class="anchor" href="#初始化jenkins">#</a> 初始化 Jenkins</h4>
+<p>这几步非常简单，按照提示进行即可</p>
 <ol>
-<li>访问你的IP:8080</li>
-<li>cat &#x2F;var&#x2F;lib&#x2F;jenkins&#x2F;secrets&#x2F;initialAdminPassword 把密码输入进去</li>
-<li>Install suggested plugins进行安装</li>
+<li>访问你的 IP:8080</li>
+<li>cat /var/lib/jenkins/secrets/initialAdminPassword 把密码输入进去</li>
+<li>Install suggested plugins 进行安装</li>
 <li>设置账户密码</li>
 </ol>
-<h3 id="配置Github-webhooks"><a href="#配置Github-webhooks" class="headerlink" title="配置Github webhooks"></a>配置Github webhooks</h3><h4 id="在对项目有写权限的用户上获取token"><a href="#在对项目有写权限的用户上获取token" class="headerlink" title="在对项目有写权限的用户上获取token"></a>在对项目有写权限的用户上获取token</h4><p>进入github –&gt; setting –&gt; Personal Access Token –&gt; Generate new token</p>
-<p><a target="_blank" rel="noopener" href="http://callmedadaxin.github.io/images/jenkins-1.png"><img data-src="http://callmedadaxin.github.io/images/jenkins-1.png" alt="img"></a></p>
-<p>点击保存，获取token,并<strong>保存好你的token</strong></p>
-<h4 id="设置webhooks"><a href="#设置webhooks" class="headerlink" title="设置webhooks"></a>设置webhooks</h4><p>进入GitHub上指定的项目 –&gt; setting –&gt; WebHooks&amp;Services –&gt; add webhook –&gt; 输入刚刚部署jenkins的服务器的IP</p>
-<p><a target="_blank" rel="noopener" href="http://callmedadaxin.github.io/images/jenkins-2.png"><img data-src="http://callmedadaxin.github.io/images/jenkins-2.png" alt="img"></a></p>
-<h3 id="配置Jenkins的Git-Plugin"><a href="#配置Jenkins的Git-Plugin" class="headerlink" title="配置Jenkins的Git Plugin"></a>配置Jenkins的Git Plugin</h3><p>新版Jenkins在初始的时候已经默认安装了Git Plugin和相关依赖的Plugin，我们不用在重复进行安装，直接配置即可</p>
+<h3 id="配置github-webhooks"><a class="anchor" href="#配置github-webhooks">#</a> 配置 Github webhooks</h3>
+<h4 id="在对项目有写权限的用户上获取token"><a class="anchor" href="#在对项目有写权限的用户上获取token">#</a> 在对项目有写权限的用户上获取 token</h4>
+<p>进入 github –&gt; setting –&gt; Personal Access Token –&gt; Generate new token</p>
+<p><a target="_blank" rel="noopener" href="http://callmedadaxin.github.io/images/jenkins-1.png"><img data-src="http://callmedadaxin.github.io/images/jenkins-1.png" alt="img" /></a></p>
+<p>点击保存，获取 token, 并<strong>保存好你的 token</strong></p>
+<h4 id="设置webhooks"><a class="anchor" href="#设置webhooks">#</a> 设置 webhooks</h4>
+<p>进入 GitHub 上指定的项目 –&gt; setting –&gt; WebHooks&amp;Services –&gt; add webhook –&gt; 输入刚刚部署 jenkins 的服务器的 IP</p>
+<p><a target="_blank" rel="noopener" href="http://callmedadaxin.github.io/images/jenkins-2.png"><img data-src="http://callmedadaxin.github.io/images/jenkins-2.png" alt="img" /></a></p>
+<h3 id="配置jenkins的git-plugin"><a class="anchor" href="#配置jenkins的git-plugin">#</a> 配置 Jenkins 的 Git Plugin</h3>
+<p>新版 Jenkins 在初始的时候已经默认安装了 Git Plugin 和相关依赖的 Plugin，我们不用在重复进行安装，直接配置即可</p>
 <p>系统管理 –&gt; 系统设置 –&gt; GitHub –&gt; Add GitHub Sever</p>
-<p>填写API URL为<span class="exturl" data-url="aHR0cHM6Ly9hcGkuZ2l0aHViLmNvbS8=">https://api.github.com</span></p>
-<p><a target="_blank" rel="noopener" href="http://callmedadaxin.github.io/images/jenkins-3.png"><img data-src="http://callmedadaxin.github.io/images/jenkins-3.png" alt="img"></a></p>
-<p>点击旁边的Add按钮, 添加Secret Text<br><a target="_blank" rel="noopener" href="http://callmedadaxin.github.io/images/jenkins-4.png"><img data-src="http://callmedadaxin.github.io/images/jenkins-4.png" alt="img"></a></p>
-<h3 id="配置任务"><a href="#配置任务" class="headerlink" title="配置任务"></a>配置任务</h3><h3 id="1-新建"><a href="#1-新建" class="headerlink" title="1.新建"></a>1.新建</h3><p>回到主页 –&gt; 新建任务 –&gt; 新建一个自由风格的软件项目</p>
-<p><a target="_blank" rel="noopener" href="http://callmedadaxin.github.io/images/jenkins-5.png"><img data-src="http://callmedadaxin.github.io/images/jenkins-5.png" alt="img"></a></p>
-<h3 id="2-配置源码管理"><a href="#2-配置源码管理" class="headerlink" title="2.配置源码管理"></a>2.配置源码管理</h3><p><a target="_blank" rel="noopener" href="http://callmedadaxin.github.io/images/jenkins-6.png"><img data-src="http://callmedadaxin.github.io/images/jenkins-6.png" alt="img"></a></p>
-<h3 id="3-构建触发器，构建环境"><a href="#3-构建触发器，构建环境" class="headerlink" title="3.构建触发器，构建环境"></a>3.构建触发器，构建环境</h3><p><a target="_blank" rel="noopener" href="http://callmedadaxin.github.io/images/jenkins-7.png"><img data-src="http://callmedadaxin.github.io/images/jenkins-7.png" alt="img"></a></p>
-<h3 id="4-编写你的构建脚本"><a href="#4-编写你的构建脚本" class="headerlink" title="4.编写你的构建脚本"></a>4.编写你的构建脚本</h3><p><a target="_blank" rel="noopener" href="http://callmedadaxin.github.io/images/jenkins-8.png"><img data-src="http://callmedadaxin.github.io/images/jenkins-8.png" alt="img"></a></p>
+<p>填写 API URL 为<span class="exturl" data-url="aHR0cHM6Ly9hcGkuZ2l0aHViLmNvbS8="> https://api.github.com</span></p>
+<p><a target="_blank" rel="noopener" href="http://callmedadaxin.github.io/images/jenkins-3.png"><img data-src="http://callmedadaxin.github.io/images/jenkins-3.png" alt="img" /></a></p>
+<p>点击旁边的 Add 按钮，添加 Secret Text<br />
+<a target="_blank" rel="noopener" href="http://callmedadaxin.github.io/images/jenkins-4.png"><img data-src="http://callmedadaxin.github.io/images/jenkins-4.png" alt="img" /></a></p>
+<h3 id="配置任务"><a class="anchor" href="#配置任务">#</a> 配置任务</h3>
+<h3 id="1新建"><a class="anchor" href="#1新建">#</a> 1. 新建</h3>
+<p>回到主页 –&gt; 新建任务 –&gt; 新建一个自由风格的软件项目</p>
+<p><a target="_blank" rel="noopener" href="http://callmedadaxin.github.io/images/jenkins-5.png"><img data-src="http://callmedadaxin.github.io/images/jenkins-5.png" alt="img" /></a></p>
+<h3 id="2配置源码管理"><a class="anchor" href="#2配置源码管理">#</a> 2. 配置源码管理</h3>
+<p><a target="_blank" rel="noopener" href="http://callmedadaxin.github.io/images/jenkins-6.png"><img data-src="http://callmedadaxin.github.io/images/jenkins-6.png" alt="img" /></a></p>
+<h3 id="3构建触发器构建环境"><a class="anchor" href="#3构建触发器构建环境">#</a> 3. 构建触发器，构建环境</h3>
+<p><a target="_blank" rel="noopener" href="http://callmedadaxin.github.io/images/jenkins-7.png"><img data-src="http://callmedadaxin.github.io/images/jenkins-7.png" alt="img" /></a></p>
+<h3 id="4编写你的构建脚本"><a class="anchor" href="#4编写你的构建脚本">#</a> 4. 编写你的构建脚本</h3>
+<p><a target="_blank" rel="noopener" href="http://callmedadaxin.github.io/images/jenkins-8.png"><img data-src="http://callmedadaxin.github.io/images/jenkins-8.png" alt="img" /></a></p>
 <p>保存，应用</p>
-<h2 id="问题记录"><a href="#问题记录" class="headerlink" title="问题记录"></a>问题记录</h2><ul>
-<li>项目会自动clone在&#x2F;var&#x2F;lib&#x2F;jenkins&#x2F;workspace&#x2F;</li>
-<li>执行的全局脚本确定已经软链到 &#x2F;usr&#x2F;bin,否则访问不到</li>
+<h2 id="问题记录"><a class="anchor" href="#问题记录">#</a> 问题记录</h2>
+<ul>
+<li>项目会自动 clone 在 /var/lib/jenkins/workspace/</li>
+<li>执行的全局脚本确定已经软链到 /usr/bin, 否则访问不到</li>
 </ul>
 
       <div class="tags">
@@ -320,7 +344,7 @@ service jenkins restart
     <div class="item left">
       
 
-  <a href="/2024/02/02/serviceWorker/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;s3.uuu.ovh&#x2F;imgs&#x2F;2024&#x2F;04&#x2F;15&#x2F;6cedcb364082ed12.webp" title="serviceWorker">
+  <a href="/2024/02/02/serviceWorker/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;s3.uuu.ovh&#x2F;imgs&#x2F;2024&#x2F;04&#x2F;06&#x2F;3b79311f42543632.jpg" title="serviceWorker">
   <span class="type">上一篇</span>
   <span class="category"><i class="ic i-flag"></i> JS</span>
   <h3>serviceWorker</h3>
@@ -352,7 +376,7 @@ service jenkins restart
   <div class="panels">
     <div class="inner">
       <div class="contents panel pjax" data-title="文章目录">
-          <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%8E%AF%E5%A2%83"><span class="toc-number">1.</span> <span class="toc-text">环境</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%BB%E8%A6%81%E6%AD%A5%E9%AA%A4"><span class="toc-number">2.</span> <span class="toc-text">主要步骤</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85JDK"><span class="toc-number">2.1.</span> <span class="toc-text">安装JDK</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%8B%E8%BD%BD"><span class="toc-number">2.1.1.</span> <span class="toc-text">下载</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%A7%A3%E5%8E%8B"><span class="toc-number">2.1.2.</span> <span class="toc-text">解压</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F"><span class="toc-number">2.1.3.</span> <span class="toc-text">环境变量</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%90%AF%E7%94%A8%E9%85%8D%E7%BD%AE"><span class="toc-number">2.1.4.</span> <span class="toc-text">启用配置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B%E7%89%88%E6%9C%AC"><span class="toc-number">2.1.5.</span> <span class="toc-text">查看版本</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85Centos"><span class="toc-number">2.2.</span> <span class="toc-text">安装Centos</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%90%AF%E5%8A%A8"><span class="toc-number">2.2.1.</span> <span class="toc-text">启动</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9B%B4%E6%94%B9%E7%AB%AF%E5%8F%A3"><span class="toc-number">2.2.2.</span> <span class="toc-text">更改端口</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Jenkins%E5%92%8CGithub%E9%85%8D%E7%BD%AE"><span class="toc-number">2.3.</span> <span class="toc-text">Jenkins和Github配置</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%9D%E5%A7%8B%E5%8C%96Jenkins"><span class="toc-number">2.3.1.</span> <span class="toc-text">初始化Jenkins</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AEGithub-webhooks"><span class="toc-number">2.4.</span> <span class="toc-text">配置Github webhooks</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9C%A8%E5%AF%B9%E9%A1%B9%E7%9B%AE%E6%9C%89%E5%86%99%E6%9D%83%E9%99%90%E7%9A%84%E7%94%A8%E6%88%B7%E4%B8%8A%E8%8E%B7%E5%8F%96token"><span class="toc-number">2.4.1.</span> <span class="toc-text">在对项目有写权限的用户上获取token</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AE%BE%E7%BD%AEwebhooks"><span class="toc-number">2.4.2.</span> <span class="toc-text">设置webhooks</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AEJenkins%E7%9A%84Git-Plugin"><span class="toc-number">2.5.</span> <span class="toc-text">配置Jenkins的Git Plugin</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E4%BB%BB%E5%8A%A1"><span class="toc-number">2.6.</span> <span class="toc-text">配置任务</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E6%96%B0%E5%BB%BA"><span class="toc-number">2.7.</span> <span class="toc-text">1.新建</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E9%85%8D%E7%BD%AE%E6%BA%90%E7%A0%81%E7%AE%A1%E7%90%86"><span class="toc-number">2.8.</span> <span class="toc-text">2.配置源码管理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E6%9E%84%E5%BB%BA%E8%A7%A6%E5%8F%91%E5%99%A8%EF%BC%8C%E6%9E%84%E5%BB%BA%E7%8E%AF%E5%A2%83"><span class="toc-number">2.9.</span> <span class="toc-text">3.构建触发器，构建环境</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E7%BC%96%E5%86%99%E4%BD%A0%E7%9A%84%E6%9E%84%E5%BB%BA%E8%84%9A%E6%9C%AC"><span class="toc-number">2.10.</span> <span class="toc-text">4.编写你的构建脚本</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95"><span class="toc-number">3.</span> <span class="toc-text">问题记录</span></a></li></ol>
+          <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%8E%AF%E5%A2%83"><span class="toc-number">1.</span> <span class="toc-text"> 环境</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%BB%E8%A6%81%E6%AD%A5%E9%AA%A4"><span class="toc-number">2.</span> <span class="toc-text"> 主要步骤</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85jdk"><span class="toc-number">2.1.</span> <span class="toc-text"> 安装 JDK</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%8B%E8%BD%BD"><span class="toc-number">2.1.1.</span> <span class="toc-text"> 下载</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%A7%A3%E5%8E%8B"><span class="toc-number">2.1.2.</span> <span class="toc-text"> 解压</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F"><span class="toc-number">2.1.3.</span> <span class="toc-text"> 环境变量</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%90%AF%E7%94%A8%E9%85%8D%E7%BD%AE"><span class="toc-number">2.1.4.</span> <span class="toc-text"> 启用配置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B%E7%89%88%E6%9C%AC"><span class="toc-number">2.1.5.</span> <span class="toc-text"> 查看版本</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85centos"><span class="toc-number">2.2.</span> <span class="toc-text"> 安装 Centos</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%90%AF%E5%8A%A8"><span class="toc-number">2.2.1.</span> <span class="toc-text"> 启动</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9B%B4%E6%94%B9%E7%AB%AF%E5%8F%A3"><span class="toc-number">2.2.2.</span> <span class="toc-text"> 更改端口</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#jenkins%E5%92%8Cgithub%E9%85%8D%E7%BD%AE"><span class="toc-number">2.3.</span> <span class="toc-text"> Jenkins 和 Github 配置</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%9D%E5%A7%8B%E5%8C%96jenkins"><span class="toc-number">2.3.1.</span> <span class="toc-text"> 初始化 Jenkins</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AEgithub-webhooks"><span class="toc-number">2.4.</span> <span class="toc-text"> 配置 Github webhooks</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9C%A8%E5%AF%B9%E9%A1%B9%E7%9B%AE%E6%9C%89%E5%86%99%E6%9D%83%E9%99%90%E7%9A%84%E7%94%A8%E6%88%B7%E4%B8%8A%E8%8E%B7%E5%8F%96token"><span class="toc-number">2.4.1.</span> <span class="toc-text"> 在对项目有写权限的用户上获取 token</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AE%BE%E7%BD%AEwebhooks"><span class="toc-number">2.4.2.</span> <span class="toc-text"> 设置 webhooks</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AEjenkins%E7%9A%84git-plugin"><span class="toc-number">2.5.</span> <span class="toc-text"> 配置 Jenkins 的 Git Plugin</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E4%BB%BB%E5%8A%A1"><span class="toc-number">2.6.</span> <span class="toc-text"> 配置任务</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1%E6%96%B0%E5%BB%BA"><span class="toc-number">2.7.</span> <span class="toc-text"> 1. 新建</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2%E9%85%8D%E7%BD%AE%E6%BA%90%E7%A0%81%E7%AE%A1%E7%90%86"><span class="toc-number">2.8.</span> <span class="toc-text"> 2. 配置源码管理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3%E6%9E%84%E5%BB%BA%E8%A7%A6%E5%8F%91%E5%99%A8%E6%9E%84%E5%BB%BA%E7%8E%AF%E5%A2%83"><span class="toc-number">2.9.</span> <span class="toc-text"> 3. 构建触发器，构建环境</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4%E7%BC%96%E5%86%99%E4%BD%A0%E7%9A%84%E6%9E%84%E5%BB%BA%E8%84%9A%E6%9C%AC"><span class="toc-number">2.10.</span> <span class="toc-text"> 4. 编写你的构建脚本</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95"><span class="toc-number">3.</span> <span class="toc-text"> 问题记录</span></a></li></ol>
       </div>
       <div class="related panel pjax" data-title="系列文章">
         <ul>
@@ -470,100 +494,100 @@ service jenkins restart
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90%E4%B8%8E%E9%83%A8%E7%BD%B2/" title="分类于 持续集成与部署">持续集成与部署</a>
+<a href="/categories/%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" title="分类于 解决方案">解决方案</a>
 </div>
 
-    <span><a href="/2024/02/03/%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90%E4%B8%8E%E6%8C%81%E7%BB%AD%E9%83%A8%E7%BD%B2/" title="持续集成与持续部署">持续集成与持续部署</a></span>
+    <span><a href="/2023/06/02/%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" title="解决方案">解决方案</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/" title="分类于 前端性能优化">前端性能优化</a>
+<a href="/categories/jQuery/" title="分类于 jQuery">jQuery</a>
 </div>
 
-    <span><a href="/2024/03/02/%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/" title="前端性能优化">前端性能优化</a></span>
+    <span><a href="/2023/01/02/jQuery%E6%A1%86%E6%9E%B6%E5%BA%94%E7%94%A8/" title="jQuery">jQuery</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/%E4%B8%AD%E5%89%8D%E5%8F%B0%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" title="分类于 中前台解决方案">中前台解决方案</a>
+<a href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" title="分类于 网络安全">网络安全</a>
 </div>
 
-    <span><a href="/2023/02/12/%E4%B8%AD%E5%89%8D%E5%8F%B0%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" title="中前台解决方案">中前台解决方案</a></span>
+    <span><a href="/2024/05/23/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" title="网络安全">网络安全</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" title="分类于 正则表达式">正则表达式</a>
+<a href="/categories/JS/" title="分类于 JS">JS</a>
 </div>
 
-    <span><a href="/2023/02/12/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" title="正则表达式">正则表达式</a></span>
+    <span><a href="/2023/12/08/DataView/" title="DataView">DataView</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/HTTP/" title="分类于 HTTP">HTTP</a>
+<a href="/categories/%E7%AE%97%E6%B3%95/" title="分类于 算法">算法</a>
 </div>
 
-    <span><a href="/2023/05/02/HTTP/" title="HTTP">HTTP</a></span>
+    <span><a href="/2023/12/02/%E7%AE%97%E6%B3%95/" title="算法与数据结构">算法与数据结构</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/" title="分类于 计算机组成原理">计算机组成原理</a>
+<a href="/categories/OSI%E4%B8%83%E5%B1%82%E7%BD%91%E7%BB%9C%E6%A8%A1%E5%9E%8B/" title="分类于 OSI七层网络模型">OSI七层网络模型</a>
 </div>
 
-    <span><a href="/2024/01/02/%E7%BC%93%E5%AD%98%E3%80%81%E5%86%85%E5%AD%98%E3%80%81CPU%E7%9F%A5%E8%AF%86%E7%82%B9%E8%A7%A3%E6%9E%90%E7%AC%94%E8%AE%B0/" title="计组知识点">计组知识点</a></span>
+    <span><a href="/2024/05/27/OSI%E4%B8%83%E5%B1%82%E7%BD%91%E7%BB%9C%E6%A8%A1%E5%9E%8B/" title="OSI七层网络模型">OSI七层网络模型</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86/" title="分类于 版本管理">版本管理</a>
+<a href="/categories/%E5%89%8D%E7%AB%AF%E7%9B%91%E6%8E%A7/" title="分类于 前端监控">前端监控</a>
 </div>
 
-    <span><a href="/2024/01/23/%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86/" title="版本管理">版本管理</a></span>
+    <span><a href="/2024/04/29/%E5%89%8D%E7%AB%AF%E7%9B%91%E6%8E%A7/" title="前端监控">前端监控</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/%E8%84%9A%E6%89%8B%E6%9E%B6%E5%BC%80%E5%8F%91/" title="分类于 脚手架开发">脚手架开发</a>
+<a href="/categories/JS/" title="分类于 JS">JS</a>
 </div>
 
-    <span><a href="/2024/03/30/%E6%9C%AC%E5%9C%B0%E6%96%87%E4%BB%B6%E9%93%BE%E6%8E%A5/" title="本地文件链接">本地文件链接</a></span>
+    <span><a href="/2023/09/02/ArrayBuffer/" title="ArrayBuffer">ArrayBuffer</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/Blob/" title="分类于 Blob">Blob</a>
+<a href="/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/" title="分类于 面试题">面试题</a>
 </div>
 
-    <span><a href="/2024/05/17/Blob%E5%92%8CFile/" title="Blob、File和FileReader">Blob、File和FileReader</a></span>
+    <span><a href="/2024/04/30/%E6%B7%B1%E6%8B%B7%E8%B4%9D/" title="深拷贝">深拷贝</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/git/" title="分类于 git">git</a>
+<a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" title="分类于 数据库">数据库</a>
 </div>
 
-    <span><a href="/2023/04/02/git%E5%92%8Cgithub/" title="git与github">git与github</a></span>
+    <span><a href="/2023/12/02/%E6%95%B0%E6%8D%AE%E5%BA%93/" title="数据库">数据库</a></span>
   </li>
 
   </ul>
@@ -588,13 +612,13 @@ service jenkins restart
     <span class="post-meta-item-icon">
       <i class="ic i-chart-area"></i>
     </span>
-    <span title="站点总字数">938k 字</span>
+    <span title="站点总字数">943k 字</span>
 
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="ic i-coffee"></i>
     </span>
-    <span title="站点阅读时长">14:12</span>
+    <span title="站点阅读时长">14:17</span>
   </div>
   <div class="powered-by">
     基于 <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & Theme.<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Shoka</span>
@@ -629,7 +653,7 @@ service jenkins restart
   };
 </script>
 
-<script src="https://cdn.polyfill.io/v2/polyfill.js"></script>
+<script src="https://polyfill.alicdn.com/polyfill.min.js?features=Promise%2CArray.prototype.includes"></script>
 
 <script src="//gcore.jsdelivr.net/combine/npm/pace-js@1.0.2/pace.min.js,npm/pjax@0.2.8/pjax.min.js,npm/whatwg-fetch@3.4.0/dist/fetch.umd.min.js,npm/animejs@3.2.0/lib/anime.min.js,npm/algoliasearch@4/dist/algoliasearch-lite.umd.js,npm/instantsearch.js@4/dist/instantsearch.production.min.js,npm/lozad@1/dist/lozad.min.js,npm/quicklink@2/dist/quicklink.umd.js"></script>
 

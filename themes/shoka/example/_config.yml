@@ -9,7 +9,7 @@ description: 科技博客
 keywords: 科技,博客 # edit for Theme.shoka
 author: dmq
 language: zh-CN # 这里只可以选 zh-CN、zh-HK、zh-TW、ja、en 这几个格式
-timezone: 'Asia/Shanghai'
+timezone: "Asia/Shanghai"
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
@@ -35,7 +35,7 @@ titlecase: false # Transform title into titlecase
 external_link:
   enable: true # Open external links in new tab
   field: site # Apply to the whole site
-  exclude: ''
+  exclude: ""
 filename_case: 0
 render_drafts: false
 post_asset_folder: false
@@ -45,7 +45,7 @@ highlight:
   enable: false # edit for Theme.shoka
   line_number: true
   auto_detect: true
-  tab_replace: ''
+  tab_replace: ""
 prismjs:
   enable: false # edit for Theme.shoka
 
@@ -81,11 +81,10 @@ theme: shoka # edit for Theme.shoka
 deploy:
   type:
 
-
 # edit for Theme.shoka
 autoprefixer:
   exclude:
-    - '*.min.css'
+    - "*.min.css"
 
 markdown:
   render: # 渲染器设置
@@ -94,14 +93,14 @@ markdown:
     breaks: true # 转换段落里的 '\n' 到 <br>。
     linkify: true # 将类似 URL 的文本自动转换为链接。
     typographer:
-    quotes: '“”‘’'
+    quotes: "“”‘’"
   plugins: # markdown-it插件设置
     - plugin:
         name: markdown-it-toc-and-anchor
         enable: true
         options: # 文章目录以及锚点应用的class名称，shoka主题必须设置成这样
-          tocClassName: 'toc'
-          anchorClassName: 'anchor'
+          tocClassName: "toc"
+          anchorClassName: "anchor"
     - plugin:
         name: markdown-it-multimd-table
         enable: true
@@ -122,17 +121,17 @@ markdown:
 
 minify:
   html:
-    enable: true
+    enable: false
     stamp: false
     exclude:
-      - '**/json.ejs'
-      - '**/atom.ejs'
-      - '**/rss.ejs'
+      - "**/json.ejs"
+      - "**/atom.ejs"
+      - "**/rss.ejs"
   css:
-    enable: true
+    enable: false
     stamp: false
     exclude:
-      - '**/*.min.css'
+      - "**/*.min.css"
   js:
     enable: true
     stamp: false
@@ -141,8 +140,7 @@ minify:
     output:
     compress:
     exclude:
-      - '**/*.min.js'
-
+      - "**/*.min.js"
 
 algolia:
   appId: O788GQEJ8A
@@ -164,21 +162,20 @@ algolia:
 algolia_search:
   enable: true
 
-
 feed:
-    limit: 20
-    order_by: "-date"
-    tag_dir: false
-    category_dir: false
-    rss:
-        enable: true
-        template: "themes/shoka/layout/_alternate/rss.ejs"
-        output: "rss.xml"
-    atom:
-        enable: true
-        template: "themes/shoka/layout/_alternate/atom.ejs"
-        output: "atom.xml"
-    jsonFeed:
-        enable: true
-        template: "themes/shoka/layout/_alternate/json.ejs"
-        output: "feed.json"
+  limit: 20
+  order_by: "-date"
+  tag_dir: false
+  category_dir: false
+  rss:
+    enable: true
+    template: "themes/shoka/layout/_alternate/rss.ejs"
+    output: "rss.xml"
+  atom:
+    enable: true
+    template: "themes/shoka/layout/_alternate/atom.ejs"
+    output: "atom.xml"
+  jsonFeed:
+    enable: true
+    template: "themes/shoka/layout/_alternate/json.ejs"
+    output: "feed.json"

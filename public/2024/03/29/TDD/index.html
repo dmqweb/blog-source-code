@@ -78,7 +78,7 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
       <i class="ic i-pen"></i>
     </span>
     <span class="text">本文字数</span>
-    <span>806</span>
+    <span>811</span>
     <span class="text">字</span>
   </span>
   <span class="item" title="阅读时长">
@@ -119,12 +119,12 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
       </div>
       <div id="imgs" class="pjax">
         <ul>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/12/4508f1e9b6c8e047.jpg"></li>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/12/3368de466b008234.webp"></li>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/07/2600bb35f2cdf6cf.jpg"></li>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/07/6e43985af4997748.jpg"></li>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/06/a16303594a53d8d1.jpg"></li>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/15/807885ba1421e9b4.jpg"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/15/6d859d49c9d65157.jpg"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/04/3149a0cc49823a9c.jpg"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/05/f58f811a8b6cbdbb.jpg"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/12/b04c50f26fdc9c19.jpg"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/12/8740e71363c6800c.jpg"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/07/a69a9d571bee6f0b.jpg"></li>
         </ul>
       </div>
     </header>
@@ -170,16 +170,24 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
   <div class="body md" itemprop="articleBody">
     
 
-    <h1 id="TDD-test-drive-development-测试驱动开发"><a href="#TDD-test-drive-development-测试驱动开发" class="headerlink" title="TDD(test drive development)测试驱动开发"></a>TDD(test drive development)测试驱动开发</h1><h3 id="测试驱动开发的口号："><a href="#测试驱动开发的口号：" class="headerlink" title="测试驱动开发的口号："></a>测试驱动开发的口号：</h3><p>测试先行</p>
-<h3 id="测试驱动开发的目标："><a href="#测试驱动开发的目标：" class="headerlink" title="测试驱动开发的目标："></a>测试驱动开发的目标：</h3><p>保证代码的简洁可用</p>
-<h3 id="TDD-的规则"><a href="#TDD-的规则" class="headerlink" title="TDD 的规则"></a>TDD 的规则</h3><p>在 TDD 的过程中，需要遵循两条简单的规则：</p>
-<p>仅在自动测试失败时才编写新代码。<br>消除重复设计（去除不必要的依赖关系），优化设计结构（逐渐使代码一般化）。</p>
-<p>第一条规则的言下之意是每次只编写刚刚好使测试通过的代码，并且只在测试运行失败的时候才编写新的代码，因为每次增加的代码少，即使有问题定位起来也非常快，确保我们可以遵循小步快跑的节奏；第二条规则就是让小步快跑更加踏实，在自动化测试的支撑下，通过重构环节消除代码的坏味道来避免代码日渐腐烂，为接下来编码打造一个舒适的环境。<br>关注点分离是这两条规则隐含的另一个非常重要的原则。其表达的含义指在编码阶段先达到代码“可用”的目标，在重构阶段再追求“简洁”目标，每次只关注一件事</p>
-<h3 id="采用-TDD-的动机"><a href="#采用-TDD-的动机" class="headerlink" title="采用 TDD 的动机"></a>采用 TDD 的动机</h3><p>控制编程过程中的忧虑感。</p>
+    <h1 id="tddtest-drive-development测试驱动开发"><a class="anchor" href="#tddtest-drive-development测试驱动开发">#</a> TDD (test drive development) 测试驱动开发</h1>
+<h3 id="测试驱动开发的口号"><a class="anchor" href="#测试驱动开发的口号">#</a> 测试驱动开发的口号：</h3>
+<p>测试先行</p>
+<h3 id="测试驱动开发的目标"><a class="anchor" href="#测试驱动开发的目标">#</a> 测试驱动开发的目标：</h3>
+<p>保证代码的简洁可用</p>
+<h3 id="tdd-的规则"><a class="anchor" href="#tdd-的规则">#</a> TDD 的规则</h3>
+<p>在 TDD 的过程中，需要遵循两条简单的规则：</p>
+<p>仅在自动测试失败时才编写新代码。<br />
+消除重复设计（去除不必要的依赖关系），优化设计结构（逐渐使代码一般化）。</p>
+<p>第一条规则的言下之意是每次只编写刚刚好使测试通过的代码，并且只在测试运行失败的时候才编写新的代码，因为每次增加的代码少，即使有问题定位起来也非常快，确保我们可以遵循小步快跑的节奏；第二条规则就是让小步快跑更加踏实，在自动化测试的支撑下，通过重构环节消除代码的坏味道来避免代码日渐腐烂，为接下来编码打造一个舒适的环境。<br />
+关注点分离是这两条规则隐含的另一个非常重要的原则。其表达的含义指在编码阶段先达到代码 “可用” 的目标，在重构阶段再追求 “简洁” 目标，每次只关注一件事</p>
+<h3 id="采用-tdd-的动机"><a class="anchor" href="#采用-tdd-的动机">#</a> 采用 TDD 的动机</h3>
+<p>控制编程过程中的忧虑感。</p>
 <p>有一个有趣的想象，当我感觉压力越大，自身就越不想去做足够多的测试。当知道自己做的测试不够时，就会增加自身的压力，因为我担心自己写的代码有 BUG，对自己编写的代码不够自信，这是一种心态上的变化。此时测试是开发人员的试金石，可以将对压力的恐惧变为平日的琐事，采用自动化测试，就有机会选择恐惧的程度。</p>
 <p>把控编程过程中的反馈与决策之间的差距。</p>
 <p>如果我做了一周的规划，并且量化成一个个可操作的任务写到 to-do list，然后使用测试驱动编码，把完成的任务像这样划掉，那么我的工作目标将变得非常清晰，因为我明确工期，明确待办事项，明确难点，可以在持续细微的反馈中有意识地做一些适当的调整，比如添加新的任务，删除冗余的测试；还有一点更加让人振奋，我可以知道我大概什么时候可以完工。项目经理对软件开发进度可以更精确的把握。</p>
-<p>标注：本文摘抄自：<span class="exturl" data-url="aHR0cHM6Ly9qdWVqaW4uY24vcG9zdC82ODQ0OTAzNzgwOTcwOTIxOTkx">https://juejin.cn/post/6844903780970921991</span><br>感兴趣可自行进行查看</p>
+<p>标注：本文摘抄自：<span class="exturl" data-url="aHR0cHM6Ly9qdWVqaW4uY24vcG9zdC82ODQ0OTAzNzgwOTcwOTIxOTkx">https://juejin.cn/post/6844903780970921991</span><br />
+ 感兴趣可自行进行查看</p>
 
       <div class="tags">
           <a href="/tags/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%BC%8F/" rel="tag"><i class="ic i-tag"></i> 开发模式</a>
@@ -252,7 +260,7 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
     <div class="item left">
       
 
-  <a href="/2024/03/29/%E6%9C%AC%E5%9C%B0%E9%A2%84%E8%A7%88%E5%9B%BE%E7%89%87/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;s3.uuu.ovh&#x2F;imgs&#x2F;2024&#x2F;04&#x2F;13&#x2F;2376b10e610925e4.jpg" title="本地预览图片">
+  <a href="/2024/03/29/%E6%9C%AC%E5%9C%B0%E9%A2%84%E8%A7%88%E5%9B%BE%E7%89%87/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;s3.uuu.ovh&#x2F;imgs&#x2F;2024&#x2F;04&#x2F;28&#x2F;02824114036dc293.webp" title="本地预览图片">
   <span class="type">上一篇</span>
   <span class="category"><i class="ic i-flag"></i> 业务处理</span>
   <h3>本地预览图片</h3>
@@ -262,7 +270,7 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
     <div class="item right">
       
 
-  <a href="/2024/03/29/%E5%89%8D%E7%AB%AF%E6%A8%A1%E5%9D%97%E5%8C%96/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;s3.uuu.ovh&#x2F;imgs&#x2F;2024&#x2F;04&#x2F;15&#x2F;807885ba1421e9b4.jpg" title="前端模块化">
+  <a href="/2024/03/29/%E5%89%8D%E7%AB%AF%E6%A8%A1%E5%9D%97%E5%8C%96/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;s3.uuu.ovh&#x2F;imgs&#x2F;2024&#x2F;04&#x2F;04&#x2F;25ef11a84cfafbef.jpg" title="前端模块化">
   <span class="type">下一篇</span>
   <span class="category"><i class="ic i-flag"></i> 前端工程化</span>
   <h3>前端模块化</h3>
@@ -284,7 +292,7 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
   <div class="panels">
     <div class="inner">
       <div class="contents panel pjax" data-title="文章目录">
-          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#TDD-test-drive-development-%E6%B5%8B%E8%AF%95%E9%A9%B1%E5%8A%A8%E5%BC%80%E5%8F%91"><span class="toc-number">1.</span> <span class="toc-text">TDD(test drive development)测试驱动开发</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B5%8B%E8%AF%95%E9%A9%B1%E5%8A%A8%E5%BC%80%E5%8F%91%E7%9A%84%E5%8F%A3%E5%8F%B7%EF%BC%9A"><span class="toc-number">1.0.1.</span> <span class="toc-text">测试驱动开发的口号：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B5%8B%E8%AF%95%E9%A9%B1%E5%8A%A8%E5%BC%80%E5%8F%91%E7%9A%84%E7%9B%AE%E6%A0%87%EF%BC%9A"><span class="toc-number">1.0.2.</span> <span class="toc-text">测试驱动开发的目标：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#TDD-%E7%9A%84%E8%A7%84%E5%88%99"><span class="toc-number">1.0.3.</span> <span class="toc-text">TDD 的规则</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%87%87%E7%94%A8-TDD-%E7%9A%84%E5%8A%A8%E6%9C%BA"><span class="toc-number">1.0.4.</span> <span class="toc-text">采用 TDD 的动机</span></a></li></ol></li></ol></li></ol>
+          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#tddtest-drive-development%E6%B5%8B%E8%AF%95%E9%A9%B1%E5%8A%A8%E5%BC%80%E5%8F%91"><span class="toc-number">1.</span> <span class="toc-text"> TDD (test drive development) 测试驱动开发</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B5%8B%E8%AF%95%E9%A9%B1%E5%8A%A8%E5%BC%80%E5%8F%91%E7%9A%84%E5%8F%A3%E5%8F%B7"><span class="toc-number">1.0.1.</span> <span class="toc-text"> 测试驱动开发的口号：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B5%8B%E8%AF%95%E9%A9%B1%E5%8A%A8%E5%BC%80%E5%8F%91%E7%9A%84%E7%9B%AE%E6%A0%87"><span class="toc-number">1.0.2.</span> <span class="toc-text"> 测试驱动开发的目标：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#tdd-%E7%9A%84%E8%A7%84%E5%88%99"><span class="toc-number">1.0.3.</span> <span class="toc-text"> TDD 的规则</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%87%87%E7%94%A8-tdd-%E7%9A%84%E5%8A%A8%E6%9C%BA"><span class="toc-number">1.0.4.</span> <span class="toc-text"> 采用 TDD 的动机</span></a></li></ol></li></ol></li></ol>
       </div>
       <div class="related panel pjax" data-title="系列文章">
         <ul>
@@ -402,20 +410,10 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/%E4%B8%89%E6%96%B9%E5%BA%93/" title="分类于 三方库">三方库</a>
+<a href="/categories/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" title="分类于 正则表达式">正则表达式</a>
 </div>
 
-    <span><a href="/2024/04/16/%E4%B8%89%E6%96%B9%E5%8C%85/" title="三方库">三方库</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" title="分类于 操作系统">操作系统</a>
-</div>
-
-    <span><a href="/2024/07/23/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" title="操作系统">操作系统</a></span>
+    <span><a href="/2023/02/12/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" title="正则表达式">正则表达式</a></span>
   </li>
 
       
@@ -432,30 +430,10 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/JS/" title="分类于 JS">JS</a>
+<a href="/categories/HTTP/" title="分类于 HTTP">HTTP</a>
 </div>
 
-    <span><a href="/2023/09/02/ArrayBuffer/" title="ArrayBuffer">ArrayBuffer</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90%E4%B8%8E%E9%83%A8%E7%BD%B2/" title="分类于 持续集成与部署">持续集成与部署</a>
-</div>
-
-    <span><a href="/2024/02/03/%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90%E4%B8%8E%E6%8C%81%E7%BB%AD%E9%83%A8%E7%BD%B2/" title="持续集成与持续部署">持续集成与持续部署</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/gitlab-cicd/" title="分类于 gitlab cicd">gitlab cicd</a>
-</div>
-
-    <span><a href="/2024/07/07/gitlab-cicd/" title="gitlab cicd">gitlab cicd</a></span>
+    <span><a href="/2023/05/02/HTTP/" title="HTTP">HTTP</a></span>
   </li>
 
       
@@ -472,30 +450,60 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/three-js/" title="分类于 three.js">three.js</a>
+<a href="/categories/v8%E5%BC%95%E6%93%8E%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/" title="分类于 v8引擎编译原理">v8引擎编译原理</a>
 </div>
 
-    <span><a href="/2023/10/24/ThreeJS/" title="three.js">three.js</a></span>
+    <span><a href="/2024/05/21/v8%E5%BC%95%E6%93%8E%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/" title="v8引擎编译原理">v8引擎编译原理</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/%E4%B8%AD%E5%89%8D%E5%8F%B0%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" title="分类于 中前台解决方案">中前台解决方案</a>
+<a href="/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" title="分类于 操作系统">操作系统</a>
 </div>
 
-    <span><a href="/2023/02/12/%E4%B8%AD%E5%89%8D%E5%8F%B0%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" title="中前台解决方案">中前台解决方案</a></span>
+    <span><a href="/2024/07/23/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" title="操作系统">操作系统</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/json-server/" title="分类于 json-server">json-server</a>
+<a href="/categories/JS/" title="分类于 JS">JS</a>
 </div>
 
-    <span><a href="/2023/01/09/json-server%E6%95%99%E7%A8%8B/" title="json-server">json-server</a></span>
+    <span><a href="/2024/01/11/webworker/" title="webWorker">webWorker</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/" title="分类于 面试题">面试题</a>
+</div>
+
+    <span><a href="/2024/04/30/%E6%B7%B1%E6%8B%B7%E8%B4%9D/" title="深拷贝">深拷贝</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/vue/" title="分类于 vue">vue</a>
+</div>
+
+    <span><a href="/2023/09/02/vue3%E6%BA%90%E7%A0%81%E4%BD%8D%E8%BF%90%E7%AE%97/" title="vue3源码中的位运算">vue3源码中的位运算</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" title="分类于 正则表达式">正则表达式</a>
+</div>
+
+    <span><a href="/2024/01/10/%E6%AD%A3%E5%88%99/" title="正则理念">正则理念</a></span>
   </li>
 
   </ul>
@@ -520,13 +528,13 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
     <span class="post-meta-item-icon">
       <i class="ic i-chart-area"></i>
     </span>
-    <span title="站点总字数">938k 字</span>
+    <span title="站点总字数">943k 字</span>
 
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="ic i-coffee"></i>
     </span>
-    <span title="站点阅读时长">14:12</span>
+    <span title="站点阅读时长">14:17</span>
   </div>
   <div class="powered-by">
     基于 <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & Theme.<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Shoka</span>
@@ -561,7 +569,7 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
   };
 </script>
 
-<script src="https://cdn.polyfill.io/v2/polyfill.js"></script>
+<script src="https://polyfill.alicdn.com/polyfill.min.js?features=Promise%2CArray.prototype.includes"></script>
 
 <script src="//gcore.jsdelivr.net/combine/npm/pace-js@1.0.2/pace.min.js,npm/pjax@0.2.8/pjax.min.js,npm/whatwg-fetch@3.4.0/dist/fetch.umd.min.js,npm/animejs@3.2.0/lib/anime.min.js,npm/algoliasearch@4/dist/algoliasearch-lite.umd.js,npm/instantsearch.js@4/dist/instantsearch.production.min.js,npm/lozad@1/dist/lozad.min.js,npm/quicklink@2/dist/quicklink.umd.js"></script>
 
