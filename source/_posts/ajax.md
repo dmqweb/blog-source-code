@@ -35,7 +35,7 @@ JSON本质上是一个带有特定格式的字符串
 
 ## json格式数据转化
 
-``` json
+```json
 # json数据的格式可以是： 
 {"name":"admin","age":18}  是{}括起来的键值对
 # 也可以是：  
@@ -44,7 +44,7 @@ JSON本质上是一个带有特定格式的字符串
 可以嵌套
 ```
 
-``` java
+```java
 <!-- https://mvnrepository.com/artifact/com.alibaba/fastjson -->
         <dependency>
             <groupId>com.alibaba</groupId>

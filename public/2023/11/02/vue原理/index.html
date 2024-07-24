@@ -119,12 +119,12 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
       </div>
       <div id="imgs" class="pjax">
         <ul>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/04/4b93d7d24397b567.jpg"></li>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/04/f480d741324d8eb5.jpg"></li>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/06/936b9e7ccd02d444.jpg"></li>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/15/6d859d49c9d65157.jpg"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/03/29/4e134f025ae53f2b.jpg"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/04/025bf3f9fc1cf452.webp"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/12/35b09cafcea9fd29.webp"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/12/b04c50f26fdc9c19.jpg"></li>
           <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/06/a2c97e7bd0c6ecd6.webp"></li>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/28/9363f420a16ea998.webp"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/12/8740e71363c6800c.jpg"></li>
         </ul>
       </div>
     </header>
@@ -170,118 +170,95 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
   <div class="body md" itemprop="articleBody">
     
 
-    <h1 id="vue-解析"><a class="anchor" href="#vue-解析">#</a> vue 解析</h1>
-<h1 id="一-响应式系统"><a class="anchor" href="#一-响应式系统">#</a> 一、响应式系统：</h1>
-<ul>
+    <h1 id="vue-解析"><a href="#vue-解析" class="headerlink" title="vue 解析"></a>vue 解析</h1><h1 id="一、响应式系统："><a href="#一、响应式系统：" class="headerlink" title="一、响应式系统："></a>一、响应式系统：</h1><ul>
 <li>响应式的目的就是为了解决计算机语言的程序性</li>
-<li>vue2 采用 <code>Object.defineProperty</code>  的方式来代理对象的属性，但是这个 api 有个问题就是需要先显式地去声明这个对象的属性（属性需要先写出来），就导致向对象添加属性或删除属性时兼管不到。</li>
-<li>vue3 中通过 <code>Proxy</code>  来代理整个对象，就解决了这个问题，但由于我们操作的都是返回的代理对象，并且在调用时打点调用（上下文是代理对象，监听不到源对象的 get 和 set），所以需要使用 <code>reflect</code>  方法指定执行上下文。</li>
-<li>代理到源对象的 get 和 set 方法后，就将当前的响应性表（也可以看成是桶，结构是 weakMap (对象名，map (属性名，set 副作用集合))），源对象执行 get 方法时，会收集当前副作用函数，存储到表中，执行 set 方法时，会将表中对应的副作用函数拿出来遍历执行。</li>
+<li>vue2 采用<code>Object.defineProperty</code>的方式来代理对象的属性，但是这个 api 有个问题就是需要先显式地去声明这个对象的属性（属性需要先写出来），就导致向对象添加属性或删除属性时兼管不到。</li>
+<li>vue3 中通过<code>Proxy</code>来代理整个对象，就解决了这个问题，但由于我们操作的都是返回的代理对象，并且在调用时打点调用（上下文是代理对象，监听不到源对象的 get 和 set），所以需要使用<code>reflect</code>方法指定执行上下文。</li>
+<li>代理到源对象的 get 和 set 方法后，就将当前的响应性表（也可以看成是桶，结构是 weakMap(对象名，map(属性名，set 副作用集合))），源对象执行 get 方法时，会收集当前副作用函数，存储到表中，执行 set 方法时，会将表中对应的副作用函数拿出来遍历执行。</li>
 </ul>
-<h2 id="reactivity-模块"><a class="anchor" href="#reactivity-模块">#</a> reactivity 模块</h2>
-<p><img data-src="/images/Snipaste_2024-05-31_14-44-09.png" alt="/images/image-20240123164938769" /></p>
-<h2 id="reactive"><a class="anchor" href="#reactive">#</a> reactive：</h2>
-<p>创建代理对象（用于收集依赖）</p>
-<p><img data-src="/images/vue1.png" alt="/images/image-20240123164938769" /></p>
+<h2 id="reactivity-模块"><a href="#reactivity-模块" class="headerlink" title="reactivity 模块"></a>reactivity 模块</h2><p><img data-src="/images/Snipaste_2024-05-31_14-44-09.png" alt="/images/image-20240123164938769"></p>
+<h2 id="reactive："><a href="#reactive：" class="headerlink" title="reactive："></a>reactive：</h2><p>创建代理对象（用于收集依赖）</p>
+<p><img data-src="/images/vue1.png" alt="/images/image-20240123164938769"></p>
 <p><strong>需要注意的是：当使用代理对象的 this 时，其 this 指向普通对象，导致的结果就是后续使用代理对象收集不到使用 this 指定的函数，解决方法是通过 Reflect 反射。</strong></p>
 <p>此时，就创建了代理对象，并将普通对象和代理对象存在 map 中，此时可以通过 Proxy 代理的拦截器收集依赖，但是视图中的赋值并不是响应性的（需要执行依赖）。</p>
-<h2 id="effect"><a class="anchor" href="#effect">#</a> effect：</h2>
-<p><strong>副作用函数，用于触发依赖，更新视图</strong></p>
+<h2 id="effect："><a href="#effect：" class="headerlink" title="effect："></a>effect：</h2><p><strong>副作用函数，用于触发依赖，更新视图</strong></p>
 <p>首先通过 reactiveEffect 类创建副作用实例：通过实例的 run 方法可以执行里面的函数</p>
-<p><img data-src="/images/vue2.png" alt="/images/image-20240123164938769" /></p>
+<p><img data-src="/images/vue2.png" alt="/images/image-20240123164938769"></p>
 <p>通过 track 函数收集依赖。<strong>（在 Proxy 对象的 getter 中执行）</strong></p>
-<p><img data-src="/images/vue3.png" alt="/images/image-20240123164938769" /></p>
+<p><img data-src="/images/vue3.png" alt="/images/image-20240123164938769"></p>
 <p>通过 trigger 函数触发依赖 <strong>（在 Proxy 对象的 setter 中执行）</strong></p>
-<p><img data-src="/images/vue4.png" alt="/images/image-20240123164938769" /></p>
-<h2 id="ref-函数"><a class="anchor" href="#ref-函数">#</a> ref 函数：</h2>
-<p><img data-src="/images/vue5.png" alt="/images/image-20240123164938769" /></p>
-<h2 id="computed-函数"><a class="anchor" href="#computed-函数">#</a> computed 函数：</h2>
-<p><img data-src="/images/vue7.png" alt="/images/image-20240123164938769" /></p>
-<h2 id="scheduler-调度器"><a class="anchor" href="#scheduler-调度器">#</a> scheduler 调度器：</h2>
-<p><img data-src="/images/vue8.png" alt="/images/image-20240123164938769" /></p>
-<h2 id="watch-函数"><a class="anchor" href="#watch-函数">#</a> watch 函数：</h2>
-<p><img data-src="/images/vue9.png" alt="/images/image-20240123164938769" /></p>
-<h1 id="二-运行时-runtime"><a class="anchor" href="#二-运行时-runtime">#</a> 二、运行时 runtime：</h1>
-<h2 id="runtime-模块"><a class="anchor" href="#runtime-模块">#</a> runtime 模块</h2>
-<p><img data-src="/images/Snipaste_2024-06-02_15-17-35.png" alt="/images/image-20240123164938769" /></p>
-<h2 id="createvnode-函数"><a class="anchor" href="#createvnode-函数">#</a> createVNode 函数：</h2>
-<p><img data-src="/images/vue10.png" alt="/images/image-20240123164938769" /></p>
-<h2 id="h-函数"><a class="anchor" href="#h-函数">#</a> h 函数：</h2>
-<p><img data-src="/images/vue11.png" alt="/images/image-20240123164938769" /></p>
-<h2 id="nodeops-对象"><a class="anchor" href="#nodeops-对象">#</a> nodeOps 对象：</h2>
-<p>封装 dom 元素操作</p>
-<p><img data-src="/images/vue13.png" alt="/images/image-20240123164938769" /></p>
-<h2 id="patchprop-函数"><a class="anchor" href="#patchprop-函数">#</a> patchProp 函数：</h2>
-<p>根据元素类型（class 属性，style 属性，事件，dom Properties 和其他属性），进行不同的 patch 打补丁操作</p>
-<p><img data-src="/images/vue14.png" alt="/images/image-20240123164938769" /></p>
-<h2 id="render-函数"><a class="anchor" href="#render-函数">#</a> render 函数：</h2>
-<p><img data-src="/images/vue12.png" alt="/images/image-20240123164938769" /></p>
-<h2 id="组件渲染"><a class="anchor" href="#组件渲染">#</a> 组件渲染：</h2>
-<p><img data-src="/images/vue16.png" alt="/images/image-20240123164938769" /></p>
-<h2 id="patch-函数diff-算法"><a class="anchor" href="#patch-函数diff-算法">#</a> patch 函数（diff 算法）：</h2>
-<p><img data-src="/images/vue15.png" alt="/images/image-20240123164938769" /></p>
-<h1 id="三-编译时-compile"><a class="anchor" href="#三-编译时-compile">#</a> 三、编译时 compile：</h1>
-<p>将 template 模板转为 render 函数。这个过程中共经历了三大步骤：1、解析（解析 template 模板，生成 AST 抽象语法树）；2、转化（转化 AST，生成 JavaScript AST）；3、生成（生成 render 函数）</p>
-<h2 id="compile-模块"><a class="anchor" href="#compile-模块">#</a> compile 模块</h2>
-<p><img data-src="/images/Snipaste_2024-06-02_11-30-05.png" alt="image" /></p>
-<h2 id="baseparse-函数"><a class="anchor" href="#baseparse-函数">#</a> baseParse 函数：</h2>
-<p>baseParse 函数<strong>根据 template 模板</strong>，通过有限自动状态机的概念解析得到<strong> tokens</strong>，然后通过扫描 tokens 最终得到<strong> AST</strong>（抽象语法树）。</p>
-<h2 id="transform-函数"><a class="anchor" href="#transform-函数">#</a> transform 函数:</h2>
-<p>transform 函数将<strong>抽象语法树 AST</strong> 转化为<strong> JavaScript AST</strong>（抽象语法树）。</p>
-<h2 id="generate-函数"><a class="anchor" href="#generate-函数">#</a> generate 函数：</h2>
-<p>根据<strong> JavaScript AST</strong>（抽象语法树）<strong>生成 render 函数</strong>。(render 函数的本质是字符串，字符串的换行和空格需要进行处理)。</p>
-<h2 id="compile-函数"><a class="anchor" href="#compile-函数">#</a> compile 函数：</h2>
-<p>根据<strong>字符串 render 函数</strong>通过<strong> new Function (render)()</strong> 方法创建出 renderFn 函数（这里不用 eval 函数的原因是出于安全性考虑），改名为 compile 函数。</p>
-<h2 id="parseinterpolation-函数"><a class="anchor" href="#parseinterpolation-函数">#</a> parseInterpolation 函数：</h2>
-<h6 id="处理插值表达式"><a class="anchor" href="#处理插值表达式">#</a> （处理插值表达式）</h6>
-<p>找到 }} 的索引位置，拿到双大括号内部的字符串，通过 trim 方法去除空格拿 到变量，通过 with 语法改变作用域，bind 语法绑定 this 指向从而使用这个变量。</p>
-<h2 id="parseattributes-函数"><a class="anchor" href="#parseattributes-函数">#</a> parseAttributes 函数：</h2>
-<h6 id="处理-props-属性v-指令等"><a class="anchor" href="#处理-props-属性v-指令等">#</a> （处理 props 属性，v - 指令等）</h6>
-<p>通过正则表达式判断是否是 Vue 指令，如果是指令，就返回指令对象，如果不是指令就返回普通属性的对象。然后通过 nameSet 函数拿到 props 属性。</p>
-<h2 id="createstructuraldirectivetransform-函数"><a class="anchor" href="#createstructuraldirectivetransform-函数">#</a> createStructuralDirectiveTransform 函数：</h2>
-<p><strong>（统一处理指令）</strong></p>
-<h2 id="transform-指令系列函数"><a class="anchor" href="#transform-指令系列函数">#</a> transform 指令系列函数：</h2>
-<p><strong>transformIf(v-if)</strong></p>
+<p><img data-src="/images/vue4.png" alt="/images/image-20240123164938769"></p>
+<h2 id="ref-函数："><a href="#ref-函数：" class="headerlink" title="ref 函数："></a>ref 函数：</h2><p><img data-src="/images/vue5.png" alt="/images/image-20240123164938769"></p>
+<h2 id="computed-函数："><a href="#computed-函数：" class="headerlink" title="computed 函数："></a>computed 函数：</h2><p><img data-src="/images/vue7.png" alt="/images/image-20240123164938769"></p>
+<h2 id="scheduler-调度器："><a href="#scheduler-调度器：" class="headerlink" title="scheduler 调度器："></a>scheduler 调度器：</h2><p><img data-src="/images/vue8.png" alt="/images/image-20240123164938769"></p>
+<h2 id="watch-函数："><a href="#watch-函数：" class="headerlink" title="watch 函数："></a>watch 函数：</h2><p><img data-src="/images/vue9.png" alt="/images/image-20240123164938769"></p>
+<h1 id="二、运行时-runtime："><a href="#二、运行时-runtime：" class="headerlink" title="二、运行时 runtime："></a>二、运行时 runtime：</h1><h2 id="runtime-模块"><a href="#runtime-模块" class="headerlink" title="runtime 模块"></a>runtime 模块</h2><p><img data-src="/images/Snipaste_2024-06-02_15-17-35.png" alt="/images/image-20240123164938769"></p>
+<h2 id="createVNode-函数："><a href="#createVNode-函数：" class="headerlink" title="createVNode 函数："></a>createVNode 函数：</h2><p><img data-src="/images/vue10.png" alt="/images/image-20240123164938769"></p>
+<h2 id="h-函数："><a href="#h-函数：" class="headerlink" title="h 函数："></a>h 函数：</h2><p><img data-src="/images/vue11.png" alt="/images/image-20240123164938769"></p>
+<h2 id="nodeOps-对象："><a href="#nodeOps-对象：" class="headerlink" title="nodeOps 对象："></a>nodeOps 对象：</h2><p>封装 dom 元素操作</p>
+<p><img data-src="/images/vue13.png" alt="/images/image-20240123164938769"></p>
+<h2 id="patchProp-函数："><a href="#patchProp-函数：" class="headerlink" title="patchProp 函数："></a>patchProp 函数：</h2><p>根据元素类型（class 属性，style 属性，事件，dom Properties 和其他属性），进行不同的 patch 打补丁操作</p>
+<p><img data-src="/images/vue14.png" alt="/images/image-20240123164938769"></p>
+<h2 id="render-函数："><a href="#render-函数：" class="headerlink" title="render 函数："></a>render 函数：</h2><p><img data-src="/images/vue12.png" alt="/images/image-20240123164938769"></p>
+<h2 id="组件渲染："><a href="#组件渲染：" class="headerlink" title="组件渲染："></a>组件渲染：</h2><p><img data-src="/images/vue16.png" alt="/images/image-20240123164938769"></p>
+<h2 id="patch-函数（diff-算法）："><a href="#patch-函数（diff-算法）：" class="headerlink" title="patch 函数（diff 算法）："></a>patch 函数（diff 算法）：</h2><p><img data-src="/images/vue15.png" alt="/images/image-20240123164938769"></p>
+<h1 id="三、编译时-compile："><a href="#三、编译时-compile：" class="headerlink" title="三、编译时 compile："></a>三、编译时 compile：</h1><p>将 template 模板转为 render 函数。这个过程中共经历了三大步骤：1、解析（解析 template 模板，生成 AST 抽象语法树）；2、转化（转化 AST，生成 JavaScript AST）；3、生成（生成 render 函数）</p>
+<h2 id="compile-模块"><a href="#compile-模块" class="headerlink" title="compile 模块"></a>compile 模块</h2><p><img data-src="/images/Snipaste_2024-06-02_11-30-05.png" alt="image"></p>
+<h2 id="baseParse-函数："><a href="#baseParse-函数：" class="headerlink" title="baseParse 函数："></a>baseParse 函数：</h2><p>baseParse 函数<strong>根据 template 模板</strong>，通过有限自动状态机的概念解析得到<strong>tokens</strong>，然后通过扫描 tokens 最终得到<strong>AST</strong>（抽象语法树）。</p>
+<h2 id="transform-函数"><a href="#transform-函数" class="headerlink" title="transform 函数:"></a>transform 函数:</h2><p>transform 函数将<strong>抽象语法树 AST</strong>转化为<strong>JavaScript AST</strong>（抽象语法树）。</p>
+<h2 id="generate-函数："><a href="#generate-函数：" class="headerlink" title="generate 函数："></a>generate 函数：</h2><p>根据<strong>JavaScript AST</strong>（抽象语法树）<strong>生成 render 函数</strong>。(render 函数的本质是字符串，字符串的换行和空格需要进行处理)。</p>
+<h2 id="compile-函数："><a href="#compile-函数：" class="headerlink" title="compile 函数："></a>compile 函数：</h2><p>根据<strong>字符串 render 函数</strong>通过<strong>new Function(render)()</strong> 方法创建出 renderFn 函数（这里不用 eval 函数的原因是出于安全性考虑），改名为 compile 函数。</p>
+<h2 id="parseInterpolation-函数："><a href="#parseInterpolation-函数：" class="headerlink" title="parseInterpolation 函数："></a>parseInterpolation 函数：</h2><h6 id="（处理插值表达式）"><a href="#（处理插值表达式）" class="headerlink" title="（处理插值表达式）"></a>（处理插值表达式）</h6><p>找到 }} 的索引位置，拿到双大括号内部的字符串，通过 trim 方法去除空格拿 到变量，通过 with 语法改变作用域，bind 语法绑定 this 指向从而使用这个变量。</p>
+<h2 id="parseAttributes-函数："><a href="#parseAttributes-函数：" class="headerlink" title="parseAttributes 函数："></a>parseAttributes 函数：</h2><h6 id="（处理-props-属性，v-指令等）"><a href="#（处理-props-属性，v-指令等）" class="headerlink" title="（处理 props 属性，v-指令等）"></a>（处理 props 属性，v-指令等）</h6><p>通过正则表达式判断是否是 Vue 指令，如果是指令，就返回指令对象，如果不是指令就返回普通属性的对象。然后通过 nameSet 函数拿到 props 属性。</p>
+<h2 id="createStructuralDirectiveTransform-函数："><a href="#createStructuralDirectiveTransform-函数：" class="headerlink" title="createStructuralDirectiveTransform 函数："></a>createStructuralDirectiveTransform 函数：</h2><p><strong>（统一处理指令）</strong></p>
+<h2 id="transform-指令系列函数："><a href="#transform-指令系列函数：" class="headerlink" title="transform 指令系列函数："></a>transform 指令系列函数：</h2><p><strong>transformIf(v-if)</strong></p>
 <p>AST 中添加对应属性，JavascriptAST 中相应变动，在生成 render 函数时，通过 v-if 绑定的变量名，在 render 字符串中添加上三元表达式。</p>
-<h1 id="四-运行时编译时合并"><a class="anchor" href="#四-运行时编译时合并">#</a> 四、运行时 + 编译时合并</h1>
-<p>此时只能导入模块中的函数进行使用，尚未处理合并的逻辑：</p>
-<h2 id="1-render-渲染"><a class="anchor" href="#1-render-渲染">#</a> 1、render 渲染</h2>
-<figure class="highlight javascript"><figcaption data-lang="javascript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token operator">&lt;</span>script setup<span class="token operator">></span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token keyword">const</span> <span class="token punctuation">&#123;</span> createApp<span class="token punctuation">,</span>h <span class="token punctuation">&#125;</span> <span class="token operator">=</span> Vue<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token keyword">const</span> App <span class="token operator">=</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="4"></td><td><pre>    <span class="token function">render</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="5"></td><td><pre>        <span class="token keyword">return</span> <span class="token function">h</span><span class="token punctuation">(</span><span class="token string">'div'</span><span class="token punctuation">,</span><span class="token string">'hello world'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="6"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="7"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="8"></td><td><pre><span class="token keyword">const</span> app <span class="token operator">=</span> <span class="token function">createApp</span><span class="token punctuation">(</span>App<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="9"></td><td><pre>app<span class="token punctuation">.</span><span class="token function">mount</span><span class="token punctuation">(</span><span class="token string">'#app'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="10"></td><td><pre><span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span></pre></td></tr></table></figure><h2 id="createapp-函数"><a class="anchor" href="#createapp-函数">#</a> createApp 函数：</h2>
-<p>createApp 函数调用 createAppAPI 函数，传入 render 函数拿到结果</p>
-<h2 id="createappapi-函数"><a class="anchor" href="#createappapi-函数">#</a> createAppAPI 函数</h2>
-<p>接受 render 函数，返回 createApp 函数，createApp 函数拿到 rootComponent 和 rootProps 作为参数，定义出 app 对象，声明出 component 属性、container 属性和 mount 方法，mount 方法拿 rootContainer 作为参数，通过 createVNode 函数，传入 rootComponent 和 rootProps 创建出 vnode 虚拟节点，然后调用 render 函数，传入 vnode 虚拟节点和 rootContainer 进行执行。最后返回这个 app 对象</p>
-<h2 id="mount-函数"><a class="anchor" href="#mount-函数">#</a> mount 函数：</h2>
-<p>为了兼容不同的平台（宿主环境），需要去进行不同的处理：</p>
+<h1 id="四、运行时-编译时合并"><a href="#四、运行时-编译时合并" class="headerlink" title="四、运行时+编译时合并"></a>四、运行时+编译时合并</h1><p>此时只能导入模块中的函数进行使用，尚未处理合并的逻辑：</p>
+<h2 id="1、render-渲染"><a href="#1、render-渲染" class="headerlink" title="1、render 渲染"></a>1、render 渲染</h2><pre><code class="javascript">&lt;script setup&gt;
+const &#123; createApp,h &#125; = Vue;
+const App = &#123;
+    render()&#123;
+        return h(&#39;div&#39;,&#39;hello world&#39;);
+    &#125;
+&#125;
+const app = createApp(App);
+app.mount(&#39;#app&#39;);
+&lt;/script&gt;
+</code></pre>
+<h2 id="createApp-函数："><a href="#createApp-函数：" class="headerlink" title="createApp 函数："></a>createApp 函数：</h2><p>createApp 函数调用 createAppAPI 函数，传入 render 函数拿到结果</p>
+<h2 id="createAppAPI-函数"><a href="#createAppAPI-函数" class="headerlink" title="createAppAPI 函数"></a>createAppAPI 函数</h2><p>接受 render 函数，返回 createApp 函数，createApp 函数拿到 rootComponent 和 rootProps 作为参数，定义出 app 对象，声明出 component 属性、container 属性和 mount 方法，mount 方法拿 rootContainer 作为参数，通过 createVNode 函数，传入 rootComponent 和 rootProps 创建出 vnode 虚拟节点，然后调用 render 函数，传入 vnode 虚拟节点和 rootContainer 进行执行。最后返回这个 app 对象</p>
+<h2 id="mount-函数："><a href="#mount-函数：" class="headerlink" title="mount 函数："></a>mount 函数：</h2><p>为了兼容不同的平台（宿主环境），需要去进行不同的处理：</p>
 <p>mount 函数接受参数（选择器字符串或者 dom 元素），通过 nromalizeContainer 函数获取到 dom 元素。mount 方法将 dom 元素作为 rootContainer，通过 createVNode 函数创建出 vnode 虚拟节点，然后调用 render 函数，传入 vnode 虚拟节点和 rootContainer 进行执行。</p>
-<h2 id="normalizecontainer-函数"><a class="anchor" href="#normalizecontainer-函数">#</a> normalizeContainer 函数：</h2>
-<p>如果参数是选择器字符串，就通过 querySelector 选择出 dom 元素，并返回。</p>
-<h2 id="2-template-模板渲染"><a class="anchor" href="#2-template-模板渲染">#</a> 2、template 模板渲染</h2>
-<figure class="highlight javascript"><figcaption data-lang="javascript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token operator">&lt;</span>script setup<span class="token operator">></span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token keyword">const</span> <span class="token punctuation">&#123;</span> createApp<span class="token punctuation">,</span>h <span class="token punctuation">&#125;</span> <span class="token operator">=</span> Vue<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token keyword">const</span> App <span class="token operator">=</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="4"></td><td><pre>    <span class="token literal-property property">template</span><span class="token operator">:</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">&lt;div>hello world&lt;/div></span><span class="token template-punctuation string">`</span></span></pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="6"></td><td><pre><span class="token keyword">const</span> app <span class="token operator">=</span> <span class="token function">createApp</span><span class="token punctuation">(</span>App<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="7"></td><td><pre>app<span class="token punctuation">.</span><span class="token function">mount</span><span class="token punctuation">(</span><span class="token string">'#app'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="8"></td><td><pre><span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span></pre></td></tr></table></figure><p>此时 app 中是 template 组件模板，而不是 render 函数，所以需要将模板变为 render 函数。</p>
+<h2 id="normalizeContainer-函数："><a href="#normalizeContainer-函数：" class="headerlink" title="normalizeContainer 函数："></a>normalizeContainer 函数：</h2><p>如果参数是选择器字符串，就通过 querySelector 选择出 dom 元素，并返回。</p>
+<h2 id="2、template-模板渲染"><a href="#2、template-模板渲染" class="headerlink" title="2、template 模板渲染"></a>2、template 模板渲染</h2><pre><code class="javascript">&lt;script setup&gt;
+const &#123; createApp,h &#125; = Vue;
+const App = &#123;
+    template:`&lt;div&gt;hello world&lt;/div&gt;`
+&#125;
+const app = createApp(App);
+app.mount(&#39;#app&#39;);
+&lt;/script&gt;
+</code></pre>
+<p>此时 app 中是 template 组件模板，而不是 render 函数，所以需要将模板变为 render 函数。</p>
 <p>在 finishComponentSetup 函数中进行判断：如果当前存在 compile 编译器，并且 component 中不存在 render 函数，就利用 compile 函数生成 render 函数，赋值到 component 组件实例中去，最后赋值给：instance 的 render。</p>
-<h1 id="vue3-更新优化"><a class="anchor" href="#vue3-更新优化">#</a> Vue3 更新优化</h1>
-<p><span class="exturl" data-url="aHR0cHM6Ly9qdWVqaW4uY24vcG9zdC83MjU0MDkyOTU0NDMxNjY4Mjg0">https://juejin.cn/post/7254092954431668284</span></p>
-<h2 id="1-静态提升"><a class="anchor" href="#1-静态提升">#</a> 1、静态提升</h2>
-<p>Vue3 在处理 template 模板时会对静态模板进行标识。将 ：<strong>静态的模板</strong>（不存在变化的模板）提<strong>升并进行缓存</strong>、静态的<strong>类等样式进行缓存</strong>。</p>
+<h1 id="Vue3-更新优化"><a href="#Vue3-更新优化" class="headerlink" title="Vue3 更新优化"></a>Vue3 更新优化</h1><p><span class="exturl" data-url="aHR0cHM6Ly9qdWVqaW4uY24vcG9zdC83MjU0MDkyOTU0NDMxNjY4Mjg0">https://juejin.cn/post/7254092954431668284</span></p>
+<h2 id="1、静态提升"><a href="#1、静态提升" class="headerlink" title="1、静态提升"></a>1、静态提升</h2><p>Vue3 在处理 template 模板时会对静态模板进行标识。将 ：<strong>静态的模板</strong>（不存在变化的模板）提<strong>升并进行缓存</strong>、静态的<strong>类等样式进行缓存</strong>。</p>
 <p>静态提升有利于代码的复用，减少不必要的 DOM 操作和比对（因为它们不会变化）。</p>
-<h2 id="2-预字符串化"><a class="anchor" href="#2-预字符串化">#</a> 2、预字符串化</h2>
-<p>将<strong>不会变化的静态模板字符串缓存保留为 render 函数字符串的形式</strong></p>
+<h2 id="2、预字符串化"><a href="#2、预字符串化" class="headerlink" title="2、预字符串化"></a>2、预字符串化</h2><p>将<strong>不会变化的静态模板字符串缓存保留为 render 函数字符串的形式</strong></p>
 <p>预字符串化跳过了编译时，能有效减少运行时的计算和处理，提高性能。</p>
-<h2 id="3-缓存事件处理函数"><a class="anchor" href="#3-缓存事件处理函数">#</a> 3、缓存事件处理函数</h2>
-<p>Vue3 会将<strong>事件处理函数在编译阶段缓存起来</strong>，以便在组件整个生命周期中重复使用，避免了重复创建的开销。</p>
+<h2 id="3、缓存事件处理函数"><a href="#3、缓存事件处理函数" class="headerlink" title="3、缓存事件处理函数"></a>3、缓存事件处理函数</h2><p>Vue3 会将<strong>事件处理函数在编译阶段缓存起来</strong>，以便在组件整个生命周期中重复使用，避免了重复创建的开销。</p>
 <p>缓存事件处理函数使得事件处理这种固定内容的函数不会被重复创建，减少了内存分配和垃圾回收机制的压力。</p>
-<h2 id="4-block-tree"><a class="anchor" href="#4-block-tree">#</a> 4、Block Tree</h2>
-<p>Vue3 中的 Block Tree 会将<strong>条件渲染 v-if</strong> 和<strong>循环渲染 v-for</strong> 的内容封装为一个单独的 Block，从而避免大量的 VNode 节点创建和销毁。</p>
+<h2 id="4、Block-Tree"><a href="#4、Block-Tree" class="headerlink" title="4、Block Tree"></a>4、Block Tree</h2><p>Vue3 中的 Block Tree 会将<strong>条件渲染 v-if</strong>和<strong>循环渲染 v-for</strong>的内容封装为一个单独的 Block，从而避免大量的 VNode 节点创建和销毁。</p>
 <p>Block Tree 使得 Vue3 在编译之后的模板会被拆分成多个块，每个块对应一个节点或一组节点，这些块可以被独立地更新和渲染，从而避免不必要的渲染操作。</p>
-<h2 id="5-patchflag"><a class="anchor" href="#5-patchflag">#</a> 5 、patchFlag</h2>
-<p>Vue3 中引入了 PatchFlag 地概念，会<strong>标记 VNode 中哪些部分在后续可能会发生变化</strong>，从而实现<strong>只对变化的部分进行比较和更新</strong>。</p>
+<h2 id="5-、patchFlag"><a href="#5-、patchFlag" class="headerlink" title="5 、patchFlag"></a>5 、patchFlag</h2><p>Vue3 中引入了 PatchFlag 地概念，会<strong>标记 VNode 中哪些部分在后续可能会发生变化</strong>，从而实现<strong>只对变化的部分进行比较和更新</strong>。</p>
 <p><strong>patchFlag 可选值有：</strong></p>
 <ul>
-<li><code>0</code>  或  <code>1</code> ：静态节点，没有动态特性。</li>
-<li><code>2</code> ：元素有动态绑定的类。</li>
-<li><code>4</code> ：元素有动态绑定的样式。</li>
-<li><code>8</code> ：元素有动态绑定的属性。</li>
-<li><code>16</code> ：元素有动态绑定的事件监听器。</li>
-<li><code>32</code> ：元素有动态绑定的文本插值。</li>
+<li><code>0</code> 或 <code>1</code>：静态节点，没有动态特性。</li>
+<li><code>2</code>：元素有动态绑定的类。</li>
+<li><code>4</code>：元素有动态绑定的样式。</li>
+<li><code>8</code>：元素有动态绑定的属性。</li>
+<li><code>16</code>：元素有动态绑定的事件监听器。</li>
+<li><code>32</code>：元素有动态绑定的文本插值。</li>
 </ul>
 
       <div class="tags">
@@ -356,7 +333,7 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
     <div class="item left">
       
 
-  <a href="/2023/10/24/ThreeJS/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;s3.uuu.ovh&#x2F;imgs&#x2F;2024&#x2F;04&#x2F;13&#x2F;c95fa1dc9a2ef7b0.jpg" title="three.js">
+  <a href="/2023/10/24/ThreeJS/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;s3.uuu.ovh&#x2F;imgs&#x2F;2024&#x2F;03&#x2F;29&#x2F;a93636ae09845d36.jpg" title="three.js">
   <span class="type">上一篇</span>
   <span class="category"><i class="ic i-flag"></i> three.js</span>
   <h3>three.js</h3>
@@ -366,7 +343,7 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
     <div class="item right">
       
 
-  <a href="/2023/12/02/%E7%AE%97%E6%B3%95/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;s3.uuu.ovh&#x2F;imgs&#x2F;2024&#x2F;04&#x2F;04&#x2F;64e30381ceb47acd.webp" title="算法与数据结构">
+  <a href="/2023/12/02/%E7%AE%97%E6%B3%95/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;s3.uuu.ovh&#x2F;imgs&#x2F;2024&#x2F;04&#x2F;04&#x2F;eff89867286d822f.webp" title="算法与数据结构">
   <span class="type">下一篇</span>
   <span class="category"><i class="ic i-flag"></i> 算法</span>
   <h3>算法与数据结构</h3>
@@ -388,7 +365,7 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
   <div class="panels">
     <div class="inner">
       <div class="contents panel pjax" data-title="文章目录">
-          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#vue-%E8%A7%A3%E6%9E%90"><span class="toc-number">1.</span> <span class="toc-text"> vue 解析</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%80-%E5%93%8D%E5%BA%94%E5%BC%8F%E7%B3%BB%E7%BB%9F"><span class="toc-number">2.</span> <span class="toc-text"> 一、响应式系统：</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#reactivity-%E6%A8%A1%E5%9D%97"><span class="toc-number">2.1.</span> <span class="toc-text"> reactivity 模块</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#reactive"><span class="toc-number">2.2.</span> <span class="toc-text"> reactive：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#effect"><span class="toc-number">2.3.</span> <span class="toc-text"> effect：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ref-%E5%87%BD%E6%95%B0"><span class="toc-number">2.4.</span> <span class="toc-text"> ref 函数：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#computed-%E5%87%BD%E6%95%B0"><span class="toc-number">2.5.</span> <span class="toc-text"> computed 函数：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#scheduler-%E8%B0%83%E5%BA%A6%E5%99%A8"><span class="toc-number">2.6.</span> <span class="toc-text"> scheduler 调度器：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#watch-%E5%87%BD%E6%95%B0"><span class="toc-number">2.7.</span> <span class="toc-text"> watch 函数：</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%8C-%E8%BF%90%E8%A1%8C%E6%97%B6-runtime"><span class="toc-number">3.</span> <span class="toc-text"> 二、运行时 runtime：</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#runtime-%E6%A8%A1%E5%9D%97"><span class="toc-number">3.1.</span> <span class="toc-text"> runtime 模块</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#createvnode-%E5%87%BD%E6%95%B0"><span class="toc-number">3.2.</span> <span class="toc-text"> createVNode 函数：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#h-%E5%87%BD%E6%95%B0"><span class="toc-number">3.3.</span> <span class="toc-text"> h 函数：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#nodeops-%E5%AF%B9%E8%B1%A1"><span class="toc-number">3.4.</span> <span class="toc-text"> nodeOps 对象：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#patchprop-%E5%87%BD%E6%95%B0"><span class="toc-number">3.5.</span> <span class="toc-text"> patchProp 函数：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#render-%E5%87%BD%E6%95%B0"><span class="toc-number">3.6.</span> <span class="toc-text"> render 函数：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%84%E4%BB%B6%E6%B8%B2%E6%9F%93"><span class="toc-number">3.7.</span> <span class="toc-text"> 组件渲染：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#patch-%E5%87%BD%E6%95%B0diff-%E7%AE%97%E6%B3%95"><span class="toc-number">3.8.</span> <span class="toc-text"> patch 函数（diff 算法）：</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%89-%E7%BC%96%E8%AF%91%E6%97%B6-compile"><span class="toc-number">4.</span> <span class="toc-text"> 三、编译时 compile：</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#compile-%E6%A8%A1%E5%9D%97"><span class="toc-number">4.1.</span> <span class="toc-text"> compile 模块</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#baseparse-%E5%87%BD%E6%95%B0"><span class="toc-number">4.2.</span> <span class="toc-text"> baseParse 函数：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#transform-%E5%87%BD%E6%95%B0"><span class="toc-number">4.3.</span> <span class="toc-text"> transform 函数:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#generate-%E5%87%BD%E6%95%B0"><span class="toc-number">4.4.</span> <span class="toc-text"> generate 函数：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#compile-%E5%87%BD%E6%95%B0"><span class="toc-number">4.5.</span> <span class="toc-text"> compile 函数：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#parseinterpolation-%E5%87%BD%E6%95%B0"><span class="toc-number">4.6.</span> <span class="toc-text"> parseInterpolation 函数：</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E5%A4%84%E7%90%86%E6%8F%92%E5%80%BC%E8%A1%A8%E8%BE%BE%E5%BC%8F"><span class="toc-number">4.6.0.0.0.1.</span> <span class="toc-text"> （处理插值表达式）</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#parseattributes-%E5%87%BD%E6%95%B0"><span class="toc-number">4.7.</span> <span class="toc-text"> parseAttributes 函数：</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E5%A4%84%E7%90%86-props-%E5%B1%9E%E6%80%A7v-%E6%8C%87%E4%BB%A4%E7%AD%89"><span class="toc-number">4.7.0.0.0.1.</span> <span class="toc-text"> （处理 props 属性，v - 指令等）</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#createstructuraldirectivetransform-%E5%87%BD%E6%95%B0"><span class="toc-number">4.8.</span> <span class="toc-text"> createStructuralDirectiveTransform 函数：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#transform-%E6%8C%87%E4%BB%A4%E7%B3%BB%E5%88%97%E5%87%BD%E6%95%B0"><span class="toc-number">4.9.</span> <span class="toc-text"> transform 指令系列函数：</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9B%9B-%E8%BF%90%E8%A1%8C%E6%97%B6%E7%BC%96%E8%AF%91%E6%97%B6%E5%90%88%E5%B9%B6"><span class="toc-number">5.</span> <span class="toc-text"> 四、运行时 + 编译时合并</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-render-%E6%B8%B2%E6%9F%93"><span class="toc-number">5.1.</span> <span class="toc-text"> 1、render 渲染</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#createapp-%E5%87%BD%E6%95%B0"><span class="toc-number">5.2.</span> <span class="toc-text"> createApp 函数：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#createappapi-%E5%87%BD%E6%95%B0"><span class="toc-number">5.3.</span> <span class="toc-text"> createAppAPI 函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#mount-%E5%87%BD%E6%95%B0"><span class="toc-number">5.4.</span> <span class="toc-text"> mount 函数：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#normalizecontainer-%E5%87%BD%E6%95%B0"><span class="toc-number">5.5.</span> <span class="toc-text"> normalizeContainer 函数：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-template-%E6%A8%A1%E6%9D%BF%E6%B8%B2%E6%9F%93"><span class="toc-number">5.6.</span> <span class="toc-text"> 2、template 模板渲染</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#vue3-%E6%9B%B4%E6%96%B0%E4%BC%98%E5%8C%96"><span class="toc-number">6.</span> <span class="toc-text"> Vue3 更新优化</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E9%9D%99%E6%80%81%E6%8F%90%E5%8D%87"><span class="toc-number">6.1.</span> <span class="toc-text"> 1、静态提升</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E9%A2%84%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%96"><span class="toc-number">6.2.</span> <span class="toc-text"> 2、预字符串化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E7%BC%93%E5%AD%98%E4%BA%8B%E4%BB%B6%E5%A4%84%E7%90%86%E5%87%BD%E6%95%B0"><span class="toc-number">6.3.</span> <span class="toc-text"> 3、缓存事件处理函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-block-tree"><span class="toc-number">6.4.</span> <span class="toc-text"> 4、Block Tree</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-patchflag"><span class="toc-number">6.5.</span> <span class="toc-text"> 5 、patchFlag</span></a></li></ol></li></ol>
+          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#vue-%E8%A7%A3%E6%9E%90"><span class="toc-number">1.</span> <span class="toc-text">vue 解析</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E5%93%8D%E5%BA%94%E5%BC%8F%E7%B3%BB%E7%BB%9F%EF%BC%9A"><span class="toc-number">2.</span> <span class="toc-text">一、响应式系统：</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#reactivity-%E6%A8%A1%E5%9D%97"><span class="toc-number">2.1.</span> <span class="toc-text">reactivity 模块</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#reactive%EF%BC%9A"><span class="toc-number">2.2.</span> <span class="toc-text">reactive：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#effect%EF%BC%9A"><span class="toc-number">2.3.</span> <span class="toc-text">effect：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ref-%E5%87%BD%E6%95%B0%EF%BC%9A"><span class="toc-number">2.4.</span> <span class="toc-text">ref 函数：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#computed-%E5%87%BD%E6%95%B0%EF%BC%9A"><span class="toc-number">2.5.</span> <span class="toc-text">computed 函数：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#scheduler-%E8%B0%83%E5%BA%A6%E5%99%A8%EF%BC%9A"><span class="toc-number">2.6.</span> <span class="toc-text">scheduler 调度器：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#watch-%E5%87%BD%E6%95%B0%EF%BC%9A"><span class="toc-number">2.7.</span> <span class="toc-text">watch 函数：</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E8%BF%90%E8%A1%8C%E6%97%B6-runtime%EF%BC%9A"><span class="toc-number">3.</span> <span class="toc-text">二、运行时 runtime：</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#runtime-%E6%A8%A1%E5%9D%97"><span class="toc-number">3.1.</span> <span class="toc-text">runtime 模块</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#createVNode-%E5%87%BD%E6%95%B0%EF%BC%9A"><span class="toc-number">3.2.</span> <span class="toc-text">createVNode 函数：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#h-%E5%87%BD%E6%95%B0%EF%BC%9A"><span class="toc-number">3.3.</span> <span class="toc-text">h 函数：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#nodeOps-%E5%AF%B9%E8%B1%A1%EF%BC%9A"><span class="toc-number">3.4.</span> <span class="toc-text">nodeOps 对象：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#patchProp-%E5%87%BD%E6%95%B0%EF%BC%9A"><span class="toc-number">3.5.</span> <span class="toc-text">patchProp 函数：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#render-%E5%87%BD%E6%95%B0%EF%BC%9A"><span class="toc-number">3.6.</span> <span class="toc-text">render 函数：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%84%E4%BB%B6%E6%B8%B2%E6%9F%93%EF%BC%9A"><span class="toc-number">3.7.</span> <span class="toc-text">组件渲染：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#patch-%E5%87%BD%E6%95%B0%EF%BC%88diff-%E7%AE%97%E6%B3%95%EF%BC%89%EF%BC%9A"><span class="toc-number">3.8.</span> <span class="toc-text">patch 函数（diff 算法）：</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E7%BC%96%E8%AF%91%E6%97%B6-compile%EF%BC%9A"><span class="toc-number">4.</span> <span class="toc-text">三、编译时 compile：</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#compile-%E6%A8%A1%E5%9D%97"><span class="toc-number">4.1.</span> <span class="toc-text">compile 模块</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#baseParse-%E5%87%BD%E6%95%B0%EF%BC%9A"><span class="toc-number">4.2.</span> <span class="toc-text">baseParse 函数：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#transform-%E5%87%BD%E6%95%B0"><span class="toc-number">4.3.</span> <span class="toc-text">transform 函数:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#generate-%E5%87%BD%E6%95%B0%EF%BC%9A"><span class="toc-number">4.4.</span> <span class="toc-text">generate 函数：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#compile-%E5%87%BD%E6%95%B0%EF%BC%9A"><span class="toc-number">4.5.</span> <span class="toc-text">compile 函数：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#parseInterpolation-%E5%87%BD%E6%95%B0%EF%BC%9A"><span class="toc-number">4.6.</span> <span class="toc-text">parseInterpolation 函数：</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%EF%BC%88%E5%A4%84%E7%90%86%E6%8F%92%E5%80%BC%E8%A1%A8%E8%BE%BE%E5%BC%8F%EF%BC%89"><span class="toc-number">4.6.0.0.0.1.</span> <span class="toc-text">（处理插值表达式）</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#parseAttributes-%E5%87%BD%E6%95%B0%EF%BC%9A"><span class="toc-number">4.7.</span> <span class="toc-text">parseAttributes 函数：</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%EF%BC%88%E5%A4%84%E7%90%86-props-%E5%B1%9E%E6%80%A7%EF%BC%8Cv-%E6%8C%87%E4%BB%A4%E7%AD%89%EF%BC%89"><span class="toc-number">4.7.0.0.0.1.</span> <span class="toc-text">（处理 props 属性，v-指令等）</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#createStructuralDirectiveTransform-%E5%87%BD%E6%95%B0%EF%BC%9A"><span class="toc-number">4.8.</span> <span class="toc-text">createStructuralDirectiveTransform 函数：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#transform-%E6%8C%87%E4%BB%A4%E7%B3%BB%E5%88%97%E5%87%BD%E6%95%B0%EF%BC%9A"><span class="toc-number">4.9.</span> <span class="toc-text">transform 指令系列函数：</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9B%9B%E3%80%81%E8%BF%90%E8%A1%8C%E6%97%B6-%E7%BC%96%E8%AF%91%E6%97%B6%E5%90%88%E5%B9%B6"><span class="toc-number">5.</span> <span class="toc-text">四、运行时+编译时合并</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1%E3%80%81render-%E6%B8%B2%E6%9F%93"><span class="toc-number">5.1.</span> <span class="toc-text">1、render 渲染</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#createApp-%E5%87%BD%E6%95%B0%EF%BC%9A"><span class="toc-number">5.2.</span> <span class="toc-text">createApp 函数：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#createAppAPI-%E5%87%BD%E6%95%B0"><span class="toc-number">5.3.</span> <span class="toc-text">createAppAPI 函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#mount-%E5%87%BD%E6%95%B0%EF%BC%9A"><span class="toc-number">5.4.</span> <span class="toc-text">mount 函数：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#normalizeContainer-%E5%87%BD%E6%95%B0%EF%BC%9A"><span class="toc-number">5.5.</span> <span class="toc-text">normalizeContainer 函数：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2%E3%80%81template-%E6%A8%A1%E6%9D%BF%E6%B8%B2%E6%9F%93"><span class="toc-number">5.6.</span> <span class="toc-text">2、template 模板渲染</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Vue3-%E6%9B%B4%E6%96%B0%E4%BC%98%E5%8C%96"><span class="toc-number">6.</span> <span class="toc-text">Vue3 更新优化</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1%E3%80%81%E9%9D%99%E6%80%81%E6%8F%90%E5%8D%87"><span class="toc-number">6.1.</span> <span class="toc-text">1、静态提升</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2%E3%80%81%E9%A2%84%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%96"><span class="toc-number">6.2.</span> <span class="toc-text">2、预字符串化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3%E3%80%81%E7%BC%93%E5%AD%98%E4%BA%8B%E4%BB%B6%E5%A4%84%E7%90%86%E5%87%BD%E6%95%B0"><span class="toc-number">6.3.</span> <span class="toc-text">3、缓存事件处理函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4%E3%80%81Block-Tree"><span class="toc-number">6.4.</span> <span class="toc-text">4、Block Tree</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E3%80%81patchFlag"><span class="toc-number">6.5.</span> <span class="toc-text">5 、patchFlag</span></a></li></ol></li></ol>
       </div>
       <div class="related panel pjax" data-title="系列文章">
         <ul>
@@ -506,68 +483,6 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/%E5%BA%95%E5%B1%82%E6%9D%82%E8%AE%B0/" title="分类于 底层杂记">底层杂记</a>
-<i class="ic i-angle-right"></i>
-<a href="/categories/%E5%BA%95%E5%B1%82%E6%9D%82%E8%AE%B0/%E5%B7%A5%E5%85%B7%E5%87%BD%E6%95%B0/" title="分类于 工具函数">工具函数</a>
-</div>
-
-    <span><a href="/2023/06/02/%E5%BA%95%E5%B1%82%E6%9D%82%E8%AE%B0/" title="底层杂记与工具库函数">底层杂记与工具库函数</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/%E5%BE%AE%E5%89%8D%E7%AB%AF/" title="分类于 微前端">微前端</a>
-</div>
-
-    <span><a href="/2024/05/24/%E5%BE%AE%E5%89%8D%E7%AB%AF/" title="微前端">微前端</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/%E4%B8%AD%E5%89%8D%E5%8F%B0%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" title="分类于 中前台解决方案">中前台解决方案</a>
-</div>
-
-    <span><a href="/2023/02/12/%E4%B8%AD%E5%89%8D%E5%8F%B0%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" title="中前台解决方案">中前台解决方案</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/%E6%B5%8F%E8%A7%88%E5%99%A8/" title="分类于 浏览器">浏览器</a>
-</div>
-
-    <span><a href="/2023/10/09/%E6%B5%8F%E8%A7%88%E5%99%A8%E6%B8%B2%E6%9F%93%E5%8E%9F%E7%90%86/" title="浏览器渲染原理">浏览器渲染原理</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/%E5%A4%8D%E6%9D%82%E4%B8%9A%E5%8A%A1%E9%83%A8%E7%BD%B2%E4%B8%8E%E4%BC%98%E5%8C%96/" title="分类于 复杂业务部署与优化">复杂业务部署与优化</a>
-</div>
-
-    <span><a href="/2024/04/12/%E5%A4%8D%E6%9D%82%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2%E4%B8%8A%E7%BA%BF/" title="复杂业务部署与优化">复杂业务部署与优化</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/JS/" title="分类于 JS">JS</a>
-</div>
-
-    <span><a href="/2023/07/02/forEach/" title="forEach">forEach</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
 <a href="/categories/markdown/" title="分类于 markdown">markdown</a>
 </div>
 
@@ -578,30 +493,90 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/JS%E8%BF%9B%E9%98%B6/" title="分类于 JS进阶">JS进阶</a>
+<a href="/categories/%E5%89%8D%E7%AB%AF%E7%9B%91%E6%8E%A7/" title="分类于 前端监控">前端监控</a>
 </div>
 
-    <span><a href="/2023/08/02/JS/" title="JS进阶">JS进阶</a></span>
+    <span><a href="/2024/04/29/%E5%89%8D%E7%AB%AF%E7%9B%91%E6%8E%A7/" title="前端监控">前端监控</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/gitlab-cicd/" title="分类于 gitlab cicd">gitlab cicd</a>
+<a href="/categories/git/" title="分类于 git">git</a>
 </div>
 
-    <span><a href="/2024/07/07/gitlab-cicd/" title="gitlab cicd">gitlab cicd</a></span>
+    <span><a href="/2023/04/02/git%E5%92%8Cgithub/" title="git与github">git与github</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/%E4%B8%9A%E5%8A%A1%E5%A4%84%E7%90%86/" title="分类于 业务处理">业务处理</a>
+<a href="/categories/Sass/" title="分类于 Sass">Sass</a>
 </div>
 
-    <span><a href="/2024/03/29/%E6%9C%AC%E5%9C%B0%E9%A2%84%E8%A7%88%E5%9B%BE%E7%89%87/" title="本地预览图片">本地预览图片</a></span>
+    <span><a href="/2023/01/10/Sass/" title="Sass笔记">Sass笔记</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E8%84%9A%E6%89%8B%E6%9E%B6%E5%BC%80%E5%8F%91/" title="分类于 脚手架开发">脚手架开发</a>
+</div>
+
+    <span><a href="/2024/04/12/%E8%84%9A%E6%89%8B%E6%9E%B6/" title="脚手架开发">脚手架开发</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" title="分类于 网络安全">网络安全</a>
+</div>
+
+    <span><a href="/2024/05/23/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" title="网络安全">网络安全</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/" title="分类于 计算机组成原理">计算机组成原理</a>
+</div>
+
+    <span><a href="/2023/07/02/%E6%B5%AE%E7%82%B9%E6%95%B0%E5%AD%98%E5%82%A8/" title="浮点数存储">浮点数存储</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E6%9D%82%E8%AE%B0/" title="分类于 杂记">杂记</a>
+</div>
+
+    <span><a href="/2023/01/01/%E6%9D%82%E8%AE%B0/" title="杂记">杂记</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" title="分类于 解决方案">解决方案</a>
+</div>
+
+    <span><a href="/2023/06/02/%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" title="解决方案">解决方案</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/json-server/" title="分类于 json-server">json-server</a>
+</div>
+
+    <span><a href="/2023/01/09/json-server%E6%95%99%E7%A8%8B/" title="json-server">json-server</a></span>
   </li>
 
   </ul>
@@ -626,13 +601,13 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
     <span class="post-meta-item-icon">
       <i class="ic i-chart-area"></i>
     </span>
-    <span title="站点总字数">943k 字</span>
+    <span title="站点总字数">938k 字</span>
 
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="ic i-coffee"></i>
     </span>
-    <span title="站点阅读时长">14:17</span>
+    <span title="站点阅读时长">14:12</span>
   </div>
   <div class="powered-by">
     基于 <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & Theme.<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Shoka</span>

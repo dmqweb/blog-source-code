@@ -78,7 +78,7 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
       <i class="ic i-pen"></i>
     </span>
     <span class="text">本文字数</span>
-    <span>5.2k</span>
+    <span>4.3k</span>
     <span class="text">字</span>
   </span>
   <span class="item" title="阅读时长">
@@ -86,7 +86,7 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
       <i class="ic i-clock"></i>
     </span>
     <span class="text">阅读时长</span>
-    <span>5 分钟</span>
+    <span>4 分钟</span>
   </span>
 </div>
 
@@ -119,12 +119,12 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
       </div>
       <div id="imgs" class="pjax">
         <ul>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/07/2600bb35f2cdf6cf.jpg"></li>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/07/971b0200f59eab4c.jpg"></li>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/25/1276fcec5eb7990e.webp"></li>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/15/effaa43770a5e6bc.jpg"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/06/63e9f1e7097ba6fb.jpg"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/15/64f47485ad1e6bed.jpg"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/12/8740e71363c6800c.jpg"></li>
           <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/15/807885ba1421e9b4.jpg"></li>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/04/4b93d7d24397b567.jpg"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/13/ba4d76fc0767aeef.jpg"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/06/ae2b485c961ddd62.jpg"></li>
         </ul>
       </div>
     </header>
@@ -170,111 +170,255 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
   <div class="body md" itemprop="articleBody">
     
 
-    <p>#引言<br />
-首先我们知道 JS 中是没有并行，并发等概念的，这是因为 JS 是一门单线程的语言，其中的异步执行也是利用事件循环机制进行的，并不是严格意义上的异步。由于 JS 单线程的特性，使得 JS 在执行时如果遇到大量的任务就会使得过程运行缓慢。主渲染线程的延迟明显，使得用户体验较差.</p>
-<p>#web-worker<br />
-web-worker 的作用就是用来缓解这一问题的</p>
-<p>利用 web-worker, 我们可以利用浏览器新开辟一个进程，将需要大量执行的过程在这个进程中执行，然后将结果返回给我们的主进程即可.</p>
-<p>#使用示例<br />
- #worker.html<br />
-&lt;!DOCTYPE html&gt;<br />
-&lt;html lang=&quot;en&quot;&gt;<br />
-&lt;head&gt;<br />
-&lt;meta charset=&quot;UTF-8&quot;&gt;<br />
-&lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot;&gt;<br />
-&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;<br />
-&lt;title&gt;Document&lt;/title&gt;<br />
-&lt;style&gt;<br />
-.p{<br />
-line-break: unset;<br />
-}<br />
-&lt;/style&gt;<br />
-&lt;a id=&quot;link&quot;&gt;&lt;/a&gt;<br />
-&lt;p class=&quot;p&quot;&gt;<br />
-&lt;%= sjdfl =%&gt;<br />
-&lt;/p&gt;<br />
-&lt;/head&gt;<br />
-&lt;body&gt;<br />
-&lt;script&gt;<br />
-const \u4e2d\u6587 = ' 这是转义之后的字符 ';<br />
-// 使用 webworker, 分担主线程的压力<br />
- //const worker = new Worker ()<br />
-// 创建一个 worker<br />
-const worker = new Worker('./worker.js')<br />
-console.log(worker);<br />
-worker.postMessage('sdfj');<br />
-worker.postMessage({method:'echo',argus:[1,2,3,4]})<br />
-// 主线程关闭 worker<br />
-setTimeout(()=&gt;{<br />
-worker.terminate()<br />
-// worker.postMessage('close')<br />
-},1000)<br />
-worker.addEventListener('message',(e)=&gt;{<br />
-console.log(e.data);<br />
-})<br />
-/**</p>
-<ul>
-<li>主线程监听 worker 错误<br />
-<em> /<br />
-worker.onerror=(e)=&gt;{<br />
-worker.terminate()<br />
- console.error ('worker 错误 ');<br />
-}<br />
-/</em>*</li>
-<li>直接转移数据的控制权<br />
-<em> /<br />
-// 创建 4 字节的缓冲区<br />
- let abfer = new ArrayBuffer (4);<br />
-// 创建 32 位整数数组作为视图，引用缓冲区<br />
- let tes = new Int32Array (abfer);<br />
-console.log(tes,'ArrayBuffer');<br />
-worker.postMessage (abfer,[abfer]); // 转交控制权，主线程不再存储<br />
- /</em>*</li>
-<li>模拟文件下载功能<br />
-<em> /<br />
-const blob = new Blob ([' 文件下载 ']);<br />
-const link = document.getElementById('link');<br />
-link.href = window.URL.createObjectURL(blob);;<br />
-link.download = ' 测试文件.txt';<br />
-setTimeout(()=&gt;{<br />
-// link.click();<br />
-},2000)<br />
-/</em>*</li>
-<li>创建 worker 线程加载 js 文件</li>
-<li>！！必须指定 script 标签的 type 为浏览器不知道的类型<br />
-<em> /<br />
-// const blob1 = new Blob(document.getElementById('scriptDom').textContent);<br />
-// const url1 = new window.URL.createObjectURL(blob1);<br />
-// const worker2 = new Worker(url1);<br />
-/</em>*</li>
-<li>使用 worker 线程，完成轮询<br />
- */<br />
-// 创建 worker<br />
-function createWorker(f){<br />
-const fnBlob = new Blob(['('+f.toString()+')()'])<br />
-const fnUrl = window.URL.createObjectURL(fnBlob);<br />
-return new Worker(fnUrl);<br />
-}<br />
-const fnWorker = createWorker((e)=&gt;{<br />
-let cache;<br />
-// setInterval(()=&gt;{<br />
-fetch('/data').then(res=&gt;{<br />
-if(cache != res){<br />
-console.log (' 变化了 ');<br />
-}<br />
-})<br />
-// },1000)<br />
-});<br />
-&lt;/script&gt;<br />
-&lt;script id=&quot;scriptDom&quot; type=&quot;app/worker&quot;&gt;<br />
-console.log (' 我是被 woeker 加载的文件 ');<br />
-&lt;/script&gt;<br />
-&lt;/body&gt;<br />
-&lt;/html&gt;</li>
-</ul>
-<figure class="highlight html"><figcaption data-lang="HTML"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token doctype"><span class="token punctuation">&lt;!</span><span class="token doctype-tag">DOCTYPE</span> <span class="token name">html</span><span class="token punctuation">></span></span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>en<span class="token punctuation">"</span></span><span class="token punctuation">></span></span></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">></span></span></pre></td></tr><tr><td data-num="4"></td><td><pre>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>UTF-8<span class="token punctuation">"</span></span><span class="token punctuation">></span></span></pre></td></tr><tr><td data-num="5"></td><td><pre>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">http-equiv</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>X-UA-Compatible<span class="token punctuation">"</span></span> <span class="token attr-name">content</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>IE=edge<span class="token punctuation">"</span></span><span class="token punctuation">></span></span></pre></td></tr><tr><td data-num="6"></td><td><pre>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>viewport<span class="token punctuation">"</span></span> <span class="token attr-name">content</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>width=device-width, initial-scale=1.0<span class="token punctuation">"</span></span><span class="token punctuation">></span></span></pre></td></tr><tr><td data-num="7"></td><td><pre>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>title</span><span class="token punctuation">></span></span>Document<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>title</span><span class="token punctuation">></span></span></pre></td></tr><tr><td data-num="8"></td><td><pre>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span><span class="token punctuation">></span></span><span class="token style"><span class="token language-css"></pre></td></tr><tr><td data-num="9"></td><td><pre>    <span class="token selector">.p</span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="10"></td><td><pre>      <span class="token property">line-break</span><span class="token punctuation">:</span> unset<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="11"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="12"></td><td><pre>  </span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">></span></span></pre></td></tr><tr><td data-num="13"></td><td><pre>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>link<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">></span></span></pre></td></tr><tr><td data-num="14"></td><td><pre>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>p<span class="token punctuation">"</span></span><span class="token punctuation">></span></span></pre></td></tr><tr><td data-num="15"></td><td><pre>      &lt;%= sjdfl =%></pre></td></tr><tr><td data-num="16"></td><td><pre>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span></pre></td></tr><tr><td data-num="17"></td><td><pre><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">></span></span></pre></td></tr><tr><td data-num="18"></td><td><pre><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">></span></span></pre></td></tr><tr><td data-num="19"></td><td><pre>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript"></pre></td></tr><tr><td data-num="20"></td><td><pre>    <span class="token keyword">const</span> \u4e2d\u6587 <span class="token operator">=</span> <span class="token string">'这是转义之后的字符'</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="21"></td><td><pre><span class="token comment">// 使用 webworker, 分担主线程的压力</span></pre></td></tr><tr><td data-num="22"></td><td><pre><span class="token comment">// const worker = new Worker()</span></pre></td></tr><tr><td data-num="23"></td><td><pre><span class="token comment">// 创建一个 worker</span></pre></td></tr><tr><td data-num="24"></td><td><pre><span class="token keyword">const</span> worker <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Worker</span><span class="token punctuation">(</span><span class="token string">'./worker.js'</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="25"></td><td><pre>    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>worker<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="26"></td><td><pre>worker<span class="token punctuation">.</span><span class="token function">postMessage</span><span class="token punctuation">(</span><span class="token string">'sdfj'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="27"></td><td><pre>worker<span class="token punctuation">.</span><span class="token function">postMessage</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span><span class="token literal-property property">method</span><span class="token operator">:</span><span class="token string">'echo'</span><span class="token punctuation">,</span><span class="token literal-property property">argus</span><span class="token operator">:</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">&#125;</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="28"></td><td><pre><span class="token comment">// 主线程关闭 worker</span></pre></td></tr><tr><td data-num="29"></td><td><pre><span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">=></span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="30"></td><td><pre>worker<span class="token punctuation">.</span><span class="token function">terminate</span><span class="token punctuation">(</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="31"></td><td><pre><span class="token comment">// worker.postMessage('close')</span></pre></td></tr><tr><td data-num="32"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">,</span><span class="token number">1000</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="33"></td><td><pre>worker<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">'message'</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token parameter">e</span><span class="token punctuation">)</span><span class="token operator">=></span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="34"></td><td><pre>  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>e<span class="token punctuation">.</span>data<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="35"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="36"></td><td><pre><span class="token comment">/**</pre></td></tr><tr><td data-num="37"></td><td><pre> * 主线程监听 worker 错误</pre></td></tr><tr><td data-num="38"></td><td><pre> */</span></pre></td></tr><tr><td data-num="39"></td><td><pre>worker<span class="token punctuation">.</span><span class="token function-variable function">onerror</span><span class="token operator">=</span><span class="token punctuation">(</span><span class="token parameter">e</span><span class="token punctuation">)</span><span class="token operator">=></span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="40"></td><td><pre>  worker<span class="token punctuation">.</span><span class="token function">terminate</span><span class="token punctuation">(</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="41"></td><td><pre>  console<span class="token punctuation">.</span><span class="token function">error</span><span class="token punctuation">(</span><span class="token string">'worker错误'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="42"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="43"></td><td><pre><span class="token comment">/**</pre></td></tr><tr><td data-num="44"></td><td><pre> * 直接转移数据的控制权</pre></td></tr><tr><td data-num="45"></td><td><pre> */</span></pre></td></tr><tr><td data-num="46"></td><td><pre><span class="token comment">// 创建 4 字节的缓冲区</span></pre></td></tr><tr><td data-num="47"></td><td><pre><span class="token keyword">let</span> abfer <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayBuffer</span><span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="48"></td><td><pre><span class="token comment">// 创建 32 位整数数组作为视图，引用缓冲区</span></pre></td></tr><tr><td data-num="49"></td><td><pre><span class="token keyword">let</span> tes <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Int32Array</span><span class="token punctuation">(</span>abfer<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="50"></td><td><pre>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>tes<span class="token punctuation">,</span><span class="token string">'ArrayBuffer'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="51"></td><td><pre>worker<span class="token punctuation">.</span><span class="token function">postMessage</span><span class="token punctuation">(</span>abfer<span class="token punctuation">,</span><span class="token punctuation">[</span>abfer<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 转交控制权，主线程不再存储</span></pre></td></tr><tr><td data-num="52"></td><td><pre><span class="token comment">/**</pre></td></tr><tr><td data-num="53"></td><td><pre> * 模拟文件下载功能</pre></td></tr><tr><td data-num="54"></td><td><pre> */</span></pre></td></tr><tr><td data-num="55"></td><td><pre><span class="token keyword">const</span> blob <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Blob</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'文件下载'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="56"></td><td><pre><span class="token keyword">const</span> link <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">'link'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="57"></td><td><pre>link<span class="token punctuation">.</span>href <span class="token operator">=</span> window<span class="token punctuation">.</span><span class="token constant">URL</span><span class="token punctuation">.</span><span class="token function">createObjectURL</span><span class="token punctuation">(</span>blob<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="58"></td><td><pre>link<span class="token punctuation">.</span>download <span class="token operator">=</span> <span class="token string">'测试文件.txt'</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="59"></td><td><pre><span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">=></span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="60"></td><td><pre>  <span class="token comment">// link.click();</span></pre></td></tr><tr><td data-num="61"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">,</span><span class="token number">2000</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="62"></td><td><pre><span class="token comment">/**</pre></td></tr><tr><td data-num="63"></td><td><pre> * 创建 worker 线程加载 js 文件</pre></td></tr><tr><td data-num="64"></td><td><pre> * ！！必须指定 script 标签的 type 为浏览器不知道的类型</pre></td></tr><tr><td data-num="65"></td><td><pre> */</span></pre></td></tr><tr><td data-num="66"></td><td><pre><span class="token comment">// const blob1 = new Blob(document.getElementById('scriptDom').textContent);</span></pre></td></tr><tr><td data-num="67"></td><td><pre><span class="token comment">// const url1 = new window.URL.createObjectURL(blob1);</span></pre></td></tr><tr><td data-num="68"></td><td><pre><span class="token comment">// const worker2 = new Worker(url1);</span></pre></td></tr><tr><td data-num="69"></td><td><pre><span class="token comment">/**</pre></td></tr><tr><td data-num="70"></td><td><pre> * 使用 worker 线程，完成轮询</pre></td></tr><tr><td data-num="71"></td><td><pre> */</span></pre></td></tr><tr><td data-num="72"></td><td><pre><span class="token comment">// 创建 worker</span></pre></td></tr><tr><td data-num="73"></td><td><pre><span class="token keyword">function</span> <span class="token function">createWorker</span><span class="token punctuation">(</span><span class="token parameter">f</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="74"></td><td><pre>  <span class="token keyword">const</span> fnBlob <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Blob</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'('</span><span class="token operator">+</span>f<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">+</span><span class="token string">')()'</span><span class="token punctuation">]</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="75"></td><td><pre>  <span class="token keyword">const</span> fnUrl <span class="token operator">=</span> window<span class="token punctuation">.</span><span class="token constant">URL</span><span class="token punctuation">.</span><span class="token function">createObjectURL</span><span class="token punctuation">(</span>fnBlob<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="76"></td><td><pre>  <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Worker</span><span class="token punctuation">(</span>fnUrl<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="77"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="78"></td><td><pre><span class="token keyword">const</span> fnWorker <span class="token operator">=</span> <span class="token function">createWorker</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">e</span><span class="token punctuation">)</span><span class="token operator">=></span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="79"></td><td><pre>  <span class="token keyword">let</span> cache<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="80"></td><td><pre>  <span class="token comment">// setInterval(()=>&#123;</span></pre></td></tr><tr><td data-num="81"></td><td><pre>    <span class="token function">fetch</span><span class="token punctuation">(</span><span class="token string">'/data'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token parameter">res</span><span class="token operator">=></span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="82"></td><td><pre>      <span class="token keyword">if</span><span class="token punctuation">(</span>cache <span class="token operator">!=</span> res<span class="token punctuation">)</span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="83"></td><td><pre>        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'变化了'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="84"></td><td><pre>      <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="85"></td><td><pre>    <span class="token punctuation">&#125;</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="86"></td><td><pre>  <span class="token comment">// &#125;,1000)</span></pre></td></tr><tr><td data-num="87"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="88"></td><td><pre>  </span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span></pre></td></tr><tr><td data-num="89"></td><td><pre><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>scriptDom<span class="token punctuation">"</span></span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>app/worker<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript"></pre></td></tr><tr><td data-num="90"></td><td><pre>  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'我是被woeker加载的文件'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="91"></td><td><pre></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span></pre></td></tr><tr><td data-num="92"></td><td><pre><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">></span></span></pre></td></tr><tr><td data-num="93"></td><td><pre><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">></span></span></pre></td></tr></table></figure><p>#worker.js</p>
-<figure class="highlight javascript"><figcaption data-lang="javascript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token comment">// 接受数据</span></pre></td></tr><tr><td data-num="2"></td><td><pre>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="3"></td><td><pre>self<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">'message'</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token parameter">e</span><span class="token punctuation">)</span><span class="token operator">=></span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="4"></td><td><pre>    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>e<span class="token punctuation">.</span>data<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="5"></td><td><pre>    self<span class="token punctuation">.</span><span class="token function">postMessage</span><span class="token punctuation">(</span><span class="token string">'我接受到了你的消息'</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="6"></td><td><pre>    <span class="token keyword">if</span><span class="token punctuation">(</span>e<span class="token punctuation">.</span>data <span class="token operator">===</span> <span class="token string">'close'</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="7"></td><td><pre>        self<span class="token punctuation">.</span><span class="token function">postMessage</span><span class="token punctuation">(</span><span class="token string">'听你的我关闭'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="8"></td><td><pre>        self<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="9"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="10"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">,</span><span class="token boolean">false</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="11"></td><td><pre><span class="token comment">// self.addEventListener('close',(e)=>&#123;</span></pre></td></tr><tr><td data-num="12"></td><td><pre><span class="token comment">//     console.log (' 关闭 ');</span></pre></td></tr><tr><td data-num="13"></td><td><pre><span class="token comment">// &#125;)</span></pre></td></tr><tr><td data-num="14"></td><td><pre><span class="token comment">/**</pre></td></tr><tr><td data-num="15"></td><td><pre> * worker 内部加载脚本</pre></td></tr><tr><td data-num="16"></td><td><pre> * 只能加载，不能获取其中内容</pre></td></tr><tr><td data-num="17"></td><td><pre> */</span></pre></td></tr><tr><td data-num="18"></td><td><pre><span class="token function">importScripts</span><span class="token punctuation">(</span><span class="token string">'./main.js'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr></table></figure><p>#serviceWorker.js</p>
-<figure class="highlight javascript"><figcaption data-lang="javascript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token comment">//serviceWorker 是基于事件驱动的。</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token comment">//serviceWorker 安装事件</span></pre></td></tr><tr><td data-num="3"></td><td><pre>self<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">'install'</span><span class="token punctuation">,</span><span class="token parameter">event</span><span class="token operator">=></span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="4"></td><td><pre>    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>event<span class="token punctuation">,</span><span class="token string">'安装事件'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="5"></td><td><pre>    event<span class="token punctuation">.</span><span class="token function">waitUntil</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">=></span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="6"></td><td><pre>        console<span class="token punctuation">.</span><span class="token function">info</span><span class="token punctuation">(</span><span class="token string">'安装完成'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="7"></td><td><pre>    <span class="token punctuation">&#125;</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="8"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="9"></td><td><pre><span class="token comment">//serviceWorker 激活事件（当安装完成之后就开始激活）</span></pre></td></tr><tr><td data-num="10"></td><td><pre>self<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">'active'</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token parameter">event</span><span class="token punctuation">)</span><span class="token operator">=></span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="11"></td><td><pre>    <span class="token keyword">let</span> cacheWhiteList <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'product-v2'</span><span class="token punctuation">]</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="12"></td><td><pre>    event<span class="token punctuation">.</span><span class="token function">waitUntil</span><span class="token punctuation">(</span></pre></td></tr><tr><td data-num="13"></td><td><pre>        caches<span class="token punctuation">.</span><span class="token function">keys</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token parameter">cacheNames</span><span class="token operator">=></span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="14"></td><td><pre>            <span class="token keyword">return</span> Promise<span class="token punctuation">.</span><span class="token function">all</span><span class="token punctuation">(</span></pre></td></tr><tr><td data-num="15"></td><td><pre>                cacheNames<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token parameter">cacheName</span><span class="token operator">=></span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="16"></td><td><pre>                    <span class="token keyword">if</span><span class="token punctuation">(</span>cacheWhiteList<span class="token punctuation">.</span><span class="token function">indexOf</span><span class="token punctuation">(</span>cacheName<span class="token punctuation">)</span> <span class="token operator">===</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="17"></td><td><pre>                        <span class="token keyword">return</span> caches<span class="token punctuation">.</span><span class="token function">delete</span><span class="token punctuation">(</span>cacheName<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="18"></td><td><pre>                    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="19"></td><td><pre>                <span class="token punctuation">&#125;</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="20"></td><td><pre>            <span class="token punctuation">)</span></pre></td></tr><tr><td data-num="21"></td><td><pre>        <span class="token punctuation">&#125;</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="22"></td><td><pre>    <span class="token punctuation">)</span></pre></td></tr><tr><td data-num="23"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="24"></td><td><pre><span class="token comment">//serviceWorker 与网页的通信</span></pre></td></tr><tr><td data-num="25"></td><td><pre>self<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">'active'</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token parameter">event</span><span class="token punctuation">)</span><span class="token operator">=></span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="26"></td><td><pre>    event<span class="token punctuation">.</span><span class="token function">waitUntil</span><span class="token punctuation">(</span></pre></td></tr><tr><td data-num="27"></td><td><pre>        self<span class="token punctuation">.</span>clients<span class="token punctuation">.</span><span class="token function">matchAll</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">client</span><span class="token punctuation">)</span><span class="token operator">=></span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="28"></td><td><pre>            client<span class="token punctuation">.</span><span class="token function">postMessage</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="29"></td><td><pre>                <span class="token literal-property property">msg</span><span class="token operator">:</span><span class="token string">"Hello serviceWorker"</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="30"></td><td><pre>                <span class="token literal-property property">source</span><span class="token operator">:</span><span class="token string">"serviceWorker"</span></pre></td></tr><tr><td data-num="31"></td><td><pre>            <span class="token punctuation">&#125;</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="32"></td><td><pre>        <span class="token punctuation">&#125;</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="33"></td><td><pre>    <span class="token punctuation">)</span></pre></td></tr><tr><td data-num="34"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">)</span></pre></td></tr></table></figure>
+    <p>#引言<br>首先我们知道JS中是没有并行,并发等概念的,这是因为JS是一门单线程的语言,其中的异步执行也是利用事件循环机制进行的,并不是严格意义上的异步.由于JS单线程的特性,使得JS在执行时如果遇到大量的任务就会使得过程运行缓慢.主渲染线程的延迟明显,使得用户体验较差.</p>
+<p>#web-worker<br>web-worker的作用就是用来缓解这一问题的</p>
+<p>利用web-worker,我们可以利用浏览器新开辟一个进程,将需要大量执行的过程在这个进程中执行,然后将结果返回给我们的主进程即可.</p>
+<p>#使用示例<br>#worker.html<br><!DOCTYPE html></p>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .p{
+      line-break: unset;
+    }
+  </style>
+  <a id="link"></a>
+    <p class="p">
+      <%= sjdfl =%>
+    </p>
+</head>
+<body>
+  <script>
+    const \u4e2d\u6587 = '这是转义之后的字符';
+// 使用webworker,分担主线程的压力
+// const worker = new Worker()
+//创建一个worker
+const worker = new Worker('./worker.js')
+    console.log(worker);
+worker.postMessage('sdfj');
+worker.postMessage({method:'echo',argus:[1,2,3,4]})
+//主线程关闭worker
+setTimeout(()=>{
+worker.terminate()
+// worker.postMessage('close')
+},1000)
+worker.addEventListener('message',(e)=>{
+  console.log(e.data);
+})
+/**
+ * 主线程监听worker错误
+ */
+worker.onerror=(e)=>{
+  worker.terminate()
+  console.error('worker错误');
+}
+/**
+ * 直接转移数据的控制权
+ */
+// 创建4字节的缓冲区
+let abfer = new ArrayBuffer(4);
+// 创建32位整数数组作为视图，引用缓冲区
+let tes = new Int32Array(abfer);
+console.log(tes,'ArrayBuffer');
+worker.postMessage(abfer,[abfer]); //转交控制权，主线程不再存储
+/**
+ * 模拟文件下载功能
+ */
+const blob = new Blob(['文件下载']);
+const link = document.getElementById('link');
+link.href = window.URL.createObjectURL(blob);;
+link.download = '测试文件.txt';
+setTimeout(()=>{
+  // link.click();
+},2000)
+/**
+ * 创建worker线程加载js文件
+ * ！！必须指定script标签的type为浏览器不知道的类型
+ */
+// const blob1 = new Blob(document.getElementById('scriptDom').textContent);
+// const url1 = new window.URL.createObjectURL(blob1);
+// const worker2 = new Worker(url1);
+/**
+ * 使用worker线程，完成轮询
+ */
+//创建worker
+function createWorker(f){
+  const fnBlob = new Blob(['('+f.toString()+')()'])
+  const fnUrl = window.URL.createObjectURL(fnBlob);
+  return new Worker(fnUrl);
+}
+const fnWorker = createWorker((e)=>{
+  let cache;
+  // setInterval(()=>{
+    fetch('/data').then(res=>{
+      if(cache != res){
+        console.log('变化了');
+      }
+    })
+  // },1000)
+});
+  </script>
+<script id="scriptDom" type="app/worker">
+  console.log('我是被woeker加载的文件');
+</script>
+</body>
+</html>
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .p{
+      line-break: unset;
+    }
+  </style>
+  <a id="link"></a>
+    <p class="p">
+      <%= sjdfl =%>
+    </p>
+</head>
+<body>
+  <script>
+    const \u4e2d\u6587 = '这是转义之后的字符';
+// 使用webworker,分担主线程的压力
+// const worker = new Worker()
+//创建一个worker
+const worker = new Worker('./worker.js')
+    console.log(worker);
+worker.postMessage('sdfj');
+worker.postMessage({method:'echo',argus:[1,2,3,4]})
+//主线程关闭worker
+setTimeout(()=>{
+worker.terminate()
+// worker.postMessage('close')
+},1000)
+worker.addEventListener('message',(e)=>{
+  console.log(e.data);
+})
+/**
+ * 主线程监听worker错误
+ */
+worker.onerror=(e)=>{
+  worker.terminate()
+  console.error('worker错误');
+}
+/**
+ * 直接转移数据的控制权
+ */
+// 创建4字节的缓冲区
+let abfer = new ArrayBuffer(4);
+// 创建32位整数数组作为视图，引用缓冲区
+let tes = new Int32Array(abfer);
+console.log(tes,'ArrayBuffer');
+worker.postMessage(abfer,[abfer]); //转交控制权，主线程不再存储
+/**
+ * 模拟文件下载功能
+ */
+const blob = new Blob(['文件下载']);
+const link = document.getElementById('link');
+link.href = window.URL.createObjectURL(blob);;
+link.download = '测试文件.txt';
+setTimeout(()=>{
+  // link.click();
+},2000)
+/**
+ * 创建worker线程加载js文件
+ * ！！必须指定script标签的type为浏览器不知道的类型
+ */
+// const blob1 = new Blob(document.getElementById('scriptDom').textContent);
+// const url1 = new window.URL.createObjectURL(blob1);
+// const worker2 = new Worker(url1);
+/**
+ * 使用worker线程，完成轮询
+ */
+//创建worker
+function createWorker(f){
+  const fnBlob = new Blob(['('+f.toString()+')()'])
+  const fnUrl = window.URL.createObjectURL(fnBlob);
+  return new Worker(fnUrl);
+}
+const fnWorker = createWorker((e)=>{
+  let cache;
+  // setInterval(()=>{
+    fetch('/data').then(res=>{
+      if(cache != res){
+        console.log('变化了');
+      }
+    })
+  // },1000)
+});
+  </script>
+<script id="scriptDom" type="app/worker">
+  console.log('我是被woeker加载的文件');
+</script>
+</body>
+</html>
+```
+
+<p>#worker.js</p>
+<pre><code class="javascript">//接受数据
+console.log(self);
+self.addEventListener(&#39;message&#39;,(e)=&gt;&#123;
+    console.log(e.data);
+    self.postMessage(&#39;我接受到了你的消息&#39;)
+    if(e.data === &#39;close&#39;)&#123;
+        self.postMessage(&#39;听你的我关闭&#39;);
+        self.close();
+    &#125;
+&#125;,false)
+// self.addEventListener(&#39;close&#39;,(e)=&gt;&#123;
+//     console.log(&#39;关闭&#39;);
+// &#125;)
+/**
+ * worker内部加载脚本
+ * 只能加载，不能获取其中内容
+ */
+importScripts(&#39;./main.js&#39;);
+</code></pre>
+<p>#serviceWorker.js</p>
+<pre><code class="javascript">//serviceWorker是基于事件驱动的。
+//serviceWorker安装事件
+self.addEventListener(&#39;install&#39;,event=&gt;&#123;
+    console.log(event,&#39;安装事件&#39;);
+    event.waitUntil(()=&gt;&#123;
+        console.info(&#39;安装完成&#39;);
+    &#125;)
+&#125;)
+//serviceWorker激活事件（当安装完成之后就开始激活）
+self.addEventListener(&#39;active&#39;,(event)=&gt;&#123;
+    let cacheWhiteList = [&#39;product-v2&#39;];
+    event.waitUntil(
+        caches.keys().then(cacheNames=&gt;&#123;
+            return Promise.all(
+                cacheNames.map(cacheName=&gt;&#123;
+                    if(cacheWhiteList.indexOf(cacheName) === -1)&#123;
+                        return caches.delete(cacheName);
+                    &#125;
+                &#125;)
+            )
+        &#125;)
+    )
+&#125;)
+//serviceWorker与网页的通信
+self.addEventListener(&#39;active&#39;,(event)=&gt;&#123;
+    event.waitUntil(
+        self.clients.matchAll().then((client)=&gt;&#123;
+            client.postMessage(&#123;
+                msg:&quot;Hello serviceWorker&quot;,
+                source:&quot;serviceWorker&quot;
+            &#125;)
+        &#125;)
+    )
+&#125;)
+</code></pre>
+
       <div class="tags">
           <a href="/tags/JS/" rel="tag"><i class="ic i-tag"></i> JS</a>
           <a href="/tags/webWorker/" rel="tag"><i class="ic i-tag"></i> webWorker</a>
@@ -347,7 +491,7 @@ console.log (' 我是被 woeker 加载的文件 ');<br />
     <div class="item left">
       
 
-  <a href="/2024/01/10/%E6%AD%A3%E5%88%99/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;s3.uuu.ovh&#x2F;imgs&#x2F;2024&#x2F;04&#x2F;12&#x2F;65788b6548e9e58f.jpg" title="正则理念">
+  <a href="/2024/01/10/%E6%AD%A3%E5%88%99/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;s3.uuu.ovh&#x2F;imgs&#x2F;2024&#x2F;04&#x2F;04&#x2F;61e9f78d997bc7c9.webp" title="正则理念">
   <span class="type">上一篇</span>
   <span class="category"><i class="ic i-flag"></i> 正则表达式</span>
   <h3>正则理念</h3>
@@ -357,7 +501,7 @@ console.log (' 我是被 woeker 加载的文件 ');<br />
     <div class="item right">
       
 
-  <a href="/2024/01/23/%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;s3.uuu.ovh&#x2F;imgs&#x2F;2024&#x2F;03&#x2F;29&#x2F;5c162f03529c2f38.jpg" title="版本管理">
+  <a href="/2024/01/23/%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;s3.uuu.ovh&#x2F;imgs&#x2F;2024&#x2F;04&#x2F;25&#x2F;1276fcec5eb7990e.webp" title="版本管理">
   <span class="type">下一篇</span>
   <span class="category"><i class="ic i-flag"></i> 版本管理</span>
   <h3>版本管理</h3>
@@ -496,30 +640,30 @@ console.log (' 我是被 woeker 加载的文件 ');<br />
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/OSI%E4%B8%83%E5%B1%82%E7%BD%91%E7%BB%9C%E6%A8%A1%E5%9E%8B/" title="分类于 OSI七层网络模型">OSI七层网络模型</a>
+<a href="/categories/%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/" title="分类于 自动化测试">自动化测试</a>
 </div>
 
-    <span><a href="/2024/05/27/OSI%E4%B8%83%E5%B1%82%E7%BD%91%E7%BB%9C%E6%A8%A1%E5%9E%8B/" title="OSI七层网络模型">OSI七层网络模型</a></span>
+    <span><a href="/2024/03/02/%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/" title="自动化测试">自动化测试</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/JS/" title="分类于 JS">JS</a>
+<a href="/categories/%E8%84%9A%E6%89%8B%E6%9E%B6%E5%BC%80%E5%8F%91/" title="分类于 脚手架开发">脚手架开发</a>
 </div>
 
-    <span><a href="/2023/12/11/typedArray/" title="JS中类型化数组typedArray">JS中类型化数组typedArray</a></span>
+    <span><a href="/2024/04/12/%E8%84%9A%E6%89%8B%E6%9E%B6/" title="脚手架开发">脚手架开发</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/%E5%BC%80%E6%BA%90%E5%8D%8F%E8%AE%AE/" title="分类于 开源协议">开源协议</a>
+<a href="/categories/%E9%A1%B9%E7%9B%AE%E8%B4%A8%E9%87%8F%E6%A3%80%E6%B5%8B/" title="分类于 项目质量检测">项目质量检测</a>
 </div>
 
-    <span><a href="/2023/02/02/%E5%BC%80%E6%BA%90%E5%8D%8F%E8%AE%AE/" title="常见开源协议">常见开源协议</a></span>
+    <span><a href="/2024/01/02/%E9%A1%B9%E7%9B%AE%E8%B4%A8%E9%87%8F%E6%A3%80%E6%B5%8B/" title="项目质量检测">项目质量检测</a></span>
   </li>
 
       
@@ -536,26 +680,6 @@ console.log (' 我是被 woeker 加载的文件 ');<br />
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/JS%E6%89%8B%E5%86%99%E9%A2%98/" title="分类于 JS手写题">JS手写题</a>
-</div>
-
-    <span><a href="/2023/06/02/JS%E6%89%8B%E5%86%99%E9%A2%98/" title="JS手写题">JS手写题</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/" title="分类于 面试题">面试题</a>
-</div>
-
-    <span><a href="/2023/08/29/%E9%9D%A2%E8%AF%95%E9%A2%98/" title="面试题">面试题</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
 <a href="/categories/JS/" title="分类于 JS">JS</a>
 </div>
 
@@ -566,30 +690,50 @@ console.log (' 我是被 woeker 加载的文件 ');<br />
   <li class="item">
     
 <div class="breadcrumb">
+<a href="/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" title="分类于 操作系统">操作系统</a>
+</div>
+
+    <span><a href="/2024/07/23/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" title="操作系统">操作系统</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/markdown/" title="分类于 markdown">markdown</a>
+</div>
+
+    <span><a href="/2023/02/10/md/" title="markdown">markdown</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E4%B8%9A%E5%8A%A1%E5%A4%84%E7%90%86/" title="分类于 业务处理">业务处理</a>
+</div>
+
+    <span><a href="/2024/03/29/%E6%9C%AC%E5%9C%B0%E9%A2%84%E8%A7%88%E5%9B%BE%E7%89%87/" title="本地预览图片">本地预览图片</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/typeScript/" title="分类于 typeScript">typeScript</a>
+</div>
+
+    <span><a href="/2023/12/11/TS/" title="typeScript笔记">typeScript笔记</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
 <a href="/categories/Blob/" title="分类于 Blob">Blob</a>
 </div>
 
     <span><a href="/2024/05/17/Blob%E5%92%8CFile/" title="Blob、File和FileReader">Blob、File和FileReader</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/webpack/" title="分类于 webpack">webpack</a>
-</div>
-
-    <span><a href="/2023/10/21/webpack/" title="webpack笔记">webpack笔记</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/%E5%A4%8D%E6%9D%82%E4%B8%9A%E5%8A%A1%E9%83%A8%E7%BD%B2%E4%B8%8E%E4%BC%98%E5%8C%96/" title="分类于 复杂业务部署与优化">复杂业务部署与优化</a>
-</div>
-
-    <span><a href="/2024/04/12/%E5%A4%8D%E6%9D%82%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2%E4%B8%8A%E7%BA%BF/" title="复杂业务部署与优化">复杂业务部署与优化</a></span>
   </li>
 
   </ul>
@@ -614,13 +758,13 @@ console.log (' 我是被 woeker 加载的文件 ');<br />
     <span class="post-meta-item-icon">
       <i class="ic i-chart-area"></i>
     </span>
-    <span title="站点总字数">943k 字</span>
+    <span title="站点总字数">938k 字</span>
 
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="ic i-coffee"></i>
     </span>
-    <span title="站点阅读时长">14:17</span>
+    <span title="站点阅读时长">14:12</span>
   </div>
   <div class="powered-by">
     基于 <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & Theme.<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Shoka</span>

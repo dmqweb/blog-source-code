@@ -78,7 +78,7 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
       <i class="ic i-pen"></i>
     </span>
     <span class="text">本文字数</span>
-    <span>2.4k</span>
+    <span>2.6k</span>
     <span class="text">字</span>
   </span>
   <span class="item" title="阅读时长">
@@ -119,12 +119,12 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
       </div>
       <div id="imgs" class="pjax">
         <ul>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/03/29/a93636ae09845d36.jpg"></li>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/28/f7a6eb62965e0dec.webp"></li>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/07/2600bb35f2cdf6cf.jpg"></li>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/04/25ef11a84cfafbef.jpg"></li>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/04/f480d741324d8eb5.jpg"></li>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/04/eff89867286d822f.webp"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/13/2376b10e610925e4.jpg"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/28/dc01f095118914ac.webp"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/05/ec66a7160398848b.webp"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/15/6d859d49c9d65157.jpg"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/15/d888a622df52afa7.webp"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/13/ba4d76fc0767aeef.jpg"></li>
         </ul>
       </div>
     </header>
@@ -170,17 +170,96 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
   <div class="body md" itemprop="articleBody">
     
 
-    <h1 id="概念"><a class="anchor" href="#概念">#</a> 概念</h1>
-<p>函数重载是指在编程语言中允许定义多个同名函数，但是他们的参数类型、参数个数或者返回类型不同，编译器或解析器会根据调用时提供的参数类型和个数来确定使用哪个函数</p>
-<h1 id="作用"><a class="anchor" href="#作用">#</a> 作用</h1>
-<p>函数重载的主要目的就是提高代码的可读性和灵活性，同时避免了为不同功能编写不同的函数名导致的变量命名冲突和混乱。</p>
-<h1 id="实现函数重载"><a class="anchor" href="#实现函数重载">#</a> 实现函数重载</h1>
-<h2 id="ts"><a class="anchor" href="#ts">#</a> ts</h2>
-<p>ts 中进行函数重载其实就是根据型参数组的个数和对变量进行 typeof 检测，然后根据不同的情况进行分支处理</p>
-<figure class="highlight ts"><figcaption data-lang="TypeScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token comment">// 函数重载的声明</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token keyword">function</span> <span class="token function">average</span><span class="token punctuation">(</span>numbers<span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">;</span> <span class="token comment">// 函数签名 1：接受数字数组并返回数字</span></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token keyword">function</span> <span class="token function">average</span><span class="token punctuation">(</span><span class="token operator">...</span>numbers<span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">;</span> <span class="token comment">// 函数签名 2：接受可变数量的数字参数并返回数字</span></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token comment">// 函数实现</span></pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token keyword">function</span> <span class="token function">average</span><span class="token punctuation">(</span><span class="token operator">...</span>args<span class="token operator">:</span> <span class="token builtin">any</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">number</span> <span class="token punctuation">&#123;</span> <span class="token comment">// 实际函数实现</span></pre></td></tr><tr><td data-num="6"></td><td><pre>    <span class="token keyword">let</span> sum <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="7"></td><td><pre>    <span class="token keyword">if</span> <span class="token punctuation">(</span>args<span class="token punctuation">.</span>length <span class="token operator">===</span> <span class="token number">1</span> <span class="token operator">&amp;&amp;</span> <span class="token builtin">Array</span><span class="token punctuation">.</span><span class="token function">isArray</span><span class="token punctuation">(</span>args<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span> <span class="token comment">// 如果传入的是数组</span></pre></td></tr><tr><td data-num="8"></td><td><pre>        <span class="token keyword">const</span> numbers <span class="token operator">=</span> args<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token keyword">as</span> <span class="token builtin">number</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token comment">// 类型断言为数字数组</span></pre></td></tr><tr><td data-num="9"></td><td><pre>        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">const</span> num <span class="token keyword">of</span> numbers<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="10"></td><td><pre>            sum <span class="token operator">+=</span> num<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="11"></td><td><pre>        <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="12"></td><td><pre>        <span class="token keyword">return</span> sum <span class="token operator">/</span> numbers<span class="token punctuation">.</span>length<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="13"></td><td><pre>    <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>args<span class="token punctuation">.</span>length <span class="token operator">></span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span> <span class="token comment">// 如果传入的是多个数字</span></pre></td></tr><tr><td data-num="14"></td><td><pre>        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">const</span> num <span class="token keyword">of</span> args<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="15"></td><td><pre>            sum <span class="token operator">+=</span> num<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="16"></td><td><pre>        <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="17"></td><td><pre>        <span class="token keyword">return</span> sum <span class="token operator">/</span> args<span class="token punctuation">.</span>length<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="18"></td><td><pre>    <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="19"></td><td><pre>        <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">Error</span><span class="token punctuation">(</span><span class="token string">'Invalid arguments'</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 抛出错误，不支持的参数类型</span></pre></td></tr><tr><td data-num="20"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="21"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="22"></td><td><pre></pre></td></tr><tr><td data-num="23"></td><td><pre><span class="token comment">// 调用函数重载</span></pre></td></tr><tr><td data-num="24"></td><td><pre><span class="token builtin">console</span><span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token function">average</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 输出: 3</span></pre></td></tr><tr><td data-num="25"></td><td><pre><span class="token builtin">console</span><span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token function">average</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 输出: 3</span></pre></td></tr></table></figure><h2 id="js"><a class="anchor" href="#js">#</a> js</h2>
-<p>js 中也可以通过 typeof 和形参数组进行函数重载，不过当然还有更好的做法，jQuery 作者常用如下实现函数重载（进行重载之前要调用一次函数）：</p>
-<figure class="highlight javascript"><figcaption data-lang="javascript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">function</span> <span class="token function">addMethod</span><span class="token punctuation">(</span><span class="token parameter">object<span class="token punctuation">,</span>name<span class="token punctuation">,</span>fn</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="2"></td><td><pre>    <span class="token keyword">const</span> old <span class="token operator">=</span> object<span class="token punctuation">[</span>name<span class="token punctuation">]</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="3"></td><td><pre>    object<span class="token punctuation">[</span>name<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter"><span class="token operator">...</span>args</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="4"></td><td><pre>        <span class="token keyword">if</span><span class="token punctuation">(</span>args<span class="token punctuation">.</span>length <span class="token operator">===</span> fn<span class="token punctuation">.</span>length<span class="token punctuation">)</span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="5"></td><td><pre>            <span class="token keyword">return</span> <span class="token function">fn</span><span class="token punctuation">.</span><span class="token function">apply</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">,</span>args<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="6"></td><td><pre>        <span class="token punctuation">&#125;</span><span class="token keyword">else</span> <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token keyword">typeof</span> old <span class="token operator">===</span> <span class="token string">'function'</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="7"></td><td><pre>            <span class="token keyword">return</span> <span class="token function">old</span><span class="token punctuation">.</span><span class="token function">apply</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">,</span>args<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="8"></td><td><pre>        <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="9"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="10"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="11"></td><td><pre><span class="token keyword">const</span> searcher <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span><span class="token punctuation">;</span> <span class="token comment">// 将对象中对应属性的重载方法全部存储起来</span></pre></td></tr><tr><td data-num="12"></td><td><pre><span class="token function">addMethod</span><span class="token punctuation">(</span>searcher<span class="token punctuation">,</span><span class="token string">'getUsers'</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">=></span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="13"></td><td><pre>    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'查询所有用户'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="14"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="15"></td><td><pre><span class="token function">addMethod</span><span class="token punctuation">(</span>searcher<span class="token punctuation">,</span><span class="token string">'getUsers'</span><span class="token punctuation">,</span><span class="token punctuation">(</span>name<span class="token operator">=</span><span class="token string">'a'</span><span class="token punctuation">)</span><span class="token operator">=></span><span class="token punctuation">&#123;</span> <span class="token comment">// 注意默认参数的形参数量不与计数</span></pre></td></tr><tr><td data-num="16"></td><td><pre>    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'按照姓名查询用户'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="17"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="18"></td><td><pre></pre></td></tr><tr><td data-num="19"></td><td><pre>searcher<span class="token punctuation">.</span><span class="token function">getUsers</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr></table></figure><p>另一种实现方法就是使用映射：</p>
-<figure class="highlight javascript"><figcaption data-lang="javascript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">function</span> <span class="token function">createOverload</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="2"></td><td><pre>    <span class="token keyword">const</span> fnMap <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Map</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="3"></td><td><pre>    <span class="token keyword">function</span> <span class="token function">overload</span><span class="token punctuation">(</span><span class="token parameter"><span class="token operator">...</span>args</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="4"></td><td><pre>        <span class="token keyword">const</span> key <span class="token operator">=</span> args<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">it</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token keyword">typeof</span> it<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span><span class="token string">','</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="5"></td><td><pre>        <span class="token keyword">const</span> fn <span class="token operator">=</span> fnMap<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>key<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="6"></td><td><pre>        <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span>fn<span class="token punctuation">)</span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="7"></td><td><pre>            <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">TypeError</span><span class="token punctuation">(</span><span class="token string">'没有找到对应的实现'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="8"></td><td><pre>        <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="9"></td><td><pre>        <span class="token keyword">return</span> <span class="token function">fn</span><span class="token punctuation">.</span><span class="token function">apply</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">,</span>args<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="10"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="11"></td><td><pre>    overload<span class="token punctuation">.</span><span class="token function-variable function">addImpl</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter"><span class="token operator">...</span>args</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="12"></td><td><pre>        <span class="token keyword">const</span> fn <span class="token operator">=</span> args<span class="token punctuation">.</span><span class="token function">pop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="13"></td><td><pre>        <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token keyword">typeof</span> fn <span class="token operator">!==</span> <span class="token string">'function'</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="14"></td><td><pre>            <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">TypeError</span><span class="token punctuation">(</span><span class="token string">'最后一个参数必须是函数'</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="15"></td><td><pre>        <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="16"></td><td><pre>        <span class="token keyword">const</span> key <span class="token operator">=</span> args<span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span><span class="token string">','</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="17"></td><td><pre>        fnMap<span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span>key<span class="token punctuation">,</span>fn<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="18"></td><td><pre>    <span class="token punctuation">&#125;</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="19"></td><td><pre>    <span class="token keyword">return</span> overload<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="20"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="21"></td><td><pre><span class="token keyword">const</span> getUsers <span class="token operator">=</span> <span class="token function">createOverload</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="22"></td><td><pre>getUsers<span class="token punctuation">.</span><span class="token function">addImpl</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">=></span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="23"></td><td><pre>    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'查询所有用户'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="24"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="25"></td><td><pre>getUsers<span class="token punctuation">.</span><span class="token function">addImpl</span><span class="token punctuation">(</span><span class="token string">'number'</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token parameter">page<span class="token punctuation">,</span>size<span class="token operator">=</span><span class="token number">10</span></span><span class="token punctuation">)</span><span class="token operator">=></span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="26"></td><td><pre>    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'按照页码和数量查询用户'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="27"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="28"></td><td><pre>getUsers<span class="token punctuation">.</span><span class="token function">addImpl</span><span class="token punctuation">(</span><span class="token string">'number'</span><span class="token punctuation">,</span><span class="token string">'number'</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token parameter">page<span class="token punctuation">,</span>size<span class="token operator">=</span><span class="token number">10</span></span><span class="token punctuation">)</span><span class="token operator">=></span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="29"></td><td><pre>    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'按照页码和数量查询用户'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="30"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="31"></td><td><pre>getUsers<span class="token punctuation">.</span><span class="token function">addImpl</span><span class="token punctuation">(</span><span class="token string">'string'</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token parameter">name</span><span class="token punctuation">)</span><span class="token operator">=></span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="32"></td><td><pre>    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'按照姓名查询用户'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="33"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="34"></td><td><pre>getUsers<span class="token punctuation">.</span><span class="token function">addImpl</span><span class="token punctuation">(</span><span class="token string">'string'</span><span class="token punctuation">,</span><span class="token string">'string'</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">=></span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="35"></td><td><pre>    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'按照性别查询用户'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="36"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="37"></td><td><pre><span class="token function">getUsers</span><span class="token punctuation">(</span><span class="token string">'asfsdf'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr></table></figure><p>总结一下实现思路，通过 createOverload 函数调用可以返回一个重载后的函数，createOverload 函数中创建了一个 map，map 中将参数类型和个数与对应的函数相匹配，返回的重载函数在调用时会根据参数的类型去 map 中寻找对应的函数，通过 apply 绑定 this 作用域和参数执行即可。</p>
+    <h1 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h1><p>函数重载是指在编程语言中允许定义多个同名函数，但是他们的参数类型、参数个数或者返回类型不同，编译器或解析器会根据调用时提供的参数类型和个数来确定使用哪个函数</p>
+<h1 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h1><p>函数重载的主要目的就是提高代码的可读性和灵活性，同时避免了为不同功能编写不同的函数名导致的变量命名冲突和混乱。</p>
+<h1 id="实现函数重载"><a href="#实现函数重载" class="headerlink" title="实现函数重载"></a>实现函数重载</h1><h2 id="ts"><a href="#ts" class="headerlink" title="ts"></a>ts</h2><p>ts中进行函数重载其实就是根据型参数组的个数和对变量进行typeof检测，然后根据不同的情况进行分支处理</p>
+<pre><code class="ts">// 函数重载的声明
+function average(numbers: number[]): number; // 函数签名1：接受数字数组并返回数字
+function average(...numbers: number[]): number; // 函数签名2：接受可变数量的数字参数并返回数字
+// 函数实现
+function average(...args: any[]): number &#123; // 实际函数实现
+    let sum = 0;
+    if (args.length === 1 &amp;&amp; Array.isArray(args[0])) &#123; // 如果传入的是数组
+        const numbers = args[0] as number[]; // 类型断言为数字数组
+        for (const num of numbers) &#123;
+            sum += num;
+        &#125;
+        return sum / numbers.length;
+    &#125; else if (args.length &gt; 1) &#123; // 如果传入的是多个数字
+        for (const num of args) &#123;
+            sum += num;
+        &#125;
+        return sum / args.length;
+    &#125; else &#123;
+        throw new Error(&#39;Invalid arguments&#39;); // 抛出错误，不支持的参数类型
+    &#125;
+&#125;
+
+// 调用函数重载
+console.log(average([1, 2, 3, 4, 5])); // 输出: 3
+console.log(average(1, 2, 3, 4, 5)); // 输出: 3
+</code></pre>
+<h2 id="js"><a href="#js" class="headerlink" title="js"></a>js</h2><p>js中也可以通过typeof和形参数组进行函数重载，不过当然还有更好的做法，jQuery作者常用如下实现函数重载（进行重载之前要调用一次函数）：</p>
+<pre><code class="javascript">function addMethod(object,name,fn)&#123;
+    const old = object[name];
+    object[name] = function (...args)&#123;
+        if(args.length === fn.length)&#123;
+            return fn.apply(this,args);
+        &#125;else if(typeof old === &#39;function&#39;)&#123;
+            return old.apply(this,args);
+        &#125;
+    &#125;
+&#125;;
+const searcher = &#123;&#125;; //将对象中对应属性的重载方法全部存储起来
+addMethod(searcher,&#39;getUsers&#39;,()=&gt;&#123;
+    console.log(&#39;查询所有用户&#39;);
+&#125;);
+addMethod(searcher,&#39;getUsers&#39;,(name=&#39;a&#39;)=&gt;&#123; //注意默认参数的形参数量不与计数
+    console.log(&#39;按照姓名查询用户&#39;);
+&#125;);
+
+searcher.getUsers();
+</code></pre>
+<p>另一种实现方法就是使用映射：</p>
+<pre><code class="javascript">function createOverload()&#123;
+    const fnMap = new Map();
+    function overload(...args)&#123;
+        const key = args.map((it) =&gt; typeof it).join(&#39;,&#39;);
+        const fn = fnMap.get(key);
+        if(!fn)&#123;
+            throw new TypeError(&#39;没有找到对应的实现&#39;);
+        &#125;
+        return fn.apply(this,args);
+    &#125;
+    overload.addImpl = function(...args)&#123;
+        const fn = args.pop();
+        if(typeof fn !== &#39;function&#39;)&#123;
+            throw new TypeError(&#39;最后一个参数必须是函数&#39;)
+        &#125;
+        const key = args.join(&#39;,&#39;);
+        fnMap.set(key,fn);
+    &#125;;
+    return overload;
+&#125;
+const getUsers = createOverload();
+getUsers.addImpl(()=&gt;&#123;
+    console.log(&#39;查询所有用户&#39;);
+&#125;);
+getUsers.addImpl(&#39;number&#39;,(page,size=10)=&gt;&#123;
+    console.log(&#39;按照页码和数量查询用户&#39;);
+&#125;);
+getUsers.addImpl(&#39;number&#39;,&#39;number&#39;,(page,size=10)=&gt;&#123;
+    console.log(&#39;按照页码和数量查询用户&#39;);
+&#125;)
+getUsers.addImpl(&#39;string&#39;,(name)=&gt;&#123;
+    console.log(&#39;按照姓名查询用户&#39;);
+&#125;);
+getUsers.addImpl(&#39;string&#39;,&#39;string&#39;,()=&gt;&#123;
+    console.log(&#39;按照性别查询用户&#39;);
+&#125;);
+getUsers(&#39;asfsdf&#39;);
+</code></pre>
+<p>总结一下实现思路，通过createOverload函数调用可以返回一个重载后的函数，createOverload函数中创建了一个map，map中将参数类型和个数与对应的函数相匹配，返回的重载函数在调用时会根据参数的类型去map中寻找对应的函数，通过apply绑定this作用域和参数执行即可。</p>
 
       <div class="tags">
           <a href="/tags/JS-%E5%87%BD%E6%95%B0%E9%87%8D%E8%BD%BD/" rel="tag"><i class="ic i-tag"></i> JS,函数重载</a>
@@ -253,7 +332,7 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
     <div class="item left">
       
 
-  <a href="/2024/04/30/%E6%B7%B1%E6%8B%B7%E8%B4%9D/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;s3.uuu.ovh&#x2F;imgs&#x2F;2024&#x2F;04&#x2F;15&#x2F;21b7a3f222ccbcb6.jpg" title="深拷贝">
+  <a href="/2024/04/30/%E6%B7%B1%E6%8B%B7%E8%B4%9D/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;s3.uuu.ovh&#x2F;imgs&#x2F;2024&#x2F;04&#x2F;06&#x2F;d8aa12b30683676e.jpg" title="深拷贝">
   <span class="type">上一篇</span>
   <span class="category"><i class="ic i-flag"></i> 面试题</span>
   <h3>深拷贝</h3>
@@ -263,7 +342,7 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
     <div class="item right">
       
 
-  <a href="/2024/05/11/%E6%80%A7%E8%83%BD%E6%8C%87%E6%A0%87/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;s3.uuu.ovh&#x2F;imgs&#x2F;2024&#x2F;04&#x2F;13&#x2F;c95fa1dc9a2ef7b0.jpg" title="性能指标">
+  <a href="/2024/05/11/%E6%80%A7%E8%83%BD%E6%8C%87%E6%A0%87/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;s3.uuu.ovh&#x2F;imgs&#x2F;2024&#x2F;04&#x2F;04&#x2F;61e9f78d997bc7c9.webp" title="性能指标">
   <span class="type">下一篇</span>
   <span class="category"><i class="ic i-flag"></i> 性能优化</span>
   <h3>性能指标</h3>
@@ -285,7 +364,7 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
   <div class="panels">
     <div class="inner">
       <div class="contents panel pjax" data-title="文章目录">
-          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%A6%82%E5%BF%B5"><span class="toc-number">1.</span> <span class="toc-text"> 概念</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BD%9C%E7%94%A8"><span class="toc-number">2.</span> <span class="toc-text"> 作用</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0%E5%87%BD%E6%95%B0%E9%87%8D%E8%BD%BD"><span class="toc-number">3.</span> <span class="toc-text"> 实现函数重载</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#ts"><span class="toc-number">3.1.</span> <span class="toc-text"> ts</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#js"><span class="toc-number">3.2.</span> <span class="toc-text"> js</span></a></li></ol></li></ol>
+          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%A6%82%E5%BF%B5"><span class="toc-number">1.</span> <span class="toc-text">概念</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BD%9C%E7%94%A8"><span class="toc-number">2.</span> <span class="toc-text">作用</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0%E5%87%BD%E6%95%B0%E9%87%8D%E8%BD%BD"><span class="toc-number">3.</span> <span class="toc-text">实现函数重载</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#ts"><span class="toc-number">3.1.</span> <span class="toc-text">ts</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#js"><span class="toc-number">3.2.</span> <span class="toc-text">js</span></a></li></ol></li></ol>
       </div>
       <div class="related panel pjax" data-title="系列文章">
         <ul>
@@ -403,70 +482,20 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/ajax/" title="分类于 ajax">ajax</a>
+<a href="/categories/v8%E5%BC%95%E6%93%8E%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/" title="分类于 v8引擎编译原理">v8引擎编译原理</a>
 </div>
 
-    <span><a href="/2023/01/08/ajax/" title="ajax">ajax</a></span>
+    <span><a href="/2024/05/21/v8%E5%BC%95%E6%93%8E%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/" title="v8引擎编译原理">v8引擎编译原理</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/%E9%A1%B9%E7%9B%AE%E8%B4%A8%E9%87%8F%E6%A3%80%E6%B5%8B/" title="分类于 项目质量检测">项目质量检测</a>
+<a href="/categories/HTTP/" title="分类于 HTTP">HTTP</a>
 </div>
 
-    <span><a href="/2024/01/02/%E9%A1%B9%E7%9B%AE%E8%B4%A8%E9%87%8F%E6%A3%80%E6%B5%8B/" title="项目质量检测">项目质量检测</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/json-server/" title="分类于 json-server">json-server</a>
-</div>
-
-    <span><a href="/2023/01/09/json-server%E6%95%99%E7%A8%8B/" title="json-server">json-server</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" title="分类于 网络安全">网络安全</a>
-</div>
-
-    <span><a href="/2024/05/23/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" title="网络安全">网络安全</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/vue/" title="分类于 vue">vue</a>
-</div>
-
-    <span><a href="/2023/11/02/vue%E5%8E%9F%E7%90%86/" title="vue源码解读">vue源码解读</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" title="分类于 正则表达式">正则表达式</a>
-</div>
-
-    <span><a href="/2024/01/10/%E6%AD%A3%E5%88%99/" title="正则理念">正则理念</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/git/" title="分类于 git">git</a>
-</div>
-
-    <span><a href="/2023/05/02/git%20github%E7%AC%94%E8%AE%B0%EF%BC%88%E6%A6%82%E5%BF%B5%EF%BC%89/" title="git笔记">git笔记</a></span>
+    <span><a href="/2023/05/02/HTTP/" title="HTTP">HTTP</a></span>
   </li>
 
       
@@ -476,27 +505,77 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
 <a href="/categories/JS/" title="分类于 JS">JS</a>
 </div>
 
-    <span><a href="/2023/12/21/%E6%9C%80%E5%A4%A7%E5%AE%89%E5%85%A8%E6%95%B0/" title="最大安全数与最大安全整数">最大安全数与最大安全整数</a></span>
+    <span><a href="/2023/09/02/ArrayBuffer/" title="ArrayBuffer">ArrayBuffer</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" title="分类于 正则表达式">正则表达式</a>
+<a href="/categories/Vue/" title="分类于 Vue">Vue</a>
 </div>
 
-    <span><a href="/2023/02/12/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" title="正则表达式">正则表达式</a></span>
+    <span><a href="/2023/01/12/Vue%E6%9D%82%E8%AE%B0/" title="Vue使用笔记">Vue使用笔记</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/Travis%E5%92%8CDocker/" title="分类于 Travis和Docker">Travis和Docker</a>
+<a href="/categories/Blob/" title="分类于 Blob">Blob</a>
 </div>
 
-    <span><a href="/2023/12/02/Travis%20CI%E5%92%8CDocker%E7%9A%84%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90/" title="Travis和Docker的持续集成">Travis和Docker的持续集成</a></span>
+    <span><a href="/2024/05/17/Blob%E5%92%8CFile/" title="Blob、File和FileReader">Blob、File和FileReader</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96/" title="分类于 前端工程化">前端工程化</a>
+</div>
+
+    <span><a href="/2024/03/29/%E5%89%8D%E7%AB%AF%E6%A8%A1%E5%9D%97%E5%8C%96/" title="前端模块化">前端模块化</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Linux/" title="分类于 Linux">Linux</a>
+</div>
+
+    <span><a href="/2023/01/22/linux%E6%9C%8D%E5%8A%A1%E5%99%A8/" title="Linux">Linux</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Sass/" title="分类于 Sass">Sass</a>
+</div>
+
+    <span><a href="/2023/01/10/Sass/" title="Sass笔记">Sass笔记</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/eslint/" title="分类于 eslint">eslint</a>
+</div>
+
+    <span><a href="/2024/05/17/eslint%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90/" title="eslint源码">eslint源码</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/vue-router%E5%8E%9F%E7%90%86/" title="分类于 vue-router原理">vue-router原理</a>
+</div>
+
+    <span><a href="/2024/04/12/vue-router/" title="vue-router">vue-router</a></span>
   </li>
 
   </ul>
@@ -521,13 +600,13 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
     <span class="post-meta-item-icon">
       <i class="ic i-chart-area"></i>
     </span>
-    <span title="站点总字数">943k 字</span>
+    <span title="站点总字数">938k 字</span>
 
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="ic i-coffee"></i>
     </span>
-    <span title="站点阅读时长">14:17</span>
+    <span title="站点阅读时长">14:12</span>
   </div>
   <div class="powered-by">
     基于 <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & Theme.<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Shoka</span>

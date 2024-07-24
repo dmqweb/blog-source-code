@@ -1,22 +1,20 @@
-<h1 id="5-4-持续集成与持续部署"><a class="anchor" href="#5-4-持续集成与持续部署">#</a> 5-4 持续集成与持续部署</h1>
-<h2 id="课程介绍"><a class="anchor" href="#课程介绍">#</a> 课程介绍</h2>
-<p>那些大厂们，天天 DevOps、持续集成的？到底在讲些什么？这堂课来给你揭开持续集成与持续部署的面纱！！没有什么难的，盘它！</p>
+<h1 id="5-4-持续集成与持续部署"><a href="#5-4-持续集成与持续部署" class="headerlink" title="5-4 持续集成与持续部署"></a>5-4 持续集成与持续部署</h1><h2 id="课程介绍"><a href="#课程介绍" class="headerlink" title="课程介绍"></a>课程介绍</h2><p>那些大厂们，天天DevOps、持续集成的？到底在讲些什么？这堂课来给你揭开持续集成与持续部署的面纱！！没有什么难的，盘它！</p>
 <p><strong>传统的开发过程中的坑：</strong></p>
 <ul>
-<li>BUG 总是在最后才发现</li>
+<li>BUG总是在最后才发现</li>
 <li>越到项目后期，加班越严重</li>
 <li>交付无法保障</li>
 <li>变更频繁导致效率低下</li>
 <li>无效的等待多，用户满足度低</li>
 </ul>
-<p><img src="./assets/1460000014924499.png" alt="img" /></p>
-<p><strong>你有没有想过 / 用过？当你哪一天...</strong></p>
+<p><img src="/./assets/1460000014924499.png" alt="img"></p>
+<p><strong>你有没有想过&#x2F;用过？当你哪一天…</strong></p>
 <ul>
-<li>不用为开发 / 测试环境不一致而苦恼</li>
+<li>不用为开发&#x2F;测试环境不一致而苦恼</li>
 <li>不用麻烦运维人员帮忙调试环境</li>
 <li>不用手动进行测试，模拟环境中进行自测</li>
 <li>不用手动发布、部署，自动化实现发布部署</li>
-<li>不用管开发 / 测试环境，只用专注代码的开发？</li>
+<li>不用管开发&#x2F;测试环境，只用专注代码的开发？</li>
 </ul>
 <p><strong>持续集成解决了什么问题？</strong></p>
 <ul>
@@ -27,186 +25,150 @@
 </ul>
 <p><strong>课程的主要内容：</strong></p>
 <ul>
-<li>
-<p>什么是 CI/CD</p>
+<li><p>什么是CI&#x2F;CD</p>
 </li>
-<li>
-<p>介绍 CI/CD 流程</p>
+<li><p>介绍CI&#x2F;CD流程</p>
 </li>
-<li>
-<p>前端项目：结合 CI/CD 流程，实现快速迭代</p>
+<li><p>前端项目：结合CI&#x2F;CD流程，实现快速迭代</p>
 </li>
-<li>
-<p>Docker 的使用，Jenkins+gitlab+nodejs 自动化项目</p>
+<li><p>Docker的使用，Jenkins+gitlab+nodejs自动化项目</p>
 </li>
-<li>
-<p>持续集成工具介绍：Jenkins、Travis CI、Circle CI</p>
+<li><p>持续集成工具介绍：Jenkins、Travis CI、Circle CI</p>
 </li>
 </ul>
 <p><strong>环境准备：</strong></p>
 <ul>
-<li>Linux 服务器 (Centos 7.6/Ubuntu 16.04LTS)</li>
-<li>VSCode + 插件 Dockerfile</li>
-<li>注册 github 账号</li>
+<li>Linux服务器(Centos 7.6&#x2F;Ubuntu 16.04LTS)</li>
+<li>VSCode+插件 Dockerfile</li>
+<li>注册github账号</li>
 </ul>
-<h2 id="持续集成"><a class="anchor" href="#持续集成">#</a> 持续集成</h2>
-<h3 id="核心概念"><a class="anchor" href="#核心概念">#</a> 核心概念</h3>
-<p><strong>集成，就是一些孤立的事物或元素通过某种方式集中在一起，产生联系，从而构成一个有机整体的过程</strong>。知识经济的社会，集成已经成了很重要的一个名词。各行各业基本都会用到集成。比如汽车行业，那么复杂的一台跑车愣是通过一大堆零件组装起来。对于这些传统行业，它们在研发成功以后，可以通过流水线的方法批量生产进行集成。而在软件行业中，集成并不是一个简单的 “搬箱子” 的过程。因为软件工业是一个知识生产活动，其内在逻辑非常复杂，需求又很难一次性确定，完成的产品与最初的设计往往相差很远。敏捷宣言中就有一条是说响应变化重于遵循计划。而且由于软件行业的迅猛发展，软件变的越来越复杂，单靠个人是根本无法完成。大型软件为了重用及解耦，往往还需要分成好几个模块，这样集成就成了软件开发中不可或缺的一部分。</p>
+<h2 id="持续集成"><a href="#持续集成" class="headerlink" title="持续集成"></a>持续集成</h2><h3 id="核心概念"><a href="#核心概念" class="headerlink" title="核心概念"></a>核心概念</h3><p><strong>集成，就是一些孤立的事物或元素通过某种方式集中在一起，产生联系，从而构成一个有机整体的过程</strong>。知识经济的社会，集成已经成了很重要的一个名词。各行各业基本都会用到集成。比如汽车行业，那么复杂的一台跑车愣是通过一大堆零件组装起来。对于这些传统行业，它们在研发成功以后，可以通过流水线的方法批量生产进行集成。而在软件行业中，集成并不是一个简单的“搬箱子”的过程。因为软件工业是一个知识生产活动，其内在逻辑非常复杂，需求又很难一次性确定，完成的产品与最初的设计往往相差很远。敏捷宣言中就有一条是说响应变化重于遵循计划。而且由于软件行业的迅猛发展，软件变的越来越复杂，单靠个人是根本无法完成。大型软件为了重用及解耦，往往还需要分成好几个模块，这样集成就成了软件开发中不可或缺的一部分。</p>
 <p>持续，不言而喻，就是指<strong>长期的对项目代码进行集成。</strong></p>
-<h4 id="持续集成-2"><a class="anchor" href="#持续集成-2">#</a> 持续集成</h4>
-<p>持续集成（英文：Continuous Integration，简称 CI）</p>
-<p>在软件工程中，持续集成是指将所有开发者工作副本每天多次合并到主干的做法。</p>
+<h4 id="持续集成-1"><a href="#持续集成-1" class="headerlink" title="持续集成"></a>持续集成</h4><p>持续集成（英文：Continuous Integration，简称CI）</p>
+<p>在软件工程中，持续集成是指将所有开发者工作副本每天多次合并到主干的做法。 </p>
 <blockquote>
-<p>Grady Booch 在 1991 年的 Booch method 中首次命名并提出了 CI 的概念，尽管在当时他并不主张每天多次集成。而 XP（Extreme programming，极限编程）采用了 CI 的概念，并提倡每天不止一次集成。</p>
-<p>在《持续集成》一书中，对持续集成的定义如下： <code>持续集成</code> 是一种软件开发实践。在持续集成中，团队成员频繁集成他们的工作成果，一般每人每天至少集成一次，也可以多次。每次集成会经过自动构建 (包括自动测试) 的检验，以尽快发现集成错误。自从在团队中引入这样的实践之后， <code>Martin Fowler</code>  发现这种方法可以显著减少集成引起的问题，并可以加快团队合作软件开发的速度。</p>
+<p>Grady Booch 在1991年的 Booch method 中首次命名并提出了 CI 的概念，尽管在当时他并不主张每天多次集成。而 XP（Extreme programming，极限编程）采用了 CI 的概念，并提倡每天不止一次集成。</p>
+<p>在《持续集成》一书中，对持续集成的定义如下：<code>持续集成</code>是一种软件开发实践。在持续集成中，团队成员频繁集成他们的工作成果，一般每人每天至少集成一次,也可以多次。每次集成会经过自动构建(包括自动测试)的检验，以尽快发现集成错误。自从在团队中引入这样的实践之后，<code>Martin Fowler</code>发现这种方法可以显著减少集成引起的问题，并可以加快团队合作软件开发的速度。</p>
 </blockquote>
-<p><img src="./assets/c5c8e6f40c7c133e22402c00bb7e1a25_hd.jpg" alt="img" /></p>
+<p><img src="/./assets/c5c8e6f40c7c133e22402c00bb7e1a25_hd.jpg" alt="img"></p>
 <p>持续集成强调开发人员提交了新代码之后，立刻进行构建、（单元）测试。根据测试结果，我们可以确定新代码和原有代码能否正确地集成在一起。</p>
-<p>对于一天需要集成多少次数，并没有一个明确的定义。一般就是按照自己项目的实际需要来设置一定的频率，少则可能几次，多则可能达几十次。可以设置按照代码的变更来触发集成，或者设置一个固定时间周期来集成，也可以手工点击集成的按钮来 “一键集成”。</p>
-<h4 id="持续交付"><a class="anchor" href="#持续交付">#</a> 持续交付</h4>
-<p>持续交付（英文：Continuous Delivery，简称 CD）</p>
+<p>对于一天需要集成多少次数，并没有一个明确的定义。一般就是按照自己项目的实际需要来设置一定的频率，少则可能几次，多则可能达几十次。可以设置按照代码的变更来触发集成，或者设置一个固定时间周期来集成，也可以手工点击集成的按钮来“一键集成”。</p>
+<h4 id="持续交付"><a href="#持续交付" class="headerlink" title="持续交付"></a>持续交付</h4><p>持续交付（英文：Continuous Delivery，简称CD）</p>
 <p>完成 CI 中构建及单元测试和集成测试的自动化流程后，持续交付可自动将已验证的代码发布到存储库。为了实现高效的持续交付流程，务必要确保 CI 已内置于开发管道。持续交付的目标是拥有一个可随时部署到生产环境的代码库。</p>
-<p><img src="./assets/db7198e3c39e4656e18efcb4bd1b20b1_hd.jpg" alt="img" /></p>
+<p><img src="/./assets/db7198e3c39e4656e18efcb4bd1b20b1_hd.jpg" alt="img"></p>
 <p>在持续交付中，每个阶段（从代码更改的合并，到生产就绪型构建版本的交付）都涉及测试自动化和代码发布自动化。在流程结束时，运维团队可以快速、轻松地将应用部署到生产环境中。</p>
-<p>比如，我们完成单元测试后，可以把代码部署到连接数据库的 Staging 环境中更多的测试。如果代码没有问题，可以继续 <code>手动</code> 部署到生产环境中。</p>
-<h4 id="持续部署"><a class="anchor" href="#持续部署">#</a> 持续部署</h4>
-<p>持续部署（英文：Continuous Deployment，简称 CD）</p>
-<p>对于一个成熟的 CI/CD 管道来说，最后的阶段是持续部署。作为持续交付 —— 自动将生产就绪型构建版本发布到代码存储库 —— 的延伸，持续部署可以自动将应用发布到生产环境。由于在生产之前的管道阶段没有手动门控，因此持续部署在很大程度上都得依赖精心设计的测试自动化。</p>
-<p><img src="./assets/f96f19e4d567aad5006d841963a86e41_hd.jpg" alt="img" /></p>
-<p>实际上，持续部署意味着开发人员对应用的更改在编写后的几分钟内就能生效（假设它通过了自动化测试）。这更加便于持续接收和整合用户反馈。总而言之，所有这些 CI/CD 的关联步骤都有助于降低应用的部署风险，因此更便于以小件的方式（而非一次性）发布对应用的更改。不过，由于还需要编写自动化测试以适应 CI/CD 管道中的各种测试和发布阶段，因此前期投资还是会很大。</p>
-<p>持续部署则是在持续交付的基础上，把部署到生产环境的过程 <code>自动化</code> 。</p>
-<h3 id="持续集成组成要素"><a class="anchor" href="#持续集成组成要素">#</a> 持续集成组成要素</h3>
-<p><strong>一个最小化的持续集成系统需要包含以下几个要素：</strong></p>
+<p>比如，我们完成单元测试后，可以把代码部署到连接数据库的 Staging 环境中更多的测试。如果代码没有问题，可以继续<code>手动</code>部署到生产环境中。</p>
+<h4 id="持续部署"><a href="#持续部署" class="headerlink" title="持续部署"></a>持续部署</h4><p>持续部署（英文：Continuous Deployment，简称CD）</p>
+<p>对于一个成熟的 CI&#x2F;CD 管道来说，最后的阶段是持续部署。作为持续交付——自动将生产就绪型构建版本发布到代码存储库——的延伸，持续部署可以自动将应用发布到生产环境。由于在生产之前的管道阶段没有手动门控，因此持续部署在很大程度上都得依赖精心设计的测试自动化。</p>
+<p><img src="/./assets/f96f19e4d567aad5006d841963a86e41_hd.jpg" alt="img"></p>
+<p>实际上，持续部署意味着开发人员对应用的更改在编写后的几分钟内就能生效（假设它通过了自动化测试）。这更加便于持续接收和整合用户反馈。总而言之，所有这些 CI&#x2F;CD 的关联步骤都有助于降低应用的部署风险，因此更便于以小件的方式（而非一次性）发布对应用的更改。不过，由于还需要编写自动化测试以适应 CI&#x2F;CD 管道中的各种测试和发布阶段，因此前期投资还是会很大。</p>
+<p>持续部署则是在持续交付的基础上，把部署到生产环境的过程<code>自动化</code>。</p>
+<h3 id="持续集成组成要素"><a href="#持续集成组成要素" class="headerlink" title="持续集成组成要素"></a>持续集成组成要素</h3><p><strong>一个最小化的持续集成系统需要包含以下几个要素：</strong></p>
 <ol>
-<li>** 版本管理系统：** 项目的源代码需要托管到适合的版本管理系统中，一般我们使用 git 作为版本控制库，版本管理软件可以使用 github、 <code>gitlab</code> 、stash 等。</li>
-<li>** 构建脚本 &amp; 工具：** 每个项目都需要有构建脚本来实现对整个项目的自动化构建。比如 Java 的项目就可以使用 gradle 作为构建工具。通过构建工具实现对编译、静态扫描、运行测试、样式检查、打包、发布等活动串起来，可以通过命令行自动执行。</li>
-<li>**CI 服务器：**CI 服务器可以检测项目中的代码变动，并及时的通过构建机器运行构建脚本，并将集成结果通过某种方式反馈给团队成员。</li>
+<li><strong>版本管理系统：</strong>项目的源代码需要托管到适合的版本管理系统中，一般我们使用git作为版本控制库，版本管理软件可以使用github、<code>gitlab</code>、stash等。</li>
+<li><strong>构建脚本&amp;工具：</strong>每个项目都需要有构建脚本来实现对整个项目的自动化构建。比如Java的项目就可以使用gradle作为构建工具。通过构建工具实现对编译、静态扫描、运行测试、样式检查、打包、发布等活动串起来，可以通过命令行自动执行。</li>
+<li><strong>CI服务器：</strong>CI服务器可以检测项目中的代码变动，并及时的通过构建机器运行构建脚本，并将集成结果通过某种方式反馈给团队成员。</li>
 </ol>
-<h3 id="应用场景"><a class="anchor" href="#应用场景">#</a> 应用场景</h3>
-<ul>
-<li>
-<p>打包平台</p>
-<p>常见的打包，Java 应用（Gradle/Maven）、Nodejs 前端应用 (npm/yarn)</p>
-<p>移动端打包：Android/iOS</p>
+<h3 id="应用场景"><a href="#应用场景" class="headerlink" title="应用场景"></a>应用场景</h3><ul>
+<li><p>打包平台</p>
+<p>常见的打包，Java应用（Gradle&#x2F;Maven）、Nodejs前端应用(npm&#x2F;yarn)</p>
+<p>移动端打包：Android&#x2F;iOS</p>
 </li>
-<li>
-<p>测试平台</p>
+<li><p>测试平台</p>
 <p>接口测试</p>
-<p>自动化测试 Robotium、Testlink</p>
-<p>单元测试 junit</p>
-<p>性能测试 Jmeter</p>
+<p>自动化测试Robotium、Testlink</p>
+<p>单元测试junit</p>
+<p>性能测试Jmeter</p>
 </li>
-<li>
-<p>自动部署</p>
+<li><p>自动部署</p>
 <p>FTP</p>
 <p>Shell</p>
-<p>Tomcat/Dokcer</p>
-<p>Kubernetes/Rancher/Cluster</p>
+<p>Tomcat&#x2F;Dokcer</p>
+<p>Kubernetes&#x2F;Rancher&#x2F;Cluster</p>
 </li>
-<li>
-<p>持续集成</p>
-<p>Git: gitlab github gitee 等</p>
-<p>Jenkins/TravisCi/CircleCI</p>
+<li><p>持续集成</p>
+<p>Git: gitlab github gitee等</p>
+<p>Jenkins&#x2F;TravisCi&#x2F;CircleCI</p>
 <p>Docker</p>
 </li>
 </ul>
-<h3 id="工作流"><a class="anchor" href="#工作流">#</a> 工作流</h3>
-<h4 id="传统的工作流"><a class="anchor" href="#传统的工作流">#</a> 传统的工作流</h4>
-<p>参与人员：开发、项目经理、测试</p>
+<h3 id="工作流"><a href="#工作流" class="headerlink" title="工作流"></a>工作流</h3><h4 id="传统的工作流"><a href="#传统的工作流" class="headerlink" title="传统的工作流"></a>传统的工作流</h4><p>参与人员：开发、项目经理、测试</p>
 <p>主要流程：</p>
 <ul>
-<li>项目一开始是先划分好模块， <code>分配模块</code> 给相应的开发人员；</li>
-<li>开发人员 <code>开发好</code> 一个模块就进行 <code>单元测试</code> ；</li>
-<li>等所有的模块都开发完成之后，由项目经理对 <code>所有代码进行集成</code> ；</li>
-<li>集成后的项目由项目经理 <code>部署到测试服务器</code> 上，被交由测试人员进行集成测试；</li>
-<li>测试过程中出现 Bug 就提把问题 <code>记录</code> 进行  <code>Bug</code>  列表中；</li>
-<li><code>项目经理分配 Bug</code>  给相应的责任人进行修改；</li>
-<li>修改完成后，项目经理 <code>再次</code> 对项目进行集成，并 <code>部署</code> 到测试服务器上；</li>
-<li>测试人员在下一次的集成测试中进行 <code>回归测试</code> ；</li>
-<li>通过通过之后就 <code>部署到生产环境</code> 中；</li>
-<li>如果测试不通过，则重复上述 “分配 Bug -&gt; 修改 Bug -&gt; 集成代码 -&gt; 部署到测试服务器上 -&gt; 集成测试” 工作。</li>
+<li>项目一开始是先划分好模块，<code>分配模块</code>给相应的开发人员；</li>
+<li>开发人员<code>开发好</code>一个模块就进行<code>单元测试</code>；</li>
+<li>等所有的模块都开发完成之后，由项目经理对<code>所有代码进行集成</code>；</li>
+<li>集成后的项目由项目经理<code>部署到测试服务器</code>上，被交由测试人员进行集成测试；</li>
+<li>测试过程中出现 Bug 就提把问题<code>记录</code>进行 <code>Bug</code> 列表中；</li>
+<li><code>项目经理分配 Bug</code> 给相应的责任人进行修改；</li>
+<li>修改完成后，项目经理<code>再次</code>对项目进行集成，并<code>部署</code>到测试服务器上；</li>
+<li>测试人员在下一次的集成测试中进行<code>回归测试</code>；</li>
+<li>通过通过之后就<code>部署到生产环境</code>中；</li>
+<li>如果测试不通过，则重复上述“分配 Bug -&gt; 修改 Bug -&gt; 集成代码 -&gt; 部署到测试服务器上 -&gt; 集成测试”工作。</li>
 </ul>
 <blockquote>
-<p>这也是传统的瀑布式开发模型，请参考：<a href="https://www.cnblogs.com/-OYK/archive/2012/10/08/2714669.html">软件开发模式对比 (瀑布、迭代、螺旋、敏捷)</a></p>
+<p>这也是传统的瀑布式开发模型，请参考：<a href="https://www.cnblogs.com/-OYK/archive/2012/10/08/2714669.html">软件开发模式对比(瀑布、迭代、螺旋、敏捷)</a></p>
 </blockquote>
 <p>带来的问题：</p>
 <ol>
-<li>
-<p><strong>重复性劳动，无效的等待变多</strong></p>
+<li><p><strong>重复性劳动，无效的等待变多</strong></p>
 <p>重复的进行发布部署。</p>
 <p>流程上：有可能开发在等集成其他人的模块；测试人员在等待开发人员修复 Bug；产品经理在等待新版本上线好给客户做演示；项目经理在等待其他人提交代码。不管怎么样，等待意味低效。</p>
 <p>自动化部署工作可以解放了集成、测试、部署等重复性劳动，而且机器集成的频率明显可以比手工的高很多。</p>
 </li>
-<li>
-<p><strong>很晚才发现缺陷，并且难以修复</strong>。</p>
+<li><p><strong>很晚才发现缺陷，并且难以修复</strong>。</p>
 <p>实践证明，缺陷发现的越晚，需要修复的时间和精力也就越大。从上一个可工作的软件到发现缺陷之间可能存在很多次提交，而要从这些提交中找出问题并修复的成本会很大，因为开发人员需要回忆每个提交的上下文来评估影响点。</p>
 </li>
-<li>
-<p><strong>低品质的软件，软件交付时机无法保障</strong></p>
+<li><p><strong>低品质的软件，软件交付时机无法保障</strong></p>
 <p>由于集成时每次包含的代码很多，所以大家的关注点主要都是如何保证编译通过、自动化测试通过，而往往很容易忽略代码是否遵守了编码规范、是否包含有重复代码、是否有重构的空间等问题。而这些问题又反过来会影响今后的开发和集成，久而久之集成变得越来越困难，软件的质量可想而知。</p>
 </li>
-<li>
-<p><strong>项目缺少可见性</strong></p>
-<p>某些项目，程序会经常需要变更，特别是敏捷开发的实践者。由于产品经理在与客户交流过程中，往往实际的软件就是最好的原型，所以软件会被当作原型作为跟客户交流的工具。当然，客户最希望的当然是客户的想法能够马上反映到原型上，这会导致程序会经常被修改的。那么也就意味着 “分配 Bug -&gt; 修改 Bug -&gt; 集成代码 -&gt; 部署到测试服务器上 -&gt; 集成测试” 工作无形又爆增了。</p>
+<li><p><strong>项目缺少可见性</strong></p>
+<p>某些项目，程序会经常需要变更，特别是敏捷开发的实践者。由于产品经理在与客户交流过程中，往往实际的软件就是最好的原型，所以软件会被当作原型作为跟客户交流的工具。当然，客户最希望的当然是客户的想法能够马上反映到原型上，这会导致程序会经常被修改的。那么也就意味着“分配 Bug -&gt; 修改 Bug -&gt; 集成代码 -&gt; 部署到测试服务器上 -&gt; 集成测试”工作无形又爆增了。</p>
 </li>
 </ol>
-<h4 id="常见的工作流"><a class="anchor" href="#常见的工作流">#</a> 常见的工作流</h4>
-<p><img src="./assets/DevOps.png" alt="DevOps" /></p>
+<h4 id="常见的工作流"><a href="#常见的工作流" class="headerlink" title="常见的工作流"></a>常见的工作流</h4><p><img src="/./assets/DevOps.png" alt="DevOps"></p>
 <p>该系统的各个组成部分是按如下顺序来发挥作用的：</p>
 <ol>
-<li>
-<p>开发者检入代码到源代码仓库。</p>
+<li><p>开发者检入代码到源代码仓库。</p>
 </li>
-<li>
-<p>CI 系统会为每一个项目创建了一个单独的工作区。当预设或请求一次新的构建时，它将把源代码仓库的源码存放到对应的工作区。</p>
+<li><p>CI系统会为每一个项目创建了一个单独的工作区。当预设或请求一次新的构建时，它将把源代码仓库的源码存放到对应的工作区。</p>
 </li>
-<li>
-<p>CI 系统会在对应的工作区内执行构建过程。</p>
+<li><p>CI系统会在对应的工作区内执行构建过程。</p>
 </li>
-<li>
-<p>配置如果存在）构建完成后，CI 系统会在一个新的构件中执行定义的一套测试。完成后触发通知 (Email,RSS 等等) 给相关的当事人。</p>
+<li><p>配置如果存在）构建完成后，CI系统会在一个新的构件中执行定义的一套测试。完成后触发通知(Email,RSS等等)给相关的当事人。</p>
 </li>
-<li>
-<p>配置如果存在）如果构建成功，这个构件会被打包并转移到一个部署目标 (如应用服务器) 或存储为软件仓库中的一个新版本。软件仓库可以是 CI 系统的一部分，也可以是一个外部的仓库，<a href="http://xn--Java-k84fui24ce4g25ek8lozicz0aehkblfs17ie7vb.net">诸如一个文件服务器或者像 Java.net</a>、SourceForge 之类的网站。</p>
+<li><p>配置如果存在）如果构建成功，这个构件会被打包并转移到一个部署目标(如应用服务器)或存储为软件仓库中的一个新版本。软件仓库可以是CI系统的一部分，也可以是一个外部的仓库，诸如一个文件服务器或者像Java.net、SourceForge之类的网站。</p>
 </li>
-<li>
-<p>CI 系统通常会根据请求发起相应的操作，诸如即时构建、生成报告，或者检索一些构建好的构件。</p>
+<li><p>CI系统通常会根据请求发起相应的操作，诸如即时构建、生成报告，或者检索一些构建好的构件。</p>
 </li>
 </ol>
 <blockquote>
 <p>“You build it, you run it”，这是 Amazon 一年可以完成 5000 万次部署，平均每个工程师每天部署超过 50 次的核心秘籍。</p>
 </blockquote>
-<h4 id="解决的问题"><a class="anchor" href="#解决的问题">#</a> 解决的问题</h4>
-<ul>
-<li>
-<p>高效率</p>
+<h4 id="解决的问题"><a href="#解决的问题" class="headerlink" title="解决的问题"></a>解决的问题</h4><ul>
+<li><p>高效率</p>
 <p>高效率的发布，避免了重复性的劳动；</p>
-<p>更快的修复 BUG，更快的交付成果，减少了等待时间。</p>
+<p>更快的修复BUG，更快的交付成果，减少了等待时间。</p>
 </li>
-<li>
-<p>高质量</p>
+<li><p>高质量</p>
 <p>只有在完成集成测试、系统测试后，才能得到可用的软件，整个过程中只有最后时刻才能拿到可运行软件。集成活动不一定在一个标准的构建机器上生成，而是在某个开发人员的机器上构建的，那么可能存在在其他机器上无法运行的问题。</p>
 <p>人与机器的一个最大的区别是，在重复性动作上，人容易犯错，而机器犯错的几率几乎为零。所以，当我们搭建完成集成服务器后，以后的事就交给集成服务器来打理吧。</p>
 </li>
-<li>
-<p>高产出</p>
+<li><p>高产出</p>
 <p>快速开发和上市一个新产品，并快速取得预期的投资回报是每个企业孜孜以求的目标。</p>
-<p>便捷的部署 + 项目的可预期，使得团队的开发变成了一种开心的事情。</p>
+<p>便捷的部署+项目的可预期，使得团队的开发变成了一种开心的事情。</p>
 <p>持续集成可以让你在任何时间发布可以部署的软件。在外界看来，这是持续集成最明显的好处，对客户来说，可以部署的软件产品是最实际的资产。利用持续集成，你可以经常对源代码进行一些小改动，并将这些改动和其他代码进行集成。</p>
 </li>
 </ul>
-<h4 id="常见问题"><a class="anchor" href="#常见问题">#</a> 常见问题</h4>
-<ol>
-<li>
-<p>思维转变后，新技术抵触</p>
+<h4 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h4><ol>
+<li><p>思维转变后，新技术抵触</p>
 <ul>
 <li>无法接受新事物：不管怎么样，求稳心态的人还是多。总是有人认为老的技术代表稳定，新的事物往往会带来问题。</li>
 <li>认为手工集成也没有多少工作量：不是所有的人都参与到了整个持续集成的环节，所以没有办法认识到问题全貌。</li>
 </ul>
 <p><strong>针对这个问题，可以通过设置一定的持续集成技术培训、宣讲得到改观</strong></p>
 </li>
-<li>
-<p>管理层的抵触</p>
+<li><p>管理层的抵触</p>
 <ul>
 <li>培训持续集成需要投入资金啊，没钱。</li>
 <li>持续集成服务器要增加软硬件成本啊，没钱。</li>
@@ -215,13 +177,12 @@
 <p><strong>针对这一点，可以从开发人员的成本和持续集成的投入（软硬件）的成本上两者做下估算。</strong></p>
 <blockquote>
 <p>硬件参考：</p>
-<p>Jenkins 主服务器一般 2C4G，slave 服务器根据生产需要进行选购。</p>
-<p>git 服务器一般 2C4G (10 人团队)</p>
-<p>Docker 服务器 8C32G (Rancher + harbor)</p>
+<p>Jenkins主服务器一般2C4G，slave服务器根据生产需要进行选购。</p>
+<p>git服务器一般2C4G(10人团队)</p>
+<p>Docker服务器8C32G(Rancher + harbor)</p>
 </blockquote>
 </li>
-<li>
-<p>生产环境的复杂</p>
+<li><p>生产环境的复杂</p>
 <ul>
 <li>比如部署的生成环境是在政务外网，无法从互联网直接访问等。</li>
 <li>构建效率低下，任务多</li>
@@ -229,138 +190,122 @@
 <p>目前，这个是最麻烦的，还在研究中。初步设想是让政务外网开辟一个白名单，给持续集成服务器设置一个单独的通道。只是思路，未验证。</p>
 </li>
 </ol>
-<h4 id="最佳实践"><a class="anchor" href="#最佳实践">#</a> 最佳实践</h4>
-<p>实施持续集成的开发人员可以尽早并经常提交。这允许他们尽早发现冲突。并且，如果存在任何问题，则使用较小的提交可以更轻松地对代码进行故障排除。每天或甚至更频繁地提交软件对于持续集成是必要的，但还不够。</p>
+<h4 id="最佳实践"><a href="#最佳实践" class="headerlink" title="最佳实践"></a>最佳实践</h4><p>实施持续集成的开发人员可以尽早并经常提交。这允许他们尽早发现冲突。并且，如果存在任何问题，则使用较小的提交可以更轻松地对代码进行故障排除。每天或甚至更频繁地提交软件对于持续集成是必要的，但还不够。</p>
 <p>要成功使用持续集成，团队必须：</p>
 <ul>
-<li>
-<p>使测试成为开发过程中不可或缺的一部分。应该在创建代码时编写测试。</p>
+<li><p>使测试成为开发过程中不可或缺的一部分。应该在创建代码时编写测试。</p>
 <p>公司成功持续整合所需的最重要因素是严格的测试文化。为了将新代码自信地集成到主线中，团队需要确信代码是健全的。这是通过测试来实现的，这应该定期进行。工程师应该在开发每个功能时编写测试。</p>
 </li>
-<li>
-<p>确保测试环境反映生产一致。</p>
-<p>为了支持您严格的测试文化，测试环境必须反映生产环境。否则，您无法保证您正在测试的内容将在生产中起作用。这意味着测试环境应使用相同版本的数据库，Web 服务器配置，工件等。</p>
+<li><p>确保测试环境反映生产一致。</p>
+<p>为了支持您严格的测试文化，测试环境必须反映生产环境。否则，您无法保证您正在测试的内容将在生产中起作用。这意味着测试环境应使用相同版本的数据库，Web服务器配置，工件等。</p>
 </li>
-<li>
-<p>使用编码最佳实践，例如结对编程。</p>
+<li><p>使用编码最佳实践，例如结对编程。</p>
 <p>软件开发的另一个最佳实践是在编码期间进行配对。对于更复杂的功能，团队在编写单行代码之前讨论体系结构方法。在将任何代码合并到生产环境之前，其他开发人员始终会检查代码。这有助于确保使用编码最佳实践，代码不会与其他开发人员正在处理的现有代码或代码冲突，并且新功能是可扩展的。</p>
 <blockquote>
 <p><strong>Pair programming</strong> is an <a href="https://en.wikipedia.org/wiki/Agile_software_development">agile software development</a> technique in which two <a href="https://en.wikipedia.org/wiki/Computer_programmer">programmers</a> work together at one workstation. One, the <em>driver</em>, writes <a href="https://en.wikipedia.org/wiki/Source_code">code</a> while the other, the <em>observer</em> or <em>navigator</em>,[<a href="https://en.wikipedia.org/wiki/Pair_programming#cite_note-1">1]</a> <a href="https://en.wikipedia.org/wiki/Code_review">reviews</a> each line of code as it is typed in. The two programmers switch roles frequently.</p>
-<p>While reviewing, the observer also considers the &quot;strategic&quot; direction of the work, coming up with ideas for improvements and likely future problems to address. This is intended to free the driver to focus all of their attention on the &quot;tactical&quot; aspects of completing the current task, using the observer as a safety net and guide.</p>
+<p>While reviewing, the observer also considers the “strategic” direction of the work, coming up with ideas for improvements and likely future problems to address. This is intended to free the driver to focus all of their attention on the “tactical” aspects of completing the current task, using the observer as a safety net and guide.</p>
 </blockquote>
 </li>
-<li>
-<p>自动化部署工作流程。</p>
+<li><p>自动化部署工作流程。</p>
 <p>最后，为确保整个软件开发流程快速高效，构建需要快速，部署工作流程应自动化。代码构建的每一分钟都浪费了一分钟。通过自动化部署工作流程，团队可以更快地将完成的代码生成。因为，毕竟，如果没有接触到客户，那么快速开发软件有什么意义呢？</p>
 </li>
 </ul>
-<h3 id="效率工具对比"><a class="anchor" href="#效率工具对比">#</a> 效率工具对比</h3>
-<p>![img](/Users/Shared/Target/5-4 持续集成与持续部署 /resource/assets/CICD-resource.png)</p>
+<h3 id="效率工具对比"><a href="#效率工具对比" class="headerlink" title="效率工具对比"></a>效率工具对比</h3><p>![img](&#x2F;Users&#x2F;Shared&#x2F;Target&#x2F;5-4 持续集成与持续部署&#x2F;resource&#x2F;assets&#x2F;CICD-resource.png)</p>
 <p><a href="#%E5%A4%8D%E6%9D%82%E7%9A%84DevOps%E7%9B%B8%E5%85%B3%E5%B7%A5%E5%85%B7">点击查看</a>效率工具</p>
 <p><strong>1. Jenkins</strong></p>
 <blockquote>
-<p>Jenkins，原名 Hudson，2011 年改为现在的名字，它 是一个开源的实现持续集成的软件工具。官方网站：<a href="http://jenkins-ci.org/">http://jenkins-ci.org/</a>。</p>
+<p>Jenkins，原名Hudson，2011年改为现在的名字，它 是一个开源的实现持续集成的软件工具。官方网站：<a href="http://jenkins-ci.org/">http://jenkins-ci.org/</a>。</p>
 <p>Jenkins 能实时<strong>监控集成中存在的错误</strong>，提供<strong>详细的日志文件和提醒</strong>功能，还能用图表的形式形象地展示<strong>项目构建的趋势和稳定性</strong>。</p>
 </blockquote>
-<p><strong>Jenkins 特点:</strong></p>
+<p><strong>Jenkins特点:</strong></p>
 <ul>
-<li><strong>易安装</strong>：Jenkins 是一个独立的基于 Java 的程序，随时可以运行，包含 Windows，Mac OS X 和其他类 Unix 操作系统的软件包。仅仅一个 java -jar jenkins.war，从官网下载该文件后，直接运行，无需额外的安装，更无需安装数据库；</li>
-<li><strong>易配置</strong>：提供友好的 GUI 配置界面；</li>
-<li><strong>变更支持</strong>：Jenkins 能从代码仓库（Subversion/CVS）中获取并产生代码更新列表并输出到编译输出信息中；</li>
-<li><strong>支持永久链接</strong>：用户是通过 web 来访问 Jenkins 的，而这些 web 页面的链接地址都是永久链接地址，因此，你可以在各种文档中直接使用该链接；</li>
-<li>** 集成 E-Mail/RSS/IM：** 当完成一次集成时，可通过这些工具实时告诉你集成结果（据我所知，构建一次集成需要花费一定时间，有了这个功能，你就可以在等待结果过程中，干别的事情）；</li>
-<li><strong>JUnit/TestNG 测试报告</strong>：也就是用以图表等形式提供详细的测试报表功能；</li>
-<li><strong>支持分布式构建</strong>：Jenkins 可以把<strong>集成构建等工作分发到多台计算机中完成</strong>；</li>
-<li><strong>文件指纹信息</strong>：Jenkins 会保存哪次集成构建产生了哪些 jars 文件，哪一次集成构建使用了哪个版本的 jars 文件等构建记录；</li>
-<li><strong>支持第三方插件</strong>：使得 Jenkins 变得越来越强大；凭借更新中心中的数百个插件，Jenkins 几乎集成了持续集成和持续交付工具链中的所有工具。</li>
-<li><strong>Rest API</strong> - 可以访问控制您获取的数据量，获取 / 更新 config.xml，删除作业，检索所有构建，获取 / 更新作业说明，执行构建，禁用 / 启用作业</li>
+<li><strong>易安装</strong>：Jenkins是一个独立的基于Java的程序，随时可以运行，包含Windows，Mac OS X和其他类Unix操作系统的软件包。仅仅一个 java -jar jenkins.war，从官网下载该文件后，直接运行，无需额外的安装，更无需安装数据库；</li>
+<li><strong>易配置</strong>：提供友好的GUI配置界面；</li>
+<li><strong>变更支持</strong>：Jenkins能从代码仓库（Subversion&#x2F;CVS）中获取并产生代码更新列表并输出到编译输出信息中；</li>
+<li><strong>支持永久链接</strong>：用户是通过web来访问Jenkins的，而这些web页面的链接地址都是永久链接地址，因此，你可以在各种文档中直接使用该链接；</li>
+<li><strong>集成E-Mail&#x2F;RSS&#x2F;IM：</strong>当完成一次集成时，可通过这些工具实时告诉你集成结果（据我所知，构建一次集成需要花费一定时间，有了这个功能，你就可以在等待结果过程中，干别的事情）；</li>
+<li><strong>JUnit&#x2F;TestNG测试报告</strong>：也就是用以图表等形式提供详细的测试报表功能；</li>
+<li><strong>支持分布式构建</strong>：Jenkins可以把<strong>集成构建等工作分发到多台计算机中完成</strong>；</li>
+<li><strong>文件指纹信息</strong>：Jenkins会保存哪次集成构建产生了哪些jars文件，哪一次集成构建使用了哪个版本的jars文件等构建记录；</li>
+<li><strong>支持第三方插件</strong>：使得 Jenkins 变得越来越强大；凭借更新中心中的数百个插件，Jenkins几乎集成了持续集成和持续交付工具链中的所有工具。</li>
+<li><strong>Rest API</strong> - 可以访问控制您获取的数据量，获取&#x2F;更新config.xml，删除作业，检索所有构建，获取&#x2F;更新作业说明，执行构建，禁用&#x2F;启用作业</li>
 </ul>
-<p><strong>Jenkins 优点：</strong></p>
+<p><strong>Jenkins优点：</strong></p>
 <ul>
 <li>价格（免费）</li>
 <li>定制</li>
 <li>插件系统</li>
 <li>完全控制系统</li>
 </ul>
-<p><strong>Jenkins 缺点：</strong></p>
+<p><strong>Jenkins缺点：</strong></p>
 <ul>
-<li>需要专用服务器（或多个服务器）。这导致额外的费用。对于服务器本身，DevOps 等...</li>
-<li>配置 / 定制所需的时间</li>
+<li>需要专用服务器（或多个服务器）。这导致额外的费用。对于服务器本身，DevOps等…</li>
+<li>配置&#x2F;定制所需的时间</li>
 </ul>
 <p><strong>2. Travis CI</strong></p>
-<p><strong>Travis CI</strong> 是一个托管的持续集成服务，用于构建和测试在 GitHub 上托管的软件项目。</p>
+<p><strong>Travis CI</strong>是一个托管的持续集成服务，用于构建和测试在GitHub上托管的软件项目。</p>
 <blockquote>
 <p><strong>Travis CI</strong> is a hosted continuous integration service used to build and test software projects hosted at GitHub</p>
 </blockquote>
-<p><strong>Travis CI 的特点：</strong></p>
+<p><strong>Travis CI的特点：</strong></p>
 <ul>
-<li>
-<p>基于云：TravisCI 是一个<strong>基于云</strong>的系统 - 不需要专用服务器，您无需管理它。</p>
+<li><p>基于云：TravisCI是一个<strong>基于云</strong>的系统 - 不需要专用服务器，您无需管理它。</p>
 </li>
-<li>
-<p>支持 Docker 运行测试</p>
+<li><p>支持Docker运行测试</p>
 </li>
-<li>
-<p>使用 YAML 文件进行配置</p>
+<li><p>使用YAML文件进行配置</p>
 </li>
-<li>
-<p>可选择 Linux 和 Mac OSX 上同时运行测试</p>
+<li><p>可选择Linux和Mac OSX上同时运行测试</p>
 </li>
-<li>
-<p>开箱即用的支持的语言</p>
-<p>Android，C，C＃，C ++，Clojure，Crystal，D，Dart，Erlang，Elixir，F＃，Go，Groovy，Haskell，Haxe，Java，JavaScript（使用 Node.js），Julia，Objective-C，Perl，Perl6， PHP，Python，R，Ruby，Rust，Scala，Smalltalk，Visual Basic</p>
+<li><p>开箱即用的支持的语言</p>
+<p>Android，C，C＃，C ++，Clojure，Crystal，D，Dart，Erlang，Elixir，F＃，Go，Groovy，Haskell，Haxe，Java，JavaScript（使用Node.js），Julia，Objective-C，Perl，Perl6， PHP，Python，R，Ruby，Rust，Scala，Smalltalk，Visual Basic</p>
 </li>
-<li>
-<p><strong>支持多环境构建矩阵</strong>：如 Python 2.7 , 3.4, 3.5 +  Django 1.8, 1.9, 1.10</p>
+<li><p><strong>支持多环境构建矩阵</strong>：如Python 2.7 , 3.4, 3.5 +  Django 1.8, 1.9, 1.10</p>
 <p>构建矩阵是一种工具，可以使用不同版本的语言和包运行测试。您可以以不同的方式自定义它。例如，某些环境的失败可以触发通知但不会使所有构建失败（这对包的开发版本有帮助）</p>
 </li>
 </ul>
-<p><strong>Travis CI 优点：</strong></p>
+<p><strong>Travis CI优点：</strong></p>
 <ul>
 <li>开箱即用构建矩阵</li>
 <li>快速启动</li>
-<li>轻量级 YAML 配置</li>
+<li>轻量级YAML配置</li>
 <li>开源项目的免费计划</li>
 <li>无需专用服务器</li>
 </ul>
-<p><strong>Travis CI 缺点：</strong></p>
+<p><strong>Travis CI缺点：</strong></p>
 <ul>
-<li>与 CircleCI 相比，价格更高，没有免费的企业计划</li>
+<li>与CircleCI相比，价格更高，没有免费的企业计划</li>
 <li>定制（对于某些你需要第三方的东西）</li>
 </ul>
 <p><strong>3. Circle CI</strong></p>
-<p>在 GitHub 或 Bitbucket 上的软件存储库被授权并作为项目添加到<a href="https://circleci.com/"> circleci.com 之后</a>，每个代码更改都会在干净的容器或 VM 中触发自动化测试。</p>
-<p>CircleCI 在 2017 年被 Forrester 评为持续集成领导者，并被命名为多个最佳 DevOps 工具列表。CircleCI 成立于 2011 年，总部位于旧金山，拥有全球性的远程员工队伍，由 Scale Venture Partners，DFJ，Baseline Ventures，Top Tier Capital，Industry Ventures，Heavybit 和 Harrison Metal Capital 提供风险投资。</p>
-<p><strong>Circle CI 的特点：</strong></p>
+<p>在GitHub或Bitbucket上的软件存储库被授权并作为项目添加到<a href="https://circleci.com/">circleci.com之后</a>，每个代码更改都会在干净的容器或VM中触发自动化测试。</p>
+<p>CircleCI在2017年被Forrester评为持续集成领导者，并被命名为多个最佳DevOps工具列表。CircleCI成立于2011年，总部位于旧金山，拥有全球性的远程员工队伍，由Scale Venture Partners，DFJ，Baseline Ventures，Top Tier Capital，Industry Ventures，Heavybit和Harrison Metal Capital提供风险投资。</p>
+<p><strong>Circle CI的特点：</strong></p>
 <ul>
-<li><strong>云 &amp; 本地化</strong>：CircleCI 是一个<strong>基于云</strong>的系统 - 不需要专用服务器，您无需管理它。 但是，它还<strong>提供了一个本地解决方案</strong>，允许您在私有云或数据中心中运行它。</li>
-<li><strong>商业 &amp; 免费</strong>：即使是商业帐户，它也<strong>有免费计划</strong></li>
-<li><strong>Rest API</strong> - 您可以访问项目，构建和工件（artifacts）。构建的结果将是工件或工件组。 工件可以是已编译的应用程序或可执行文件（例如，android APK）或元数据（例如，关于测试 ` 成功的信息）</li>
+<li><strong>云&amp;本地化</strong>：CircleCI是一个<strong>基于云</strong>的系统 - 不需要专用服务器，您无需管理它。 但是，它还<strong>提供了一个本地解决方案</strong>，允许您在私有云或数据中心中运行它。</li>
+<li><strong>商业&amp;免费</strong>：即使是商业帐户，它也<strong>有免费计划</strong></li>
+<li><strong>Rest API</strong> - 您可以访问项目，构建和工件（artifacts）。构建的结果将是工件或工件组。 工件可以是已编译的应用程序或可执行文件（例如，android APK）或元数据（例如，关于测试&#96;成功的信息）</li>
 <li><strong>按需安装</strong>：CircleCI 缓存<strong>必要的安装</strong>（requirements installation）。 它会检查第三方依赖项，而不是持续安装所需的环境</li>
-<li><strong>SSH 模式</strong>：您可以触发<strong> SSH 模式</strong>访问容器并进行自己的调查（如果出现任何问题）</li>
-<li><strong>最小化配置</strong>：这是一个完整的开箱即用解决方案，需要<strong>最少的配置 \ 调整</strong></li>
+<li><strong>SSH模式</strong>：您可以触发<strong>SSH模式</strong>访问容器并进行自己的调查（如果出现任何问题）</li>
+<li><strong>最小化配置</strong>：这是一个完整的开箱即用解决方案，需要<strong>最少的配置\调整</strong></li>
 </ul>
-<p><strong>CircleCI 优点：</strong></p>
+<p><strong>CircleCI优点：</strong></p>
 <ul>
 <li>快速启动</li>
-<li>CircleCI 有一个免费的企业项目计划</li>
+<li>CircleCI有一个免费的企业项目计划</li>
 <li>这很容易，也很快开始</li>
-<li>轻量级，易读的 YAML 配置</li>
-<li>您不需要任何专用服务器来运行 CircleCI</li>
+<li>轻量级，易读的YAML配置</li>
+<li>您不需要任何专用服务器来运行CircleCI</li>
 </ul>
-<p><strong>CircleCI 缺点：</strong></p>
+<p><strong>CircleCI缺点：</strong></p>
 <ul>
-<li>
-<p>CircleCI 仅支持 2 个版本的 Ubuntu 免费（12.04 和 14.04）和 MacOS 作为付费部分</p>
+<li><p>CircleCI仅支持2个版本的Ubuntu免费（12.04和14.04）和MacOS作为付费部分</p>
 </li>
-<li>
-<p>尽管 CircleCI 可以使用并运行所有语言，但 tt 仅支持 “开箱即用” 的以下编程语言：Go（Golang），Haskell，Java，PHP，Python，Ruby / Rails，Scala</p>
+<li><p>尽管CircleCI可以使用并运行所有语言，但tt仅支持“开箱即用”的以下编程语言：Go（Golang），Haskell，Java，PHP，Python，Ruby &#x2F; Rails，Scala</p>
 </li>
-<li>
-<p>如果您想进行自定义，可能会出现一些问题：您可能需要一些第三方软件来进行这些调整</p>
+<li><p>如果您想进行自定义，可能会出现一些问题：您可能需要一些第三方软件来进行这些调整</p>
 </li>
-<li>
-<p>此外，虽然作为基于云的系统是一方的优势，它也可以停止支持任何软件，你将无法阻止</p>
+<li><p>此外，虽然作为基于云的系统是一方的优势，它也可以停止支持任何软件，你将无法阻止</p>
 </li>
 </ul>
 <p>总结一下：</p>
@@ -373,8 +318,7 @@
 <th>Circle CI</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td>本地部署</td>
 <td>支持</td>
 <td>不支持</td>
@@ -389,8 +333,8 @@
 <tr>
 <td>配置</td>
 <td>复杂，高度可配置</td>
-<td>YAML 文件</td>
-<td>简单，GUI 界面</td>
+<td>YAML文件</td>
+<td>简单，GUI界面</td>
 </tr>
 <tr>
 <td>按需安装</td>
@@ -402,7 +346,7 @@
 <td>跨平台支持</td>
 <td>是</td>
 <td>Linux + MacOS</td>
-<td>Linux + MacOS (付费)</td>
+<td>Linux + MacOS(付费)</td>
 </tr>
 <tr>
 <td>多服务器</td>
@@ -413,7 +357,7 @@
 <tr>
 <td>快速构建</td>
 <td>手动配置复杂</td>
-<td>快 (需要写配置文件)</td>
+<td>快(需要写配置文件)</td>
 <td>最快</td>
 </tr>
 <tr>
@@ -425,210 +369,269 @@
 <tr>
 <td>费用</td>
 <td>免费</td>
-<td>特定免费 (69$/c)</td>
-<td>特定免费 (50$/c)</td>
+<td>特定免费(69$&#x2F;c)</td>
+<td>特定免费(50$&#x2F;c)</td>
 </tr>
-</tbody>
-</table>
-<p>Travis CI 的价格（非常感人）：</p>
-<p><img src="./assets/image-20190611100501785.png" alt="image-20190611100501785" /></p>
-<p>CirCle CI 的价格：</p>
-<p><img src="./assets/image-20190611100534676.png" alt="image-20190611100534676" /></p>
-<p>其他的一些持续集成的工具：CruiseControl，TeamCity，Continuum 等</p>
+</tbody></table>
+<p>Travis CI的价格（非常感人）：</p>
+<p><img src="/./assets/image-20190611100501785.png" alt="image-20190611100501785"></p>
+<p>CirCle CI的价格：</p>
+<p><img src="/./assets/image-20190611100534676.png" alt="image-20190611100534676"></p>
+<p>其他的一些持续集成的工具：CruiseControl，TeamCity，Continuum等</p>
 <ul>
-<li>AnthillPro：商业的构建管理服务器，提供 C 功能</li>
-<li>Bamboo：商业的 CI 服务器，对于开源项目免费</li>
+<li>AnthillPro：商业的构建管理服务器，提供C功能</li>
+<li>Bamboo：商业的CI服务器，对于开源项目免费</li>
 <li>Build Forge：多功能商业构建管理工具，特点：高性能、分布式构建</li>
-<li>Cruise Control：基于 java 实现的持续集成构建工具</li>
-<li><a href="http://CruiseControl.NET">CruiseControl.NET</a>：基于 C# 实现的持续集成构建工具</li>
+<li>Cruise Control：基于java实现的持续集成构建工具</li>
+<li>CruiseControl.NET：基于C#实现的持续集成构建工具</li>
 <li>Lunt build：开源的自动化构建工具</li>
 <li>Para Build：商业的自动化软件构建管理服务器</li>
 </ul>
-<h2 id="jenkins"><a class="anchor" href="#jenkins">#</a> Jenkins</h2>
-<h3 id="使用简介"><a class="anchor" href="#使用简介">#</a> 使用简介</h3>
-<p>Jenkins 是开源 CI&amp;CD 软件领导者， 提供超过 1000 个插件来支持构建、部署、自动化， 满足任何项目的需要。</p>
-<p><img src="./assets/image-20190611103941326.png" alt="image-20190611103941326" /></p>
+<h2 id="Jenkins"><a href="#Jenkins" class="headerlink" title="Jenkins"></a>Jenkins</h2><h3 id="使用简介"><a href="#使用简介" class="headerlink" title="使用简介"></a>使用简介</h3><p>Jenkins是开源CI&amp;CD软件领导者， 提供超过1000个插件来支持构建、部署、自动化， 满足任何项目的需要。</p>
+<p><img src="/./assets/image-20190611103941326.png" alt="image-20190611103941326"></p>
 <p>相关概念：</p>
 <ul>
-<li>
-<p>流水线：<strong>Jenkins Pipeline</strong>（或简称为 &quot;Pipeline&quot;）是一套插件，将持续交付的实现和实施集成到 Jenkins 中。</p>
-<p>Jenkins Pipeline 提供了一套可扩展的工具，用于将 “简单到复杂” 的交付流程实现为 “持续交付即代码”。Jenkins Pipeline 的定义通常被写入到一个文本文件（称为  <code>Jenkinsfile</code>  ）中，该文件可以被放入项目的源代码控制库中。</p>
+<li><p>流水线：<strong>Jenkins Pipeline</strong>（或简称为 “Pipeline”）是一套插件，将持续交付的实现和实施集成到 Jenkins 中。</p>
+<p>Jenkins Pipeline 提供了一套可扩展的工具，用于将“简单到复杂”的交付流程实现为“持续交付即代码”。Jenkins Pipeline 的定义通常被写入到一个文本文件（称为 <code>Jenkinsfile</code> ）中，该文件可以被放入项目的源代码控制库中。</p>
 </li>
-<li>
-<p>节点：节点是一个机器，主要用于执行 jenkins 任务</p>
+<li><p>节点：节点是一个机器，主要用于执行jenkins任务</p>
 </li>
-<li>
-<p>阶段：定义不同的执行任务，比如：构建、测试、发布 (部署)</p>
+<li><p>阶段：定义不同的执行任务，比如：构建、测试、发布(部署)</p>
 </li>
-<li>
-<p>步骤：相当于告诉 Jenkins 现在要做些什么，比如 shell 命令。</p>
+<li><p>步骤：相当于告诉Jenkins现在要做些什么，比如shell命令。</p>
 </li>
 </ul>
-<p><img src="./assets/image-20190611163108298.png" alt="image-20190611163108298" /></p>
-<p>Jenkins 的界面</p>
-<p><img src="./assets/image-20190611163727975.png" alt="image-20190611163727975" /></p>
+<p><img src="/./assets/image-20190611163108298.png" alt="image-20190611163108298"></p>
+<p>Jenkins的界面</p>
+<p><img src="/./assets/image-20190611163727975.png" alt="image-20190611163727975"></p>
 <p>任务详情页面</p>
-<p><img src="./assets/image-20190611163855257.png" alt="image-20190611163855257" /></p>
-<p>Jenkins 任务日志</p>
-<h3 id="安装方式"><a class="anchor" href="#安装方式">#</a> 安装方式</h3>
-<ol>
-<li>
-<p>环境要求</p>
+<p><img src="/./assets/image-20190611163855257.png" alt="image-20190611163855257"></p>
+<p>Jenkins任务日志</p>
+<h3 id="安装方式"><a href="#安装方式" class="headerlink" title="安装方式"></a>安装方式</h3><ol>
+<li><p>环境要求</p>
 <ul>
-<li>机器要求：
-<ul>
+<li>机器要求：<ul>
 <li>256 MB 内存，建议大于 512 MB</li>
 <li>10 GB 的硬盘空间（用于 Jenkins 和 Docker 镜像）</li>
 </ul>
 </li>
-<li>需要安装以下软件：
-<ul>
-<li>Java 8 (JRE 或者 JDK 都可以)</li>
-<li><a href="https://www.docker.com/">Docker</a> （导航到网站顶部的 Get Docker 链接以访问适合您平台的 Docker 下载）</li>
+<li>需要安装以下软件：<ul>
+<li>Java 8 ( JRE 或者 JDK 都可以)</li>
+<li><a href="https://www.docker.com/">Docker</a> （导航到网站顶部的Get Docker链接以访问适合您平台的Docker下载）</li>
 </ul>
 </li>
 </ul>
 </li>
-<li>
-<p>常规安装</p>
+<li><p>常规安装</p>
 <ul>
-<li>
-<p>安装 JDK</p>
+<li><p>安装JDK</p>
 <p><a href="https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html">官方地址</a></p>
-<p>下载对应的操作系统的 JDK，然后解压进行安装。以 Linux 为例：</p>
-<p>下载最新版本，上传到 Linux 服务器</p>
-<figure class="highlight bash"><figcaption data-lang="bash"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token comment"># 上传到 /opt/jdk8 目录下</span></pre></td></tr><tr><td data-num="2"></td><td><pre></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token comment"># tar 解压 JDK 安装包</span></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token function">mkdir</span> <span class="token parameter variable">-p</span> /opt/jdk8</pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token function">tar</span> zxvf jdk-8u211-linux-x64.tar.gz <span class="token parameter variable">-C</span> /opt/jdk8 --strip-components <span class="token number">1</span></pre></td></tr><tr><td data-num="6"></td><td><pre></pre></td></tr><tr><td data-num="7"></td><td><pre><span class="token comment"># vi /etc/profile</span></pre></td></tr><tr><td data-num="8"></td><td><pre><span class="token builtin class-name">export</span> <span class="token assign-left variable">JAVA_HOME</span><span class="token operator">=</span>/opt/jdk8</pre></td></tr><tr><td data-num="9"></td><td><pre><span class="token builtin class-name">export</span> <span class="token assign-left variable">JRE_HOME</span><span class="token operator">=</span><span class="token variable">$&#123;JAVA_HOME&#125;</span>/jre</pre></td></tr><tr><td data-num="10"></td><td><pre><span class="token builtin class-name">export</span> <span class="token assign-left variable">CLASSPATH</span><span class="token operator">=</span>.:<span class="token variable">$&#123;JAVA_HOME&#125;</span>/lib:<span class="token variable">$&#123;JRE_HOME&#125;</span>/lib</pre></td></tr><tr><td data-num="11"></td><td><pre><span class="token builtin class-name">export</span> <span class="token assign-left variable"><span class="token environment constant">PATH</span></span><span class="token operator">=</span><span class="token variable">$&#123;JAVA_HOME&#125;</span>/bin:<span class="token environment constant">$PATH</span></pre></td></tr></table></figure></li>
-<li>
-<p>安装 Jenkins</p>
-<p>下载 Jenkins 最新的 war 包：<a href="http://mirrors.jenkins.io/war-stable/latest/jenkins.war">Latest</a></p>
-<figure class="highlight bash"><figcaption data-lang="bash"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">mkdir</span> <span class="token parameter variable">-p</span> jenkins <span class="token operator">&amp;&amp;</span> <span class="token builtin class-name">cd</span> /opt/jenkins</pre></td></tr><tr><td data-num="2"></td><td><pre></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token function">wget</span> <span class="token parameter variable">-O</span> /opt/jenkins/jenkins.war http://mirrors.jenkins.io/war-stable/latest/jenkins.war</pre></td></tr><tr><td data-num="4"></td><td><pre></pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token function">java</span> <span class="token parameter variable">-jar</span> jenkins.war <span class="token parameter variable">--httpPort</span><span class="token operator">=</span><span class="token number">8080</span></pre></td></tr></table></figure><p>就嗯可以打开，http://localhost:8080 了</p>
+<p>下载对应的操作系统的JDK，然后解压进行安装。以Linux为例：</p>
+<p>下载最新版本，上传到Linux服务器</p>
+<pre><code class="bash"># 上传到 /opt/jdk8目录下
+
+# tar解压JDK安装包
+mkdir -p /opt/jdk8
+tar zxvf jdk-8u211-linux-x64.tar.gz -C /opt/jdk8 --strip-components 1
+
+# vi /etc/profile
+export JAVA_HOME=/opt/jdk8
+export JRE_HOME=${JAVA_HOME}/jre
+export CLASSPATH=.:${JAVA_HOME}/lib:${JRE_HOME}/lib
+export PATH=${JAVA_HOME}/bin:$PATH
+</code></pre>
+</li>
+<li><p>安装Jenkins</p>
+<p>下载Jenkins最新的war包：<a href="http://mirrors.jenkins.io/war-stable/latest/jenkins.war">Latest</a></p>
+<pre><code class="bash">mkdir -p jenkins &amp;&amp; cd /opt/jenkins
+
+wget -O /opt/jenkins/jenkins.war http://mirrors.jenkins.io/war-stable/latest/jenkins.war
+
+java -jar jenkins.war --httpPort=8080
+</code></pre>
+<p>就嗯可以打开，<a href="http://localhost:8080了">http://localhost:8080了</a></p>
 <p>注意一段这样的话：</p>
-<figure class="highlight bash"><figcaption data-lang="bash"></figcaption><table><tr><td data-num="1"></td><td><pre>*************************************************************</pre></td></tr><tr><td data-num="2"></td><td><pre>*************************************************************</pre></td></tr><tr><td data-num="3"></td><td><pre>*************************************************************</pre></td></tr><tr><td data-num="4"></td><td><pre></pre></td></tr><tr><td data-num="5"></td><td><pre>Jenkins initial setup is required. An admin user has been created and a password generated.</pre></td></tr><tr><td data-num="6"></td><td><pre>Please use the following password to proceed to installation:</pre></td></tr><tr><td data-num="7"></td><td><pre></pre></td></tr><tr><td data-num="8"></td><td><pre>63196690ae7d47c49506480ee0e1af4a</pre></td></tr><tr><td data-num="9"></td><td><pre></pre></td></tr><tr><td data-num="10"></td><td><pre>This may also be found at: /root/.jenkins/secrets/initialAdminPassword</pre></td></tr><tr><td data-num="11"></td><td><pre></pre></td></tr><tr><td data-num="12"></td><td><pre>*************************************************************</pre></td></tr><tr><td data-num="13"></td><td><pre>*************************************************************</pre></td></tr><tr><td data-num="14"></td><td><pre>*************************************************************</pre></td></tr></table></figure><p>这里的 <code>63196690ae7d47c49506480ee0e1af4a</code>  就是初始的安装的管理员密码。</p>
+<pre><code class="bash">*************************************************************
+*************************************************************
+*************************************************************
+
+Jenkins initial setup is required. An admin user has been created and a password generated.
+Please use the following password to proceed to installation:
+
+63196690ae7d47c49506480ee0e1af4a
+
+This may also be found at: /root/.jenkins/secrets/initialAdminPassword
+
+*************************************************************
+*************************************************************
+*************************************************************
+</code></pre>
+<p>这里的<code>63196690ae7d47c49506480ee0e1af4a</code>就是初始的安装的管理员密码。</p>
 </li>
 </ul>
 </li>
-<li>
-<p>使用 Docker 安装</p>
+<li><p>使用Docker安装</p>
 <ul>
-<li>
-<p>安装 Docker</p>
-<figure class="highlight bash"><figcaption data-lang="bash"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token comment"># From https://get.docker.com:</span></pre></td></tr><tr><td data-num="2"></td><td><pre></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token function">curl</span> <span class="token parameter variable">-fsSL</span> https://get.docker.com <span class="token parameter variable">-o</span> get-docker.sh</pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token function">sh</span> get-docker.sh</pre></td></tr><tr><td data-num="5"></td><td><pre></pre></td></tr><tr><td data-num="6"></td><td><pre><span class="token comment">#From https://test.docker.com:</span></pre></td></tr><tr><td data-num="7"></td><td><pre><span class="token function">curl</span> <span class="token parameter variable">-fsSL</span> https://test.docker.com <span class="token parameter variable">-o</span> test-docker.sh</pre></td></tr><tr><td data-num="8"></td><td><pre><span class="token function">sh</span> test-docker.sh</pre></td></tr><tr><td data-num="9"></td><td><pre></pre></td></tr><tr><td data-num="10"></td><td><pre><span class="token comment"># From the source repo (This will install latest from the test channel):</span></pre></td></tr><tr><td data-num="11"></td><td><pre><span class="token function">sh</span> install.sh</pre></td></tr></table></figure></li>
-<li>
-<p>配置 Docker 镜像加速，使用阿里云<a href="https://cr.console.aliyun.com/?spm=a2c4e.11153940.blogcont29941.9.52027e29w2jv9P">容器加速服务</a></p>
+<li><p>安装Docker</p>
+<pre><code class="bash"># From https://get.docker.com:
+
+curl -fsSL https://get.docker.com -o get-docker.sh
+sh get-docker.sh
+
+#From https://test.docker.com:
+curl -fsSL https://test.docker.com -o test-docker.sh
+sh test-docker.sh
+
+# From the source repo (This will install latest from the test channel):
+sh install.sh
+</code></pre>
+</li>
+<li><p>配置Docker镜像加速，使用阿里云<a href="https://cr.console.aliyun.com/?spm=a2c4e.11153940.blogcont29941.9.52027e29w2jv9P">容器加速服务</a></p>
 <p>左侧的加速器帮助页面就会显示为你独立分配的加速地址</p>
-<figure class="highlight bash"><figcaption data-lang="bash"></figcaption><table><tr><td data-num="1"></td><td><pre>例如：</pre></td></tr><tr><td data-num="2"></td><td><pre>公网Mirror：<span class="token punctuation">[</span>系统分配前缀<span class="token punctuation">]</span>.mirror.aliyuncs.com</pre></td></tr></table></figure><p>使用配置文件  <code>/etc/docker/daemon.json</code> （没有时新建该文件）</p>
-<figure class="highlight bash"><figcaption data-lang="bash"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="2"></td><td><pre>    <span class="token string">"registry-mirrors"</span><span class="token builtin class-name">:</span> <span class="token punctuation">[</span><span class="token string">"&lt;your accelerate address>"</span><span class="token punctuation">]</span></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr></table></figure><p>重启 Docker Daemon 就可以了</p>
-<figure class="highlight bash"><figcaption data-lang="bash"></figcaption><table><tr><td data-num="1"></td><td><pre>systemctl daemon-reload</pre></td></tr><tr><td data-num="2"></td><td><pre>systemctl restart <span class="token function">docker</span></pre></td></tr></table></figure></li>
-<li>
-<p>安装 Docker-compose.yml 文件 (可选)</p>
+<pre><code class="bash">例如：
+公网Mirror：[系统分配前缀].mirror.aliyuncs.com
+</code></pre>
+<p>使用配置文件 <code>/etc/docker/daemon.json</code>（没有时新建该文件）</p>
+<pre><code class="bash">{
+    &quot;registry-mirrors&quot;: [&quot;&lt;your accelerate address&gt;&quot;]
+}
+</code></pre>
+<p>重启Docker Daemon就可以了</p>
+<pre><code class="bash">systemctl daemon-reload
+systemctl restart docker
+</code></pre>
+</li>
+<li><p>安装Docker-compose.yml文件(可选)</p>
 <p><strong>安装方法：</strong></p>
-<figure class="highlight bash"><figcaption data-lang="bash"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token comment">#下载</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token function">sudo</span> <span class="token function">curl</span> <span class="token parameter variable">-L</span> https://github.com/docker/compose/releases/download/1.20.0/docker-compose-<span class="token variable"><span class="token variable">`</span><span class="token function">uname</span> <span class="token parameter variable">-s</span><span class="token variable">`</span></span>-<span class="token variable"><span class="token variable">`</span><span class="token function">uname</span> <span class="token parameter variable">-m</span><span class="token variable">`</span></span> <span class="token parameter variable">-o</span> /usr/local/bin/docker-compose</pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token comment">#安装</span></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token function">chmod</span> +x /usr/local/bin/docker-compose</pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token comment">#查看版本</span></pre></td></tr><tr><td data-num="6"></td><td><pre><span class="token function">docker-compose</span> <span class="token parameter variable">--version</span></pre></td></tr></table></figure></li>
-<li>
-<p>安装 Jenkins</p>
+<pre><code class="bash">#下载
+sudo curl -L https://github.com/docker/compose/releases/download/1.20.0/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
+#安装
+chmod +x /usr/local/bin/docker-compose
+#查看版本
+docker-compose --version
+</code></pre>
+</li>
+<li><p>安装Jenkins</p>
 <p><strong>版本选择：</strong></p>
 <p>Jenkins: <a href="https://hub.docker.com/r/jenkins/jenkins/">https://hub.docker.com/r/jenkins/jenkins/</a></p>
 <p>Jenkins with Blue Ocean: <a href="https://hub.docker.com/r/jenkinsci/blueocean">https://hub.docker.com/r/jenkinsci/blueocean</a></p>
 <blockquote>
-<p>Blue Ocean 重新思考 Jenkins 的用户体验，从头开始设计<a href="https://jenkins.io/zh/doc/book/pipeline/"> Jenkins Pipeline</a>, 但仍然与自由式作业兼容，Blue Ocean 减少了混乱而且进一步明确了团队中每个成员 Blue Ocean 的主要特性包括：</p>
+<p>Blue Ocean 重新思考Jenkins的用户体验，从头开始设计<a href="https://jenkins.io/zh/doc/book/pipeline/">Jenkins Pipeline</a>, 但仍然与自由式作业兼容，Blue Ocean减少了混乱而且进一步明确了团队中每个成员 Blue Ocean 的主要特性包括：</p>
 <ul>
-<li>持续交付 (CD) Pipeline 的 <strong>复杂可视化</strong> ，可以让您快速直观地理解管道状态。</li>
-<li><strong>Pipeline 编辑器</strong> - 引导用户通过直观的、可视化的过程来创建 Pipeline，从而使 Pipeline 的创建变得平易近人。</li>
+<li>持续交付(CD)Pipeline的 <strong>复杂可视化</strong> ，可以让您快速直观地理解管道状态。</li>
+<li><strong>Pipeline 编辑器</strong> - 引导用户通过直观的、可视化的过程来创建Pipeline，从而使Pipeline的创建变得平易近人。</li>
 <li><strong>个性化</strong> 以适应团队中每个成员不同角色的需求。</li>
-<li>在需要干预和 / 或出现问题时 <strong>精确定位</strong> 。 Blue Ocean 展示 Pipeline 中需要关注的地方， 简化异常处理，提高生产力</li>
-<li><strong>本地集成分支和合并请求</strong>，在与 GitHub 和 Bitbucket 中的其他人协作编码时实现最大程度的开发人员生产力。****</li>
+<li>在需要干预和&#x2F;或出现问题时 <strong>精确定位</strong> 。 Blue Ocean 展示 Pipeline中需要关注的地方， 简化异常处理，提高生产力</li>
+<li><strong>本地集成分支和合并请求</strong>, 在与GitHub 和 Bitbucket中的其他人协作编码时实现最大程度的开发人员生产力。****</li>
 </ul>
 </blockquote>
 <p><strong>安装命令：</strong></p>
-<figure class="highlight bash"><figcaption data-lang="bash"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token comment"># Jenkins</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token function">docker</span> run <span class="token punctuation">\</span></pre></td></tr><tr><td data-num="3"></td><td><pre>  <span class="token parameter variable">-itd</span> <span class="token punctuation">\</span></pre></td></tr><tr><td data-num="4"></td><td><pre>  <span class="token parameter variable">-u</span> root <span class="token punctuation">\</span></pre></td></tr><tr><td data-num="5"></td><td><pre>  <span class="token parameter variable">-p</span> <span class="token number">8080</span>:8080 <span class="token punctuation">\</span></pre></td></tr><tr><td data-num="6"></td><td><pre>  <span class="token parameter variable">-v</span> jenkins-data:/var/jenkins_home <span class="token punctuation">\</span> </pre></td></tr><tr><td data-num="7"></td><td><pre>  <span class="token parameter variable">-v</span> /var/run/docker.sock:/var/run/docker.sock <span class="token punctuation">\</span></pre></td></tr><tr><td data-num="8"></td><td><pre>  <span class="token parameter variable">-v</span> <span class="token string">"<span class="token environment constant">$HOME</span>"</span>:/home <span class="token punctuation">\</span> </pre></td></tr><tr><td data-num="9"></td><td><pre>  <span class="token parameter variable">--name</span> jenkins-master</pre></td></tr><tr><td data-num="10"></td><td><pre>  jenkins/jenkins</pre></td></tr><tr><td data-num="11"></td><td><pre>  </pre></td></tr><tr><td data-num="12"></td><td><pre><span class="token comment"># Jenkins blueocean</span></pre></td></tr><tr><td data-num="13"></td><td><pre><span class="token function">docker</span> run <span class="token punctuation">\</span></pre></td></tr><tr><td data-num="14"></td><td><pre>  <span class="token parameter variable">-itd</span> <span class="token punctuation">\</span></pre></td></tr><tr><td data-num="15"></td><td><pre>  <span class="token parameter variable">-u</span> root <span class="token punctuation">\</span></pre></td></tr><tr><td data-num="16"></td><td><pre>  <span class="token parameter variable">-p</span> <span class="token number">8080</span>:8080 <span class="token punctuation">\</span></pre></td></tr><tr><td data-num="17"></td><td><pre>  <span class="token parameter variable">-v</span> jenkins-data:/var/jenkins_home <span class="token punctuation">\</span> </pre></td></tr><tr><td data-num="18"></td><td><pre>  <span class="token parameter variable">-v</span> /var/run/docker.sock:/var/run/docker.sock <span class="token punctuation">\</span></pre></td></tr><tr><td data-num="19"></td><td><pre>  <span class="token parameter variable">-v</span> <span class="token string">"<span class="token environment constant">$HOME</span>"</span>:/home <span class="token punctuation">\</span> </pre></td></tr><tr><td data-num="20"></td><td><pre>  <span class="token parameter variable">--name</span> jenkins-master</pre></td></tr><tr><td data-num="21"></td><td><pre>  jenkinsci/blueocean</pre></td></tr></table></figure></li>
+<pre><code class="bash"># Jenkins
+docker run \
+  -itd \
+  -u root \
+  -p 8080:8080 \
+  -v jenkins-data:/var/jenkins_home \ 
+  -v /var/run/docker.sock:/var/run/docker.sock \
+  -v &quot;$HOME&quot;:/home \ 
+  --name jenkins-master
+  jenkins/jenkins
+  
+# Jenkins blueocean
+docker run \
+  -itd \
+  -u root \
+  -p 8080:8080 \
+  -v jenkins-data:/var/jenkins_home \ 
+  -v /var/run/docker.sock:/var/run/docker.sock \
+  -v &quot;$HOME&quot;:/home \ 
+  --name jenkins-master
+  jenkinsci/blueocean
+</code></pre>
+</li>
 </ul>
 </li>
-<li>
-<p>配置 Jenkins 插件加速</p>
-<p>进入 jenkins 系统管理 -&gt; 插件管理中 -&gt; 高级选项卡 -&gt; 升级站点，使用清华源：</p>
-<figure class="highlight html"><figcaption data-lang="HTML"></figcaption><table><tr><td data-num="1"></td><td><pre>https://mirrors.tuna.tsinghua.edu.cn/jenkins/updates/current/update-center.json</pre></td></tr></table></figure><p><img src="./assets/70.png" alt="ç³»ç»ç®¡ç" /></p>
-<p><img src="./assets/70-20190611152837311.png" alt="æä»¶ç®¡ç" /></p>
+<li><p>配置Jenkins插件加速</p>
+<p>进入jenkins系统管理-&gt;插件管理中-&gt;高级选项卡-&gt;升级站点，使用清华源：</p>
+<pre><code class="html">https://mirrors.tuna.tsinghua.edu.cn/jenkins/updates/current/update-center.json
+</code></pre>
+<p><img src="/./assets/70.png" alt="ç³»ç»ç®¡ç"></p>
+<p><img src="/./assets/70-20190611152837311.png" alt="æä»¶ç®¡ç"></p>
 <p>关于官方所有的镜像列表：</p>
 <p><a href="http://mirrors.jenkins-ci.org/status.html">http://mirrors.jenkins-ci.org/status.html</a></p>
 </li>
-<li>
-<p>环境配置</p>
+<li><p>环境配置</p>
 </li>
-<li>
-<p>用户权限配置</p>
+<li><p>用户权限配置</p>
 </li>
-<li>
-<p>与 gitlab 进行联接</p>
+<li><p>与gitlab进行联接</p>
 </li>
 </ol>
-<h3 id="插件介绍"><a class="anchor" href="#插件介绍">#</a> 插件介绍</h3>
-<h3 id="配置自动化任务"><a class="anchor" href="#配置自动化任务">#</a> 配置自动化任务</h3>
-<h3 id="前端项目中的应用"><a class="anchor" href="#前端项目中的应用">#</a> 前端项目中的应用</h3>
-<h2 id="travisci"><a class="anchor" href="#travisci">#</a> TravisCI</h2>
-<h3 id="使用简介-2"><a class="anchor" href="#使用简介-2">#</a> 使用简介</h3>
-<h3 id="配置nodejs应用"><a class="anchor" href="#配置nodejs应用">#</a> 配置 Node.js 应用</h3>
-<h2 id="circleci"><a class="anchor" href="#circleci">#</a> CircleCI</h2>
-<h3 id="使用简介-3"><a class="anchor" href="#使用简介-3">#</a> 使用简介</h3>
-<h3 id="配置nodejs应用-2"><a class="anchor" href="#配置nodejs应用-2">#</a> 配置 Node.js 应用</h3>
-<h2 id="扩展知识"><a class="anchor" href="#扩展知识">#</a> 扩展知识</h2>
-<h3 id="自动化流程的发展趋势"><a class="anchor" href="#自动化流程的发展趋势">#</a> 自动化流程的发展趋势</h3>
-<ol>
-<li>
-<p>集中化</p>
-<p>以集群为基础，服务采用 Saas 方式进行交付。所有折构建、测试、发布全集中进行管理。</p>
+<h3 id="插件介绍"><a href="#插件介绍" class="headerlink" title="插件介绍"></a>插件介绍</h3><h3 id="配置自动化任务"><a href="#配置自动化任务" class="headerlink" title="配置自动化任务"></a>配置自动化任务</h3><h3 id="前端项目中的应用"><a href="#前端项目中的应用" class="headerlink" title="前端项目中的应用"></a>前端项目中的应用</h3><h2 id="TravisCI"><a href="#TravisCI" class="headerlink" title="TravisCI"></a>TravisCI</h2><h3 id="使用简介-1"><a href="#使用简介-1" class="headerlink" title="使用简介"></a>使用简介</h3><h3 id="配置Node-js应用"><a href="#配置Node-js应用" class="headerlink" title="配置Node.js应用"></a>配置Node.js应用</h3><h2 id="CircleCI"><a href="#CircleCI" class="headerlink" title="CircleCI"></a>CircleCI</h2><h3 id="使用简介-2"><a href="#使用简介-2" class="headerlink" title="使用简介"></a>使用简介</h3><h3 id="配置Node-js应用-1"><a href="#配置Node-js应用-1" class="headerlink" title="配置Node.js应用"></a>配置Node.js应用</h3><h2 id="扩展知识"><a href="#扩展知识" class="headerlink" title="扩展知识"></a>扩展知识</h2><h3 id="自动化流程的发展趋势"><a href="#自动化流程的发展趋势" class="headerlink" title="自动化流程的发展趋势"></a>自动化流程的发展趋势</h3><ol>
+<li><p>集中化</p>
+<p>以集群为基础，服务采用Saas方式进行交付。所有折构建、测试、发布全集中进行管理。</p>
 </li>
-<li>
-<p>微服务 + 无服务的应用模式</p>
-<p>应用程序执行环境的管理被新的编程模型和平台取代后，团队的交付生产率得到了进一步的提升。一方面它免去了很多环境管理的工作，包括设备、网络、主机以及对应的软件和配置工作，使得软件运行时环境更加稳定。另一方面，它大大降低了团队采用 DevOps 的技术门槛。</p>
-<p>** 无服务器风格的架构（Serverless architecture）** 把 DevOps 技术在微服务领域的应用推向极致。当应用程序执行环境的管理被新的编程模型和平台取代后，团队的交付生产率得到了进一步的提升。一方面它免去了很多环境管理的工作，包括设备、网络、主机以及对应的软件和配置工作，使得软件运行时环境更加稳定。另一方面，它大大降低了团队采用 DevOps 的技术门槛。</p>
-<p>在微服务端到端交付流程上，Netflix 开源了自家的<a href="http://www.spinnaker.io/"> Spinnaker</a>，Netflix 作为微服务实践的先锋，不断推出新的开源工具来弥补社区中微服务技术和最佳实践的缺失。而<a href="http://projects.spring.io/spring-cloud/"> Spring Cloud</a> 则为开发者提供了一系列工具，以便他们在所熟悉的 Spring 技术栈下使用这些服务协调技术 (coordination techniques)，如服务发现、负载均衡、熔断和健康检查。</p>
+<li><p>微服务+无服务的应用模式</p>
+<p>应用程序执行环境的管理被新的编程模型和平台取代后，团队的交付生产率得到了进一步的提升。一方面它免去了很多环境管理的工作，包括设备、网络、主机以及对应的软件和配置工作，使得软件运行时环境更加稳定。另一方面，它大大降低了团队采用DevOps的技术门槛。</p>
+<p><strong>无服务器风格的架构（Serverless architecture）</strong>把DevOps技术在微服务领域的应用推向极致。当应用程序执行环境的管理被新的编程模型和平台取代后，团队的交付生产率得到了进一步的提升。一方面它免去了很多环境管理的工作，包括设备、网络、主机以及对应的软件和配置工作，使得软件运行时环境更加稳定。另一方面，它大大降低了团队采用DevOps的技术门槛。</p>
+<p>在微服务端到端交付流程上，Netflix开源了自家的<a href="http://www.spinnaker.io/">Spinnaker</a>，Netflix作为微服务实践的先锋，不断推出新的开源工具来弥补社区中微服务技术和最佳实践的缺失。而<a href="http://projects.spring.io/spring-cloud/">Spring Cloud</a>则为开发者提供了一系列工具，以便他们在所熟悉的Spring技术栈下使用这些服务协调技术(coordination techniques)，如服务发现、负载均衡、熔断和健康检查。</p>
 </li>
-<li>
-<p>人工智能领域的应用</p>
-<p>DevOps 的最早实践来自于互联网企业的 Web 应用，相应的思想被引入企业级应用并促进了一系列工具的发展。在人工智能领域，<a href="https://www.tensorflow.org/">TensorFlow</a> 就是这样一个例子，它可以有多种 DevOps 友好的安装和部署方式 ，例如采用 Docker 进行部署。</p>
-<p>随着 Python 在大数据、人工智能、区块链、微服务以及 Docker 中的发展，可以预见 Python 在日后的领域仍然会发挥重要的作用。</p>
+<li><p>人工智能领域的应用</p>
+<p>DevOps的最早实践来自于互联网企业的Web应用，相应的思想被引入企业级应用并促进了一系列工具的发展。在人工智能领域，<a href="https://www.tensorflow.org/">TensorFlow</a>就是这样一个例子，它可以有多种DevOps友好的安装和部署方式 ，例如采用Docker进行部署。</p>
+<p>随着Python在大数据、人工智能、区块链、微服务以及Docker中的发展，可以预见Python在日后的领域仍然会发挥重要的作用。</p>
 </li>
-<li>
-<p>安全推动 DevOps 的发展</p>
-<p>全是 DevOps 永远绕不开的话题，也往往是新技术在传统行业（例如金融和电信）应用中的最大阻碍。一方面，组织结构的转型迫使企业要打破原先的部门墙，这意味着很多原先的控制流程不再适用。另一方面，由于大量的 DevOps 技术来源于开源社区，缺乏强大技术实力的企业在应用相关技术时不免会有所担忧。</p>
+<li><p>安全推动DevOps的发展</p>
+<p>全是DevOps永远绕不开的话题，也往往是新技术在传统行业（例如金融和电信）应用中的最大阻碍。一方面，组织结构的转型迫使企业要打破原先的部门墙，这意味着很多原先的控制流程不再适用。另一方面，由于大量的DevOps技术来源于开源社区，缺乏强大技术实力的企业在应用相关技术时不免会有所担忧。</p>
 </li>
-<li>
-<p>Windows 平台下.net 的技术潜力巨大</p>
-<p>长期以来，Windows 和.NET 平台下的 DevOps 一直都是一个被低估的领域。一方面，社区缺乏对 Windows Server 平台的兴趣。另一方面，<a href="https://community.spiceworks.com/networking/articles/2462-server-virtualization-and-os-trends">Windows Server 却有接近 90% 的市场占用率</a>，在 Web 服务器领域则有<a href="https://w3techs.com/technologies/overview/operating_system/all"> 33.5% 的市场占有率</a>。</p>
+<li><p>Windows平台下.net的技术潜力巨大</p>
+<p>长期以来，Windows和.NET平台下的DevOps一直都是一个被低估的领域。一方面，社区缺乏对 Windows Server平台的兴趣。另一方面，<a href="https://community.spiceworks.com/networking/articles/2462-server-virtualization-and-os-trends">Windows Server却有接近90%的市场占用率</a>，在Web服务器领域则有<a href="https://w3techs.com/technologies/overview/operating_system/all">33.5%的市场占有率</a>。</p>
 </li>
-<li>
-<p>非功能性自动化测试工具逐渐完善</p>
-<p>自动化测试水平往往是衡量 DevOps 技术能力高低的重要指标，尤其是针对生产环境应用程序的非功能性自动化测试工具。一直以来，技术雷达都在尝试从不同的角度宣扬自动化测试的重要性，从软件的开发阶段延展到了整个应用生命周期甚至整体 IT 资产的管理上。</p>
+<li><p>非功能性自动化测试工具逐渐完善</p>
+<p>自动化测试水平往往是衡量DevOps技术能力高低的重要指标，尤其是针对生产环境应用程序的非功能性自动化测试工具。一直以来，技术雷达都在尝试从不同的角度宣扬自动化测试的重要性，从软件的开发阶段延展到了整个应用生命周期甚至整体IT资产的管理上。</p>
 </li>
 </ol>
-<h3 id="复杂的devops相关工具"><a class="anchor" href="#复杂的devops相关工具">#</a> 复杂的 DevOps 相关工具</h3>
-<p><img src="./assets/devops-hero-1-87966cfbc9c5713ae047551c7b22985c.png" alt="DevOps" /></p>
-<h3 id="jenkins的一些应用场景"><a class="anchor" href="#jenkins的一些应用场景">#</a> Jenkins 的一些应用场景</h3>
-<p>打包平台：</p>
-<p>使用 Jenkins 搭建 iOS/Android</p>
+<h3 id="复杂的DevOps相关工具"><a href="#复杂的DevOps相关工具" class="headerlink" title="复杂的DevOps相关工具"></a>复杂的DevOps相关工具</h3><p><img src="/./assets/devops-hero-1-87966cfbc9c5713ae047551c7b22985c.png" alt="DevOps"></p>
+<h3 id="Jenkins的一些应用场景"><a href="#Jenkins的一些应用场景" class="headerlink" title="Jenkins的一些应用场景"></a>Jenkins的一些应用场景</h3><p>打包平台：</p>
+<p>使用Jenkins搭建iOS&#x2F;Android</p>
 <p>测试平台：</p>
 <p>jenkins + python + selenium</p>
-<p>Jmeter+maven+Jenkins 构建云性能测试平台</p>
-<p>Jenkins+PMD 构建自动化静态代码检测</p>
-<p>使用 jenkins+Emma 统计</p>
+<p>Jmeter+maven+Jenkins构建云性能测试平台</p>
+<p>Jenkins+PMD构建自动化静态代码检测</p>
+<p>使用jenkins+Emma统计</p>
 <p>客户端单元测试覆盖率</p>
-<p>Jenkins+Ant+Java+Junit+SVN 执行 junit 单元测试</p>
-<p>jenkins+ant+jmeter 搭建持续集成的接口测试平台</p>
+<p>Jenkins+Ant+Java+Junit+SVN执行junit单元测试</p>
+<p>jenkins+ant+jmeter搭建持续集成的接口测试平台</p>
 <p>自动部署：</p>
-<p>Jenkins+GitLab + 蒲公英 + FTP</p>
-<p>jenkins 结合 ansible 用 shell 实现自动化部署和回滚</p>
+<p>Jenkins+GitLab+蒲公英+FTP</p>
+<p>jenkins结合ansible用shell实现自动化部署和回滚</p>
 <p>持续集成：</p>
-<p>Tomcat+Sonar 搭建持续集成环境</p>
-<p>Maven+Nexus+Jenkins+git/SVN</p>
-<h3 id="jenkins的docker-composeyml创建文件"><a class="anchor" href="#jenkins的docker-composeyml创建文件">#</a> Jenkins 的 Docker-compose.yml 创建文件</h3>
-<figure class="highlight bash"><figcaption data-lang="bash"></figcaption><table><tr><td data-num="1"></td><td><pre>version: <span class="token string">'3'</span></pre></td></tr><tr><td data-num="2"></td><td><pre>services:</pre></td></tr><tr><td data-num="3"></td><td><pre>  jenkins:</pre></td></tr><tr><td data-num="4"></td><td><pre>    container_name: <span class="token string">'jenkins'</span></pre></td></tr><tr><td data-num="5"></td><td><pre>    image: jenkins/jenkins</pre></td></tr><tr><td data-num="6"></td><td><pre>    restart: always</pre></td></tr><tr><td data-num="7"></td><td><pre>    user: jenkins:<span class="token operator">&lt;</span>这里填Docker用户组的ID，见下面<span class="token operator">></span></pre></td></tr><tr><td data-num="8"></td><td><pre>    ports:</pre></td></tr><tr><td data-num="9"></td><td><pre>    - <span class="token string">"8080:8080"</span></pre></td></tr><tr><td data-num="10"></td><td><pre>    - <span class="token string">"50000:50000"</span></pre></td></tr><tr><td data-num="11"></td><td><pre>    volumes:</pre></td></tr><tr><td data-num="12"></td><td><pre>    - /home/jenkins/data:/var/jenkins_home</pre></td></tr><tr><td data-num="13"></td><td><pre>    - /usr/bin/docker:/usr/bin/docker</pre></td></tr><tr><td data-num="14"></td><td><pre>    - /var/run/docker.sock:/var/run/docker.sock</pre></td></tr></table></figure><p>上面的脚本使用注意：</p>
+<p>Tomcat+Sonar搭建持续集成环境</p>
+<p>Maven+Nexus+Jenkins+git&#x2F;SVN</p>
+<h3 id="Jenkins的Docker-compose-yml创建文件"><a href="#Jenkins的Docker-compose-yml创建文件" class="headerlink" title="Jenkins的Docker-compose.yml创建文件"></a>Jenkins的Docker-compose.yml创建文件</h3><pre><code class="bash">version: &#39;3&#39;
+services:
+  jenkins:
+    container_name: &#39;jenkins&#39;
+    image: jenkins/jenkins
+    restart: always
+    user: jenkins:&lt;这里填Docker用户组的ID，见下面&gt;
+    ports:
+    - &quot;8080:8080&quot;
+    - &quot;50000:50000&quot;
+    volumes:
+    - /home/jenkins/data:/var/jenkins_home
+    - /usr/bin/docker:/usr/bin/docker
+    - /var/run/docker.sock:/var/run/docker.sock
+</code></pre>
+<p>上面的脚本使用注意：</p>
 <ol>
-<li>
-<p>创建本地 jenkins 数据目录</p>
-<figure class="highlight bash"><figcaption data-lang="bash"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">mkdir</span> <span class="token parameter variable">-p</span> /home/jenkins</pre></td></tr></table></figure></li>
-<li>
-<p>查看 docker 用户组的 ID</p>
-<figure class="highlight bash"><figcaption data-lang="bash"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">cat</span> /etc/group <span class="token operator">|</span><span class="token function">grep</span> <span class="token function">docker</span></pre></td></tr></table></figure></li>
-<li>
-<p>执行 <code>docker-compose up -d</code></p>
+<li><p>创建本地jenkins数据目录</p>
+<pre><code class="bash">mkdir -p /home/jenkins
+</code></pre>
+</li>
+<li><p>查看docker用户组的ID</p>
+<pre><code class="bash">cat /etc/group |grep docker
+</code></pre>
+</li>
+<li><p>执行<code>docker-compose up -d</code></p>
 </li>
 </ol>

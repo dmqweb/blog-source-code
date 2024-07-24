@@ -78,7 +78,7 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
       <i class="ic i-pen"></i>
     </span>
     <span class="text">本文字数</span>
-    <span>2.3k</span>
+    <span>2.5k</span>
     <span class="text">字</span>
   </span>
   <span class="item" title="阅读时长">
@@ -119,12 +119,12 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
       </div>
       <div id="imgs" class="pjax">
         <ul>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/25/1b093314ebaab948.jpg"></li>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/05/d3c578870618de4e.webp"></li>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/28/6b39a7fcfcafff7b.webp"></li>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/15/21b7a3f222ccbcb6.jpg"></li>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/04/eff89867286d822f.webp"></li>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/15/66e62db68b7b65eb.webp"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/03/29/4e134f025ae53f2b.jpg"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/07/971b0200f59eab4c.jpg"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/03/29/5c162f03529c2f38.jpg"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/28/a34792f58e340f69.webp"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/07/a69a9d571bee6f0b.jpg"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/15/229ca07a8d7b6e02.jpg"></li>
         </ul>
       </div>
     </header>
@@ -170,26 +170,89 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
   <div class="body md" itemprop="articleBody">
     
 
-    <h2 id="所使用的基础组件"><a class="anchor" href="#所使用的基础组件">#</a> 所使用的基础组件</h2>
-<p>代码托管在 Github 上，使用 github 集成的 Travis CI 自动触发 CI 流程。在 CI 中自动 build 新的 image 上传到 Docker Hub。然后通过 sshpass 远程登录 server 触发部署脚本。部署脚本 pull 新的 image 然后部署。</p>
-<h2 id="dockerfile"><a class="anchor" href="#dockerfile">#</a> Dockerfile</h2>
-<p>由于项目都是基于 python 的，所以 dockerfile 比较简单：</p>
-<figure class="highlight dockerfile"><figcaption data-lang="Docker"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token instruction"><span class="token keyword">FROM</span> ubuntu:latest</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token instruction"><span class="token keyword">MAINTAINER</span> Shaobo Liu &lt;shaobo@mkdef.com></span></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token instruction"><span class="token keyword">LABEL</span> Description=<span class="token string">"This image is used to flask-kraken"</span></span></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token instruction"><span class="token keyword">RUN</span> apt-get update -y</span></pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token instruction"><span class="token keyword">RUN</span> apt-get install -y python3-pip python3-dev build-essential</span></pre></td></tr><tr><td data-num="6"></td><td><pre><span class="token instruction"><span class="token keyword">COPY</span> src /app</span></pre></td></tr><tr><td data-num="7"></td><td><pre><span class="token instruction"><span class="token keyword">COPY</span> requirements.txt /app</span></pre></td></tr><tr><td data-num="8"></td><td><pre><span class="token instruction"><span class="token keyword">WORKDIR</span> /app</span></pre></td></tr><tr><td data-num="9"></td><td><pre><span class="token instruction"><span class="token keyword">RUN</span> pip3 install -r requirements.txt</span></pre></td></tr><tr><td data-num="10"></td><td><pre><span class="token instruction"><span class="token keyword">ENTRYPOINT</span> [<span class="token string">"python3"</span>]</span></pre></td></tr><tr><td data-num="11"></td><td><pre><span class="token instruction"><span class="token keyword">CMD</span> [<span class="token string">"app.py"</span>]</span></pre></td></tr></table></figure><p>分解一下：</p>
-<figure class="highlight dockerfile"><figcaption data-lang="Docker"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token instruction"><span class="token keyword">FROM</span> ubuntu:latest</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token instruction"><span class="token keyword">MAINTAINER</span> Shaobo Liu &lt;shaobo@mkdef.com></span></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token instruction"><span class="token keyword">LABEL</span> Description=<span class="token string">"This image is used to flask-kraken"</span></span></pre></td></tr></table></figure><p>首先申明使用的基础镜像，然后写上大名表示我是维护这个镜像的作者和这个镜像的用途。</p>
-<figure class="highlight dockerfile"><figcaption data-lang="Docker"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token instruction"><span class="token keyword">RUN</span> apt-get update -y</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token instruction"><span class="token keyword">RUN</span> apt-get install -y python3-pip python3-dev build-essential</span></pre></td></tr></table></figure><p>安装 python3，如果有其他的工具或者 lib，也要写在这里。</p>
-<figure class="highlight dockerfile"><figcaption data-lang="Docker"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token instruction"><span class="token keyword">COPY</span> src /app</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token instruction"><span class="token keyword">COPY</span> requirements.txt /app</span></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token instruction"><span class="token keyword">WORKDIR</span> /app</span></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token instruction"><span class="token keyword">RUN</span> pip3 install -r requirements.txt</span></pre></td></tr></table></figure><p>复制源代码到 docker 里，然后切换工作目录，安装三方依赖。 有时候这里需要安装一些系统级的依赖，比如 lxml 或者 psycopg2 之类的，就需要加到前面 <code>apt-get install</code>  里去。</p>
-<figure class="highlight dockerfile"><figcaption data-lang="Docker"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token instruction"><span class="token keyword">ENTRYPOINT</span> [<span class="token string">"python3"</span>]</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token instruction"><span class="token keyword">CMD</span> [<span class="token string">"app.py"</span>]</span></pre></td></tr></table></figure><p>最后是需要执行的命令。根据 docker 的 userguide，一个 image 最好只干一件事。</p>
-<h2 id="travis-ci"><a class="anchor" href="#travis-ci">#</a> Travis CI</h2>
-<p>在项目根目录添加 <code>.travis.yml</code>  来定义 CI 流程</p>
-<figure class="highlight dockerfile"><figcaption data-lang="Docker"></figcaption><table><tr><td data-num="1"></td><td><pre>sudo: required</pre></td></tr><tr><td data-num="2"></td><td><pre></pre></td></tr><tr><td data-num="3"></td><td><pre>language: python</pre></td></tr><tr><td data-num="4"></td><td><pre></pre></td></tr><tr><td data-num="5"></td><td><pre>services:</pre></td></tr><tr><td data-num="6"></td><td><pre>  - docker</pre></td></tr><tr><td data-num="7"></td><td><pre></pre></td></tr><tr><td data-num="8"></td><td><pre>python:</pre></td></tr><tr><td data-num="9"></td><td><pre>    - "3.5"</pre></td></tr><tr><td data-num="10"></td><td><pre></pre></td></tr><tr><td data-num="11"></td><td><pre>before_install:</pre></td></tr><tr><td data-num="12"></td><td><pre>  - sudo apt-get update</pre></td></tr><tr><td data-num="13"></td><td><pre>  - sudo apt-get install sshpass</pre></td></tr><tr><td data-num="14"></td><td><pre></pre></td></tr><tr><td data-num="15"></td><td><pre>install: "pip install -r requirements.txt"</pre></td></tr><tr><td data-num="16"></td><td><pre></pre></td></tr><tr><td data-num="17"></td><td><pre>script: </pre></td></tr><tr><td data-num="18"></td><td><pre>  - python --version</pre></td></tr><tr><td data-num="19"></td><td><pre></pre></td></tr><tr><td data-num="20"></td><td><pre>after_success:</pre></td></tr><tr><td data-num="21"></td><td><pre>  - docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"</pre></td></tr><tr><td data-num="22"></td><td><pre>  - docker build -t shaobol/kraken:$TRAVIS_BRANCH-$TRAVIS_BUILD_ID . </pre></td></tr><tr><td data-num="23"></td><td><pre>  - docker push shaobol/kraken:$TRAVIS_BRANCH-$TRAVIS_BUILD_ID;</pre></td></tr><tr><td data-num="24"></td><td><pre>  - sshpass -p $VPS_PASSWORD ssh -o stricthostkeychecking=no root@45.32.137.234 "sudo /home/saukymo/kraken/deploy.sh $TRAVIS_BRANCH-$TRAVIS_BUILD_ID"</pre></td></tr></table></figure><p>这里就不一一分解了，具体可以参考 Travis 的官方文档。</p>
-<p>主要介绍一下这个部分和其他部分是怎么联动的。首先 Travis 和 Github 是有集成服务的，在 <code>Setting -&gt; integrations &amp; services</code>  里选择添加 Travis 就可以了。然后在 Travis 上就可以设置相应的 CI 流程了，默认是 master 有新的 commit 就会自动触发一次 CI。</p>
-<p>每次 CI 结束后的结果可以通过<span class="exturl" data-url="aHR0cHM6Ly90cmF2aXMtY2kub3JnL3NhdWt5bW8vb2Rlcy5zdmc/YnJhbmNoPW1hc3Rlcg=="> badge</span> 查看。</p>
-<p>重点在于测试完成后 build 和 push docker image 的过程</p>
-<figure class="highlight dockerfile"><figcaption data-lang="Docker"></figcaption><table><tr><td data-num="1"></td><td><pre>after_success:</pre></td></tr><tr><td data-num="2"></td><td><pre>  - docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"</pre></td></tr><tr><td data-num="3"></td><td><pre>  - docker build -t shaobol/kraken:$TRAVIS_BRANCH-$TRAVIS_BUILD_ID . </pre></td></tr><tr><td data-num="4"></td><td><pre>  - docker push shaobol/kraken:$TRAVIS_BRANCH-$TRAVIS_BUILD_ID;</pre></td></tr></table></figure><p>敏感信息这里全部通过 Travis 的 Environment Variables。这样可以避免因为公开而泄露。</p>
-<p>如果需要将一些敏感信息传递到 image 里面去，可以通过 <code>--build-arg</code>  参数传递进去，然后保存为环境变量，参考<span class="exturl" data-url="aHR0cHM6Ly9kb2NzLmRvY2tlci5jb20vZW5naW5lL3JlZmVyZW5jZS9idWlsZGVyLyNsYWJlbA=="> reference</span></p>
-<p>最后通过 <code>sshpass</code>  执行部署脚本，这一步也可以使用 <code>ansible</code>  代替。</p>
-<h2 id="docker-部署脚本"><a class="anchor" href="#docker-部署脚本">#</a> docker 部署脚本</h2>
-<figure class="highlight dockerfile"><figcaption data-lang="Docker"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token comment">#!/bin/bash</span></pre></td></tr><tr><td data-num="2"></td><td><pre></pre></td></tr><tr><td data-num="3"></td><td><pre>docker pull shaobol/odes:$1</pre></td></tr><tr><td data-num="4"></td><td><pre></pre></td></tr><tr><td data-num="5"></td><td><pre>if docker ps -a | grep -q odes; then</pre></td></tr><tr><td data-num="6"></td><td><pre>    docker rm -f odes</pre></td></tr><tr><td data-num="7"></td><td><pre>fi</pre></td></tr><tr><td data-num="8"></td><td><pre></pre></td></tr><tr><td data-num="9"></td><td><pre>docker run -d --name odes -p 9000:9000 --link postgres:postgres shaobol/odes:$1</pre></td></tr></table></figure><p>脚本很简单，接收 CI 传过来的参数 (image tag)，pull 新的 image，然后干掉之前的 container，run 一个新的。这样就完成了 update 整个过程。</p>
+    <h2 id="所使用的基础组件"><a href="#所使用的基础组件" class="headerlink" title="所使用的基础组件"></a>所使用的基础组件</h2><p>代码托管在Github上，使用github集成的Travis CI自动触发CI流程。在CI中自动build新的image上传到Docker Hub。然后通过sshpass远程登录server触发部署脚本。部署脚本pull新的image然后部署。</p>
+<h2 id="Dockerfile"><a href="#Dockerfile" class="headerlink" title="Dockerfile"></a>Dockerfile</h2><p>由于项目都是基于python的，所以dockerfile比较简单：</p>
+<pre><code class="dockerfile">FROM ubuntu:latest
+MAINTAINER Shaobo Liu &lt;shaobo@mkdef.com&gt;
+LABEL Description=&quot;This image is used to flask-kraken&quot;
+RUN apt-get update -y
+RUN apt-get install -y python3-pip python3-dev build-essential
+COPY src /app
+COPY requirements.txt /app
+WORKDIR /app
+RUN pip3 install -r requirements.txt
+ENTRYPOINT [&quot;python3&quot;]
+CMD [&quot;app.py&quot;]
+</code></pre>
+<p>分解一下：</p>
+<pre><code class="dockerfile">FROM ubuntu:latest
+MAINTAINER Shaobo Liu &lt;shaobo@mkdef.com&gt;
+LABEL Description=&quot;This image is used to flask-kraken&quot;
+</code></pre>
+<p>首先申明使用的基础镜像，然后写上大名表示我是维护这个镜像的作者和这个镜像的用途。</p>
+<pre><code class="dockerfile">RUN apt-get update -y
+RUN apt-get install -y python3-pip python3-dev build-essential
+</code></pre>
+<p>安装python3，如果有其他的工具或者lib，也要写在这里。</p>
+<pre><code class="dockerfile">COPY src /app
+COPY requirements.txt /app
+WORKDIR /app
+RUN pip3 install -r requirements.txt
+</code></pre>
+<p>复制源代码到docker里，然后切换工作目录，安装三方依赖。 有时候这里需要安装一些系统级的依赖，比如lxml或者psycopg2之类的，就需要加到前面<code>apt-get install</code>里去。</p>
+<pre><code class="dockerfile">ENTRYPOINT [&quot;python3&quot;]
+CMD [&quot;app.py&quot;]
+</code></pre>
+<p>最后是需要执行的命令。根据docker的userguide，一个image最好只干一件事。</p>
+<h2 id="Travis-CI"><a href="#Travis-CI" class="headerlink" title="Travis CI"></a>Travis CI</h2><p>在项目根目录添加<code>.travis.yml</code>来定义CI流程</p>
+<pre><code class="dockerfile">sudo: required
+
+language: python
+
+services:
+  - docker
+
+python:
+    - &quot;3.5&quot;
+
+before_install:
+  - sudo apt-get update
+  - sudo apt-get install sshpass
+
+install: &quot;pip install -r requirements.txt&quot;
+
+script: 
+  - python --version
+
+after_success:
+  - docker login -u=&quot;$DOCKER_USERNAME&quot; -p=&quot;$DOCKER_PASSWORD&quot;
+  - docker build -t shaobol/kraken:$TRAVIS_BRANCH-$TRAVIS_BUILD_ID . 
+  - docker push shaobol/kraken:$TRAVIS_BRANCH-$TRAVIS_BUILD_ID;
+  - sshpass -p $VPS_PASSWORD ssh -o stricthostkeychecking=no root@45.32.137.234 &quot;sudo /home/saukymo/kraken/deploy.sh $TRAVIS_BRANCH-$TRAVIS_BUILD_ID&quot;
+</code></pre>
+<p>这里就不一一分解了，具体可以参考Travis的官方文档。</p>
+<p>主要介绍一下这个部分和其他部分是怎么联动的。首先Travis和Github是有集成服务的，在<code>Setting -&gt; integrations &amp; services</code>里选择添加Travis就可以了。然后在Travis上就可以设置相应的CI流程了，默认是master有新的commit就会自动触发一次CI。</p>
+<p>每次CI结束后的结果可以通过<span class="exturl" data-url="aHR0cHM6Ly90cmF2aXMtY2kub3JnL3NhdWt5bW8vb2Rlcy5zdmc/YnJhbmNoPW1hc3Rlcg==">badge</span>查看。</p>
+<p>重点在于测试完成后build和push docker image的过程</p>
+<pre><code class="dockerfile">after_success:
+  - docker login -u=&quot;$DOCKER_USERNAME&quot; -p=&quot;$DOCKER_PASSWORD&quot;
+  - docker build -t shaobol/kraken:$TRAVIS_BRANCH-$TRAVIS_BUILD_ID . 
+  - docker push shaobol/kraken:$TRAVIS_BRANCH-$TRAVIS_BUILD_ID;
+</code></pre>
+<p>敏感信息这里全部通过Travis的Environment Variables。这样可以避免因为公开而泄露。</p>
+<p>如果需要将一些敏感信息传递到image里面去，可以通过<code>--build-arg</code>参数传递进去，然后保存为环境变量，参考<span class="exturl" data-url="aHR0cHM6Ly9kb2NzLmRvY2tlci5jb20vZW5naW5lL3JlZmVyZW5jZS9idWlsZGVyLyNsYWJlbA==">reference</span></p>
+<p>最后通过<code>sshpass</code>执行部署脚本，这一步也可以使用<code>ansible</code>代替。</p>
+<h2 id="docker-部署脚本"><a href="#docker-部署脚本" class="headerlink" title="docker 部署脚本"></a>docker 部署脚本</h2><pre><code class="dockerfile">#!/bin/bash
+
+docker pull shaobol/odes:$1
+
+if docker ps -a | grep -q odes; then
+    docker rm -f odes
+fi
+
+docker run -d --name odes -p 9000:9000 --link postgres:postgres shaobol/odes:$1
+</code></pre>
+<p>脚本很简单，接收CI传过来的参数(image tag)，pull新的image，然后干掉之前的container，run一个新的。这样就完成了update整个过程。</p>
 
       <div class="tags">
           <a href="/tags/Travis/" rel="tag"><i class="ic i-tag"></i> Travis</a>
@@ -263,7 +326,7 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
     <div class="item left">
       
 
-  <a href="/2023/12/02/react/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;s3.uuu.ovh&#x2F;imgs&#x2F;2024&#x2F;04&#x2F;12&#x2F;8740e71363c6800c.jpg" title="react笔记">
+  <a href="/2023/12/02/react/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;s3.uuu.ovh&#x2F;imgs&#x2F;2024&#x2F;04&#x2F;04&#x2F;025bf3f9fc1cf452.webp" title="react笔记">
   <span class="type">上一篇</span>
   <span class="category"><i class="ic i-flag"></i> react</span>
   <h3>react笔记</h3>
@@ -273,7 +336,7 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
     <div class="item right">
       
 
-  <a href="/2023/12/07/Blob/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;s3.uuu.ovh&#x2F;imgs&#x2F;2024&#x2F;04&#x2F;06&#x2F;109323f5add23044.jpg" title="Blob">
+  <a href="/2023/12/07/Blob/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;s3.uuu.ovh&#x2F;imgs&#x2F;2024&#x2F;04&#x2F;25&#x2F;0aebf75866635811.jpg" title="Blob">
   <span class="type">下一篇</span>
   <span class="category"><i class="ic i-flag"></i> JS</span>
   <h3>Blob</h3>
@@ -295,7 +358,7 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
   <div class="panels">
     <div class="inner">
       <div class="contents panel pjax" data-title="文章目录">
-          <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%89%80%E4%BD%BF%E7%94%A8%E7%9A%84%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6"><span class="toc-number">1.</span> <span class="toc-text"> 所使用的基础组件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#dockerfile"><span class="toc-number">2.</span> <span class="toc-text"> Dockerfile</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#travis-ci"><span class="toc-number">3.</span> <span class="toc-text"> Travis CI</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#docker-%E9%83%A8%E7%BD%B2%E8%84%9A%E6%9C%AC"><span class="toc-number">4.</span> <span class="toc-text"> docker 部署脚本</span></a></li></ol>
+          <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%89%80%E4%BD%BF%E7%94%A8%E7%9A%84%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6"><span class="toc-number">1.</span> <span class="toc-text">所使用的基础组件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Dockerfile"><span class="toc-number">2.</span> <span class="toc-text">Dockerfile</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Travis-CI"><span class="toc-number">3.</span> <span class="toc-text">Travis CI</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#docker-%E9%83%A8%E7%BD%B2%E8%84%9A%E6%9C%AC"><span class="toc-number">4.</span> <span class="toc-text">docker 部署脚本</span></a></li></ol>
       </div>
       <div class="related panel pjax" data-title="系列文章">
         <ul>
@@ -413,100 +476,100 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%BC%8F/" title="分类于 开发模式">开发模式</a>
-</div>
-
-    <span><a href="/2024/03/29/TDD/" title="TDD测试驱动开发">TDD测试驱动开发</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" title="分类于 解决方案">解决方案</a>
-</div>
-
-    <span><a href="/2023/06/02/%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" title="解决方案">解决方案</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/git/" title="分类于 git">git</a>
-</div>
-
-    <span><a href="/2023/05/02/git%20github%E7%AC%94%E8%AE%B0%EF%BC%88%E6%A6%82%E5%BF%B5%EF%BC%89/" title="git笔记">git笔记</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/" title="分类于 面试题">面试题</a>
-</div>
-
-    <span><a href="/2023/08/29/%E9%9D%A2%E8%AF%95%E9%A2%98/" title="面试题">面试题</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/Vue/" title="分类于 Vue">Vue</a>
-</div>
-
-    <span><a href="/2023/01/12/Vue%E6%9D%82%E8%AE%B0/" title="Vue使用笔记">Vue使用笔记</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/git/" title="分类于 git">git</a>
-</div>
-
-    <span><a href="/2023/04/02/git%E5%92%8Cgithub/" title="git与github">git与github</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/gitlab-cicd/" title="分类于 gitlab cicd">gitlab cicd</a>
-</div>
-
-    <span><a href="/2024/07/07/gitlab-cicd/" title="gitlab cicd">gitlab cicd</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/JS%E8%BF%9B%E9%98%B6/" title="分类于 JS进阶">JS进阶</a>
-</div>
-
-    <span><a href="/2023/08/02/JS/" title="JS进阶">JS进阶</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/HTTP/" title="分类于 HTTP">HTTP</a>
-</div>
-
-    <span><a href="/2023/05/02/HTTP/" title="HTTP">HTTP</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
 <a href="/categories/%E8%84%9A%E6%89%8B%E6%9E%B6%E5%BC%80%E5%8F%91/" title="分类于 脚手架开发">脚手架开发</a>
 </div>
 
-    <span><a href="/2024/03/30/%E6%9C%AC%E5%9C%B0%E6%96%87%E4%BB%B6%E9%93%BE%E6%8E%A5/" title="本地文件链接">本地文件链接</a></span>
+    <span><a href="/2024/04/12/%E8%84%9A%E6%89%8B%E6%9E%B6/" title="脚手架开发">脚手架开发</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/" title="分类于 性能优化">性能优化</a>
+</div>
+
+    <span><a href="/2024/05/11/%E6%80%A7%E8%83%BD%E6%8C%87%E6%A0%87/" title="性能指标">性能指标</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/v8%E5%BC%95%E6%93%8E%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/" title="分类于 v8引擎编译原理">v8引擎编译原理</a>
+</div>
+
+    <span><a href="/2024/05/21/v8%E5%BC%95%E6%93%8E%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/" title="v8引擎编译原理">v8引擎编译原理</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/" title="分类于 自动化测试">自动化测试</a>
+</div>
+
+    <span><a href="/2024/03/02/%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/" title="自动化测试">自动化测试</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/esbuild/" title="分类于 esbuild">esbuild</a>
+</div>
+
+    <span><a href="/2024/05/17/esbuild/" title="esbuild">esbuild</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/whistle/" title="分类于 whistle">whistle</a>
+</div>
+
+    <span><a href="/2024/05/17/whistle%E4%BD%BF%E7%94%A8/" title="whistle抓包">whistle抓包</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E5%BC%80%E6%BA%90%E5%8D%8F%E8%AE%AE/" title="分类于 开源协议">开源协议</a>
+</div>
+
+    <span><a href="/2023/02/02/%E5%BC%80%E6%BA%90%E5%8D%8F%E8%AE%AE/" title="常见开源协议">常见开源协议</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E7%AE%97%E6%B3%95/" title="分类于 算法">算法</a>
+</div>
+
+    <span><a href="/2023/12/02/%E7%AE%97%E6%B3%95/" title="算法与数据结构">算法与数据结构</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/ES6/" title="分类于 ES6">ES6</a>
+</div>
+
+    <span><a href="/2023/08/02/ES6/" title="ES6">ES6</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90%E4%B8%8E%E9%83%A8%E7%BD%B2/" title="分类于 持续集成与部署">持续集成与部署</a>
+</div>
+
+    <span><a href="/2024/02/03/%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90%E4%B8%8E%E6%8C%81%E7%BB%AD%E9%83%A8%E7%BD%B2/" title="持续集成与持续部署">持续集成与持续部署</a></span>
   </li>
 
   </ul>
@@ -531,13 +594,13 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
     <span class="post-meta-item-icon">
       <i class="ic i-chart-area"></i>
     </span>
-    <span title="站点总字数">943k 字</span>
+    <span title="站点总字数">938k 字</span>
 
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="ic i-coffee"></i>
     </span>
-    <span title="站点阅读时长">14:17</span>
+    <span title="站点阅读时长">14:12</span>
   </div>
   <div class="powered-by">
     基于 <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & Theme.<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Shoka</span>

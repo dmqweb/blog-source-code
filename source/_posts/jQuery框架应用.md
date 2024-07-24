@@ -370,7 +370,7 @@ $(".box").hover(function(){
 
 ## css操作（2）
 
-``` js
+```js
 //name：需要设置的样式名称
 //value：对应的样式值
 css(name, value);

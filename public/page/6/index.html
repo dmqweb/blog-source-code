@@ -91,12 +91,12 @@
       </div>
       <div id="imgs" class="pjax">
         <ul>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/12/4508f1e9b6c8e047.jpg"></li>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/05/5f5c15d0d8ceb4d1.jpg"></li>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/12/8740e71363c6800c.jpg"></li>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/15/effaa43770a5e6bc.jpg"></li>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/07/d94cad8780c8c094.jpg"></li>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/15/9d4994abd78e2f72.jpg"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/05/8c79eda29fb3b505.jpg"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/25/d919179c20f6fc96.jpg"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/12/3368de466b008234.webp"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/15/6cedcb364082ed12.webp"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/13/7056b573eacc540d.jpg"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/05/9c07b3ea7f1e2a1c.jpg"></li>
         </ul>
       </div>
     </header>
@@ -122,7 +122,7 @@
         
 <article class="item">
   <div class="cover">
-    <a href="/2023/06/02/JS%E6%89%8B%E5%86%99%E9%A2%98/" itemprop="url" title="JS手写题"><img data-src="https://s3.uuu.ovh/imgs/2024/04/06/a2c97e7bd0c6ecd6.webp"></a>
+    <a href="/2023/06/02/JS%E6%89%8B%E5%86%99%E9%A2%98/" itemprop="url" title="JS手写题"><img data-src="https://s3.uuu.ovh/imgs/2024/04/15/effaa43770a5e6bc.jpg"></a>
   </div>
   <div class="info">
     
@@ -137,25 +137,27 @@
     <span class="icon">
       <i class="ic i-pen"></i>
     </span>
-    <span>10k</span>
+    <span>11k</span>
     <span class="text">字</span>
   </span>
   <span class="item" title="阅读时长">
     <span class="icon">
       <i class="ic i-clock"></i>
     </span>
-    <span>9 分钟</span>
+    <span>10 分钟</span>
   </span>
 </div>
 
     <h3><a href="/2023/06/02/JS%E6%89%8B%E5%86%99%E9%A2%98/" itemprop="url" title="JS手写题">JS手写题</a></h3>
     <div class="excerpt">
-        # new 关键字
-new 关键字实现分为三步：
-1、根据构造函数的原型创建新的对象
-2、执行构造函数，绑定 this 指向为新对象，传入参数
-3、返回执行后的结果
-function myNew(constructor,...args)&amp;#123; // 创建对象，原型为构造函数的原型对象 const obj = Object.create(constructor.prototype); // 执行构造函数，传入创建的对象和参数 const res = constructor.apply(obj,args); // 注意 apply 方法是函数对象的方法，普通对象不可用 return...
+        new关键字new关键字实现分为三步：
+1、根据构造函数的原型创建新的对象2、执行构造函数，绑定this指向为新对象，传入参数3、返回执行后的结果
+function myNew(constructor,...args)&amp;#123;
+//创建对象，原型为构造函数的原型对象
+const obj = Object.create(constructor.prototype);
+//执行构造函数，传入创建的对象和参数
+const res = constructor.apply(obj,args); //注意apply方法是函数对象的方法，普通对象不可用
+return (res...
     </div>
     <div class="meta footer">
       <span>
@@ -169,7 +171,7 @@ function myNew(constructor,...args)&amp;#123; // 创建对象，原型为构造�
         
 <article class="item">
   <div class="cover">
-    <a href="/2023/06/02/%E5%BA%95%E5%B1%82%E6%9D%82%E8%AE%B0/" itemprop="url" title="底层杂记与工具库函数"><img data-src="https://s3.uuu.ovh/imgs/2024/04/12/35b09cafcea9fd29.webp"></a>
+    <a href="/2023/06/02/%E5%BA%95%E5%B1%82%E6%9D%82%E8%AE%B0/" itemprop="url" title="底层杂记与工具库函数"><img data-src="https://s3.uuu.ovh/imgs/2024/04/04/e805d35284c2d7d5.jpg"></a>
   </div>
   <div class="info">
     
@@ -197,11 +199,19 @@ function myNew(constructor,...args)&amp;#123; // 创建对象，原型为构造�
 
     <h3><a href="/2023/06/02/%E5%BA%95%E5%B1%82%E6%9D%82%E8%AE%B0/" itemprop="url" title="底层杂记与工具库函数">底层杂记与工具库函数</a></h3>
     <div class="excerpt">
-        # NaN 历史遗留问题
-由于历史遗留问题，NaN 的内部做了 hash 处理，使得每一次 NaN 返回的结果都不同。
-NaN === NaN //false;Object.is(NaN,NaN) //true// 除此之外，延申:+0 === -0 // 返回 trueObject.is(+0 , -0) // 返回 false# null 的历史遗留问题
-null 的本质其实是 0, 代表为空，而 undefined 的本质是一个特殊的对象，代表从未赋值过.
-Number(null); //0Number(undefined); //NaN12+null;...
+        NaN历史遗留问题由于历史遗留问题，NaN的内部做了hash处理，使得每一次NaN返回的结果都不同。
+NaN === NaN //false;
+Object.is(NaN,NaN) //true
+//除此之外，延申:
++0 === -0 //返回true
+Object.is(+0 , -0) //返回false
+
+null的历史遗留问题null的本质其实是0,代表为空,而undefined的本质是一个特殊的对象,代表从未赋值过.
+Number(null); //0
+Number(undefined); //NaN
+
+12+null; //12
+12+undefined;...
     </div>
     <div class="meta footer">
       <span>
@@ -215,7 +225,7 @@ Number(null); //0Number(undefined); //NaN12+null;...
         
 <article class="item">
   <div class="cover">
-    <a href="/2023/06/02/%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" itemprop="url" title="解决方案"><img data-src="https://s3.uuu.ovh/imgs/2024/04/13/ba4d76fc0767aeef.jpg"></a>
+    <a href="/2023/06/02/%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" itemprop="url" title="解决方案"><img data-src="https://s3.uuu.ovh/imgs/2024/04/12/8740e71363c6800c.jpg"></a>
   </div>
   <div class="info">
     
@@ -230,7 +240,7 @@ Number(null); //0Number(undefined); //NaN12+null;...
     <span class="icon">
       <i class="ic i-pen"></i>
     </span>
-    <span>152</span>
+    <span>151</span>
     <span class="text">字</span>
   </span>
   <span class="item" title="阅读时长">
@@ -243,11 +253,10 @@ Number(null); //0Number(undefined); //NaN12+null;...
 
     <h3><a href="/2023/06/02/%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" itemprop="url" title="解决方案">解决方案</a></h3>
     <div class="excerpt">
-        # 图片上传：
-input 标签中 file（accetp 接受类型） 、
-fileList（change 事件的 e.target.files [0]） 、
+        图片上传：input标签中file（accetp接受类型） 、
+fileList（change事件的e.target.files[0]） 、
 Blob（二进制格式数据）、
-FileReader（将文本文件 file 转为字符串或者 URL）、
+FileReader（将文本文件file转为字符串或者URL）、
 URL scheme 、
 拖拽事件：dragenter、dragover、drop
     </div>
@@ -263,7 +272,7 @@ URL scheme 、
         
 <article class="item">
   <div class="cover">
-    <a href="/2023/05/17/%E6%B8%B2%E6%9F%93%E6%A8%A1%E5%BC%8F/" itemprop="url" title="渲染模式"><img data-src="https://s3.uuu.ovh/imgs/2024/04/15/229ca07a8d7b6e02.jpg"></a>
+    <a href="/2023/05/17/%E6%B8%B2%E6%9F%93%E6%A8%A1%E5%BC%8F/" itemprop="url" title="渲染模式"><img data-src="https://s3.uuu.ovh/imgs/2024/04/06/3b79311f42543632.jpg"></a>
   </div>
   <div class="info">
     
@@ -305,7 +314,7 @@ URL scheme 、
         
 <article class="item">
   <div class="cover">
-    <a href="/2023/05/02/git%20github%E7%AC%94%E8%AE%B0%EF%BC%88%E6%A6%82%E5%BF%B5%EF%BC%89/" itemprop="url" title="git笔记"><img data-src="https://s3.uuu.ovh/imgs/2024/04/28/a34792f58e340f69.webp"></a>
+    <a href="/2023/05/02/git%20github%E7%AC%94%E8%AE%B0%EF%BC%88%E6%A6%82%E5%BF%B5%EF%BC%89/" itemprop="url" title="git笔记"><img data-src="https://s3.uuu.ovh/imgs/2024/04/07/5a293b82670a4885.webp"></a>
   </div>
   <div class="info">
     
@@ -320,42 +329,39 @@ URL scheme 、
     <span class="icon">
       <i class="ic i-pen"></i>
     </span>
-    <span>2.7k</span>
+    <span>2.8k</span>
     <span class="text">字</span>
   </span>
   <span class="item" title="阅读时长">
     <span class="icon">
       <i class="ic i-clock"></i>
     </span>
-    <span>2 分钟</span>
+    <span>3 分钟</span>
   </span>
 </div>
 
     <h3><a href="/2023/05/02/git%20github%E7%AC%94%E8%AE%B0%EF%BC%88%E6%A6%82%E5%BF%B5%EF%BC%89/" itemprop="url" title="git笔记">git笔记</a></h3>
     <div class="excerpt">
-        &amp;lt;!--Ctrl+[ 提升列表等级；Ctrl+1 一级标题 --&amp;gt;
-
-# 一、用于版本控制
-
+        一、用于版本控制
 版本控制工具需要的功能
 协同修改、数据备份、版本管理、权限控制、历史记录、分支管理
 
 分布式版本控制 vs 集中式版本控制
 集中式版本控制需联网才能需要
 
-# 二、Git 简介
+二、Git简介
 
 本地库和远程库
 
 团队内成员操作
 
-想找不是团队内的成员 东方不败 来帮忙，那就需要他 fork 一下，这样对于修改可以进行 pull request，经过审核后可以 merge 到原来的远程仓库
+想找不是团队内的成员 东方不败 来帮忙，那就需要他fork一下，这样对于修改可以进行pull request，经过审核后可以merge到原来的远程仓库
 
-# 三、Git 命令行操作
-主体内容：
-# 本地库初始化
+三、Git命令行操作主体内容：
+本地库初始化
+git init
 
-git...
+初始化后效果：会生成一个.git隐藏文件。使用ll...
     </div>
     <div class="meta footer">
       <span>
@@ -369,7 +375,7 @@ git...
         
 <article class="item">
   <div class="cover">
-    <a href="/2023/05/02/HTTP/" itemprop="url" title="HTTP"><img data-src="https://s3.uuu.ovh/imgs/2024/04/04/4b93d7d24397b567.jpg"></a>
+    <a href="/2023/05/02/HTTP/" itemprop="url" title="HTTP"><img data-src="https://s3.uuu.ovh/imgs/2024/04/25/1276fcec5eb7990e.webp"></a>
   </div>
   <div class="info">
     
@@ -384,7 +390,7 @@ git...
     <span class="icon">
       <i class="ic i-pen"></i>
     </span>
-    <span>10k</span>
+    <span>11k</span>
     <span class="text">字</span>
   </span>
   <span class="item" title="阅读时长">
@@ -397,26 +403,14 @@ git...
 
     <h3><a href="/2023/05/02/HTTP/" itemprop="url" title="HTTP">HTTP</a></h3>
     <div class="excerpt">
-        # #目录
-
+        #目录
 [TOC]
 
-# 浅学浏览器工作原理
-# 一、浏览器工作流程概览
-
-・浏览器首先使用 HTTP 协议或者 HTTPS 协议，向服务端请求页面；
-・把请求回来的 HTML 代码经过解析，构建成 DOM 树；
-・计算 DOM 树上的 CSS 属性；
-・根据 CSS 属性对元素逐个进行渲染，得到内存中的 位图 ①；
-・一个可选的步骤是对位图进行合成，这会极大地增加后续绘制的速度；
-・合成之后，再绘制到界面上。
-
-# 位图
-
-位图，又称为点阵图像、像素图或栅格图像，是由像素（图片元素）的单个点组成。这些点可以进行不同的排列和染色以构成图样。
-位图的单位：像素（Pixel）
-
-#...
+浅学浏览器工作原理一、浏览器工作流程概览
+•浏览器首先使用 HTTP 协议或者 HTTPS 协议，向服务端请求页面；
+•把请求回来的 HTML 代码经过解析，构建成 DOM 树；
+•计算 DOM 树上的 CSS 属性；
+•根据 CSS...
     </div>
     <div class="meta footer">
       <span>
@@ -430,7 +424,7 @@ git...
         
 <article class="item">
   <div class="cover">
-    <a href="/2023/04/02/git%E5%92%8Cgithub/" itemprop="url" title="git与github"><img data-src="https://s3.uuu.ovh/imgs/2024/04/25/b4f20660104f3911.jpg"></a>
+    <a href="/2023/04/02/git%E5%92%8Cgithub/" itemprop="url" title="git与github"><img data-src="https://s3.uuu.ovh/imgs/2024/03/29/a93636ae09845d36.jpg"></a>
   </div>
   <div class="info">
     
@@ -445,7 +439,7 @@ git...
     <span class="icon">
       <i class="ic i-pen"></i>
     </span>
-    <span>2.7k</span>
+    <span>2.6k</span>
     <span class="text">字</span>
   </span>
   <span class="item" title="阅读时长">
@@ -458,20 +452,9 @@ git...
 
     <h3><a href="/2023/04/02/git%E5%92%8Cgithub/" itemprop="url" title="git与github">git与github</a></h3>
     <div class="excerpt">
-        # -----------------------------------git
-# https://zhuanlan.zhihu.com/p/389814854
-网址：git 命令大全
-# git 全局配置文件，配置一次即可生效
-（C:user / 用户名文件夹 /.gitconfig）
-# 一、 git init
-# （初始化，创建本地仓库）
-# 二、 git add
-# （添加到本地仓库）
-# 三、 git commit -m &amp;quot;注释&amp;quot;
-# （添加注释）
-# 四、 git remote add origin 仓库地址
-# （连接远程仓库）
-# 五、...
+        ———————————–githttps://zhuanlan.zhihu.com/p/389814854网址：git命令大全
+git全局配置文件，配置一次即可生效（C:user&amp;#x2F;用户名文件夹&amp;#x2F;.gitconfig）
+一、git init（初始化，创建本地仓库）二、git add（添加到本地仓库）三、git commit -m “注释”（添加注释）四、git remote add origin 仓库地址（连接远程仓库）五、git pull --rebase origin master仓库地址（同步仓库内容）六、git push -u origin...
     </div>
     <div class="meta footer">
       <span>
@@ -485,7 +468,7 @@ git...
         
 <article class="item">
   <div class="cover">
-    <a href="/2023/02/12/%E4%B8%AD%E5%89%8D%E5%8F%B0%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" itemprop="url" title="中前台解决方案"><img data-src="https://s3.uuu.ovh/imgs/2024/04/28/979e0f45da318aa7.webp"></a>
+    <a href="/2023/02/12/%E4%B8%AD%E5%89%8D%E5%8F%B0%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" itemprop="url" title="中前台解决方案"><img data-src="https://s3.uuu.ovh/imgs/2024/04/15/d888a622df52afa7.webp"></a>
   </div>
   <div class="info">
     
@@ -500,7 +483,7 @@ git...
     <span class="icon">
       <i class="ic i-pen"></i>
     </span>
-    <span>7.4k</span>
+    <span>7.9k</span>
     <span class="text">字</span>
   </span>
   <span class="item" title="阅读时长">
@@ -513,12 +496,10 @@ git...
 
     <h3><a href="/2023/02/12/%E4%B8%AD%E5%89%8D%E5%8F%B0%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" itemprop="url" title="中前台解决方案">中前台解决方案</a></h3>
     <div class="excerpt">
-        # 中前台通用项目
-# 一、工具和包
-# vite
-一、介绍
-webpack 进行构建时，默认只会抓取并构建整个应用，然后才能提供服务，项目构建时慢、且项目中任何错误都会影响到整个项目的构建，此外 webpack 是基于 node.js 的打包工具 (vue-cli 基于 webpack)，其中可以使用 CommonJS 的语法。而 Vite 是一个基于 ES 模块的构建工具，它不再依赖于 CommonJS 规范。
-**vite** 不会在一开始就构建你的整个项目，而是会将应用中的模块区分为 依赖 和 源码（项目代码） 两部分，对于 源码 部分，它会根据 路由来拆分...
+        中前台通用项目一、工具和包vite一、介绍
+webpack进行构建时，默认只会抓取并构建整个应用，然后才能提供服务，项目构建时慢、且项目中任何错误都会影响到整个项目的构建，此外webpack是基于node.js的打包工具 (vue-cli基于webpack)，其中可以使用CommonJS的语法。而Vite是一个基于ES模块的构建工具，它不再依赖于CommonJS规范。
+**vite** 不会在一开始就构建你的整个项目，而是会将应用中的模块区分为 依赖 和 源码（项目代码） 两部分，对于 源码 部分，它会根据 路由来拆分 代码模块，只会去构建一开始就必须要构建的内容。
+vite 以 原生 ESM...
     </div>
     <div class="meta footer">
       <span>
@@ -532,7 +513,7 @@ webpack 进行构建时，默认只会抓取并构建整个应用，然后才能
         
 <article class="item">
   <div class="cover">
-    <a href="/2023/02/12/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" itemprop="url" title="正则表达式"><img data-src="https://s3.uuu.ovh/imgs/2024/03/29/a93636ae09845d36.jpg"></a>
+    <a href="/2023/02/12/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" itemprop="url" title="正则表达式"><img data-src="https://s3.uuu.ovh/imgs/2024/04/07/6e43985af4997748.jpg"></a>
   </div>
   <div class="info">
     
@@ -547,31 +528,35 @@ webpack 进行构建时，默认只会抓取并构建整个应用，然后才能
     <span class="icon">
       <i class="ic i-pen"></i>
     </span>
-    <span>20k</span>
+    <span>24k</span>
     <span class="text">字</span>
   </span>
   <span class="item" title="阅读时长">
     <span class="icon">
       <i class="ic i-clock"></i>
     </span>
-    <span>19 分钟</span>
+    <span>21 分钟</span>
   </span>
 </div>
 
     <h3><a href="/2023/02/12/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" itemprop="url" title="正则表达式">正则表达式</a></h3>
     <div class="excerpt">
-        # 正则表达式
-​ 正则表达式是一个对象
-正则表达式并不是 JS 独有的技术，基本上所有语言都支持这个技术
+        正则表达式​ 正则表达式是一个对象
+正则表达式并不是JS独有的技术，基本上所有语言都支持这个技术
 正则表达式的目的也很单纯，核心作用就是验证数据的合法性
 正则表达式的特点：
-1、正则表达式在 JS 中只针对字符串起作用
+1、正则表达式在JS中只针对字符串起作用
 2、正则表达式会根据你设置的规则，对字符串进行 提取，搜索、替换 等操作
-3、JavaScript 中正则表达式是一个内置对象，这个对象通过 RegExp () 创建，也可以直接通过赋值一个正则表达式来创建
+3、JavaScript中正则表达式是一个内置对象，这个对象通过RegExp() 创建，也可以直接通过赋值一个正则表达式来创建
 第一种：
-var reg = new RegExp(正则表达式)第二种:
-var reg = /张/方法：
-1、test ()...
+var reg = new RegExp(正则表达式)
+
+第二种:
+var reg = /张/
+
+方法：
+1、test() 用于验证某一个字符串是否符合正则的规则
+var...
     </div>
     <div class="meta footer">
       <span>
@@ -585,7 +570,7 @@ var reg = /张/方法：
         
 <article class="item">
   <div class="cover">
-    <a href="/2023/02/10/md/" itemprop="url" title="markdown"><img data-src="https://s3.uuu.ovh/imgs/2024/04/04/025bf3f9fc1cf452.webp"></a>
+    <a href="/2023/02/10/md/" itemprop="url" title="markdown"><img data-src="https://s3.uuu.ovh/imgs/2024/04/04/64e30381ceb47acd.webp"></a>
   </div>
   <div class="info">
     
@@ -600,7 +585,7 @@ var reg = /张/方法：
     <span class="icon">
       <i class="ic i-pen"></i>
     </span>
-    <span>1.4k</span>
+    <span>1.5k</span>
     <span class="text">字</span>
   </span>
   <span class="item" title="阅读时长">
@@ -613,18 +598,22 @@ var reg = /张/方法：
 
     <h3><a href="/2023/02/10/md/" itemprop="url" title="markdown">markdown</a></h3>
     <div class="excerpt">
-        # diff 代码块
-const unique = (arr)=&gt;&amp;#123;- return Array.from(new Set(arr))+ return [...new Set(arr)];&amp;#125;# 待办 (ctrl+shift+x)
+        diff 代码块const unique = (arr)=&amp;gt;&amp;#123;
+- return Array.from(new Set(arr))
++ return [...new Set(arr)];
+&amp;#125;
 
+待办(ctrl+shift+x)
 [ ]
 
-# 折叠
-&amp;lt;details&amp;gt;
+折叠&amp;lt;details&amp;gt;
 &amp;lt;summary&amp;gt;展开查看规范&amp;lt;/summary&amp;gt;
 这是展开后的内容1
 &amp;lt;/details&amp;gt;
 
-&amp;lt;details&amp;gt; &amp;lt;summary...
+展开查看规范 这是展开后的内容1
+
+puml...
     </div>
     <div class="meta footer">
       <span>
@@ -769,100 +758,100 @@ const unique = (arr)=&gt;&amp;#123;- return Array.from(new Set(arr))+ return [..
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/Sass/" title="分类于 Sass">Sass</a>
+<a href="/categories/gitlab-cicd/" title="分类于 gitlab cicd">gitlab cicd</a>
 </div>
 
-    <span><a href="/2023/01/10/Sass/" title="Sass笔记">Sass笔记</a></span>
+    <span><a href="/2024/07/07/gitlab-cicd/" title="gitlab cicd">gitlab cicd</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/git/" title="分类于 git">git</a>
+<a href="/categories/JS/" title="分类于 JS">JS</a>
 </div>
 
-    <span><a href="/2023/05/02/git%20github%E7%AC%94%E8%AE%B0%EF%BC%88%E6%A6%82%E5%BF%B5%EF%BC%89/" title="git笔记">git笔记</a></span>
+    <span><a href="/2024/05/08/%E5%87%BD%E6%95%B0%E9%87%8D%E8%BD%BD/" title="函数重载">函数重载</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/%E7%AE%97%E6%B3%95/" title="分类于 算法">算法</a>
+<a href="/categories/%E4%B8%AD%E5%89%8D%E5%8F%B0%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" title="分类于 中前台解决方案">中前台解决方案</a>
 </div>
 
-    <span><a href="/2023/12/02/%E7%AE%97%E6%B3%95/" title="算法与数据结构">算法与数据结构</a></span>
+    <span><a href="/2023/02/12/%E4%B8%AD%E5%89%8D%E5%8F%B0%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" title="中前台解决方案">中前台解决方案</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/jenkins%E9%85%8D%E5%90%88git-hook%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90/" title="分类于 jenkins配合git hook持续集成">jenkins配合git hook持续集成</a>
+<a href="/categories/%E8%84%9A%E6%89%8B%E6%9E%B6%E5%BC%80%E5%8F%91/" title="分类于 脚手架开发">脚手架开发</a>
 </div>
 
-    <span><a href="/2024/02/02/%E4%BD%BF%E7%94%A8Jenkins%E9%85%8D%E5%90%88github%20hook%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90/" title="jenkins配合git hook持续集成">jenkins配合git hook持续集成</a></span>
+    <span><a href="/2024/04/12/%E8%84%9A%E6%89%8B%E6%9E%B6/" title="脚手架开发">脚手架开发</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/JS%E6%89%8B%E5%86%99%E9%A2%98/" title="分类于 JS手写题">JS手写题</a>
+<a href="/categories/ajax/" title="分类于 ajax">ajax</a>
 </div>
 
-    <span><a href="/2023/06/02/JS%E6%89%8B%E5%86%99%E9%A2%98/" title="JS手写题">JS手写题</a></span>
+    <span><a href="/2023/01/08/ajax/" title="ajax">ajax</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" title="分类于 正则表达式">正则表达式</a>
+<a href="/categories/esbuild/" title="分类于 esbuild">esbuild</a>
 </div>
 
-    <span><a href="/2024/01/10/%E6%AD%A3%E5%88%99/" title="正则理念">正则理念</a></span>
+    <span><a href="/2024/05/17/esbuild/" title="esbuild">esbuild</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/Travis%E5%92%8CDocker/" title="分类于 Travis和Docker">Travis和Docker</a>
+<a href="/categories/%E8%84%9A%E6%89%8B%E6%9E%B6%E5%BC%80%E5%8F%91/" title="分类于 脚手架开发">脚手架开发</a>
 </div>
 
-    <span><a href="/2023/12/02/Travis%20CI%E5%92%8CDocker%E7%9A%84%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90/" title="Travis和Docker的持续集成">Travis和Docker的持续集成</a></span>
+    <span><a href="/2024/03/30/%E6%9C%AC%E5%9C%B0%E6%96%87%E4%BB%B6%E9%93%BE%E6%8E%A5/" title="本地文件链接">本地文件链接</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/typeScript/" title="分类于 typeScript">typeScript</a>
+<a href="/categories/JS/" title="分类于 JS">JS</a>
 </div>
 
-    <span><a href="/2023/12/11/TS/" title="typeScript笔记">typeScript笔记</a></span>
+    <span><a href="/2023/12/07/Blob/" title="Blob">Blob</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/TDD/" title="分类于 TDD">TDD</a>
+<a href="/categories/%E6%9D%82%E8%AE%B0/" title="分类于 杂记">杂记</a>
 </div>
 
-    <span><a href="/2024/03/30/jest/" title="jest">jest</a></span>
+    <span><a href="/2023/01/01/%E6%9D%82%E8%AE%B0/" title="杂记">杂记</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/json-server/" title="分类于 json-server">json-server</a>
+<a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/" title="分类于 计算机组成原理">计算机组成原理</a>
 </div>
 
-    <span><a href="/2023/01/09/json-server%E6%95%99%E7%A8%8B/" title="json-server">json-server</a></span>
+    <span><a href="/2023/07/02/%E6%B5%AE%E7%82%B9%E6%95%B0%E5%AD%98%E5%82%A8/" title="浮点数存储">浮点数存储</a></span>
   </li>
 
   </ul>
@@ -887,13 +876,13 @@ const unique = (arr)=&gt;&amp;#123;- return Array.from(new Set(arr))+ return [..
     <span class="post-meta-item-icon">
       <i class="ic i-chart-area"></i>
     </span>
-    <span title="站点总字数">943k 字</span>
+    <span title="站点总字数">938k 字</span>
 
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="ic i-coffee"></i>
     </span>
-    <span title="站点阅读时长">14:17</span>
+    <span title="站点阅读时长">14:12</span>
   </div>
   <div class="powered-by">
     基于 <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & Theme.<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Shoka</span>

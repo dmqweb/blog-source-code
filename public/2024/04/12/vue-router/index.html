@@ -119,12 +119,12 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
       </div>
       <div id="imgs" class="pjax">
         <ul>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/12/3368de466b008234.webp"></li>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/05/f58f811a8b6cbdbb.jpg"></li>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/07/2600bb35f2cdf6cf.jpg"></li>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/04/e805d35284c2d7d5.jpg"></li>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/04/64e30381ceb47acd.webp"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/15/807885ba1421e9b4.jpg"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/07/d94cad8780c8c094.jpg"></li>
           <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/03/29/4e134f025ae53f2b.jpg"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/05/921096d78816dacc.jpg"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/25/b4f20660104f3911.jpg"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/04/f480d741324d8eb5.jpg"></li>
         </ul>
       </div>
     </header>
@@ -170,24 +170,37 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
   <div class="body md" itemprop="articleBody">
     
 
-    <h1 id=""><a class="anchor" href="#">#</a> </h1>
-<h1 id="vue-router源码"><a class="anchor" href="#vue-router源码">#</a> vue-router 源码</h1>
-<h3 id="vue-router路由模式"><a class="anchor" href="#vue-router路由模式">#</a> vue-router 路由模式</h3>
-<h4 id="hash模式"><a class="anchor" href="#hash模式">#</a> hash 模式（#）</h4>
-<p>SEO 不友好，资源不变，不会刷新。</p>
-<h4 id="history模式"><a class="anchor" href="#history模式">#</a> history 模式（/）</h4>
-<p>SEO 友好，重新请求资源。</p>
-<p><strong>history 模式发布时出现的问题：</strong></p>
-<p>发布到服务器上时，点击路由跳转正常但是刷新后路由跳转 404，出现的原因刷新后跳转的根路径并不是当前项目的 index.html 导致资源路径不匹配单页面应用路由，采取的方法是<strong>每次请求资源都 fallback 到 index.html 文件</strong>，可以使用静态资源服务器的支持。（例如在 nginx 中 location 字段添加：<strong>try_files 字段</strong>）</p>
-<h3 id="vue-router内部处理"><a class="anchor" href="#vue-router内部处理">#</a> vue-router 内部处理</h3>
-<h6 id="vue-router主体架构"><a class="anchor" href="#vue-router主体架构">#</a> vue-router 主体架构：</h6>
-<p>当使用 vue.use (vue-router) 时，会执行 vue-router 导出的实例中的 install 方法，将 app 作为参数传入，内部会用 app.component 注册两个全局组件 RouterLink 和 RouterView，接着在 app.config.globalProperties 上设置<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>r</mi><mi>o</mi><mi>u</mi><mi>t</mi><mi>e</mi><mtext>和</mtext></mrow><annotation encoding="application/x-tex">route和</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span><span class="mord mathnormal">o</span><span class="mord mathnormal">u</span><span class="mord mathnormal">t</span><span class="mord mathnormal">e</span><span class="mord cjk_fallback">和</span></span></span></span> router 属性，通过 app.provide 将 router 和 currentRoute 传递下去。</p>
-<h6 id="路由变化但不跳转原理"><a class="anchor" href="#路由变化但不跳转原理">#</a> 路由变化但不跳转原理：</h6>
-<p>history.pushState 和 history.replaceState 方法，会改变地址栏的但不进行跳转。</p>
-<h6 id="history模式实现路由匹配"><a class="anchor" href="#history模式实现路由匹配">#</a> history 模式实现路由匹配：</h6>
-<p>内部的 mather 函数会将 routes 中的 path 路径转为正则表达式，与当前的路由进行匹配，匹配成功就将对应的组件添加到 router-view 中。</p>
-<h6 id="router-view实现路由展示"><a class="anchor" href="#router-view实现路由展示">#</a> router-view 实现路由展示：</h6>
-<figure class="highlight javascript"><figcaption data-lang="javascript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">import</span> <span class="token punctuation">&#123;</span> defineComponent <span class="token punctuation">&#125;</span> from vue<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token keyword">import</span> Home <span class="token keyword">from</span> <span class="token string">'../views/Home'</span><span class="token punctuation">;</span>  <span class="token comment">// 导入默认的全部组件</span></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token keyword">const</span> routerView <span class="token operator">=</span>  <span class="token function">defineComponent</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="4"></td><td><pre>    <span class="token literal-property property">name</span><span class="token operator">:</span><span class="token string">"routerView"</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="5"></td><td><pre>    <span class="token literal-property property">props</span><span class="token operator">:</span><span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="6"></td><td><pre>    <span class="token function">setup</span><span class="token punctuation">(</span><span class="token parameter">props <span class="token punctuation">,</span> <span class="token punctuation">&#123;</span> slots <span class="token punctuation">&#125;</span></span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="7"></td><td><pre>        <span class="token keyword">return</span> <span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">=></span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="8"></td><td><pre>            <span class="token comment">//return h ('div',&#123;        // 不使用组件默认的方式</span></pre></td></tr><tr><td data-num="9"></td><td><pre>            <span class="token comment">//     class:'routerViewClass',</span></pre></td></tr><tr><td data-num="10"></td><td><pre>            <span class="token comment">//     onClick()&#123;</span></pre></td></tr><tr><td data-num="11"></td><td><pre>            <span class="token comment">//         // 处理点击 逻辑</span></pre></td></tr><tr><td data-num="12"></td><td><pre>            <span class="token comment">//     &#125;,</span></pre></td></tr><tr><td data-num="13"></td><td><pre>            <span class="token comment">// &#125;,slots.default())</span></pre></td></tr><tr><td data-num="14"></td><td><pre>            <span class="token keyword">return</span> <span class="token function">h</span><span class="token punctuation">(</span>Home<span class="token punctuation">,</span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="15"></td><td><pre>                <span class="token function">onClick</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="16"></td><td><pre>                    <span class="token comment">// 处理对应的逻辑</span></pre></td></tr><tr><td data-num="17"></td><td><pre>                <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="18"></td><td><pre>            <span class="token punctuation">&#125;</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="19"></td><td><pre>        <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="20"></td><td><pre>    <span class="token punctuation">&#125;</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="21"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="22"></td><td><pre><span class="token keyword">export</span> <span class="token keyword">default</span> routerView<span class="token punctuation">;</span></pre></td></tr></table></figure><p>路由 provide 一个 currentRoute（shallowRef 对象）将当前的路由路径捆绑在一起，传递下去，当 currentRoute 发生变化的时候就会改变相应的 router-view。</p>
+    <h1 id=""><a href="#" class="headerlink" title=""></a></h1><h1 id="vue-router源码"><a href="#vue-router源码" class="headerlink" title="vue-router源码"></a>vue-router源码</h1><h3 id="vue-router路由模式"><a href="#vue-router路由模式" class="headerlink" title="vue-router路由模式"></a>vue-router路由模式</h3><h4 id="hash模式（-）"><a href="#hash模式（-）" class="headerlink" title="hash模式（#）"></a>hash模式（#）</h4><p>SEO不友好，资源不变，不会刷新。</p>
+<h4 id="history模式（-x2F-）"><a href="#history模式（-x2F-）" class="headerlink" title="history模式（&#x2F;）"></a>history模式（&#x2F;）</h4><p>SEO友好，重新请求资源。</p>
+<p><strong>history模式发布时出现的问题：</strong></p>
+<p>发布到服务器上时，点击路由跳转正常但是刷新后路由跳转404，出现的原因刷新后跳转的根路径并不是当前项目的index.html导致资源路径不匹配单页面应用路由，采取的方法是<strong>每次请求资源都fallback到index.html文件</strong>，可以使用静态资源服务器的支持。（例如在nginx中location字段添加：<strong>try_files字段</strong>）</p>
+<h3 id="vue-router内部处理"><a href="#vue-router内部处理" class="headerlink" title="vue-router内部处理"></a>vue-router内部处理</h3><h6 id="vue-router主体架构："><a href="#vue-router主体架构：" class="headerlink" title="vue-router主体架构："></a>vue-router主体架构：</h6><p>当使用vue.use(vue-router)时，会执行vue-router导出的实例中的install方法，将app作为参数传入，内部会用app.component注册两个全局组件RouterLink和RouterView，接着在app.config.globalProperties上设置$route和$router属性，通过app.provide将router和currentRoute传递下去。</p>
+<h6 id="路由变化但不跳转原理："><a href="#路由变化但不跳转原理：" class="headerlink" title="路由变化但不跳转原理："></a>路由变化但不跳转原理：</h6><p>history.pushState和history.replaceState方法，会改变地址栏的但不进行跳转。</p>
+<h6 id="history模式实现路由匹配："><a href="#history模式实现路由匹配：" class="headerlink" title="history模式实现路由匹配："></a>history模式实现路由匹配：</h6><p>内部的mather函数会将routes中的path路径转为正则表达式，与当前的路由进行匹配，匹配成功就将对应的组件添加到router-view中。</p>
+<h6 id="router-view实现路由展示："><a href="#router-view实现路由展示：" class="headerlink" title="router-view实现路由展示："></a>router-view实现路由展示：</h6><pre><code class="javascript">import &#123; defineComponent &#125; from vue;
+import Home from &#39;../views/Home&#39;;  //导入默认的全部组件
+const routerView =  defineComponent(&#123;
+    name:&quot;routerView&quot;,
+    props:&#123;&#125;,
+    setup(props , &#123; slots &#125;)&#123;
+        return ()=&gt;&#123;
+            // return h(&#39;div&#39;,&#123;        //不使用组件默认的方式
+            //     class:&#39;routerViewClass&#39;,
+            //     onClick()&#123;
+            //         //处理点击 逻辑
+            //     &#125;,
+            // &#125;,slots.default())
+            return h(Home,&#123;
+                onClick()&#123;
+                    //处理对应的逻辑
+                &#125;
+            &#125;)
+        &#125;
+    &#125;,
+&#125;)
+export default routerView;
+</code></pre>
+<p>路由provide一个currentRoute（shallowRef对象）将当前的路由路径捆绑在一起，传递下去，当currentRoute发生变化的时候就会改变相应的router-view。</p>
 
       <div class="tags">
           <a href="/tags/vue-router%E5%8E%9F%E7%90%86/" rel="tag"><i class="ic i-tag"></i> vue-router原理</a>
@@ -260,7 +273,7 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
     <div class="item left">
       
 
-  <a href="/2024/04/12/%E8%84%9A%E6%89%8B%E6%9E%B6/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;s3.uuu.ovh&#x2F;imgs&#x2F;2024&#x2F;04&#x2F;15&#x2F;66e62db68b7b65eb.webp" title="脚手架开发">
+  <a href="/2024/04/12/%E8%84%9A%E6%89%8B%E6%9E%B6/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;s3.uuu.ovh&#x2F;imgs&#x2F;2024&#x2F;04&#x2F;04&#x2F;025bf3f9fc1cf452.webp" title="脚手架开发">
   <span class="type">上一篇</span>
   <span class="category"><i class="ic i-flag"></i> 脚手架开发</span>
   <h3>脚手架开发</h3>
@@ -270,7 +283,7 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
     <div class="item right">
       
 
-  <a href="/2024/04/16/%E4%B8%89%E6%96%B9%E5%8C%85/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;s3.uuu.ovh&#x2F;imgs&#x2F;2024&#x2F;04&#x2F;06&#x2F;3b79311f42543632.jpg" title="三方库">
+  <a href="/2024/04/16/%E4%B8%89%E6%96%B9%E5%8C%85/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;s3.uuu.ovh&#x2F;imgs&#x2F;2024&#x2F;04&#x2F;05&#x2F;05d9a07e0d190274.webp" title="三方库">
   <span class="type">下一篇</span>
   <span class="category"><i class="ic i-flag"></i> 三方库</span>
   <h3>三方库</h3>
@@ -292,7 +305,7 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
   <div class="panels">
     <div class="inner">
       <div class="contents panel pjax" data-title="文章目录">
-          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text"> </span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#vue-router%E6%BA%90%E7%A0%81"><span class="toc-number">2.</span> <span class="toc-text"> vue-router 源码</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#vue-router%E8%B7%AF%E7%94%B1%E6%A8%A1%E5%BC%8F"><span class="toc-number">2.0.1.</span> <span class="toc-text"> vue-router 路由模式</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#hash%E6%A8%A1%E5%BC%8F"><span class="toc-number">2.0.1.1.</span> <span class="toc-text"> hash 模式（#）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#history%E6%A8%A1%E5%BC%8F"><span class="toc-number">2.0.1.2.</span> <span class="toc-text"> history 模式（&#x2F;）</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#vue-router%E5%86%85%E9%83%A8%E5%A4%84%E7%90%86"><span class="toc-number">2.0.2.</span> <span class="toc-text"> vue-router 内部处理</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#vue-router%E4%B8%BB%E4%BD%93%E6%9E%B6%E6%9E%84"><span class="toc-number">2.0.2.0.0.1.</span> <span class="toc-text"> vue-router 主体架构：</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E8%B7%AF%E7%94%B1%E5%8F%98%E5%8C%96%E4%BD%86%E4%B8%8D%E8%B7%B3%E8%BD%AC%E5%8E%9F%E7%90%86"><span class="toc-number">2.0.2.0.0.2.</span> <span class="toc-text"> 路由变化但不跳转原理：</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#history%E6%A8%A1%E5%BC%8F%E5%AE%9E%E7%8E%B0%E8%B7%AF%E7%94%B1%E5%8C%B9%E9%85%8D"><span class="toc-number">2.0.2.0.0.3.</span> <span class="toc-text"> history 模式实现路由匹配：</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#router-view%E5%AE%9E%E7%8E%B0%E8%B7%AF%E7%94%B1%E5%B1%95%E7%A4%BA"><span class="toc-number">2.0.2.0.0.4.</span> <span class="toc-text"> router-view 实现路由展示：</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></li></ol>
+          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text"></span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#vue-router%E6%BA%90%E7%A0%81"><span class="toc-number">2.</span> <span class="toc-text">vue-router源码</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#vue-router%E8%B7%AF%E7%94%B1%E6%A8%A1%E5%BC%8F"><span class="toc-number">2.0.1.</span> <span class="toc-text">vue-router路由模式</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#hash%E6%A8%A1%E5%BC%8F%EF%BC%88-%EF%BC%89"><span class="toc-number">2.0.1.1.</span> <span class="toc-text">hash模式（#）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#history%E6%A8%A1%E5%BC%8F%EF%BC%88-x2F-%EF%BC%89"><span class="toc-number">2.0.1.2.</span> <span class="toc-text">history模式（&#x2F;）</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#vue-router%E5%86%85%E9%83%A8%E5%A4%84%E7%90%86"><span class="toc-number">2.0.2.</span> <span class="toc-text">vue-router内部处理</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#vue-router%E4%B8%BB%E4%BD%93%E6%9E%B6%E6%9E%84%EF%BC%9A"><span class="toc-number">2.0.2.0.0.1.</span> <span class="toc-text">vue-router主体架构：</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E8%B7%AF%E7%94%B1%E5%8F%98%E5%8C%96%E4%BD%86%E4%B8%8D%E8%B7%B3%E8%BD%AC%E5%8E%9F%E7%90%86%EF%BC%9A"><span class="toc-number">2.0.2.0.0.2.</span> <span class="toc-text">路由变化但不跳转原理：</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#history%E6%A8%A1%E5%BC%8F%E5%AE%9E%E7%8E%B0%E8%B7%AF%E7%94%B1%E5%8C%B9%E9%85%8D%EF%BC%9A"><span class="toc-number">2.0.2.0.0.3.</span> <span class="toc-text">history模式实现路由匹配：</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#router-view%E5%AE%9E%E7%8E%B0%E8%B7%AF%E7%94%B1%E5%B1%95%E7%A4%BA%EF%BC%9A"><span class="toc-number">2.0.2.0.0.4.</span> <span class="toc-text">router-view实现路由展示：</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></li></ol>
       </div>
       <div class="related panel pjax" data-title="系列文章">
         <ul>
@@ -410,50 +423,60 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/typeScript/" title="分类于 typeScript">typeScript</a>
+<a href="/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/" title="分类于 面试题">面试题</a>
 </div>
 
-    <span><a href="/2023/12/11/TS/" title="typeScript笔记">typeScript笔记</a></span>
+    <span><a href="/2023/08/29/%E9%9D%A2%E8%AF%95%E9%A2%98/" title="面试题">面试题</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/%E6%B8%B2%E6%9F%93%E6%A8%A1%E5%BC%8F/" title="分类于 渲染模式">渲染模式</a>
+<a href="/categories/%E5%A4%8D%E6%9D%82%E4%B8%9A%E5%8A%A1%E9%83%A8%E7%BD%B2%E4%B8%8E%E4%BC%98%E5%8C%96/" title="分类于 复杂业务部署与优化">复杂业务部署与优化</a>
 </div>
 
-    <span><a href="/2023/05/17/%E6%B8%B2%E6%9F%93%E6%A8%A1%E5%BC%8F/" title="渲染模式">渲染模式</a></span>
+    <span><a href="/2024/04/12/%E5%A4%8D%E6%9D%82%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2%E4%B8%8A%E7%BA%BF/" title="复杂业务部署与优化">复杂业务部署与优化</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/ES6/" title="分类于 ES6">ES6</a>
+<a href="/categories/JS/" title="分类于 JS">JS</a>
 </div>
 
-    <span><a href="/2023/08/02/ES6/" title="ES6">ES6</a></span>
+    <span><a href="/2023/09/02/ArrayBuffer/" title="ArrayBuffer">ArrayBuffer</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" title="分类于 数据库">数据库</a>
+<a href="/categories/v8%E5%BC%95%E6%93%8E%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/" title="分类于 v8引擎编译原理">v8引擎编译原理</a>
 </div>
 
-    <span><a href="/2023/12/02/%E6%95%B0%E6%8D%AE%E5%BA%93/" title="数据库">数据库</a></span>
+    <span><a href="/2024/05/21/v8%E5%BC%95%E6%93%8E%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/" title="v8引擎编译原理">v8引擎编译原理</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/HTTP/" title="分类于 HTTP">HTTP</a>
+<a href="/categories/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" title="分类于 正则表达式">正则表达式</a>
 </div>
 
-    <span><a href="/2023/05/02/HTTP/" title="HTTP">HTTP</a></span>
+    <span><a href="/2023/02/12/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" title="正则表达式">正则表达式</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/" title="分类于 自动化测试">自动化测试</a>
+</div>
+
+    <span><a href="/2024/03/02/%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/" title="自动化测试">自动化测试</a></span>
   </li>
 
       
@@ -470,40 +493,30 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/%E5%BC%80%E6%BA%90%E5%8D%8F%E8%AE%AE/" title="分类于 开源协议">开源协议</a>
+<a href="/categories/vue/" title="分类于 vue">vue</a>
 </div>
 
-    <span><a href="/2023/02/02/%E5%BC%80%E6%BA%90%E5%8D%8F%E8%AE%AE/" title="常见开源协议">常见开源协议</a></span>
+    <span><a href="/2023/11/02/vue%E5%8E%9F%E7%90%86/" title="vue源码解读">vue源码解读</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/TDD/" title="分类于 TDD">TDD</a>
+<a href="/categories/vue-router%E5%8E%9F%E7%90%86/" title="分类于 vue-router原理">vue-router原理</a>
 </div>
 
-    <span><a href="/2024/03/30/jest/" title="jest">jest</a></span>
+    <span><a href="/2024/04/12/vue-router/" title="vue-router">vue-router</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/react/" title="分类于 react">react</a>
+<a href="/categories/%E6%B8%B2%E6%9F%93%E6%A8%A1%E5%BC%8F/" title="分类于 渲染模式">渲染模式</a>
 </div>
 
-    <span><a href="/2023/12/02/react/" title="react笔记">react笔记</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/%E8%84%9A%E6%89%8B%E6%9E%B6%E5%BC%80%E5%8F%91/" title="分类于 脚手架开发">脚手架开发</a>
-</div>
-
-    <span><a href="/2024/03/30/%E6%9C%AC%E5%9C%B0%E6%96%87%E4%BB%B6%E9%93%BE%E6%8E%A5/" title="本地文件链接">本地文件链接</a></span>
+    <span><a href="/2023/05/17/%E6%B8%B2%E6%9F%93%E6%A8%A1%E5%BC%8F/" title="渲染模式">渲染模式</a></span>
   </li>
 
   </ul>
@@ -528,13 +541,13 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
     <span class="post-meta-item-icon">
       <i class="ic i-chart-area"></i>
     </span>
-    <span title="站点总字数">943k 字</span>
+    <span title="站点总字数">938k 字</span>
 
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="ic i-coffee"></i>
     </span>
-    <span title="站点阅读时长">14:17</span>
+    <span title="站点阅读时长">14:12</span>
   </div>
   <div class="powered-by">
     基于 <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & Theme.<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Shoka</span>

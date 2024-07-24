@@ -78,7 +78,7 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
       <i class="ic i-pen"></i>
     </span>
     <span class="text">本文字数</span>
-    <span>1.2k</span>
+    <span>1.3k</span>
     <span class="text">字</span>
   </span>
   <span class="item" title="阅读时长">
@@ -119,12 +119,12 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
       </div>
       <div id="imgs" class="pjax">
         <ul>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/07/be4bd9184664725b.webp"></li>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/12/3368de466b008234.webp"></li>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/28/6b39a7fcfcafff7b.webp"></li>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/07/a69a9d571bee6f0b.jpg"></li>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/28/dc01f095118914ac.webp"></li>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/13/c95fa1dc9a2ef7b0.jpg"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/12/4508f1e9b6c8e047.jpg"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/12/61baca9d80b5756d.jpg"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/07/2600bb35f2cdf6cf.jpg"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/05/921096d78816dacc.jpg"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/04/4b93d7d24397b567.jpg"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/04/f480d741324d8eb5.jpg"></li>
         </ul>
       </div>
     </header>
@@ -170,14 +170,59 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
   <div class="body md" itemprop="articleBody">
     
 
-    <p>关于打包工具：esbuild、webpack 和 rollup 三者的介绍推荐<span class="exturl" data-url="aHR0cHM6Ly9qdWVqaW4uY24vcG9zdC83MjI0MDk4NDIyOTM5MjU0ODIx">这里</span>：</p>
-<p>简单来说就是 esbuild 打包更快；rollup 打包产物更纯净、体积更小，但不支持热更新；webpack 功能更全，生态更完善，支持文件类型更多。</p>
-<h1 id="介绍"><a class="anchor" href="#介绍">#</a> 介绍</h1>
-<p>Esbuild 是一个类 webpack 的打包工具，速度是 webpack 的几十倍。其底层基于 go 语言进行编写，不使用 AST，优化了构建流程。js 是单线程串行，esbuild 是新开了一个进程，使用多线程并行，充分发挥了多核的优势。</p>
-<h1 id="作用"><a class="anchor" href="#作用">#</a> 作用</h1>
-<p>esbuild 最显著的作用就是：快。它也是 vite 和 snowpack 底层的打包工具。同时也可以将 esbuild 打包工具集成到 webpack 中（使用 plugin）。之所以 esbuild 没有流行起来是因为它绕过了 AST，而直接进行构建，使没有很好的过渡到基于 babel-loader 这样通过 AST 进行打包的上层工具中。</p>
-<h1 id="使用"><a class="anchor" href="#使用">#</a> 使用</h1>
-<figure class="highlight javascript"><figcaption data-lang="javascript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">const</span> esbuild <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'esbuild'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token comment">/**</pre></td></tr><tr><td data-num="3"></td><td><pre> * 利用 esbuild 生成文件</pre></td></tr><tr><td data-num="4"></td><td><pre> */</span></pre></td></tr><tr><td data-num="5"></td><td><pre>esbuild<span class="token punctuation">.</span><span class="token function">buildSync</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="6"></td><td><pre>    <span class="token literal-property property">entryPoints</span><span class="token operator">:</span><span class="token punctuation">[</span><span class="token string">'vite.config.js'</span><span class="token punctuation">]</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="7"></td><td><pre>    <span class="token literal-property property">outfile</span><span class="token operator">:</span> <span class="token string">'out.js'</span></pre></td></tr><tr><td data-num="8"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="9"></td><td><pre><span class="token comment">/**</pre></td></tr><tr><td data-num="10"></td><td><pre> * 利用 esbuild 处理 jsx 语法</pre></td></tr><tr><td data-num="11"></td><td><pre> */</span></pre></td></tr><tr><td data-num="12"></td><td><pre>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span></pre></td></tr><tr><td data-num="13"></td><td><pre>    esbuild<span class="token punctuation">.</span><span class="token function">transformSync</span><span class="token punctuation">(</span><span class="token string">'&lt;div>利用esbuild处理jsx语法&lt;/div>'</span><span class="token punctuation">,</span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="14"></td><td><pre>        <span class="token literal-property property">jsxFragment</span><span class="token operator">:</span><span class="token string">'Fragment'</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="15"></td><td><pre>        <span class="token literal-property property">loader</span><span class="token operator">:</span><span class="token string">'jsx'</span></pre></td></tr><tr><td data-num="16"></td><td><pre>    <span class="token punctuation">&#125;</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="17"></td><td><pre><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="18"></td><td><pre><span class="token comment">/**</pre></td></tr><tr><td data-num="19"></td><td><pre> * 利用 esbuld 压缩代码体积</pre></td></tr><tr><td data-num="20"></td><td><pre> */</span></pre></td></tr><tr><td data-num="21"></td><td><pre>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span></pre></td></tr><tr><td data-num="22"></td><td><pre>    esbuild<span class="token punctuation">.</span><span class="token function">transformSync</span><span class="token punctuation">(</span><span class="token string">'const a = "你好世界"'</span><span class="token punctuation">,</span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="23"></td><td><pre>        <span class="token literal-property property">minify</span><span class="token operator">:</span> <span class="token boolean">true</span></pre></td></tr><tr><td data-num="24"></td><td><pre>    <span class="token punctuation">&#125;</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="25"></td><td><pre><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="26"></td><td><pre><span class="token comment">/**</pre></td></tr><tr><td data-num="27"></td><td><pre> * esbuild 内置了一些 loader，使用时会根据文件后缀自动执行 loader，也可以手动确定 loader</pre></td></tr><tr><td data-num="28"></td><td><pre> * 支持：js,jsx,ts,tsx,css,text,binary,dataurl,file</pre></td></tr><tr><td data-num="29"></td><td><pre> */</span></pre></td></tr><tr><td data-num="30"></td><td><pre>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span></pre></td></tr><tr><td data-num="31"></td><td><pre>    esbuild<span class="token punctuation">.</span><span class="token function">buildSync</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="32"></td><td><pre>        <span class="token literal-property property">entryPoints</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">'vite.config.js'</span><span class="token punctuation">]</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="33"></td><td><pre>        <span class="token literal-property property">bundle</span><span class="token operator">:</span><span class="token boolean">true</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="34"></td><td><pre>        <span class="token literal-property property">loader</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span><span class="token string-property property">'.js'</span><span class="token operator">:</span><span class="token string">'jsx'</span><span class="token punctuation">&#125;</span><span class="token punctuation">,</span> <span class="token comment">// 默认使用 js loader，手动改为 jsx-loader</span></pre></td></tr><tr><td data-num="35"></td><td><pre>        <span class="token literal-property property">outfile</span><span class="token operator">:</span> <span class="token string">'out.js'</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="36"></td><td><pre>    <span class="token punctuation">&#125;</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="37"></td><td><pre><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="38"></td><td><pre><span class="token comment">/**</pre></td></tr><tr><td data-num="39"></td><td><pre> * 使用 esbuild 启动一个 web server 用于调试（热更新）</pre></td></tr><tr><td data-num="40"></td><td><pre> */</span></pre></td></tr><tr><td data-num="41"></td><td><pre>esbuild<span class="token punctuation">.</span><span class="token function">serve</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span><span class="token punctuation">,</span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="42"></td><td><pre>    <span class="token literal-property property">entryPoints</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">'vite.config.js'</span><span class="token punctuation">]</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="43"></td><td><pre>    <span class="token literal-property property">bundle</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="44"></td><td><pre>    <span class="token literal-property property">outfile</span><span class="token operator">:</span> <span class="token string">'bundle.js'</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="45"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token parameter">serve</span><span class="token operator">=></span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="46"></td><td><pre>    serve<span class="token punctuation">.</span><span class="token function">stop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="47"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">)</span></pre></td></tr></table></figure>
+    <p>关于打包工具：esbuild、webpack和rollup三者的介绍推荐<span class="exturl" data-url="aHR0cHM6Ly9qdWVqaW4uY24vcG9zdC83MjI0MDk4NDIyOTM5MjU0ODIx">这里</span>：</p>
+<p>简单来说就是esbuild打包更快；rollup打包产物更纯净、体积更小，但不支持热更新；webpack功能更全，生态更完善，支持文件类型更多。</p>
+<h1 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h1><p>Esbuild是一个类webpack的打包工具，速度是webpack的几十倍。其底层基于go语言进行编写，不使用AST，优化了构建流程。js是单线程串行，esbuild是新开了一个进程，使用多线程并行，充分发挥了多核的优势。</p>
+<h1 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h1><p>esbuild最显著的作用就是：快。它也是vite和snowpack底层的打包工具。同时也可以将esbuild打包工具集成到webpack中（使用plugin）。之所以esbuild没有流行起来是因为它绕过了AST，而直接进行构建，使没有很好的过渡到基于babel-loader这样通过AST进行打包的上层工具中。</p>
+<h1 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h1><pre><code class="javascript">const esbuild = require(&#39;esbuild&#39;);
+/**
+ * 利用esbuild生成文件
+ */
+esbuild.buildSync(&#123;
+    entryPoints:[&#39;vite.config.js&#39;],
+    outfile: &#39;out.js&#39;
+&#125;)
+/**
+ * 利用esbuild处理jsx语法
+ */
+console.log(
+    esbuild.transformSync(&#39;&lt;div&gt;利用esbuild处理jsx语法&lt;/div&gt;&#39;,&#123;
+        jsxFragment:&#39;Fragment&#39;,
+        loader:&#39;jsx&#39;
+    &#125;)
+);
+/**
+ * 利用esbuld压缩代码体积
+ */
+console.log(
+    esbuild.transformSync(&#39;const a = &quot;你好世界&quot;&#39;,&#123;
+        minify: true
+    &#125;)
+);
+/**
+ * esbuild内置了一些loader，使用时会根据文件后缀自动执行loader，也可以手动确定loader
+ * 支持：js,jsx,ts,tsx,css,text,binary,dataurl,file
+ */
+console.log(
+    esbuild.buildSync(&#123;
+        entryPoints: [&#39;vite.config.js&#39;],
+        bundle:true,
+        loader: &#123;&#39;.js&#39;:&#39;jsx&#39;&#125;, //默认使用js loader，手动改为jsx-loader
+        outfile: &#39;out.js&#39;,
+    &#125;)
+);
+/**
+ * 使用esbuild启动一个web server用于调试（热更新）
+ */
+esbuild.serve(&#123;&#125;,&#123;
+    entryPoints: [&#39;vite.config.js&#39;],
+    bundle: true,
+    outfile: &#39;bundle.js&#39;,
+&#125;).then(serve=&gt;&#123;
+    serve.stop();
+&#125;)
+</code></pre>
+
       <div class="tags">
           <a href="/tags/esbuild/" rel="tag"><i class="ic i-tag"></i> esbuild</a>
           <a href="/tags/%E6%89%93%E5%8C%85%E5%B7%A5%E5%85%B7/" rel="tag"><i class="ic i-tag"></i> 打包工具</a>
@@ -250,20 +295,20 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
     <div class="item left">
       
 
-  <a href="/2024/05/17/whistle%E4%BD%BF%E7%94%A8/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;s3.uuu.ovh&#x2F;imgs&#x2F;2024&#x2F;04&#x2F;06&#x2F;936b9e7ccd02d444.jpg" title="whistle抓包">
+  <a href="/2024/05/17/eslint%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;s3.uuu.ovh&#x2F;imgs&#x2F;2024&#x2F;03&#x2F;29&#x2F;5c162f03529c2f38.jpg" title="eslint源码">
   <span class="type">上一篇</span>
-  <span class="category"><i class="ic i-flag"></i> whistle</span>
-  <h3>whistle抓包</h3>
+  <span class="category"><i class="ic i-flag"></i> eslint</span>
+  <h3>eslint源码</h3>
   </a>
 
     </div>
     <div class="item right">
       
 
-  <a href="/2024/05/17/eslint%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;s3.uuu.ovh&#x2F;imgs&#x2F;2024&#x2F;04&#x2F;13&#x2F;ba4d76fc0767aeef.jpg" title="eslint源码">
+  <a href="/2024/05/17/Blob%E5%92%8CFile/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;s3.uuu.ovh&#x2F;imgs&#x2F;2024&#x2F;04&#x2F;06&#x2F;a16303594a53d8d1.jpg" title="Blob、File和FileReader">
   <span class="type">下一篇</span>
-  <span class="category"><i class="ic i-flag"></i> eslint</span>
-  <h3>eslint源码</h3>
+  <span class="category"><i class="ic i-flag"></i> Blob</span>
+  <h3>Blob、File和FileReader</h3>
   </a>
 
     </div>
@@ -282,7 +327,7 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
   <div class="panels">
     <div class="inner">
       <div class="contents panel pjax" data-title="文章目录">
-          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BB%8B%E7%BB%8D"><span class="toc-number">1.</span> <span class="toc-text"> 介绍</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BD%9C%E7%94%A8"><span class="toc-number">2.</span> <span class="toc-text"> 作用</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8"><span class="toc-number">3.</span> <span class="toc-text"> 使用</span></a></li></ol>
+          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BB%8B%E7%BB%8D"><span class="toc-number">1.</span> <span class="toc-text">介绍</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BD%9C%E7%94%A8"><span class="toc-number">2.</span> <span class="toc-text">作用</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8"><span class="toc-number">3.</span> <span class="toc-text">使用</span></a></li></ol>
       </div>
       <div class="related panel pjax" data-title="系列文章">
         <ul>
@@ -373,12 +418,12 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
 
   <ul id="quick">
     <li class="prev pjax">
-        <a href="/2024/05/17/whistle%E4%BD%BF%E7%94%A8/" rel="prev" title="上一篇"><i class="ic i-chevron-left"></i></a>
+        <a href="/2024/05/17/eslint%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90/" rel="prev" title="上一篇"><i class="ic i-chevron-left"></i></a>
     </li>
     <li class="up"><i class="ic i-arrow-up"></i></li>
     <li class="down"><i class="ic i-arrow-down"></i></li>
     <li class="next pjax">
-        <a href="/2024/05/17/eslint%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90/" rel="next" title="下一篇"><i class="ic i-chevron-right"></i></a>
+        <a href="/2024/05/17/Blob%E5%92%8CFile/" rel="next" title="下一篇"><i class="ic i-chevron-right"></i></a>
     </li>
     <li class="percent"></li>
   </ul>
@@ -400,102 +445,100 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/%E4%B8%89%E6%96%B9%E5%BA%93/" title="分类于 三方库">三方库</a>
+<a href="/categories/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/" title="分类于 性能优化">性能优化</a>
 </div>
 
-    <span><a href="/2024/04/16/%E4%B8%89%E6%96%B9%E5%8C%85/" title="三方库">三方库</a></span>
+    <span><a href="/2024/05/11/%E6%80%A7%E8%83%BD%E6%8C%87%E6%A0%87/" title="性能指标">性能指标</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/markdown/" title="分类于 markdown">markdown</a>
+<a href="/categories/JS%E8%BF%9B%E9%98%B6/" title="分类于 JS进阶">JS进阶</a>
 </div>
 
-    <span><a href="/2023/02/10/md/" title="markdown">markdown</a></span>
+    <span><a href="/2023/08/02/JS/" title="JS进阶">JS进阶</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/Sass/" title="分类于 Sass">Sass</a>
+<a href="/categories/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" title="分类于 正则表达式">正则表达式</a>
 </div>
 
-    <span><a href="/2023/01/10/Sass/" title="Sass笔记">Sass笔记</a></span>
+    <span><a href="/2024/01/10/%E6%AD%A3%E5%88%99/" title="正则理念">正则理念</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/react/" title="分类于 react">react</a>
+<a href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B8%8E%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99/" title="分类于 设计模式与设计原则">设计模式与设计原则</a>
 </div>
 
-    <span><a href="/2023/12/02/react/" title="react笔记">react笔记</a></span>
+    <span><a href="/2024/07/07/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E5%8E%9F%E5%88%99/" title="设计模式与设计原则">设计模式与设计原则</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/gitlab-cicd/" title="分类于 gitlab cicd">gitlab cicd</a>
+<a href="/categories/Node-js/" title="分类于 Node.js">Node.js</a>
 </div>
 
-    <span><a href="/2024/07/07/gitlab-cicd/" title="gitlab cicd">gitlab cicd</a></span>
+    <span><a href="/2024/05/24/node/" title="Node学习笔记">Node学习笔记</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/%E5%BA%95%E5%B1%82%E6%9D%82%E8%AE%B0/" title="分类于 底层杂记">底层杂记</a>
-<i class="ic i-angle-right"></i>
-<a href="/categories/%E5%BA%95%E5%B1%82%E6%9D%82%E8%AE%B0/%E5%B7%A5%E5%85%B7%E5%87%BD%E6%95%B0/" title="分类于 工具函数">工具函数</a>
+<a href="/categories/node-js/" title="分类于 node.js">node.js</a>
 </div>
 
-    <span><a href="/2023/06/02/%E5%BA%95%E5%B1%82%E6%9D%82%E8%AE%B0/" title="底层杂记与工具库函数">底层杂记与工具库函数</a></span>
+    <span><a href="/2024/01/02/node.js%E5%86%85%E7%BD%AE%E6%A8%A1%E5%9D%97/" title="node.js内置模块">node.js内置模块</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/eslint/" title="分类于 eslint">eslint</a>
+<a href="/categories/vue/" title="分类于 vue">vue</a>
 </div>
 
-    <span><a href="/2024/05/17/eslint%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90/" title="eslint源码">eslint源码</a></span>
+    <span><a href="/2023/11/02/vue%E5%8E%9F%E7%90%86/" title="vue源码解读">vue源码解读</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/esbuild/" title="分类于 esbuild">esbuild</a>
+<a href="/categories/Blob/" title="分类于 Blob">Blob</a>
 </div>
 
-    <span><a href="/2024/05/17/esbuild/" title="esbuild">esbuild</a></span>
+    <span><a href="/2024/05/17/Blob%E5%92%8CFile/" title="Blob、File和FileReader">Blob、File和FileReader</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/git/" title="分类于 git">git</a>
+<a href="/categories/ES6/" title="分类于 ES6">ES6</a>
 </div>
 
-    <span><a href="/2023/05/02/git%20github%E7%AC%94%E8%AE%B0%EF%BC%88%E6%A6%82%E5%BF%B5%EF%BC%89/" title="git笔记">git笔记</a></span>
+    <span><a href="/2023/08/02/ES6/" title="ES6">ES6</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/%E5%A4%8D%E6%9D%82%E4%B8%9A%E5%8A%A1%E9%83%A8%E7%BD%B2%E4%B8%8E%E4%BC%98%E5%8C%96/" title="分类于 复杂业务部署与优化">复杂业务部署与优化</a>
+<a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/" title="分类于 计算机组成原理">计算机组成原理</a>
 </div>
 
-    <span><a href="/2024/04/12/%E5%A4%8D%E6%9D%82%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2%E4%B8%8A%E7%BA%BF/" title="复杂业务部署与优化">复杂业务部署与优化</a></span>
+    <span><a href="/2023/07/02/%E6%B5%AE%E7%82%B9%E6%95%B0%E5%AD%98%E5%82%A8/" title="浮点数存储">浮点数存储</a></span>
   </li>
 
   </ul>
@@ -520,13 +563,13 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
     <span class="post-meta-item-icon">
       <i class="ic i-chart-area"></i>
     </span>
-    <span title="站点总字数">943k 字</span>
+    <span title="站点总字数">938k 字</span>
 
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="ic i-coffee"></i>
     </span>
-    <span title="站点阅读时长">14:17</span>
+    <span title="站点阅读时长">14:12</span>
   </div>
   <div class="powered-by">
     基于 <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & Theme.<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Shoka</span>
