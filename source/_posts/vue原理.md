@@ -154,7 +154,7 @@ AST 中添加对应属性，JavascriptAST 中相应变动，在生成 render 函
 
 ## 1、render 渲染
 
-```js
+```javascript
 <script setup>
 const { createApp,h } = Vue;
 const App = {
@@ -187,7 +187,7 @@ mount 函数接受参数（选择器字符串或者 dom 元素），通过 nroma
 
 ## 2、template 模板渲染
 
-```js
+```javascript
 <script setup>
 const { createApp,h } = Vue;
 const App = {

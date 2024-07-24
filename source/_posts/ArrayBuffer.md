@@ -16,7 +16,7 @@ ArrayBuffer 对象本身只是一个占用了一定字节数的内存块，它�
 在内存中，ArrayBuffer 对象以连续的字节序列表示。这意味着存储在 ArrayBuffer 中的数据是紧密排列的，没有额外的空隙或填充。每个字节都有一个唯一的地址，我们可以通过偏移量来访问和操作特定位置的字节。
 
 以下是一个示例，展示了如何创建和使用 ArrayBuffer：
-```js
+```javascript
 javascriptCopy Code// 创建一个包含 16 字节的 ArrayBuffer
 const buffer = new ArrayBuffer(16);
 

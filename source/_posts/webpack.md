@@ -173,7 +173,7 @@ npm install --save-dev core-js@3.6.5
 
 (2)配置html-webpack-plugin插件 （在webpack.config.js中引入）
 
-```js
+```javascript
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
@@ -231,7 +231,7 @@ module.exports = {
 
 *// 3  webpack.config.js中配置 module*
 
-```js
+```javascript
 module: {
   rules: [
     {
@@ -254,7 +254,7 @@ module: {
 
 *// (2)  配置style-loader（webpack.config.js中）*
 
-```js
+```javascript
 module: {
   rules: [
     {
@@ -276,13 +276,13 @@ mini-css-extract-plugin
 
 *// （2）在webpack.config.js中导入*
 
-```js
+```javascript
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 ```
 
 *// （3）在webpakc.config.js中配置（ rules中use和plugins）*
 
-```js
+```javascript
 // webpack.config.js
 
 const path = require('path');
@@ -331,7 +331,7 @@ module.exports = {
 
 *// (2)  在webpack.config.js的rules中配置file-loader*
 
-```js
+```javascript
 // webpack.config.js
 
 const path = require('path');
@@ -387,7 +387,7 @@ module.exports = {
 
 *// （2）webpack.config.js的module的rules中配置文件*
 
-```js
+```javascript
  {
    test: /\.(html|html)$/,  //待处理文件
 loader: 'html-withimg-loader'
@@ -398,7 +398,7 @@ loader: 'html-withimg-loader'
 
 *// 但是注意他与 file-loader的配合使用，过程中会将图片当成模块，解决方法在module中rules中配置*
 
-```js
+```javascript
 // webpack.config.js
 
 const path = require('path');
@@ -450,7 +450,7 @@ module.exports = {
  将js中引入的图片的地址更换成打包后的图片的地址
  在webpack.config.js的module中的rules中进行配置
 
-```js
+```javascript
 // webpack.config.js
 
 const path = require('path');
@@ -499,7 +499,7 @@ module.exports = {
 
  webpack中的module中的rules下进行配置
 
-```js
+```javascript
 {
   test: /\.(jpg|png|gif)$/,
   use: {
@@ -525,7 +525,7 @@ module.exports = {
 
 (2) 配置命令（在package.json的scripts中配置）
 
-```js
+```javascript
 "scripts": {
   "test": "echo \"Error: no test specified\" && exit 1",   // 测试命令
   "webpack": "webpack",   // 运行 webpack 命令
@@ -536,7 +536,7 @@ module.exports = {
 
 # webpack配置示例
 
-```js
+```javascript
 const MiniCssExtractPlugin = require("mini-css-extract-plugin")
 const CssMinimizerWebpackPlugin = require("css-minimizer-webpack-plugin")
 const CopyWebpackPlugin = require("copy-webpack-plugin")
@@ -797,7 +797,7 @@ module.exports = {
 
 ### 开始编码
 
-```js
+```javascript
 const fs = require("fs");
 const path = require("path");
 // @babel/parser用于将js代码转化为抽象语法树

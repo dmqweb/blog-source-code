@@ -49,7 +49,7 @@ Blob的全称为：binary larget object（二进制大对象），blob的本质�
 
     
 
-```js
+```javascript
 let blob = new Blob(['hello world'],{type:"text/plain"});
 ```
 
@@ -65,7 +65,7 @@ end：设置切片的结束点，会对该位置之前的数据进行切片。�
 
 contentType：设置新 blob 的 MIME 类型。如果省略 type，则默认为 blob 的原始值。
 
-```js
+```javascript
 let blob = new Blob(['hello world'],{type:"text/plain"});
 let blob1 = blob.slice(0,2,"text/plain");
 ```
@@ -74,7 +74,7 @@ let blob1 = blob.slice(0,2,"text/plain");
 
 blob对象只能通过FileReader读取内容。
 
-```js
+```javascript
 let blob = new Blob(['hello world'],{type:"text/plain"});
 let reader = new fileReader();
 reader.readAsText(blob);
@@ -125,7 +125,7 @@ ArrayBuffer提供了一个slice方法用于切片。参数为：开始位置，�
 
 ### 使用：
 
-```js
+```javascript
 const buffer = new ArrayBuffer(32);
 buffer.slice(0,4,'text/plain');
 ```
@@ -145,7 +145,7 @@ TypedArray只是一个概念，提供了一种机制来解读ArrayBuffer中的�
 
 ### 使用：
 
-```js
+```javascript
 const buffer = new ArrayBuffer(32);
 const slice = buffer.slice(0,4,'text/plain');
 const sliceView = new Int8Array(slice);
@@ -191,7 +191,7 @@ Object URL是一个用于表示File Object或者Blob Object的URL，可以将**B
 
 使用URL.createObjectURL来创建。
 
-```js
+```javascript
 const blob = new Blob(['你好世界'],{type:'text/plain'});
 const newUrl = URL.createObjectURL(blob);
 ```
@@ -230,7 +230,7 @@ TextEncoder构造函数创建一个编码器，encode方法用于将字符串编
 
 ### 使用：
 
-```js
+```javascript
 const encoder = new TextEncoder();
 const view = encoder.encode("$");
 console.log(view)

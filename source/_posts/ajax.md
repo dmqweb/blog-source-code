@@ -91,7 +91,7 @@ Ajax（Asynchronous JavaScript And XML）即异步 JavaScript 和 XML，是一�
 
 使用 `XMLHttpRequest` 可以通过 JavaScript 发起HTTP请求，接收来自服务器的响应，并动态地更新网页中的内容。这种异步通信方式不会阻塞用户界面，有利于增强用户体验。
 
-```js
+```javascript
 // 发送get请求
 const xhr = new XMLHttpRequest();
 xhr.open('GET', 'http://localhost:3000/api/txt')
@@ -123,7 +123,7 @@ xhr.send(JSON.stringify({name: 'zhangsan', age: 18}));
 
 xhr通过addEventListener事件监听的机制来进行请求的中断和超时处理。
 
-```js
+```javascript
 xhr.addEventListener('abort', function (event) {
     console.log('我被中断了');
 });
@@ -131,7 +131,7 @@ xhr.addEventListener('abort', function (event) {
 
 ### 超时时间
 
-```js
+```javascript
 xhr.addEventListener('timeout', function (event) {
      console.log('超时啦');
 });
@@ -141,7 +141,7 @@ xhr.addEventListener('timeout', function (event) {
 
 xhr中的监听进度可以获得全过程的进行进度，这是fetch这个api所没有的
 
-```js
+```javascript
 xhr.addEventListener('progress', function (event) {
 document.querySelector('#progress').innerText = `${(event.loaded / event.total * 100).toFixed(2)}%`;
 });
@@ -165,7 +165,7 @@ document.querySelector('#progress').innerText = `${(event.loaded / event.total *
 
 - formData(): 将响应体解析为FormData对象。
 
-```js
+```javascript
 // get请求
 fetch('http://localhost:3000/api/txt').then(res => {
     console.log(res);
@@ -195,7 +195,7 @@ fetch('http://localhost:3000/api/post',{
 
 使用 `AbortController` 的 `abort`方法中断
 
-```js
+```javascript
 const abort = new AbortController()
 fetch('http://localhost:3000/api/post',{
     method:'POST',
@@ -224,7 +224,7 @@ document.querySelector('#stop').addEventListener('click', () => {
 
 使用data.clone()方法复制了响应对象data，然后使用getReader()方法获取数据流中的reader对象，接着通过读取数据流并计算已加载字节数，实现了一个基于原生JavaScript的进度条功能。
 
-```js
+```javascript
 const btn = document.querySelector('#send')
 const sendFetch = async () => {
     const data = await fetch('http://localhost:3000/api/txt',{
@@ -252,7 +252,7 @@ btn.addEventListener('click', sendFetch)
 
 ### 携带cookie
 
-```js
+```javascript
 const data = await fetch('http://localhost:3000/api/txt',{
     signal:abort.signal,
     //cookie
@@ -354,7 +354,7 @@ axios({
 
 # navigator.sendBeacon
 
-```js
+```javascript
 //性能中继器，使用不同指标来衡量和分析应用程序的性能
 //当页面上任何指标值完成计算时，将传递计算出的结果并触发这个函数
 //可以使用它将结果记录到控制台或者发送到特定端点

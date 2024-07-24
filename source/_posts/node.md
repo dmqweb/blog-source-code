@@ -83,7 +83,7 @@ node_modules/.bin中有三个文件（Node作为跨平台工具，需要处理�
 
 在package.json中的scripts字段中，我们可以利用npm脚本命名规范使用npm的生命周期特性，例如：
 
-```json
+```javascripton
     "pretest": "node prev.js",
     "test": "node index.js",
     "posttest": "node post.js"
@@ -200,7 +200,7 @@ Node.js 6.0版本开始，`Buffer`构造函数的使用已被弃用，推荐使�
 
 Node环境中无法操作DOM和BOM，不过可以借助一些工具进行模拟，例如：`jsdom`
 
-```js
+```javascript
 const fs = require('node:fs')
 const { JSDOM } = require('jsdom') // jsdom模拟浏览器环境
 const dom = new JSDOM(`<!DOCTYPE html><div id='app'></div>`)
@@ -236,7 +236,7 @@ path.basename('C:\temp\myfile.html');
 
 - path.basename返回文件名（包括后缀）
 
-```js
+```javascript
 path.basename('C:/fs/dmq/MI/index.html') //返回index.html
 ```
 
@@ -310,7 +310,7 @@ FFmpeg 是一个开源的跨平台多媒体处理工具，可以用于处理音�
 
 Node.js的事件模型采用发布订阅的设计思想，将发布者和订阅者之间解耦合，使得双方能够独立地扩展自己。
 
-```js
+```javascript
 const EventEmitter = require('events');
 const event = new EventEmitter()
 //监听test
@@ -322,13 +322,13 @@ event.emit('test','data数据') //派发事件
 
 event实例默认监听10个为上限，可以通过`setMaxListeners()`方法来设置监听上限。
 
-```js
+```javascript
 event.setMaxListeners(20)
 ```
 
 `event.once方法`可以只订阅一次
 
-```js
+```javascript
 event.once('test',(data)=>{
 	console.log('once取代on，只监听一次')
 })
@@ -336,7 +336,7 @@ event.once('test',(data)=>{
 
 `event.off`方法取消订阅
 
-```JS
+```javascript
 event.on('test', fn) // 订阅事件
 event.off('test', fn) // 取消事件订阅
 ```
@@ -352,7 +352,7 @@ event.off('test', fn) // 取消事件订阅
 
 **node后端：**
 
-```js
+```javascript
 import express from 'express';
 const app = express();
 app.get('/api/sse', (req, res) => {
@@ -385,7 +385,7 @@ app.listen(3000, () => {
 
 **客户端：**
 
-```js
+```javascript
 const sse = new EventSource('http://localhost:3000/api/sse' )
 if (sse.readyState === EventSource.CONNECTING) {
   console.log('正在连接服务器...');
@@ -492,7 +492,7 @@ Node.js中fs模块是由libuv来进行调度的，文件读取完成之后libuv�
 
 例如追加文件内容除了可以使用`appendFileSync`之外，还可以：
 
-```js
+```javascript
 fs.writeFileSync('index.txt', '追加的内容',{
     flag: 'a' //配置options中的flag
 })
@@ -500,7 +500,7 @@ fs.writeFileSync('index.txt', '追加的内容',{
 
 #### 可写流
 
-```js
+```javascript
 const fs = require('node:fs')
 let verse = [
     '待到秋来九月八',
@@ -568,7 +568,7 @@ writeStream.on('finish',()=>{ //监听写入完成事件
 
 ###### 创建链接
 
-```js
+```javascript
 fs.linkSync('./index.txt', './index2.txt') //硬链接
 fs.symlinkSync('./index.txt', './index3.txt' ,"file") //软连接
 ```
@@ -595,7 +595,7 @@ crypto模块的目的是为了提供通用的`加密和哈希算法`。用纯Jav
 
 #### 对称加密
 
-```js
+```javascript
 js复制代码const crypto = require('node:crypto');
 
 // 生成一个随机的 16 字节的初始化向量 (IV)
@@ -623,7 +623,7 @@ console.log("Decrypted:", decrypted);
 
 #### 非对称加密
 
-```js
+```javascript
 js复制代码const crypto = require('node:crypto')
 // 生成 RSA 密钥对
 const { privateKey, publicKey } = crypto.generateKeyPairSync('rsa', {
@@ -646,7 +646,7 @@ console.log(decrypted.toString());
 
 #### 哈希函数
 
-```js
+```javascript
 const crypto = require('node:crypto');
 // 要计算哈希的数据
 let text = '123456';
@@ -683,7 +683,7 @@ console.log('Hash:', hashValue);
 
 index.js
 
-```js
+```javascript
 const ejs = require('ejs'); // 导入ejs库，用于渲染模板
 const fs = require('node:fs'); // 导入fs模块，用于文件系统操作
 const marked = require('marked'); // 导入marked库，用于将Markdown转换为HTML
@@ -896,7 +896,7 @@ body {
 
 - 流压缩，zlib模块支持流式的方式进行数据的压缩和解压缩，使得可以对大型文件或者网络数据流进行逐步处理，而不需要将整个数据加载到内存中。
 
-  ```js
+  ```javascript
   // 压缩文件（以Gzip为例）
   const zlib = require('zlib')
   const fs = require('node:fs')
@@ -950,7 +950,7 @@ body {
 
 #### 使用
 
-```js
+```javascript
 const http = require('http')
 const httpServer = http.createServer((req,res)=>{
     if(req.method === 'POST'){}
@@ -965,7 +965,7 @@ httpServer.listen(98,()=>{
 
 可以通过url模块来解析req的请求路径，来进一步精细化响应内容。
 
-```js
+```javascript
 const http = require('node:http'); // 引入 http 模块
 const url = require('node:url'); // 引入 url 模块
 // 创建 HTTP 服务器，并传入回调函数用于处理请求和生成响应
@@ -1014,7 +1014,7 @@ http.createServer((req, res) => {
 
   - server.js（TCP层面的服务端）
 
-    ```js
+    ```javascript
     const net = require('net')
     const server = net.createServer((client)=>{
       setTimeout(() => {
@@ -1028,7 +1028,7 @@ http.createServer((req, res) => {
 
   - connection.js（TCP层面的客户端）
 
-    ```js
+    ```javascript
     const net = require('net')
     const connection = net.createConnection({
       host:'127.0.0.1',
@@ -1041,7 +1041,7 @@ http.createServer((req, res) => {
 
 - 从传输层实现http协议
 
-  ```js
+  ```javascript
   const net = require('net');
   const html = `<h1>TCP Server</h1>`
   const reposneHeader = [
@@ -1077,7 +1077,7 @@ http.createServer((req, res) => {
   - 负载均衡（动态内容请求分发到不同的服务器或服务上，平衡服务器的负载）
   - 安全性（动态内容往往涉及敏感信息，动静分离可以更好地管理访问控制和安全策略）
 
-```js
+```javascript
 import http from 'node:http' // 导入http模块
 import fs from 'node:fs' // 导入文件系统模块
 import path from 'node:path' // 导入路径处理模块
@@ -1123,7 +1123,7 @@ server.listen(80) // 监听端口80
 
 **使用：**
 
-```js
+```javascript
 // node.js发送邮件
 const yamlTrans = require('js-yaml');
 const fs = require('fs');
@@ -1161,7 +1161,7 @@ transPort.sendMail({
 - **使用防盗链插件或脚本**：一些网站平台和内容管理系统提供了专门的插件或脚本来防止盗链。这些工具可以根据需要配置，阻止来自未经授权的网站的盗链请求。
 - **使用水印技术**：在图片或视频上添加水印可以帮助识别盗链行为，并提醒用户资源的来源。
 
-```js
+```javascript
 import express from 'express';
 const app = express();
 const whitelist = ['localhost'];
@@ -1238,7 +1238,7 @@ app.listen(3000,()=>{
 
 **前端：**
 
-```js
+```javascript
 const sse = new EventSource('http://localhost:3000/sse');
 sse.addEventListener('test',(event)=>{
     console.log(event.data);
@@ -1247,7 +1247,7 @@ sse.addEventListener('test',(event)=>{
 
 **后端：**
 
-```js
+```javascript
 app.get('/sse'(req,res)=>{
     res.setHeader('Content-Type','text/event-stream'); //设置事件响应头
     res.status(200);
@@ -1271,7 +1271,7 @@ app.get('/sse'(req,res)=>{
 
 **连接数据库：**
 
-```js
+```javascript
 import knex from 'knex';
 const db = knex({
     client: "mysql2",
@@ -1474,7 +1474,7 @@ corn表达式是一种用汉语指定定时任务执行时间的字符串表示�
 
 **掘金定时自动签到：**
 
-```js
+```javascript
 const schedule = require('node-schedule')
 const axios = require('axios');
 const aid = '******' //输入掘金账号的aid
@@ -1678,7 +1678,7 @@ socket提供了实时的双向通信能力，可以实时地传输数据。客�
 
 - **服务端：**
 
-```js
+```javascript
 import http from 'http'
 import { Server } from 'socket.io'
 import express from 'express'
@@ -1756,7 +1756,7 @@ npm i puppeteer
 
 index.js：
 
-```js
+```javascript
 import puppeteer from "puppeteer";
 const btnText = process.argv[2];
 const browser = await puppeteer.launch({
@@ -1883,7 +1883,7 @@ NODE_API_MODULE(NODE_GYP_MODULE_NAME, Init)
 
 **index.js：**
 
-```js
+```javascript
 const addon = require('./build/Release/cpu.node')
 console.log(addon.getScreenSize())
 ```
@@ -1957,7 +1957,7 @@ node-gyp build  #打包addon
 
 服务端：
 
-```js
+```javascript
 import express from 'express'
 import multer from 'multer'
 import cors from 'cors'
@@ -2038,7 +2038,7 @@ app.listen(3000, () => {
 
 服务端：
 
-```js
+```javascript
 import express from 'express'
 import fs from 'fs'
 import path from 'path'
@@ -2079,7 +2079,7 @@ HTTP缓存分为两大类：强缓存和协商缓存。这两种缓存都是通�
     - `public`：资源即可以被浏览器缓存也可以被代理服务器缓存(CDN)。
     - `private`：资源只能被客户端缓存。
 
-  - ```js
+  - ```javascript
     const express = require('express');
     const app = express();
     app.get('/',(req,res)=>{
@@ -2106,7 +2106,7 @@ HTTP缓存分为两大类：强缓存和协商缓存。这两种缓存都是通�
 
   - > 服务端通过设置响应头`Last-Modified`和`If-Modified-Since`来通知客户端最后修改时间，客户端在后续请求中通过`If-Modified-Since`请求头携带该时间，服务器判断资源是否有更新，如何没有返回304状态码。
 
-  - ```js
+  - ```javascript
     import express from 'express'
     import cors from 'cors'
     import fs from 'node:fs'
@@ -2192,7 +2192,7 @@ HTTP缓存分为两大类：强缓存和协商缓存。这两种缓存都是通�
     >
     > 
 
-  ```js
+  ```javascript
   import http2 from 'node:http2'
   import fs from 'node:fs'
   const server = http2.createSecureServer({

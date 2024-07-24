@@ -21,7 +21,7 @@ date: 2024-01-29 00:26:56
 
   遇到大量计算操作时，页面掉帧导致卡顿
 
-  - ```jsx
+  - ```javascriptx
     function App() {
       const len = 3000;
       return (
@@ -44,7 +44,7 @@ date: 2024-01-29 00:26:56
 
     - > 这种将长任务拆分到每一帧中，每次执行一小段任务的操作成为时间切片
 
-    - ```jsx
+    - ```javascriptx
       // 通过使用ReactDOM.unstable_createRoot开启Concurrent Mode,启用时间切片
       // ReactDOM.render(<App/>, rootEl);
       ReactDOM.unstable_createRoot(rootEl).render(<App />);
@@ -141,7 +141,7 @@ Renderer 渲染器根据 Reconciler 为虚拟 DOM 打的标记，同步执行对
 
 > Fiber 其实是一个数据结构，需要记录节点和节点之间的关系，在Fiber架构中的任务是可以中断执行的，继续执行时会丢弃原来完成的工作从头再来（数据不可变的原因），并且即使重新执行中断的任务，对用户侧来说也是无感的，因为Fiber架构的视图更新是后缓冲区视图 替换 前缓冲区视图的过程。
 > 顺便理解一下componentWillMount、componentWillReceiveProps、componentWillUpdate这三个钩子被废弃的原因：因为render阶段是异步执行、可被中断的，再次回来的时候有可能会丢弃已经完成的工作从头再来，这样就可能会导致Fiber节点在render阶段重复调用`componentWillMount`这几个钩子，导致不符合开发者预期，并且当这几个钩子中存在副作用时，就会出现问题。
-```js
+```javascript
 // Fiber中关键字段
 {
   type, //DOM类型
@@ -263,7 +263,7 @@ Fiber架构出现的原因：
 
 # 实现 useState
 
-```js
+```javascript
 let workInProgressHook;
 let isMount = true;
 const fiber = {

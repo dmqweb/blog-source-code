@@ -14,7 +14,7 @@ tags:
 1、根据构造函数的原型创建新的对象
 2、执行构造函数，绑定this指向为新对象，传入参数
 3、返回执行后的结果
-```js
+```javascript
 function myNew(constructor,...args){
     //创建对象，原型为构造函数的原型对象
     const obj = Object.create(constructor.prototype);
@@ -29,7 +29,7 @@ const ab = myNew(A)
 console.log(ab);
 ```
 # 手写class
-```js
+```javascript
 function Example(name) {
     if(!new.target) throw new TypeError("该函数应该使用new来调用");
     this.name = name
@@ -48,7 +48,7 @@ Object.definePropertie(Example.prototype,"init",{
 ```
 # 闭包的简单使用
 
-```js
+```javascript
 //闭包隐藏数据,只提供API操作
 function createCache() {
   const cache = {};
@@ -63,7 +63,7 @@ function createCache() {
 }
 ```
 # 判断数据类型
- ```js
+ ```javascript
 function myTypeOf(obj) {
     // 使用toString
         const typeMap = {
@@ -105,13 +105,13 @@ function myTypeOf(obj) {
 }
 ```
 # 数组去重
- ```js
+ ```javascript
 function unique(arr) {
     return new Array(...new Set(arr))
 }
 ```
 # 数组扁平化(扁平一层)
- ```js
+ ```javascript
 function arrFlat(arr) {
     if(arr.flat){
       return arr.flat(); //Array.flat方法默认扁平一层
@@ -126,7 +126,7 @@ function arrFlat(arr) {
 }
 ```
 # 手写对象的[Symbol.iterator]迭代器协议（普通对象不内置迭代器）
- ```js
+ ```javascript
   // 内置迭代器的异质对象有：Array，String，Set，Map
 Symbol.myIterator = Symbol('myIterator');
 Object.prototype[Symbol.myIterator] = function () {
@@ -150,7 +150,7 @@ Object.prototype[Symbol.myIterator] = function () {
 }
 ```
 # 手写for of循环（for of便利前提是对象内置迭代器）
- ```js
+ ```javascript
 function myForOf(obj,fn) {
     if(!obj[Symbol.iterator]) throw new TypeError('obj不存在迭代器')
     const myIterator = obj[Symbol.iterator]();
@@ -162,7 +162,7 @@ function myForOf(obj,fn) {
 }
 ```
 # 手写for in循环（for in的前提是对象属性可被枚举，Object.keys也是）
- ```js
+ ```javascript
 function myForIn(obj,fn) {
     const keys = Object.keys(obj);
     keys.forEach(item=>{
@@ -171,7 +171,7 @@ function myForIn(obj,fn) {
 }
 ```
 # 浅拷贝，返回新的对象，丢失原型链
- ```js
+ ```javascript
 function shallowClone(objLike) {
     if(typeof objLike !== 'object') return objLike;
     const res = Array.isArray(objLike)?[]:{};
@@ -184,7 +184,7 @@ function shallowClone(objLike) {
 }
 ```
 # 手写深拷贝
- ```js
+ ```javascript
 // 是否是对象类型
 const isObject = (obj) => typeof obj === 'object' || typeof obj === 'function' && obj !== null;
 function deepClone(target,map = new WeakMap()) {
@@ -212,7 +212,7 @@ function deepClone(target,map = new WeakMap()) {
 // > 注意：1、原型链不能形成闭环（报错），2、__proto__的值只能是对象或者null，3、一个对象只能又一个[[Prorotype]]，4、__proto__是内部[[Prototype]]的getter/setter。
 ```
 # 手写全局事件总线
- ```js
+ ```javascript
 class EventEmitter{
     #cache = {};
     constructor(){}
@@ -251,7 +251,7 @@ eventTarget.addEventListener('sayHi',(e)=>{
 //因为一个DOM同一事件不能重复，并且同一事件类型一般要创建很多个事件（用于不同的DOM，因此不能复用同一事件），此时用类型很难对其标识
 ```
 # 遍历输出构造类
- ```js
+ ```javascript
 function consoClass(classFn) {
     let a = Object.getPrototypeOf(classFn);
     while (a !== null) {
@@ -263,7 +263,7 @@ function consoClass(classFn) {
 consoClass(HTMLElement)
 ```
 # 图片懒加载
- ```js
+ ```javascript
 const imgList = [...document.querySelectorAll("image")];
 const imgLength = imgList.length;
 const imgLazyLoad = (function () {
@@ -286,7 +286,7 @@ const imgLazyLoad = (function () {
 document.addEventListener("scroll",imgLazyLoad);
 ```
 # 函数防抖（多次执行，重新计时）
- ```js
+ ```javascript
 function debounce(fn,time) {
     let timer = null;
     return function () {
@@ -299,7 +299,7 @@ function debounce(fn,time) {
 }
 ```
 # 函数节流（固定时间只执行一次）
- ```js
+ ```javascript
 function th(fn,time) {
     let timer = null;
     return function () {
@@ -313,7 +313,7 @@ function th(fn,time) {
 }
 ```
 # 函数柯里化
- ```js
+ ```javascript
 function curry(fn) {
     //将fn函数进行柯里化
     return function curried(...args) {
@@ -328,7 +328,7 @@ function curry(fn) {
 }
 ```
 # 函数偏函数化
- ```js
+ ```javascript
 function partial(fn,...args) {
     return (...arg) => {
         return fn(...args,...arg);
@@ -336,7 +336,7 @@ function partial(fn,...args) {
 }
 ```
 # 使用jsonp进行跨域get请求
- ```js
+ ```javascript
 const jsonp = ({ url, params, callbackName }) => {
     const generateUrl = () => {
         let dataSrc = ''
@@ -360,7 +360,7 @@ const jsonp = ({ url, params, callbackName }) => {
 }
 ```
 # AJAX封装get请求JSON数据
- ```js
+ ```javascript
 
 function getJSON(url) {
     return new Promise((resolve,reject)=>{
@@ -380,7 +380,7 @@ function getJSON(url) {
 }
 ```
 # 实现forEach
- ```js
+ ```javascript
 Array.prototype.myForEach = function (callback,thisArg) {
     if(this === null) throw new TypeError("this is null or not defined");
     // 如果回调不是函数
@@ -397,7 +397,7 @@ Array.prototype.myForEach = function (callback,thisArg) {
 }
 ```
 # 实现map
- ```js
+ ```javascript
 Array.prototype.myMap = function (callback,thisArg) {
     if(this.null) throw new TypeError("this is null or defined");
     if(typeof callback !== "function") throw new TypeError(callback.name + "is not a function");
@@ -414,7 +414,7 @@ Array.prototype.myMap = function (callback,thisArg) {
 }
 ```
 # 实现filter
- ```js
+ ```javascript
 
 Array.prototype.myFilter = function (callback,thisArg) {
     if(this == null) return new TypeError("this is null or undefined")
@@ -435,7 +435,7 @@ Array.prototype.myFilter = function (callback,thisArg) {
 }
 ```
 # 实现some
- ```js
+ ```javascript
 Array.prototype.mySome = function (callback,thisArg) {
     if(this == null) return new TypeError("this is null or undefined");
     if(typeof callback !== "function") return new TypeError(callback.name + "is not a function")
@@ -453,7 +453,7 @@ Array.prototype.mySome = function (callback,thisArg) {
 }
 ```
 # 实现reduce
- ```js
+ ```javascript
 Array.prototype.myReduce = function (callback,initialValue) {
     if(this == null) return new TypeError("this is null or undefined");
     if(typeof callback !== "function") return TypeError(callback.name + "is not a function");
@@ -471,7 +471,7 @@ Array.prototype.myReduce = function (callback,initialValue) {
 }
 ```
 # 手写call、apply 和 bind
-```js
+```javascript
 Function.prototype.myCall = function (thisContext) {
     // 将this（函数），绑定this,传入参数
     thisContext = thisContext || window; //this默认为window

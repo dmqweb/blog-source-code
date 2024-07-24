@@ -80,7 +80,7 @@ Vue文件分类：将Vue文件分为页面文件和可复用的文件
 
 **effectScope是vue3.2新增的一个api，用于创建一个副作用作用域，内部自动捕获副作用，进行响应化设置。**
 
-```js
+```javascript
 // 一个scope可以执行一个run函数（接受一个函数作为参数，返回该函数的返回值，并且捕获所有在该函数执行过程中创建的effect，包括可以创建effect的API）
 // 例如：computed，watch，watchEffect等。
 let a = 1;
@@ -100,7 +100,7 @@ scope.stop();
 
 嵌套scope也会被他们的父级scope收集，并且当父级scope销毁的时候，所有的后代scope也会被递归销毁。
 
-```js
+```javascript
 const scope = effectScope()
 scope.run(() => {
   const doubled = computed(() => counter.value * 2)
@@ -116,7 +116,7 @@ scope.stop()
 
 **effectScope接受一个参数可以在分离模式下创建，detached scope不会被父级collect**
 
-```js
+```javascript
 let nestedScope
 const parentScope = effectScope()
 parentScope.run(() => {
@@ -143,7 +143,7 @@ nestedScope.stop()
 
 > 需要注意的是: 由于 setup() 默认会为当前 instance 创建一个 scope，所以当没有明确声明一个scope的时候，onScopeDispose等同于onUnmounted。
 
-```js
+```javascript
 import { onScopeDispose } from 'vue'
 const scope = effectScope()
 scope.run(() => {
@@ -158,7 +158,7 @@ scope.stop() // logs 'cleaned!'
 
 通过getCurrentScope函数,可以获得当前scope作用域
 
-```js
+```javascript
 import {getCurrentScope} from 'vue';
 getCurrentScope(); //返回当前scope作用域或者undefined
 ```
@@ -173,7 +173,7 @@ getCurrentScope(); //返回当前scope作用域或者undefined
 
 ③配置：src下新建router文件夹，下面的index.js中进行配置：
 
-```js
+```javascript
 imprt Vue from 'vue'
 import VueRouter from 'vue-router'
 Vue.use(VueRouter)
@@ -183,13 +183,13 @@ Vue.use(VueRouter)
 
 ⑤创建路由组件：在router里index.js中引入：
 
-```js
+```javascript
 import Home from '../views/Home.vue'
 ```
 
 ⑥配置路由表：将路由与组件进行映射：
 
-```js
+```javascript
 const routes = [
   { path: '/', component: Home },
   { path: '/about', component: About },
@@ -199,7 +199,7 @@ const routes = [
 
 ⑦创建router实例
 
-```js
+```javascript
 const router = new VueRouter({
   routes
 });
@@ -207,7 +207,7 @@ const router = new VueRouter({
 
 ⑧Vue中挂载router
 
-```js
+```javascript
 new Vue({
   router,
   render: h => h(App)
@@ -480,7 +480,7 @@ postcss-pxtorem （ 配合webpack , 自动将 px 转成 rem ）
 
 # Vuex介绍
 
-```js
+```javascript
 npm  install vuex --save
 import  Vuex from  'vuex'
 Vue.use(Vuex)
@@ -505,7 +505,7 @@ Vuex相当于一个仓库，仓库中可以存全局变量，方法。一个项�
 
 三大模块中  辅助函数  使用时导入：（使用辅助函数形式时，传参需要在事件发生处传值）     子组件中：
 
-```js
+```javascript
 import { mapState ,mapMutations,mapActions} from 'vuex'  //导入辅助函数
 computed:{
     ...mapState(['键值'])       //计算属性中使用state中的值
@@ -532,7 +532,7 @@ methods：{
 
 ②从vuex中按需导入mapState函数，将全局数据，映射为当前组件的计算属性（子组件中）
 
-```js
+```javascript
 import  { mapState }  from  'vuex'
 computed:{ ...mapState(['键名'])  }
 ```
@@ -716,7 +716,7 @@ npm install vuex@3
 npm run serve
 （2）在mian.js文件引入vuex，使用Vuex
 
-```js
+```javascript
 import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
@@ -734,7 +734,7 @@ new Vue({
 
 3、创建使用实例
 
-```js
+```javascript
 import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
@@ -755,7 +755,7 @@ new Vue({
 
 4、代码例子
 
-```js
+```javascript
 import Vue from 'vue'
 import App from './App.vue'
 import router from './router'

@@ -63,7 +63,7 @@ useRef 返回一个普通的 javascript 对象，它和 state 一样，react 会
 
 **useRef 是由 useState 函数进一步封装得到（只使用状态，不使用方法更新视图）：**
 
-```js
+```javascript
 function useRef(initialValue) {
   const [ref, unused] = useState({ current: initialValue });
   return ref;
@@ -101,7 +101,7 @@ useRef 返回的 ref.current 中有一个 remove 方法，该方法执行后会�
 
 两者可以结合使用（使用 forwardRef 转发 ref，使用 useImperativeHandle 设置 DOM 元素方法）：
 
-```js
+```javascript
 const InputComponent = React.forwardRef((props, ref) => {
   useImperativeHandle(ref, () => ({
     focus: () => inputRef.current.focus(),
@@ -349,7 +349,7 @@ create-react-app 中内置了 cass 语法的支持，安装 sass 直接使用即
 
 用 React
 
-```jsx
+```javascriptx
 <ul>
   {list.map((todo) => (
     <li>{todo}</li>
@@ -489,7 +489,7 @@ npm install prettier eslint-config-prettier eslint-plugin-prettier -save-dev
 
 设置 vscode `.vscode/settings.json` 自动保存格式，可以在文件保存时，自动保留格式
 
-```json
+```javascripton
 {
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true
@@ -594,7 +594,7 @@ JSX 里的标签必须是闭合的，`<input>` `<br>` 这样写在 JSX 会报错
 
 注意 TS 的写法
 
-```jsx
+```javascriptx
 function clickHandler(event: React.MouseEvent<HTMLParagraphElement>) {
   event.preventDefault();
   console.log("clicked");
@@ -605,7 +605,7 @@ return <p onClick={clickHandler}>hello world</p>;
 
 如果要想**传递参数**，可以通过如下方式
 
-```jsx
+```javascriptx
 function clickHandler(
   event: React.MouseEvent<HTMLParagraphElement>,
   x: string
@@ -645,7 +645,7 @@ JS 一般使用 `if...else` 做判断，但不能用于 JSX 的 `{xxx}` 中。
 - 三元表达式 `a ? b : c`
 - 用函数封装
 
-```jsx
+```javascriptx
 const flag = true;
 return (
   <div>
@@ -657,7 +657,7 @@ return (
 
 或者用函数封装
 
-```js
+```javascript
 function Hello() {
   if (flag) return <p>你好</p>;
   else return <p>再见</p>;
@@ -670,7 +670,7 @@ return <Hello></Hello>;
 
 使用 `map` 做循环
 
-```js
+```javascript
 const list = [
   { username: "zhangsan", name: "张三" },
   { username: "lisi", name: "李四" },
@@ -1694,7 +1694,7 @@ PS：期间会咨询是否使用 eslint 插件，选择否。因为我们已经�
 
 # React Fiber 架构的调度执行原理
 
-```js
+```javascript
 let ticket_num = 0;
 let ticket_total = 0;
 // 使用生成器,生成迭代器,迭代器用于迭代返回结果

@@ -11,7 +11,7 @@ date: 2024-03-30 20:33:01
 
 市面上有很多测试框架，例如：mocha 、jasmine、vue test utils、vitest、react testing library和testing frameworks for jacascript等，但语法和思想大致相同，现在依jest框架进行简单的使用
 
-```js
+```javascript
 /**
  * jest简单的语法
  * expect  toBe 语法

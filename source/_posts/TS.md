@@ -78,7 +78,7 @@ enmu 类型代表选取多个中的一个，枚举类型相当于对象和类型
 
 **例如：**
 
-```js
+```javascript
 enum STATUS {
     OPEN = 'OPEN',
     CLOSE = 'CLOSE',
@@ -716,7 +716,7 @@ declare 关键字可以描述：
 - 模块（module）
 - 命名空间（namespace）
 
-```js
+```javascript
 declare function sayHello(name: string): void;
 sayHello("张三");
 ```

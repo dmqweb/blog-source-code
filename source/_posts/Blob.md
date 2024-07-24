@@ -14,7 +14,7 @@ Blob（Binary Large Object）对象是 JavaScript 中用来表示二进制数据
 Blob 对象通常由两部分组成：数据和数据的类型。数据部分包含实际的二进制数据，而类型部分描述了数据的 MIME 类型，例如 “image/png” 或 “application/pdf”。
 
 Blob 对象可以通过 new Blob() 构造函数创建，传入一个数组作为参数，数组中包含要存储的二进制数据。另外，你还可以通过传入一个可选的对象参数，来指定数据的 MIME 类型。例如：
-```js
+```javascript
 javascriptCopy Codevar binaryData = [0x48, 0x65, 0x6c, 0x6c, 0x6f]; // 用十六进制表示的字符串 "Hello"
 var blob = new Blob([binaryData], { type: "text/plain" });
 ```

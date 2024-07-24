@@ -19,7 +19,7 @@ ECMAScript 6.0（以下简称 ES6）是 JavaScript 语言的下一代标准，�
 
 > ⚠️ let声明的变量，只在`let`命令所在的代码块内有效
 
-```js
+```javascript
 {
     let a = 10;
     var b = 20;
@@ -35,7 +35,7 @@ console.log(b); //20
 
 为了纠正这种现象，let命令改变了语法行为，它所声明的变量一定在声明后使用，否则报错
 
-```js
+```javascript
 //var的情况
 console.log(c);//输出undefined
 var c = 30;
@@ -51,7 +51,7 @@ let c = 30;
 
 `let`不允许在相同作用域内，重复声明同一个变量
 
-```js
+```javascript
 let c = 10;
 let c = 30;
 console.log(c); //报错
@@ -72,7 +72,7 @@ function func(arg) {
 
 #### 原因一：内层变量可能会覆盖外层变量
 
-```js
+```javascript
 function foo(a){
     console.log(a);
     if(1===2){
@@ -86,7 +86,7 @@ foo(a);
 
 #### 原因二：用来计数的循环遍历泄露为全局变量
 
-```js
+```javascript
 var arr = []
 for(var i = 0; i < 10; i++){
     arr[i] = function(){
@@ -101,7 +101,7 @@ console.log(arr[5]());
 
 **解决循环计数问题**
 
-```js
+```javascript
 //解决方式一：使用闭包
 var arr = []
 for(var i = 0; i < 10; i++){
@@ -127,7 +127,7 @@ for(let i = 0; i < 10; i++){
 
 这意味着，`const`一旦声明变量，就必须立即初始化，不能留到以后赋值。对于`const`来说，只声明不赋值，就会报错。
 
-```js
+```javascript
 const a = 10;
 a = 20;//报错
 
@@ -149,7 +149,7 @@ const b; //报错
 
 传统的 JavaScript 语言，输出模板通常是这样写的
 
-```js
+```javascript
 const oBox = document.querySelector('.box');
 // 模板字符串
 let id = 1,name = '小马哥';
@@ -160,7 +160,7 @@ oBox.innerHTML = htmlTel;
 
 上面的这种写法相当繁琐不方便,ES6引入了模板字符串解决这个问题
 
-```js
+```javascript
 let htmlTel = `<ul>
     <li>
     <p>id:${id}</p>
@@ -180,7 +180,7 @@ let htmlTel = `<ul>
 
 在以前，为变量赋值，只能直接指定值
 
-```js
+```javascript
 let a = 1;
 let b = 2;
 let c = 3;
@@ -189,14 +189,14 @@ let c = 3;
 
 ES6允许我们这样写:
 
-```js
+```javascript
 let [a,b,c] = [1,2,3];
  
 ```
 
 > 如果解构不成功，变量的值就等于`undefined`
 
-```js
+```javascript
 let [foo] = [];
 let [bar, foo] = [1];
  
@@ -207,7 +207,7 @@ foo`的值都会等于`undefined
 
 解构可以用于对象
 
-```js
+```javascript
 let node = {
     type:'identifier',
     name:'foo'
@@ -247,7 +247,7 @@ let {a,b = 10} = {a:20};
 
 直接看例子
 
-```js
+```javascript
 function add([x, y]){
   return x + y;
 }
@@ -258,7 +258,7 @@ add([1, 2]); // 3
 
 使用默认值
 
-```js
+```javascript
 function addCart(n,num=0){
     
     return n+num;
@@ -272,7 +272,7 @@ addCart(10,20); //30
 
 - 交换变量的值
 
-  ```js
+  ```javascript
   let x = 1;
   let y = 2;
   let [x,y] = [y,x];
@@ -285,7 +285,7 @@ addCart(10,20); //30
 
   函数只能返回一个值，如果要返回多个值，只能将它们放在数组或对象里返回。有了解构赋值，取出这些值就非常方便。
 
-  ```js
+  ```javascript
   // 返回一个数组
   
   function example() {
@@ -309,7 +309,7 @@ addCart(10,20); //30
 
   解构赋值可以方便地将一组参数与变量名对应起来。
 
-  ```js
+  ```javascript
   // 参数是一组有次序的值
   function f([x, y, z]) { ... }
   f([1, 2, 3]);
@@ -357,7 +357,7 @@ addCart(10,20); //30
 
 ES6之前，不能直接为函数的参数指定默认值，只能采用变通的方法
 
-```js
+```javascript
 function log(x,y){
     y = y || 'world';
     console.log(x,y);
@@ -441,7 +441,7 @@ m2({z: 3}) // [undefined, undefined]
 
 ES6 引入 rest 参数（形式为`...变量名`），用于获取函数的多余参数，这样就不需要使用`arguments`对象了。rest 参数搭配的变量是一个数组，该变量将多余的参数放入数组中。
 
-```js
+```javascript
 function add(...values) {
  
   let sum = 0;
@@ -463,7 +463,7 @@ add(2, 5, 3) // 10
 
 ES6允许使用箭头`=>`定义函数
 
-```js
+```javascript
 let f = v=>v;
 //等同于
 let f = function(v){
@@ -496,7 +496,7 @@ let obj = getId(1);
 
 - 使表达更加简洁
 
-  ```js
+  ```javascript
   const isEven = n => n % 2 == 0;
   const square = n => n * n;
    
@@ -590,7 +590,7 @@ let obj = getId(1);
 
 ### 属性的简洁表示法
 
-```js
+```javascript
 const name = '张三';
 const age = 19;
 const person = {
@@ -858,7 +858,7 @@ getJSON('https://free-api.heweather.net/s6/weather/now?location=beijing&key=4693
 
 `resolve()`方法将现有对象转换成Promise对象，该实例的状态为fulfilled
 
-```js
+```javascript
 let p = Promise.resolve('foo');
 //等价于 new Promise(resolve=>resolve('foo'));
 p.then((val)=>{
@@ -871,7 +871,7 @@ p.then((val)=>{
 
 `reject()`方法返回一个新的Promise实例，该实例的状态为rejected
 
-```js
+```javascript
 let p2 = Promise.reject(new Error('出错了'));
 //等价于 let p2 = new Promise((resolve,reject)=>reject(new Error('出错了)));
 p2.catch(err => {
@@ -886,7 +886,7 @@ all()方法提供了并行执行异步操作的能力，并且再所有异步操
 
 试想一个页面聊天系统，我们需要从两个不同的URL分别获得用户的的个人信息和好友列表，这两个任务是可以并行执行的，用Promise.all实现如下
 
-```js
+```javascript
 let meInfoPro = new Promise( (resolve, reject)=> {
     setTimeout(resolve, 500, 'P1');
 });
@@ -1095,7 +1095,7 @@ const makeRequest = async () => {
 
 下面示例中，需要获取数据，然后根据返回数据决定是直接返回，还是继续获取更多的数据。
 
-```js
+```javascript
 const makeRequest = () => {
   return getJSON()
     .then(data => {
@@ -1116,7 +1116,7 @@ const makeRequest = () => {
 
 代码嵌套（6层）可读性较差，它们传达的意思只是需要将最终结果传递到最外层的Promise。使用async/await编写可以大大地提高可读性:
 
-```js
+```javascript
 const makeRequest = async () => {
   const data = await getJSON()
   if (data.needsAnotherRequest) {
@@ -1137,7 +1137,7 @@ const makeRequest = async () => {
 
 JavaScript语言中，生成实例对象的传统方法是通过构造函数
 
-```js
+```javascript
 function Person(name,age) {
     this.name = name;
     this.age = age;
@@ -1161,7 +1161,7 @@ ES6 提供了更接近传统语言的写法，引入了 Class（类）这个概�
 # await补充
 > await关键字修饰的一定是一个Promise对象，如果不是JS内部会对该值进行封装，封装为一个Promise对象，Promise内部resolve的返回值，就是await修饰后的Promise的返回值，如果Promise内部reject了，就会抛出异常，这时就可以使用try catch进行捕获。
 
-```js
+```javascript
 class Person {
     // constructor方法 是类的默认方法,通过new命令生成对象实例时,自动调用该方法,一个类必须有constructor方法,如果没有定义,会被默认添加
     constructor(name, age) {
@@ -1180,7 +1180,7 @@ console.log(Person===Person.prototype.constructor)
 
 ### 继承
 
-```js
+```javascript
 class Animal {
     constructor(name, age) {
         this.name = name;
@@ -1233,7 +1233,7 @@ ES6 模块的设计思想是尽量的静态化，使得编译时就能确定模�
 
 一个模块就是一个独立的文件。该文件内部的所有变量，外部无法获取。如果你希望外部能够读取模块内部的某个变量，就必须使用`export`关键字输出该变量
 
-```js
+```javascript
 //module/index.js
 export const name = 'zhangsan ';
 export const age = 18;

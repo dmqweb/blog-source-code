@@ -39,7 +39,7 @@ history.pushState和history.replaceState方法，会改变地址栏的但不进�
 
 ###### router-view实现路由展示：
 
-```js
+```javascript
 import { defineComponent } from vue;
 import Home from '../views/Home';  //导入默认的全部组件
 const routerView =  defineComponent({

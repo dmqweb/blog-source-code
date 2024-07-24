@@ -55,13 +55,13 @@ type: "friends"
   color: "red"
       # 多链接参考 yaml 列表格式
 - site: 迷度博客
-  owner: 
+  owner: 迷度
   url: https://justjavac.com/
   desc: 迷度博客网站
   image: https://picsum.photos/200/200?19
   color: "red"
 # 多链接参考 yaml 列表格式
-- site: 张洪Heo
+- site: 
   owner: 张洪
   url: https://blog.zhheo.com/
   desc: 分享设计与科技生活
@@ -69,19 +69,41 @@ type: "friends"
   color: 
 # 多链接参考 yaml 列表格式
 
-- site: 特立独行的异类
-  owner: 异类
-  url: https://demochen.com/
-  desc: 引入变量，跳出死循环，从不确定性中获益。
-  image: https://demochen.com/images/avatar.png
-  color: 
+- site: robinwieruch
+  owner: robinwieruch
+  url: https://www.robinwieruch.de/next-server-actions-fetch-data/
+  desc: 国外Next.js大佬
+  image: https://picsum.photos/200/200?20
+  color: "blue"
 # 多链接参考 yaml 列表格式
 
-- site: 东评西就
-  owner: 东评西就
-  url: https://dongjunke.cn/
-  desc: 小饿，专注科技互联网、社交媒体运营。
-  image: https://pic.yunshusong.cn/upic/20230204122856.jpg
-  color: 
+- site: overreacted
+  owner: overreacted
+  url: https://overreacted.io/
+  desc: 国外react大佬
+  image: https://picsum.photos/200/200?21
+  color: "green"
 # 多链接参考 yaml 列表格式
+- site: AI时代前端引领
+  owner: medium
+  url: https://medium.com/@_ericelliott
+  desc: AI时代前端引领
+  image: https://picsum.photos/200/200?22
+  color: "pink"
+# 多链接参考 yaml 列表格式
+- site: mariusschulz
+  owner: mariusschulz
+  url: https://mariusschulz.com/
+  desc: 国外著名react讲师
+  image: https://picsum.photos/200/200?23
+  color: "gray"
+# 多链接参考 yaml 列表格式
+- site: jakearchibald
+  owner: jakearchibald
+  url: https://jakearchibald.com/
+  desc: 国外HTML深入
+  image: https://picsum.photos/200/200?24
+  color: "black"
+# 多链接参考 yaml 列表格式
+
 {% endlinks %}

@@ -13,7 +13,7 @@ tags:
 
 代码如下:
 
-```js
+```javascript
 function myEach(obj,fn,context=window){
     //类型判断
     if(typeof obj !== 'object'){

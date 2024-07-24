@@ -158,7 +158,7 @@ jQuery是一个快速的、简洁的JavaScript框架（库），它的宗旨“ 
 
 
 
-```js
+```javascript
 $("h1")   //document.querySelectorAll()
 $(".tit")
 ```
@@ -239,7 +239,7 @@ jQuery选择器虽然很多，但是选择器之间可以相互替代，就是�
 
 jQuery事件是把DOM当中常用的事件进行了一个封装，成了一个方法来调用
 
-```js
+```javascript
 $(".tit").click(function(){
     //回调函数就是当你的事件触发的时候要执行的事情
 })
@@ -255,7 +255,7 @@ $(".tit").click(function(){
 
 对于不常用的事件，jQ提供了一个on方法来实现绑定
 
-```js
+```javascript
 $("#btn").on("click",function(){
     console.log("呵呵呵呵")
 })
@@ -288,14 +288,14 @@ jQuery事件委托通过on方法实现
 
 jQuery使用off方法
 
-```js
+```javascript
 $("css选择器").off("事件类型",函数名)
 //如果没有写函数名，就移除所有
 ```
 
 ## jQuery单次事件
 
-```js
+```javascript
 //原生写法
 document.querySelector("#btn").addEventListener("click",function(){
 	console.log("我被点了");
@@ -322,7 +322,7 @@ $("#btn").one("click",function(){
 
 4、animate() 自定义动画方法
 
-```js
+```javascript
 $(".switch").click(function(){
     $(".box").animate({
         "width":"500px",
@@ -347,13 +347,13 @@ $(".switch").click(function(){
 
 #### 获取样式
 
-```js
+```javascript
 var a = $(".box").css("width");
 ```
 
 #### 设置样式（hover时传入两个函数，移入移出事件）
 
-```js
+```javascript
 
 $(".box").hover(function(){
     $(this).css({
@@ -399,7 +399,7 @@ $("div").css("background-color");
 
 ## class操作（2）
 
-```js
+```javascript
 //name：需要添加的样式类名，注意参数不要带点.
 addClass(name);
 //例子,给所有的div添加one的样式。
@@ -426,7 +426,7 @@ mouseenter
 $("li").mouseenter(function(){
     //this:为当前的都dom对象， $(this)转换为jquery对象
 
-```js
+```javascript
 console.log($(this).text());
 ```
 
@@ -434,7 +434,7 @@ console.log($(this).text());
 
 1、html() 等价原生DOM中的innerHTML属性
 
-```js
+```javascript
 $(".box").html("<h1>哈哈</h1>")  //传参表示赋值
 $(".box").html()   //取值
 ```
@@ -447,7 +447,7 @@ $(".box").html()   //取值
 
 4、attr()  操作标签属性
 
-```js
+```javascript
 $("input").attr("type");
 $("input").attr("type","password")   //注意低版本无法设置type属性
 ```
@@ -456,7 +456,7 @@ $("input").attr("type","password")   //注意低版本无法设置type属性
 
 6、prop() 对标签的单属性进行操作
 
-```js
+```javascript
 $("input").prop("checked",false)
 ```
 
@@ -528,7 +528,7 @@ $("input").prop("checked",false)
 
 优化一下
 
-```js
+```javascript
 document.addEventListener("DOMContentLoaded",function(){
     $("#btn").click(function(){
         console.log("haha")
@@ -542,7 +542,7 @@ document.addEventListener("DOMContentLoaded",function(){
 
 而上面这套写法，在JQ当中有一个专门函数叫做**文档就绪函数**
 
-```js
+```javascript
 $(document).ready(function(){
     $("#btn").click(function(){
         console.log("haha")
@@ -552,7 +552,7 @@ $(document).ready(function(){
 
 进一步简化
 
-```js
+```javascript
 $(function(){
     $("#btn").click(function(){
         console.log("haha")
@@ -568,7 +568,7 @@ $(function(){
 
 我们自己封装过一套ajax请求，JQ也有自己封装的
 
-```js
+```javascript
 $.ajax({
 	async:true,               //是否异步，默认false
 	type:"get",               //请求方法，默认是get
@@ -585,7 +585,7 @@ $.ajax({
 
 JQ自己也觉得上面的写法很麻烦，所以由简化了一下
 
-```js
+```javascript
 $.get(url,function(data){
 
 })
@@ -597,13 +597,13 @@ $.post(url, data, function(response) {
 
 
 
-```js
+```javascript
 $.extend  === Array.prototype.abc
 ```
 
 ajax的封装方法中有xhr对象，此对象指向自己，施一公xhr.upload.onprogress方法创建一个函数，可以生成进度条样式（通过e.loaded和e.total，函数事件中内置的属性）
 
-```js
+```javascript
 $.extend  === Array.prototype.abc
 ```
 
@@ -613,7 +613,7 @@ $.extend  === Array.prototype.abc
 
 1、`each()` 方法
 
-```js
+```javascript
 $(".ul1>li").each(function(index,ele){
     console.log(index,ele);
 })
@@ -621,7 +621,7 @@ $(".ul1>li").each(function(index,ele){
 
 选取元素之后，可以直接进行遍历，回调函数里面的第一个参数代表索引，第二个参数表单当前遍历的元素
 
-```js
+```javascript
 var result = $(".ul1>li");
 $.each(result,function(index,ele){
 	console.log(index,ele);
@@ -632,7 +632,7 @@ $.each(result,function(index,ele){
 
 2、`toArray()`  可以把Jquery选择操作的对象转换成一个数组
 
-```js
+```javascript
 $(".ul1>li").toArray();   //这个时候就变成了一个数组
 ```
 
@@ -640,7 +640,7 @@ $(".ul1>li").toArray();   //这个时候就变成了一个数组
 
 3、`makeArray()` 可以将任何类数组转换成数组
 
-```js
+```javascript
 var lis = document.querySeletorAll(".ul1>li")    //得到是一个NodeList类型的类数组
 ```
 
@@ -648,19 +648,19 @@ var lis = document.querySeletorAll(".ul1>li")    //得到是一个NodeList类型
 
 **第一种**
 
-```js
+```javascript
 var arr = Array.prototype.slice.call(lis);
 ```
 
 **第二种**
 
-```js
+```javascript
 var arr = $(lis).toArray();
 ```
 
 **第三种**
 
-```js
+```javascript
 var arr = $.makeArray(lis);
 ```
 
@@ -672,7 +672,7 @@ on的使用
 
 **第一种方式**
 
-```js
+```javascript
 $("#btn1").on("click",function(){
 	console.log("单击事件")
 })
@@ -688,7 +688,7 @@ $("#btn1").on("mouseup",function(){
 
 **第二种写法**
 
-```js
+```javascript
 $("#btn1").on({
 	click: function(){
 		console.log("单击事件")
@@ -712,7 +712,7 @@ attribute：在web前端中指的是HTML的属性
 
 property：在web前端中指的是对象的属性
 
-```js
+```javascript
 $("#input1").attr("type");
 $("#input1").prop("checked",false);
 ```
@@ -736,7 +736,7 @@ $("#input1").prop("checked",false);
 
 **JQuery对象转换成DOM**
 
-```js
+```javascript
 btn2[0];
 $("#btn1")[0];   //这样就得到了原生的DOM对象
 //接下来就可以操作对应的原生的js方法
@@ -744,7 +744,7 @@ $("#btn1")[0];   //这样就得到了原生的DOM对象
 
 **普通DOM对象转成JQuery对象**
 
-```js
+```javascript
 $(btn1);   //这样就得到了JQuery的操作对象
 //只要得到了就可以使用JQ方法进行操作
 $(btn1).text();
@@ -760,7 +760,7 @@ JQuery当中的事件对象并不是原生的事件对象，而是经过JQuery�
 
 1、JQuery的事件对象不需要做兼容性的处理，因为在框架内部就已经了处理了
 
-```js
+```javascript
 //原生的DOM事件对象
 event = event || window.event;
 //而JQuery里面，直接使用event就好了
@@ -768,7 +768,7 @@ event = event || window.event;
 
 2、JQuery事件对象上面的 `stopPropagtion()` 它自己封装的方法，它不是原生的事件对象的方法，所以在停止事件冒泡与取消事件传播的时候，直接调用这一个方法就行了
 
-```js
+```javascript
 //原生DOM的事件里面，取消事件传播与冒泡
 event.cancelBubble = true；    //IE
 event.stopPropagtion();       //W3c
@@ -779,7 +779,7 @@ event.stopPropagtion();
 
 3、JQuery事件对象里面，如果要阻止事件的默认行为也是 `event.preventDefault()` ,而在原生DOM对象里面，0级使用 `return false` 2级事件使用 `event.preventDefault()`
 
-```js
+```javascript
 //原生DOM
 //0级事件
 //在事件方法的最后添加
@@ -797,7 +797,7 @@ event.preventDefault()
 
 7、因为JQuery事件是2级事件可以实现多次监听，这样在触发的时候会同时调用所有监听的方法，这时候会形成事件链，在JQuery当中提供了一个排他的特性，它是 `event.stopImmediatePropagation()`
 
-```js
+```javascript
 $("#btn1").on("click",function(){
     console.log("我是第一次")
 }).on("click",function(event){
@@ -852,7 +852,7 @@ $("#btn1").on("click",function(){
 
 总的来说，它的格式因该是如下
 
-```js
+```javascript
 $(委托者).on(事件类型，事件绑定者,function(){
 	//这里面可以找到真正的target触发者
 })
@@ -862,7 +862,7 @@ $(委托者).on(事件类型，事件绑定者,function(){
 
 #### JQuery 方法中的this
 
-```js
+```javascript
 $(".box").on("click",".small-box",function(){
     console.log(this);          //small-box
 })
@@ -876,7 +876,7 @@ JQuery里面的事件当中的this永远指向谁事件的绑定者  `event.curr
 
 Jquery当中的this的一种特殊用法，它可以直接通过选择器选取以后再操作
 
-```js
+```javascript
 $(this)   //这就相当于对当前元素选取之后再操作
 ```
 
@@ -1007,7 +1007,7 @@ a{
 
 jQuery.contextmenu.js
 
-```js
+```javascript
 (function($){
 	if(typeof $ == undefined){
 		throw new Error("jQuery is not defined");

@@ -50,7 +50,7 @@ tags:
 
 ## serviceWorker.js
 
-```js
+```javascript
 //serviceWorker是基于事件驱动的。
 //serviceWorker安装事件
 self.addEventListener('install',event=>{

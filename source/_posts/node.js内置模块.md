@@ -33,7 +33,7 @@ Node.js 应用由模块组成，采用 CommonJS 模块规范。Node.js中的模�
 
 ### 内置模块
 
-```js
+```javascript
 const process = require('process');
 const path = require('path');
 
@@ -69,7 +69,7 @@ require方法用于加载模块。
 
 ### require 加载第三方包的机制
 
-```js
+```javascript
 const express = require('express');
 ```
 
@@ -89,7 +89,7 @@ require 加载第三方包的机制：
 
 举例：
 
-```js
+```javascript
 var example = require('./example.js');
 console.log(example.x); // 5
 console.log(example.addX(1)); // 6
@@ -114,7 +114,7 @@ console.log(example.addX(1)); // 6
 
 代码如下所示，只有几行，但包含了不少信息量。下一小节会进行简单介绍。
 
-```js
+```javascript
 var http = require('http');
 
 // http server 例子
@@ -161,7 +161,7 @@ http模块四剑客之一的`res`，应该都不陌生了。一个web服务程�
 
 返回的内容包括：状态代码/状态描述信息、响应头部、响应主体。下文会举几个简单的例子。
 
-```js
+```javascript
 var http = require('http');
 var server = http.createServer(function(req, res){
     res.end('ok');
@@ -173,7 +173,7 @@ server.listen(3000);
 
 在下面的例子中，我们同时设置了 状态代码/状态描述信息、响应头部、响应主体，就是这么简单。
 
-```js
+```javascript
 var http = require('http');
 
 // 设置状态码、状态描述信息、响应主体
@@ -193,13 +193,13 @@ server.listen(3000);
 
 举例，如果想要设置 200/ok ，可以
 
-```js
+```javascript
 res.writeHead(200, 'ok');
 ```
 
 也可以
 
-```js
+```javascript
 res.statusCode = 200;
 res.statusMessage = 'ok';
 ```
@@ -215,7 +215,7 @@ res.statusMessage = 'ok';
 
 举例，比如想把 `Content-Type` 设置为 `text-plain`，那么可以
 
-```js
+```javascript
 // 方法一
 res.writeHead(200, 'ok', {
     'Content-Type': 'text-plain'
@@ -232,7 +232,7 @@ res.setHeader('Content-Type', 'text-plain');
 
 关于第2点差异，这里举个例子。下面代码，最终的 `Content-Type` 为 `text/plain`。
 
-```js
+```javascript
 var http = require('http');
 
 var server = http.createServer(function(req, res){
@@ -248,7 +248,7 @@ server.listen(3000);
 
 而下面的例子，则直接报错。报错信息为 `Error: Can't set headers after they are sent.`。
 
-```js
+```javascript
 var http = require('http');
 
 var server = http.createServer(function(req, res){    
@@ -266,7 +266,7 @@ server.listen(3000);
 
 增、删、改、查 是配套的。下面分别举例说明下，例子太简单就直接上代码了。
 
-```js
+```javascript
 // 增
 res.setHeader('Content-Type', 'text/plain');
 
@@ -283,7 +283,7 @@ res.getHeader('content-type');
 
 其中略显不同的是 res.getHeader(name)，name 用的是小写，返回值没做特殊处理。
 
-```js
+```javascript
 res.setHeader('Content-Type', 'TEXT/HTML');
 console.log( res.getHeader('content-type') );  // TEXT/HTML
 
@@ -322,7 +322,7 @@ res.write() API的信息量略大，建议看下[官方文档](https://nodejs.or
 
 有点像个语法糖，可以看成下面两个调用的组合。至于callback，当响应传递结束后触发。
 
-```js
+```javascript
 res.write(data, encoding);
 res.end()
 ```
@@ -358,7 +358,7 @@ res.end()
 
 服务端例子：
 
-```js
+```javascript
 // 下面的 req
 var http = require('http');
 var server = http.createServer(function(req, res){
@@ -370,7 +370,7 @@ server.listen(3000);
 
 客户端例子
 
-```js
+```javascript
 // 下面的res
 var http = require('http');
 http.get('http://127.0.0.1:3000', function(res){
@@ -414,7 +414,7 @@ Cache-Control: no-cache
 
 那么，如何获取上面提到的信息呢？很简单，直接上代码
 
-```js
+```javascript
 // getClientInfo.js
 var http = require('http');
 
@@ -443,7 +443,7 @@ server.listen(3000);
 
 服务端代码如下：
 
-```js
+```javascript
 // getClientGetQuery.js
 var http = require('http');
 var url = require('url');
@@ -474,7 +474,7 @@ server.listen(3000);
 
 服务端代码如下
 
-```js
+```javascript
 // getClientPostBody.js
 var http = require('http');
 var url = require('url');
@@ -540,7 +540,7 @@ nick=casper&hello=world
 
 跟http模块的用法非常像，只不过请求的地址是https协议的而已，代码如下：
 
-```js
+```javascript
 var https = require('https');
 
 https.get('https://www.baidu.com', function(res){
@@ -597,7 +597,7 @@ openssl x509 \
 
 代码如下：
 
-```js
+```javascript
 var https = require('https');
 var fs = require('fs');
 
@@ -645,7 +645,7 @@ server.listen(3000);
 
 可以看出来，只有三个字段不同，分别是`query`,`path`,`origin`
 
-```js
+```javascript
 打印两个对象的输出
 
 // url模块，url.parse('link')
@@ -688,7 +688,7 @@ server.listen(3000);
 
 `URL()`作为构造函数，可以生成 URL 实例。它接受一个表示 URL 的字符串作为参数。如果参数不是合法的 URL，会报错。
 
-```js
+```javascript
 var url = new URL('http://www.example.com/index.html');
 url.href
 // "http://www.example.com/index.html"
@@ -700,7 +700,7 @@ url.href
 
 如果 URL 字符串是一个相对路径，那么需要表示绝对路径的第二个参数，作为计算基准。
 
-```js
+```javascript
 var url1 = new URL('index.html', 'http://example.com');
 url1.href
 // "http://example.com/index.html"
@@ -733,7 +733,7 @@ URL 实例的属性与`Location`对象的属性基本一致，返回当前 URL �
 - URL.password：返回域名前面的密码
 - URL.username：返回域名前面的用户名
 
-```js
+```javascript
 var url = new URL('http://user:passwd@www.example.com:4097/path/a.html?x=111#part1');
 
 url.href
@@ -764,7 +764,7 @@ url.username
 
 这些属性里面，只有`origin`属性是只读的，其他属性都可写，并且会立即生效。
 
-```js
+```javascript
 var url = new URL('http://example.com/index.html#part1');
 
 url.pathname = 'index2.html';
@@ -790,7 +790,7 @@ url.href // "http://example.com/index2.html#part2"
 
 它本身也是一个构造函数，可以生成实例。参数可以为查询字符串，起首的问号`?`有没有都行，也可以是对应查询字符串的数组或对象。
 
-```js
+```javascript
 // 方法一：传入字符串
 var params = new URLSearchParams('?foo=1&bar=2');
 // 等同于
@@ -805,7 +805,7 @@ var params = new URLSearchParams({'foo' : 1 , 'bar' : 2});
 
 `URLSearchParams`会对查询字符串自动编码。
 
-```js
+```javascript
 var params = new URLSearchParams({'foo': '你好'});
 params.toString() // "foo=%E4%BD%A0%E5%A5%BD"
 ```
@@ -814,7 +814,7 @@ params.toString() // "foo=%E4%BD%A0%E5%A5%BD"
 
 浏览器向服务器发送表单数据时，可以直接使用`URLSearchParams`实例作为表单数据。
 
-```js
+```javascript
 const params = new URLSearchParams({foo: 1, bar: 2});
 fetch('https://example.com/api', {
   method: 'POST',
@@ -826,7 +826,7 @@ fetch('https://example.com/api', {
 
 `URLSearchParams`可以与`URL()`接口结合使用。
 
-```js
+```javascript
 var url = new URL(window.location);
 var foo = url.searchParams.get('foo') || 'somedefault';
 ```
@@ -835,7 +835,7 @@ var foo = url.searchParams.get('foo') || 'somedefault';
 
 `URLSearchParams`实例有遍历器接口，可以用`for...of`循环遍历。
 
-```js
+```javascript
 var params = new URLSearchParams({'foo': 1 , 'bar': 2});
 
 for (var p of params) {
@@ -851,7 +851,7 @@ for (var p of params) {
 
 `toString`方法返回实例的字符串形式。
 
-```js
+```javascript
 var url = new URL('https://example.com?foo=1&bar=2');
 var params = new URLSearchParams(url.search);
 
@@ -860,7 +860,7 @@ params.toString() // "foo=1&bar=2'
 
 那么需要字符串的场合，会自动调用`toString`方法。
 
-```js
+```javascript
 var params = new URLSearchParams({version: 2.0});
 window.location.href = location.pathname + '?' + params;
 ```
@@ -871,7 +871,7 @@ window.location.href = location.pathname + '?' + params;
 
 `has()`方法返回一个布尔值，表示查询字符串是否包含指定的键名。
 
-```js
+```javascript
 var params = new URLSearchParams({'foo': 1 , 'bar': 2});
 params.has('bar') // true
 params.has('baz') // false
@@ -881,7 +881,7 @@ params.has('baz') // false
 
 `get()`方法用来读取查询字符串里面的指定键。它接受键名作为参数。
 
-```js
+```javascript
 var params = new URLSearchParams('?foo=1');
 params.get('foo') // "1"
 params.get('bar') // null
@@ -891,7 +891,7 @@ params.get('bar') // null
 
 如果有多个的同名键，`get`返回位置最前面的那个键值。
 
-```js
+```javascript
 var params = new URLSearchParams('?foo=3&foo=2&foo=1');
 params.get('foo') // "3"
 ```
@@ -900,7 +900,7 @@ params.get('foo') // "3"
 
 `getAll()`方法返回一个数组，成员是指定键的所有键值。它接受键名作为参数。
 
-```js
+```javascript
 var params = new URLSearchParams('?foo=1&foo=2');
 params.getAll('foo') // ["1", "2"]
 ```
@@ -911,7 +911,7 @@ params.getAll('foo') // ["1", "2"]
 
 这三个方法都返回一个遍历器对象，供`for...of`循环遍历。它们的区别在于，`keys`方法返回的是键名的遍历器，`values`方法返回的是键值的遍历器，`entries`返回的是键值对的遍历器。
 
-```js
+```javascript
 var params = new URLSearchParams('a=1&b=2');
 
 for(var p of params.keys()) {
@@ -935,7 +935,7 @@ for(var p of params.entries()) {
 
 如果直接对`URLSearchParams`进行遍历，其实内部调用的就是`entries`接口。
 
-```js
+```javascript
 for (var p of params) {}
 // 等同于
 for (var p of params.entries()) {}
@@ -962,7 +962,7 @@ console.log(a);
 // username=admin&password=123456
 ```
 
-```js
+```javascript
 qs.stringify() 和JSON.stringify()有什么区别?
 
 var a = {name:'hehe',age:10};
@@ -1071,7 +1071,7 @@ path.extname('.index')
 
 语法格式：
 
-```js
+```javascript
 path.resolve([...myPaths])
 ```
 
@@ -1084,7 +1084,7 @@ path.resolve([...myPaths])
 
 代码举例：
 
-```js
+```javascript
 const path = require('path');
 
 let arr1 = ['/foo1/foo2', 'dselegent', 'foo3'];
@@ -1127,7 +1127,7 @@ console.log( path.resolve('www', 'js/upload', '../mod.js') );
 
 语法格式：
 
-```js
+```javascript
 path.join([...paths]);
 ```
 
@@ -1135,7 +1135,7 @@ path.join([...paths]);
 
 代码举例：
 
-```js
+```javascript
 const path = require('path');
 
 const result1 = path.join(__dirname, './app.js');
@@ -1154,7 +1154,7 @@ path.resolve 和 path.join 都是属于 path 核心模块下的方法，用来�
 
 都可以拼接成一个完整路径.
 
-```js
+```javascript
 const path = require("path");
 
 var dirname = '/User/Desktop';
@@ -1199,7 +1199,7 @@ path.resolve(dirname, basename);  // /abc.txt
 
 代码举例：
 
-```js
+```javascript
 console.log(__dirname);
 
 console.log(__filename);
@@ -1275,7 +1275,7 @@ fs.readFile('./fileForRead.txt', 'utf8', function(err, data){
 > **fs/promises 从 Node.js 14 开始可用**
 > 从 Node.js 14 开始，fs 模块提供了两种使用基于 promises 的文件系统的方法。这些 promises 可以通过 `require('fs').promises` 或 `require('fs/promises') `获得。
 
-```js
+```javascript
 import { readFile } from 'fs/promises';
 
 try {
@@ -1316,7 +1316,7 @@ try{
 
 **promises**
 
-```js
+```javascript
 import { writeFile } from 'fs/promises';
 
 try {
@@ -1334,7 +1334,7 @@ try {
 
 **异步本**
 
-```js
+```javascript
 const fs = require('fs')
 
 //检查文件是否存在于当前目录中
@@ -1361,7 +1361,7 @@ fs.access('index.js', fs.constants.F_OK, err => {
 
 **同步**
 
-````js
+````javascript
 import { accessSync, constants } from 'fs';
 
 try {
@@ -1374,7 +1374,7 @@ try {
 
 **promises**
 
-```js
+```javascript
 import { access, constants } from 'node:fs/promises';
 
 try {
@@ -1400,7 +1400,7 @@ fs.unlink('./fileForUnlink.txt', function(err){
 
 **同步版本**
 
-```js
+```javascript
 import { unlinkSync } from 'fs';
 
 try {
@@ -1413,7 +1413,7 @@ try {
 
 **promises**
 
-```js
+```javascript
 import { unlink } from 'fs/promises';
 
 try {
@@ -1454,7 +1454,7 @@ try{
 
 **promises**
 
-```js
+```javascript
 import { mkdir } from 'fs/promises';
 
 try {
@@ -1469,7 +1469,7 @@ try {
 
 同步版本，注意：`fs.readdirSync()`只会读一层，所以需要判断文件类型是否目录，如果是，则进行递归遍历。
 
-```js
+```javascript
 // fs.readdirSync(path[, options])
 
 var fs = require('fs');
@@ -1502,7 +1502,7 @@ console.log(files);
 
 ### 2.7 读取目录
 
-```js
+```javascript
 import { readdir } from 'fs/promises';
 
 try {
@@ -1516,7 +1516,7 @@ try {
 
 ### 2.8 删除目录
 
-```js
+```javascript
 // 删除目录(前提没有文件在里面)
 fs.rmdir('./avatar', err => {
   if (err && err.code === 'ENOENT') {
@@ -1527,7 +1527,7 @@ fs.rmdir('./avatar', err => {
 
 ### 2.9 删除整个目录
 
-```js
+```javascript
 //1
 const fs = require("fs")
 fs.("./avatar",(err,data)=>{
@@ -1576,7 +1576,7 @@ fs.rename('./hello', './world', function(err){
 
 **同步版本**
 
-````js
+````javascript
 // fs.renameSync(oldPath, newPath)
 var fs = require('fs');
 
@@ -1585,7 +1585,7 @@ fs.renameSync('./world', './hello');
 
 **promises**
 
-```js
+```javascript
 import { rename } from 'fs/promises';
 
 try {
@@ -1609,7 +1609,7 @@ try {
 - stats.isFile() -- 是否文件
 - stats.isDirectory() -- 是否目录
 
-```js
+```javascript
 // Node.js program to demonstrate the 
 // fs.statSync() method 
   
@@ -1633,7 +1633,7 @@ console.log("Path is directory:", statsObj.isDirectory());
 
 输出：
 
-```js
+```javascript
 Stats {
   dev:3229478529,
   mode:33206,
@@ -1954,7 +1954,7 @@ readstream.pipe(gunzip).pipe(writestream);
 - 否：返回未压缩的文件。
 - 是：返回gzip压缩后的文件。
 
-```js
+```javascript
 var http = require('http');
 var zlib = require('zlib');
 var fs = require('fs');
@@ -2043,7 +2043,7 @@ hash.digest([encoding])：计算摘要。encoding可以是`hex`、`latin1`或者
 
 hash.update(data[, input_encoding])：input_encoding可以是`utf8`、`ascii`或者`latin1`。如果data是字符串，且没有指定 input_encoding，则默认是`utf8`。注意，hash.update()方法可以调用多次。
 
-```js
+```javascript
 var crypto = require('crypto');
 var fs = require('fs');
 
@@ -2062,7 +2062,7 @@ console.log(output);
 
 也可以这样：
 
-```js
+```javascript
 var crypto = require('crypto');
 var fs = require('fs');
 
@@ -2079,7 +2079,7 @@ input.pipe(hash).pipe(process.stdout)
 
 hash.digest()后，再次调用digest()或者update()
 
-```js
+```javascript
 var crypto = require('crypto');
 var fs = require('fs');
 
@@ -2105,7 +2105,7 @@ HMAC的全称是Hash-based Message Authentication Code，也即在hash的加盐�
 
 例子1：
 
-```js
+```javascript
 var crypto = require('crypto');
 var fs = require('fs');
 
@@ -2122,7 +2122,7 @@ console.log( hmac.digest('hex') );
 
 例子2：
 
-```js
+```javascript
 var crypto = require('crypto');
 var fs = require('fs');
 
@@ -2259,7 +2259,7 @@ cryptPwd('123456', 'bcd');
 
 **index.js**
 
-```js
+```javascript
 // 启动服务
 const server = require('./server.js');
 //路由模块
@@ -2275,7 +2275,7 @@ server.start();
 
 **server.js**
 
-```js
+```javascript
 const http = require('http');
 
 //创建一个大对象存储所有的路由和api
@@ -2306,7 +2306,7 @@ module.exports = {
 
 **route.js**
 
-```js
+```javascript
 const fs = require('fs');
 
 function render(res, path, type = '') {
@@ -2338,7 +2338,7 @@ module.exports = route;
 
 **api.js**
 
-```js
+```javascript
 function render(res, data, type = '') {
   res.writeHead(200, { 'Content-Type': `${type ? type : 'application/json'};charset=utf8` });
   res.write(data);
@@ -2359,7 +2359,7 @@ module.exports = apiRouter;
 
 **api.js**
 
-```js
+```javascript
 function render(res, data, type = '') {
   res.writeHead(200, { 'Content-Type': `${type ? type : 'application/json'};charset=utf8` });
   res.write(data);
@@ -2411,7 +2411,7 @@ module.exports = apiRouter;
 
 **请求.js**
 
-```js
+```javascript
  login.onclick = () => {
         //get请求
         fetch(`/api/login?username=${username.value}&password=${password.value}`)
@@ -2442,7 +2442,7 @@ module.exports = apiRouter;
 
 **server.js**
 
-```js
+```javascript
 const http = require('http');
 
 const route = {};
@@ -2476,7 +2476,7 @@ module.exports = {
 
 **route.js**
 
-```js
+```javascript
 const fs = require('fs');
 const path = require('path');
 //根据文件后缀名自动获取响应头中content-type

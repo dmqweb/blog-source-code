@@ -33,7 +33,7 @@ tags:
 
 2. 在`db.json`文件中，准备==JSON格式的数据==
 
-   ```json
+   ```javascripton
    {
      "address": [
        {

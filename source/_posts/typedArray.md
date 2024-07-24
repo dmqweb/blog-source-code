@@ -18,7 +18,7 @@ JavaScript 的类型化数组是一种特殊的数组，可以存储和操作固
 
 Int8Array:
 ①只能存储8位有符号整数（-128到127），②使用固定大小的内存来存储数据，每个元素占用一个字节（8位）③元素连续存储
-```js
+```javascript
 // 以长度参数构造对象
 var int8 = new Int8Array(2);
 int8[0] = 42;
@@ -38,7 +38,7 @@ var z = new Int8Array(buffer, 1, 4);
 ```
 还有：Uint8Array等类型
 forEach的回调函数中不传参数
-```js
+```javascript
 const dfs = function(root){
     console.log(root.val,'还好');
     root.children.forEach(dfs);//forEach回调不传参数，默认传的参数就是item项

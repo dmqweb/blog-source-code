@@ -23,7 +23,7 @@ esbuild最显著的作用就是：快。它也是vite和snowpack底层的打包�
 
 # 使用
 
-```js
+```javascript
 const esbuild = require('esbuild');
 /**
  * 利用esbuild生成文件
