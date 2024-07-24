@@ -1837,7 +1837,6 @@ npm install node-addon-api -D #装到项目里
 **cpu.cpp：**
 
 ```c++
-
 #define NAPI_VERSION 3  //指定addon版本
 #define NAPI_CPP_EXCEPTIONS //启用 Node.js N-API 中的 C++ 异常支持
 #include <napi.h>  //addon API

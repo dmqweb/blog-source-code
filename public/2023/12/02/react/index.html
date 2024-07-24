@@ -1,0 +1,1744 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#FFF">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="icon" type="image/ico" sizes="32x32" href="/images/favicon.ico">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+<link rel="alternate" type="application/rss+xml" title="杜明清的个人博客" href="https://dmqweb.cn/rss.xml" />
+<link rel="alternate" type="application/atom+xml" title="杜明清的个人博客" href="https://dmqweb.cn/atom.xml" />
+<link rel="alternate" type="application/json" title="杜明清的个人博客" href="https://dmqweb.cn/feed.json" />
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Mulish:300,300italic,400,400italic,700,700italic%7CFredericka%20the%20Great:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20JP:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CInconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="/css/app.css?v=0.2.5">
+
+  
+  <meta name="keywords" content="react" />
+
+
+<link rel="canonical" href="https://dmqweb.cn/2023/12/02/react/">
+
+
+
+  <title>
+react笔记 - react |
+Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
+  <meta name="keywords" content="前端开发, HTML, CSS, JavaScript, 博客">
+  <meta name="description" content="探索前端开发的无限可能。本博客提供最新的前端知识库，以及实用的开发技巧和最佳实践。加入我们的社区，共同成长。">
+<meta name="generator" content="Hexo 6.3.0"></head>
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div id="loading">
+    <div class="cat">
+      <div class="body"></div>
+      <div class="head">
+        <div class="face"></div>
+      </div>
+      <div class="foot">
+        <div class="tummy-end"></div>
+        <div class="bottom"></div>
+        <div class="legs left"></div>
+        <div class="legs right"></div>
+      </div>
+      <div class="paw">
+        <div class="hands left"></div>
+        <div class="hands right"></div>
+      </div>
+    </div>
+  </div>
+  <div id="container">
+    <header id="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="inner">
+        <div id="brand">
+          <div class="pjax">
+          
+  <h1 itemprop="name headline">react笔记
+  </h1>
+  
+<div class="meta">
+  <span class="item" title="创建时间：2023-12-02 12:24:04">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <span class="text">发表于</span>
+    <time itemprop="dateCreated datePublished" datetime="2023-12-02T12:24:04+08:00">2023-12-02</time>
+  </span>
+  <span class="item" title="本文字数">
+    <span class="icon">
+      <i class="ic i-pen"></i>
+    </span>
+    <span class="text">本文字数</span>
+    <span>26k</span>
+    <span class="text">字</span>
+  </span>
+  <span class="item" title="阅读时长">
+    <span class="icon">
+      <i class="ic i-clock"></i>
+    </span>
+    <span class="text">阅读时长</span>
+    <span>24 分钟</span>
+  </span>
+</div>
+
+
+          </div>
+        </div>
+        <nav id="nav">
+  <div class="inner">
+    <div class="toggle">
+      <div class="lines" aria-label="切换导航栏">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </div>
+    </div>
+    <ul class="menu">
+      <li class="item title"><a href="/" rel="start">Web blog</a></li>
+    </ul>
+    <ul class="right">
+      <li class="item theme">
+        <i class="ic i-sun"></i>
+      </li>
+      <li class="item search">
+        <i class="ic i-search"></i>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+      </div>
+      <div id="imgs" class="pjax">
+        <ul>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/07/2600bb35f2cdf6cf.jpg"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/04/25ef11a84cfafbef.jpg"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/04/4b93d7d24397b567.jpg"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/05/f0ab0ce587c99d2f.webp"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/06/d8aa12b30683676e.jpg"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/25/3fe84aea28b256c7.jpg"></li>
+        </ul>
+      </div>
+    </header>
+    <div id="waves">
+      <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+        <defs>
+          <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+        </defs>
+        <g class="parallax">
+          <use xlink:href="#gentle-wave" x="48" y="0" />
+          <use xlink:href="#gentle-wave" x="48" y="3" />
+          <use xlink:href="#gentle-wave" x="48" y="5" />
+          <use xlink:href="#gentle-wave" x="48" y="7" />
+        </g>
+      </svg>
+    </div>
+    <main>
+      <div class="inner">
+        <div id="main" class="pjax">
+          
+  <div class="article wrap">
+    
+<div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+<i class="ic i-home"></i>
+<span><a href="/">首页</a></span><i class="ic i-angle-right"></i>
+<span  class="current" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/categories/react/" itemprop="item" rel="index" title="分类于 react"><span itemprop="name">react</span></a>
+<meta itemprop="position" content="1" /></span>
+</div>
+
+    <article itemscope itemtype="http://schema.org/Article" class="post block" lang="zh-CN">
+  <link itemprop="mainEntityOfPage" href="https://dmqweb.cn/2023/12/02/react/">
+
+  <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="image" content="/images/avatar.jpg">
+    <meta itemprop="name" content="dmq">
+    <meta itemprop="description" content="👻欢迎一起交流学习👻, ">
+  </span>
+
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="杜明清的个人博客">
+  </span>
+
+  <div class="body md" itemprop="articleBody">
+    
+
+    <h1 id="-"><a class="anchor" href="#-">#</a> ------------------------------------</h1>
+<h1 id="react-官网笔记"><a class="anchor" href="#react-官网笔记">#</a> <span class="exturl" data-url="aHR0cHM6Ly96aC1oYW5zLnJlYWN0LmRldi9sZWFybi95b3UtbWlnaHQtbm90LW5lZWQtYW4tZWZmZWN0">react 官网笔记：</span></h1>
+<h1 id="react-核心价值"><a class="anchor" href="#react-核心价值">#</a> react 核心价值</h1>
+<p>组件化 + 数据驱动视图<br />
+ UI = f (state)</p>
+<h1 id="react-快照-state"><a class="anchor" href="#react-快照-state">#</a> react 快照 state</h1>
+<p>state 就像每次渲染的快照，并且不会同步更新，react 中当 state 状态变化时，当前快照中是获取不到更新后的内容和状态的（因为 react 由于优化需要集中多个进行更新），此时想要操作快照更新之后的操作只能在快照更新之后添加钩子函数。</p>
+<ul>
+<li>使用 useEffect（快照更新之后自动执行钩子）</li>
+<li>类组件可以使用生命周期钩子</li>
+<li>使用条件渲染，根据条件进行不同的处理</li>
+</ul>
+<h1 id="组件透层级传递状态"><a class="anchor" href="#组件透层级传递状态">#</a> 组件透层级传递状态</h1>
+<p>使用 React 的 Context 功能，Context 让父组件可以为它下面的整个组件树提供数据，实现原理是通过发布订阅模式。</p>
+<ol>
+<li>使用 react 中 createContext 方法，创建一个 context 状态，传入状态初始值</li>
+<li>通过 react 的 useContent 方法，传入 context 名称进行状态的消费。</li>
+<li>前提是需要在需要使用到的标签外部包裹创建的 context 组件.Provider&lt;ContextName.Provider value={}&gt;&lt;/ContextName.Provider&gt;</li>
+<li>这将导致在组件内部消费状态时，根据 Provider 的嵌套层级，使用最近的 Provider 的 context 内容。</li>
+</ol>
+<h1 id="react-状态管理"><a class="anchor" href="#react-状态管理">#</a> react 状态管理</h1>
+<h3 id="局部状态管理"><a class="anchor" href="#局部状态管理">#</a> 局部状态管理</h3>
+<p>react 提供了两种状态管理的 hooks，useState 和 useReducer，两者使用场景为：简单的业务可以使用 useState 钩子完成即可，但是如果业务中状态繁琐，频繁使用 useState 就会导致太多状态难以阅读理解，表现和业务耦合在一起，这时使用 useReducer 更好。</p>
+<h3 id="全局状态管理"><a class="anchor" href="#全局状态管理">#</a> 全局状态管理</h3>
+<p>react 中已经有了 useState 和 useReducer 两种状态管理方式，那为什么还要使用 redux 呢？其实只是用 useState 和 useReuder 只能实现局部的状态管理，redux 解决了：</p>
+<ul>
+<li>全局状态管理（多个组件共享状态）</li>
+<li>状态的可预测性（使得状态的变化更加清晰和易于追踪）</li>
+<li>结构化组织代码，提高可维护性</li>
+</ul>
+<h2 id="redux-对比-usereducercontext"><a class="anchor" href="#redux-对比-usereducercontext">#</a> redux 对比 useReducer+Context</h2>
+<ul>
+<li>使用 useReducer 加上 Context 就可以实现一个简易的状态管理仓库了，可以使得子组件之间共享状态</li>
+<li>但是 redux 的好处在于可以集中管理状态，便于追踪</li>
+<li>此外 redux 插件可以帮助调试，redux 的分包管理使得逻辑更加清晰</li>
+</ul>
+<h1 id="useref"><a class="anchor" href="#useref">#</a> useRef</h1>
+<p>useRef 返回一个普通的 javascript 对象，它和 state 一样，react 会在每次渲染之间保留 ref，但是设置 state 会重新渲染组件，更改 ref 不会。</p>
+<p>当一条信息用于渲染时，将他保存在 state 中，当一条信息用于仅仅被事件处理器需要，并且不参与渲染时，使用 ref 更加高效。</p>
+<h3 id="ref-和-state-差异"><a class="anchor" href="#ref-和-state-差异">#</a> ref 和 state 差异</h3>
+<p><strong>useRef 是由 useState 函数进一步封装得到（只使用状态，不使用方法更新视图）：</strong></p>
+<figure class="highlight javascript"><figcaption data-lang="javascript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">function</span> <span class="token function">useRef</span><span class="token punctuation">(</span><span class="token parameter">initialValue</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="2"></td><td><pre>  <span class="token keyword">const</span> <span class="token punctuation">[</span>ref<span class="token punctuation">,</span> unused<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">useState</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span> <span class="token literal-property property">current</span><span class="token operator">:</span> initialValue <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="3"></td><td><pre>  <span class="token keyword">return</span> ref<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr></table></figure><p>大多数情况下，建议使用 state。ref 是一种 “脱围机制”，并不会经常用到它。 以下是 state 和 ref 的对比：</p>
+<table>
+<thead>
+<tr>
+<th>ref</th>
+<th>state</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>useRef(initialValue)</code>  返回  <code>&#123; current: initialValue &#125;</code></td>
+<td><code>useState(initialValue)</code>  返回 state 变量的当前值和一个 state 设置函数 (  <code>[value, setValue]</code> )</td>
+</tr>
+<tr>
+<td>更改时不会触发重新渲染</td>
+<td>更改时触发重新渲染。</td>
+</tr>
+<tr>
+<td>可变 —— 你可以在渲染过程之外修改和更新  <code>current</code>  的值。</td>
+<td>“不可变” —— 你必须使用 state 设置函数来修改 state 变量，从而排队重新渲染。</td>
+</tr>
+<tr>
+<td>你不应在渲染期间读取（或写入）  <code>current</code>  值。</td>
+<td>你可以随时读取 state。但是，每次渲染都有自己不变的 state <span class="exturl" data-url="aHR0cHM6Ly96aC1oYW5zLnJlYWN0LmRldi9sZWFybi9zdGF0ZS1hcy1hLXNuYXBzaG90">快照</span>。</td>
+</tr>
+</tbody>
+</table>
+<p><strong>注意：ref 设值（同步）不同于 state 快照型设值（不同步）。</strong></p>
+<h3 id="ref-和-dom"><a class="anchor" href="#ref-和-dom">#</a> ref 和 DOM</h3>
+<p>ref 最常见的用法是访问 DOM 元素。比如  <code>&lt;div ref=&#123;myRef&#125;&gt;</code> ，React 会将相应的 DOM 元素放入  <code>myRef.current</code>  中。当元素从 DOM 中删除时，React 会将  <code>myRef.current</code>  更新为  <code>null</code> 。</p>
+<p><code>useRef</code>  Hook 返回一个对象，该对象有一个名为  <code>current</code>  的属性。最初， <code>myRef.current</code>  是  <code>null</code> 。当 React 为这个  <code>&lt;div&gt;</code>  创建一个 DOM 节点时，React 会把对该节点的引用放入  <code>myRef.current</code> 。然后，你可以从 <span class="exturl" data-url="aHR0cHM6Ly96aC1oYW5zLnJlYWN0LmRldi9sZWFybi9yZXNwb25kaW5nLXRvLWV2ZW50cw==">事件处理器</span> 访问此 DOM 节点，并使用在其上定义的内置<span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvZG9jcy9XZWIvQVBJL0VsZW1lbnQ=">浏览器 API</span>。</p>
+<p>useRef 返回的 ref.current 中有一个 remove 方法，该方法执行后会将 ref 值为 null，这样以便于 ref 能够被垃圾回收机制进行回收。</p>
+<p><strong>注意：ref 只能使用浏览器自带的 DOM 元素上，而不能直接用在组件上（可以在组件内传递一下使用）。</strong></p>
+<h1 id="forwardref"><a class="anchor" href="#forwardref">#</a> forwardRef</h1>
+<p>用于将一个组件的  <code>ref</code>  转发到该组件的子组件中。这在使用类组件或需要访问子组件的 DOM 元素时非常有用，尤其是当子组件是一个函数组件或类组件，且你希望保留对该子组件的引用时。</p>
+<h1 id="useimperativehandle"><a class="anchor" href="#useimperativehandle">#</a> useImperativeHandle</h1>
+<p><code>useImperativeHandle</code>  是 React 的一个钩子，它与  <code>forwardRef</code>  一起使用，用于在使用 refs 的场景中为组件提供一个 ** 可自定义的行为。** 当你想要在子组件中暴露给父组件一些方法或属性时， <code>useImperativeHandle</code>  就非常有用。</p>
+<p>两者可以结合使用（使用 forwardRef 转发 ref，使用 useImperativeHandle 设置 DOM 元素方法）：</p>
+<figure class="highlight javascript"><figcaption data-lang="javascript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">const</span> InputComponent <span class="token operator">=</span> React<span class="token punctuation">.</span><span class="token function">forwardRef</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">props<span class="token punctuation">,</span> ref</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="2"></td><td><pre>  <span class="token function">useImperativeHandle</span><span class="token punctuation">(</span>ref<span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">(</span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="3"></td><td><pre>    <span class="token function-variable function">focus</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> inputRef<span class="token punctuation">.</span>current<span class="token punctuation">.</span><span class="token function">focus</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="4"></td><td><pre>  <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="5"></td><td><pre>  <span class="token keyword">return</span> <span class="token operator">&lt;</span>input ref<span class="token operator">=</span><span class="token punctuation">&#123;</span>inputRef<span class="token punctuation">&#125;</span> <span class="token punctuation">&#123;</span><span class="token operator">...</span>props<span class="token punctuation">&#125;</span> <span class="token operator">/</span><span class="token operator">></span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="6"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr></table></figure><h1 id="effect-同步"><a class="anchor" href="#effect-同步">#</a> Effect 同步</h1>
+<h3 id="react-中两种逻辑类型"><a class="anchor" href="#react-中两种逻辑类型">#</a> React 中两种逻辑类型</h3>
+<ul>
+<li><strong>渲染逻辑代码</strong>，<strong>位于组件的顶层</strong>，在此处接受 props 和 state，并对他们进行转换，最终返回想在屏幕上看到的 JSX，渲染的代码必须是纯粹的，它只应该 “计算” 结果，而不做其他任何事情。</li>
+<li><strong>事件处理程序</strong>，<strong>是嵌套在组件内部的函数</strong>，而不仅仅是计算函数。事件处理程序可能会更新输入字段、提交 HTTP POST 请求以购买产品，或者将用户导航到另一个屏幕。事件处理程序包含由特定用户操作（例如按钮点击或键入）引起的 “副作用”（它们改变了程序的状态）。</li>
+</ul>
+<h3 id="effect-作用"><a class="anchor" href="#effect-作用">#</a> Effect 作用</h3>
+<p>Effect 允许指定由渲染本身而不是特定事件引起的副作用。（利用无论是哪种交互导致组件执行渲染，effect 都会在屏幕更新后的提交阶段执行）</p>
+<h3 id="使用注意"><a class="anchor" href="#使用注意">#</a> 使用注意</h3>
+<ul>
+<li>
+<p><strong>不要随意在你的组件中使用 Effect</strong>。记住，Effect 通常用于暂时 “跳出” React 代码并与一些 <strong>外部</strong> 系统进行同步。这包括浏览器 API、第三方小部件，以及网络等等。如果你想用 Effect 仅根据其他状态调整某些状态，那么 <span class="exturl" data-url="aHR0cHM6Ly96aC1oYW5zLnJlYWN0LmRldi9sZWFybi95b3UtbWlnaHQtbm90LW5lZWQtYW4tZWZmZWN0">你可能不需要 Effect</span>。</p>
+</li>
+<li>
+<p>Effect 会在每次渲染之后执行，如下代码会造成死循环：</p>
+<pre><code>const [count,setCount] = useState();
+useEffect(()=&gt;&#123;
+	setCount(count++);
+&#125;)
+</code></pre>
+</li>
+<li>
+<p>useEffect 第二个参数不传代表<strong>每次渲染组件后都执行一次</strong>，传空数组代表<strong>只会在第一次挂载后执行</strong>，传依赖项代表在<strong>依赖项变化时执行。</strong></p>
+</li>
+<li>
+<p>useEffect 依赖项中传入 ref 通常是无效的，因为 ref 相当于不使用渲染赋值的 state 状态，传递过去的 ref 引用始终相同（不随着快照的渲染而变化）。</p>
+</li>
+<li>
+<p>某些逻辑不能放在 effect 中执行，因为 effect 的执行是和组件渲染强绑定的（例如不能在 effect 中写购买商品的逻辑，这样会导致组件以任何方式被渲染都会执行购买逻辑，这样是不对的）</p>
+</li>
+<li>
+<p>effect 中 return 的函数会在下一次 effect 执行前被执行，常用于执行清理函数（清除定时器等）</p>
+</li>
+</ul>
+<h3 id="摘要"><a class="anchor" href="#摘要">#</a> 摘要</h3>
+<ul>
+<li>与事件不同，Effect 是由渲染本身，而非特定交互引起的。</li>
+<li>Effect 允许你将组件与某些外部系统（第三方 API、网络等）同步。</li>
+<li>默认情况下，Effect 在每次渲染（包括初始渲染）后运行。</li>
+<li>如果 React 的所有依赖项都与上次渲染时的值相同，则将跳过本次 Effect。</li>
+<li>不能随意选择依赖项，它们是由 Effect 内部的代码决定的。</li>
+<li>空的依赖数组（ <code>[]</code> ）对应于组件 “挂载”，即添加到屏幕上。</li>
+<li>仅在严格模式下的开发环境中，React 会挂载两次组件，以对 Effect 进行压力测试。</li>
+<li>如果 Effect 因为重新挂载而中断，那么需要实现一个清理函数。</li>
+<li>React 将在下次 Effect 运行之前以及卸载期间这两个时候调用清理函数</li>
+</ul>
+<h1 id="effect-生命周期"><a class="anchor" href="#effect-生命周期">#</a> Effect 生命周期</h1>
+<p>react 组件的生命周期：</p>
+<ul>
+<li>添加到屏幕（挂载）</li>
+<li>组件接收新的 props 或 state（更新）</li>
+<li>从屏幕移除（卸载）</li>
+</ul>
+<h1 id="effect-依赖项"><a class="anchor" href="#effect-依赖项">#</a> effect 依赖项</h1>
+<ul>
+<li>effect 中的依赖项只能传入响应性的变量（组件 props 也是响应性的）</li>
+<li>组件 props 也是响应性的，类组件 props 变化会触发钩子重新执行，函数式组件 props 变化会重新执行</li>
+<li>组件内声明的变量可以是响应性的，每次会重新声明。</li>
+<li>effect 依赖项不能传入 ref.current，ref.current 本身不是响应性的，不会引起视图更新（ref.current 允许跟踪某些值而不触发重新渲染）</li>
+<li>effect 依赖项不能传入组件内定义的对象或者函数（由于每次定义都会改变）</li>
+<li>effect 依赖项不能传入可变值（包括全局变量），它不是响应性的。</li>
+</ul>
+<h1 id="自定义-hook"><a class="anchor" href="#自定义-hook">#</a> 自定义 Hook</h1>
+<ul>
+<li>use 开头</li>
+<li>代码检查工具会强制 use 命名公约，只有 Hook 和组件可以调用其他 Hook</li>
+<li>没有调用 Hook 的函数不需要变成 Hook（或以 use 开头）</li>
+<li>自定义 Hook 共享的是状态逻辑，而不是状态本身，对 Hook 的每一个调用完全独立于对同一个 Hook 的其他调用。</li>
+<li>当需要在多个组件之间共享 state 本身时，需要将变量提升并传递下去。</li>
+</ul>
+<h1 id="--2"><a class="anchor" href="#--2">#</a> ------------------------------------</h1>
+<h1 id=""><a class="anchor" href="#">#</a> </h1>
+<h1 id="react-项目学习"><a class="anchor" href="#react-项目学习">#</a> <a href="">react 项目学习</a></h1>
+<h1 id="-2"><a class="anchor" href="#-2">#</a> </h1>
+<h1 id="react-笔记"><a class="anchor" href="#react-笔记">#</a> react 笔记</h1>
+<h1 id="状态管理工具"><a class="anchor" href="#状态管理工具">#</a> 状态管理工具</h1>
+<h2 id="redux"><a class="anchor" href="#redux">#</a> redux</h2>
+<h3 id="设计思想"><a class="anchor" href="#设计思想">#</a> 设计思想</h3>
+<p>将 store 实例进行订阅，则当 store 实例通过 dispatch 进行发布时，就触发订阅函数的执行。</p>
+<pre><code class="language-react">  // 1. 定义reducer函数
+  // 作用: 根据不同的action对象，返回不同的新的state
+  // state: 管理的数据初始状态
+  // action: 对象 type 标记当前想要做什么样的修改
+  function reducer (state = &#123; count: 0 &#125;, action) &#123;
+    // 数据不可变：基于原始状态生成一个新的状态
+    if (action.type === 'INCREMENT') &#123;
+      return &#123; count: state.count + 1 &#125;
+    &#125;
+    if (action.type === 'DECREMENT') &#123;
+      return &#123; count: state.count - 1 &#125;
+    &#125;
+    return state
+  &#125;
+
+  // 2. 使用reducer函数生成store实例
+  const store = Redux.createStore(reducer)
+
+  // 3. 通过store实例的subscribe订阅数据变化
+  // 回调函数可以在每次state发生变化的时候自动执行
+  store.subscribe(() =&gt; &#123;
+    console.log('state变化了', store.getState())
+    document.getElementById('count').innerText = store.getState().count
+  &#125;)
+
+  // 4. 通过store实例的dispatch函数提交action更改状态
+  const inBtn = document.getElementById('increment')
+  inBtn.addEventListener('click', () =&gt; &#123;
+    // 增
+    store.dispatch(&#123;
+      type: 'INCREMENT'
+    &#125;)
+  &#125;)
+
+  const dBtn = document.getElementById('decrement')
+  dBtn.addEventListener('click', () =&gt; &#123;
+    // 减
+    store.dispatch(&#123;
+      type: 'DECREMENT'
+    &#125;)
+  &#125;)
+  // 5. 通过store实例的getState方法获取最新状态更新到视图中
+</code></pre>
+<h2 id="mobx"><a class="anchor" href="#mobx">#</a> Mobx</h2>
+<p>声明式的修改数据，类似于 Vue。</p>
+<h1 id="react-中-css-使用"><a class="anchor" href="#react-中-css-使用">#</a> react 中 css 使用</h1>
+<h3 id="出现问题"><a class="anchor" href="#出现问题">#</a> 出现问题</h3>
+<p>react 组件中使用样式时，需要引入对应的 css 文件，但是如果两个 css 文件中有相同的 class 命名，这时就会造成样式冲突（相互影响）。</p>
+<h3 id="解决方案"><a class="anchor" href="#解决方案">#</a> 解决方案</h3>
+<p><strong>CSS Module</strong></p>
+<ul>
+<li>每个 CSS 文件都当作单独的模块，命名 xxx.module.css</li>
+<li>引入时： <code>import styles from 'xxx.module.css'</code></li>
+<li>使用时： <code>className = &#123;styles['test-style']&#125;</code></li>
+<li>这样使用后组件中对应的 class 就会被命名为组件名称和样式名称的拼接</li>
+</ul>
+<p>create-react-app 中内置了 CSS Module 功能，直接使用即可。</p>
+<h3 id="使用-sass"><a class="anchor" href="#使用-sass">#</a> 使用 sass</h3>
+<p>create-react-app 中内置了 cass 语法的支持，安装 sass 直接使用即可</p>
+<h2 id="css-in-js"><a class="anchor" href="#css-in-js">#</a> CSS-in-JS</h2>
+<h5 id="介绍"><a class="anchor" href="#介绍">#</a> 介绍</h5>
+<ul>
+<li>css-in-js 是一种解决方案，包含很多工具</li>
+<li>在 JS 中书写 CSS，带来极大的灵活性</li>
+<li>它和内联的 style 完全不同，也不会有内联 style 的问题</li>
+</ul>
+<h5 id="工具"><a class="anchor" href="#工具">#</a> 工具</h5>
+<ul>
+<li>styled-components</li>
+<li>styled-js（ts 支持不友好）</li>
+<li>emotion</li>
+</ul>
+<h5 id="优缺点"><a class="anchor" href="#优缺点">#</a> 优缺点</h5>
+<ul>
+<li>优点：使用 js 书写，有逻辑有变量，非常灵活</li>
+<li>缺点：JSX 和样式代码混在一起，代码较多，增加了编译成本</li>
+<li>使用场景：需要灵活变换样式</li>
+</ul>
+<h1 id="路由"><a class="anchor" href="#路由">#</a> 路由</h1>
+<h3 id="背景"><a class="anchor" href="#背景">#</a> 背景</h3>
+<ul>
+<li>Web 系统需要多个页面</li>
+<li>多页面就需要用路由来管理</li>
+<li>PS：业务上的页面，技术上还是 react 组件</li>
+</ul>
+<h3 id="使用"><a class="anchor" href="#使用">#</a> 使用</h3>
+<ul>
+<li>路由设计：网址和页面之间的关系</li>
+<li>增加页面和 Layout 模板</li>
+<li>使用 <code>react-router</code>  增加路由配置</li>
+</ul>
+<p>浏览器端使用 <code>react-router-dom</code>  工具，其中包含：</p>
+<ul>
+<li>Outlet 组件（父组件中嵌入子组件路由）</li>
+<li>Link 组件（用于路由跳转）</li>
+<li>useNavigate 钩子函数（用于路由跳转）</li>
+<li>useSearchParams 钩子函数（用于获取路由参数）</li>
+<li>useLocation 钩子函数（用于获取当前路由的信息）</li>
+</ul>
+<h1 id="-3"><a class="anchor" href="#-3">#</a> </h1>
+<h1 id="--3"><a class="anchor" href="#--3">#</a> ----------------</h1>
+<h1 id="react-项目"><a class="anchor" href="#react-项目">#</a> react 项目</h1>
+<h1 id="react-核心价值-2"><a class="anchor" href="#react-核心价值-2">#</a> React 核心价值</h1>
+<p>这两个，也是所有现代前端框架的核心价值</p>
+<h2 id="组件化"><a class="anchor" href="#组件化">#</a> 组件化</h2>
+<p>什么是组件化</p>
+<ul>
+<li>拆分页面结构，易开发易维护，尤其对大型项目</li>
+<li>重复的结构，可通过组件化复用</li>
+</ul>
+<p>（画图表示）</p>
+<p>组件化并不是 React 独创的</p>
+<ul>
+<li>早年的 PHP ASP 等动态网页技术，就支持组件化</li>
+<li>HTML5 的 Web Component 也支持组件化</li>
+<li>React 正式把组件化发扬光大 （包括 ng Vue）</li>
+</ul>
+<h2 id="数据驱动视图"><a class="anchor" href="#数据驱动视图">#</a> 数据驱动视图</h2>
+<p>公式  <code>UI = f(state)</code>  （开始可能不理解）</p>
+<p>例如，要增加一个 todo item （修改、删除，用 DOM 操作更麻烦）</p>
+<figure class="highlight html"><figcaption data-lang="HTML"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ul</span><span class="token punctuation">></span></span></pre></td></tr><tr><td data-num="2"></td><td><pre>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span><span class="token punctuation">></span></span>吃饭<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">></span></span></pre></td></tr><tr><td data-num="3"></td><td><pre>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span><span class="token punctuation">></span></span>睡觉<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">></span></span></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ul</span><span class="token punctuation">></span></span></pre></td></tr><tr><td data-num="5"></td><td><pre>// 用 jQuery 的代码逻辑 - DOM 操作 const $li = $('</pre></td></tr><tr><td data-num="6"></td><td><pre><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span><span class="token punctuation">></span></span>new todo<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">></span></span></pre></td></tr><tr><td data-num="7"></td><td><pre>') $ul.append($li)</pre></td></tr></table></figure><p>用 React</p>
+<pre><code class="language-javascriptx">&lt;ul&gt;
+  &#123;list.map((todo) =&gt; (
+    &lt;li&gt;&#123;todo&#125;&lt;/li&gt;
+  ))&#125;
+&lt;/ul&gt;;
+// 用 React 的代码逻辑 - JS 操作
+const [list, setList] = useState([&quot;吃饭&quot;, &quot;睡觉&quot;]);
+setList((l) =&gt; l.concat(&quot;new todo&quot;));
+</code></pre>
+<p>数据驱动视图的好处</p>
+<ul>
+<li>只关注业务数据，解放 DOM 操作，增加开发效率</li>
+<li>适合大型复杂的前端项目 （否则，光 DOM 操作也受不了）</li>
+</ul>
+<h1 id="cra"><a class="anchor" href="#cra">#</a> CRA</h1>
+<p>Create React App 使用最多的脚手架，React 官方推荐</p>
+<p>官网 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGUtcmVhY3QtYXBwLmRldi8=">https://create-react-app.dev/</span></p>
+<h2 id="脚手架"><a class="anchor" href="#脚手架">#</a> 脚手架</h2>
+<p>脚手架的好处：傻瓜式操作，简单方便 &lt;br&gt;<br />
+ 如自己搭建，中间可能会出很多问题（版本问题 + 个人操作问题），可能会劝退很多人</p>
+<h2 id="创建项目"><a class="anchor" href="#创建项目">#</a> 创建项目</h2>
+<p>PS：直接使用 typescript</p>
+<figure class="highlight shell"><figcaption data-lang="Bash"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token comment">## 使用 npx</span></pre></td></tr><tr><td data-num="2"></td><td><pre>npx create-react-app my-app <span class="token parameter variable">--template</span> typescript</pre></td></tr><tr><td data-num="3"></td><td><pre></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token comment">## 使用 npm</span></pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token function">npm</span> init react-app my-app <span class="token parameter variable">--template</span> typescript</pre></td></tr><tr><td data-num="6"></td><td><pre></pre></td></tr><tr><td data-num="7"></td><td><pre><span class="token comment">## 使用 yarn</span></pre></td></tr><tr><td data-num="8"></td><td><pre><span class="token function">yarn</span> create react-app my-app <span class="token parameter variable">--template</span> typescript</pre></td></tr></table></figure><h2 id="项目结构"><a class="anchor" href="#项目结构">#</a> 项目结构</h2>
+<p>项目入口  <code>src/App.js</code></p>
+<p>其他文件先不管，以后再说</p>
+<h2 id="启动项目"><a class="anchor" href="#启动项目">#</a> 启动项目</h2>
+<pre><code>npm start
+</code></pre>
+<h1 id="vite"><a class="anchor" href="#vite">#</a> vite</h1>
+<p>vite 是 Vue 作者发布的打包工具，启动速度快，近两年很火爆</p>
+<p>官网 <span class="exturl" data-url="aHR0cHM6Ly9jbi52aXRlanMuZGV2L2d1aWRlLw==">https://cn.vitejs.dev/guide/</span></p>
+<h2 id="创建项目-2"><a class="anchor" href="#创建项目-2">#</a> 创建项目</h2>
+<figure class="highlight shell"><figcaption data-lang="Bash"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">npm</span> create vite@latest react-demo-vite <span class="token parameter variable">--template</span> react-ts</pre></td></tr><tr><td data-num="2"></td><td><pre></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token function">yarn</span> create vite react-demo-vite <span class="token parameter variable">--template</span> react-ts</pre></td></tr></table></figure><p>其他创建方式，可参考官网</p>
+<h2 id="项目结构-2"><a class="anchor" href="#项目结构-2">#</a> 项目结构</h2>
+<p>入口  <code>src/App.tsx</code></p>
+<p>其他文件，以后再说</p>
+<h2 id="启动项目-2"><a class="anchor" href="#启动项目-2">#</a> 启动项目</h2>
+<pre><code>npm run dev
+</code></pre>
+<h1 id="代码规范"><a class="anchor" href="#代码规范">#</a> 代码规范</h1>
+<p>高质量代码的特点</p>
+<ul>
+<li><strong>严格编码规范</strong>（靠工具、流程，而非自觉）</li>
+<li>合理、规范的注释</li>
+<li>代码合理拆分</li>
+</ul>
+<h2 id="两者区别"><a class="anchor" href="#两者区别">#</a> 两者区别</h2>
+<p>eslint prettier</p>
+<ul>
+<li>eslint 编码规范，如变量未定义（语法语义）</li>
+<li>prettier 编码风格，如末尾是否用  <code>;</code></li>
+<li>eslint 也有编码风格的功能，两者可能会有冲突</li>
+</ul>
+<h2 id="eslint"><a class="anchor" href="#eslint">#</a> eslint</h2>
+<p>安装插件</p>
+<figure class="highlight shell"><figcaption data-lang="Bash"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">npm</span> <span class="token function">install</span> eslint @typescript-eslint/parser @typescript-eslint/eslint-plugin -save-dev</pre></td></tr></table></figure><p>初始化配置文件  <code>.eslint.js</code></p>
+<figure class="highlight shell"><figcaption data-lang="Bash"></figcaption><table><tr><td data-num="1"></td><td><pre>npx eslint <span class="token parameter variable">--init</span>    <span class="token comment">## 然后根据引导一步一步走</span></pre></td></tr></table></figure><p>解释：eslint  <code>plugin</code>  与  <code>extend</code>  的区别：</p>
+<ul>
+<li><code>extend</code>  提供的是 eslint 现有规则的一系列预设</li>
+<li><code>plugin</code>  则提供了除预设之外的自定义规则，当你在 eslint 的规则里找不到合适的的时候就可以借用插件来实现了</li>
+</ul>
+<p>安装 vscode 插件  <code>eslint</code>  ，此时就可以看到代码  <code>App.txs</code>  中的错误提示（如定义一个未使用的变量）</p>
+<p>在  <code>package.json</code>  中增加 scripts  <code>&quot;lint&quot;: &quot; eslint 'src/**/*.+(js|ts|jsx|tsx)' &quot;</code>  &lt;br&gt;<br />
+ 控制台运行  <code>npm run lint</code>  也可以看到错误提示。如果要自动修复，可以加  <code>--fix</code>  参数</p>
+<h2 id="prettier"><a class="anchor" href="#prettier">#</a> prettier</h2>
+<pre><code>npm install prettier eslint-config-prettier eslint-plugin-prettier -save-dev
+</code></pre>
+<ul>
+<li><code>eslint-config-prettier</code>  禁用所有和 Prettier 产生<strong>冲突</strong>的规则</li>
+<li><code>eslint-plugin-prettier</code>  把 Prettier 应用到 Eslint，配合 rules  <code>&quot;prettier/prettier&quot;: &quot;error&quot;</code>  实现 Eslint 提醒。</li>
+</ul>
+<p>在 eslint 配置文件的  <code>extends</code>  <strong>最后</strong> 增加  <code>'plugin:prettier/recommended'</code></p>
+<p>安装 vscode 插件  <code>prettier</code>  ，此时可以看到代码  <code>App.txs</code>  中的格式提示（如末尾是否使用  <code>;</code>  ，或单引号、双引号）</p>
+<p>在  <code>package.json</code>  中增加 scripts  <code>&quot;format&quot;: &quot; prettier --write 'src/**/*.+(js|ts|jsx|tsx)' &quot;</code>  &lt;br&gt;<br />
+ 控制台运行  <code>npm run format</code>  可以修复所有的格式错误</p>
+<p>设置 vscode  <code>.vscode/settings.json</code>  自动保存格式，可以在文件保存时，自动保留格式</p>
+<pre><code class="language-javascripton">&#123;
+  &quot;editor.codeActionsOnSave&quot;: &#123;
+    &quot;source.fixAll.eslint&quot;: true
+  &#125;
+&#125;
+</code></pre>
+<p>增加配置文件  <code>.prettierrc.js</code>  规定自己的编码格式，运行  <code>npm run format</code>  可以看到效果，保存文件也可以看到效果。&lt;br&gt;<br />
+【注意】如果此处没效果，可以<strong>重启 vscode</strong> 再重试。</p>
+<hr />
+<p>一直搞不定，重启 vscode 就好了。<br />
+在 vscode 搜 “prettier” 插件时，发现一个 “reload required” 的提示，于是就重启了</p>
+<p>CRA 创建的项目，配置文件是  <code>js</code>  格式<br />
+ vite 创建的项目，配置文件是  <code>cjs</code>  格式</p>
+<h1 id="提交到-git-仓库"><a class="anchor" href="#提交到-git-仓库">#</a> 提交到 git 仓库</h1>
+<p>PS：git 不会从 0 讲起</p>
+<h2 id="选择平台"><a class="anchor" href="#选择平台">#</a> 选择平台</h2>
+<ul>
+<li>工作中，按照公司规定，可能有内网 git 仓库</li>
+<li>正式的开源项目，需要积累 star ，可以考虑 github （但有时访问不稳定，不同网络环境不一样）</li>
+<li>个人学习项目，尽量选择国内平台，速度快</li>
+</ul>
+<p>我选择 <span class="exturl" data-url="aHR0cDovL2NvZGluZy5uZXQ=">coding.net</span></p>
+<h2 id="演示"><a class="anchor" href="#演示">#</a> 演示</h2>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> remote <span class="token function">add</span> origin xxx</pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token function">git</span> push <span class="token parameter variable">-u</span> origin master</pre></td></tr></table></figure><h2 id="husky"><a class="anchor" href="#husky">#</a> husky</h2>
+<p>git-hook</p>
+<p>安装依赖</p>
+<pre><code>npm install husky -save-dev
+</code></pre>
+<p>参考文档 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3R5cGljb2RlL2h1c2t5">https://github.com/typicode/husky</span> 增加三个  <code>pre-commit</code>  命令</p>
+<figure class="highlight shell"><figcaption data-lang="Bash"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">npm</span> run lint</pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token function">npm</span> run <span class="token function">format</span></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token function">git</span> <span class="token function">add</span> <span class="token builtin class-name">.</span></pre></td></tr></table></figure><p>可以故意制造一个错误：定义一个未使用变量（eslint 配置文件  <code>rules</code>  增加  <code>'no-unused-vars': 'error',</code> ）&lt;br&gt;<br />
+ 然后执行  <code>git commit</code>  试试</p>
+<h2 id="commit-lint"><a class="anchor" href="#commit-lint">#</a> commit-lint</h2>
+<p>参考文档 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2NvbnZlbnRpb25hbC1jaGFuZ2Vsb2cvY29tbWl0bGludCNnZXR0aW5nLXN0YXJ0ZWQ=">https://github.com/conventional-changelog/commitlint#getting-started</span> 安装设置即可</p>
+<p>commit 规则查看  <code>node_modules/@commitlint/config-conventional</code>  （在  <code>commitlint.config.js</code>  中有配置）</p>
+<p>尝试  <code>git commit -m &quot;test&quot;</code>  会失败，再尝试  <code>git commit -m &quot;chore: commit lint&quot;</code>  会成功</p>
+<h1 id="jsx-语法"><a class="anchor" href="#jsx-语法">#</a> JSX 语法</h1>
+<p>JSX - JS 语法扩展，可以在 JS 中写模板（类似 HTML 语法）&lt;br&gt;<br />
+JSX 已经成为 ES 语法标准，也可用于其他框架，如 Vue3</p>
+<ul>
+<li>标签</li>
+<li>属性</li>
+<li>事件</li>
+<li>JS 表达式</li>
+<li>判断</li>
+<li>循环</li>
+</ul>
+<h2 id="标签"><a class="anchor" href="#标签">#</a> 标签</h2>
+<ul>
+<li>首字母小写 - HTML tag</li>
+<li>首字母<strong>大写</strong> - 自定义组件</li>
+<li>如  <code>&lt;input/&gt;</code>  和  <code>&lt;Input/&gt;</code>  就不一样</li>
+</ul>
+<p>可以像 HTML 一样嵌套</p>
+<p>JSX 里的标签必须是闭合的， <code>&lt;input&gt;</code>   <code>&lt;br&gt;</code>  这样写在 JSX 会报错（在 HTML 中不会报错），必须闭合  <code>&lt;input/&gt;</code></p>
+<p>每一段 JSX 只能有一个根节点，或者使用  <code>&lt;&gt;&lt;/&gt;</code>  （ Fragment ）</p>
+<h2 id="属性"><a class="anchor" href="#属性">#</a> 属性</h2>
+<p>和 HTML 属性基本一样，但有些和 JS 关键字冲突了</p>
+<ul>
+<li><code>class</code>  要改为  <code>className</code></li>
+<li><code>style</code>  要写成 JS 对象（不能是 string），key 采用<strong>驼峰写法</strong></li>
+<li><code>for</code>  要改为  <code>htmlFor</code></li>
+</ul>
+<h2 id="事件"><a class="anchor" href="#事件">#</a> 事件</h2>
+<p><code>onXxx</code>  的形式</p>
+<p>注意 TS 的写法</p>
+<pre><code class="language-javascriptx">function clickHandler(event: React.MouseEvent&lt;HTMLParagraphElement&gt;) &#123;
+  event.preventDefault();
+  console.log(&quot;clicked&quot;);
+&#125;
+
+return &lt;p onClick=&#123;clickHandler&#125;&gt;hello world&lt;/p&gt;;
+</code></pre>
+<p>如果要想<strong>传递参数</strong>，可以通过如下方式</p>
+<pre><code class="language-javascriptx">function clickHandler(
+  event: React.MouseEvent&lt;HTMLParagraphElement&gt;,
+  x: string
+) &#123;
+  event.preventDefault();
+  console.log(&quot;clicked&quot;, x);
+&#125;
+
+return (
+  &lt;p
+    onClick=&#123;(e: React.MouseEvent&lt;HTMLParagraphElement&gt;) =&gt;
+      clickHandler(e, &quot;hello&quot;)
+    &#125;
+  &gt;
+    hello world
+  &lt;/p&gt;
+);
+</code></pre>
+<p>PS：Event handlers must be passed, <strong>not called!</strong>  <code>onClick=&#123;handleClick&#125;</code> , not  <code>onClick=&#123;handleClick()&#125;</code> .</p>
+<h2 id="js-表达式"><a class="anchor" href="#js-表达式">#</a> JS 表达式</h2>
+<p><code>&#123;xxx&#125;</code>  格式表示一个 JS 变量或表达式，可用于</p>
+<ul>
+<li>普通文本内容，或判断、循环</li>
+<li>属性值</li>
+<li>用于注释</li>
+</ul>
+<h2 id="判断"><a class="anchor" href="#判断">#</a> 判断</h2>
+<p>JS 一般使用  <code>if...else</code>  做判断，但不能用于 JSX 的  <code>&#123;xxx&#125;</code>  中。</p>
+<p>所以，可以选择其他方式做判断</p>
+<ul>
+<li>运算符  <code>&amp;&amp;</code></li>
+<li>三元表达式  <code>a ? b : c</code></li>
+<li>用函数封装</li>
+</ul>
+<pre><code class="language-javascriptx">const flag = true;
+return (
+  &lt;div&gt;
+    &#123;flag &amp;&amp; &lt;p&gt;hello&lt;/p&gt;&#125;
+    &#123;flag ? &lt;p&gt;你好&lt;/p&gt; : &lt;p&gt;再见&lt;/p&gt;&#125;
+  &lt;/div&gt;
+);
+</code></pre>
+<p>或者用函数封装</p>
+<figure class="highlight javascript"><figcaption data-lang="javascript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">function</span> <span class="token function">Hello</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="2"></td><td><pre>  <span class="token keyword">if</span> <span class="token punctuation">(</span>flag<span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token operator">&lt;</span>p<span class="token operator">></span>你好<span class="token operator">&lt;</span><span class="token operator">/</span>p<span class="token operator">></span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="3"></td><td><pre>  <span class="token keyword">else</span> <span class="token keyword">return</span> <span class="token operator">&lt;</span>p<span class="token operator">></span>再见<span class="token operator">&lt;</span><span class="token operator">/</span>p<span class="token operator">></span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="5"></td><td><pre></pre></td></tr><tr><td data-num="6"></td><td><pre><span class="token keyword">return</span> <span class="token operator">&lt;</span>Hello<span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>Hello<span class="token operator">></span><span class="token punctuation">;</span></pre></td></tr></table></figure><h2 id="循环"><a class="anchor" href="#循环">#</a> 循环</h2>
+<p>使用  <code>map</code>  做循环</p>
+<figure class="highlight javascript"><figcaption data-lang="javascript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">const</span> list <span class="token operator">=</span> <span class="token punctuation">[</span></pre></td></tr><tr><td data-num="2"></td><td><pre>  <span class="token punctuation">&#123;</span> <span class="token literal-property property">username</span><span class="token operator">:</span> <span class="token string">"zhangsan"</span><span class="token punctuation">,</span> <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">"张三"</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="3"></td><td><pre>  <span class="token punctuation">&#123;</span> <span class="token literal-property property">username</span><span class="token operator">:</span> <span class="token string">"lisi"</span><span class="token punctuation">,</span> <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">"李四"</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="4"></td><td><pre>  <span class="token punctuation">&#123;</span> <span class="token literal-property property">username</span><span class="token operator">:</span> <span class="token string">"shuangyue"</span><span class="token punctuation">,</span> <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">"双越"</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token punctuation">]</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="6"></td><td><pre></pre></td></tr><tr><td data-num="7"></td><td><pre><span class="token keyword">const</span> ul <span class="token operator">=</span> <span class="token punctuation">(</span></pre></td></tr><tr><td data-num="8"></td><td><pre>  <span class="token operator">&lt;</span>ul<span class="token operator">></span></pre></td></tr><tr><td data-num="9"></td><td><pre>    <span class="token punctuation">&#123;</span>list<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">user</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="10"></td><td><pre>      <span class="token keyword">return</span> <span class="token operator">&lt;</span>li key<span class="token operator">=</span><span class="token punctuation">&#123;</span>user<span class="token punctuation">.</span>username<span class="token punctuation">&#125;</span><span class="token operator">></span><span class="token punctuation">&#123;</span>user<span class="token punctuation">.</span>name<span class="token punctuation">&#125;</span><span class="token operator">&lt;</span><span class="token operator">/</span>li<span class="token operator">></span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="11"></td><td><pre>    <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="12"></td><td><pre>  <span class="token operator">&lt;</span><span class="token operator">/</span>ul<span class="token operator">></span></pre></td></tr><tr><td data-num="13"></td><td><pre><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr></table></figure><p>JSX 循环必须有  <code>key</code>  - 帮助 React 识别哪些元素改变了，比如被添加或删除。</p>
+<ul>
+<li>同级别  <code>key</code>  必须唯一</li>
+<li><code>key</code>  是不可改变的 —— 尽量不用 index ，要用业务 ID （也不要用随机数）</li>
+<li><code>key</code>  用于优化 VDOM diff 算法（后面再说）</li>
+</ul>
+<h2 id="显示-html-代码"><a class="anchor" href="#显示-html-代码">#</a> 显示 HTML 代码</h2>
+<p>JSX 防止注入攻击，否则用  <code>dangerouslySetInnerHTML=&#123;&#123; __html: 'xxx' &#125;&#125;</code></p>
+<h1 id="组件和-props"><a class="anchor" href="#组件和-props">#</a> 组件和 props</h1>
+<h2 id="react-一切皆组件"><a class="anchor" href="#react-一切皆组件">#</a> React 一切皆组件</h2>
+<p>React 应用是由组件组成的。组件是 UI (用户界面) 的一部分，它有自己的逻辑和外观。组件可以小到一个按钮，也可以大到整个页面。</p>
+<p>组件可嵌套</p>
+<ul>
+<li>React 通过组件来构建 UI</li>
+<li>组件拆分也有利于代码组织和维护，尤其对于大型软件</li>
+<li>JSX 中，组件 tag 首字母要大写</li>
+</ul>
+<p>代码演示：从 index.tsx 开始，到  <code>&lt;App&gt;</code>  全都是组件。</p>
+<h2 id="组件就是一个函数"><a class="anchor" href="#组件就是一个函数">#</a> 组件就是一个函数</h2>
+<ul>
+<li>React 之前是 class 组件</li>
+<li>现已被函数组件 FC 全面取代</li>
+<li>输入 props ，返回一段 JSX</li>
+</ul>
+<h2 id="实战list-页面抽离组件"><a class="anchor" href="#实战list-页面抽离组件">#</a> 实战：List 页面抽离组件</h2>
+<p>代码参考 react-ts-demo 中  <code>components/QuestionCard1.tsx</code></p>
+<ul>
+<li>props 类型</li>
+<li>TS 泛型</li>
+</ul>
+<h2 id="进阶type-还是-interface"><a class="anchor" href="#进阶type-还是-interface">#</a> 进阶：type 还是 interface</h2>
+<p>都可以实现类型定义的功能 （具体代码演示），用哪个都可以</p>
+<hr />
+<p>PS：组件之间的数据传递不仅仅只有 props ，课程后面还会继续讲解其他形式。</p>
+<p>TS 语法如果一开始不熟练，就先记住当前的。随着课程深入，用多了也就熟练了。</p>
+<p>PS：函数也可以当做属性来传递</p>
+<h1 id="usestate"><a class="anchor" href="#usestate">#</a> useState</h1>
+<h2 id="让页面动起来"><a class="anchor" href="#让页面动起来">#</a> 让页面 “动” 起来</h2>
+<p>例如实现一个 click 计数功能，普通变量无法实现。即：修改普通变量无法触发组件的更新 rerender</p>
+<p>通过 useState 即可实现。</p>
+<h2 id="state-是什么"><a class="anchor" href="#state-是什么">#</a> state 是什么</h2>
+<p>State, A component's memory —— 这个比喻非常好！</p>
+<ul>
+<li>props 父组件传递过来的信息</li>
+<li>state 组件自己内部的状态，不对外</li>
+</ul>
+<p>每次 state 变化，都会触发组件更新，从新渲染页面。</p>
+<p>代码演示，参考 react-ts-demo 中  <code>pages/StateDemo1.tsx</code></p>
+<h2 id="state-的特点"><a class="anchor" href="#state-的特点">#</a> state 的特点</h2>
+<h3 id="异步更新"><a class="anchor" href="#异步更新">#</a> 异步更新</h3>
+<p>代码演示</p>
+<p>PS：setState 传入函数，可同步更新</p>
+<h3 id="可能会被合并"><a class="anchor" href="#可能会被合并">#</a> 可能会被合并</h3>
+<p>代码演示</p>
+<h3 id="不可变数据"><a class="anchor" href="#不可变数据">#</a> 不可变数据</h3>
+<p>state 可以是任意 JS 类型，不仅仅是值类型。&lt;br&gt;<br />
+ 不可直接修改 state ，而要 setState 新值。</p>
+<p>代码演示</p>
+<p>PS：函数组件，每个更新函数从新执行，<strong>state 被重置，而不是被修改</strong>。state 可以理解为 readOnly</p>
+<h2 id="immer"><a class="anchor" href="#immer">#</a> immer</h2>
+<p>Immer 简化了不可变数据结构的处理。特别是对于 JS 语法没那么熟悉的人。</p>
+<p>代码演示，参考 react-ts-demo 中  <code>pages/ImmerDemo1.tsx</code></p>
+<h2 id="实战list-页面使用-state"><a class="anchor" href="#实战list-页面使用-state">#</a> 实战：List 页面使用 state</h2>
+<ul>
+<li>使用 state</li>
+<li>使用 immer
+<ul>
+<li>push</li>
+<li>修改 isPublish</li>
+</ul>
+</li>
+</ul>
+<p>代码参考  <code>pages/List2.tsx</code></p>
+<hr />
+<p>最重要的就是：不可变数据 —— 这是 React state 的核心</p>
+<h1 id="useeffect"><a class="anchor" href="#useeffect">#</a> useEffect</h1>
+<h2 id="副作用"><a class="anchor" href="#副作用">#</a> 副作用</h2>
+<p>函数组件：执行函数，返回 JSX</p>
+<ul>
+<li>初次渲染时</li>
+<li>state 更新时</li>
+</ul>
+<p>但有些场景需要如下功能</p>
+<ul>
+<li>当渲染完成时，做某些事情</li>
+<li>当某个 state 变化时，做某些事情</li>
+<li>如 ajax 加载数据（state 变化重新加载）</li>
+</ul>
+<p>如果只有  <code>执行函数，返回 JSX</code>  这个逻辑，无法满足上面的场景。</p>
+<p>所以需要 useEffect</p>
+<h2 id="组件渲染完成时"><a class="anchor" href="#组件渲染完成时">#</a> 组件渲染完成时</h2>
+<p>代码演示：List2.tsx 使用  <code>useEffect</code>  模拟 ajax 请求</p>
+<h2 id="某些-state-更新时"><a class="anchor" href="#某些-state-更新时">#</a> 某些 state 更新时</h2>
+<p>代码演示：QuestionCard 监听  <code>isPublished</code>  的更新</p>
+<h2 id="组件销毁时"><a class="anchor" href="#组件销毁时">#</a> 组件销毁时</h2>
+<p>有创建就有销毁，有生就有死</p>
+<p>代码演示：增加  <code>isDeleted</code>  属性和  <code>delete</code>  事件，看 QuestionCard 组件的销毁</p>
+<p>【重要】如果有定时任务，或者 DOM 事件，组件销毁时一定要解绑</p>
+<h2 id="执行两次销毁一次"><a class="anchor" href="#执行两次销毁一次">#</a> 执行两次（销毁一次）</h2>
+<p>React18 开始， <code>useEffect</code>  在开发环境下执行两次 &lt;br&gt;<br />
+ 模拟组件挂载、销毁、重新挂载的完整流程，及早发现后续的问题。如果只挂载一次，有可能卸载组件时有问题。&lt;br&gt;<br />
+ 而且，实际项目中某些组件真的有可能会被挂载很多次（如重置 state），要及早模拟这种情况，避免出现重复挂载的问题（如弹窗重复、bindEvent 重复）</p>
+<p><strong>生产环境下，不会再执行两次</strong></p>
+<h1 id="其他-hooks"><a class="anchor" href="#其他-hooks">#</a> 其他 Hooks</h1>
+<h2 id="useref-2"><a class="anchor" href="#useref-2">#</a> useRef</h2>
+<p>useRef 是基于 useState 疯转而来，区别在于没有向外暴露设置响应性数据的函数，一般用于操作 DOM 元素，也可以用来持久化缓存数据</p>
+<p>PS：useRef 也可以传入 JS 值，但更新时不会触发 rerender ，需替换为 useState</p>
+<h2 id="usememo"><a class="anchor" href="#usememo">#</a> useMemo</h2>
+<ul>
+<li>函数组件，默认，每次 state 变化都会重新执行</li>
+<li>useMemo 可以缓存某个数据，不用每次都重新生成</li>
+<li>可用于计算量比较大的数据场景</li>
+</ul>
+<p>代码参考 pages/UseMemoAndCallback/UseMemoDemo1.tsx</p>
+<p>注意文档中的这段话 “你可以把 useMemo 作为性能优化的手段，但不要把它当成语义上的保证。” <span class="exturl" data-url="aHR0cHM6Ly96aC1oYW5zLnJlYWN0anMub3JnL2RvY3MvaG9va3MtcmVmZXJlbmNlLmh0bWwjdXNlbWVtbw==">https://zh-hans.reactjs.org/docs/hooks-reference.html#usememo</span>&lt;br&gt;<br />
+ 即，useMemo 的控制权在 React ，不一定保证每个都会缓存，但都是为了全局的性能最佳。</p>
+<h2 id="usecallback"><a class="anchor" href="#usecallback">#</a> useCallback</h2>
+<p>useCallback 就是 useMemo 的语法糖，和 useMemo 一样。用于缓存函数。</p>
+<h1 id="自定义-hooks"><a class="anchor" href="#自定义-hooks">#</a> 自定义 Hooks</h1>
+<p>已学习了几个常用的内置 Hooks ，可以用于很多业务功能。</p>
+<h2 id="修改网页标题"><a class="anchor" href="#修改网页标题">#</a> 修改网页标题</h2>
+<ul>
+<li>第一步，直接在组件内部写</li>
+<li>第二步，可以抽离一个函数</li>
+<li>第三步，可以直接抽离一个文件 src/hooks/useTitle.ts ，引用使用</li>
+</ul>
+<p>抽离自定义 Hook ，可用于很多组件，<strong>复用代码</strong></p>
+<h2 id="获取鼠标位置"><a class="anchor" href="#获取鼠标位置">#</a> 获取鼠标位置</h2>
+<p>（刚才的没有返回值，这次有返回值）</p>
+<p>代码演示 src/hooks/useMousePosition.ts （直接在 App.tsx 中使用）</p>
+<h2 id="异步获取信息"><a class="anchor" href="#异步获取信息">#</a> 异步获取信息</h2>
+<p>（再来个异步的）</p>
+<p>代码演示 src/hooks/useGetInfo.ts （直接在 App.tsx 中使用）</p>
+<h2 id="小节"><a class="anchor" href="#小节">#</a> 小节</h2>
+<p>自定义 Hooks 可以抽离公共逻辑，复用到多个组件中 —— 这是 Hooks 设计的初衷</p>
+<p>在 Hooks 和函数组件之前，class 组件也有一些方法：mixin HOC render-prop 等，但都没有 Hooks 来的简单。</p>
+<h1 id="第三方-hooks"><a class="anchor" href="#第三方-hooks">#</a> 第三方 Hooks</h1>
+<p>回顾上一节的 “三步”，其实还有第四步：抽离为单独的模块，发布到 npm ，供所有开发者使用。</p>
+<p>例如，之前开发的 useTitle useMousePosition ，就现成的</p>
+<ul>
+<li><span class="exturl" data-url="aHR0cHM6Ly9haG9va3MuanMub3JnL3poLUNOL2hvb2tzL3VzZS10aXRsZQ==">https://ahooks.js.org/zh-CN/hooks/use-title</span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9haG9va3MuanMub3JnL3poLUNOL2hvb2tzL3VzZS1tb3VzZQ==">https://ahooks.js.org/zh-CN/hooks/use-mouse</span></li>
+</ul>
+<h2 id="ahooks"><a class="anchor" href="#ahooks">#</a> ahooks</h2>
+<p><span class="exturl" data-url="aHR0cHM6Ly9haG9va3MuanMub3JnL3poLUNOLw==">https://ahooks.js.org/zh-CN/</span></p>
+<p>ahooks 是国内流行的第三方 Hooks 库</p>
+<ul>
+<li>功能全面</li>
+<li>使用简单</li>
+<li>文档 demo 清晰易懂</li>
+</ul>
+<p>后面会再次用到 ahooks ，到时候再代码演示</p>
+<h2 id="react-use"><a class="anchor" href="#react-use">#</a> react-use</h2>
+<p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3N0cmVhbWljaC9yZWFjdC11c2U=">https://github.com/streamich/react-use</span></p>
+<p>react-use 是国外比较流行的，功能也很前面，但是英文文档。&lt;br&gt;<br />
+ 先做了解吧，项目中不会使用。</p>
+<h1 id="hooks-使用规则"><a class="anchor" href="#hooks-使用规则">#</a> Hooks 使用规则</h1>
+<h2 id="命名规则"><a class="anchor" href="#命名规则">#</a> 命名规则</h2>
+<p>Hook 必须  <code>useXxx</code>  格式来命名。</p>
+<p>PS：这种命名规则也很易读，简单粗暴</p>
+<h2 id="调用位置"><a class="anchor" href="#调用位置">#</a> 调用位置</h2>
+<p>Hook 或自定义 Hook ，只能在两个地方被调用</p>
+<ul>
+<li>组件内部</li>
+<li>其他 Hook 内部</li>
+</ul>
+<p>组件外部，或一个普通函数中，不能调用 Hook</p>
+<h2 id="顺序一致"><a class="anchor" href="#顺序一致">#</a> 顺序一致</h2>
+<p>Hook 在每次渲染时都按照相同的顺序被调用。</p>
+<ul>
+<li>Hook 必须是组件 “第一层代码”</li>
+<li>Hook 不可放在 if 等条件语句中 （ 或者前面有 return ，也算是条件 ）</li>
+<li>Hook 不可放在 for 等循环语句中</li>
+</ul>
+<p>代码演示</p>
+<h2 id="闭包陷阱"><a class="anchor" href="#闭包陷阱">#</a> 闭包陷阱</h2>
+<p>当<strong>异步函数</strong>中获取 state 时，可能不是最新的 state 值。</p>
+<p>解决方案：替换为  <code>useRef</code>  —— <strong>但 ref 变化不会触发 rerender</strong> ，所以得结合 state 一起</p>
+<h1 id="普通-css"><a class="anchor" href="#普通-css">#</a> 普通 CSS</h1>
+<h2 id="内联-style"><a class="anchor" href="#内联-style">#</a> 内联 style</h2>
+<ul>
+<li>和 HTML style 一样，元素的内联样式</li>
+<li>必须是 JS 对象形式，不可以是字符串</li>
+<li>样式名称用驼峰式写法，如  <code>fontSize</code></li>
+</ul>
+<p>代码演示</p>
+<h2 id="classname"><a class="anchor" href="#classname">#</a> className</h2>
+<ul>
+<li>和 HTML class 一样，设置 CSS 样式名</li>
+<li>和 JS  <code>class</code>  重复，所以改名  <code>className</code></li>
+<li>可用  <code>clsx</code>  或  <code>classnames</code>  条件判断</li>
+</ul>
+<p>代码演示</p>
+<p>链接</p>
+<ul>
+<li><span class="exturl" data-url="aHR0cHM6Ly93d3cubnBtanMuY29tL3BhY2thZ2UvY2xhc3NuYW1lcw==">https://www.npmjs.com/package/classnames</span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly93d3cubnBtanMuY29tL3BhY2thZ2UvY2xzeA==">https://www.npmjs.com/package/clsx</span></li>
+</ul>
+<h2 id="尽量不用内联-style"><a class="anchor" href="#尽量不用内联-style">#</a> 尽量不用内联 style</h2>
+<ul>
+<li>内联 style 代码量多，性能差</li>
+<li>外链样式（用 className）代码复用，性能好</li>
+<li>这和 React 无关，在学 HTML CSS 时就知道</li>
+</ul>
+<h1 id="css-module"><a class="anchor" href="#css-module">#</a> CSS Module</h1>
+<h2 id="普通-css-的问题"><a class="anchor" href="#普通-css-的问题">#</a> 普通 CSS 的问题</h2>
+<ul>
+<li>React 使用组件化</li>
+<li>多个组件，对应多个 CSS</li>
+<li>多个 CSS 就会造成命名重复，不好管理</li>
+</ul>
+<h2 id="css-module-2"><a class="anchor" href="#css-module-2">#</a> CSS Module</h2>
+<ul>
+<li>每个 CSS 都是一个独立的模块，命名  <code>xxx.module.css</code></li>
+<li>每个模块中的 className 都不一样</li>
+<li>CRA 原生支持 CSS Module</li>
+</ul>
+<p>代码演示，参考  <code>components/Button2.tsx</code></p>
+<h2 id="使用-sass-2"><a class="anchor" href="#使用-sass-2">#</a> 使用 Sass</h2>
+<ul>
+<li>CSS 写法比较原始</li>
+<li>一般使用 Sass less 等预处理语言</li>
+<li>CRA 支持 Sass Module ，把后缀改为  <code>.scss</code>  即可</li>
+</ul>
+<h1 id="css-in-js-2"><a class="anchor" href="#css-in-js-2">#</a> CSS-in-js</h1>
+<ul>
+<li>在 JS 中（组件代码中）写 CSS</li>
+<li>不用担心 CSS class 重名的问题</li>
+<li>CSS-in-js 是一个解决方案，并不是一个工具的名称</li>
+</ul>
+<p>PS：CSS-in-js 并不是内联 style （重要！！！），它会经过工具的编译处理，生成 CSS class 的形式。</p>
+<h2 id="styled-components"><a class="anchor" href="#styled-components">#</a> Styled-components</h2>
+<p><span class="exturl" data-url="aHR0cHM6Ly9zdHlsZWQtY29tcG9uZW50cy5jb20v">https://styled-components.com/</span></p>
+<p>代码演示，参考  <code>components/Button3.tsx</code></p>
+<h2 id="styled-jsx"><a class="anchor" href="#styled-jsx">#</a> Styled-jsx</h2>
+<p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3ZlcmNlbC9zdHlsZWQtanN4I2dldHRpbmctc3RhcnRlZA==">https://github.com/vercel/styled-jsx#getting-started</span></p>
+<h2 id="优点"><a class="anchor" href="#优点">#</a> 优点</h2>
+<p>CSS-in-js 能更灵活的支持动态样式，直接在 JS 中完成计算和样式切换。这比 css-module 更好。</p>
+<p><strong># 使用 antd</strong></p>
+<p><strong>## 安装和使用</strong></p>
+<p>参考文档 <span class="exturl" data-url="aHR0cHM6Ly9hbnQuZGVzaWduL2RvY3MvcmVhY3QvdXNlLWluLXR5cGVzY3JpcHQtY24=">https://ant.design/docs/react/use-in-typescript-cn</span></p>
+<p>测试 Button 组件</p>
+<p><strong>## antd 组件</strong></p>
+<p>根据官网 <span class="exturl" data-url="aHR0cHM6Ly9hbnQuZGVzaWduL2NvbXBvbmVudHMvb3ZlcnZpZXctY24v">https://ant.design/components/overview-cn/</span> 浏览一遍 antd 所有的组件，有一个了解</p>
+<h1 id="tailwind-css"><a class="anchor" href="#tailwind-css">#</a> Tailwind CSS</h1>
+<p>特点：把常用的 CSS 样式都细分，自己自己随意搭配。</p>
+<p>例如</p>
+<ul>
+<li>字体大小 <span class="exturl" data-url="aHR0cHM6Ly93d3cudGFpbHdpbmRjc3MuY24vZG9jcy9mb250LXNpemU=">https://www.tailwindcss.cn/docs/font-size</span></li>
+<li>间距 <span class="exturl" data-url="aHR0cHM6Ly93d3cudGFpbHdpbmRjc3MuY24vZG9jcy9wYWRkaW5n">https://www.tailwindcss.cn/docs/padding</span></li>
+<li>宽度 <span class="exturl" data-url="aHR0cHM6Ly93d3cudGFpbHdpbmRjc3MuY24vZG9jcy93aWR0aA==">https://www.tailwindcss.cn/docs/width</span></li>
+</ul>
+<p>示例：</p>
+<figure class="highlight html"><figcaption data-lang="HTML"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h1</span> <span class="token attr-name">className</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>text-3xl font-bold underline<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Use tailwind CSS<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h1</span><span class="token punctuation">></span></span></pre></td></tr></table></figure><p>安装参考文档 <span class="exturl" data-url="aHR0cHM6Ly93d3cudGFpbHdpbmRjc3MuY24vZG9jcy9ndWlkZXMvY3JlYXRlLXJlYWN0LWFwcA==">https://www.tailwindcss.cn/docs/guides/create-react-app</span></p>
+<h1 id="普通表单组件"><a class="anchor" href="#普通表单组件">#</a> 普通表单组件</h1>
+<h2 id="input-组件"><a class="anchor" href="#input-组件">#</a> input 组件</h2>
+<figure class="highlight tsx"><figcaption data-lang="React TSX"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">import</span> React<span class="token punctuation">,</span> <span class="token punctuation">&#123;</span> <span class="token constant">FC</span><span class="token punctuation">,</span> useState<span class="token punctuation">,</span> ChangeEvent <span class="token punctuation">&#125;</span> <span class="token keyword">from</span> <span class="token string">"react"</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="2"></td><td><pre></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token keyword">const</span> Demo<span class="token operator">:</span> <span class="token function-variable function">FC</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="4"></td><td><pre>  <span class="token keyword">const</span> <span class="token punctuation">[</span>text<span class="token punctuation">,</span> setText<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">useState</span><span class="token punctuation">(</span><span class="token string">""</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="5"></td><td><pre>  <span class="token keyword">function</span> <span class="token function">handleChange</span><span class="token punctuation">(</span>event<span class="token operator">:</span> ChangeEvent<span class="token operator">&lt;</span>HTMLInputElement<span class="token operator">></span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="6"></td><td><pre>    <span class="token function">setText</span><span class="token punctuation">(</span>event<span class="token punctuation">.</span>target<span class="token punctuation">.</span>value<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="7"></td><td><pre>  <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="8"></td><td><pre></pre></td></tr><tr><td data-num="9"></td><td><pre>  <span class="token keyword">return</span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">onChange</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">&#123;</span>handleChange<span class="token punctuation">&#125;</span></span> <span class="token attr-name">value</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">&#123;</span>text<span class="token punctuation">&#125;</span></span> <span class="token punctuation">/></span></span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="10"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">;</span></pre></td></tr></table></figure><h2 id="受控组件-vs-非受控组件"><a class="anchor" href="#受控组件-vs-非受控组件">#</a> 受控组件 vs 非受控组件</h2>
+<p>受控组件</p>
+<ul>
+<li>元素的值同步到 state</li>
+<li>使用  <code>value</code>  属性</li>
+</ul>
+<p>非受控组件</p>
+<ul>
+<li>元素的值，不同步到 state</li>
+<li>使用  <code>defaultValue</code>  属性</li>
+</ul>
+<p>React 推荐使用受控组件。看似麻烦，其实让设计更简单。</p>
+<h1 id="表单校验"><a class="anchor" href="#表单校验">#</a> 表单校验</h1>
+<h2 id="antd-form-rules"><a class="anchor" href="#antd-form-rules">#</a> antd Form rules</h2>
+<p>参考登录、注册页</p>
+<p>PS：选择使用 antd ，顺带了解一下两个其他的 Form 验证工具</p>
+<h2 id="react-hook-form"><a class="anchor" href="#react-hook-form">#</a> react-hook-form</h2>
+<p><span class="exturl" data-url="aHR0cHM6Ly9yZWFjdC1ob29rLWZvcm0uY29tLw==">https://react-hook-form.com/</span></p>
+<h2 id="formi"><a class="anchor" href="#formi">#</a> formi</h2>
+<p>React 官网推荐的 f</p>
+<p><span class="exturl" data-url="aHR0cHM6Ly9mb3JtaWsub3JnL2RvY3Mvb3ZlcnZpZXc=">https://formik.org/docs/overview</span></p>
+<h1 id="mock-服务"><a class="anchor" href="#mock-服务">#</a> mock 服务</h1>
+<h2 id="mockjs"><a class="anchor" href="#mockjs">#</a> Mock.js</h2>
+<p><span class="exturl" data-url="aHR0cDovL21vY2tqcy5jb20v">http://mockjs.com/</span></p>
+<ul>
+<li>前端引入 Mock.js</li>
+<li>定义路由</li>
+<li>Mock.js 劫持 ajax 请求</li>
+</ul>
+<p>代码演示</p>
+<ul>
+<li>安装 Mock.js 和 axios</li>
+<li>定义路由，参考  <code>_mock/index.ts</code></li>
+<li>App.js 测试 ajax</li>
+</ul>
+<figure class="highlight ts"><figcaption data-lang="TypeScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">import</span> <span class="token string">"./_mock/index"</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token keyword">import</span> axios <span class="token keyword">from</span> <span class="token string">"axios"</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="3"></td><td><pre></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token function">useEffect</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="5"></td><td><pre>  <span class="token comment">//fetch ('/api/test')  // 不能用 fetch</span></pre></td></tr><tr><td data-num="6"></td><td><pre>  <span class="token comment">//   .then(res => res.json())</span></pre></td></tr><tr><td data-num="7"></td><td><pre>  <span class="token comment">//   .then(data => console.log(data))</span></pre></td></tr><tr><td data-num="8"></td><td><pre></pre></td></tr><tr><td data-num="9"></td><td><pre>  axios<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">"/api/test"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token punctuation">(</span>res<span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token builtin">console</span><span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"res"</span><span class="token punctuation">,</span> res<span class="token punctuation">.</span>data<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="10"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr></table></figure><p>Mock.js 的强大之处：</p>
+<ul>
+<li>前端劫持 Ajax</li>
+<li>Random 的模拟能力</li>
+</ul>
+<p>注意</p>
+<ul>
+<li>Mock.js 只能劫持 XHR ，不能劫持 fetch ，所以不要用 fetch 请求。</li>
+<li>Mock.js 要在生产环境下去掉，否则上线会有问题 —— Mock.js 体积也很大</li>
+<li>结论：不建议直接在前端使用 Mock.js</li>
+</ul>
+<h2 id="nodejs-搭建-mock-服务"><a class="anchor" href="#nodejs-搭建-mock-服务">#</a> nodejs 搭建 Mock 服务</h2>
+<p>代码参考 question-mock</p>
+<ul>
+<li>刻意延迟 1s ，模拟真实效果</li>
+<li>使用 Mock.js 的  <code>Random</code>  功能</li>
+<li>定义写 Mock 的格式，考虑扩展性</li>
+</ul>
+<p>前端修改  <code>devServer</code>  ，参考 craco.config.js</p>
+<p>扩展 webpack 配置</p>
+<ul>
+<li>使用 craco <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2RpbGFueC9jcmFjbw==">https://github.com/dilanx/craco</span></li>
+<li>可参考 <span class="exturl" data-url="aHR0cHM6Ly93d3cubGluZ2ppZS50ZWNoL2FydGljbGUvMjAyMS0wMS0wNC8yNw==">https://www.lingjie.tech/article/2021-01-04/27</span></li>
+</ul>
+<h2 id="在线-mock-平台"><a class="anchor" href="#在线-mock-平台">#</a> 在线 Mock 平台</h2>
+<p>不稳定，可能不维护了。有数据泄漏风险（多人使用，难免会写敏感数据）</p>
+<ul>
+<li>fast-mock</li>
+<li>y-api</li>
+<li>swagger - 尽量不推荐用国外平台（可以用做工具，但别用作服务）</li>
+</ul>
+<h1 id="为何使用状态管理"><a class="anchor" href="#为何使用状态管理">#</a> 为何使用状态管理</h1>
+<h2 id="状态提升"><a class="anchor" href="#状态提升">#</a> 状态提升</h2>
+<ul>
+<li>一个复杂页面，要拆分 UI 组件</li>
+<li>但数据保存在顶级组件</li>
+<li>通过 props 传递到下级组件</li>
+</ul>
+<p>代码演示，参考 react-ts-demo 中  <code>pages/homePageDemo/demo3.tsx</code>  —— 需要抽离  <code>&lt;form&gt;</code>  为单独的组件</p>
+<p>（画图表示）</p>
+<h2 id="状态管理"><a class="anchor" href="#状态管理">#</a> 状态管理</h2>
+<p>但如果情况再复杂，例如问卷编辑器，光通过状态提升无法满足。需要状态管理 —— 数据放在一个集中的第三方。</p>
+<p>（画图表示）</p>
+<p>React 状态管理的方式</p>
+<ul>
+<li>自带的 Context useReducer</li>
+<li>Redux</li>
+<li>Mobx</li>
+</ul>
+<h1 id="context"><a class="anchor" href="#context">#</a> Context</h1>
+<p>介绍</p>
+<p>- 向下级组件，跨组件传递信息</p>
+<p>- 不用像 props 层层传递</p>
+<p>- 例如：切换语言、切换主题等</p>
+<p>Context 只适合统一设置、下发某些全局变量（语言，主题等），应用场景比较单一</p>
+<h1 id="usereducer"><a class="anchor" href="#usereducer">#</a> useReducer</h1>
+<h2 id="背景-2"><a class="anchor" href="#背景-2">#</a> 背景</h2>
+<p>第一，是  <code>useState</code>  的代替方案。&lt;br/&gt;<br />
+ 当数据简单时用  <code>useState</code>  ，当数据结构较为复杂时，可以考虑用  <code>useReducer</code></p>
+<p>第二，参考了 redux （马上要学）的设计，一个简化了的 redux</p>
+<h2 id="代码演示"><a class="anchor" href="#代码演示">#</a> 代码演示</h2>
+<p>简单 demo  <code>pages/CountReducer.tsx</code></p>
+<p>todo list demo  <code>pages/TodoReducer/index.tsx</code></p>
+<h2 id="概念"><a class="anchor" href="#概念">#</a> 概念</h2>
+<ul>
+<li>state 或 store - 存储数据</li>
+<li>action - 动作，格式如  <code>&#123; type: 'xxx', ... &#125;</code></li>
+<li>reducer - 根据 action 生成新 state —— <strong>不可变数据</strong></li>
+<li>dispatch - 触发 action</li>
+</ul>
+<p>PS：在 React 环境下，永远不能忘记  <code>不可变数据</code></p>
+<h2 id="问题"><a class="anchor" href="#问题">#</a> 问题</h2>
+<p>需结合 useContext 跨组件通讯</p>
+<p>另，state 和 dispatch 没有模块化，数据混在一起，也不适合复杂项目。</p>
+<p>但简单项目还是可以用的。</p>
+<h1 id="redux-2"><a class="anchor" href="#redux-2">#</a> Redux</h1>
+<p>Redux 是 React 最出名的状态管理工具</p>
+<h2 id="概念-2"><a class="anchor" href="#概念-2">#</a> 概念</h2>
+<p>redux 和 useReducer 的概念一样</p>
+<ul>
+<li>state 或 store - 存储数据</li>
+<li>action - 动作，格式如  <code>&#123; type: 'xxx', ... &#125;</code></li>
+<li>reducer - 根据 action 生成新 state —— <strong>不可变数据</strong></li>
+<li>dispatch - 触发 action</li>
+</ul>
+<p>但 redux 和 useReducer 有很多区别</p>
+<ul>
+<li>store 可拆分模块</li>
+<li>可通过 Hook 获取 state 和 dispatch</li>
+<li>开发者工具</li>
+</ul>
+<h2 id="代码演示-2"><a class="anchor" href="#代码演示-2">#</a> 代码演示</h2>
+<p>代码参考 undo-redo-demo （忽略 undo redo 功能）。分两步：</p>
+<ul>
+<li>不使用 immer</li>
+<li>使用 immer</li>
+</ul>
+<h2 id="开发者工具"><a class="anchor" href="#开发者工具">#</a> 开发者工具</h2>
+<p>Chrome redux DevTools</p>
+<p><span class="exturl" data-url="aHR0cHM6Ly9jaHJvbWUuZ29vZ2xlLmNvbS93ZWJzdG9yZS9kZXRhaWwvcmVkdXgtZGV2dG9vbHMvbG1oa3BtYmVrY3Bta25rbGlvZWliZmtwbW1maWJsamQ/aGw9emgtQ04=">https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd?hl=zh-CN</span></p>
+<p>可以看到每一步 dispatch 的 state 变化，开发调试很方便</p>
+<h2 id="redux-单项数据流模型"><a class="anchor" href="#redux-单项数据流模型">#</a> redux 单项数据流模型</h2>
+<p>参考这里的动<img data-src="https://cn.redux.js.org/tutorials/fundamentals/part-2-concepts-data-flow/" alt="Image" /></p>
+<h1 id="mobx-2"><a class="anchor" href="#mobx-2">#</a> Mobx</h1>
+<p>Mobx 可以通过<strong>声明式</strong>的方式来修改数据。像 Vue 。&lt;br&gt;<br />
+ 不像 React 和 redux 那样，需要用纯函数和不可变值。</p>
+<h2 id="基本概念"><a class="anchor" href="#基本概念">#</a> 基本概念</h2>
+<p>主旨 <span class="exturl" data-url="aHR0cHM6Ly96aC5tb2J4LmpzLm9yZy90aGUtZ2lzdC1vZi1tb2J4Lmh0bWw=">https://zh.mobx.js.org/the-gist-of-mobx.html</span></p>
+<ul>
+<li>state 数据</li>
+<li>action 动作</li>
+<li>derivation 派生
+<ul>
+<li>computed</li>
+<li><code>observer</code>  监听变化，包裹的 React 组件</li>
+<li><code>autorun</code>  监听变化，像 watch</li>
+</ul>
+</li>
+</ul>
+<h2 id="代码演示-3"><a class="anchor" href="#代码演示-3">#</a> 代码演示</h2>
+<p>简单 demo - mobx-demo/src/BasicDemo</p>
+<p>todo-list demo - mobx-demo/src/TodoDemo2</p>
+<h2 id="小结"><a class="anchor" href="#小结">#</a> 小结</h2>
+<p>Mobx 使用单项数据流 <span class="exturl" data-url="aHR0cHM6Ly96aC5tb2J4LmpzLm9yZy90aGUtZ2lzdC1vZi1tb2J4Lmh0bWwjJUU1JThFJTlGJUU1JTg4JTk5">https://zh.mobx.js.org/the-gist-of-mobx.html# 原则</span></p>
+<h2 id="其他"><a class="anchor" href="#其他">#</a> 其他</h2>
+<p>v6 已经默认去掉了<strong>装饰器</strong>语法，为了大部分的兼容性 <span class="exturl" data-url="aHR0cHM6Ly9tb2J4LmpzLm9yZy9pbnN0YWxsYXRpb24uaHRtbCNtb2J4LWFuZC1kZWNvcmF0b3Jz">https://mobx.js.org/installation.html#mobx-and-decorators</span></p>
+<p>尽量使用  <code>computed</code> &lt;br&gt;<br />
+<span class="exturl" data-url="aHR0cHM6Ly9tb2J4LmpzLm9yZy90aGUtZ2lzdC1vZi1tb2J4Lmh0bWw=">https://mobx.js.org/the-gist-of-mobx.html</span><br />
+When starting with MobX, people tend to overuse reactions. The golden rule is, always use computed if you want to create a value based on the current state.</p>
+<p>computed 必须是纯函数。而 action 可以修改 state （如 arr.push）&lt;br&gt;<br />
+computed 采用惰性求值，会缓存其输出，并且只有当其依赖的可观察对象被改变时才会重新计算。 它们在不被任何值观察时会被暂时停用。</p>
+<h1 id="redux-管理用户信息"><a class="anchor" href="#redux-管理用户信息">#</a> Redux 管理用户信息</h1>
+<h2 id="store"><a class="anchor" href="#store">#</a> store</h2>
+<p>创建 src/store/store.ts 和 src/store/userReducer.ts</p>
+<h2 id="开发"><a class="anchor" href="#开发">#</a> 开发</h2>
+<p>Logo 组件，根据 username 判断链接地址 &lt;br&gt;<br />
+ 新建 hooks/useGetUserInfo.ts</p>
+<p>hooks/useLoadUserData.ts</p>
+<ul>
+<li>使用  <code>loginReducer</code></li>
+<li>useSelect - 根据 username 判断是否已经登录</li>
+<li>UserInfo 组件，去掉 service ，改用 useGetUserInfo</li>
+</ul>
+<p>UserInfo 组件</p>
+<ul>
+<li>使用  <code>logoutReducer</code></li>
+<li>useSelect - 显示用户信息或 “登录”</li>
+</ul>
+<p>新建  <code>hooks/useNavPage</code>  执行跳转逻辑，用于 MainLayout QuestionLayout</p>
+<h1 id="-4"><a class="anchor" href="#-4">#</a> </h1>
+<h1 id="--4"><a class="anchor" href="#--4">#</a> --------------------------------------</h1>
+<h1 id="功能开发"><a class="anchor" href="#功能开发">#</a> 功能开发</h1>
+<h1 id="拖拽排序"><a class="anchor" href="#拖拽排序">#</a> 拖拽排序</h1>
+<h1 id="拖拽排序-2"><a class="anchor" href="#拖拽排序-2">#</a> 拖拽排序</h1>
+<p>拖拽排序是 Web 管理系统的常见功能，React 也有相应的第三方插件供我们选择。</p>
+<h2 id="技术选型"><a class="anchor" href="#技术选型">#</a> 技术选型</h2>
+<p>分析常见的第三方插件，并且选择一个合适的。</p>
+<ul>
+<li>看 github star ，看 npm 下载量 —— （不一定最高，但要有一定的数量规模）</li>
+<li>看 github 代码更新，和 npm 发布更新</li>
+<li>看文档和 demo ，是否易读易懂 —— （当年，Vue 能在国内打开，文档占了很大功劳）</li>
+</ul>
+<h3 id="react-dnd"><a class="anchor" href="#react-dnd">#</a> react-dnd</h3>
+<ul>
+<li>github star 多，代码更新及时 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3JlYWN0LWRuZC9yZWFjdC1kbmQ=">https://github.com/react-dnd/react-dnd</span></li>
+<li>npm 下载量大 <span class="exturl" data-url="aHR0cHM6Ly93d3cubnBtanMuY29tL3BhY2thZ2UvcmVhY3QtZG5k">https://www.npmjs.com/package/react-dnd</span></li>
+<li>但，文档不易懂，学习成本高 。如<span class="exturl" data-url="aHR0cHM6Ly9yZWFjdC1kbmQuZ2l0aHViLmlvL3JlYWN0LWRuZC9hYm91dA==">首页</span> 的 demo ，代码就非常复杂，不易读</li>
+</ul>
+<p>PS：examples 太复杂 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3JlYWN0LWRuZC9yZWFjdC1kbmQvdHJlZS9tYWluL3BhY2thZ2VzL2V4YW1wbGVzL3NyYy8wNC1zb3J0YWJsZS9zaW1wbGU=">https://github.com/react-dnd/react-dnd/tree/main/packages/examples/src/04-sortable/simple</span></p>
+<h3 id="react-beautiful-dnd"><a class="anchor" href="#react-beautiful-dnd">#</a> react-beautiful-dnd</h3>
+<p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2F0bGFzc2lhbi9yZWFjdC1iZWF1dGlmdWwtZG5k">https://github.com/atlassian/react-beautiful-dnd</span></p>
+<ul>
+<li>github star 多， 代码更新不频繁了 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2F0bGFzc2lhbi9yZWFjdC1iZWF1dGlmdWwtZG5k">https://github.com/atlassian/react-beautiful-dnd</span></li>
+<li>npm 下载量高 <span class="exturl" data-url="aHR0cHM6Ly93d3cubnBtanMuY29tL3BhY2thZ2UvcmVhY3QtYmVhdXRpZnVsLWRuZA==">https://www.npmjs.com/package/react-beautiful-dnd</span></li>
+<li>文档比较好理解，可以直接在 github 上找到 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2F0bGFzc2lhbi9yZWFjdC1iZWF1dGlmdWwtZG5kL2Jsb2IvbWFzdGVyL2RvY3MvYWJvdXQvZXhhbXBsZXMubWQ=">examples</span></li>
+</ul>
+<p>但，<strong>不支持 React18 严格模式</strong>（代码好久没更新了）&lt;br&gt;<br />
+ 去掉  <code>&lt;React.StrictMode&gt;</code>  就好了。但这样就丢失了严格模式的好处 <span class="exturl" data-url="aHR0cHM6Ly96aC1oYW5zLnJlYWN0anMub3JnL2RvY3Mvc3RyaWN0LW1vZGUuaHRtbA==">https://zh-hans.reactjs.org/docs/strict-mode.html</span></p>
+<p>有解决的 lib ，但 star 太少了，不可靠 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2hlbGxvLXBhbmdlYS9kbmQ=">https://github.com/hello-pangea/dnd</span></p>
+<p>PS：暂无精力更新，看 npm 首页的描述 <span class="exturl" data-url="aHR0cHM6Ly93d3cubnBtanMuY29tL3BhY2thZ2UvcmVhY3QtYmVhdXRpZnVsLWRuZA==">https://www.npmjs.com/package/react-beautiful-dnd</span></p>
+<h3 id="sortablejs"><a class="anchor" href="#sortablejs">#</a> Sortablejs</h3>
+<p>老牌的 js 排序 lib ，不依赖于 React 或 Vue 。</p>
+<p>官方提供的 React 版本的下载量还可以 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL1NvcnRhYmxlSlMvcmVhY3Qtc29ydGFibGVqcw==">https://github.com/SortableJS/react-sortablejs</span></p>
+<p>但它有一个提示  <code>is not considered ready for production</code>  ，不推荐用于生产环境</p>
+<h3 id="react-sortable-hoc"><a class="anchor" href="#react-sortable-hoc">#</a> react-sortable-hoc</h3>
+<p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2NsYXVkZXJpYy9yZWFjdC1zb3J0YWJsZS1ob2M=">https://github.com/clauderic/react-sortable-hoc</span></p>
+<p>star 和下载量都不错，但已不再主动维护，推荐使用  <code>dnd-kit</code></p>
+<h3 id="dnd-kit"><a class="anchor" href="#dnd-kit">#</a> dnd-kit</h3>
+<p><span class="exturl" data-url="aHR0cHM6Ly9kb2NzLmRuZGtpdC5jb20vcHJlc2V0cy9zb3J0YWJsZQ==">https://docs.dndkit.com/presets/sortable</span></p>
+<ul>
+<li>github star 数量还可以（不算高），代码更新及时 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2NsYXVkZXJpYy9kbmQta2l0">https://github.com/clauderic/dnd-kit</span></li>
+<li>npm 下载量还可以（不算高）<span class="exturl" data-url="aHR0cHM6Ly93d3cubnBtanMuY29tL3BhY2thZ2UvQGRuZC1raXQvY29yZQ==">https://www.npmjs.com/package/@dnd-kit/core</span></li>
+<li>文档和 demo 通俗移动</li>
+</ul>
+<p>代码演示，参考 dnd-kit-and-sortablejs-demo</p>
+<h2 id="开发-2"><a class="anchor" href="#开发-2">#</a> 开发</h2>
+<ul>
+<li>抽离组件  <code>SortableContainer</code>   <code>SortableItem</code>  —— 图层和画布都需要拖拽排序</li>
+<li>在画布和图层使用</li>
+</ul>
+<p>之前代码的改动</p>
+<ul>
+<li>App.css 增加  <code>div[role=&quot;button&quot;] &#123; outline: 0 &#125;</code></li>
+<li>键盘快捷键，修改  <code>isActiveElementValid</code>  函数内的逻辑</li>
+</ul>
+<p>工具栏：上移 / 下移</p>
+<h1 id="撤销重做"><a class="anchor" href="#撤销重做">#</a> 撤销重做</h1>
+<h2 id="实现原理"><a class="anchor" href="#实现原理">#</a> 实现原理</h2>
+<p>（先介绍 stack）</p>
+<p>两个 stack ：undo-stack redo-stack</p>
+<ul>
+<li>输入：redo-stack 清空，undo-stack 入栈</li>
+<li>undo ：undo-stack 出栈，redo-stack 入栈</li>
+<li>redo ：redo-stack 出栈，undo-stack 入栈</li>
+</ul>
+<p>画图表示 &lt;br&gt;<br />
+ 代码演示</p>
+<h2 id="redux-撤销重做"><a class="anchor" href="#redux-撤销重做">#</a> redux 撤销重做</h2>
+<p><span class="exturl" data-url="aHR0cHM6Ly93d3cubnBtanMuY29tL3BhY2thZ2UvcmVkdXgtdW5kbw==">https://www.npmjs.com/package/redux-undo</span></p>
+<p>代码演示，从之前的 redux todo-list demo 上进行</p>
+<ul>
+<li>store/store.ts</li>
+<li>pages/TodoList.ts</li>
+</ul>
+<h2 id="开发-3"><a class="anchor" href="#开发-3">#</a> 开发</h2>
+<ul>
+<li>src/store/store.ts</li>
+<li>src/hooks/useGetComponentInfo.ts</li>
+<li>src/pages/question/Edit/EditToolbar.tsx</li>
+</ul>
+<p>PS：看 ctrl + z 等快捷键</p>
+<h1 id="chat-图表"><a class="anchor" href="#chat-图表">#</a> Chat 图表</h1>
+<h1 id="chart-lib-选型"><a class="anchor" href="#chart-lib-选型">#</a> chart lib 选型</h1>
+<p>回顾一下技术选项的三个要点，在 “拖拽排序” 那一节</p>
+<h2 id="react-chartjs-2"><a class="anchor" href="#react-chartjs-2">#</a> react-chartjs-2</h2>
+<p><span class="exturl" data-url="aHR0cHM6Ly9yZWFjdC1jaGFydGpzLTIuanMub3JnLw==">https://react-chartjs-2.js.org/</span></p>
+<p>基于 chartjs （知名 charts lib）</p>
+<ul>
+<li>github star 还可以，代码更新及时 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3JlYWN0Y2hhcnRqcy9yZWFjdC1jaGFydGpzLTI=">https://github.com/reactchartjs/react-chartjs-2</span></li>
+<li>npm 下载量大 <span class="exturl" data-url="aHR0cHM6Ly93d3cubnBtanMuY29tL3BhY2thZ2UvcmVhY3QtY2hhcnRqcy0y">https://www.npmjs.com/package/react-chartjs-2</span></li>
+<li>文档和 demo 简洁易懂 <span class="exturl" data-url="aHR0cHM6Ly9yZWFjdC1jaGFydGpzLTIuanMub3JnL2V4YW1wbGVz">https://react-chartjs-2.js.org/examples</span></li>
+</ul>
+<p>作为备选观察</p>
+<h2 id="recharts"><a class="anchor" href="#recharts">#</a> recharts</h2>
+<p><span class="exturl" data-url="aHR0cHM6Ly9yZWNoYXJ0cy5vcmcvemgtQ04v">https://recharts.org/zh-CN/</span></p>
+<p>基于 D3</p>
+<ul>
+<li>github star 更多，代码更新及时 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3JlY2hhcnRzL3JlY2hhcnRz">https://github.com/recharts/recharts</span></li>
+<li>npm 下载量大 <span class="exturl" data-url="aHR0cHM6Ly93d3cubnBtanMuY29tL3BhY2thZ2UvcmVjaGFydHM=">https://www.npmjs.com/package/recharts</span></li>
+<li>文档和 demo 简洁易懂 <strong>有中文文档</strong> <span class="exturl" data-url="aHR0cHM6Ly9yZWNoYXJ0cy5vcmcvemgtQ04vZXhhbXBsZXM=">https://recharts.org/zh-CN/examples</span></li>
+</ul>
+<h2 id="echarts-for-react"><a class="anchor" href="#echarts-for-react">#</a> echarts-for-react</h2>
+<p><span class="exturl" data-url="aHR0cHM6Ly9naXQuaHVzdC5jYy9lY2hhcnRzLWZvci1yZWFjdC8=">https://git.hust.cc/echarts-for-react/</span></p>
+<p>基于百度 echarts</p>
+<ul>
+<li>github star 不太多，代码更新不太及时 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2h1c3RjYy9lY2hhcnRzLWZvci1yZWFjdA==">https://github.com/hustcc/echarts-for-react</span></li>
+<li>npm 下载量也不太大 <span class="exturl" data-url="aHR0cHM6Ly93d3cubnBtanMuY29tL3BhY2thZ2UvZWNoYXJ0cy1mb3ItcmVhY3Q=">https://www.npmjs.com/package/echarts-for-react</span></li>
+<li>文档友好，中文文档</li>
+</ul>
+<h2 id="结论"><a class="anchor" href="#结论">#</a> 结论</h2>
+<p>最终选择了 recharts</p>
+<h1 id="-5"><a class="anchor" href="#-5">#</a> </h1>
+<h1 id="--5"><a class="anchor" href="#--5">#</a> --------------------------------------</h1>
+<h1 id="react-项目性能优化"><a class="anchor" href="#react-项目性能优化">#</a> React 项目性能优化</h1>
+<h1 id="缓存数据-减少计算"><a class="anchor" href="#缓存数据-减少计算">#</a> 缓存数据 减少计算</h1>
+<p>PS：React18 开发环境下，组件会渲染两次。生产环境则不会。</p>
+<h2 id="usestate-传入函数"><a class="anchor" href="#usestate-传入函数">#</a> useState 传入函数</h2>
+<ul>
+<li>useState 传入初始化数据</li>
+<li>如传入函数，则只在组件渲染执行一次</li>
+<li>如果数据结构较复杂，可使用函数</li>
+</ul>
+<p>代码演示，参考 react-ts-demo 中 pages/UseStateFnDemo.tsx</p>
+<h2 id="usememo-缓存数据"><a class="anchor" href="#usememo-缓存数据">#</a> useMemo 缓存数据</h2>
+<p>（之前讲过，再回顾一遍，不用代码演示了）</p>
+<ul>
+<li>函数组件，默认，每次 state 变化都会重新执行</li>
+<li>useMemo 可以缓存某个数据，不用每次都重新生成</li>
+<li>可用于计算量比较大的数据场景</li>
+</ul>
+<p>代码参考 pages/UseMemoAndCallback/UseMemoDemo1.tsx</p>
+<p>注意文档中的这段话 “你可以把 useMemo 作为性能优化的手段，但不要把它当成语义上的保证。” <span class="exturl" data-url="aHR0cHM6Ly96aC1oYW5zLnJlYWN0anMub3JnL2RvY3MvaG9va3MtcmVmZXJlbmNlLmh0bWwjdXNlbWVtbw==">https://zh-hans.reactjs.org/docs/hooks-reference.html#usememo</span>&lt;br&gt;<br />
+ 即，useMemo 的控制权在 React ，不一定保证每个都会缓存，但都是为了全局的性能最佳。</p>
+<p>项目示例：统计页，链接和二维码的 Elem</p>
+<h2 id="usecallback-缓存函数"><a class="anchor" href="#usecallback-缓存函数">#</a> useCallback 缓存函数</h2>
+<p>（之前讲过，再回顾一遍，不用代码演示了）</p>
+<p>useCallback 就是 useMemo 的语法糖，和 useMemo 一样。用于缓存函数。</p>
+<p>代码参考 pages/UseMemoAndCallback/UseCallbackDemo1.tsx</p>
+<p>项目示例：新增组件</p>
+<h2 id="reactmemo-缓存组件"><a class="anchor" href="#reactmemo-缓存组件">#</a> React.memo 缓存组件</h2>
+<p>当 state 变化时，React 会默认渲染所有<strong>子组件</strong>，无论其 props 是否变化</p>
+<p>但如果想要控制子组件根据 props 变化来渲染，可以使用  <code>React.memo</code></p>
+<p>代码演示，可以在 pages/homePageDemo/Demo3.tsx &lt;br&gt;<br />
+ 为  <code>List</code>  组件增加  <code>React.memo</code></p>
+<p>PS：注意和  <code>useMemo</code>  的区别，一开始容易搞混了</p>
+<h1 id="代码体积和拆分"><a class="anchor" href="#代码体积和拆分">#</a> 代码体积和拆分</h1>
+<h2 id="代码体积分析"><a class="anchor" href="#代码体积分析">#</a> 代码体积分析</h2>
+<p><span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGUtcmVhY3QtYXBwLmRldi9kb2NzL2FuYWx5emluZy10aGUtYnVuZGxlLXNpemUv">https://create-react-app.dev/docs/analyzing-the-bundle-size/</span></p>
+<figure class="highlight shell"><figcaption data-lang="Bash"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token comment"># build 以后，可以直接运行结果 （看控制台提示）</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token function">yarn</span> global <span class="token function">add</span> serve</pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token comment"># npm install serve -g</span></pre></td></tr><tr><td data-num="4"></td><td><pre>serve <span class="token parameter variable">-s</span> build</pre></td></tr></table></figure><p>发现 main.js 体积有  <code>1.5M</code>  —— 首页加载就需要  <code>1.5M</code>  ，有点大，需要拆分。</p>
+<p>分析内部发现比较大的体积来自于 antd recharts react-dom dnd-kit 等。&lt;br&gt;<br />
+ 首先想到的：拆分页面，路由懒加载，把编辑页、统计页拆分开</p>
+<h2 id="路由懒加载"><a class="anchor" href="#路由懒加载">#</a> 路由懒加载</h2>
+<p>代码参考 src/router/index.ts</p>
+<p>再进行代码体积分析，发现 main.js 减小到  <code>1.0M</code>  还是很大。&lt;br&gt;<br />
+ 但至少编辑页面、统计页面的代码都移除了。</p>
+<p>分析结果中，发现一个不符合预期的现象：<strong> <code>@dnd-kit</code>  是拖拽排序的，应该在编辑页，不应该在 main.js</strong>&lt;br&gt;<br />
+ 查代码发现，在 src/store/componentsReducer/index.ts 中用到了  <code>@dnd-kit/sortable</code>  ，而后者用依赖于  <code>@dnd-kit/core</code> &lt;br&gt;<br />
+ 这个是否要优化掉？（把相关代码移动到编辑页面的引用） —— <strong>不值得！！！</strong></p>
+<ul>
+<li>这部分代码只占用 50kb ，最后 GZip 压缩以后大约 16kb ，体积不算大</li>
+<li>如果移动代码，将导致代码修改较多，而且可能破坏语义、可读性</li>
+<li>综合考虑成本和收益，这里保持不变</li>
+</ul>
+<p>继续：分析结果中，占比最大的是 antd 和 react-dom ，可以抽离公共代码。</p>
+<h2 id="抽离公共代码"><a class="anchor" href="#抽离公共代码">#</a> 抽离公共代码</h2>
+<p>PS：生成环境需要抽离。开发环境不需要抽离，否则影响打包速度。</p>
+<p>代码参考 craco.config.js ，注意两点</p>
+<ul>
+<li>必须是生成环境。开发环境不需要抽离，否则影响打包速度。</li>
+<li>设置  <code>chunks: 'all'</code></li>
+</ul>
+<p>重新 build 以后，发现 main.js 只有  <code>35kb</code>  ，react-dom antd vendors 都被拆分出去了。</p>
+<h2 id="合理使用缓存"><a class="anchor" href="#合理使用缓存">#</a> 合理使用缓存</h2>
+<p>运行 build 结果，发现首页依然要加载好几个 JS 文件： main.js react-dom antd vendors&lt;br&gt;<br />
+ 它们体积的总和依然是 1M 左右，那和优化之前一样吗？ —— <strong>不一样</strong></p>
+<ul>
+<li>优化之前是一个文件，一旦有代码改动，文件变化，缓存失效</li>
+<li>优化之后拆分多个文件，代码改动只会导致 main.js 变化，其他文件都会缓存</li>
+<li>如果不频繁升级 npm 插件，其他 js 文件不会频繁变动</li>
+</ul>
+<h2 id="css"><a class="anchor" href="#css">#</a> CSS</h2>
+<p>不用做优化，css 已经被分离为 main.css antd-chunk.css edit-page.css stat-page.css</p>
+<h2 id="小结-2"><a class="anchor" href="#小结-2">#</a> 小结</h2>
+<p>从一开始的 1.6M 到最后的 33KB ，效果明显。</p>
+<p>PS：浏览器和服务端一般都默认支持 Gzip 压缩，体积能压缩 1/3 左右</p>
+<h1 id="--6"><a class="anchor" href="#--6">#</a> --------------------------------------</h1>
+<h1 id="react-项目单元测试"><a class="anchor" href="#react-项目单元测试">#</a> React 项目单元测试</h1>
+<h1 id="单元测试"><a class="anchor" href="#单元测试">#</a> 单元测试</h1>
+<p>对比</p>
+<ul>
+<li>单元测试 - 某个功能模块、函数、组件的测试 —— 开发人员</li>
+<li>系统测试 - 整个功能流程的测试 —— 专业测试人员</li>
+</ul>
+<h2 id="jest-入门"><a class="anchor" href="#jest-入门">#</a> jest 入门</h2>
+<p>jest 是最流行的前端单元测试工具 &lt;br&gt;<br />
+ 可参考官网首页的 demo <span class="exturl" data-url="aHR0cHM6Ly93d3cuamVzdGpzLmNuL2RvY3MvZ2V0dGluZy1zdGFydGVk">https://www.jestjs.cn/docs/getting-started</span></p>
+<p>react-ts-demo 代码演示</p>
+<ul>
+<li>CRA 直接安装了 jest ，可直接写</li>
+<li>utils/math.ts 和 utils/math.test.ts</li>
+<li>运行  <code>npm run test</code>  （看 package.json  <code>scripts</code> ）</li>
+</ul>
+<p>测试代码文件的位置</p>
+<ul>
+<li>统一放在  <code>__tests__</code>  目录下</li>
+<li>和源文件放在一起，增加  <code>.test.ts</code>  后缀</li>
+<li>选择后者（1. 结合更密切，可读性好；2. 不容易忘，敦促及时写单元测试）</li>
+</ul>
+<p>小结</p>
+<ul>
+<li>test it 构建测试用例</li>
+<li>expect 断言 —— 很多，后面一一学习</li>
+<li>测试文件的位置</li>
+</ul>
+<h2 id="组件单元测试"><a class="anchor" href="#组件单元测试">#</a> 组件单元测试</h2>
+<p>注意，不是所有前端代码都适合单元测试，一般只对一些核心的、功能封装独立的组件进行单元测试。</p>
+<ul>
+<li>QuestionInfo</li>
+<li>QuestionTitle</li>
+<li>QuestionParagraph</li>
+<li>QuestionInput</li>
+<li>QuestionTextarea</li>
+<li>QuestionRadio</li>
+<li>QuestionCheckbox</li>
+</ul>
+<h2 id="自动化测试"><a class="anchor" href="#自动化测试">#</a> 自动化测试</h2>
+<p>操作</p>
+<ul>
+<li><code>npm run test</code>  加入到 husky  <code>.husky/pre-commit</code></li>
+<li>为 package.json  <code>scripts</code>   <code>test</code>  <strong>增加  <code>--watchAll=false</code> </strong> —— 重要！否则无法正常执行 commit</li>
+<li>每次 commit 会执行测试</li>
+</ul>
+<p>自动测试的价值</p>
+<ul>
+<li>每次 commit 都自动执行，测试失败，无法提交代码（不污染现有的代码）</li>
+<li>避免各种 “不小心” “忘了” 的问题 —— 自动化，电脑忘不了</li>
+<li>要及时完善组件单元测试，新组件也要添加单元测试</li>
+</ul>
+<h1 id="storybook"><a class="anchor" href="#storybook">#</a> storybook</h1>
+<p>组件<strong>可视化</strong>测试 &lt;br&gt;<br />
+ 或者，它可以被理解为一种文档或组件使用介绍，通过 storybook 就可以看到组件的 UI 结构、属性配置等。</p>
+<h2 id="初始化"><a class="anchor" href="#初始化">#</a> 初始化</h2>
+<p><span class="exturl" data-url="aHR0cHM6Ly9zdG9yeWJvb2suanMub3JnL2RvY3MvcmVhY3QvZ2V0LXN0YXJ0ZWQvaW5zdGFsbA==">https://storybook.js.org/docs/react/get-started/install</span></p>
+<p>进入 react 目录，运行  <code>npx storybook init</code>  ，添加 storybook&lt;br&gt;<br />
+PS：期间会咨询是否使用 eslint 插件，选择否。因为我们已经自己定义好 eslint 规则了</p>
+<p>先执行  <code>npm run format</code>  和  <code>npm run lint</code>  统一代码格式（storybook 新增的组件，代码风格可能不一样）</p>
+<p>执行  <code>npm run storybook</code>  启动，可以看到现成的 demo</p>
+<p>最后，新建  <code>stories/examples</code>  文件夹，把示例都拖进来。否则太多太乱。</p>
+<h2 id="代码演示-4"><a class="anchor" href="#代码演示-4">#</a> 代码演示</h2>
+<p>新建  <code>stories/question</code>  目录，在这里新建组件</p>
+<ul>
+<li>QuestionInfo.stories.tsx</li>
+<li>QuestionTitle.stories.tsx</li>
+<li>QuestionParagraph.stories.tsx</li>
+<li>QuestionInput.stories.tsx</li>
+</ul>
+<h1 id="react-fiber-架构的调度执行原理"><a class="anchor" href="#react-fiber-架构的调度执行原理">#</a> React Fiber 架构的调度执行原理</h1>
+<figure class="highlight javascript"><figcaption data-lang="javascript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">let</span> ticket_num <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token keyword">let</span> ticket_total <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token comment">// 使用生成器，生成迭代器，迭代器用于迭代返回结果</span></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token keyword">function</span><span class="token operator">*</span> <span class="token function">sale</span><span class="token punctuation">(</span><span class="token parameter">name</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="5"></td><td><pre>  <span class="token keyword">const</span> saleName <span class="token operator">=</span> name<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="6"></td><td><pre>  <span class="token comment">// 定义死循环，永远执行任务</span></pre></td></tr><tr><td data-num="7"></td><td><pre>  <span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="8"></td><td><pre>    <span class="token keyword">if</span> <span class="token punctuation">(</span>ticket_num <span class="token operator">&lt;=</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="9"></td><td><pre>      console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>saleName<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string"> => No ticket</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="10"></td><td><pre>      <span class="token comment">// 生成器函数中如何直接返回，则只会有一次 next 方法，执行的 value 是 return 返回的值，done 为 true</span></pre></td></tr><tr><td data-num="11"></td><td><pre>      <span class="token keyword">return</span> <span class="token number">1</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="12"></td><td><pre>    <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="13"></td><td><pre>      ticket_total<span class="token operator">++</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="14"></td><td><pre>      console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>saleName<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string"> => sales the No.</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>ticket_total<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string"> ticket</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="15"></td><td><pre>      ticket_num<span class="token operator">--</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="16"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="17"></td><td><pre>    <span class="token keyword">yield</span> ticket_num<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="18"></td><td><pre>  <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="19"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="20"></td><td><pre><span class="token comment">// 当浏览器处于空闲状态时 (手动实现的 requestIdleCallback), 使用调度器执行任务队列中的迭代器 (利用迭代器可以暂停执行的特点)</span></pre></td></tr><tr><td data-num="21"></td><td><pre><span class="token keyword">let</span> <span class="token function-variable function">thread</span> <span class="token operator">=</span> <span class="token keyword">async</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="22"></td><td><pre>  <span class="token comment">// 设置任务队列，存放一些迭代器.</span></pre></td></tr><tr><td data-num="23"></td><td><pre>  <span class="token keyword">let</span> pool <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token function">sale</span><span class="token punctuation">(</span><span class="token string">"A"</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token function">sale</span><span class="token punctuation">(</span><span class="token string">"B"</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token function">sale</span><span class="token punctuation">(</span><span class="token string">"C"</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token function">sale</span><span class="token punctuation">(</span><span class="token string">"D"</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="24"></td><td><pre>  <span class="token keyword">let</span> len <span class="token operator">=</span> pool<span class="token punctuation">.</span>length<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="25"></td><td><pre>  <span class="token keyword">let</span> moniter <span class="token operator">=</span> len<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="26"></td><td><pre>  ticket_num <span class="token operator">=</span> <span class="token number">100</span><span class="token punctuation">;</span> <span class="token comment">// 迭代器执行环境和变量相绑定，可以修改变量的值，对应的迭代器执行结果也会变化</span></pre></td></tr><tr><td data-num="27"></td><td><pre>  <span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="28"></td><td><pre>    <span class="token keyword">let</span> id <span class="token operator">=</span> <span class="token function">parseInt</span><span class="token punctuation">(</span>Math<span class="token punctuation">.</span><span class="token function">random</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">*</span> len<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="29"></td><td><pre>    <span class="token keyword">let</span> status <span class="token operator">=</span> pool<span class="token punctuation">[</span>id<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>done<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="30"></td><td><pre>    <span class="token keyword">if</span> <span class="token punctuation">(</span>status<span class="token punctuation">)</span> moniter<span class="token operator">--</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="31"></td><td><pre>    <span class="token keyword">if</span> <span class="token punctuation">(</span>moniter <span class="token operator">===</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="32"></td><td><pre>      console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"All tickets saled done..."</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="33"></td><td><pre>      <span class="token keyword">break</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="34"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="35"></td><td><pre>  <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="36"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="37"></td><td><pre><span class="token function">thread</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr></table></figure>
+      <div class="tags">
+          <a href="/tags/react/" rel="tag"><i class="ic i-tag"></i> react</a>
+      </div>
+  </div>
+
+   <footer>
+
+    <div class="meta">
+  <span class="item">
+    <span class="icon">
+      <i class="ic i-calendar-check"></i>
+    </span>
+    <span class="text">更新于</span>
+    <time title="修改时间：2024-07-24 14:35:27" itemprop="dateModified" datetime="2024-07-24T14:35:27+08:00">2024-07-24</time>
+  </span>
+  <span id="2023/12/02/react/" class="item leancloud_visitors" data-flag-title="react笔记" title="阅读次数">
+      <span class="icon">
+        <i class="ic i-eye"></i>
+      </span>
+      <span class="text">阅读次数</span>
+      <span class="leancloud-visitors-count"></span>
+      <span class="text">次</span>
+  </span>
+</div>
+
+      
+<div class="reward">
+  <button><i class="ic i-heartbeat"></i> 赞赏</button>
+  <p>请我喝[茶]~(￣▽￣)~*</p>
+  <div id="qr">
+      
+      <div>
+        <img data-src="/images/wechatpay.png" alt="dmq 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div>
+        <img data-src="/images/alipay.png" alt="dmq 支付宝">
+        <p>支付宝</p>
+      </div>
+  </div>
+</div>
+
+      
+
+<div id="copyright">
+<ul>
+  <li class="author">
+    <strong>本文作者： </strong>dmq <i class="ic i-at"><em>@</em></i>杜明清的个人博客
+  </li>
+  <li class="link">
+    <strong>本文链接：</strong>
+    <a href="https://dmqweb.cn/2023/12/02/react/" title="react笔记">https://dmqweb.cn/2023/12/02/react/</a>
+  </li>
+  <li class="license">
+    <strong>版权声明： </strong>本站所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+  </footer>
+
+</article>
+
+  </div>
+  
+
+<div class="post-nav">
+    <div class="item left">
+      
+
+  <a href="/2023/12/02/%E6%95%B0%E6%8D%AE%E5%BA%93/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;s3.uuu.ovh&#x2F;imgs&#x2F;2024&#x2F;04&#x2F;15&#x2F;64f47485ad1e6bed.jpg" title="数据库">
+  <span class="type">上一篇</span>
+  <span class="category"><i class="ic i-flag"></i> 数据库</span>
+  <h3>数据库</h3>
+  </a>
+
+    </div>
+    <div class="item right">
+      
+
+  <a href="/2023/12/02/Travis%20CI%E5%92%8CDocker%E7%9A%84%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;s3.uuu.ovh&#x2F;imgs&#x2F;2024&#x2F;04&#x2F;04&#x2F;e805d35284c2d7d5.jpg" title="Travis和Docker的持续集成">
+  <span class="type">下一篇</span>
+  <span class="category"><i class="ic i-flag"></i> Travis和Docker</span>
+  <h3>Travis和Docker的持续集成</h3>
+  </a>
+
+    </div>
+</div>
+
+  
+  <div class="wrap" id="comments"></div>
+
+
+        </div>
+        <div id="sidebar">
+          
+
+<div class="inner">
+
+  <div class="panels">
+    <div class="inner">
+      <div class="contents panel pjax" data-title="文章目录">
+          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#-"><span class="toc-number">1.</span> <span class="toc-text"> ------------------------------------</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#react-%E5%AE%98%E7%BD%91%E7%AC%94%E8%AE%B0"><span class="toc-number">2.</span> <span class="toc-text"> react 官网笔记：</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#react-%E6%A0%B8%E5%BF%83%E4%BB%B7%E5%80%BC"><span class="toc-number">3.</span> <span class="toc-text"> react 核心价值</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#react-%E5%BF%AB%E7%85%A7-state"><span class="toc-number">4.</span> <span class="toc-text"> react 快照 state</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BB%84%E4%BB%B6%E9%80%8F%E5%B1%82%E7%BA%A7%E4%BC%A0%E9%80%92%E7%8A%B6%E6%80%81"><span class="toc-number">5.</span> <span class="toc-text"> 组件透层级传递状态</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#react-%E7%8A%B6%E6%80%81%E7%AE%A1%E7%90%86"><span class="toc-number">6.</span> <span class="toc-text"> react 状态管理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B1%80%E9%83%A8%E7%8A%B6%E6%80%81%E7%AE%A1%E7%90%86"><span class="toc-number">6.0.1.</span> <span class="toc-text"> 局部状态管理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%A8%E5%B1%80%E7%8A%B6%E6%80%81%E7%AE%A1%E7%90%86"><span class="toc-number">6.0.2.</span> <span class="toc-text"> 全局状态管理</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#redux-%E5%AF%B9%E6%AF%94-usereducercontext"><span class="toc-number">6.1.</span> <span class="toc-text"> redux 对比 useReducer+Context</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#useref"><span class="toc-number">7.</span> <span class="toc-text"> useRef</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#ref-%E5%92%8C-state-%E5%B7%AE%E5%BC%82"><span class="toc-number">7.0.1.</span> <span class="toc-text"> ref 和 state 差异</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ref-%E5%92%8C-dom"><span class="toc-number">7.0.2.</span> <span class="toc-text"> ref 和 DOM</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#forwardref"><span class="toc-number">8.</span> <span class="toc-text"> forwardRef</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#useimperativehandle"><span class="toc-number">9.</span> <span class="toc-text"> useImperativeHandle</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#effect-%E5%90%8C%E6%AD%A5"><span class="toc-number">10.</span> <span class="toc-text"> Effect 同步</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#react-%E4%B8%AD%E4%B8%A4%E7%A7%8D%E9%80%BB%E8%BE%91%E7%B1%BB%E5%9E%8B"><span class="toc-number">10.0.1.</span> <span class="toc-text"> React 中两种逻辑类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#effect-%E4%BD%9C%E7%94%A8"><span class="toc-number">10.0.2.</span> <span class="toc-text"> Effect 作用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E6%B3%A8%E6%84%8F"><span class="toc-number">10.0.3.</span> <span class="toc-text"> 使用注意</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%91%98%E8%A6%81"><span class="toc-number">10.0.4.</span> <span class="toc-text"> 摘要</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#effect-%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F"><span class="toc-number">11.</span> <span class="toc-text"> Effect 生命周期</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#effect-%E4%BE%9D%E8%B5%96%E9%A1%B9"><span class="toc-number">12.</span> <span class="toc-text"> effect 依赖项</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89-hook"><span class="toc-number">13.</span> <span class="toc-text"> 自定义 Hook</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#--2"><span class="toc-number">14.</span> <span class="toc-text"> ------------------------------------</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">15.</span> <span class="toc-text"> </span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#react-%E9%A1%B9%E7%9B%AE%E5%AD%A6%E4%B9%A0"><span class="toc-number">16.</span> <span class="toc-text"> react 项目学习</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#-2"><span class="toc-number">17.</span> <span class="toc-text"> </span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#react-%E7%AC%94%E8%AE%B0"><span class="toc-number">18.</span> <span class="toc-text"> react 笔记</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%8A%B6%E6%80%81%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7"><span class="toc-number">19.</span> <span class="toc-text"> 状态管理工具</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#redux"><span class="toc-number">19.1.</span> <span class="toc-text"> redux</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%BE%E8%AE%A1%E6%80%9D%E6%83%B3"><span class="toc-number">19.1.1.</span> <span class="toc-text"> 设计思想</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#mobx"><span class="toc-number">19.2.</span> <span class="toc-text"> Mobx</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#react-%E4%B8%AD-css-%E4%BD%BF%E7%94%A8"><span class="toc-number">20.</span> <span class="toc-text"> react 中 css 使用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%87%BA%E7%8E%B0%E9%97%AE%E9%A2%98"><span class="toc-number">20.0.1.</span> <span class="toc-text"> 出现问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="toc-number">20.0.2.</span> <span class="toc-text"> 解决方案</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8-sass"><span class="toc-number">20.0.3.</span> <span class="toc-text"> 使用 sass</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#css-in-js"><span class="toc-number">20.1.</span> <span class="toc-text"> CSS-in-JS</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%BB%8B%E7%BB%8D"><span class="toc-number">20.1.0.0.1.</span> <span class="toc-text"> 介绍</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%B7%A5%E5%85%B7"><span class="toc-number">20.1.0.0.2.</span> <span class="toc-text"> 工具</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%BC%98%E7%BC%BA%E7%82%B9"><span class="toc-number">20.1.0.0.3.</span> <span class="toc-text"> 优缺点</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%B7%AF%E7%94%B1"><span class="toc-number">21.</span> <span class="toc-text"> 路由</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%83%8C%E6%99%AF"><span class="toc-number">21.0.1.</span> <span class="toc-text"> 背景</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8"><span class="toc-number">21.0.2.</span> <span class="toc-text"> 使用</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#-3"><span class="toc-number">22.</span> <span class="toc-text"> </span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#--3"><span class="toc-number">23.</span> <span class="toc-text"> ----------------</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#react-%E9%A1%B9%E7%9B%AE"><span class="toc-number">24.</span> <span class="toc-text"> react 项目</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#react-%E6%A0%B8%E5%BF%83%E4%BB%B7%E5%80%BC-2"><span class="toc-number">25.</span> <span class="toc-text"> React 核心价值</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%84%E4%BB%B6%E5%8C%96"><span class="toc-number">25.1.</span> <span class="toc-text"> 组件化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E9%A9%B1%E5%8A%A8%E8%A7%86%E5%9B%BE"><span class="toc-number">25.2.</span> <span class="toc-text"> 数据驱动视图</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#cra"><span class="toc-number">26.</span> <span class="toc-text"> CRA</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%84%9A%E6%89%8B%E6%9E%B6"><span class="toc-number">26.1.</span> <span class="toc-text"> 脚手架</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E9%A1%B9%E7%9B%AE"><span class="toc-number">26.2.</span> <span class="toc-text"> 创建项目</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84"><span class="toc-number">26.3.</span> <span class="toc-text"> 项目结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%90%AF%E5%8A%A8%E9%A1%B9%E7%9B%AE"><span class="toc-number">26.4.</span> <span class="toc-text"> 启动项目</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#vite"><span class="toc-number">27.</span> <span class="toc-text"> vite</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E9%A1%B9%E7%9B%AE-2"><span class="toc-number">27.1.</span> <span class="toc-text"> 创建项目</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84-2"><span class="toc-number">27.2.</span> <span class="toc-text"> 项目结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%90%AF%E5%8A%A8%E9%A1%B9%E7%9B%AE-2"><span class="toc-number">27.3.</span> <span class="toc-text"> 启动项目</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E8%A7%84%E8%8C%83"><span class="toc-number">28.</span> <span class="toc-text"> 代码规范</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%A4%E8%80%85%E5%8C%BA%E5%88%AB"><span class="toc-number">28.1.</span> <span class="toc-text"> 两者区别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#eslint"><span class="toc-number">28.2.</span> <span class="toc-text"> eslint</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#prettier"><span class="toc-number">28.3.</span> <span class="toc-text"> prettier</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%8F%90%E4%BA%A4%E5%88%B0-git-%E4%BB%93%E5%BA%93"><span class="toc-number">29.</span> <span class="toc-text"> 提交到 git 仓库</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%80%89%E6%8B%A9%E5%B9%B3%E5%8F%B0"><span class="toc-number">29.1.</span> <span class="toc-text"> 选择平台</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%BC%94%E7%A4%BA"><span class="toc-number">29.2.</span> <span class="toc-text"> 演示</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#husky"><span class="toc-number">29.3.</span> <span class="toc-text"> husky</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#commit-lint"><span class="toc-number">29.4.</span> <span class="toc-text"> commit-lint</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#jsx-%E8%AF%AD%E6%B3%95"><span class="toc-number">30.</span> <span class="toc-text"> JSX 语法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%87%E7%AD%BE"><span class="toc-number">30.1.</span> <span class="toc-text"> 标签</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B1%9E%E6%80%A7"><span class="toc-number">30.2.</span> <span class="toc-text"> 属性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8B%E4%BB%B6"><span class="toc-number">30.3.</span> <span class="toc-text"> 事件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#js-%E8%A1%A8%E8%BE%BE%E5%BC%8F"><span class="toc-number">30.4.</span> <span class="toc-text"> JS 表达式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%A4%E6%96%AD"><span class="toc-number">30.5.</span> <span class="toc-text"> 判断</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BE%AA%E7%8E%AF"><span class="toc-number">30.6.</span> <span class="toc-text"> 循环</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%98%BE%E7%A4%BA-html-%E4%BB%A3%E7%A0%81"><span class="toc-number">30.7.</span> <span class="toc-text"> 显示 HTML 代码</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BB%84%E4%BB%B6%E5%92%8C-props"><span class="toc-number">31.</span> <span class="toc-text"> 组件和 props</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#react-%E4%B8%80%E5%88%87%E7%9A%86%E7%BB%84%E4%BB%B6"><span class="toc-number">31.1.</span> <span class="toc-text"> React 一切皆组件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%84%E4%BB%B6%E5%B0%B1%E6%98%AF%E4%B8%80%E4%B8%AA%E5%87%BD%E6%95%B0"><span class="toc-number">31.2.</span> <span class="toc-text"> 组件就是一个函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E6%88%98list-%E9%A1%B5%E9%9D%A2%E6%8A%BD%E7%A6%BB%E7%BB%84%E4%BB%B6"><span class="toc-number">31.3.</span> <span class="toc-text"> 实战：List 页面抽离组件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%9B%E9%98%B6type-%E8%BF%98%E6%98%AF-interface"><span class="toc-number">31.4.</span> <span class="toc-text"> 进阶：type 还是 interface</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#usestate"><span class="toc-number">32.</span> <span class="toc-text"> useState</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%A9%E9%A1%B5%E9%9D%A2%E5%8A%A8%E8%B5%B7%E6%9D%A5"><span class="toc-number">32.1.</span> <span class="toc-text"> 让页面 “动” 起来</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#state-%E6%98%AF%E4%BB%80%E4%B9%88"><span class="toc-number">32.2.</span> <span class="toc-text"> state 是什么</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#state-%E7%9A%84%E7%89%B9%E7%82%B9"><span class="toc-number">32.3.</span> <span class="toc-text"> state 的特点</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%82%E6%AD%A5%E6%9B%B4%E6%96%B0"><span class="toc-number">32.3.1.</span> <span class="toc-text"> 异步更新</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%AF%E8%83%BD%E4%BC%9A%E8%A2%AB%E5%90%88%E5%B9%B6"><span class="toc-number">32.3.2.</span> <span class="toc-text"> 可能会被合并</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%8D%E5%8F%AF%E5%8F%98%E6%95%B0%E6%8D%AE"><span class="toc-number">32.3.3.</span> <span class="toc-text"> 不可变数据</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#immer"><span class="toc-number">32.4.</span> <span class="toc-text"> immer</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E6%88%98list-%E9%A1%B5%E9%9D%A2%E4%BD%BF%E7%94%A8-state"><span class="toc-number">32.5.</span> <span class="toc-text"> 实战：List 页面使用 state</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#useeffect"><span class="toc-number">33.</span> <span class="toc-text"> useEffect</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%AF%E4%BD%9C%E7%94%A8"><span class="toc-number">33.1.</span> <span class="toc-text"> 副作用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%84%E4%BB%B6%E6%B8%B2%E6%9F%93%E5%AE%8C%E6%88%90%E6%97%B6"><span class="toc-number">33.2.</span> <span class="toc-text"> 组件渲染完成时</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9F%90%E4%BA%9B-state-%E6%9B%B4%E6%96%B0%E6%97%B6"><span class="toc-number">33.3.</span> <span class="toc-text"> 某些 state 更新时</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%84%E4%BB%B6%E9%94%80%E6%AF%81%E6%97%B6"><span class="toc-number">33.4.</span> <span class="toc-text"> 组件销毁时</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%89%A7%E8%A1%8C%E4%B8%A4%E6%AC%A1%E9%94%80%E6%AF%81%E4%B8%80%E6%AC%A1"><span class="toc-number">33.5.</span> <span class="toc-text"> 执行两次（销毁一次）</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%85%B6%E4%BB%96-hooks"><span class="toc-number">34.</span> <span class="toc-text"> 其他 Hooks</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#useref-2"><span class="toc-number">34.1.</span> <span class="toc-text"> useRef</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#usememo"><span class="toc-number">34.2.</span> <span class="toc-text"> useMemo</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#usecallback"><span class="toc-number">34.3.</span> <span class="toc-text"> useCallback</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89-hooks"><span class="toc-number">35.</span> <span class="toc-text"> 自定义 Hooks</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9%E7%BD%91%E9%A1%B5%E6%A0%87%E9%A2%98"><span class="toc-number">35.1.</span> <span class="toc-text"> 修改网页标题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E9%BC%A0%E6%A0%87%E4%BD%8D%E7%BD%AE"><span class="toc-number">35.2.</span> <span class="toc-text"> 获取鼠标位置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%82%E6%AD%A5%E8%8E%B7%E5%8F%96%E4%BF%A1%E6%81%AF"><span class="toc-number">35.3.</span> <span class="toc-text"> 异步获取信息</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B0%8F%E8%8A%82"><span class="toc-number">35.4.</span> <span class="toc-text"> 小节</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E6%96%B9-hooks"><span class="toc-number">36.</span> <span class="toc-text"> 第三方 Hooks</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#ahooks"><span class="toc-number">36.1.</span> <span class="toc-text"> ahooks</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#react-use"><span class="toc-number">36.2.</span> <span class="toc-text"> react-use</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#hooks-%E4%BD%BF%E7%94%A8%E8%A7%84%E5%88%99"><span class="toc-number">37.</span> <span class="toc-text"> Hooks 使用规则</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%91%BD%E5%90%8D%E8%A7%84%E5%88%99"><span class="toc-number">37.1.</span> <span class="toc-text"> 命名规则</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B0%83%E7%94%A8%E4%BD%8D%E7%BD%AE"><span class="toc-number">37.2.</span> <span class="toc-text"> 调用位置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A1%BA%E5%BA%8F%E4%B8%80%E8%87%B4"><span class="toc-number">37.3.</span> <span class="toc-text"> 顺序一致</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%97%AD%E5%8C%85%E9%99%B7%E9%98%B1"><span class="toc-number">37.4.</span> <span class="toc-text"> 闭包陷阱</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%99%AE%E9%80%9A-css"><span class="toc-number">38.</span> <span class="toc-text"> 普通 CSS</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%86%85%E8%81%94-style"><span class="toc-number">38.1.</span> <span class="toc-text"> 内联 style</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#classname"><span class="toc-number">38.2.</span> <span class="toc-text"> className</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B0%BD%E9%87%8F%E4%B8%8D%E7%94%A8%E5%86%85%E8%81%94-style"><span class="toc-number">38.3.</span> <span class="toc-text"> 尽量不用内联 style</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#css-module"><span class="toc-number">39.</span> <span class="toc-text"> CSS Module</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%99%AE%E9%80%9A-css-%E7%9A%84%E9%97%AE%E9%A2%98"><span class="toc-number">39.1.</span> <span class="toc-text"> 普通 CSS 的问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#css-module-2"><span class="toc-number">39.2.</span> <span class="toc-text"> CSS Module</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8-sass-2"><span class="toc-number">39.3.</span> <span class="toc-text"> 使用 Sass</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#css-in-js-2"><span class="toc-number">40.</span> <span class="toc-text"> CSS-in-js</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#styled-components"><span class="toc-number">40.1.</span> <span class="toc-text"> Styled-components</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#styled-jsx"><span class="toc-number">40.2.</span> <span class="toc-text"> Styled-jsx</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BC%98%E7%82%B9"><span class="toc-number">40.3.</span> <span class="toc-text"> 优点</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#tailwind-css"><span class="toc-number">41.</span> <span class="toc-text"> Tailwind CSS</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%99%AE%E9%80%9A%E8%A1%A8%E5%8D%95%E7%BB%84%E4%BB%B6"><span class="toc-number">42.</span> <span class="toc-text"> 普通表单组件</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#input-%E7%BB%84%E4%BB%B6"><span class="toc-number">42.1.</span> <span class="toc-text"> input 组件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%97%E6%8E%A7%E7%BB%84%E4%BB%B6-vs-%E9%9D%9E%E5%8F%97%E6%8E%A7%E7%BB%84%E4%BB%B6"><span class="toc-number">42.2.</span> <span class="toc-text"> 受控组件 vs 非受控组件</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%A1%A8%E5%8D%95%E6%A0%A1%E9%AA%8C"><span class="toc-number">43.</span> <span class="toc-text"> 表单校验</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#antd-form-rules"><span class="toc-number">43.1.</span> <span class="toc-text"> antd Form rules</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#react-hook-form"><span class="toc-number">43.2.</span> <span class="toc-text"> react-hook-form</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#formi"><span class="toc-number">43.3.</span> <span class="toc-text"> formi</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#mock-%E6%9C%8D%E5%8A%A1"><span class="toc-number">44.</span> <span class="toc-text"> mock 服务</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#mockjs"><span class="toc-number">44.1.</span> <span class="toc-text"> Mock.js</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#nodejs-%E6%90%AD%E5%BB%BA-mock-%E6%9C%8D%E5%8A%A1"><span class="toc-number">44.2.</span> <span class="toc-text"> nodejs 搭建 Mock 服务</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9C%A8%E7%BA%BF-mock-%E5%B9%B3%E5%8F%B0"><span class="toc-number">44.3.</span> <span class="toc-text"> 在线 Mock 平台</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%BA%E4%BD%95%E4%BD%BF%E7%94%A8%E7%8A%B6%E6%80%81%E7%AE%A1%E7%90%86"><span class="toc-number">45.</span> <span class="toc-text"> 为何使用状态管理</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%8A%B6%E6%80%81%E6%8F%90%E5%8D%87"><span class="toc-number">45.1.</span> <span class="toc-text"> 状态提升</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%8A%B6%E6%80%81%E7%AE%A1%E7%90%86"><span class="toc-number">45.2.</span> <span class="toc-text"> 状态管理</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#context"><span class="toc-number">46.</span> <span class="toc-text"> Context</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#usereducer"><span class="toc-number">47.</span> <span class="toc-text"> useReducer</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%83%8C%E6%99%AF-2"><span class="toc-number">47.1.</span> <span class="toc-text"> 背景</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E6%BC%94%E7%A4%BA"><span class="toc-number">47.2.</span> <span class="toc-text"> 代码演示</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A6%82%E5%BF%B5"><span class="toc-number">47.3.</span> <span class="toc-text"> 概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%97%AE%E9%A2%98"><span class="toc-number">47.4.</span> <span class="toc-text"> 问题</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#redux-2"><span class="toc-number">48.</span> <span class="toc-text"> Redux</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A6%82%E5%BF%B5-2"><span class="toc-number">48.1.</span> <span class="toc-text"> 概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E6%BC%94%E7%A4%BA-2"><span class="toc-number">48.2.</span> <span class="toc-text"> 代码演示</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%80%E5%8F%91%E8%80%85%E5%B7%A5%E5%85%B7"><span class="toc-number">48.3.</span> <span class="toc-text"> 开发者工具</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#redux-%E5%8D%95%E9%A1%B9%E6%95%B0%E6%8D%AE%E6%B5%81%E6%A8%A1%E5%9E%8B"><span class="toc-number">48.4.</span> <span class="toc-text"> redux 单项数据流模型</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#mobx-2"><span class="toc-number">49.</span> <span class="toc-text"> Mobx</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="toc-number">49.1.</span> <span class="toc-text"> 基本概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E6%BC%94%E7%A4%BA-3"><span class="toc-number">49.2.</span> <span class="toc-text"> 代码演示</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B0%8F%E7%BB%93"><span class="toc-number">49.3.</span> <span class="toc-text"> 小结</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B6%E4%BB%96"><span class="toc-number">49.4.</span> <span class="toc-text"> 其他</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#redux-%E7%AE%A1%E7%90%86%E7%94%A8%E6%88%B7%E4%BF%A1%E6%81%AF"><span class="toc-number">50.</span> <span class="toc-text"> Redux 管理用户信息</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#store"><span class="toc-number">50.1.</span> <span class="toc-text"> store</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%80%E5%8F%91"><span class="toc-number">50.2.</span> <span class="toc-text"> 开发</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#-4"><span class="toc-number">51.</span> <span class="toc-text"> </span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#--4"><span class="toc-number">52.</span> <span class="toc-text"> --------------------------------------</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8A%9F%E8%83%BD%E5%BC%80%E5%8F%91"><span class="toc-number">53.</span> <span class="toc-text"> 功能开发</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%8B%96%E6%8B%BD%E6%8E%92%E5%BA%8F"><span class="toc-number">54.</span> <span class="toc-text"> 拖拽排序</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%8B%96%E6%8B%BD%E6%8E%92%E5%BA%8F-2"><span class="toc-number">55.</span> <span class="toc-text"> 拖拽排序</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8A%80%E6%9C%AF%E9%80%89%E5%9E%8B"><span class="toc-number">55.1.</span> <span class="toc-text"> 技术选型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#react-dnd"><span class="toc-number">55.1.1.</span> <span class="toc-text"> react-dnd</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#react-beautiful-dnd"><span class="toc-number">55.1.2.</span> <span class="toc-text"> react-beautiful-dnd</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#sortablejs"><span class="toc-number">55.1.3.</span> <span class="toc-text"> Sortablejs</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#react-sortable-hoc"><span class="toc-number">55.1.4.</span> <span class="toc-text"> react-sortable-hoc</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#dnd-kit"><span class="toc-number">55.1.5.</span> <span class="toc-text"> dnd-kit</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%80%E5%8F%91-2"><span class="toc-number">55.2.</span> <span class="toc-text"> 开发</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%92%A4%E9%94%80%E9%87%8D%E5%81%9A"><span class="toc-number">56.</span> <span class="toc-text"> 撤销重做</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86"><span class="toc-number">56.1.</span> <span class="toc-text"> 实现原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#redux-%E6%92%A4%E9%94%80%E9%87%8D%E5%81%9A"><span class="toc-number">56.2.</span> <span class="toc-text"> redux 撤销重做</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%80%E5%8F%91-3"><span class="toc-number">56.3.</span> <span class="toc-text"> 开发</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#chat-%E5%9B%BE%E8%A1%A8"><span class="toc-number">57.</span> <span class="toc-text"> Chat 图表</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#chart-lib-%E9%80%89%E5%9E%8B"><span class="toc-number">58.</span> <span class="toc-text"> chart lib 选型</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#react-chartjs-2"><span class="toc-number">58.1.</span> <span class="toc-text"> react-chartjs-2</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#recharts"><span class="toc-number">58.2.</span> <span class="toc-text"> recharts</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#echarts-for-react"><span class="toc-number">58.3.</span> <span class="toc-text"> echarts-for-react</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%93%E8%AE%BA"><span class="toc-number">58.4.</span> <span class="toc-text"> 结论</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#-5"><span class="toc-number">59.</span> <span class="toc-text"> </span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#--5"><span class="toc-number">60.</span> <span class="toc-text"> --------------------------------------</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#react-%E9%A1%B9%E7%9B%AE%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96"><span class="toc-number">61.</span> <span class="toc-text"> React 项目性能优化</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BC%93%E5%AD%98%E6%95%B0%E6%8D%AE-%E5%87%8F%E5%B0%91%E8%AE%A1%E7%AE%97"><span class="toc-number">62.</span> <span class="toc-text"> 缓存数据 减少计算</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#usestate-%E4%BC%A0%E5%85%A5%E5%87%BD%E6%95%B0"><span class="toc-number">62.1.</span> <span class="toc-text"> useState 传入函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#usememo-%E7%BC%93%E5%AD%98%E6%95%B0%E6%8D%AE"><span class="toc-number">62.2.</span> <span class="toc-text"> useMemo 缓存数据</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#usecallback-%E7%BC%93%E5%AD%98%E5%87%BD%E6%95%B0"><span class="toc-number">62.3.</span> <span class="toc-text"> useCallback 缓存函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#reactmemo-%E7%BC%93%E5%AD%98%E7%BB%84%E4%BB%B6"><span class="toc-number">62.4.</span> <span class="toc-text"> React.memo 缓存组件</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E4%BD%93%E7%A7%AF%E5%92%8C%E6%8B%86%E5%88%86"><span class="toc-number">63.</span> <span class="toc-text"> 代码体积和拆分</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E4%BD%93%E7%A7%AF%E5%88%86%E6%9E%90"><span class="toc-number">63.1.</span> <span class="toc-text"> 代码体积分析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B7%AF%E7%94%B1%E6%87%92%E5%8A%A0%E8%BD%BD"><span class="toc-number">63.2.</span> <span class="toc-text"> 路由懒加载</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8A%BD%E7%A6%BB%E5%85%AC%E5%85%B1%E4%BB%A3%E7%A0%81"><span class="toc-number">63.3.</span> <span class="toc-text"> 抽离公共代码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%90%88%E7%90%86%E4%BD%BF%E7%94%A8%E7%BC%93%E5%AD%98"><span class="toc-number">63.4.</span> <span class="toc-text"> 合理使用缓存</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#css"><span class="toc-number">63.5.</span> <span class="toc-text"> CSS</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B0%8F%E7%BB%93-2"><span class="toc-number">63.6.</span> <span class="toc-text"> 小结</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#--6"><span class="toc-number">64.</span> <span class="toc-text"> --------------------------------------</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#react-%E9%A1%B9%E7%9B%AE%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95"><span class="toc-number">65.</span> <span class="toc-text"> React 项目单元测试</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95"><span class="toc-number">66.</span> <span class="toc-text"> 单元测试</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#jest-%E5%85%A5%E9%97%A8"><span class="toc-number">66.1.</span> <span class="toc-text"> jest 入门</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%84%E4%BB%B6%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95"><span class="toc-number">66.2.</span> <span class="toc-text"> 组件单元测试</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95"><span class="toc-number">66.3.</span> <span class="toc-text"> 自动化测试</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#storybook"><span class="toc-number">67.</span> <span class="toc-text"> storybook</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="toc-number">67.1.</span> <span class="toc-text"> 初始化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E6%BC%94%E7%A4%BA-4"><span class="toc-number">67.2.</span> <span class="toc-text"> 代码演示</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#react-fiber-%E6%9E%B6%E6%9E%84%E7%9A%84%E8%B0%83%E5%BA%A6%E6%89%A7%E8%A1%8C%E5%8E%9F%E7%90%86"><span class="toc-number">68.</span> <span class="toc-text"> React Fiber 架构的调度执行原理</span></a></li></ol>
+      </div>
+      <div class="related panel pjax" data-title="系列文章">
+        <ul>
+          <li class="active"><a href="/2023/12/02/react/" rel="bookmark" title="react笔记">react笔记</a></li><li><a href="/2024/01/29/react%E6%8A%80%E6%9C%AF%E6%8F%AD%E7%A7%98/" rel="bookmark" title="react技术揭秘">react技术揭秘</a></li>
+        </ul>
+      </div>
+      <div class="overview panel" data-title="站点概览">
+        <div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="image" itemprop="image" alt="dmq"
+      data-src="/images/avatar.jpg">
+  <p class="name" itemprop="name">dmq</p>
+  <div class="description" itemprop="description"></div>
+</div>
+
+<nav class="state">
+    <div class="item posts">
+      <a href="/archives/">
+        <span class="count">80</span>
+        <span class="name">文章</span>
+      </a>
+    </div>
+    <div class="item categories">
+      <a href="/categories/">
+        <span class="count">64</span>
+        <span class="name">分类</span>
+      </a>
+    </div>
+    <div class="item tags">
+      <a href="/tags/">
+        <span class="count">100</span>
+        <span class="name">标签</span>
+      </a>
+    </div>
+</nav>
+
+<div class="social">
+      <span class="exturl item github" data-url="aHR0cHM6Ly9naXRodWIuY29tL2RtcTA/dGFiPXJlcG9zaXRvcmllcw==" title="https:&#x2F;&#x2F;github.com&#x2F;dmq0?tab&#x3D;repositories"><i class="ic i-github"></i></span>
+      <span class="exturl item npm" data-url="aHR0cHM6Ly93d3cubnBtanMuY29tL35kbXEwMDA=" title="https:&#x2F;&#x2F;www.npmjs.com&#x2F;~dmq000"><i class="ic i-file"></i></span>
+      <span class="exturl item zhihu" data-url="aHR0cHM6Ly93d3cuemhpaHUuY29tL3Blb3BsZS9kLTg4LTYxLTgz" title="https:&#x2F;&#x2F;www.zhihu.com&#x2F;people&#x2F;d-88-61-83"><i class="ic i-zhihu"></i></span>
+      <span class="exturl item music" data-url="aHR0cHM6Ly9tdXNpYy4xNjMuY29tLyMvdXNlci9ob21lP2lkPTgwMjc4OTk0OTE=" title="https:&#x2F;&#x2F;music.163.com&#x2F;#&#x2F;user&#x2F;home?id&#x3D;8027899491"><i class="ic i-cloud-music"></i></span>
+      <span class="exturl item weibo" data-url="aHR0cHM6Ly93ZWliby5jb20vdS83NjI1OTAxNzE3" title="https:&#x2F;&#x2F;weibo.com&#x2F;u&#x2F;7625901717"><i class="ic i-weibo"></i></span>
+      <span class="exturl item email" data-url="bWFpbHRvOjMyNjc4MDc1MTRAcXEuY29t" title="mailto:3267807514@qq.com"><i class="ic i-envelope"></i></span>
+</div>
+
+<ul class="menu">
+  
+    
+  <li class="item">
+    <a href="/" rel="section"><i class="ic i-home"></i>首页</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/about/" rel="section"><i class="ic i-user"></i>介绍</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/archives/" rel="section"><i class="ic i-list-alt"></i>归档</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/categories/" rel="section"><i class="ic i-th"></i>分类</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/tags/" rel="section"><i class="ic i-tags"></i>标签</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/friends/" rel="section"><i class="ic i-heart"></i>友链</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/links/" rel="section"><i class="ic i-magic"></i>工具</a>
+  </li>
+
+
+</ul>
+
+      </div>
+    </div>
+  </div>
+
+  <ul id="quick">
+    <li class="prev pjax">
+        <a href="/2023/12/02/%E6%95%B0%E6%8D%AE%E5%BA%93/" rel="prev" title="上一篇"><i class="ic i-chevron-left"></i></a>
+    </li>
+    <li class="up"><i class="ic i-arrow-up"></i></li>
+    <li class="down"><i class="ic i-arrow-down"></i></li>
+    <li class="next pjax">
+        <a href="/2023/12/02/Travis%20CI%E5%92%8CDocker%E7%9A%84%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90/" rel="next" title="下一篇"><i class="ic i-chevron-right"></i></a>
+    </li>
+    <li class="percent"></li>
+  </ul>
+</div>
+
+
+        </div>
+        <div class="dimmer"></div>
+      </div>
+    </main>
+    <footer id="footer">
+      <div class="inner">
+        <div class="widgets">
+          
+<div class="rpost pjax">
+  <h2>随机文章</h2>
+  <ul>
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/OSI%E4%B8%83%E5%B1%82%E7%BD%91%E7%BB%9C%E6%A8%A1%E5%9E%8B/" title="分类于 OSI七层网络模型">OSI七层网络模型</a>
+</div>
+
+    <span><a href="/2024/05/27/OSI%E4%B8%83%E5%B1%82%E7%BD%91%E7%BB%9C%E6%A8%A1%E5%9E%8B/" title="OSI七层网络模型">OSI七层网络模型</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/whistle/" title="分类于 whistle">whistle</a>
+</div>
+
+    <span><a href="/2024/05/17/whistle%E4%BD%BF%E7%94%A8/" title="whistle抓包">whistle抓包</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/JS/" title="分类于 JS">JS</a>
+</div>
+
+    <span><a href="/2023/12/11/typedArray/" title="JS中类型化数组typedArray">JS中类型化数组typedArray</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E9%A1%B9%E7%9B%AE%E8%B4%A8%E9%87%8F%E6%A3%80%E6%B5%8B/" title="分类于 项目质量检测">项目质量检测</a>
+</div>
+
+    <span><a href="/2024/01/02/%E9%A1%B9%E7%9B%AE%E8%B4%A8%E9%87%8F%E6%A3%80%E6%B5%8B/" title="项目质量检测">项目质量检测</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%BC%8F/" title="分类于 开发模式">开发模式</a>
+</div>
+
+    <span><a href="/2024/03/29/TDD/" title="TDD测试驱动开发">TDD测试驱动开发</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" title="分类于 网络安全">网络安全</a>
+</div>
+
+    <span><a href="/2024/05/23/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" title="网络安全">网络安全</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" title="分类于 解决方案">解决方案</a>
+</div>
+
+    <span><a href="/2023/06/02/%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" title="解决方案">解决方案</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/JS/" title="分类于 JS">JS</a>
+</div>
+
+    <span><a href="/2023/12/07/Blob/" title="Blob">Blob</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86/" title="分类于 版本管理">版本管理</a>
+</div>
+
+    <span><a href="/2024/01/23/%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86/" title="版本管理">版本管理</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/JS/" title="分类于 JS">JS</a>
+</div>
+
+    <span><a href="/2024/02/02/serviceWorker/" title="serviceWorker">serviceWorker</a></span>
+  </li>
+
+  </ul>
+</div>
+<div>
+  <h2>最新评论</h2>
+  <ul class="leancloud-recent-comment"></ul>
+</div>
+
+        </div>
+        <div class="status">
+  <div class="copyright">
+    
+    &copy; 2022 – 
+    <span itemprop="copyrightYear">2024</span>
+    <span class="with-love">
+      <i class="ic i-sakura rotate"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">dmq @ Web blog</span>
+  </div>
+  <div class="count">
+    <span class="post-meta-item-icon">
+      <i class="ic i-chart-area"></i>
+    </span>
+    <span title="站点总字数">943k 字</span>
+
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="ic i-coffee"></i>
+    </span>
+    <span title="站点阅读时长">14:17</span>
+  </div>
+  <div class="powered-by">
+    基于 <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & Theme.<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Shoka</span>
+  </div>
+</div>
+
+      </div>
+    </footer>
+  </div>
+<script data-config type="text/javascript">
+  var LOCAL = {
+    path: '2023/12/02/react/',
+    favicon: {
+      show: "科技引领未来",
+      hide: "欢迎与我交流"
+    },
+    search : {
+      placeholder: "文章搜索",
+      empty: "关于 「 ${query} 」，什么也没搜到",
+      stats: "${time} ms 内找到 ${hits} 条结果"
+    },
+    valine: true,fancybox: true,
+    copyright: '复制成功，转载请遵守 <i class="ic i-creative-commons"></i>BY-NC-SA 协议。',
+    ignores : [
+      function(uri) {
+        return uri.includes('#');
+      },
+      function(uri) {
+        return new RegExp(LOCAL.path+"$").test(uri);
+      }
+    ]
+  };
+</script>
+
+<script src="https://cdn.polyfill.io/v2/polyfill.js"></script>
+
+<script src="//gcore.jsdelivr.net/combine/npm/pace-js@1.0.2/pace.min.js,npm/pjax@0.2.8/pjax.min.js,npm/whatwg-fetch@3.4.0/dist/fetch.umd.min.js,npm/animejs@3.2.0/lib/anime.min.js,npm/algoliasearch@4/dist/algoliasearch-lite.umd.js,npm/instantsearch.js@4/dist/instantsearch.production.min.js,npm/lozad@1/dist/lozad.min.js,npm/quicklink@2/dist/quicklink.umd.js"></script>
+
+<script src="/js/app.js?v=0.2.5"></script>
+
+
+  <script data-pjax>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?9ba187659e850a6910681214f0faa16b";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+</body>
+</html>

@@ -1,0 +1,690 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#FFF">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="icon" type="image/ico" sizes="32x32" href="/images/favicon.ico">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+<link rel="alternate" type="application/rss+xml" title="杜明清的个人博客" href="https://dmqweb.cn/rss.xml" />
+<link rel="alternate" type="application/atom+xml" title="杜明清的个人博客" href="https://dmqweb.cn/atom.xml" />
+<link rel="alternate" type="application/json" title="杜明清的个人博客" href="https://dmqweb.cn/feed.json" />
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Mulish:300,300italic,400,400italic,700,700italic%7CFredericka%20the%20Great:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20JP:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CInconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="/css/app.css?v=0.2.5">
+
+  
+  <meta name="keywords" content="Docker" />
+
+
+<link rel="canonical" href="https://dmqweb.cn/2024/07/08/docker/">
+
+
+
+  <title>
+Docker - Docker |
+Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
+  <meta name="keywords" content="前端开发, HTML, CSS, JavaScript, 博客">
+  <meta name="description" content="探索前端开发的无限可能。本博客提供最新的前端知识库，以及实用的开发技巧和最佳实践。加入我们的社区，共同成长。">
+<meta name="generator" content="Hexo 6.3.0"></head>
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div id="loading">
+    <div class="cat">
+      <div class="body"></div>
+      <div class="head">
+        <div class="face"></div>
+      </div>
+      <div class="foot">
+        <div class="tummy-end"></div>
+        <div class="bottom"></div>
+        <div class="legs left"></div>
+        <div class="legs right"></div>
+      </div>
+      <div class="paw">
+        <div class="hands left"></div>
+        <div class="hands right"></div>
+      </div>
+    </div>
+  </div>
+  <div id="container">
+    <header id="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="inner">
+        <div id="brand">
+          <div class="pjax">
+          
+  <h1 itemprop="name headline">Docker
+  </h1>
+  
+<div class="meta">
+  <span class="item" title="创建时间：2024-07-08 10:26:39">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <span class="text">发表于</span>
+    <time itemprop="dateCreated datePublished" datetime="2024-07-08T10:26:39+08:00">2024-07-08</time>
+  </span>
+  <span class="item" title="本文字数">
+    <span class="icon">
+      <i class="ic i-pen"></i>
+    </span>
+    <span class="text">本文字数</span>
+    <span>5.5k</span>
+    <span class="text">字</span>
+  </span>
+  <span class="item" title="阅读时长">
+    <span class="icon">
+      <i class="ic i-clock"></i>
+    </span>
+    <span class="text">阅读时长</span>
+    <span>5 分钟</span>
+  </span>
+</div>
+
+
+          </div>
+        </div>
+        <nav id="nav">
+  <div class="inner">
+    <div class="toggle">
+      <div class="lines" aria-label="切换导航栏">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </div>
+    </div>
+    <ul class="menu">
+      <li class="item title"><a href="/" rel="start">Web blog</a></li>
+    </ul>
+    <ul class="right">
+      <li class="item theme">
+        <i class="ic i-sun"></i>
+      </li>
+      <li class="item search">
+        <i class="ic i-search"></i>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+      </div>
+      <div id="imgs" class="pjax">
+        <ul>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/06/a16303594a53d8d1.jpg"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/05/f09ce1d151936963.jpg"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/04/4b93d7d24397b567.jpg"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/07/6e43985af4997748.jpg"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/28/52565b5ee960b9b5.webp"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/07/971b0200f59eab4c.jpg"></li>
+        </ul>
+      </div>
+    </header>
+    <div id="waves">
+      <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+        <defs>
+          <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+        </defs>
+        <g class="parallax">
+          <use xlink:href="#gentle-wave" x="48" y="0" />
+          <use xlink:href="#gentle-wave" x="48" y="3" />
+          <use xlink:href="#gentle-wave" x="48" y="5" />
+          <use xlink:href="#gentle-wave" x="48" y="7" />
+        </g>
+      </svg>
+    </div>
+    <main>
+      <div class="inner">
+        <div id="main" class="pjax">
+          
+  <div class="article wrap">
+    
+<div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+<i class="ic i-home"></i>
+<span><a href="/">首页</a></span><i class="ic i-angle-right"></i>
+<span  class="current" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/categories/Docker/" itemprop="item" rel="index" title="分类于 Docker"><span itemprop="name">Docker</span></a>
+<meta itemprop="position" content="1" /></span>
+</div>
+
+    <article itemscope itemtype="http://schema.org/Article" class="post block" lang="zh-CN">
+  <link itemprop="mainEntityOfPage" href="https://dmqweb.cn/2024/07/08/docker/">
+
+  <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="image" content="/images/avatar.jpg">
+    <meta itemprop="name" content="dmq">
+    <meta itemprop="description" content="👻欢迎一起交流学习👻, ">
+  </span>
+
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="杜明清的个人博客">
+  </span>
+
+  <div class="body md" itemprop="articleBody">
+    
+
+    <p><img data-src="https://dmqweb.cn/images/Docker.pdf" alt="Docker" /><br />
+<img data-src="https://dmqweb.cn/images/Docker%E6%96%87%E6%A1%A3.pdf" alt="Docker文档" /><br />
+<img data-src="https://dmqweb.cn/images/Docker%E5%A4%A7%E7%BA%B2.pdf" alt="Docker大纲" /></p>
+<h1 id="虚拟化技术"><a class="anchor" href="#虚拟化技术">#</a> 虚拟化技术</h1>
+<blockquote>
+<p>虚拟化是一种计算机资源管理的技术，是将计算机的各种硬件资源，比如服务器、网络、CPU、内存、以及存储等，通过抽象和转换后呈现出的一套新的硬件资源环境，在这套资源环境中可以按照操作系统，部署应用环境等<br />
+虚拟化技术打破了计算机硬件资源不可切割的障碍，提高了计算机硬件资源的利用率</p>
+</blockquote>
+<h1 id="虚拟机硬件级虚拟化技术"><a class="anchor" href="#虚拟机硬件级虚拟化技术">#</a> 虚拟机 (硬件级虚拟化技术)</h1>
+<blockquote>
+<p>虚拟机是使用虚拟化的技术，使用抽象逻辑对物理计算机的模拟，包含整个操作系统和其中的应用程式。</p>
+</blockquote>
+<ul>
+<li>缺点是：启动慢、使用空间很大、性能通常不高，无法完全使用计算机的性能。</li>
+</ul>
+<h1 id="容器操作系统级虚拟化技术"><a class="anchor" href="#容器操作系统级虚拟化技术">#</a> 容器 (操作系统级虚拟化技术)</h1>
+<blockquote>
+<p>容器是包含在任何环境中的运行所需的所有元素的软件包，这样容器就可以模拟化应用程序，并可以在任何地方运行。它直接调用原操作系统的能力，并屏蔽了操作系统之间的差异。</p>
+</blockquote>
+<h1 id="docker"><a class="anchor" href="#docker">#</a> docker</h1>
+<blockquote>
+<p>docker 是一个用于构建、运行和传送应用程序的平台，docker 是容器的一种实现方式。<br />
+docker 和虚拟机的区别在于：是否模拟构建整个操作系统的能力。</p>
+</blockquote>
+<h2 id="image-镜像"><a class="anchor" href="#image-镜像">#</a> image 镜像</h2>
+<blockquote>
+<p>image 镜像就相当于是一个菜谱，对应用程序的执行进行模板化。参照同一个 image 镜像运行的应用程序是相同的。它包含了运行容器所需的所有那日容（代码、运行时、库、环境变量和配置文件）<br />
+image 镜像打包了：</p>
+</blockquote>
+<ul>
+<li>配置文件、启动命令</li>
+<li>应用程序、环境变量</li>
+<li>第三方软件库和依赖包</li>
+<li>运行时环境</li>
+<li>操作系统</li>
+</ul>
+<h2 id="docker-容器"><a class="anchor" href="#docker-容器">#</a> docker 容器</h2>
+<blockquote>
+<p><span class="exturl" data-url="aHR0cHM6Ly9sYWJzLnBsYXktd2l0aC1kb2NrZXIuY29tLw==">https://labs.play-with-docker.com/</span> , 在线运行各种 docker 容器<br />
+ docker 容器就相当于是一个根据 image 镜像创建的运行实例，在 docker 容器中包含了运行时的全部环境，它屏蔽了操作系统之间的差异，使得应用程序的可移植性非常强。</p>
+</blockquote>
+<h1 id="docker-的优势"><a class="anchor" href="#docker-的优势">#</a> docker 的优势</h1>
+<blockquote>
+<p>如果不使用 docker，在开发环境和测试环境中都需要对应用程序的运行环境进行配置。尤其是当应用程序十分复杂时，配置运行环境的工作就十分复杂，使用 docker 之后就相当于封装了应用程序及其对应的运行环境，并且屏蔽了操作系统之间的差异，它直接调用主机操作系统的能力运行 docker 容器。<br />
+例如：使用 docker 之后，我们开发环境配置好运行环境，打包成镜像之后，测试环境中直接使用镜像构建 docker 容器，运行应用程序即可，无需重新配置环境。</p>
+</blockquote>
+<h1 id="docker-命令"><a class="anchor" href="#docker-命令">#</a> docker 命令</h1>
+<blockquote>
+<p>安装 docker 之后，就可以使用 docker 对应的命令（windows 安装后需要开启 Hyper 选项），命令行中输入对应的命令之后会交给内部的 docker daemon 进行执行，docker daemon 会将执行结果返回给命令行。</p>
+</blockquote>
+<figure class="highlight bash"><figcaption data-lang="bash"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token comment"># docker run：运行一个新的容器实例。</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token function">docker</span> run <span class="token punctuation">[</span>OPTIONS<span class="token punctuation">]</span> IMAGE <span class="token punctuation">[</span>COMMAND<span class="token punctuation">]</span> <span class="token punctuation">[</span>ARG<span class="token punctuation">..</span>.<span class="token punctuation">]</span></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token comment"># docker start：启动一个或多个已经停止运行的容器。</span></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token function">docker</span> start <span class="token punctuation">[</span>CONTAINER<span class="token punctuation">..</span>.<span class="token punctuation">]</span></pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token comment"># docker stop：停止一个或多个正在运行的容器。</span></pre></td></tr><tr><td data-num="6"></td><td><pre><span class="token function">docker</span> stop <span class="token punctuation">[</span>CONTAINER<span class="token punctuation">..</span>.<span class="token punctuation">]</span></pre></td></tr><tr><td data-num="7"></td><td><pre><span class="token comment"># docker pause：暂停容器内的所有进程。</span></pre></td></tr><tr><td data-num="8"></td><td><pre><span class="token function">docker</span> pause <span class="token punctuation">[</span>CONTAINER<span class="token punctuation">..</span>.<span class="token punctuation">]</span></pre></td></tr><tr><td data-num="9"></td><td><pre><span class="token comment"># docker unpause：恢复之前被暂停的容器。</span></pre></td></tr><tr><td data-num="10"></td><td><pre><span class="token function">docker</span> unpause <span class="token punctuation">[</span>CONTAINER<span class="token punctuation">..</span>.<span class="token punctuation">]</span></pre></td></tr><tr><td data-num="11"></td><td><pre><span class="token comment"># docker restart：重启容器。</span></pre></td></tr><tr><td data-num="12"></td><td><pre><span class="token function">docker</span> restart <span class="token punctuation">[</span>CONTAINER<span class="token punctuation">..</span>.<span class="token punctuation">]</span></pre></td></tr><tr><td data-num="13"></td><td><pre><span class="token comment"># docker rm：删除一个或多个容器。</span></pre></td></tr><tr><td data-num="14"></td><td><pre><span class="token function">docker</span> <span class="token function">rm</span> <span class="token punctuation">[</span>CONTAINER<span class="token punctuation">..</span>.<span class="token punctuation">]</span></pre></td></tr><tr><td data-num="15"></td><td><pre><span class="token comment"># docker rmi：删除一个或多个镜像。</span></pre></td></tr><tr><td data-num="16"></td><td><pre><span class="token function">docker</span> rmi <span class="token punctuation">[</span>OPTIONS<span class="token punctuation">]</span> IMAGE <span class="token punctuation">[</span>IMAGE<span class="token punctuation">..</span>.<span class="token punctuation">]</span></pre></td></tr><tr><td data-num="17"></td><td><pre><span class="token comment"># docker ps：列出当前正在运行的容器。</span></pre></td></tr><tr><td data-num="18"></td><td><pre><span class="token function">docker</span> <span class="token function">ps</span> <span class="token punctuation">[</span>OPTIONS<span class="token punctuation">]</span></pre></td></tr><tr><td data-num="19"></td><td><pre><span class="token comment"># docker images：列出本地的镜像。</span></pre></td></tr><tr><td data-num="20"></td><td><pre><span class="token function">docker</span> images <span class="token punctuation">[</span>OPTIONS<span class="token punctuation">]</span> <span class="token punctuation">[</span>REPOSITORY<span class="token punctuation">[</span>:TAG<span class="token punctuation">]</span><span class="token punctuation">]</span></pre></td></tr><tr><td data-num="21"></td><td><pre><span class="token comment"># docker build：根据 Dockerfile 构建镜像。</span></pre></td></tr><tr><td data-num="22"></td><td><pre><span class="token function">docker</span> build <span class="token punctuation">[</span>OPTIONS<span class="token punctuation">]</span> <span class="token environment constant">PATH</span> <span class="token operator">|</span> URL <span class="token operator">|</span> -</pre></td></tr><tr><td data-num="23"></td><td><pre><span class="token comment"># docker pull：从远程仓库拉取镜像或仓库到本地。</span></pre></td></tr><tr><td data-num="24"></td><td><pre><span class="token function">docker</span> pull <span class="token punctuation">[</span>OPTIONS<span class="token punctuation">]</span> NAME<span class="token punctuation">[</span>:TAG<span class="token operator">|</span>@DIGEST<span class="token punctuation">]</span></pre></td></tr><tr><td data-num="25"></td><td><pre><span class="token comment"># docker push：将本地的镜像或仓库推送到远程仓库。</span></pre></td></tr><tr><td data-num="26"></td><td><pre><span class="token function">docker</span> push <span class="token punctuation">[</span>OPTIONS<span class="token punctuation">]</span> NAME<span class="token punctuation">[</span>:TAG<span class="token punctuation">]</span></pre></td></tr><tr><td data-num="27"></td><td><pre><span class="token comment"># docker login：登录到一个 Docker 远程仓库。</span></pre></td></tr><tr><td data-num="28"></td><td><pre><span class="token function">docker</span> login <span class="token punctuation">[</span>OPTIONS<span class="token punctuation">]</span> <span class="token punctuation">[</span>SERVER<span class="token punctuation">]</span> USERNAME</pre></td></tr><tr><td data-num="29"></td><td><pre><span class="token comment"># docker logout：从 Docker 远程仓库登出。</span></pre></td></tr><tr><td data-num="30"></td><td><pre><span class="token function">docker</span> <span class="token builtin class-name">logout</span> <span class="token punctuation">[</span>SERVER<span class="token punctuation">]</span></pre></td></tr><tr><td data-num="31"></td><td><pre><span class="token comment"># docker exec：在运行的容器中执行命令。</span></pre></td></tr><tr><td data-num="32"></td><td><pre><span class="token function">docker</span> <span class="token builtin class-name">exec</span> <span class="token punctuation">[</span>OPTIONS<span class="token punctuation">]</span> CONTAINER COMMAND <span class="token punctuation">[</span>ARG<span class="token punctuation">..</span>.<span class="token punctuation">]</span></pre></td></tr><tr><td data-num="33"></td><td><pre><span class="token comment"># docker logs：获取容器的日志。</span></pre></td></tr><tr><td data-num="34"></td><td><pre><span class="token function">docker</span> logs <span class="token punctuation">[</span>OPTIONS<span class="token punctuation">]</span> CONTAINER</pre></td></tr><tr><td data-num="35"></td><td><pre><span class="token comment"># docker network：管理 Docker 网络设置。</span></pre></td></tr><tr><td data-num="36"></td><td><pre><span class="token function">docker</span> network <span class="token punctuation">[</span>OPTIONS<span class="token punctuation">]</span></pre></td></tr><tr><td data-num="37"></td><td><pre><span class="token comment"># docker volume：管理 Docker 数据卷。</span></pre></td></tr><tr><td data-num="38"></td><td><pre><span class="token function">docker</span> volume <span class="token punctuation">[</span>OPTIONS<span class="token punctuation">]</span></pre></td></tr><tr><td data-num="39"></td><td><pre><span class="token comment"># docker inspect：获取容器、镜像、网络或数据卷的详细信息。</span></pre></td></tr><tr><td data-num="40"></td><td><pre><span class="token function">docker</span> inspect <span class="token punctuation">[</span>OPTIONS<span class="token punctuation">]</span> NAME<span class="token operator">|</span>ID <span class="token punctuation">[</span>NAME<span class="token operator">|</span>ID<span class="token punctuation">..</span>.<span class="token punctuation">]</span></pre></td></tr><tr><td data-num="41"></td><td><pre><span class="token comment"># docker prune：删除未使用的 Docker 对象，如容器、镜像、网络、数据卷。</span></pre></td></tr><tr><td data-num="42"></td><td><pre><span class="token function">docker</span> prune <span class="token punctuation">[</span>OPTIONS<span class="token punctuation">]</span></pre></td></tr><tr><td data-num="43"></td><td><pre><span class="token comment"># docker stats：实时显示容器的资源使用情况。</span></pre></td></tr><tr><td data-num="44"></td><td><pre><span class="token function">docker</span> stats <span class="token punctuation">[</span>OPTIONS<span class="token punctuation">]</span> <span class="token punctuation">[</span>CONTAINER<span class="token punctuation">..</span>.<span class="token punctuation">]</span></pre></td></tr><tr><td data-num="45"></td><td><pre><span class="token comment"># docker-compose：使用 Docker Compose 工具管理多容器 Docker 应用程序。</span></pre></td></tr><tr><td data-num="46"></td><td><pre><span class="token function">docker-compose</span> <span class="token punctuation">[</span>OPTIONS<span class="token punctuation">]</span> <span class="token punctuation">[</span>COMMAND<span class="token punctuation">]</span> <span class="token punctuation">[</span>ARGS<span class="token punctuation">..</span>.<span class="token punctuation">]</span></pre></td></tr></table></figure><h1 id="容器化"><a class="anchor" href="#容器化">#</a> 容器化</h1>
+<blockquote>
+<p>如何将应用程序和运行时的环境打包成一个镜像呢（）容器化？这时候就需要配置 dockerfile 定义容器的构建过程，构建镜像。最后使用 docker 命令镜像创建和运行容器（docker build -t app-name . 和 docker run -p 8080:8080 app-name）</p>
+</blockquote>
+<h1 id="dockerfile"><a class="anchor" href="#dockerfile">#</a> Dockerfile</h1>
+<blockquote>
+<p>dockerfile 文件用于定义软件依赖的构建过程，确保应用程序的依赖项得到满足。alpine 是一个轻量的 linx 发行版。</p>
+</blockquote>
+<figure class="highlight dockerfile"><figcaption data-lang="Docker"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token comment"># Docker 镜像是一层一层进行构建的</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token comment"># 指定对应的操作系统和版本，alpine 是 linx 轻量级的发行版</span></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token instruction"><span class="token keyword">FROM</span> node:14-alpine</span></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token comment"># 使用 COPY 命令，将文件复制到镜像中</span></pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token instruction"><span class="token keyword">COPY</span> index.js /index.js</span></pre></td></tr><tr><td data-num="6"></td><td><pre><span class="token comment"># 运行应用程序</span></pre></td></tr><tr><td data-num="7"></td><td><pre><span class="token comment"># CMD ["node","/index.js"] 或者</span></pre></td></tr><tr><td data-num="8"></td><td><pre><span class="token instruction"><span class="token keyword">CMD</span> node /index.js</span></pre></td></tr><tr><td data-num="9"></td><td><pre><span class="token comment"># 此时使用 docker build -t docker-name: 版本号。就可以构建 docker 镜像，不指定版本号默认是 latest</span></pre></td></tr><tr><td data-num="10"></td><td><pre><span class="token comment"># 使用 docker image ls 可以查看所有的镜像</span></pre></td></tr><tr><td data-num="11"></td><td><pre><span class="token comment"># 使用 docker run docker-name 运行镜像</span></pre></td></tr><tr><td data-num="12"></td><td><pre><span class="token comment"># 将容器推送到远程镜像仓库：docker push your-dockerhub-username/your-app-name:tag</span></pre></td></tr><tr><td data-num="13"></td><td><pre><span class="token comment"># 如果想要根据这个镜像创建 docker 容器，只需要拿到 Dockerfile 文件，运行上述命令即可</span></pre></td></tr><tr><td data-num="14"></td><td><pre><span class="token comment"># 通常将应用程序上传到 docker hub 中，后面通过 docker pull docker-name 进行拉取</span></pre></td></tr></table></figure><h1 id="volumes-逻辑卷"><a class="anchor" href="#volumes-逻辑卷">#</a> volumes 逻辑卷</h1>
+<blockquote>
+<p>volumes 逻辑卷是 Docker 中用于存储数据的，因为 docker 中的数据是不会进行持久化的。它通常以一个干净的文件开始，容器启动之后，可以在容器中创建文件和修改文件，但是当容器停止之后，数据并不会持久化，从而丢失，这时候就要在 Docker Compose 中使用 volumes 逻辑卷<br />
+ volumes 逻辑卷可以将容器中的目录或者指定路径映射到宿主机的某一个目录或者位置上，从而实现数据的持久化。</p>
+</blockquote>
+<h1 id="dev-environments"><a class="anchor" href="#dev-environments">#</a> Dev Environments</h1>
+<blockquote>
+<p>docker desktop 中的一个功能，可以将自己当前环境分享给其他人，从而共享开发环境。</p>
+</blockquote>
+<h1 id="docker-compose"><a class="anchor" href="#docker-compose">#</a> Docker Compose</h1>
+<p>容器编排工具</p>
+<blockquote>
+<p>一个项目中需要的应用程序和应用程序（容器）间的逻辑是十分复杂的，统一管理他们的启动和停止非常麻烦，Docker Compose 用一个 YAML 文件，定义和运行多容器 Docker 应用程序，其中可以配置多个容器、网络和数据卷等，以便在隔离的环境中快速启动和停止整个应用程序。</p>
+</blockquote>
+<p><strong>Docker Compose 的作用：</strong></p>
+<ul>
+<li>多容器管理：Docker Compose 允许你在一个文件中定义多个容器，统一管理它们的启动和停止。</li>
+<li>环境一致性：通过使用 Compose，你可以在不同的机器和环境中保持应用程序的一致性，因为它定义了应用程序的完整运行环境。</li>
+<li>配置简化：Compose 使用 YAML 格式，使得配置更加简洁和易于理解。</li>
+<li>服务依赖管理：Compose 可以处理容器之间的依赖关系，确保在启动和停止时按正确的顺序操作。</li>
+<li>网络配置：Compose 允许定义自定义网络，使容器之间能够相互发现和通信。</li>
+<li>数据卷管理：可以配置数据卷，以便在容器之间共享数据或持久化数据。</li>
+<li>扩展性：Compose 支持扩展服务，允许你指定服务运行的容器数量。</li>
+<li>自动化：通过简单的命令，Compose 可以自动构建、启动或停止整个应用程序。</li>
+</ul>
+<p><strong>docker-compose.yml</strong></p>
+<figure class="highlight yaml"><figcaption data-lang="YAML"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token key atrule">version</span><span class="token punctuation">:</span> <span class="token string">"3.8"</span> <span class="token comment"># 指定 docker-compose 的版本</span></pre></td></tr><tr><td data-num="2"></td><td><pre></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token key atrule">services</span><span class="token punctuation">:</span></pre></td></tr><tr><td data-num="4"></td><td><pre>  <span class="token key atrule">web</span><span class="token punctuation">:</span></pre></td></tr><tr><td data-num="5"></td><td><pre>    <span class="token key atrule">image</span><span class="token punctuation">:</span> nginx<span class="token punctuation">:</span>alpine <span class="token comment"># 使用官方的 nginx 镜像（基于 Alpine 版本）</span></pre></td></tr><tr><td data-num="6"></td><td><pre>    <span class="token key atrule">ports</span><span class="token punctuation">:</span></pre></td></tr><tr><td data-num="7"></td><td><pre>      <span class="token punctuation">-</span> <span class="token string">"80:80"</span> <span class="token comment"># 将容器的 80 端口映射到宿主机的 80 端口</span></pre></td></tr><tr><td data-num="8"></td><td><pre>    <span class="token key atrule">volumes</span><span class="token punctuation">:</span></pre></td></tr><tr><td data-num="9"></td><td><pre>      <span class="token punctuation">-</span> ./src<span class="token punctuation">:</span>/usr/share/nginx/html <span class="token comment"># 挂载当前目录下的 src 文件夹到容器的 nginx HTML 目录</span></pre></td></tr><tr><td data-num="10"></td><td><pre>    <span class="token key atrule">depends_on</span><span class="token punctuation">:</span></pre></td></tr><tr><td data-num="11"></td><td><pre>      <span class="token punctuation">-</span> app <span class="token comment"># 表示 web 服务依赖于 app 服务</span></pre></td></tr><tr><td data-num="12"></td><td><pre></pre></td></tr><tr><td data-num="13"></td><td><pre>  <span class="token key atrule">app</span><span class="token punctuation">:</span></pre></td></tr><tr><td data-num="14"></td><td><pre>    <span class="token key atrule">build</span><span class="token punctuation">:</span> ./app <span class="token comment"># 构建当前目录下 app 文件夹中的 Dockerfile</span></pre></td></tr><tr><td data-num="15"></td><td><pre>    <span class="token key atrule">expose</span><span class="token punctuation">:</span></pre></td></tr><tr><td data-num="16"></td><td><pre>      <span class="token punctuation">-</span> <span class="token string">"9000"</span> <span class="token comment"># 暴露容器内部的 9000 端口，供其他服务访问，但不映射到宿主机</span></pre></td></tr><tr><td data-num="17"></td><td><pre>    <span class="token key atrule">environment</span><span class="token punctuation">:</span></pre></td></tr><tr><td data-num="18"></td><td><pre>      <span class="token punctuation">-</span> APP_ENV=production <span class="token comment"># 设置环境变量</span></pre></td></tr><tr><td data-num="19"></td><td><pre>    <span class="token key atrule">volumes</span><span class="token punctuation">:</span></pre></td></tr><tr><td data-num="20"></td><td><pre>      <span class="token punctuation">-</span> ./app<span class="token punctuation">:</span>/var/www <span class="token comment"># 挂载当前目录下的 app 文件夹到容器的 /var/www 目录</span></pre></td></tr><tr><td data-num="21"></td><td><pre></pre></td></tr><tr><td data-num="22"></td><td><pre>  <span class="token key atrule">db</span><span class="token punctuation">:</span></pre></td></tr><tr><td data-num="23"></td><td><pre>    <span class="token key atrule">image</span><span class="token punctuation">:</span> mysql<span class="token punctuation">:</span><span class="token number">5.7</span> <span class="token comment"># 使用官方的 MySQL 5.7 镜像</span></pre></td></tr><tr><td data-num="24"></td><td><pre>    <span class="token key atrule">volumes</span><span class="token punctuation">:</span></pre></td></tr><tr><td data-num="25"></td><td><pre>      <span class="token punctuation">-</span> db<span class="token punctuation">-</span>data<span class="token punctuation">:</span>/var/lib/mysql <span class="token comment"># 挂载卷 db-data 到容器的 MySQL 数据目录</span></pre></td></tr><tr><td data-num="26"></td><td><pre>    <span class="token key atrule">environment</span><span class="token punctuation">:</span></pre></td></tr><tr><td data-num="27"></td><td><pre>      <span class="token punctuation">-</span> MYSQL_ROOT_PASSWORD=rootpassword <span class="token comment"># 设置 MySQL root 用户的密码</span></pre></td></tr><tr><td data-num="28"></td><td><pre>      <span class="token punctuation">-</span> MYSQL_DATABASE=myappdb <span class="token comment"># 创建并使用名为 myappdb 的数据库</span></pre></td></tr><tr><td data-num="29"></td><td><pre></pre></td></tr><tr><td data-num="30"></td><td><pre><span class="token key atrule">volumes</span><span class="token punctuation">:</span></pre></td></tr><tr><td data-num="31"></td><td><pre>  <span class="token key atrule">db-data</span><span class="token punctuation">:</span> <span class="token comment"># 定义一个名为 db-data 的卷，用于持久化 MySQL 数据</span></pre></td></tr></table></figure><p><code>docker-compose.yml</code>  文件将一组互相关联的容器组合在一起，然后使用 <code>docker compose up</code>  命令（包含 docker-compose.yml 的文件中执行）即可启动整个应用程序。</p>
+<p>docker-compose.yml 可以结合 CI/CD 工具，集成到自动化工作流中，实现从开发到部署的自动化。</p>
+<h1 id="kubernetes"><a class="anchor" href="#kubernetes">#</a> Kubernetes</h1>
+<p>Kubernetes 和 Docker Compose 类似，是一种容器编排工具，用于管理和部署容器化应用程序。但是 Kubernetes 相比之下更适合大规模的生产环境和复杂的容器编排需求。</p>
+<h3 id="比较"><a class="anchor" href="#比较">#</a> 比较</h3>
+<p>k8s 和 Docker Compose 的区别</p>
+<ol>
+<li>功能和规模：
+<ul>
+<li>Docker Compose 是一个简单的工具，用于定义和运行多个 Docker 容器组成的应用程序。它适用于单机或简单的多机环境，并提供了一种简化的方式来定义容器之间的依赖关系和配置。</li>
+<li>Kubernetes 是一个更强大和复杂的容器编排平台，用于管理大规模的容器集群。它可以自动化容器的部署、扩展、负载均衡、故障恢复等操作，并提供了更丰富的功能和管理能力。</li>
+</ul>
+</li>
+<li>架构和部署方式：
+<ul>
+<li>Docker Compose 使用单个 YAML 文件来定义整个应用程序的配置和服务之间的关系。它可以在单个主机上使用 <code>docker-compose</code>  命令进行部署和管理。</li>
+<li>Kubernetes 使用一组 YAML 文件来定义应用程序的各个组件和资源，并通过 Kubernetes API 进行管理。它需要一个 Kubernetes 集群来部署和运行应用程序。</li>
+</ul>
+</li>
+<li>可扩展性和弹性：
+<ul>
+<li>Docker Compose 适用于小型应用程序或开发 / 测试环境，它的扩展性和弹性有限。它可以在单个主机上运行多个容器，但无法自动进行水平扩展或故障恢复。</li>
+<li>Kubernetes 设计用于大规模的生产环境，具有强大的扩展性和弹性。它可以自动进行容器的水平扩展、负载均衡和故障恢复，以确保应用程序的高可用性和性能。</li>
+</ul>
+</li>
+<li>社区和生态系统：
+<ul>
+<li>Docker Compose 是 Docker 官方提供的工具，拥有庞大的用户社区和丰富的生态系统。它与 Docker Engine 紧密集成，并且易于上手和使用。</li>
+<li>Kubernetes 是由 Google 开源并托管在 Cloud Native Computing Foundation（CNCF）下的项目，也拥有庞大的用户社区和活跃的开发者社区。它有许多第三方工具和插件，可以扩展其功能和集成其他系统。</li>
+</ul>
+</li>
+</ol>
+<p>综上所述，Docker Compose 适用于简单的应用程序部署和开发 / 测试环境，而 Kubernetes 适用于大规模的生产环境和复杂的容器编排需求。根据实际需求和规模选择合适的工具</p>
+
+      <div class="tags">
+          <a href="/tags/Docker/" rel="tag"><i class="ic i-tag"></i> Docker</a>
+      </div>
+  </div>
+
+   <footer>
+
+    <div class="meta">
+  <span class="item">
+    <span class="icon">
+      <i class="ic i-calendar-check"></i>
+    </span>
+    <span class="text">更新于</span>
+    <time title="修改时间：2024-07-23 16:48:21" itemprop="dateModified" datetime="2024-07-23T16:48:21+08:00">2024-07-23</time>
+  </span>
+  <span id="2024/07/08/docker/" class="item leancloud_visitors" data-flag-title="Docker" title="阅读次数">
+      <span class="icon">
+        <i class="ic i-eye"></i>
+      </span>
+      <span class="text">阅读次数</span>
+      <span class="leancloud-visitors-count"></span>
+      <span class="text">次</span>
+  </span>
+</div>
+
+      
+<div class="reward">
+  <button><i class="ic i-heartbeat"></i> 赞赏</button>
+  <p>请我喝[茶]~(￣▽￣)~*</p>
+  <div id="qr">
+      
+      <div>
+        <img data-src="/images/wechatpay.png" alt="dmq 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div>
+        <img data-src="/images/alipay.png" alt="dmq 支付宝">
+        <p>支付宝</p>
+      </div>
+  </div>
+</div>
+
+      
+
+<div id="copyright">
+<ul>
+  <li class="author">
+    <strong>本文作者： </strong>dmq <i class="ic i-at"><em>@</em></i>杜明清的个人博客
+  </li>
+  <li class="link">
+    <strong>本文链接：</strong>
+    <a href="https://dmqweb.cn/2024/07/08/docker/" title="Docker">https://dmqweb.cn/2024/07/08/docker/</a>
+  </li>
+  <li class="license">
+    <strong>版权声明： </strong>本站所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+  </footer>
+
+</article>
+
+  </div>
+  
+
+<div class="post-nav">
+    <div class="item left">
+      
+
+  <a href="/2024/07/07/gitlab-cicd/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;s3.uuu.ovh&#x2F;imgs&#x2F;2024&#x2F;04&#x2F;04&#x2F;eff89867286d822f.webp" title="gitlab cicd">
+  <span class="type">上一篇</span>
+  <span class="category"><i class="ic i-flag"></i> gitlab cicd</span>
+  <h3>gitlab cicd</h3>
+  </a>
+
+    </div>
+    <div class="item right">
+      
+
+  <a href="/2024/07/23/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;s3.uuu.ovh&#x2F;imgs&#x2F;2024&#x2F;04&#x2F;13&#x2F;ba4d76fc0767aeef.jpg" title="操作系统">
+  <span class="type">下一篇</span>
+  <span class="category"><i class="ic i-flag"></i> 操作系统</span>
+  <h3>操作系统</h3>
+  </a>
+
+    </div>
+</div>
+
+  
+  <div class="wrap" id="comments"></div>
+
+
+        </div>
+        <div id="sidebar">
+          
+
+<div class="inner">
+
+  <div class="panels">
+    <div class="inner">
+      <div class="contents panel pjax" data-title="文章目录">
+          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%99%9A%E6%8B%9F%E5%8C%96%E6%8A%80%E6%9C%AF"><span class="toc-number">1.</span> <span class="toc-text"> 虚拟化技术</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%A1%AC%E4%BB%B6%E7%BA%A7%E8%99%9A%E6%8B%9F%E5%8C%96%E6%8A%80%E6%9C%AF"><span class="toc-number">2.</span> <span class="toc-text"> 虚拟机 (硬件级虚拟化技术)</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%B9%E5%99%A8%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%BA%A7%E8%99%9A%E6%8B%9F%E5%8C%96%E6%8A%80%E6%9C%AF"><span class="toc-number">3.</span> <span class="toc-text"> 容器 (操作系统级虚拟化技术)</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#docker"><span class="toc-number">4.</span> <span class="toc-text"> docker</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#image-%E9%95%9C%E5%83%8F"><span class="toc-number">4.1.</span> <span class="toc-text"> image 镜像</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#docker-%E5%AE%B9%E5%99%A8"><span class="toc-number">4.2.</span> <span class="toc-text"> docker 容器</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#docker-%E7%9A%84%E4%BC%98%E5%8A%BF"><span class="toc-number">5.</span> <span class="toc-text"> docker 的优势</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#docker-%E5%91%BD%E4%BB%A4"><span class="toc-number">6.</span> <span class="toc-text"> docker 命令</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%B9%E5%99%A8%E5%8C%96"><span class="toc-number">7.</span> <span class="toc-text"> 容器化</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#dockerfile"><span class="toc-number">8.</span> <span class="toc-text"> Dockerfile</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#volumes-%E9%80%BB%E8%BE%91%E5%8D%B7"><span class="toc-number">9.</span> <span class="toc-text"> volumes 逻辑卷</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#dev-environments"><span class="toc-number">10.</span> <span class="toc-text"> Dev Environments</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#docker-compose"><span class="toc-number">11.</span> <span class="toc-text"> Docker Compose</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#kubernetes"><span class="toc-number">12.</span> <span class="toc-text"> Kubernetes</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%AF%94%E8%BE%83"><span class="toc-number">12.0.1.</span> <span class="toc-text"> 比较</span></a></li></ol></li></ol></li></ol>
+      </div>
+      <div class="related panel pjax" data-title="系列文章">
+        <ul>
+          <li class="active"><a href="/2024/07/08/docker/" rel="bookmark" title="Docker">Docker</a></li>
+        </ul>
+      </div>
+      <div class="overview panel" data-title="站点概览">
+        <div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="image" itemprop="image" alt="dmq"
+      data-src="/images/avatar.jpg">
+  <p class="name" itemprop="name">dmq</p>
+  <div class="description" itemprop="description"></div>
+</div>
+
+<nav class="state">
+    <div class="item posts">
+      <a href="/archives/">
+        <span class="count">80</span>
+        <span class="name">文章</span>
+      </a>
+    </div>
+    <div class="item categories">
+      <a href="/categories/">
+        <span class="count">64</span>
+        <span class="name">分类</span>
+      </a>
+    </div>
+    <div class="item tags">
+      <a href="/tags/">
+        <span class="count">100</span>
+        <span class="name">标签</span>
+      </a>
+    </div>
+</nav>
+
+<div class="social">
+      <span class="exturl item github" data-url="aHR0cHM6Ly9naXRodWIuY29tL2RtcTA/dGFiPXJlcG9zaXRvcmllcw==" title="https:&#x2F;&#x2F;github.com&#x2F;dmq0?tab&#x3D;repositories"><i class="ic i-github"></i></span>
+      <span class="exturl item npm" data-url="aHR0cHM6Ly93d3cubnBtanMuY29tL35kbXEwMDA=" title="https:&#x2F;&#x2F;www.npmjs.com&#x2F;~dmq000"><i class="ic i-file"></i></span>
+      <span class="exturl item zhihu" data-url="aHR0cHM6Ly93d3cuemhpaHUuY29tL3Blb3BsZS9kLTg4LTYxLTgz" title="https:&#x2F;&#x2F;www.zhihu.com&#x2F;people&#x2F;d-88-61-83"><i class="ic i-zhihu"></i></span>
+      <span class="exturl item music" data-url="aHR0cHM6Ly9tdXNpYy4xNjMuY29tLyMvdXNlci9ob21lP2lkPTgwMjc4OTk0OTE=" title="https:&#x2F;&#x2F;music.163.com&#x2F;#&#x2F;user&#x2F;home?id&#x3D;8027899491"><i class="ic i-cloud-music"></i></span>
+      <span class="exturl item weibo" data-url="aHR0cHM6Ly93ZWliby5jb20vdS83NjI1OTAxNzE3" title="https:&#x2F;&#x2F;weibo.com&#x2F;u&#x2F;7625901717"><i class="ic i-weibo"></i></span>
+      <span class="exturl item email" data-url="bWFpbHRvOjMyNjc4MDc1MTRAcXEuY29t" title="mailto:3267807514@qq.com"><i class="ic i-envelope"></i></span>
+</div>
+
+<ul class="menu">
+  
+    
+  <li class="item">
+    <a href="/" rel="section"><i class="ic i-home"></i>首页</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/about/" rel="section"><i class="ic i-user"></i>介绍</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/archives/" rel="section"><i class="ic i-list-alt"></i>归档</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/categories/" rel="section"><i class="ic i-th"></i>分类</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/tags/" rel="section"><i class="ic i-tags"></i>标签</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/friends/" rel="section"><i class="ic i-heart"></i>友链</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/links/" rel="section"><i class="ic i-magic"></i>工具</a>
+  </li>
+
+
+</ul>
+
+      </div>
+    </div>
+  </div>
+
+  <ul id="quick">
+    <li class="prev pjax">
+        <a href="/2024/07/07/gitlab-cicd/" rel="prev" title="上一篇"><i class="ic i-chevron-left"></i></a>
+    </li>
+    <li class="up"><i class="ic i-arrow-up"></i></li>
+    <li class="down"><i class="ic i-arrow-down"></i></li>
+    <li class="next pjax">
+        <a href="/2024/07/23/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" rel="next" title="下一篇"><i class="ic i-chevron-right"></i></a>
+    </li>
+    <li class="percent"></li>
+  </ul>
+</div>
+
+
+        </div>
+        <div class="dimmer"></div>
+      </div>
+    </main>
+    <footer id="footer">
+      <div class="inner">
+        <div class="widgets">
+          
+<div class="rpost pjax">
+  <h2>随机文章</h2>
+  <ul>
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/gitlab-cicd/" title="分类于 gitlab cicd">gitlab cicd</a>
+</div>
+
+    <span><a href="/2024/07/07/gitlab-cicd/" title="gitlab cicd">gitlab cicd</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E5%AE%B9%E5%99%A8%E5%8C%96%E8%BF%90%E7%BB%B4%E6%93%8D%E4%BD%9C/" title="分类于 容器化运维操作">容器化运维操作</a>
+</div>
+
+    <span><a href="/2024/02/02/%E5%AE%B9%E5%99%A8%E5%8C%96%E8%BF%90%E7%BB%B4%E6%93%8D%E4%BD%9C/" title="容器化运维操作">容器化运维操作</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E6%B5%8F%E8%A7%88%E5%99%A8/" title="分类于 浏览器">浏览器</a>
+</div>
+
+    <span><a href="/2023/10/09/%E6%B5%8F%E8%A7%88%E5%99%A8%E6%B8%B2%E6%9F%93%E5%8E%9F%E7%90%86/" title="浏览器渲染原理">浏览器渲染原理</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/whistle/" title="分类于 whistle">whistle</a>
+</div>
+
+    <span><a href="/2024/05/17/whistle%E4%BD%BF%E7%94%A8/" title="whistle抓包">whistle抓包</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" title="分类于 操作系统">操作系统</a>
+</div>
+
+    <span><a href="/2024/07/23/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" title="操作系统">操作系统</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E8%84%9A%E6%89%8B%E6%9E%B6%E5%BC%80%E5%8F%91/" title="分类于 脚手架开发">脚手架开发</a>
+</div>
+
+    <span><a href="/2024/04/12/%E8%84%9A%E6%89%8B%E6%9E%B6/" title="脚手架开发">脚手架开发</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/ES6/" title="分类于 ES6">ES6</a>
+</div>
+
+    <span><a href="/2023/08/02/ES6/" title="ES6">ES6</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/JS%E6%89%8B%E5%86%99%E9%A2%98/" title="分类于 JS手写题">JS手写题</a>
+</div>
+
+    <span><a href="/2023/06/02/JS%E6%89%8B%E5%86%99%E9%A2%98/" title="JS手写题">JS手写题</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/JS/" title="分类于 JS">JS</a>
+</div>
+
+    <span><a href="/2023/12/02/%E9%9A%90%E5%BC%8F%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2/" title="JS类型转换">JS类型转换</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/JS/" title="分类于 JS">JS</a>
+</div>
+
+    <span><a href="/2024/02/02/serviceWorker/" title="serviceWorker">serviceWorker</a></span>
+  </li>
+
+  </ul>
+</div>
+<div>
+  <h2>最新评论</h2>
+  <ul class="leancloud-recent-comment"></ul>
+</div>
+
+        </div>
+        <div class="status">
+  <div class="copyright">
+    
+    &copy; 2022 – 
+    <span itemprop="copyrightYear">2024</span>
+    <span class="with-love">
+      <i class="ic i-sakura rotate"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">dmq @ Web blog</span>
+  </div>
+  <div class="count">
+    <span class="post-meta-item-icon">
+      <i class="ic i-chart-area"></i>
+    </span>
+    <span title="站点总字数">943k 字</span>
+
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="ic i-coffee"></i>
+    </span>
+    <span title="站点阅读时长">14:17</span>
+  </div>
+  <div class="powered-by">
+    基于 <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & Theme.<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Shoka</span>
+  </div>
+</div>
+
+      </div>
+    </footer>
+  </div>
+<script data-config type="text/javascript">
+  var LOCAL = {
+    path: '2024/07/08/docker/',
+    favicon: {
+      show: "科技引领未来",
+      hide: "欢迎与我交流"
+    },
+    search : {
+      placeholder: "文章搜索",
+      empty: "关于 「 ${query} 」，什么也没搜到",
+      stats: "${time} ms 内找到 ${hits} 条结果"
+    },
+    valine: true,fancybox: true,
+    copyright: '复制成功，转载请遵守 <i class="ic i-creative-commons"></i>BY-NC-SA 协议。',
+    ignores : [
+      function(uri) {
+        return uri.includes('#');
+      },
+      function(uri) {
+        return new RegExp(LOCAL.path+"$").test(uri);
+      }
+    ]
+  };
+</script>
+
+<script src="https://cdn.polyfill.io/v2/polyfill.js"></script>
+
+<script src="//gcore.jsdelivr.net/combine/npm/pace-js@1.0.2/pace.min.js,npm/pjax@0.2.8/pjax.min.js,npm/whatwg-fetch@3.4.0/dist/fetch.umd.min.js,npm/animejs@3.2.0/lib/anime.min.js,npm/algoliasearch@4/dist/algoliasearch-lite.umd.js,npm/instantsearch.js@4/dist/instantsearch.production.min.js,npm/lozad@1/dist/lozad.min.js,npm/quicklink@2/dist/quicklink.umd.js"></script>
+
+<script src="/js/app.js?v=0.2.5"></script>
+
+
+  <script data-pjax>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?9ba187659e850a6910681214f0faa16b";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+</body>
+</html>

@@ -1,0 +1,683 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#FFF">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="icon" type="image/ico" sizes="32x32" href="/images/favicon.ico">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+<link rel="alternate" type="application/rss+xml" title="杜明清的个人博客" href="https://dmqweb.cn/rss.xml" />
+<link rel="alternate" type="application/atom+xml" title="杜明清的个人博客" href="https://dmqweb.cn/atom.xml" />
+<link rel="alternate" type="application/json" title="杜明清的个人博客" href="https://dmqweb.cn/feed.json" />
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Mulish:300,300italic,400,400italic,700,700italic%7CFredericka%20the%20Great:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20JP:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CInconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="/css/app.css?v=0.2.5">
+
+  
+  <meta name="keywords" content="git,github" />
+
+
+<link rel="canonical" href="https://dmqweb.cn/2023/04/02/git%E5%92%8Cgithub/">
+
+
+
+  <title>
+git与github - git |
+Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
+  <meta name="keywords" content="前端开发, HTML, CSS, JavaScript, 博客">
+  <meta name="description" content="探索前端开发的无限可能。本博客提供最新的前端知识库，以及实用的开发技巧和最佳实践。加入我们的社区，共同成长。">
+<meta name="generator" content="Hexo 6.3.0"></head>
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div id="loading">
+    <div class="cat">
+      <div class="body"></div>
+      <div class="head">
+        <div class="face"></div>
+      </div>
+      <div class="foot">
+        <div class="tummy-end"></div>
+        <div class="bottom"></div>
+        <div class="legs left"></div>
+        <div class="legs right"></div>
+      </div>
+      <div class="paw">
+        <div class="hands left"></div>
+        <div class="hands right"></div>
+      </div>
+    </div>
+  </div>
+  <div id="container">
+    <header id="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="inner">
+        <div id="brand">
+          <div class="pjax">
+          
+  <h1 itemprop="name headline">git与github
+  </h1>
+  
+<div class="meta">
+  <span class="item" title="创建时间：2023-04-02 12:24:04">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <span class="text">发表于</span>
+    <time itemprop="dateCreated datePublished" datetime="2023-04-02T12:24:04+08:00">2023-04-02</time>
+  </span>
+  <span class="item" title="本文字数">
+    <span class="icon">
+      <i class="ic i-pen"></i>
+    </span>
+    <span class="text">本文字数</span>
+    <span>2.7k</span>
+    <span class="text">字</span>
+  </span>
+  <span class="item" title="阅读时长">
+    <span class="icon">
+      <i class="ic i-clock"></i>
+    </span>
+    <span class="text">阅读时长</span>
+    <span>2 分钟</span>
+  </span>
+</div>
+
+
+          </div>
+        </div>
+        <nav id="nav">
+  <div class="inner">
+    <div class="toggle">
+      <div class="lines" aria-label="切换导航栏">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </div>
+    </div>
+    <ul class="menu">
+      <li class="item title"><a href="/" rel="start">Web blog</a></li>
+    </ul>
+    <ul class="right">
+      <li class="item theme">
+        <i class="ic i-sun"></i>
+      </li>
+      <li class="item search">
+        <i class="ic i-search"></i>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+      </div>
+      <div id="imgs" class="pjax">
+        <ul>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/15/64f47485ad1e6bed.jpg"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/25/1b093314ebaab948.jpg"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/05/d389418a13d92e24.jpg"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/12/61baca9d80b5756d.jpg"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/15/807885ba1421e9b4.jpg"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/07/971b0200f59eab4c.jpg"></li>
+        </ul>
+      </div>
+    </header>
+    <div id="waves">
+      <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+        <defs>
+          <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+        </defs>
+        <g class="parallax">
+          <use xlink:href="#gentle-wave" x="48" y="0" />
+          <use xlink:href="#gentle-wave" x="48" y="3" />
+          <use xlink:href="#gentle-wave" x="48" y="5" />
+          <use xlink:href="#gentle-wave" x="48" y="7" />
+        </g>
+      </svg>
+    </div>
+    <main>
+      <div class="inner">
+        <div id="main" class="pjax">
+          
+  <div class="article wrap">
+    
+<div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+<i class="ic i-home"></i>
+<span><a href="/">首页</a></span><i class="ic i-angle-right"></i>
+<span  class="current" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/categories/git/" itemprop="item" rel="index" title="分类于 git"><span itemprop="name">git</span></a>
+<meta itemprop="position" content="1" /></span>
+</div>
+
+    <article itemscope itemtype="http://schema.org/Article" class="post block" lang="zh-CN">
+  <link itemprop="mainEntityOfPage" href="https://dmqweb.cn/2023/04/02/git%E5%92%8Cgithub/">
+
+  <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="image" content="/images/avatar.jpg">
+    <meta itemprop="name" content="dmq">
+    <meta itemprop="description" content="👻欢迎一起交流学习👻, ">
+  </span>
+
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="杜明清的个人博客">
+  </span>
+
+  <div class="body md" itemprop="articleBody">
+    
+
+    <h1 id="-git"><a class="anchor" href="#-git">#</a> -----------------------------------git</h1>
+<h2 id="httpszhuanlanzhihucomp389814854"><a class="anchor" href="#httpszhuanlanzhihucomp389814854">#</a> <span class="exturl" data-url="aHR0cHM6Ly96aHVhbmxhbi56aGlodS5jb20vcC8zODk4MTQ4NTQ=">https://zhuanlan.zhihu.com/p/389814854</span></h2>
+<p>网址：git 命令大全</p>
+<h4 id="git全局配置文件配置一次即可生效"><a class="anchor" href="#git全局配置文件配置一次即可生效">#</a> git 全局配置文件，配置一次即可生效</h4>
+<p>（C:user / 用户名文件夹 /.gitconfig）</p>
+<h3 id="一-git-init"><a class="anchor" href="#一-git-init">#</a> 一、 <code>git init</code></h3>
+<h4 id="初始化创建本地仓库"><a class="anchor" href="#初始化创建本地仓库">#</a> （初始化，创建本地仓库）</h4>
+<h3 id="二-git-add"><a class="anchor" href="#二-git-add">#</a> 二、 <code>git add</code></h3>
+<h4 id="添加到本地仓库"><a class="anchor" href="#添加到本地仓库">#</a> （添加到本地仓库）</h4>
+<h3 id="三-git-commit-m-注释"><a class="anchor" href="#三-git-commit-m-注释">#</a> 三、 <code>git commit -m</code>  &quot;注释&quot;</h3>
+<h4 id="添加注释"><a class="anchor" href="#添加注释">#</a> （添加注释）</h4>
+<h3 id="四-git-remote-add-origin-仓库地址"><a class="anchor" href="#四-git-remote-add-origin-仓库地址">#</a> 四、 <code>git remote add origin</code>  仓库地址</h3>
+<h4 id="连接远程仓库"><a class="anchor" href="#连接远程仓库">#</a> （连接远程仓库）</h4>
+<h3 id="五-git-pull-rebase-origin-master"><a class="anchor" href="#五-git-pull-rebase-origin-master">#</a> 五、 <code>git pull --rebase origin master</code></h3>
+<h4 id="仓库地址同步仓库内容"><a class="anchor" href="#仓库地址同步仓库内容">#</a> 仓库地址（同步仓库内容）</h4>
+<h3 id="六-git-push-u-origin-master"><a class="anchor" href="#六-git-push-u-origin-master">#</a> 六、 <code>git push -u origin master</code></h3>
+<h4 id="上传到远程仓库"><a class="anchor" href="#上传到远程仓库">#</a> （上传到远程仓库）</h4>
+<h3 id="1获得git帮助命令浏览器中"><a class="anchor" href="#1获得git帮助命令浏览器中">#</a> ①获得 git 帮助命令（浏览器中）</h3>
+<p><code>git help config</code> （获取参考）<br />
+ <code>git config -h</code> （获取更简明的快速参考）</p>
+<h3 id="2获得git配置信息"><a class="anchor" href="#2获得git配置信息">#</a> ②获得 git 配置信息</h3>
+<p><code>git config --list --global</code> （查看全局配置项）<br />
+ <code>git config user.name</code>  (查看某一项)</p>
+<h3 id="3配置用户信息"><a class="anchor" href="#3配置用户信息">#</a> ③配置用户信息</h3>
+<p><code>git config --global user.name 'name'</code> <br />
+ <code>git config --global user.email 'email'</code> <br />
+（使用了 --global 选项，那么该命令只需要运行一次即可永久生效）</p>
+<h3 id="4获取帮助信息"><a class="anchor" href="#4获取帮助信息">#</a> ④获取帮助信息</h3>
+<p>git help &lt;verb&gt;(获取某个命令的帮助手册)</p>
+<h3 id="5将目录转换成git仓库项目的git-bash中使用git-init"><a class="anchor" href="#5将目录转换成git仓库项目的git-bash中使用git-init">#</a> ⑤将目录转换成 Git 仓库（项目的 git Bash 中使用 git init）</h3>
+<h3 id="6从其他服务器上克隆一个仓库"><a class="anchor" href="#6从其他服务器上克隆一个仓库">#</a> ⑥从其他服务器上克隆一个仓库</h3>
+<h3 id="7四种状态工作区未修改暂存区已修改仓库已暂存"><a class="anchor" href="#7四种状态工作区未修改暂存区已修改仓库已暂存">#</a> ⑦四种状态：：工作区（未修改），暂存区（已修改），仓库（已暂存）</h3>
+<h3 id="8git目标将工作区的文件都处于未修改的状态"><a class="anchor" href="#8git目标将工作区的文件都处于未修改的状态">#</a> ⑧git 目标：将工作区的文件都处于未修改的状态</h3>
+<h3 id="9查看文件出于什么状态git-status命令git-status-s-精简显示查看那些文件被跟踪哪些没有"><a class="anchor" href="#9查看文件出于什么状态git-status命令git-status-s-精简显示查看那些文件被跟踪哪些没有">#</a> ⑨查看文件出于什么状态：（git status 命令（git status -s 精简显示），查看那些文件被跟踪，哪些没有）</h3>
+<p>??：未被 Git 跟踪的新文件。<br />
+A：新增文件。<br />
+M：文件已被修改。<br />
+D：文件已被删除。<br />
+R：文件已被重命名。<br />
+C：文件已被拷贝。<br />
+X：文件状态没有更改。<br />
+M：文件被修改并且已经暂存。<br />
+A：文件已经添加到 Git 并且还没有被暂存。<br />
+D：文件被删除了。<br />
+R：文件被重命名了。<br />
+C：文件被拷贝（复制）了。</p>
+<h3 id="10跟踪文件跟踪后git会记录文件的所有变化并管理和恢复git-add-文件名"><a class="anchor" href="#10跟踪文件跟踪后git会记录文件的所有变化并管理和恢复git-add-文件名">#</a> ⑩跟踪文件，跟踪后 Git 会记录文件的所有变化，并管理和恢复（git add 文件名 ）</h3>
+<p>取消跟踪文件： <code>git rm --cached &lt;file&gt;</code>   （需要执行一次提交才生效）</p>
+<h3 id="十一-提交到git仓库中"><a class="anchor" href="#十一-提交到git仓库中">#</a> 十一、提交到 git 仓库中</h3>
+<p>（ <code>git commit -m</code>  ' 描述信息 '）</p>
+<h3 id="十二-修改已提交的文件其状态为红色m"><a class="anchor" href="#十二-修改已提交的文件其状态为红色m">#</a> 十二、修改已提交的文件，其状态为红色 M</h3>
+<h3 id="十三-git-add命令的三个功能1跟踪新文件2将已跟踪且修改的文件放到暂存区3将有冲突的文件标记为以解决状态"><a class="anchor" href="#十三-git-add命令的三个功能1跟踪新文件2将已跟踪且修改的文件放到暂存区3将有冲突的文件标记为以解决状态">#</a> 十三、git add 命令的三个功能：①跟踪新文件②将已跟踪且修改的文件放到暂存区③将有冲突的文件标记为以解决状态</h3>
+<h3 id="十四-撤销对文件的修改谨慎操作"><a class="anchor" href="#十四-撤销对文件的修改谨慎操作">#</a> 十四、撤销对文件的修改<em>谨慎操作</em></h3>
+<p>*（ <code>git checkout -- 文件名</code> ），本质是 Git 仓库中保存的文件，覆盖工作区中指定的文件</p>
+<h3 id="十五-向暂存区中一次性添加目录下所有文件"><a class="anchor" href="#十五-向暂存区中一次性添加目录下所有文件">#</a> 十五、向暂存区中一次性添加目录下所有文件</h3>
+<p>*（ <code>git add .</code> ）</p>
+<h3 id="十六-从暂存区移除暂存的文件"><a class="anchor" href="#十六-从暂存区移除暂存的文件">#</a> 十六、从暂存区移除暂存的文件</h3>
+<p>*（ <code>git reset HEAD 文件名</code> ）文件名为。号表明移除全部</p>
+<h3 id="十七-git工作流程工作区-暂存区-git仓库"><a class="anchor" href="#十七-git工作流程工作区-暂存区-git仓库">#</a> 十七、Git 工作流程：工作区 ---- 暂存区 ----Git 仓库</h3>
+<h3 id="十八-跳过使用暂存区"><a class="anchor" href="#十八-跳过使用暂存区">#</a> 十八、跳过使用暂存区</h3>
+<p>*（ <code>git commit -a -m</code>  &quot;描述消息&quot;）</p>
+<h3 id="十九-从git仓库中移除文件"><a class="anchor" href="#十九-从git仓库中移除文件">#</a> 十九、从 Git 仓库中移除文件</h3>
+<p>*（ <code>git rm -f</code>  文件名   ，从 Git 仓库和工作区中同时移除 index.js 文件②git rm --cached 文件名  ， 只从 Git 仓库中移除文件，用于不用更改的固定文件不用记录）</p>
+<h3 id="二十-忽略文件"><a class="anchor" href="#二十-忽略文件">#</a> 二十、忽略文件</h3>
+<p>*（新建一个名为.gitignore 配置文件，列出要忽略的文件的匹配模式）①以 #开头的是注释②以 / 结尾的是目录③以 / 开头防止递归④以！开头表示取反⑤可以使用 glob 模式进行文件和文件夹的匹配（glob 指简化了的正则表达式）</p>
+<h3 id="二十一-glob模式"><a class="anchor" href="#二十一-glob模式">#</a> 二十一、glob 模式：</h3>
+<p><em>①</em>: 匹配零个或多个任意字符</p>
+<p>②[abc] 匹配任何一个列在方括号中的字符</p>
+<p>③？：匹配一个任意字符</p>
+<p>④[0-9] 匹配所有 0 到 9 的数字</p>
+<p>⑤** 表示匹配任意中间目录</p>
+<h3 id="二十二-输出git提交日志"><a class="anchor" href="#二十二-输出git提交日志">#</a> 二十二、输出 Git 提交日志</h3>
+<p><code>（git log）git log -n</code>  提交最近 n 条历史信息</p>
+<h3 id="二十三-回退指定版本"><a class="anchor" href="#二十三-回退指定版本">#</a> 二十三、回退指定版本：</h3>
+<p>（ <code>git log --pretty=onlin</code>  查看提交历史，获得对应标识 id 、</p>
+<p><code>git reset --hard &lt;CommitID&gt;</code>  根据指定的提交 ID 回退到指定版本 、</p>
+<p><code>git reflog --pretty=online</code>  旧版本中使用，查看命令操作的历史 、</p>
+<p><code>git reset --hard &lt;CommitID&gt;</code>  再次根据最新的提交 ID，跳转到最新的版本）</p>
+<h1 id="-github"><a class="anchor" href="#-github">#</a> ----------------------------------------github</h1>
+<h2 id="一-远程仓库使用"><a class="anchor" href="#一-远程仓库使用">#</a> 一、远程仓库使用</h2>
+<p>HTTPS: 零配置，每次范围问需要重新输入密码</p>
+<p>SSH: 需要额外配置，配置后不必重复输入密码（推荐使用）</p>
+<h2 id="二-基于https-ssh将本地仓库上传到github"><a class="anchor" href="#二-基于https-ssh将本地仓库上传到github">#</a> 二、基于 HTTPS、SSH 将本地仓库上传到 Github</h2>
+<p><code>echo &quot;# project 02&quot; &gt;&gt; README.md</code>        使用终端创建内容为 #project 02 的 md 文件</p>
+<p><code>git init</code>  初始化本地仓库（git 打开）</p>
+<p><code>git add README.md</code></p>
+<p><code>git commit -m &quot;first commit&quot;</code>  文件修改并提交到本地仓库</p>
+<p><code>git remote add </code>  仓库地址（HTTP 或 SSH） 链接远程仓库</p>
+<p><code>git push -u 仓库地址 master</code>  将本地仓库推送到远程仓库（第一次推送 以后直接 <code>git push</code> ）</p>
+<h2 id="三-生成ssh-key"><a class="anchor" href="#三-生成ssh-key">#</a> 三、生成 SSH key</h2>
+<p>git Bash 中 使用：  <code>ssh-keygen -t rsa -b 4096  -C &quot;邮箱地址&quot;</code></p>
+<p>连续三次回车，即可在 C:\Users\dmq \ .ssh 目录中生成 id_rsa 和 id_rsa.pub 两个文件</p>
+<h4 id="ssh-key的好处"><a class="anchor" href="#ssh-key的好处">#</a> SSH key 的好处</h4>
+<p>实现本地仓库和 Github 之间免登录的加密数据传输</p>
+<h4 id="ssh-key两部分"><a class="anchor" href="#ssh-key两部分">#</a> SSH key 两部分</h4>
+<p>①id_rsa (私钥文件，存放于客户端的电脑中)</p>
+<p>②id_rsa.pub (公钥文件，需要配置到 Github 中)</p>
+<h4 id="配置ssh-key"><a class="anchor" href="#配置ssh-key">#</a> 配置 SSH key</h4>
+<p>①记事本打开 id_rsa.pub 文件，复制里面的内容</p>
+<p>②在浏览器中登录 Github，点击头像 -&gt;Settings -&gt;SSH and GPG Keys -&gt; New SSH key</p>
+<p>③将 id_rsa.pub 文件中的内容，粘贴到 Key 对应的文本框中</p>
+<p>④在 Title 文本框中任意填写一个名称，来标识这个 Key 从何而来</p>
+<h4 id="检测远程仓库中ssh是否配置成功"><a class="anchor" href="#检测远程仓库中ssh是否配置成功">#</a> 检测远程仓库中 SSH 是否配置成功</h4>
+<p>Git Bash 中：</p>
+<p><code>ssh -T git@github.com </code> (github)</p>
+<p><code>ssh -T git@gitee.com</code>  (gitee)</p>
+<p>输入 yes</p>
+<h2 id="四-将远程仓库克隆到本地"><a class="anchor" href="#四-将远程仓库克隆到本地">#</a> 四、将远程仓库克隆到本地</h2>
+<p>Git Bash 中输入  <code>git clone  远程仓库地址</code></p>
+
+      <div class="tags">
+          <a href="/tags/git/" rel="tag"><i class="ic i-tag"></i> git</a>
+          <a href="/tags/github/" rel="tag"><i class="ic i-tag"></i> github</a>
+      </div>
+  </div>
+
+   <footer>
+
+    <div class="meta">
+  <span class="item">
+    <span class="icon">
+      <i class="ic i-calendar-check"></i>
+    </span>
+    <span class="text">更新于</span>
+    <time title="修改时间：2024-07-09 13:16:59" itemprop="dateModified" datetime="2024-07-09T13:16:59+08:00">2024-07-09</time>
+  </span>
+  <span id="2023/04/02/git和github/" class="item leancloud_visitors" data-flag-title="git与github" title="阅读次数">
+      <span class="icon">
+        <i class="ic i-eye"></i>
+      </span>
+      <span class="text">阅读次数</span>
+      <span class="leancloud-visitors-count"></span>
+      <span class="text">次</span>
+  </span>
+</div>
+
+      
+<div class="reward">
+  <button><i class="ic i-heartbeat"></i> 赞赏</button>
+  <p>请我喝[茶]~(￣▽￣)~*</p>
+  <div id="qr">
+      
+      <div>
+        <img data-src="/images/wechatpay.png" alt="dmq 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div>
+        <img data-src="/images/alipay.png" alt="dmq 支付宝">
+        <p>支付宝</p>
+      </div>
+  </div>
+</div>
+
+      
+
+<div id="copyright">
+<ul>
+  <li class="author">
+    <strong>本文作者： </strong>dmq <i class="ic i-at"><em>@</em></i>杜明清的个人博客
+  </li>
+  <li class="link">
+    <strong>本文链接：</strong>
+    <a href="https://dmqweb.cn/2023/04/02/git%E5%92%8Cgithub/" title="git与github">https://dmqweb.cn/2023/04/02/git和github/</a>
+  </li>
+  <li class="license">
+    <strong>版权声明： </strong>本站所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+  </footer>
+
+</article>
+
+  </div>
+  
+
+<div class="post-nav">
+    <div class="item left">
+      
+
+  <a href="/2023/02/12/%E4%B8%AD%E5%89%8D%E5%8F%B0%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;s3.uuu.ovh&#x2F;imgs&#x2F;2024&#x2F;03&#x2F;29&#x2F;5c162f03529c2f38.jpg" title="中前台解决方案">
+  <span class="type">上一篇</span>
+  <span class="category"><i class="ic i-flag"></i> 中前台解决方案</span>
+  <h3>中前台解决方案</h3>
+  </a>
+
+    </div>
+    <div class="item right">
+      
+
+  <a href="/2023/05/02/HTTP/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;s3.uuu.ovh&#x2F;imgs&#x2F;2024&#x2F;04&#x2F;12&#x2F;3368de466b008234.webp" title="HTTP">
+  <span class="type">下一篇</span>
+  <span class="category"><i class="ic i-flag"></i> HTTP</span>
+  <h3>HTTP</h3>
+  </a>
+
+    </div>
+</div>
+
+  
+  <div class="wrap" id="comments"></div>
+
+
+        </div>
+        <div id="sidebar">
+          
+
+<div class="inner">
+
+  <div class="panels">
+    <div class="inner">
+      <div class="contents panel pjax" data-title="文章目录">
+          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#-git"><span class="toc-number">1.</span> <span class="toc-text"> -----------------------------------git</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#httpszhuanlanzhihucomp389814854"><span class="toc-number">1.1.</span> <span class="toc-text"> https:&#x2F;&#x2F;zhuanlan.zhihu.com&#x2F;p&#x2F;389814854</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#git%E5%85%A8%E5%B1%80%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E9%85%8D%E7%BD%AE%E4%B8%80%E6%AC%A1%E5%8D%B3%E5%8F%AF%E7%94%9F%E6%95%88"><span class="toc-number">1.1.0.1.</span> <span class="toc-text"> git 全局配置文件，配置一次即可生效</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80-git-init"><span class="toc-number">1.1.1.</span> <span class="toc-text"> 一、 git init</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%9D%E5%A7%8B%E5%8C%96%E5%88%9B%E5%BB%BA%E6%9C%AC%E5%9C%B0%E4%BB%93%E5%BA%93"><span class="toc-number">1.1.1.1.</span> <span class="toc-text"> （初始化，创建本地仓库）</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C-git-add"><span class="toc-number">1.1.2.</span> <span class="toc-text"> 二、 git add</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B7%BB%E5%8A%A0%E5%88%B0%E6%9C%AC%E5%9C%B0%E4%BB%93%E5%BA%93"><span class="toc-number">1.1.2.1.</span> <span class="toc-text"> （添加到本地仓库）</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%89-git-commit-m-%E6%B3%A8%E9%87%8A"><span class="toc-number">1.1.3.</span> <span class="toc-text"> 三、 git commit -m  &quot;注释&quot;</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B7%BB%E5%8A%A0%E6%B3%A8%E9%87%8A"><span class="toc-number">1.1.3.1.</span> <span class="toc-text"> （添加注释）</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%9B-git-remote-add-origin-%E4%BB%93%E5%BA%93%E5%9C%B0%E5%9D%80"><span class="toc-number">1.1.4.</span> <span class="toc-text"> 四、 git remote add origin  仓库地址</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%BF%9E%E6%8E%A5%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93"><span class="toc-number">1.1.4.1.</span> <span class="toc-text"> （连接远程仓库）</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%94-git-pull-rebase-origin-master"><span class="toc-number">1.1.5.</span> <span class="toc-text"> 五、 git pull --rebase origin master</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BB%93%E5%BA%93%E5%9C%B0%E5%9D%80%E5%90%8C%E6%AD%A5%E4%BB%93%E5%BA%93%E5%86%85%E5%AE%B9"><span class="toc-number">1.1.5.1.</span> <span class="toc-text"> 仓库地址（同步仓库内容）</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%AD-git-push-u-origin-master"><span class="toc-number">1.1.6.</span> <span class="toc-text"> 六、 git push -u origin master</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%8A%E4%BC%A0%E5%88%B0%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93"><span class="toc-number">1.1.6.1.</span> <span class="toc-text"> （上传到远程仓库）</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1%E8%8E%B7%E5%BE%97git%E5%B8%AE%E5%8A%A9%E5%91%BD%E4%BB%A4%E6%B5%8F%E8%A7%88%E5%99%A8%E4%B8%AD"><span class="toc-number">1.1.7.</span> <span class="toc-text"> ①获得 git 帮助命令（浏览器中）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2%E8%8E%B7%E5%BE%97git%E9%85%8D%E7%BD%AE%E4%BF%A1%E6%81%AF"><span class="toc-number">1.1.8.</span> <span class="toc-text"> ②获得 git 配置信息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3%E9%85%8D%E7%BD%AE%E7%94%A8%E6%88%B7%E4%BF%A1%E6%81%AF"><span class="toc-number">1.1.9.</span> <span class="toc-text"> ③配置用户信息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4%E8%8E%B7%E5%8F%96%E5%B8%AE%E5%8A%A9%E4%BF%A1%E6%81%AF"><span class="toc-number">1.1.10.</span> <span class="toc-text"> ④获取帮助信息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5%E5%B0%86%E7%9B%AE%E5%BD%95%E8%BD%AC%E6%8D%A2%E6%88%90git%E4%BB%93%E5%BA%93%E9%A1%B9%E7%9B%AE%E7%9A%84git-bash%E4%B8%AD%E4%BD%BF%E7%94%A8git-init"><span class="toc-number">1.1.11.</span> <span class="toc-text"> ⑤将目录转换成 Git 仓库（项目的 git Bash 中使用 git init）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6%E4%BB%8E%E5%85%B6%E4%BB%96%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A%E5%85%8B%E9%9A%86%E4%B8%80%E4%B8%AA%E4%BB%93%E5%BA%93"><span class="toc-number">1.1.12.</span> <span class="toc-text"> ⑥从其他服务器上克隆一个仓库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7%E5%9B%9B%E7%A7%8D%E7%8A%B6%E6%80%81%E5%B7%A5%E4%BD%9C%E5%8C%BA%E6%9C%AA%E4%BF%AE%E6%94%B9%E6%9A%82%E5%AD%98%E5%8C%BA%E5%B7%B2%E4%BF%AE%E6%94%B9%E4%BB%93%E5%BA%93%E5%B7%B2%E6%9A%82%E5%AD%98"><span class="toc-number">1.1.13.</span> <span class="toc-text"> ⑦四种状态：：工作区（未修改），暂存区（已修改），仓库（已暂存）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8git%E7%9B%AE%E6%A0%87%E5%B0%86%E5%B7%A5%E4%BD%9C%E5%8C%BA%E7%9A%84%E6%96%87%E4%BB%B6%E9%83%BD%E5%A4%84%E4%BA%8E%E6%9C%AA%E4%BF%AE%E6%94%B9%E7%9A%84%E7%8A%B6%E6%80%81"><span class="toc-number">1.1.14.</span> <span class="toc-text"> ⑧git 目标：将工作区的文件都处于未修改的状态</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#9%E6%9F%A5%E7%9C%8B%E6%96%87%E4%BB%B6%E5%87%BA%E4%BA%8E%E4%BB%80%E4%B9%88%E7%8A%B6%E6%80%81git-status%E5%91%BD%E4%BB%A4git-status-s-%E7%B2%BE%E7%AE%80%E6%98%BE%E7%A4%BA%E6%9F%A5%E7%9C%8B%E9%82%A3%E4%BA%9B%E6%96%87%E4%BB%B6%E8%A2%AB%E8%B7%9F%E8%B8%AA%E5%93%AA%E4%BA%9B%E6%B2%A1%E6%9C%89"><span class="toc-number">1.1.15.</span> <span class="toc-text"> ⑨查看文件出于什么状态：（git status 命令（git status -s 精简显示），查看那些文件被跟踪，哪些没有）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10%E8%B7%9F%E8%B8%AA%E6%96%87%E4%BB%B6%E8%B7%9F%E8%B8%AA%E5%90%8Egit%E4%BC%9A%E8%AE%B0%E5%BD%95%E6%96%87%E4%BB%B6%E7%9A%84%E6%89%80%E6%9C%89%E5%8F%98%E5%8C%96%E5%B9%B6%E7%AE%A1%E7%90%86%E5%92%8C%E6%81%A2%E5%A4%8Dgit-add-%E6%96%87%E4%BB%B6%E5%90%8D"><span class="toc-number">1.1.16.</span> <span class="toc-text"> ⑩跟踪文件，跟踪后 Git 会记录文件的所有变化，并管理和恢复（git add 文件名 ）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%81%E4%B8%80-%E6%8F%90%E4%BA%A4%E5%88%B0git%E4%BB%93%E5%BA%93%E4%B8%AD"><span class="toc-number">1.1.17.</span> <span class="toc-text"> 十一、提交到 git 仓库中</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%81%E4%BA%8C-%E4%BF%AE%E6%94%B9%E5%B7%B2%E6%8F%90%E4%BA%A4%E7%9A%84%E6%96%87%E4%BB%B6%E5%85%B6%E7%8A%B6%E6%80%81%E4%B8%BA%E7%BA%A2%E8%89%B2m"><span class="toc-number">1.1.18.</span> <span class="toc-text"> 十二、修改已提交的文件，其状态为红色 M</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%81%E4%B8%89-git-add%E5%91%BD%E4%BB%A4%E7%9A%84%E4%B8%89%E4%B8%AA%E5%8A%9F%E8%83%BD1%E8%B7%9F%E8%B8%AA%E6%96%B0%E6%96%87%E4%BB%B62%E5%B0%86%E5%B7%B2%E8%B7%9F%E8%B8%AA%E4%B8%94%E4%BF%AE%E6%94%B9%E7%9A%84%E6%96%87%E4%BB%B6%E6%94%BE%E5%88%B0%E6%9A%82%E5%AD%98%E5%8C%BA3%E5%B0%86%E6%9C%89%E5%86%B2%E7%AA%81%E7%9A%84%E6%96%87%E4%BB%B6%E6%A0%87%E8%AE%B0%E4%B8%BA%E4%BB%A5%E8%A7%A3%E5%86%B3%E7%8A%B6%E6%80%81"><span class="toc-number">1.1.19.</span> <span class="toc-text"> 十三、git add 命令的三个功能：①跟踪新文件②将已跟踪且修改的文件放到暂存区③将有冲突的文件标记为以解决状态</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%81%E5%9B%9B-%E6%92%A4%E9%94%80%E5%AF%B9%E6%96%87%E4%BB%B6%E7%9A%84%E4%BF%AE%E6%94%B9%E8%B0%A8%E6%85%8E%E6%93%8D%E4%BD%9C"><span class="toc-number">1.1.20.</span> <span class="toc-text"> 十四、撤销对文件的修改谨慎操作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%81%E4%BA%94-%E5%90%91%E6%9A%82%E5%AD%98%E5%8C%BA%E4%B8%AD%E4%B8%80%E6%AC%A1%E6%80%A7%E6%B7%BB%E5%8A%A0%E7%9B%AE%E5%BD%95%E4%B8%8B%E6%89%80%E6%9C%89%E6%96%87%E4%BB%B6"><span class="toc-number">1.1.21.</span> <span class="toc-text"> 十五、向暂存区中一次性添加目录下所有文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%81%E5%85%AD-%E4%BB%8E%E6%9A%82%E5%AD%98%E5%8C%BA%E7%A7%BB%E9%99%A4%E6%9A%82%E5%AD%98%E7%9A%84%E6%96%87%E4%BB%B6"><span class="toc-number">1.1.22.</span> <span class="toc-text"> 十六、从暂存区移除暂存的文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%81%E4%B8%83-git%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B%E5%B7%A5%E4%BD%9C%E5%8C%BA-%E6%9A%82%E5%AD%98%E5%8C%BA-git%E4%BB%93%E5%BA%93"><span class="toc-number">1.1.23.</span> <span class="toc-text"> 十七、Git 工作流程：工作区 ---- 暂存区 ----Git 仓库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%81%E5%85%AB-%E8%B7%B3%E8%BF%87%E4%BD%BF%E7%94%A8%E6%9A%82%E5%AD%98%E5%8C%BA"><span class="toc-number">1.1.24.</span> <span class="toc-text"> 十八、跳过使用暂存区</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%81%E4%B9%9D-%E4%BB%8Egit%E4%BB%93%E5%BA%93%E4%B8%AD%E7%A7%BB%E9%99%A4%E6%96%87%E4%BB%B6"><span class="toc-number">1.1.25.</span> <span class="toc-text"> 十九、从 Git 仓库中移除文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C%E5%8D%81-%E5%BF%BD%E7%95%A5%E6%96%87%E4%BB%B6"><span class="toc-number">1.1.26.</span> <span class="toc-text"> 二十、忽略文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C%E5%8D%81%E4%B8%80-glob%E6%A8%A1%E5%BC%8F"><span class="toc-number">1.1.27.</span> <span class="toc-text"> 二十一、glob 模式：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C%E5%8D%81%E4%BA%8C-%E8%BE%93%E5%87%BAgit%E6%8F%90%E4%BA%A4%E6%97%A5%E5%BF%97"><span class="toc-number">1.1.28.</span> <span class="toc-text"> 二十二、输出 Git 提交日志</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C%E5%8D%81%E4%B8%89-%E5%9B%9E%E9%80%80%E6%8C%87%E5%AE%9A%E7%89%88%E6%9C%AC"><span class="toc-number">1.1.29.</span> <span class="toc-text"> 二十三、回退指定版本：</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#-github"><span class="toc-number">2.</span> <span class="toc-text"> ----------------------------------------github</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80-%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%E4%BD%BF%E7%94%A8"><span class="toc-number">2.1.</span> <span class="toc-text"> 一、远程仓库使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C-%E5%9F%BA%E4%BA%8Ehttps-ssh%E5%B0%86%E6%9C%AC%E5%9C%B0%E4%BB%93%E5%BA%93%E4%B8%8A%E4%BC%A0%E5%88%B0github"><span class="toc-number">2.2.</span> <span class="toc-text"> 二、基于 HTTPS、SSH 将本地仓库上传到 Github</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89-%E7%94%9F%E6%88%90ssh-key"><span class="toc-number">2.3.</span> <span class="toc-text"> 三、生成 SSH key</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#ssh-key%E7%9A%84%E5%A5%BD%E5%A4%84"><span class="toc-number">2.3.0.1.</span> <span class="toc-text"> SSH key 的好处</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ssh-key%E4%B8%A4%E9%83%A8%E5%88%86"><span class="toc-number">2.3.0.2.</span> <span class="toc-text"> SSH key 两部分</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%85%8D%E7%BD%AEssh-key"><span class="toc-number">2.3.0.3.</span> <span class="toc-text"> 配置 SSH key</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A3%80%E6%B5%8B%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%E4%B8%ADssh%E6%98%AF%E5%90%A6%E9%85%8D%E7%BD%AE%E6%88%90%E5%8A%9F"><span class="toc-number">2.3.0.4.</span> <span class="toc-text"> 检测远程仓库中 SSH 是否配置成功</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B-%E5%B0%86%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%E5%85%8B%E9%9A%86%E5%88%B0%E6%9C%AC%E5%9C%B0"><span class="toc-number">2.4.</span> <span class="toc-text"> 四、将远程仓库克隆到本地</span></a></li></ol></li></ol>
+      </div>
+      <div class="related panel pjax" data-title="系列文章">
+        <ul>
+          <li class="active"><a href="/2023/04/02/git%E5%92%8Cgithub/" rel="bookmark" title="git与github">git与github</a></li><li><a href="/2023/05/02/git%20github%E7%AC%94%E8%AE%B0%EF%BC%88%E6%A6%82%E5%BF%B5%EF%BC%89/" rel="bookmark" title="git笔记">git笔记</a></li>
+        </ul>
+      </div>
+      <div class="overview panel" data-title="站点概览">
+        <div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="image" itemprop="image" alt="dmq"
+      data-src="/images/avatar.jpg">
+  <p class="name" itemprop="name">dmq</p>
+  <div class="description" itemprop="description"></div>
+</div>
+
+<nav class="state">
+    <div class="item posts">
+      <a href="/archives/">
+        <span class="count">80</span>
+        <span class="name">文章</span>
+      </a>
+    </div>
+    <div class="item categories">
+      <a href="/categories/">
+        <span class="count">64</span>
+        <span class="name">分类</span>
+      </a>
+    </div>
+    <div class="item tags">
+      <a href="/tags/">
+        <span class="count">100</span>
+        <span class="name">标签</span>
+      </a>
+    </div>
+</nav>
+
+<div class="social">
+      <span class="exturl item github" data-url="aHR0cHM6Ly9naXRodWIuY29tL2RtcTA/dGFiPXJlcG9zaXRvcmllcw==" title="https:&#x2F;&#x2F;github.com&#x2F;dmq0?tab&#x3D;repositories"><i class="ic i-github"></i></span>
+      <span class="exturl item npm" data-url="aHR0cHM6Ly93d3cubnBtanMuY29tL35kbXEwMDA=" title="https:&#x2F;&#x2F;www.npmjs.com&#x2F;~dmq000"><i class="ic i-file"></i></span>
+      <span class="exturl item zhihu" data-url="aHR0cHM6Ly93d3cuemhpaHUuY29tL3Blb3BsZS9kLTg4LTYxLTgz" title="https:&#x2F;&#x2F;www.zhihu.com&#x2F;people&#x2F;d-88-61-83"><i class="ic i-zhihu"></i></span>
+      <span class="exturl item music" data-url="aHR0cHM6Ly9tdXNpYy4xNjMuY29tLyMvdXNlci9ob21lP2lkPTgwMjc4OTk0OTE=" title="https:&#x2F;&#x2F;music.163.com&#x2F;#&#x2F;user&#x2F;home?id&#x3D;8027899491"><i class="ic i-cloud-music"></i></span>
+      <span class="exturl item weibo" data-url="aHR0cHM6Ly93ZWliby5jb20vdS83NjI1OTAxNzE3" title="https:&#x2F;&#x2F;weibo.com&#x2F;u&#x2F;7625901717"><i class="ic i-weibo"></i></span>
+      <span class="exturl item email" data-url="bWFpbHRvOjMyNjc4MDc1MTRAcXEuY29t" title="mailto:3267807514@qq.com"><i class="ic i-envelope"></i></span>
+</div>
+
+<ul class="menu">
+  
+    
+  <li class="item">
+    <a href="/" rel="section"><i class="ic i-home"></i>首页</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/about/" rel="section"><i class="ic i-user"></i>介绍</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/archives/" rel="section"><i class="ic i-list-alt"></i>归档</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/categories/" rel="section"><i class="ic i-th"></i>分类</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/tags/" rel="section"><i class="ic i-tags"></i>标签</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/friends/" rel="section"><i class="ic i-heart"></i>友链</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/links/" rel="section"><i class="ic i-magic"></i>工具</a>
+  </li>
+
+
+</ul>
+
+      </div>
+    </div>
+  </div>
+
+  <ul id="quick">
+    <li class="prev pjax">
+        <a href="/2023/02/12/%E4%B8%AD%E5%89%8D%E5%8F%B0%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" rel="prev" title="上一篇"><i class="ic i-chevron-left"></i></a>
+    </li>
+    <li class="up"><i class="ic i-arrow-up"></i></li>
+    <li class="down"><i class="ic i-arrow-down"></i></li>
+    <li class="next pjax">
+        <a href="/2023/05/02/HTTP/" rel="next" title="下一篇"><i class="ic i-chevron-right"></i></a>
+    </li>
+    <li class="percent"></li>
+  </ul>
+</div>
+
+
+        </div>
+        <div class="dimmer"></div>
+      </div>
+    </main>
+    <footer id="footer">
+      <div class="inner">
+        <div class="widgets">
+          
+<div class="rpost pjax">
+  <h2>随机文章</h2>
+  <ul>
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/JS/" title="分类于 JS">JS</a>
+</div>
+
+    <span><a href="/2023/10/02/33%E4%B8%AAJavascript%E6%A6%82%E5%BF%B5/" title="33个JavaScript概念">33个JavaScript概念</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/jQuery/" title="分类于 jQuery">jQuery</a>
+</div>
+
+    <span><a href="/2023/01/02/jQuery%E6%A1%86%E6%9E%B6%E5%BA%94%E7%94%A8/" title="jQuery">jQuery</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E8%84%9A%E6%89%8B%E6%9E%B6%E5%BC%80%E5%8F%91/" title="分类于 脚手架开发">脚手架开发</a>
+</div>
+
+    <span><a href="/2024/04/12/%E8%84%9A%E6%89%8B%E6%9E%B6/" title="脚手架开发">脚手架开发</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/jenkins%E9%85%8D%E5%90%88git-hook%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90/" title="分类于 jenkins配合git hook持续集成">jenkins配合git hook持续集成</a>
+</div>
+
+    <span><a href="/2024/02/02/%E4%BD%BF%E7%94%A8Jenkins%E9%85%8D%E5%90%88github%20hook%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90/" title="jenkins配合git hook持续集成">jenkins配合git hook持续集成</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/three-js/" title="分类于 three.js">three.js</a>
+</div>
+
+    <span><a href="/2023/10/24/ThreeJS/" title="three.js">three.js</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/json-server/" title="分类于 json-server">json-server</a>
+</div>
+
+    <span><a href="/2023/01/09/json-server%E6%95%99%E7%A8%8B/" title="json-server">json-server</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E6%9D%82%E8%AE%B0/" title="分类于 杂记">杂记</a>
+</div>
+
+    <span><a href="/2023/01/01/%E6%9D%82%E8%AE%B0/" title="杂记">杂记</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" title="分类于 网络安全">网络安全</a>
+</div>
+
+    <span><a href="/2024/05/23/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" title="网络安全">网络安全</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/JS/" title="分类于 JS">JS</a>
+</div>
+
+    <span><a href="/2023/12/11/typedArray/" title="JS中类型化数组typedArray">JS中类型化数组typedArray</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Docker/" title="分类于 Docker">Docker</a>
+</div>
+
+    <span><a href="/2024/07/08/docker/" title="Docker">Docker</a></span>
+  </li>
+
+  </ul>
+</div>
+<div>
+  <h2>最新评论</h2>
+  <ul class="leancloud-recent-comment"></ul>
+</div>
+
+        </div>
+        <div class="status">
+  <div class="copyright">
+    
+    &copy; 2022 – 
+    <span itemprop="copyrightYear">2024</span>
+    <span class="with-love">
+      <i class="ic i-sakura rotate"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">dmq @ Web blog</span>
+  </div>
+  <div class="count">
+    <span class="post-meta-item-icon">
+      <i class="ic i-chart-area"></i>
+    </span>
+    <span title="站点总字数">943k 字</span>
+
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="ic i-coffee"></i>
+    </span>
+    <span title="站点阅读时长">14:17</span>
+  </div>
+  <div class="powered-by">
+    基于 <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & Theme.<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Shoka</span>
+  </div>
+</div>
+
+      </div>
+    </footer>
+  </div>
+<script data-config type="text/javascript">
+  var LOCAL = {
+    path: '2023/04/02/git和github/',
+    favicon: {
+      show: "科技引领未来",
+      hide: "欢迎与我交流"
+    },
+    search : {
+      placeholder: "文章搜索",
+      empty: "关于 「 ${query} 」，什么也没搜到",
+      stats: "${time} ms 内找到 ${hits} 条结果"
+    },
+    valine: true,fancybox: true,
+    copyright: '复制成功，转载请遵守 <i class="ic i-creative-commons"></i>BY-NC-SA 协议。',
+    ignores : [
+      function(uri) {
+        return uri.includes('#');
+      },
+      function(uri) {
+        return new RegExp(LOCAL.path+"$").test(uri);
+      }
+    ]
+  };
+</script>
+
+<script src="https://cdn.polyfill.io/v2/polyfill.js"></script>
+
+<script src="//gcore.jsdelivr.net/combine/npm/pace-js@1.0.2/pace.min.js,npm/pjax@0.2.8/pjax.min.js,npm/whatwg-fetch@3.4.0/dist/fetch.umd.min.js,npm/animejs@3.2.0/lib/anime.min.js,npm/algoliasearch@4/dist/algoliasearch-lite.umd.js,npm/instantsearch.js@4/dist/instantsearch.production.min.js,npm/lozad@1/dist/lozad.min.js,npm/quicklink@2/dist/quicklink.umd.js"></script>
+
+<script src="/js/app.js?v=0.2.5"></script>
+
+
+  <script data-pjax>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?9ba187659e850a6910681214f0faa16b";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+</body>
+</html>
