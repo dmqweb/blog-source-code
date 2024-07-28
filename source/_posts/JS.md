@@ -54,7 +54,7 @@ tags:
 
 #### 块作用域
 
-在 JavaScript 中使用 `{}` 包裹的代码称为**代码块**，代码块内部声明的变量外部将【<span style="color:red">有可能</span>】无法被访问。
+在 JavaScript 中使用 `{}` 包裹的代码称为**代码块**，代码块内部声明的变量外部将【`有可能`】无法被访问。
 
 ```html
 <script>
@@ -235,37 +235,30 @@ JavaScript 中的作用域是程序被执行时的底层机制，了解这一机
 
 ### 垃圾回收机制
 
-<span style="color:red">垃圾回收机制 (Garbage Collection) 简称 GC</span>
+垃圾回收机制 (Garbage Collection) 简称 GC`
 
-JS中<span style="color:red">内存</span>的分配和回收都是<span style="color:red">自动完成</span>的，内存在不使用的时候会被<span style="color:red">垃圾回收器</span>自动回收
+JS中`内存`的分配和回收都是`自动完成`的，内存在不使用的时候会被`垃圾回收器`自动回收
 
 - **内存的生命周期**
 
-  Js 环境中分配的内存，一般有如下<span style="color:red">生命周期</span>
+  Js 环境中分配的内存，一般有如下`生命周期`
 
-  1. <span style="color:red">内存分配: </span> 当我们声明变量、函数、对象的时候，系统会自动为他们分配内存
-  2. <span style="color:red">内存使用:  </span>即读写内存，也就是使用变量、函数等
-  3. <span style="color:red">内存回收:  </span>使用完毕，由<span style="color:red">垃圾回收器</span>自动回收不再使用的内存
+  1. `内存分配: ` 当我们声明变量、函数、对象的时候，系统会自动为他们分配内存
+  2. `内存使用:  `即读写内存，也就是使用变量、函数等
+  3. `内存回收:  `使用完毕，由`垃圾回收器`自动回收不再使用的内存
 
 - **说明:**
 
   - 全局变量一般不会回收 (关闭页面回收)
-  - 一般情况下<span style="color:red">局部变量的值</span>，不用了，会被<span style="color:red">自动回收</span>掉
+  - 一般情况下`局部变量的值`，不用了，会被`自动回收`掉
 
-- **内存泄漏: ** 程序中分配的<span style="color:red">内存</span>由于某种原因程序<span style="color:red">未释放</span>或<span style="color:red">无法释放</span>叫做<span style="color:red">内存泄漏</span>
+- **内存泄漏: ** 程序中分配的`内存`由于某种原因程序`未释放`或`无法释放`叫做`内存泄漏`
 
 堆栈空间分配的区别:
 
-1. 栈 (操作系统) :  由<span style="color:red">操作系统自动分配释放</span>函数的参数值、局部变量等，基本数据类型放到栈里面。
-2. 堆 (操作系统) :  一般由程序员分配释放，若程序员不释放，由<span style="color:red">垃圾回收机制</span>回收。<span style="color:red">复杂数据类型</span>放到堆里面。
-
-两种常见的浏览器<span style="color:red">垃圾回收算法</span>  :  <span style="color:red">引用计数法</span>和<span style="color:red">标记清除法</span> 
-
-![/images/image-20230222143512473](./assets/3a6a0d0eb00f0fc93da43bef340def09fb852cfd.png)
-
-![/images/image-20230222143950850](./assets/8bd6f7f95a204d6ebf00baf191f18ea65c0274a3.png)
-
-![/images/image-20230222144237548](./assets/431107ef8e51bc1dfe39c9ecd525c5c85874e645.png)
+1. 栈 (操作系统) :  由`操作系统自动分配释放`函数的参数值、局部变量等，基本数据类型放到栈里面。
+2. 堆 (操作系统) :  一般由程序员分配释放，若程序员不释放，由`垃圾回收机制`回收。`复杂数据类型`放到堆里面。
+两种常见的浏览器`垃圾回收算法`  :  `引用计数法`和`标记清除法` 
 
 ### 闭包
 
@@ -348,7 +341,7 @@ JS中<span style="color:red">内存</span>的分配和回收都是<span style="c
 2. 变量在声明之前即被访问，变量的值为 `undefined`
 3. `let` 声明的变量不存在变量提升，推荐使用 `let`
 4. 变量提升出现在相同作用域当中
-5. <span style="color:red">实际开发中推荐先声明再访问变量</span>
+5. `实际开发中推荐先声明再访问变量`
 
 注：关于变量提升的原理分析会涉及较为复杂的词法分析等知识，而开发中使用 `let` 可以轻松规避变量的提升，因此在此不做过多的探讨，有兴趣可[查阅资料](https://segmentfault.com/a/1190000013915935)。
 
@@ -649,7 +642,7 @@ JS中<span style="color:red">内存</span>的分配和回收都是<span style="c
 总结：
 
 1. 赋值运算符 `=` 左侧的 `{}` 用于批量声明变量，右侧对象的属性值将被赋值给左侧的变量
-2. 对象属性的值将被赋值给与属性名<span style="color:red">相同的</span>变量
+2. 对象属性的值将被赋值给与属性名`相同的`变量
 3. 对象中找不到与变量名一致的属性时变量值为 `undefined`
 4. 允许初始化变量的默认值，属性不存在或单元值为 `undefined` 时默认值才会生效
 
@@ -747,7 +740,7 @@ forEach() 方法用于调用数组的每个元素，并将元素传递给回调�
 
 filter() 方法创建一个新的数组，新数组中的元素是通过检查指定数组中符合条件的所有元素
 
-主要使用场景： <span style="color:red">筛选数组符合条件的元素</span>，**并返回筛选之后元素的新数组**
+主要使用场景： `筛选数组符合条件的元素`，**并返回筛选之后元素的新数组**
 
 ~~~html
 <body>
@@ -823,7 +816,7 @@ filter() 方法创建一个新的数组，新数组中的元素是通过检查�
 
 ### 实例成员
 
-通过构造函数创建的对象称为实例对象，<span style="color:red">实例对象中</span>的属性和方法称为<span style="color:red">实例成员</span> (实例属性和实例方法)。
+通过构造函数创建的对象称为实例对象，`实例对象中`的属性和方法称为`实例成员` (实例属性和实例方法)。
 
 ```html
 <script>
@@ -1001,10 +994,10 @@ filter() 方法创建一个新的数组，新数组中的元素是通过检查�
 
 |  方法   |                  作用                   |                             说明                             |
 | :-----: | :-------------------------------------: | :----------------------------------------------------------: |
-| forEach | <span style="color:red">遍历</span>数组 | 不返回数组，经常用于<span style="color:red">查找遍历数组元素</span> |
-| filter  | <span style="color:red">过滤</span>数组 | <span style="color:red">返回新数组</span>，返回的是<span style="color:red">筛选满足条件</span>的数组元素 |
-|   map   | <span style="color:red">迭代</span>数组 | <span style="color:red">返回新数组，</span>返回的是<span style="color:red">处理之后</span>的数组元素，想要使用返回的新数组 |
-| reduce  |  <span style="color:red">累计器</span>  |              返回累计处理的结果，经常用于求和等              |
+| forEach | `遍历`数组 | 不返回数组，经常用于`查找遍历数组元素` |
+| filter  | `过滤`数组 | `返回新数组`，返回的是`筛选满足条件`的数组元素 |
+|   map   | `迭代`数组 | `返回新数组，`返回的是`处理之后`的数组元素，想要使用返回的新数组 |
+| reduce  |  `累计器`  |              返回累计处理的结果，经常用于求和等              |
 |         |                                         |                                                              |
 |         |                                         |                                                              |
 |         |                                         |                                                              |
@@ -1023,7 +1016,7 @@ filter() 方法创建一个新的数组，新数组中的元素是通过检查�
 
 5. 实例方法 `join` 数组元素拼接为字符串，返回字符串(重点)
 
-6. 实例方法  `find`  查找元素， 返回符合测试条件的<span style="color:red">第一个数组元素值</span>，如果没有符合条件的则返回 undefined(重点)
+6. 实例方法  `find`  查找元素， 返回符合测试条件的`第一个数组元素值`，如果没有符合条件的则返回 undefined(重点)
 
    ```javascript
    // const arr = ['red','blue','green']
@@ -1066,7 +1059,7 @@ filter() 方法创建一个新的数组，新数组中的元素是通过检查�
 
 `reduce`
 
-- **作用**: `reduce` 返回<span style="color:red">累计处理的结果</span>，经常用于<span style="color:red">求和等</span>
+- **作用**: `reduce` 返回`累计处理的结果`，经常用于`求和等`
 
 - **基本语法:** `arr.reduce(function(){}, 起始值)`
 
@@ -1074,7 +1067,7 @@ filter() 方法创建一个新的数组，新数组中的元素是通过检查�
 
 - **参数:**
 
-  1. 如果<span style="color:red">有起始值</span>，则把初始值累加到里面
+  1. 如果`有起始值`，则把初始值累加到里面
 
 ```javascript
 const arr = [1, 5, 8]
@@ -1095,9 +1088,9 @@ console.log(total2) //=>24
 ```
 
 - reduce 执行过程
-  1. 如果<span style="color:red">没有起始值</span>，则<span style="color:red">上一次值以</span>数组的<span style="color:red">第一个数组元素的值</span>
-  2. 每一次循环，把<span style="color:red">返回值</span>给做为 下一次循环的<span style="color:red">上一次值</span>
-  3. 如果<span style="color:red">有起始值</span>，则起始值做为<span style="color:red">上一次值</span>
+  1. 如果`没有起始值`，则`上一次值以`数组的`第一个数组元素的值`
+  2. 每一次循环，把`返回值`给做为 下一次循环的`上一次值`
+  3. 如果`有起始值`，则起始值做为`上一次值`
 
 `Array.from()`
 
@@ -1276,7 +1269,7 @@ console.log(num.toString()) //=>'10'
 
 ### 面向过程
 
-<span style="color:red">面向过程</span>就是分析出解决问题所需要的步骤，然后用函数把这些步骤一步一步实现，使用的时候再一个一个的依次调用就可以了。
+`面向过程`就是分析出解决问题所需要的步骤，然后用函数把这些步骤一步一步实现，使用的时候再一个一个的依次调用就可以了。
 
  举个栗子：蛋炒饭
 
@@ -1284,11 +1277,11 @@ console.log(num.toString()) //=>'10'
 
 ### 面向对象
 
-<span style="color:red">面向对象</span>是把事务分解成为一个个对象，然后由对象之间分工与合作。
+`面向对象`是把事务分解成为一个个对象，然后由对象之间分工与合作。
 
 ![67679293032](./assets/e21855e43c8f34c5fea9bad603b6783b6ec7b734.png)
 
-<span style="color:red">面向对象是以对象功能来划分问题，而不是步骤</span>
+`面向对象是以对象功能来划分问题，而不是步骤`
 
 
 
@@ -1348,16 +1341,16 @@ console.log(num.toString()) //=>'10'
 
 - 封装是面向对象思想中比较重要的一部分，js面向对象可以通过构造函数实现的封装。
 
-- 前面我们学过的构造函数方法很好用，但是 <span style="color:red">存在浪费内存的问题</span>
+- 前面我们学过的构造函数方法很好用，但是 `存在浪费内存的问题`
 
 ## 原型对象
 
-> 构造函数通过原型分配的函数是所有对象所 <span style="color:red">共享的</span>。
+> 构造函数通过原型分配的函数是所有对象所 `共享的`。
 
-- JavaScript 规定，<span style="color:red">每一个构造函数都有一个 prototype 属性</span>，指向另一个对象，所以我们也称为原型对象
+- JavaScript 规定，`每一个构造函数都有一个 prototype 属性`，指向另一个对象，所以我们也称为原型对象
 - 这个对象可以挂载函数，对象实例化不会多次创建原型上函数，节约内存
-- <span style="color:red">我们可以把那些不变的方法，直接定义在 prototype 对象上，这样所有对象的实例就可以共享这些方法。</span>
-- <span style="color:red">构造函数和原型对象中的this 都指向 实例化的对象</span>
+- `我们可以把那些不变的方法，直接定义在 prototype 对象上，这样所有对象的实例就可以共享这些方法。`
+- `构造函数和原型对象中的this 都指向 实例化的对象`
 
 ```html
 <script>
@@ -1450,7 +1443,7 @@ console.log(num.toString()) //=>'10'
 
 **在哪里？** 每个原型对象里面都有个constructor 属性（constructor 构造函数）
 
-**作用：**该属性<span style="color:red">指向</span>该原型对象的<span style="color:red">构造函数， 简单理解，就是指向我的爸爸，我是有爸爸的孩子</span>
+**作用：**该属性`指向`该原型对象的`构造函数， 简单理解，就是指向我的爸爸，我是有爸爸的孩子`
 
 ![/images/image-20230313133307629](./assets/10b6985c6b63efeb93ebed57e6af7b5d9ffec8d4.png)
 
@@ -1494,14 +1487,14 @@ console.log(Star.prototype)
 
 ![/images/image-20230313134524527](./assets/184b0e68c0d40752b14cd1dc98a00b23f9c3d0ae.png)
 
-<span style="color:red">对象都会有一个属性 `__proto__`</span> 指向构造函数的 prototype 原型对象，之所以我们对象可以使用构造函数 prototype 原型对象的属性和方法，就是因为对象有 `__proto__` 原型的存在。
+`对象都会有一个属性 `__proto__`` 指向构造函数的 prototype 原型对象，之所以我们对象可以使用构造函数 prototype 原型对象的属性和方法，就是因为对象有 `__proto__` 原型的存在。
 
 注意：
 
 - `__proto__` 是JS非标准属性
 - [[prototype]]和`__proto__`意义相同
 - 用来表明当前实例对象指向哪个原型对象prototype
-- `__proto__`对象原型里面也有一个 constructor属性，<span style="color:red">指向创建该实例对象的构造函数</span>
+- `__proto__`对象原型里面也有一个 constructor属性，`指向创建该实例对象的构造函数`
 
 ![/images/image-20230313140005994](./assets/b68304e0222a56ad4b7b10a992a782ac66f6e434.png)
 
@@ -1592,15 +1585,15 @@ console.log(Star.prototype)
 </body>
 ```
 
-<span style="color:red">查找规则</span>
+`查找规则`
 
-① 当访问一个对象的属性（包括方法）时，首先查找这个<span style="color:red">对象自身</span>有没有该属性。
+① 当访问一个对象的属性（包括方法）时，首先查找这个`对象自身`有没有该属性。
 
-② 如果没有就查找它的原型（也就是 `__proto__`指向的<span style="color:red"> prototype 原型对象</span>）
+② 如果没有就查找它的原型（也就是 `__proto__`指向的` prototype 原型对象`）
 
-③ 如果还没有就查找原型对象的原型（<span style="color:red">Object的原型对象</span>）
+③ 如果还没有就查找原型对象的原型（`Object的原型对象`）
 
-④ 依此类推一直找到 Object 为止（<span style="color:red">null</span>）
+④ 依此类推一直找到 Object 为止（`null`）
 
 ⑤ `__proto__`对象原型的意义就在于为对象成员查找机制提供一个方向，或者说一条路线
 
@@ -1664,11 +1657,11 @@ JSON.stringify() 会直接返回其对应的JSON表示，而不会将其包装�
 
 **函数递归：**
 
-<span style="color:red">如果一个函数在内部可以调用其本身，那么这个函数就是递归函数</span>
+`如果一个函数在内部可以调用其本身，那么这个函数就是递归函数`
 
 - 简单理解:函数内部自己调用自己, 这个函数就是递归函数
 - 递归函数的作用和循环效果类似
-- 由于递归很容易发生“栈溢出”错误（stack overflow），所以<span style="color:red">必须要加退出条件 return</span>
+- 由于递归很容易发生“栈溢出”错误（stack overflow），所以`必须要加退出条件 return`
 
 ~~~html
 <body>
@@ -2131,7 +2124,7 @@ RegExp：RegExp对象的lastIndex字段不会保留。
 
 ### 防抖（debounce）
 
-> 单位时间内，频繁触发事件，<span style="color:red">只执行最后一次</span>
+> 单位时间内，频繁触发事件，`只执行最后一次`
 
 所谓防抖，就是指触发事件后在 n 秒内函数只能执行一次，如果在 n 秒内又触发了事件，则会重新计算函数执行时间
 
@@ -2167,10 +2160,10 @@ RegExp：RegExp对象的lastIndex字段不会保留。
 
 **核心思路:** 防抖的核心就是利用定时器(`setTimeout`)来实现
 
-1. 声明一个定时器<span style="color:red">变量</span>
-2. 当鼠标每次滑动都先判断<span style="color:red">是否有定时器</span>了，如果有定时器先<span style="color:red">清除以前</span>的定时器
-3. 如果没有定时器则<span style="color:red">开启</span>定时器，记得<span style="color:red">存到变量</span>里面
-4. 在<span style="color:red">定时器里面调用</span>要执行的函数
+1. 声明一个定时器`变量`
+2. 当鼠标每次滑动都先判断`是否有定时器`了，如果有定时器先`清除以前`的定时器
+3. 如果没有定时器则`开启`定时器，记得`存到变量`里面
+4. 在`定时器里面调用`要执行的函数
 
 ```html
 <body>
@@ -2212,7 +2205,7 @@ RegExp：RegExp对象的lastIndex字段不会保留。
 
 ### 节流（throttle）
 
-> 单位时间内，频繁触发事件，<span style="color:red">只执行一次</span>
+> 单位时间内，频繁触发事件，`只执行一次`
 
 所谓节流，就是指连续触发事件但是在 n 秒中只执行一次函数
 
@@ -2248,11 +2241,11 @@ RegExp：RegExp对象的lastIndex字段不会保留。
 
 **核心思路:** 节流的核心就是利用定时器(`setTimeout`)来实现
 
-1. 声明一个定时器<span style="color:red">变量</span>
-2. 当鼠标每次滑动都先判断<span style="color:red">是否有定时器</span>了，如果有定时器则<span style="color:red">不开启</span>新定时器
-3. 如果没有定时器则<span style="color:red">开启</span>定时器，记得<span style="color:red">存到变量</span>里面
-   - 定时器里面<span style="color:red">调用</span>执行的函数
-   - 定时器里面要把定时器<span style="color:red">清空</span>
+1. 声明一个定时器`变量`
+2. 当鼠标每次滑动都先判断`是否有定时器`了，如果有定时器则`不开启`新定时器
+3. 如果没有定时器则`开启`定时器，记得`存到变量`里面
+   - 定时器里面`调用`执行的函数
+   - 定时器里面要把定时器`清空`
 
 ```html
 <body>

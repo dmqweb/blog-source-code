@@ -1693,7 +1693,7 @@ PS：期间会咨询是否使用 eslint 插件，选择否。因为我们已经�
 - QuestionInput.stories.tsx
 
 # React Fiber 架构的调度执行原理
-
+> fiber架构的调度借鉴了生成器(或者说是协程)的概念
 ```javascript
 let ticket_num = 0;
 let ticket_total = 0;

@@ -785,5 +785,3 @@ new Vue({
     <h1>这是count：{{ $store.state.count }}</h1>
   </div>
 </template>
-
-

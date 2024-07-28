@@ -161,7 +161,7 @@ Renderer 渲染器根据 Reconciler 为虚拟 DOM 打的标记，同步执行对
 Fiber架构出现的原因：
 >  由于JS单线程执行，并且React15版本的reconciler协调阶段只能一次执行完，不能被中途打断，这就导致：当更新渲染的执行任务较多时，协调阶段一次执行的时间花费就很长，这时就会出现掉帧、卡顿的现象。由此推出Fiber架构
 >  Fiber架构实现逻辑：
->  Fiber架构通过生成器函数，将任务分给一个个的迭代器执行，迭代器完成执行任务的过程发生在浏览器空闲阶段，这样就不会阻塞UI的渲染。（由于RequestIdleCallback存在兼容性问题、并且在大量用户操作的时候不够稳定，因此使用RequestAnimationFrame和disPatchEvent消息队列来完成）
+>  Fiber架构借鉴生成器(或者说协程)的概念，将任务分给一个个的迭代器执行，迭代器完成执行任务的过程发生在浏览器空闲阶段，这样就不会阻塞UI的渲染。（由于RequestIdleCallback存在兼容性问题、并且在大量用户操作的时候不够稳定，因此使用RequestAnimationFrame和disPatchEvent消息队列来完成）
 
 # 双缓冲更新机制
 
