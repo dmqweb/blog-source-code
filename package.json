@@ -15,7 +15,7 @@
     "postpush": "echo 推送成功",
     "pull": "git pull github master",
     "commit": "git add . && git commit -m 'feat:新增面试题'",
-    "c": "hexo clean",
+    "clean": "hexo clean",
     "g": "hexo generate",
     "d": "hexo deploy"
   },
