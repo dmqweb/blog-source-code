@@ -78,7 +78,7 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
       <i class="ic i-pen"></i>
     </span>
     <span class="text">本文字数</span>
-    <span>630</span>
+    <span>639</span>
     <span class="text">字</span>
   </span>
   <span class="item" title="阅读时长">
@@ -119,12 +119,12 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
       </div>
       <div id="imgs" class="pjax">
         <ul>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/03/29/a93636ae09845d36.jpg"></li>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/06/63e9f1e7097ba6fb.jpg"></li>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/07/5a293b82670a4885.webp"></li>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/25/0aebf75866635811.jpg"></li>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/13/9404a557b00200f4.jpg"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/13/7056b573eacc540d.jpg"></li>
           <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/12/35b09cafcea9fd29.webp"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/25/0aebf75866635811.jpg"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/15/64f47485ad1e6bed.jpg"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/04/64e30381ceb47acd.webp"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/04/25ef11a84cfafbef.jpg"></li>
         </ul>
       </div>
     </header>
@@ -170,25 +170,34 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
   <div class="body md" itemprop="articleBody">
     
 
-    <h1 id="常见浏览器性能指标"><a href="#常见浏览器性能指标" class="headerlink" title="常见浏览器性能指标"></a>常见浏览器性能指标</h1><h1 id="TTFB-Time-To-First-Byte"><a href="#TTFB-Time-To-First-Byte" class="headerlink" title="TTFB(Time To First Byte)"></a>TTFB(Time To First Byte)</h1><p>发出页面请求到接收到应答数据第一个字节的时间总和，包含了：</p>
+    <h1 id="常见浏览器性能指标"><a class="anchor" href="#常见浏览器性能指标">#</a> 常见浏览器性能指标</h1>
+<h1 id="ttfbtime-to-first-byte"><a class="anchor" href="#ttfbtime-to-first-byte">#</a> TTFB(Time To First Byte)</h1>
+<p>发出页面请求到接收到应答数据第一个字节的时间总和，包含了：</p>
 <ol>
-<li>DNS解析时间</li>
-<li>TCP链接时间</li>
-<li>发送HTTP请求时间</li>
+<li>DNS 解析时间</li>
+<li>TCP 链接时间</li>
+<li>发送 HTTP 请求时间</li>
 <li>获得响应消息第一个字节的时间。</li>
 </ol>
-<h1 id="FP（First-Paint）"><a href="#FP（First-Paint）" class="headerlink" title="FP（First Paint）"></a><strong>FP</strong>（First Paint）</h1><p>首次绘制时间，这个指标用于记录页面第一次绘制像素的时间。</p>
-<h1 id="FCP（First-Contentful-Paint）"><a href="#FCP（First-Contentful-Paint）" class="headerlink" title="FCP（First Contentful Paint）"></a><strong>FCP</strong>（First Contentful Paint）</h1><p>首次内容绘制时间，这个指标用于记录页面首次绘制文本、图片、非空白 Canvas 或 SVG 的时间。</p>
-<h1 id="LCP（Largest-Contentful-Paint）"><a href="#LCP（Largest-Contentful-Paint）" class="headerlink" title="LCP（Largest Contentful Paint）"></a><strong>LCP</strong>（Largest Contentful Paint）</h1><p>最大内容绘制时间，用于记录视窗内最大的元素绘制的时间，该时间会随着页面渲染变化而变化，因为页面中的最大元素在渲染过程中可能会发生改变，另外该指标会在用户第一次交互后停止记录。</p>
-<h1 id="CLS（Cumulative-Layout-Shift）"><a href="#CLS（Cumulative-Layout-Shift）" class="headerlink" title="CLS（Cumulative Layout Shift）"></a><strong>CLS</strong>（Cumulative Layout Shift）</h1><p>累计位移偏移，记录了页面上非预期的位移波动。计算方式为：位移影响的面积 * 位移距离。</p>
-<h1 id="TTI（Time-to-Interactive）"><a href="#TTI（Time-to-Interactive）" class="headerlink" title="TTI（Time to Interactive）"></a><strong>TTI</strong>（Time to Interactive）</h1><p>首次可交互时间。这个指标计算过程略微复杂，它需要满足以下几个条件：</p>
+<h1 id="fpfirst-paint"><a class="anchor" href="#fpfirst-paint">#</a> <strong>FP</strong>（First Paint）</h1>
+<p>首次绘制时间，这个指标用于记录页面第一次绘制像素的时间。</p>
+<h1 id="fcpfirst-contentful-paint"><a class="anchor" href="#fcpfirst-contentful-paint">#</a> <strong>FCP</strong>（First Contentful Paint）</h1>
+<p>首次内容绘制时间，这个指标用于记录页面首次绘制文本、图片、非空白 Canvas 或 SVG 的时间。</p>
+<h1 id="lcplargest-contentful-paint"><a class="anchor" href="#lcplargest-contentful-paint">#</a> <strong>LCP</strong>（Largest Contentful Paint）</h1>
+<p>最大内容绘制时间，用于记录视窗内最大的元素绘制的时间，该时间会随着页面渲染变化而变化，因为页面中的最大元素在渲染过程中可能会发生改变，另外该指标会在用户第一次交互后停止记录。</p>
+<h1 id="clscumulative-layout-shift"><a class="anchor" href="#clscumulative-layout-shift">#</a> <strong>CLS</strong>（Cumulative Layout Shift）</h1>
+<p>累计位移偏移，记录了页面上非预期的位移波动。计算方式为：位移影响的面积 * 位移距离。</p>
+<h1 id="ttitime-to-interactive"><a class="anchor" href="#ttitime-to-interactive">#</a> <strong>TTI</strong>（Time to Interactive）</h1>
+<p>首次可交互时间。这个指标计算过程略微复杂，它需要满足以下几个条件：</p>
 <ol>
 <li>从 FCP 指标后开始计算；</li>
 <li>持续 5 秒内无长任务（执行时间超过 50 ms）且无两个以上正在进行中的 GET 请求；</li>
 <li>往前回溯至 5 秒前的最后一个长任务结束的时间。</li>
 </ol>
-<h1 id="FID（First-Input-Delay）"><a href="#FID（First-Input-Delay）" class="headerlink" title="FID（First Input Delay）"></a><strong>FID</strong>（First Input Delay）</h1><p>首次输入延迟时间，记录在 FCP 和 TTI 之间用户首次与页面交互时响应的延迟。</p>
-<h1 id="TBT（Total-Blocking-Time）"><a href="#TBT（Total-Blocking-Time）" class="headerlink" title="TBT（Total Blocking Time）"></a><strong>TBT</strong>（Total Blocking Time）</h1><p>阻塞总时间，记录在 FCP 到 TTI 之间所有长任务的阻塞时间总和。</p>
+<h1 id="fidfirst-input-delay"><a class="anchor" href="#fidfirst-input-delay">#</a> <strong>FID</strong>（First Input Delay）</h1>
+<p>首次输入延迟时间，记录在 FCP 和 TTI 之间用户首次与页面交互时响应的延迟。</p>
+<h1 id="tbttotal-blocking-time"><a class="anchor" href="#tbttotal-blocking-time">#</a> <strong>TBT</strong>（Total Blocking Time）</h1>
+<p>阻塞总时间，记录在 FCP 到 TTI 之间所有长任务的阻塞时间总和。</p>
 
       <div class="tags">
           <a href="/tags/%E6%80%A7%E8%83%BD%E6%8C%87%E6%A0%87/" rel="tag"><i class="ic i-tag"></i> 性能指标</a>
@@ -261,7 +270,7 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
     <div class="item left">
       
 
-  <a href="/2024/05/08/%E5%87%BD%E6%95%B0%E9%87%8D%E8%BD%BD/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;s3.uuu.ovh&#x2F;imgs&#x2F;2024&#x2F;04&#x2F;15&#x2F;66e62db68b7b65eb.webp" title="函数重载">
+  <a href="/2024/05/08/%E5%87%BD%E6%95%B0%E9%87%8D%E8%BD%BD/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;s3.uuu.ovh&#x2F;imgs&#x2F;2024&#x2F;04&#x2F;28&#x2F;91b1bdcfda8d22da.webp" title="函数重载">
   <span class="type">上一篇</span>
   <span class="category"><i class="ic i-flag"></i> JS</span>
   <h3>函数重载</h3>
@@ -271,7 +280,7 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
     <div class="item right">
       
 
-  <a href="/2024/05/17/whistle%E4%BD%BF%E7%94%A8/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;s3.uuu.ovh&#x2F;imgs&#x2F;2024&#x2F;04&#x2F;12&#x2F;4508f1e9b6c8e047.jpg" title="whistle抓包">
+  <a href="/2024/05/17/whistle%E4%BD%BF%E7%94%A8/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;s3.uuu.ovh&#x2F;imgs&#x2F;2024&#x2F;04&#x2F;05&#x2F;ec66a7160398848b.webp" title="whistle抓包">
   <span class="type">下一篇</span>
   <span class="category"><i class="ic i-flag"></i> whistle</span>
   <h3>whistle抓包</h3>
@@ -293,7 +302,7 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
   <div class="panels">
     <div class="inner">
       <div class="contents panel pjax" data-title="文章目录">
-          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%B8%B8%E8%A7%81%E6%B5%8F%E8%A7%88%E5%99%A8%E6%80%A7%E8%83%BD%E6%8C%87%E6%A0%87"><span class="toc-number">1.</span> <span class="toc-text">常见浏览器性能指标</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#TTFB-Time-To-First-Byte"><span class="toc-number">2.</span> <span class="toc-text">TTFB(Time To First Byte)</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#FP%EF%BC%88First-Paint%EF%BC%89"><span class="toc-number">3.</span> <span class="toc-text">FP（First Paint）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#FCP%EF%BC%88First-Contentful-Paint%EF%BC%89"><span class="toc-number">4.</span> <span class="toc-text">FCP（First Contentful Paint）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#LCP%EF%BC%88Largest-Contentful-Paint%EF%BC%89"><span class="toc-number">5.</span> <span class="toc-text">LCP（Largest Contentful Paint）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#CLS%EF%BC%88Cumulative-Layout-Shift%EF%BC%89"><span class="toc-number">6.</span> <span class="toc-text">CLS（Cumulative Layout Shift）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#TTI%EF%BC%88Time-to-Interactive%EF%BC%89"><span class="toc-number">7.</span> <span class="toc-text">TTI（Time to Interactive）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#FID%EF%BC%88First-Input-Delay%EF%BC%89"><span class="toc-number">8.</span> <span class="toc-text">FID（First Input Delay）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#TBT%EF%BC%88Total-Blocking-Time%EF%BC%89"><span class="toc-number">9.</span> <span class="toc-text">TBT（Total Blocking Time）</span></a></li></ol>
+          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%B8%B8%E8%A7%81%E6%B5%8F%E8%A7%88%E5%99%A8%E6%80%A7%E8%83%BD%E6%8C%87%E6%A0%87"><span class="toc-number">1.</span> <span class="toc-text"> 常见浏览器性能指标</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#ttfbtime-to-first-byte"><span class="toc-number">2.</span> <span class="toc-text"> TTFB(Time To First Byte)</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#fpfirst-paint"><span class="toc-number">3.</span> <span class="toc-text"> FP（First Paint）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#fcpfirst-contentful-paint"><span class="toc-number">4.</span> <span class="toc-text"> FCP（First Contentful Paint）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#lcplargest-contentful-paint"><span class="toc-number">5.</span> <span class="toc-text"> LCP（Largest Contentful Paint）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#clscumulative-layout-shift"><span class="toc-number">6.</span> <span class="toc-text"> CLS（Cumulative Layout Shift）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#ttitime-to-interactive"><span class="toc-number">7.</span> <span class="toc-text"> TTI（Time to Interactive）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#fidfirst-input-delay"><span class="toc-number">8.</span> <span class="toc-text"> FID（First Input Delay）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#tbttotal-blocking-time"><span class="toc-number">9.</span> <span class="toc-text"> TBT（Total Blocking Time）</span></a></li></ol>
       </div>
       <div class="related panel pjax" data-title="系列文章">
         <ul>
@@ -311,19 +320,19 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
 <nav class="state">
     <div class="item posts">
       <a href="/archives/">
-        <span class="count">82</span>
+        <span class="count">81</span>
         <span class="name">文章</span>
       </a>
     </div>
     <div class="item categories">
       <a href="/categories/">
-        <span class="count">66</span>
+        <span class="count">65</span>
         <span class="name">分类</span>
       </a>
     </div>
     <div class="item tags">
       <a href="/tags/">
-        <span class="count">102</span>
+        <span class="count">101</span>
         <span class="name">标签</span>
       </a>
     </div>
@@ -411,40 +420,10 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/JS/" title="分类于 JS">JS</a>
+<a href="/categories/vue/" title="分类于 vue">vue</a>
 </div>
 
-    <span><a href="/2024/02/02/serviceWorker/" title="serviceWorker">serviceWorker</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/webpack/" title="分类于 webpack">webpack</a>
-</div>
-
-    <span><a href="/2023/10/21/webpack/" title="webpack笔记">webpack笔记</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/node-js/" title="分类于 node.js">node.js</a>
-</div>
-
-    <span><a href="/2024/01/02/node.js%E5%86%85%E7%BD%AE%E6%A8%A1%E5%9D%97/" title="node.js内置模块">node.js内置模块</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/Docker/" title="分类于 Docker">Docker</a>
-</div>
-
-    <span><a href="/2024/07/08/docker/" title="Docker">Docker</a></span>
+    <span><a href="/2023/11/02/vue%E5%8E%9F%E7%90%86/" title="vue源码解读">vue源码解读</a></span>
   </li>
 
       
@@ -461,10 +440,50 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/Travis%E5%92%8CDocker/" title="分类于 Travis和Docker">Travis和Docker</a>
+<a href="/categories/%E6%B5%8F%E8%A7%88%E5%99%A8/" title="分类于 浏览器">浏览器</a>
 </div>
 
-    <span><a href="/2023/12/02/Travis%20CI%E5%92%8CDocker%E7%9A%84%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90/" title="Travis和Docker的持续集成">Travis和Docker的持续集成</a></span>
+    <span><a href="/2023/10/09/%E6%B5%8F%E8%A7%88%E5%99%A8%E6%B8%B2%E6%9F%93%E5%8E%9F%E7%90%86/" title="浏览器渲染原理">浏览器渲染原理</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/TDD/" title="分类于 TDD">TDD</a>
+</div>
+
+    <span><a href="/2024/03/30/jest/" title="jest">jest</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/three-js/" title="分类于 three.js">three.js</a>
+</div>
+
+    <span><a href="/2023/10/24/ThreeJS/" title="three.js">three.js</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/vue-router%E5%8E%9F%E7%90%86/" title="分类于 vue-router原理">vue-router原理</a>
+</div>
+
+    <span><a href="/2024/04/12/vue-router/" title="vue-router">vue-router</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/HTTP/" title="分类于 HTTP">HTTP</a>
+</div>
+
+    <span><a href="/2023/05/02/HTTP/" title="HTTP">HTTP</a></span>
   </li>
 
       
@@ -474,37 +493,27 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
 <a href="/categories/JS/" title="分类于 JS">JS</a>
 </div>
 
-    <span><a href="/2023/12/21/%E6%9C%80%E5%A4%A7%E5%AE%89%E5%85%A8%E6%95%B0/" title="最大安全数与最大安全整数">最大安全数与最大安全整数</a></span>
+    <span><a href="/2023/10/02/33%E4%B8%AAJavascript%E6%A6%82%E5%BF%B5/" title="33个JavaScript概念">33个JavaScript概念</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/" title="分类于 前端性能优化">前端性能优化</a>
+<a href="/categories/JS/" title="分类于 JS">JS</a>
 </div>
 
-    <span><a href="/2024/03/02/%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/" title="前端性能优化">前端性能优化</a></span>
+    <span><a href="/2024/02/02/serviceWorker/" title="serviceWorker">serviceWorker</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/markdown/" title="分类于 markdown">markdown</a>
+<a href="/categories/%E8%84%9A%E6%89%8B%E6%9E%B6%E5%BC%80%E5%8F%91/" title="分类于 脚手架开发">脚手架开发</a>
 </div>
 
-    <span><a href="/2023/02/10/md/" title="markdown">markdown</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/" title="分类于 面试题">面试题</a>
-</div>
-
-    <span><a href="/2024/04/30/%E6%B7%B1%E6%8B%B7%E8%B4%9D/" title="深拷贝">深拷贝</a></span>
+    <span><a href="/2024/04/12/%E8%84%9A%E6%89%8B%E6%9E%B6/" title="脚手架开发">脚手架开发</a></span>
   </li>
 
   </ul>
@@ -571,7 +580,7 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
 </script>
 
 <script src="https://polyfill.alicdn.com/polyfill.min.js?features=Promise%2CArray.prototype.includes"></script>
-
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.21.0/plugins/diff-highlight/prism-diff-highlight.min.js"></script>
 <script src="//gcore.jsdelivr.net/combine/npm/pace-js@1.0.2/pace.min.js,npm/pjax@0.2.8/pjax.min.js,npm/whatwg-fetch@3.4.0/dist/fetch.umd.min.js,npm/animejs@3.2.0/lib/anime.min.js,npm/algoliasearch@4/dist/algoliasearch-lite.umd.js,npm/instantsearch.js@4/dist/instantsearch.production.min.js,npm/lozad@1/dist/lozad.min.js,npm/quicklink@2/dist/quicklink.umd.js"></script>
 
 <script src="/js/app.js?v=0.2.5"></script>

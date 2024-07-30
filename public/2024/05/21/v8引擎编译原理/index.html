@@ -78,7 +78,7 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
       <i class="ic i-pen"></i>
     </span>
     <span class="text">本文字数</span>
-    <span>3.9k</span>
+    <span>3.8k</span>
     <span class="text">字</span>
   </span>
   <span class="item" title="阅读时长">
@@ -86,7 +86,7 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
       <i class="ic i-clock"></i>
     </span>
     <span class="text">阅读时长</span>
-    <span>4 分钟</span>
+    <span>3 分钟</span>
   </span>
 </div>
 
@@ -119,12 +119,12 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
       </div>
       <div id="imgs" class="pjax">
         <ul>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/13/2376b10e610925e4.jpg"></li>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/06/109323f5add23044.jpg"></li>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/15/9d4994abd78e2f72.jpg"></li>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/07/5804c6f23029288b.jpg"></li>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/28/6b39a7fcfcafff7b.webp"></li>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/06/ae2b485c961ddd62.jpg"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/06/603b3532eacee81b.webp"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/04/61e9f78d997bc7c9.webp"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/05/ec66a7160398848b.webp"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/07/be4bd9184664725b.webp"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/06/ba62f09d8f302a0f.jpg"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/25/15ba2d11a4dda9ca.jpg"></li>
         </ul>
       </div>
     </header>
@@ -170,136 +170,133 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
   <div class="body md" itemprop="articleBody">
     
 
-    <h1 id="v8-执行-JS"><a href="#v8-执行-JS" class="headerlink" title="v8 执行 JS"></a>v8 执行 JS</h1><p><img data-src="/images/image123.png" alt="alt text"></p>
-<h1 id="v8-引擎介绍"><a href="#v8-引擎介绍" class="headerlink" title="v8 引擎介绍"></a>v8 引擎介绍</h1><p>Blink 内核用于解析 HTML、DOM、CSS 渲染、嵌入了 v8 引擎用于解析 Javascript</p>
-<p>V8 是谷歌的开源高性能 JavaScript 和 WebAssembly 引擎，用 C++编写。它被用于 Chrome 和 Node.js 等。<strong>用于解析并执行 JavaScript 代码。</strong></p>
-<h1 id="执行过程"><a href="#执行过程" class="headerlink" title="执行过程"></a>执行过程</h1><ul>
-<li>初始化运行环境<ul>
+    <h1 id="v8-执行-js"><a class="anchor" href="#v8-执行-js">#</a> v8 执行 JS</h1>
+<p><img data-src="/images/image123.png" alt="alt text" /></p>
+<h1 id="v8-引擎介绍"><a class="anchor" href="#v8-引擎介绍">#</a> v8 引擎介绍</h1>
+<p>Blink 内核用于解析 HTML、DOM、CSS 渲染、嵌入了 v8 引擎用于解析 Javascript</p>
+<p>V8 是谷歌的开源高性能 JavaScript 和 WebAssembly 引擎，用 C++ 编写。它被用于 Chrome 和 Node.js 等。<strong>用于解析并执行 JavaScript 代码。</strong></p>
+<h1 id="执行过程"><a class="anchor" href="#执行过程">#</a> 执行过程</h1>
+<ul>
+<li>初始化运行环境
+<ul>
 <li>堆栈空间</li>
 <li>全局执行上下文</li>
 <li>全局作用域</li>
 <li>事件循环系统</li>
 </ul>
 </li>
-<li>利用 Scanner 扫描器将输入的代码词法分析成 tokens<ul>
+<li>利用 Scanner 扫描器将输入的代码词法分析成 tokens
+<ul>
 <li>分析的结果就是一个个的 tokens 对象组成的数组</li>
 <li>分析的过程利用了有限自动状态机的概念</li>
 </ul>
 </li>
-<li>利用 parser 解析器将 tokens 转化为抽象语法树<ul>
+<li>利用 parser 解析器将 tokens 转化为抽象语法树
+<ul>
 <li>根据分析 tokens 构造出一种树形关系结构</li>
 <li><strong>预解析</strong>：在 JS 代码执行之前对代码进行可选的预处理，用于提高执行效率</li>
 <li><strong>延迟解析</strong>：只有代码执行到的部分才会去解析，节省了不必要的时间和开销，提高了 JavaScript 的执行效率，其中 vite 脚手架就是利用了这个优点（还有 esbuild 打包快的优势），提高了效率。</li>
 </ul>
 </li>
-<li>利用 <code>ignation解释器</code>将 AST（抽象语法树）转为字节码（不直接转为机器码？）<ul>
-<li>当年v8以超越同行10倍的运行速度而备受青睐,其本质原因是当时v8将JS源码直接编译为机器码,使得首次运行速度和后续执行速度都很快,但也存在一个问题就是内存占用太大,并且编译时占用太多时间</li>
-<li>字节码使得v8能够很好的进行优化与反优化,当执行代码时,对机器码的存储和复用等操作时都十分繁琐(存储占用大,分析繁琐等),但是分析字节码就更加容易一些</li>
+<li>利用  <code>ignation解释器</code> 将 AST（抽象语法树）转为字节码（不直接转为机器码？）
+<ul>
+<li>当年 v8 以超越同行 10 倍的运行速度而备受青睐，其本质原因是当时 v8 将 JS 源码直接编译为机器码，使得首次运行速度和后续执行速度都很快，但也存在一个问题就是内存占用太大，并且编译时占用太多时间</li>
+<li>字节码使得 v8 能够很好的进行优化与反优化，当执行代码时，对机器码的存储和复用等操作时都十分繁琐 (存储占用大，分析繁琐等), 但是分析字节码就更加容易一些</li>
 <li>字节码跨平台能力强</li>
 <li>字节码更快的加载和解析执行</li>
 <li>动态优化易操作</li>
 <li>代码安全性</li>
 </ul>
 </li>
-<li>利用 <code>TurboFan编译器</code>将字节码转为 CPU 和 ARM 识别的机器码</li>
+<li>利用  <code>TurboFan编译器</code> 将字节码转为 CPU 和 ARM 识别的机器码</li>
 </ul>
-<h1 id="v8-中的对象结构"><a href="#v8-中的对象结构" class="headerlink" title="v8 中的对象结构"></a>v8 中的对象结构</h1><h3 id="常规属性和排序属性"><a href="#常规属性和排序属性" class="headerlink" title="常规属性和排序属性"></a>常规属性和排序属性</h3><ul>
+<h1 id="v8-中的对象结构"><a class="anchor" href="#v8-中的对象结构">#</a> v8 中的对象结构</h1>
+<h3 id="常规属性和排序属性"><a class="anchor" href="#常规属性和排序属性">#</a> 常规属性和排序属性</h3>
+<ul>
 <li>v8 中的对象主要分为三个指针构成的，分别是：隐藏类、常规属性和排序属性。</li>
 <li>对象的属性数字会从小到大排列，字符串会按照原创建顺序</li>
 <li>对象中数字属性被称为排序属性，字符串属性被称为常规属性</li>
 </ul>
-<h3 id="快属性和慢属性"><a href="#快属性和慢属性" class="headerlink" title="快属性和慢属性"></a>快属性和慢属性</h3><ul>
+<h3 id="快属性和慢属性"><a class="anchor" href="#快属性和慢属性">#</a> 快属性和慢属性</h3>
+<ul>
 <li>JS 对象很多属性是在原型链上进行查找，这样就会很慢，v8 将部分常规属性（10 个）直接存储到对象本身（对象内属性），以提高属性的查询效率。</li>
 <li>快属性容量是 10 个。</li>
 </ul>
-<h3 id="封装、继承、多态"><a href="#封装、继承、多态" class="headerlink" title="封装、继承、多态"></a>封装、继承、多态</h3><ul>
+<h3 id="封装-继承-多态"><a class="anchor" href="#封装-继承-多态">#</a> 封装、继承、多态</h3>
+<ul>
 <li>封装就是将抽象出来的数据和对数据的操作封装在一起，数据在内部被保护，程序其他部分只有通过成员才能对数据进行操作</li>
 <li>继承：有原型链继承、寄生继承和 call、apply 借用法继承。</li>
 <li>多态就是函数重载：同一个函数可以根据调用的情况（参数类型和数量等）来进行不同的操作。</li>
 </ul>
-<h1 id="隐藏类"><a href="#隐藏类" class="headerlink" title="隐藏类"></a>隐藏类</h1><p>JavaScript 是一门动态语言，其各种不确定性导致 JavaScript 的执行效率要远低于静态语言，V8 为了提升 JavaScript 的执行效率，借鉴了很多静态语言的特性，比如：JIT 机制，为了加速运算而引入了内联缓存，为了提升对象的属性访问速度而引入了隐藏类。</p>
+<h1 id="隐藏类"><a class="anchor" href="#隐藏类">#</a> 隐藏类</h1>
+<p>JavaScript 是一门动态语言，其各种不确定性导致 JavaScript 的执行效率要远低于静态语言，V8 为了提升 JavaScript 的执行效率，借鉴了很多静态语言的特性，比如：JIT 机制，为了加速运算而引入了内联缓存，为了提升对象的属性访问速度而引入了隐藏类。</p>
 <p>隐藏类是 V8 引擎在运行时自动生成和管理的数据结构，用于跟踪对象的属性和方法，相当于提前定义好对象的形状，以便于提高操作对象的效率。</p>
-<h3 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h3><ul>
+<h3 id="原因"><a class="anchor" href="#原因">#</a> 原因</h3>
+<ul>
 <li>当 JavaScript 运行时，例如查找对象上的某一个属性，V8 引擎会通过快慢属性去查找，整个过程非常耗时，因为 V8 在使用一个对象时，并不知道对象的具体形状（属性方法等）</li>
-<li>而 C++在声明一个对象前就需要定义该对象的结构，C++代码执行前是需要被编译的，编译时对象的结构就已经固定，也就是当代码执行时，对象的形状是无法改变</li>
+<li>而 C<ins> 在声明一个对象前就需要定义该对象的结构，C</ins> 代码执行前是需要被编译的，编译时对象的结构就已经固定，也就是当代码执行时，对象的形状是无法改变</li>
 <li>所以 V8 引入了隐藏类的概念，用于跟踪对象的属性和方法以此在内存中快速查找对象属性</li>
 </ul>
-<h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><p>隐藏类就是把 JavaScript 的对象也进行静态化，<code>我们假设这个对象不会删除和新增</code>，这样形状就固定了</p>
+<h3 id="介绍"><a class="anchor" href="#介绍">#</a> 介绍</h3>
+<p>隐藏类就是把 JavaScript 的对象也进行静态化， <code>我们假设这个对象不会删除和新增</code> ，这样形状就固定了</p>
 <p>满足条件之后 V8 就会创建隐藏类，在这个隐藏类会创建对象的基础属性</p>
-<p>在 V8 引擎中，每个隐藏类都有一个编号（<code>map id</code>），用于唯一标识该隐藏类</p>
+<p>在 V8 引擎中，每个隐藏类都有一个编号（ <code>map id</code> ），用于唯一标识该隐藏类</p>
 <p>举个例子，假设我们有以下两个对象：</p>
-<pre><code class="javascript">let obj1 = &#123; name: 1, age: 2 &#125;;
-let obj2 = &#123; name: 1, age: 2, address: 3 &#125;;
-</code></pre>
-<p>这两个对象具有相同的形状，即都有属性<code>name</code>和<code>age</code>，但<code>obj2</code>还额外有一个属性<code>address</code>。V8 会为它们生成两个不同的隐藏类</p>
-<pre><code class="sh">// 隐藏类1：包含属性name和age
-HiddenClass_1
-├── map_id: 1
-├── property_names: [&#39;name&#39;, &#39;age&#39;]
-├── transitions: &#123;&#125;
-└── prototype: Object.prototype
-
-// 隐藏类2：包含属性name、age和address
-HiddenClass_2
-├── map_id: 2
-├── property_names: [&#39;name&#39;, &#39;age&#39;, &#39;address&#39;]
-├── transitions:
-│   ├── a: HiddenClass_1
-│   ├── b: HiddenClass_1
-│   └── c: null
-└── prototype: Object.prototype
-</code></pre>
-<p>可以看到，隐藏类 1 包含属性<code>name</code>和<code>age</code>，没有过渡表；而隐藏类 2 包含属性<code>name</code>、<code>age</code>和<code>address</code>，其中属性<code>name</code>和<code>age</code>的过渡表指向隐藏类 1，属性<code>address</code>没有过渡表，表示该属性是新添加的</p>
+<figure class="highlight javascript"><figcaption data-lang="javascript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">let</span> obj1 <span class="token operator">=</span> <span class="token punctuation">&#123;</span> <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token literal-property property">age</span><span class="token operator">:</span> <span class="token number">2</span> <span class="token punctuation">&#125;</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token keyword">let</span> obj2 <span class="token operator">=</span> <span class="token punctuation">&#123;</span> <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token literal-property property">age</span><span class="token operator">:</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token literal-property property">address</span><span class="token operator">:</span> <span class="token number">3</span> <span class="token punctuation">&#125;</span><span class="token punctuation">;</span></pre></td></tr></table></figure><p>这两个对象具有相同的形状，即都有属性 <code>name</code>  和 <code>age</code> ，但 <code>obj2</code>  还额外有一个属性 <code>address</code> 。V8 会为它们生成两个不同的隐藏类</p>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre>// 隐藏类1：包含属性name和age</pre></td></tr><tr><td data-num="2"></td><td><pre>HiddenClass_1</pre></td></tr><tr><td data-num="3"></td><td><pre>├── map_id: <span class="token number">1</span></pre></td></tr><tr><td data-num="4"></td><td><pre>├── property_names: <span class="token punctuation">[</span><span class="token string">'name'</span>, <span class="token string">'age'</span><span class="token punctuation">]</span></pre></td></tr><tr><td data-num="5"></td><td><pre>├── transitions: <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="6"></td><td><pre>└── prototype: Object.prototype</pre></td></tr><tr><td data-num="7"></td><td><pre></pre></td></tr><tr><td data-num="8"></td><td><pre>// 隐藏类2：包含属性name、age和address</pre></td></tr><tr><td data-num="9"></td><td><pre>HiddenClass_2</pre></td></tr><tr><td data-num="10"></td><td><pre>├── map_id: <span class="token number">2</span></pre></td></tr><tr><td data-num="11"></td><td><pre>├── property_names: <span class="token punctuation">[</span><span class="token string">'name'</span>, <span class="token string">'age'</span>, <span class="token string">'address'</span><span class="token punctuation">]</span></pre></td></tr><tr><td data-num="12"></td><td><pre>├── transitions:</pre></td></tr><tr><td data-num="13"></td><td><pre>│   ├── a: HiddenClass_1</pre></td></tr><tr><td data-num="14"></td><td><pre>│   ├── b: HiddenClass_1</pre></td></tr><tr><td data-num="15"></td><td><pre>│   └── c: null</pre></td></tr><tr><td data-num="16"></td><td><pre>└── prototype: Object.prototype</pre></td></tr></table></figure><p>可以看到，隐藏类 1 包含属性 <code>name</code>  和 <code>age</code> ，没有过渡表；而隐藏类 2 包含属性 <code>name</code> 、 <code>age</code>  和 <code>address</code> ，其中属性 <code>name</code>  和 <code>age</code>  的过渡表指向隐藏类 1，属性 <code>address</code>  没有过渡表，表示该属性是新添加的</p>
 <p><strong>如果两个对象属性一样呢？</strong></p>
 <p>如果两个对象具有相同的属性，它们将共享同一个隐藏类。具体来说，当两个对象的属性顺序和类型都相同时，V8 会为它们生成一个共享的隐藏类。</p>
 <p>举个例子，假设我们有以下两个对象：</p>
-<pre><code class="ini">let obj1 = &#123; name: 1, age: 2 &#125;;
-let obj2 = &#123; name: 1, age: 2 &#125;;
-</code></pre>
-<p>这两个对象具有相同的形状，即都有属性<code>name</code>和<code>age</code>，且属性的顺序和类型完全一致。V8 会为它们生成一个共享的隐藏类，如下所示：</p>
-<pre><code class="javascript">HiddenClass_1
-├── map_id: 1
-├── property_names: [&#39;name&#39;, &#39;age&#39;]
-├── transitions: &#123;&#125;
-└── prototype: Object.prototype
-</code></pre>
-<p>可以看到，隐藏类 1 包含属性<code>name</code>和<code>age</code>，没有过渡表，而且两个对象都<code>共享</code>这个隐藏类。</p>
+<figure class="highlight ini"><figcaption data-lang="ini"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token key attr-name">let obj1</span> <span class="token punctuation">=</span> <span class="token value attr-value">&#123; name: 1, age: 2 &#125;;</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token key attr-name">let obj2</span> <span class="token punctuation">=</span> <span class="token value attr-value">&#123; name: 1, age: 2 &#125;;</span></pre></td></tr></table></figure><p>这两个对象具有相同的形状，即都有属性 <code>name</code>  和 <code>age</code> ，且属性的顺序和类型完全一致。V8 会为它们生成一个共享的隐藏类，如下所示：</p>
+<figure class="highlight javascript"><figcaption data-lang="javascript"></figcaption><table><tr><td data-num="1"></td><td><pre>HiddenClass_1</pre></td></tr><tr><td data-num="2"></td><td><pre>├── map_id<span class="token operator">:</span> <span class="token number">1</span></pre></td></tr><tr><td data-num="3"></td><td><pre>├── property_names<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">'name'</span><span class="token punctuation">,</span> <span class="token string">'age'</span><span class="token punctuation">]</span></pre></td></tr><tr><td data-num="4"></td><td><pre>├── transitions<span class="token operator">:</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="5"></td><td><pre>└── prototype<span class="token operator">:</span> <span class="token class-name">Object</span><span class="token punctuation">.</span>prototype</pre></td></tr></table></figure><p>可以看到，隐藏类 1 包含属性 <code>name</code>  和 <code>age</code> ，没有过渡表，而且两个对象都 <code>共享</code> 这个隐藏类。</p>
 <blockquote>
 <p>这种共享隐藏类的机制可以节省内存空间，因为不同的对象可以共享相同的隐藏类结构。</p>
 </blockquote>
-<p><img data-src="/images/Snipaste_2024-05-28_21-49-19.png" alt="JavaScript隐藏类机制"></p>
-<h1 id="v8引擎垃圾回收"><a href="#v8引擎垃圾回收" class="headerlink" title="v8引擎垃圾回收"></a>v8引擎垃圾回收</h1><blockquote>
-<p>首先垃圾回收机制是对于<code>引用数据类型而言的</code>,普通数据类型由于不知道后续是否会引用某个变量导致不能轻易将变量进行销毁</p>
-</blockquote>
-<h3 id="标记清除法"><a href="#标记清除法" class="headerlink" title="标记清除法"></a>标记清除法</h3><blockquote>
-<p>标记清除法是目前在JS引擎中最常用的算法,该算法分为<code>标记</code>和<code>清除</code>两个阶段,标记阶段将所有<code>活动对象做上标记</code>,默认标记为0,清除阶段将<code>没有标记的活动对象进行清除</code>,也就是销毁掉标记为0的对象</p>
-</blockquote>
-<ul>
-<li>优点: 实现简单</li>
-<li>缺点: 清除之后由于剩余对象的内存位置不变,就会出现<code>内存碎片</code>,这时候为了分配到合适的位置就要进行内存利用的算法判断,<code>导致分配效率慢</code></li>
-</ul>
-<h3 id="引用计数法"><a href="#引用计数法" class="headerlink" title="引用计数法"></a>引用计数法</h3><blockquote>
-<p>引用计数法的策略是跟踪每个对象被使用的次数,当对象被其他变量引用时,它的<code>引用次数就会加1</code>,引用次数为0就表示没有变量在使用它,就可以将其清除</p>
-</blockquote>
-<ul>
-<li>优点: 清晰,并且可以立即回收垃圾</li>
-<li>缺点: 需要一个计数器,同时计数器需要占很大的位置,因为<code>引用数量的上限可能会很大</code>,同时最重要的是无法解决<code>循环引用而无法回收的问题</code></li>
-</ul>
-<h3 id="分代式垃圾回收"><a href="#分代式垃圾回收" class="headerlink" title="分代式垃圾回收"></a>分代式垃圾回收</h3><blockquote>
-<p>V8 中将堆内存分为新生代和老生代两区域，采用不同的策略管理垃圾回收<br>新生代的对象为存活时间较短的对象，简单来说就是新产生的对象，通常只支持 1～8M 的容量，而老生代的对象为存活事件较长或常驻内存的对象，简单来说就是经历过新生代垃圾回收后还存活下来的对象，容量通常比较大</p>
-</blockquote>
-<h5 id="新生代"><a href="#新生代" class="headerlink" title="新生代"></a>新生代</h5><blockquote>
-<p>新生代堆内存一分为二:<code>使用区</code>和<code>空闲区</code>,新加入的对象就会放在使用区,当<code>使用区快写满时,就开始进行垃圾回收</code>，新生代垃圾回收器会对使用区中的<code>活动对象做标记</code>，标记完成之后<code>将使用区的 活动对象 复制进空闲区</code>并进行排序，随后进入垃圾清理阶段，即<code>将非活动对象占用的空间清理掉</code>。最后<code>进行角色互换</code>，把原来的使用区变成空闲区，把原来的空闲区变成使用区.当一个对象经过<code>多次复制后依然存活</code>，它将会被认为是生命周期较长的对象，随后<code>会被移动到老生代中</code>，采用老生代的垃圾回收策略进行管理<br>另外还有一种情况，如果复制一个对象到空闲区时，空闲区空间占用超过了 25%，那么这个对象会被直接晋升到老生代空间中<br>新生代采用复制方式的原因是因为:新生代中的大多数对象都是很快变为垃圾(需要进行清除),如果直接原地清除就要频繁清理对象,<code>只复制活动对象到空闲区之后就可以直接清除整个使用区</code>,提高了清除效率</p>
-</blockquote>
-<h5 id="老生代"><a href="#老生代" class="headerlink" title="老生代"></a>老生代</h5><blockquote>
-<p>对于大多数占用空间大、存活时间长的对象会被分配到老生代里，因为老生代中的对象通常比较大，如果再如新生代一般分区然后复制来复制去就会非常耗时，从而导致回收执行效率不高，所以老生代垃圾回收器来管理其垃圾回收执行，它的整个流程就采用的就是<code>标记清除法</code>了<br>而标记清除法造成的<code>内存碎片问题</code>采用标记整理算法进行优化.</p>
-</blockquote>
-<h5 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h5><blockquote>
-<p>分代式机制把一些新、小、存活时间短的对象作为新生代，采用一小块内存频率较高的快速清理，而一些大、老、存活时间长的对象作为老生代，使其很少接受检查，<code>新老生代的回收机制及频率是不同的</code>，可以说此机制的出现很大程度<code>提高了垃圾回收机制的效率</code></p>
-</blockquote>
-<h3 id="并行回收"><a href="#并行回收" class="headerlink" title="并行回收"></a>并行回收</h3><p>新生代对象空间采用并行策略,在执行垃圾回收时,会启动多个线程来负责垃圾清理,以此增加效率</p>
+<p><img data-src="/images/Snipaste_2024-05-28_21-49-19.png" alt="JavaScript隐藏类机制" /></p>
+<h1 id="v8引擎垃圾回收"><a class="anchor" href="#v8引擎垃圾回收">#</a> v8 引擎垃圾回收</h1>
 <blockquote>
-<p>并行和并发: 并发是:一个处理器同时处理多个任务(并发是逻辑上同时发生),并行是:多个处理器同时处理多个不同任务(并行是物理上同时发生)</p>
+<p>首先垃圾回收机制是对于 <code>引用数据类型而言的</code> ，普通数据类型由于不知道后续是否会引用某个变量导致不能轻易将变量进行销毁</p>
+</blockquote>
+<h3 id="标记清除法"><a class="anchor" href="#标记清除法">#</a> 标记清除法</h3>
+<blockquote>
+<p>标记清除法是目前在 JS 引擎中最常用的算法，该算法分为 <code>标记</code> 和 <code>清除</code> 两个阶段，标记阶段将所有 <code>活动对象做上标记</code> ，默认标记为 0, 清除阶段将 <code>没有标记的活动对象进行清除</code> ，也就是销毁掉标记为 0 的对象</p>
+</blockquote>
+<ul>
+<li>优点：实现简单</li>
+<li>缺点：清除之后由于剩余对象的内存位置不变，就会出现 <code>内存碎片</code> ，这时候为了分配到合适的位置就要进行内存利用的算法判断， <code>导致分配效率慢</code></li>
+</ul>
+<h3 id="引用计数法"><a class="anchor" href="#引用计数法">#</a> 引用计数法</h3>
+<blockquote>
+<p>引用计数法的策略是跟踪每个对象被使用的次数，当对象被其他变量引用时，它的 <code>引用次数就会加1</code> , 引用次数为 0 就表示没有变量在使用它，就可以将其清除</p>
+</blockquote>
+<ul>
+<li>优点：清晰，并且可以立即回收垃圾</li>
+<li>缺点：需要一个计数器，同时计数器需要占很大的位置，因为 <code>引用数量的上限可能会很大</code> ，同时最重要的是无法解决 <code>循环引用而无法回收的问题</code></li>
+</ul>
+<h3 id="分代式垃圾回收"><a class="anchor" href="#分代式垃圾回收">#</a> 分代式垃圾回收</h3>
+<blockquote>
+<p>V8 中将堆内存分为新生代和老生代两区域，采用不同的策略管理垃圾回收<br />
+新生代的对象为存活时间较短的对象，简单来说就是新产生的对象，通常只支持 1～8M 的容量，而老生代的对象为存活事件较长或常驻内存的对象，简单来说就是经历过新生代垃圾回收后还存活下来的对象，容量通常比较大</p>
+</blockquote>
+<h5 id="新生代"><a class="anchor" href="#新生代">#</a> 新生代</h5>
+<blockquote>
+<p>新生代堆内存一分为二: <code>使用区</code> 和 <code>空闲区</code> ，新加入的对象就会放在使用区，当 <code>使用区快写满时,就开始进行垃圾回收</code> ，新生代垃圾回收器会对使用区中的 <code>活动对象做标记</code> ，标记完成之后 <code>将使用区的 活动对象 复制进空闲区</code> 并进行排序，随后进入垃圾清理阶段，即 <code>将非活动对象占用的空间清理掉</code> 。最后 <code>进行角色互换</code> ，把原来的使用区变成空闲区，把原来的空闲区变成使用区。当一个对象经过 <code>多次复制后依然存活</code> ，它将会被认为是生命周期较长的对象，随后 <code>会被移动到老生代中</code> ，采用老生代的垃圾回收策略进行管理<br />
+另外还有一种情况，如果复制一个对象到空闲区时，空闲区空间占用超过了 25%，那么这个对象会被直接晋升到老生代空间中<br />
+新生代采用复制方式的原因是因为：新生代中的大多数对象都是很快变为垃圾 (需要进行清除), 如果直接原地清除就要频繁清理对象， <code>只复制活动对象到空闲区之后就可以直接清除整个使用区</code> ，提高了清除效率</p>
+</blockquote>
+<h5 id="老生代"><a class="anchor" href="#老生代">#</a> 老生代</h5>
+<blockquote>
+<p>对于大多数占用空间大、存活时间长的对象会被分配到老生代里，因为老生代中的对象通常比较大，如果再如新生代一般分区然后复制来复制去就会非常耗时，从而导致回收执行效率不高，所以老生代垃圾回收器来管理其垃圾回收执行，它的整个流程就采用的就是 <code>标记清除法</code> 了<br />
+而标记清除法造成的 <code>内存碎片问题</code> 采用标记整理算法进行优化.</p>
+</blockquote>
+<h5 id="总结"><a class="anchor" href="#总结">#</a> 总结</h5>
+<blockquote>
+<p>分代式机制把一些新、小、存活时间短的对象作为新生代，采用一小块内存频率较高的快速清理，而一些大、老、存活时间长的对象作为老生代，使其很少接受检查， <code>新老生代的回收机制及频率是不同的</code> ，可以说此机制的出现很大程度 <code>提高了垃圾回收机制的效率</code></p>
+</blockquote>
+<h3 id="并行回收"><a class="anchor" href="#并行回收">#</a> 并行回收</h3>
+<p>新生代对象空间采用并行策略，在执行垃圾回收时，会启动多个线程来负责垃圾清理，以此增加效率</p>
+<blockquote>
+<p>并行和并发：并发是：一个处理器同时处理多个任务 (并发是逻辑上同时发生), 并行是：多个处理器同时处理多个不同任务 (并行是物理上同时发生)</p>
 </blockquote>
 
       <div class="tags">
@@ -374,7 +371,7 @@ let obj2 = &#123; name: 1, age: 2 &#125;;
     <div class="item left">
       
 
-  <a href="/2024/05/17/Blob%E5%92%8CFile/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;s3.uuu.ovh&#x2F;imgs&#x2F;2024&#x2F;04&#x2F;07&#x2F;6e43985af4997748.jpg" title="Blob、File和FileReader">
+  <a href="/2024/05/17/Blob%E5%92%8CFile/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;s3.uuu.ovh&#x2F;imgs&#x2F;2024&#x2F;04&#x2F;15&#x2F;6cedcb364082ed12.webp" title="Blob、File和FileReader">
   <span class="type">上一篇</span>
   <span class="category"><i class="ic i-flag"></i> Blob</span>
   <h3>Blob、File和FileReader</h3>
@@ -384,7 +381,7 @@ let obj2 = &#123; name: 1, age: 2 &#125;;
     <div class="item right">
       
 
-  <a href="/2024/05/21/electron/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;s3.uuu.ovh&#x2F;imgs&#x2F;2024&#x2F;04&#x2F;07&#x2F;be4bd9184664725b.webp" title="electron">
+  <a href="/2024/05/21/electron/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;s3.uuu.ovh&#x2F;imgs&#x2F;2024&#x2F;04&#x2F;05&#x2F;d3c578870618de4e.webp" title="electron">
   <span class="type">下一篇</span>
   <span class="category"><i class="ic i-flag"></i> electron</span>
   <h3>electron</h3>
@@ -406,7 +403,7 @@ let obj2 = &#123; name: 1, age: 2 &#125;;
   <div class="panels">
     <div class="inner">
       <div class="contents panel pjax" data-title="文章目录">
-          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#v8-%E6%89%A7%E8%A1%8C-JS"><span class="toc-number">1.</span> <span class="toc-text">v8 执行 JS</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#v8-%E5%BC%95%E6%93%8E%E4%BB%8B%E7%BB%8D"><span class="toc-number">2.</span> <span class="toc-text">v8 引擎介绍</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%89%A7%E8%A1%8C%E8%BF%87%E7%A8%8B"><span class="toc-number">3.</span> <span class="toc-text">执行过程</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#v8-%E4%B8%AD%E7%9A%84%E5%AF%B9%E8%B1%A1%E7%BB%93%E6%9E%84"><span class="toc-number">4.</span> <span class="toc-text">v8 中的对象结构</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%B8%E8%A7%84%E5%B1%9E%E6%80%A7%E5%92%8C%E6%8E%92%E5%BA%8F%E5%B1%9E%E6%80%A7"><span class="toc-number">4.0.1.</span> <span class="toc-text">常规属性和排序属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BF%AB%E5%B1%9E%E6%80%A7%E5%92%8C%E6%85%A2%E5%B1%9E%E6%80%A7"><span class="toc-number">4.0.2.</span> <span class="toc-text">快属性和慢属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B0%81%E8%A3%85%E3%80%81%E7%BB%A7%E6%89%BF%E3%80%81%E5%A4%9A%E6%80%81"><span class="toc-number">4.0.3.</span> <span class="toc-text">封装、继承、多态</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%9A%90%E8%97%8F%E7%B1%BB"><span class="toc-number">5.</span> <span class="toc-text">隐藏类</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8E%9F%E5%9B%A0"><span class="toc-number">5.0.1.</span> <span class="toc-text">原因</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%8B%E7%BB%8D"><span class="toc-number">5.0.2.</span> <span class="toc-text">介绍</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#v8%E5%BC%95%E6%93%8E%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6"><span class="toc-number">6.</span> <span class="toc-text">v8引擎垃圾回收</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A0%87%E8%AE%B0%E6%B8%85%E9%99%A4%E6%B3%95"><span class="toc-number">6.0.1.</span> <span class="toc-text">标记清除法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%95%E7%94%A8%E8%AE%A1%E6%95%B0%E6%B3%95"><span class="toc-number">6.0.2.</span> <span class="toc-text">引用计数法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%86%E4%BB%A3%E5%BC%8F%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6"><span class="toc-number">6.0.3.</span> <span class="toc-text">分代式垃圾回收</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%96%B0%E7%94%9F%E4%BB%A3"><span class="toc-number">6.0.3.0.1.</span> <span class="toc-text">新生代</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%80%81%E7%94%9F%E4%BB%A3"><span class="toc-number">6.0.3.0.2.</span> <span class="toc-text">老生代</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-number">6.0.3.0.3.</span> <span class="toc-text">总结</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B9%B6%E8%A1%8C%E5%9B%9E%E6%94%B6"><span class="toc-number">6.0.4.</span> <span class="toc-text">并行回收</span></a></li></ol></li></ol></li></ol>
+          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#v8-%E6%89%A7%E8%A1%8C-js"><span class="toc-number">1.</span> <span class="toc-text"> v8 执行 JS</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#v8-%E5%BC%95%E6%93%8E%E4%BB%8B%E7%BB%8D"><span class="toc-number">2.</span> <span class="toc-text"> v8 引擎介绍</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%89%A7%E8%A1%8C%E8%BF%87%E7%A8%8B"><span class="toc-number">3.</span> <span class="toc-text"> 执行过程</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#v8-%E4%B8%AD%E7%9A%84%E5%AF%B9%E8%B1%A1%E7%BB%93%E6%9E%84"><span class="toc-number">4.</span> <span class="toc-text"> v8 中的对象结构</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%B8%E8%A7%84%E5%B1%9E%E6%80%A7%E5%92%8C%E6%8E%92%E5%BA%8F%E5%B1%9E%E6%80%A7"><span class="toc-number">4.0.1.</span> <span class="toc-text"> 常规属性和排序属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BF%AB%E5%B1%9E%E6%80%A7%E5%92%8C%E6%85%A2%E5%B1%9E%E6%80%A7"><span class="toc-number">4.0.2.</span> <span class="toc-text"> 快属性和慢属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B0%81%E8%A3%85-%E7%BB%A7%E6%89%BF-%E5%A4%9A%E6%80%81"><span class="toc-number">4.0.3.</span> <span class="toc-text"> 封装、继承、多态</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%9A%90%E8%97%8F%E7%B1%BB"><span class="toc-number">5.</span> <span class="toc-text"> 隐藏类</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8E%9F%E5%9B%A0"><span class="toc-number">5.0.1.</span> <span class="toc-text"> 原因</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%8B%E7%BB%8D"><span class="toc-number">5.0.2.</span> <span class="toc-text"> 介绍</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#v8%E5%BC%95%E6%93%8E%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6"><span class="toc-number">6.</span> <span class="toc-text"> v8 引擎垃圾回收</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A0%87%E8%AE%B0%E6%B8%85%E9%99%A4%E6%B3%95"><span class="toc-number">6.0.1.</span> <span class="toc-text"> 标记清除法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%95%E7%94%A8%E8%AE%A1%E6%95%B0%E6%B3%95"><span class="toc-number">6.0.2.</span> <span class="toc-text"> 引用计数法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%86%E4%BB%A3%E5%BC%8F%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6"><span class="toc-number">6.0.3.</span> <span class="toc-text"> 分代式垃圾回收</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%96%B0%E7%94%9F%E4%BB%A3"><span class="toc-number">6.0.3.0.1.</span> <span class="toc-text"> 新生代</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%80%81%E7%94%9F%E4%BB%A3"><span class="toc-number">6.0.3.0.2.</span> <span class="toc-text"> 老生代</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-number">6.0.3.0.3.</span> <span class="toc-text"> 总结</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B9%B6%E8%A1%8C%E5%9B%9E%E6%94%B6"><span class="toc-number">6.0.4.</span> <span class="toc-text"> 并行回收</span></a></li></ol></li></ol></li></ol>
       </div>
       <div class="related panel pjax" data-title="系列文章">
         <ul>
@@ -424,19 +421,19 @@ let obj2 = &#123; name: 1, age: 2 &#125;;
 <nav class="state">
     <div class="item posts">
       <a href="/archives/">
-        <span class="count">82</span>
+        <span class="count">81</span>
         <span class="name">文章</span>
       </a>
     </div>
     <div class="item categories">
       <a href="/categories/">
-        <span class="count">66</span>
+        <span class="count">65</span>
         <span class="name">分类</span>
       </a>
     </div>
     <div class="item tags">
       <a href="/tags/">
-        <span class="count">102</span>
+        <span class="count">101</span>
         <span class="name">标签</span>
       </a>
     </div>
@@ -524,40 +521,10 @@ let obj2 = &#123; name: 1, age: 2 &#125;;
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/node-js/" title="分类于 node.js">node.js</a>
+<a href="/categories/jenkins%E9%85%8D%E5%90%88git-hook%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90/" title="分类于 jenkins配合git hook持续集成">jenkins配合git hook持续集成</a>
 </div>
 
-    <span><a href="/2024/01/02/node.js%E5%86%85%E7%BD%AE%E6%A8%A1%E5%9D%97/" title="node.js内置模块">node.js内置模块</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" title="分类于 解决方案">解决方案</a>
-</div>
-
-    <span><a href="/2023/06/02/%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" title="解决方案">解决方案</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/%E4%B8%9A%E5%8A%A1%E5%A4%84%E7%90%86/" title="分类于 业务处理">业务处理</a>
-</div>
-
-    <span><a href="/2024/03/29/%E6%9C%AC%E5%9C%B0%E9%A2%84%E8%A7%88%E5%9B%BE%E7%89%87/" title="本地预览图片">本地预览图片</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/vue/" title="分类于 vue">vue</a>
-</div>
-
-    <span><a href="/2023/11/02/vue%E5%8E%9F%E7%90%86/" title="vue源码解读">vue源码解读</a></span>
+    <span><a href="/2024/02/02/%E4%BD%BF%E7%94%A8Jenkins%E9%85%8D%E5%90%88github%20hook%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90/" title="jenkins配合git hook持续集成">jenkins配合git hook持续集成</a></span>
   </li>
 
       
@@ -567,27 +534,17 @@ let obj2 = &#123; name: 1, age: 2 &#125;;
 <a href="/categories/JS/" title="分类于 JS">JS</a>
 </div>
 
-    <span><a href="/2023/12/07/Blob/" title="Blob">Blob</a></span>
+    <span><a href="/2024/01/11/webworker/" title="webWorker">webWorker</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/Blob/" title="分类于 Blob">Blob</a>
+<a href="/categories/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/" title="分类于 性能优化">性能优化</a>
 </div>
 
-    <span><a href="/2024/05/17/Blob%E5%92%8CFile/" title="Blob、File和FileReader">Blob、File和FileReader</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/eslint/" title="分类于 eslint">eslint</a>
-</div>
-
-    <span><a href="/2024/05/17/eslint%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90/" title="eslint源码">eslint源码</a></span>
+    <span><a href="/2024/05/11/%E6%80%A7%E8%83%BD%E6%8C%87%E6%A0%87/" title="性能指标">性能指标</a></span>
   </li>
 
       
@@ -604,20 +561,60 @@ let obj2 = &#123; name: 1, age: 2 &#125;;
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/%E9%A1%B9%E7%9B%AE%E8%B4%A8%E9%87%8F%E6%A3%80%E6%B5%8B/" title="分类于 项目质量检测">项目质量检测</a>
+<a href="/categories/v8%E5%BC%95%E6%93%8E%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/" title="分类于 v8引擎编译原理">v8引擎编译原理</a>
 </div>
 
-    <span><a href="/2024/01/02/%E9%A1%B9%E7%9B%AE%E8%B4%A8%E9%87%8F%E6%A3%80%E6%B5%8B/" title="项目质量检测">项目质量检测</a></span>
+    <span><a href="/2024/05/21/v8%E5%BC%95%E6%93%8E%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/" title="v8引擎编译原理">v8引擎编译原理</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/%E5%BC%80%E6%BA%90%E5%8D%8F%E8%AE%AE/" title="分类于 开源协议">开源协议</a>
+<a href="/categories/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" title="分类于 正则表达式">正则表达式</a>
 </div>
 
-    <span><a href="/2023/02/02/%E5%BC%80%E6%BA%90%E5%8D%8F%E8%AE%AE/" title="常见开源协议">常见开源协议</a></span>
+    <span><a href="/2023/02/12/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" title="正则表达式">正则表达式</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Node-js/" title="分类于 Node.js">Node.js</a>
+</div>
+
+    <span><a href="/2024/05/24/node/" title="Node学习笔记">Node学习笔记</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/OSI%E4%B8%83%E5%B1%82%E7%BD%91%E7%BB%9C%E6%A8%A1%E5%9E%8B/" title="分类于 OSI七层网络模型">OSI七层网络模型</a>
+</div>
+
+    <span><a href="/2024/05/27/OSI%E4%B8%83%E5%B1%82%E7%BD%91%E7%BB%9C%E6%A8%A1%E5%9E%8B/" title="OSI七层网络模型">OSI七层网络模型</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E4%B8%AD%E5%89%8D%E5%8F%B0%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" title="分类于 中前台解决方案">中前台解决方案</a>
+</div>
+
+    <span><a href="/2023/02/12/%E4%B8%AD%E5%89%8D%E5%8F%B0%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" title="中前台解决方案">中前台解决方案</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/" title="分类于 面试题">面试题</a>
+</div>
+
+    <span><a href="/2023/08/29/%E9%9D%A2%E8%AF%95%E9%A2%98/" title="面试题">面试题</a></span>
   </li>
 
   </ul>
@@ -684,7 +681,7 @@ let obj2 = &#123; name: 1, age: 2 &#125;;
 </script>
 
 <script src="https://polyfill.alicdn.com/polyfill.min.js?features=Promise%2CArray.prototype.includes"></script>
-
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.21.0/plugins/diff-highlight/prism-diff-highlight.min.js"></script>
 <script src="//gcore.jsdelivr.net/combine/npm/pace-js@1.0.2/pace.min.js,npm/pjax@0.2.8/pjax.min.js,npm/whatwg-fetch@3.4.0/dist/fetch.umd.min.js,npm/animejs@3.2.0/lib/anime.min.js,npm/algoliasearch@4/dist/algoliasearch-lite.umd.js,npm/instantsearch.js@4/dist/instantsearch.production.min.js,npm/lozad@1/dist/lozad.min.js,npm/quicklink@2/dist/quicklink.umd.js"></script>
 
 <script src="/js/app.js?v=0.2.5"></script>

@@ -78,7 +78,7 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
       <i class="ic i-pen"></i>
     </span>
     <span class="text">本文字数</span>
-    <span>3.9k</span>
+    <span>3.7k</span>
     <span class="text">字</span>
   </span>
   <span class="item" title="阅读时长">
@@ -86,7 +86,7 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
       <i class="ic i-clock"></i>
     </span>
     <span class="text">阅读时长</span>
-    <span>4 分钟</span>
+    <span>3 分钟</span>
   </span>
 </div>
 
@@ -119,12 +119,12 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
       </div>
       <div id="imgs" class="pjax">
         <ul>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/12/b04c50f26fdc9c19.jpg"></li>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/25/1276fcec5eb7990e.webp"></li>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/25/b4f20660104f3911.jpg"></li>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/15/229ca07a8d7b6e02.jpg"></li>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/13/a7144f7fc5d49961.jpg"></li>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/28/52565b5ee960b9b5.webp"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/15/66e62db68b7b65eb.webp"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/07/be4bd9184664725b.webp"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/06/936b9e7ccd02d444.jpg"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/04/3149a0cc49823a9c.jpg"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/05/921096d78816dacc.jpg"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/03/29/4e134f025ae53f2b.jpg"></li>
         </ul>
       </div>
     </header>
@@ -170,194 +170,206 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
   <div class="body md" itemprop="articleBody">
     
 
-    <h1 id="Blob"><a href="#Blob" class="headerlink" title="Blob"></a>Blob</h1><p>Blob的全称为：binary larget object（二进制大对象），blob的本质是一个js对象，里面可以存储大量的二进制编码的数据。</p>
-<h3 id="特点："><a href="#特点：" class="headerlink" title="特点："></a>特点：</h3><ul>
+    <h1 id="blob"><a class="anchor" href="#blob">#</a> Blob</h1>
+<p>Blob 的全称为：binary larget object（二进制大对象），blob 的本质是一个 js 对象，里面可以存储大量的二进制编码的数据。</p>
+<h3 id="特点"><a class="anchor" href="#特点">#</a> 特点：</h3>
+<ul>
 <li>不可修改</li>
-<li>只能使用FileReader读取内容</li>
+<li>只能使用 FileReader 读取内容</li>
 <li>存储大量二进制数据的 js 对象</li>
 </ul>
-<h3 id="使用："><a href="#使用：" class="headerlink" title="使用："></a>使用：</h3><p><strong>new Blob(array,options)</strong></p>
+<h3 id="使用"><a class="anchor" href="#使用">#</a> 使用：</h3>
+<p><strong>new Blob(array,options)</strong></p>
 <ul>
-<li><p>array是由ArrayBuffer、ArrayBufferView、Blob和DOMString对象构成的，将对被放进blob中</p>
+<li>
+<p>array 是由 ArrayBuffer、ArrayBufferView、Blob 和 DOMString 对象构成的，将对被放进 blob 中</p>
 </li>
-<li><p>options配置项有：</p>
+<li>
+<p>options 配置项有：</p>
 <ul>
-<li><p>type：默认值为：” “，表示将会被放入到blob中的数组内容的MIME类型。</p>
+<li>
+<p>type：默认值为：” “，表示将会被放入到 blob 中的数组内容的 MIME 类型。</p>
 </li>
-<li><p>endings：默认值为：”transparent“，用于指定包含行结束符\n的字符串如何被写入，不常用。</p>
+<li>
+<p>endings：默认值为：”transparent“，用于指定包含行结束符 \n 的字符串如何被写入，不常用。</p>
 <table>
 <thead>
 <tr>
-<th>MIME类型</th>
+<th>MIME 类型</th>
 <th>描述</th>
 </tr>
 </thead>
-<tbody><tr>
-<td>text&#x2F;plain</td>
+<tbody>
+<tr>
+<td>text/plain</td>
 <td>纯文本文档</td>
 </tr>
 <tr>
-<td>text&#x2F;html</td>
-<td>HTML文档</td>
+<td>text/html</td>
+<td>HTML 文档</td>
 </tr>
 <tr>
-<td>text&#x2F;javascript</td>
-<td>JavaScript文档</td>
+<td>text/javascript</td>
+<td>JavaScript 文档</td>
 </tr>
 <tr>
-<td>text&#x2F;css</td>
-<td>CSS文件</td>
+<td>text/css</td>
+<td>CSS 文件</td>
 </tr>
 <tr>
-<td>application&#x2F;json</td>
-<td>JSON文件</td>
+<td>application/json</td>
+<td>JSON 文件</td>
 </tr>
 <tr>
-<td>application&#x2F;pdf</td>
-<td>pdf文件</td>
+<td>application/pdf</td>
+<td>pdf 文件</td>
 </tr>
 <tr>
-<td>application&#x2F;xml</td>
-<td>XML文件</td>
+<td>application/xml</td>
+<td>XML 文件</td>
 </tr>
 <tr>
-<td>image&#x2F;jpeg</td>
-<td>JPEG文件</td>
+<td>image/jpeg</td>
+<td>JPEG 文件</td>
 </tr>
 <tr>
-<td>image&#x2F;png</td>
-<td>PNG文件</td>
+<td>image/png</td>
+<td>PNG 文件</td>
 </tr>
 <tr>
-<td>image&#x2F;gif</td>
-<td>GIF文件</td>
+<td>image/gif</td>
+<td>GIF 文件</td>
 </tr>
 <tr>
-<td>image&#x2F;svg+xml</td>
-<td>SVG+XML文件</td>
+<td>image/svg+xml</td>
+<td>SVG+XML 文件</td>
 </tr>
 <tr>
-<td>audio&#x2F;mpeg</td>
-<td>MP3文件</td>
+<td>audio/mpeg</td>
+<td>MP3 文件</td>
 </tr>
 <tr>
-<td>video&#x2F;mpeg</td>
-<td>MP4文件</td>
+<td>video/mpeg</td>
+<td>MP4 文件</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
 </li>
 </ul>
 </li>
 </ul>
-<pre><code class="javascript">let blob = new Blob([&#39;hello world&#39;],&#123;type:&quot;text/plain&quot;&#125;);
-</code></pre>
-<h3 id="分片："><a href="#分片：" class="headerlink" title="分片："></a>分片：</h3><p>Blob 对象内置了 slice() 方法用来将 blob 对象分片</p>
+<figure class="highlight javascript"><figcaption data-lang="javascript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">let</span> blob <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Blob</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'hello world'</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token punctuation">&#123;</span><span class="token literal-property property">type</span><span class="token operator">:</span><span class="token string">"text/plain"</span><span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr></table></figure><h3 id="分片"><a class="anchor" href="#分片">#</a> 分片：</h3>
+<p>Blob 对象内置了 slice () 方法用来将 blob 对象分片</p>
 <p>其有三个参数：</p>
 <p>start：设置切片的起点，即切片开始位置。默认值为 0，这意味着切片应该从第一个字节开始；</p>
-<p>end：设置切片的结束点，会对该位置之前的数据进行切片。默认值为blob.size；</p>
+<p>end：设置切片的结束点，会对该位置之前的数据进行切片。默认值为 blob.size；</p>
 <p>contentType：设置新 blob 的 MIME 类型。如果省略 type，则默认为 blob 的原始值。</p>
-<pre><code class="javascript">let blob = new Blob([&#39;hello world&#39;],&#123;type:&quot;text/plain&quot;&#125;);
-let blob1 = blob.slice(0,2,&quot;text/plain&quot;);
-</code></pre>
-<h3 id="读取："><a href="#读取：" class="headerlink" title="读取："></a>读取：</h3><p>blob对象只能通过FileReader读取内容。</p>
-<pre><code class="javascript">let blob = new Blob([&#39;hello world&#39;],&#123;type:&quot;text/plain&quot;&#125;);
-let reader = new fileReader();
-reader.readAsText(blob);
-console.log(reader.result);
-</code></pre>
-<h1 id="File"><a href="#File" class="headerlink" title="File"></a>File</h1><h3 id="介绍："><a href="#介绍：" class="headerlink" title="介绍："></a>介绍：</h3><p>File对象是特殊的Blob对象。是基于Blob对象的进一步封装，js中主要有两种方式获得FIle对象：</p>
+<figure class="highlight javascript"><figcaption data-lang="javascript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">let</span> blob <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Blob</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'hello world'</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token punctuation">&#123;</span><span class="token literal-property property">type</span><span class="token operator">:</span><span class="token string">"text/plain"</span><span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token keyword">let</span> blob1 <span class="token operator">=</span> blob<span class="token punctuation">.</span><span class="token function">slice</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token string">"text/plain"</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr></table></figure><h3 id="读取"><a class="anchor" href="#读取">#</a> 读取：</h3>
+<p>blob 对象只能通过 FileReader 读取内容。</p>
+<figure class="highlight javascript"><figcaption data-lang="javascript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">let</span> blob <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Blob</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'hello world'</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token punctuation">&#123;</span><span class="token literal-property property">type</span><span class="token operator">:</span><span class="token string">"text/plain"</span><span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token keyword">let</span> reader <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">fileReader</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="3"></td><td><pre>reader<span class="token punctuation">.</span><span class="token function">readAsText</span><span class="token punctuation">(</span>blob<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="4"></td><td><pre>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>reader<span class="token punctuation">.</span>result<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr></table></figure><h1 id="file"><a class="anchor" href="#file">#</a> File</h1>
+<h3 id="介绍"><a class="anchor" href="#介绍">#</a> 介绍：</h3>
+<p>File 对象是特殊的 Blob 对象。是基于 Blob 对象的进一步封装，js 中主要有两种方式获得 FIle 对象：</p>
 <ol>
-<li>input元素选择后返回的FileList对象（通过change事件的event.target.files获取）</li>
-<li>文件拖放操作生成的DataTransfer对象（通过ondrop事件的event.dataTransfer.files获取）</li>
+<li>input 元素选择后返回的 FileList 对象（通过 change 事件的 event.target.files 获取）</li>
+<li>文件拖放操作生成的 DataTransfer 对象（通过 ondrop 事件的 event.dataTransfer.files 获取）</li>
 </ol>
-<h1 id="FileReader"><a href="#FileReader" class="headerlink" title="FileReader"></a>FileReader</h1><h3 id="介绍：-1"><a href="#介绍：-1" class="headerlink" title="介绍："></a>介绍：</h3><p>FileReader用于读取Blob对象（包含File对象）内容的方法，通过result属性获取。</p>
+<h1 id="filereader"><a class="anchor" href="#filereader">#</a> FileReader</h1>
+<h3 id="介绍-2"><a class="anchor" href="#介绍-2">#</a> 介绍：</h3>
+<p>FileReader 用于读取 Blob 对象（包含 File 对象）内容的方法，通过 result 属性获取。</p>
 <ul>
-<li><p>readAsArrayBuffer方法：读取为ArrayBuffer</p>
+<li>
+<p>readAsArrayBuffer 方法：读取为 ArrayBuffer</p>
 </li>
-<li><p>readAsDataURL方法：读取为data:URL的Base64字符串表示文件内容</p>
+<li>
+<p>readAsDataURL 方法：读取为 data:URL 的 Base64 字符串表示文件内容</p>
 </li>
-<li><p>readAsText方法：读取为原始text文件内容</p>
+<li>
+<p>readAsText 方法：读取为原始 text 文件内容</p>
 </li>
-<li><p>readAsBinaryString方法：读取为原始二进制数据</p>
-<p>但是直接使用此方法还是会得到原始的文本内容，因为二进制数据需要使用ArrayBuffer对象来进行处理。</p>
+<li>
+<p>readAsBinaryString 方法：读取为原始二进制数据</p>
+<p>但是直接使用此方法还是会得到原始的文本内容，因为二进制数据需要使用 ArrayBuffer 对象来进行处理。</p>
 </li>
 </ul>
-<h1 id="ArrayBuffer"><a href="#ArrayBuffer" class="headerlink" title="ArrayBuffer"></a>ArrayBuffer</h1><h3 id="介绍：-2"><a href="#介绍：-2" class="headerlink" title="介绍："></a>介绍：</h3><p>ArrayBuffer可以理解为一个特殊的数组，其本身是一个黑盒，不能直接读写所存储的数据，需要借助视图对象来读写。它只是一个用于存储二进制数据的缓冲区，创建时只能传一个空间大小biteLength。</p>
-<p><strong>读写ArrayBuffer的方式：</strong></p>
+<h1 id="arraybuffer"><a class="anchor" href="#arraybuffer">#</a> ArrayBuffer</h1>
+<h3 id="介绍-3"><a class="anchor" href="#介绍-3">#</a> 介绍：</h3>
+<p>ArrayBuffer 可以理解为一个特殊的数组，其本身是一个黑盒，不能直接读写所存储的数据，需要借助视图对象来读写。它只是一个用于存储二进制数据的缓冲区，创建时只能传一个空间大小 biteLength。</p>
+<p><strong>读写 ArrayBuffer 的方式：</strong></p>
 <ol>
 <li>TypedArray</li>
 <li>DataView</li>
 <li>TextDecoder</li>
-<li>用Blob存储，然后用FileReader读写</li>
+<li>用 Blob 存储，然后用 FileReader 读写</li>
 </ol>
-<h3 id="方法："><a href="#方法：" class="headerlink" title="方法："></a>方法：</h3><p>ArrayBuffer提供了一个slice方法用于切片。参数为：开始位置，结束位置和解析类型。</p>
-<h3 id="使用：-1"><a href="#使用：-1" class="headerlink" title="使用："></a>使用：</h3><pre><code class="javascript">const buffer = new ArrayBuffer(32);
-buffer.slice(0,4,&#39;text/plain&#39;);
-</code></pre>
-<h1 id="TypedArray"><a href="#TypedArray" class="headerlink" title="TypedArray"></a>TypedArray</h1><p>TypedArray只是一个概念，提供了一种机制来解读ArrayBuffer中的数据（相当于一个视图，将ArrayBuffer中的数据进行展示和操作），实际上是那九个类型对象（每个类型对应一个特定的数据类型和大小）：</p>
+<h3 id="方法"><a class="anchor" href="#方法">#</a> 方法：</h3>
+<p>ArrayBuffer 提供了一个 slice 方法用于切片。参数为：开始位置，结束位置和解析类型。</p>
+<h3 id="使用-2"><a class="anchor" href="#使用-2">#</a> 使用：</h3>
+<figure class="highlight javascript"><figcaption data-lang="javascript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">const</span> buffer <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayBuffer</span><span class="token punctuation">(</span><span class="token number">32</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="2"></td><td><pre>buffer<span class="token punctuation">.</span><span class="token function">slice</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token string">'text/plain'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr></table></figure><h1 id="typedarray"><a class="anchor" href="#typedarray">#</a> TypedArray</h1>
+<p>TypedArray 只是一个概念，提供了一种机制来解读 ArrayBuffer 中的数据（相当于一个视图，将 ArrayBuffer 中的数据进行展示和操作），实际上是那九个类型对象（每个类型对应一个特定的数据类型和大小）：</p>
 <ul>
-<li><code>Int8Array</code>：8位有符号整数</li>
-<li><code>Uint8Array</code>：8位无符号整数</li>
-<li><code>Int16Array</code>：16位有符号整数</li>
-<li><code>Uint16Array</code>：16位无符号整数</li>
-<li><code>Int32Array</code>：32位有符号整数</li>
-<li><code>Uint32Array</code>：32位无符号整数</li>
-<li><code>Float32Array</code>：32位浮点数</li>
-<li><code>Float64Array</code>：64位浮点数</li>
+<li><code>Int8Array</code> ：8 位有符号整数</li>
+<li><code>Uint8Array</code> ：8 位无符号整数</li>
+<li><code>Int16Array</code> ：16 位有符号整数</li>
+<li><code>Uint16Array</code> ：16 位无符号整数</li>
+<li><code>Int32Array</code> ：32 位有符号整数</li>
+<li><code>Uint32Array</code> ：32 位无符号整数</li>
+<li><code>Float32Array</code> ：32 位浮点数</li>
+<li><code>Float64Array</code> ：64 位浮点数</li>
 </ul>
-<h3 id="使用：-2"><a href="#使用：-2" class="headerlink" title="使用："></a>使用：</h3><pre><code class="javascript">const buffer = new ArrayBuffer(32);
-const slice = buffer.slice(0,4,&#39;text/plain&#39;);
-const sliceView = new Int8Array(slice);
-sliceView.set([10,20,30]);
-sliceView.forEach((value,index)=&gt;&#123;
-    console.log(value,index);
-&#125;)
-</code></pre>
-<h1 id="DataView"><a href="#DataView" class="headerlink" title="DataView"></a>DataView</h1><h3 id="读取：-1"><a href="#读取：-1" class="headerlink" title="读取："></a>读取：</h3><p>DataView数据视图可以用于读写buffer,DataView实例提供了许多方法来读取内存，他们呢的参数都是一个字节序号。表示开始读取的字节位置：</p>
+<h3 id="使用-3"><a class="anchor" href="#使用-3">#</a> 使用：</h3>
+<figure class="highlight javascript"><figcaption data-lang="javascript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">const</span> buffer <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayBuffer</span><span class="token punctuation">(</span><span class="token number">32</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token keyword">const</span> slice <span class="token operator">=</span> buffer<span class="token punctuation">.</span><span class="token function">slice</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token string">'text/plain'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token keyword">const</span> sliceView <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Int8Array</span><span class="token punctuation">(</span>slice<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="4"></td><td><pre>sliceView<span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">20</span><span class="token punctuation">,</span><span class="token number">30</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="5"></td><td><pre>sliceView<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">value<span class="token punctuation">,</span>index</span><span class="token punctuation">)</span><span class="token operator">=></span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="6"></td><td><pre>    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>value<span class="token punctuation">,</span>index<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="7"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">)</span></pre></td></tr></table></figure><h1 id="dataview"><a class="anchor" href="#dataview">#</a> DataView</h1>
+<h3 id="读取-2"><a class="anchor" href="#读取-2">#</a> 读取：</h3>
+<p>DataView 数据视图可以用于读写 buffer,DataView 实例提供了许多方法来读取内存，他们呢的参数都是一个字节序号。表示开始读取的字节位置：</p>
 <ul>
-<li>getInt8：读取1个字节，返回一个8位整数</li>
-<li>getUint8：读取1个字节，返回一个无符号8位整数</li>
-<li>getInt16：读取2个字节，返回一个16位整数</li>
-<li>getUnit16：读取2个字节，返回一个无符号16位整数</li>
-<li>getInt32：读取4个字节，返回一个32位整数</li>
-<li>getUnit32：读取4个字节，返回一个无符号32位整数</li>
-<li>getFloat32：读取4个字节，返回一个32位浮点数</li>
-<li>getUnit64：读取8个字节，返回一个64位浮点数</li>
+<li>getInt8：读取 1 个字节，返回一个 8 位整数</li>
+<li>getUint8：读取 1 个字节，返回一个无符号 8 位整数</li>
+<li>getInt16：读取 2 个字节，返回一个 16 位整数</li>
+<li>getUnit16：读取 2 个字节，返回一个无符号 16 位整数</li>
+<li>getInt32：读取 4 个字节，返回一个 32 位整数</li>
+<li>getUnit32：读取 4 个字节，返回一个无符号 32 位整数</li>
+<li>getFloat32：读取 4 个字节，返回一个 32 位浮点数</li>
+<li>getUnit64：读取 8 个字节，返回一个 64 位浮点数</li>
 </ul>
-<h3 id="写入："><a href="#写入：" class="headerlink" title="写入："></a>写入：</h3><p>DataView实例提供以下方法写入内存，他们都接受两个参数，第一个参数表示开始写入数据的字节序号，第二个参数为写入的数据：</p>
+<h3 id="写入"><a class="anchor" href="#写入">#</a> 写入：</h3>
+<p>DataView 实例提供以下方法写入内存，他们都接受两个参数，第一个参数表示开始写入数据的字节序号，第二个参数为写入的数据：</p>
 <ul>
-<li>setInt8：写入1个字节的8位整数</li>
-<li>setUint8：写入1个字节的8位无符号整数</li>
-<li>setInt16：写入2个字节的16位整数</li>
-<li>setUint16：写入2个字节的16位无符号整数</li>
-<li>setInt32：写入4个字节的32位整数</li>
-<li>setUnit32：写入4个字节的32位无符号整数</li>
-<li>setFloat32：写入4个字节的32位浮点数</li>
-<li>setFloat64：写入8个自己的64位浮点数</li>
+<li>setInt8：写入 1 个字节的 8 位整数</li>
+<li>setUint8：写入 1 个字节的 8 位无符号整数</li>
+<li>setInt16：写入 2 个字节的 16 位整数</li>
+<li>setUint16：写入 2 个字节的 16 位无符号整数</li>
+<li>setInt32：写入 4 个字节的 32 位整数</li>
+<li>setUnit32：写入 4 个字节的 32 位无符号整数</li>
+<li>setFloat32：写入 4 个字节的 32 位浮点数</li>
+<li>setFloat64：写入 8 个自己的 64 位浮点数</li>
 </ul>
-<h1 id="Object-URL"><a href="#Object-URL" class="headerlink" title="Object URL"></a>Object URL</h1><p>Object URL是一个用于表示File Object或者Blob Object的URL，可以将<strong>Blob对象（包括File对象）</strong>变为一个URL地址。</p>
-<h3 id="使用：-3"><a href="#使用：-3" class="headerlink" title="使用："></a>使用：</h3><p>使用URL.createObjectURL来创建。</p>
-<pre><code class="javascript">const blob = new Blob([&#39;你好世界&#39;],&#123;type:&#39;text/plain&#39;&#125;);
-const newUrl = URL.createObjectURL(blob);
-</code></pre>
-<h1 id="base64编码"><a href="#base64编码" class="headerlink" title="base64编码"></a>base64编码</h1><h3 id="介绍：-3"><a href="#介绍：-3" class="headerlink" title="介绍："></a>介绍：</h3><p>base64是一个保存二进制数据的工具，将多种形式的二进制数据或其构成的文件<strong>以ASCII的形式保存</strong>，因为很多地方不支持直接的二进制文件保存或呈现，比如可以将图片直接转换成base64码嵌入HTML文档中，而避免使用网络http加载图片。另外，将数据编码为 base64 进行传输，然后解码获得数据，可以一定程度上保证数据的完整并且不用在传输过程中修改这些数据，避免在传输过程中可能出现的问题；</p>
-<h3 id="组成："><a href="#组成：" class="headerlink" title="组成："></a>组成：</h3><p><code>A-Z a-z 0-9 + /</code> 共64个字符组成;</p>
-<h3 id="使用：-4"><a href="#使用：-4" class="headerlink" title="使用："></a>使用：</h3><p>JS中有两个函数用于base64格式（ASCII码）的转换:</p>
+<h1 id="object-url"><a class="anchor" href="#object-url">#</a> Object URL</h1>
+<p>Object URL 是一个用于表示 File Object 或者 Blob Object 的 URL，可以将 **Blob 对象（包括 File 对象）** 变为一个 URL 地址。</p>
+<h3 id="使用-4"><a class="anchor" href="#使用-4">#</a> 使用：</h3>
+<p>使用 URL.createObjectURL 来创建。</p>
+<figure class="highlight javascript"><figcaption data-lang="javascript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">const</span> blob <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Blob</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'你好世界'</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token punctuation">&#123;</span><span class="token literal-property property">type</span><span class="token operator">:</span><span class="token string">'text/plain'</span><span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token keyword">const</span> newUrl <span class="token operator">=</span> <span class="token constant">URL</span><span class="token punctuation">.</span><span class="token function">createObjectURL</span><span class="token punctuation">(</span>blob<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr></table></figure><h1 id="base64编码"><a class="anchor" href="#base64编码">#</a> base64 编码</h1>
+<h3 id="介绍-4"><a class="anchor" href="#介绍-4">#</a> 介绍：</h3>
+<p>base64 是一个保存二进制数据的工具，将多种形式的二进制数据或其构成的文件<strong>以 ASCII 的形式保存</strong>，因为很多地方不支持直接的二进制文件保存或呈现，比如可以将图片直接转换成 base64 码嵌入 HTML 文档中，而避免使用网络 http 加载图片。另外，将数据编码为 base64 进行传输，然后解码获得数据，可以一定程度上保证数据的完整并且不用在传输过程中修改这些数据，避免在传输过程中可能出现的问题；</p>
+<h3 id="组成"><a class="anchor" href="#组成">#</a> 组成：</h3>
+<p><code>A-Z a-z 0-9 + /</code>  共 64 个字符组成；</p>
+<h3 id="使用-5"><a class="anchor" href="#使用-5">#</a> 使用：</h3>
+<p>JS 中有两个函数用于 base64 格式（ASCII 码）的转换:</p>
 <ul>
-<li><p>btoa()：编码（Binary To ASCII  二进制转ASCII）</p>
-<p>该函数用于将二进制转为Base64字符串（ASCII码）</p>
+<li>
+<p>btoa ()：编码（Binary To ASCII  二进制转 ASCII）</p>
+<p>该函数用于将二进制转为 Base64 字符串（ASCII 码）</p>
 </li>
-<li><p>atob()：解码（ASCII To Binary  ASCII码转二进制）</p>
-<p>该函数用于将Base64字符串（ASCII码）解码为二进制</p>
+<li>
+<p>atob ()：解码（ASCII To Binary  ASCII 码转二进制）</p>
+<p>该函数用于将 Base64 字符串（ASCII 码）解码为二进制</p>
 </li>
 </ul>
-<h3 id="注意："><a href="#注意：" class="headerlink" title="注意："></a>注意：</h3><p>btoa和atob方法有个弊端就是只能处理拉丁字符集内的字符，其不包括中文或非西欧语言的字符（<strong>只能处理单字节字符</strong>）。要处理多字节字符需要使用TextEncoder API将字符串转为Uint8Array，然后手动将这些字节转为一个字符串（String.fromCharCode）。</p>
-<h1 id="TextEncoder"><a href="#TextEncoder" class="headerlink" title="TextEncoder"></a>TextEncoder</h1><h3 id="介绍：-4"><a href="#介绍：-4" class="headerlink" title="介绍："></a>介绍：</h3><p>TextEncoder构造函数创建一个编码器，encode方法用于将字符串编码为一个UTF-8编码文本的Uint8Array视图。</p>
-<h3 id="使用：-5"><a href="#使用：-5" class="headerlink" title="使用："></a>使用：</h3><pre><code class="javascript">const encoder = new TextEncoder();
-const view = encoder.encode(&quot;$&quot;);
-console.log(view)
-</code></pre>
-
+<h3 id="注意"><a class="anchor" href="#注意">#</a> 注意：</h3>
+<p>btoa 和 atob 方法有个弊端就是只能处理拉丁字符集内的字符，其不包括中文或非西欧语言的字符（<strong>只能处理单字节字符</strong>）。要处理多字节字符需要使用 TextEncoder API 将字符串转为 Uint8Array，然后手动将这些字节转为一个字符串（String.fromCharCode）。</p>
+<h1 id="textencoder"><a class="anchor" href="#textencoder">#</a> TextEncoder</h1>
+<h3 id="介绍-5"><a class="anchor" href="#介绍-5">#</a> 介绍：</h3>
+<p>TextEncoder 构造函数创建一个编码器，encode 方法用于将字符串编码为一个 UTF-8 编码文本的 Uint8Array 视图。</p>
+<h3 id="使用-6"><a class="anchor" href="#使用-6">#</a> 使用：</h3>
+<figure class="highlight javascript"><figcaption data-lang="javascript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">const</span> encoder <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">TextEncoder</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token keyword">const</span> view <span class="token operator">=</span> encoder<span class="token punctuation">.</span><span class="token function">encode</span><span class="token punctuation">(</span><span class="token string">"$"</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="3"></td><td><pre>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>view<span class="token punctuation">)</span></pre></td></tr></table></figure>
       <div class="tags">
           <a href="/tags/Blob/" rel="tag"><i class="ic i-tag"></i> Blob</a>
           <a href="/tags/FileReader/" rel="tag"><i class="ic i-tag"></i> FileReader</a>
@@ -430,7 +442,7 @@ console.log(view)
     <div class="item left">
       
 
-  <a href="/2024/05/17/esbuild/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;s3.uuu.ovh&#x2F;imgs&#x2F;2024&#x2F;04&#x2F;05&#x2F;d389418a13d92e24.jpg" title="esbuild">
+  <a href="/2024/05/17/esbuild/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;s3.uuu.ovh&#x2F;imgs&#x2F;2024&#x2F;04&#x2F;07&#x2F;d94cad8780c8c094.jpg" title="esbuild">
   <span class="type">上一篇</span>
   <span class="category"><i class="ic i-flag"></i> esbuild</span>
   <h3>esbuild</h3>
@@ -440,7 +452,7 @@ console.log(view)
     <div class="item right">
       
 
-  <a href="/2024/05/21/v8%E5%BC%95%E6%93%8E%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;s3.uuu.ovh&#x2F;imgs&#x2F;2024&#x2F;04&#x2F;05&#x2F;d3c578870618de4e.webp" title="v8引擎编译原理">
+  <a href="/2024/05/21/v8%E5%BC%95%E6%93%8E%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;s3.uuu.ovh&#x2F;imgs&#x2F;2024&#x2F;04&#x2F;05&#x2F;ec66a7160398848b.webp" title="v8引擎编译原理">
   <span class="type">下一篇</span>
   <span class="category"><i class="ic i-flag"></i> v8引擎编译原理</span>
   <h3>v8引擎编译原理</h3>
@@ -462,7 +474,7 @@ console.log(view)
   <div class="panels">
     <div class="inner">
       <div class="contents panel pjax" data-title="文章目录">
-          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Blob"><span class="toc-number">1.</span> <span class="toc-text">Blob</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%89%B9%E7%82%B9%EF%BC%9A"><span class="toc-number">1.0.1.</span> <span class="toc-text">特点：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%EF%BC%9A"><span class="toc-number">1.0.2.</span> <span class="toc-text">使用：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%86%E7%89%87%EF%BC%9A"><span class="toc-number">1.0.3.</span> <span class="toc-text">分片：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%BB%E5%8F%96%EF%BC%9A"><span class="toc-number">1.0.4.</span> <span class="toc-text">读取：</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#File"><span class="toc-number">2.</span> <span class="toc-text">File</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%8B%E7%BB%8D%EF%BC%9A"><span class="toc-number">2.0.1.</span> <span class="toc-text">介绍：</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#FileReader"><span class="toc-number">3.</span> <span class="toc-text">FileReader</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%8B%E7%BB%8D%EF%BC%9A-1"><span class="toc-number">3.0.1.</span> <span class="toc-text">介绍：</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#ArrayBuffer"><span class="toc-number">4.</span> <span class="toc-text">ArrayBuffer</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%8B%E7%BB%8D%EF%BC%9A-2"><span class="toc-number">4.0.1.</span> <span class="toc-text">介绍：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%B9%E6%B3%95%EF%BC%9A"><span class="toc-number">4.0.2.</span> <span class="toc-text">方法：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%EF%BC%9A-1"><span class="toc-number">4.0.3.</span> <span class="toc-text">使用：</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#TypedArray"><span class="toc-number">5.</span> <span class="toc-text">TypedArray</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%EF%BC%9A-2"><span class="toc-number">5.0.1.</span> <span class="toc-text">使用：</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#DataView"><span class="toc-number">6.</span> <span class="toc-text">DataView</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%BB%E5%8F%96%EF%BC%9A-1"><span class="toc-number">6.0.1.</span> <span class="toc-text">读取：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%86%99%E5%85%A5%EF%BC%9A"><span class="toc-number">6.0.2.</span> <span class="toc-text">写入：</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Object-URL"><span class="toc-number">7.</span> <span class="toc-text">Object URL</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%EF%BC%9A-3"><span class="toc-number">7.0.1.</span> <span class="toc-text">使用：</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#base64%E7%BC%96%E7%A0%81"><span class="toc-number">8.</span> <span class="toc-text">base64编码</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%8B%E7%BB%8D%EF%BC%9A-3"><span class="toc-number">8.0.1.</span> <span class="toc-text">介绍：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%84%E6%88%90%EF%BC%9A"><span class="toc-number">8.0.2.</span> <span class="toc-text">组成：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%EF%BC%9A-4"><span class="toc-number">8.0.3.</span> <span class="toc-text">使用：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B3%A8%E6%84%8F%EF%BC%9A"><span class="toc-number">8.0.4.</span> <span class="toc-text">注意：</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#TextEncoder"><span class="toc-number">9.</span> <span class="toc-text">TextEncoder</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%8B%E7%BB%8D%EF%BC%9A-4"><span class="toc-number">9.0.1.</span> <span class="toc-text">介绍：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%EF%BC%9A-5"><span class="toc-number">9.0.2.</span> <span class="toc-text">使用：</span></a></li></ol></li></ol></li></ol>
+          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#blob"><span class="toc-number">1.</span> <span class="toc-text"> Blob</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%89%B9%E7%82%B9"><span class="toc-number">1.0.1.</span> <span class="toc-text"> 特点：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8"><span class="toc-number">1.0.2.</span> <span class="toc-text"> 使用：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%86%E7%89%87"><span class="toc-number">1.0.3.</span> <span class="toc-text"> 分片：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%BB%E5%8F%96"><span class="toc-number">1.0.4.</span> <span class="toc-text"> 读取：</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#file"><span class="toc-number">2.</span> <span class="toc-text"> File</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%8B%E7%BB%8D"><span class="toc-number">2.0.1.</span> <span class="toc-text"> 介绍：</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#filereader"><span class="toc-number">3.</span> <span class="toc-text"> FileReader</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%8B%E7%BB%8D-2"><span class="toc-number">3.0.1.</span> <span class="toc-text"> 介绍：</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#arraybuffer"><span class="toc-number">4.</span> <span class="toc-text"> ArrayBuffer</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%8B%E7%BB%8D-3"><span class="toc-number">4.0.1.</span> <span class="toc-text"> 介绍：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%B9%E6%B3%95"><span class="toc-number">4.0.2.</span> <span class="toc-text"> 方法：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8-2"><span class="toc-number">4.0.3.</span> <span class="toc-text"> 使用：</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#typedarray"><span class="toc-number">5.</span> <span class="toc-text"> TypedArray</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8-3"><span class="toc-number">5.0.1.</span> <span class="toc-text"> 使用：</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#dataview"><span class="toc-number">6.</span> <span class="toc-text"> DataView</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%BB%E5%8F%96-2"><span class="toc-number">6.0.1.</span> <span class="toc-text"> 读取：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%86%99%E5%85%A5"><span class="toc-number">6.0.2.</span> <span class="toc-text"> 写入：</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#object-url"><span class="toc-number">7.</span> <span class="toc-text"> Object URL</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8-4"><span class="toc-number">7.0.1.</span> <span class="toc-text"> 使用：</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#base64%E7%BC%96%E7%A0%81"><span class="toc-number">8.</span> <span class="toc-text"> base64 编码</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%8B%E7%BB%8D-4"><span class="toc-number">8.0.1.</span> <span class="toc-text"> 介绍：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%84%E6%88%90"><span class="toc-number">8.0.2.</span> <span class="toc-text"> 组成：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8-5"><span class="toc-number">8.0.3.</span> <span class="toc-text"> 使用：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B3%A8%E6%84%8F"><span class="toc-number">8.0.4.</span> <span class="toc-text"> 注意：</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#textencoder"><span class="toc-number">9.</span> <span class="toc-text"> TextEncoder</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%8B%E7%BB%8D-5"><span class="toc-number">9.0.1.</span> <span class="toc-text"> 介绍：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8-6"><span class="toc-number">9.0.2.</span> <span class="toc-text"> 使用：</span></a></li></ol></li></ol></li></ol>
       </div>
       <div class="related panel pjax" data-title="系列文章">
         <ul>
@@ -480,19 +492,19 @@ console.log(view)
 <nav class="state">
     <div class="item posts">
       <a href="/archives/">
-        <span class="count">82</span>
+        <span class="count">81</span>
         <span class="name">文章</span>
       </a>
     </div>
     <div class="item categories">
       <a href="/categories/">
-        <span class="count">66</span>
+        <span class="count">65</span>
         <span class="name">分类</span>
       </a>
     </div>
     <div class="item tags">
       <a href="/tags/">
-        <span class="count">102</span>
+        <span class="count">101</span>
         <span class="name">标签</span>
       </a>
     </div>
@@ -580,100 +592,100 @@ console.log(view)
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96/" title="分类于 前端工程化">前端工程化</a>
+<a href="/categories/v8%E5%BC%95%E6%93%8E%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/" title="分类于 v8引擎编译原理">v8引擎编译原理</a>
 </div>
 
-    <span><a href="/2024/03/29/%E5%89%8D%E7%AB%AF%E6%A8%A1%E5%9D%97%E5%8C%96/" title="前端模块化">前端模块化</a></span>
+    <span><a href="/2024/05/21/v8%E5%BC%95%E6%93%8E%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/" title="v8引擎编译原理">v8引擎编译原理</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/%E5%BE%AE%E5%89%8D%E7%AB%AF/" title="分类于 微前端">微前端</a>
+<a href="/categories/%E5%89%8D%E7%AB%AF%E7%9B%91%E6%8E%A7/" title="分类于 前端监控">前端监控</a>
 </div>
 
-    <span><a href="/2024/05/24/%E5%BE%AE%E5%89%8D%E7%AB%AF/" title="微前端">微前端</a></span>
+    <span><a href="/2024/04/29/%E5%89%8D%E7%AB%AF%E7%9B%91%E6%8E%A7/" title="前端监控">前端监控</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B8%8E%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99/" title="分类于 设计模式与设计原则">设计模式与设计原则</a>
+<a href="/categories/webpack/" title="分类于 webpack">webpack</a>
 </div>
 
-    <span><a href="/2024/07/07/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E5%8E%9F%E5%88%99/" title="设计模式与设计原则">设计模式与设计原则</a></span>
+    <span><a href="/2023/10/21/webpack/" title="webpack笔记">webpack笔记</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" title="分类于 网络安全">网络安全</a>
+<a href="/categories/Docker/" title="分类于 Docker">Docker</a>
 </div>
 
-    <span><a href="/2024/05/23/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" title="网络安全">网络安全</a></span>
+    <span><a href="/2024/07/08/docker/" title="Docker">Docker</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/" title="分类于 面试题">面试题</a>
+<a href="/categories/JS/" title="分类于 JS">JS</a>
 </div>
 
-    <span><a href="/2024/04/30/%E6%B7%B1%E6%8B%B7%E8%B4%9D/" title="深拷贝">深拷贝</a></span>
+    <span><a href="/2023/12/08/DataView/" title="DataView">DataView</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/markdown/" title="分类于 markdown">markdown</a>
+<a href="/categories/%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/" title="分类于 自动化测试">自动化测试</a>
 </div>
 
-    <span><a href="/2023/02/10/md/" title="markdown">markdown</a></span>
+    <span><a href="/2024/03/02/%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/" title="自动化测试">自动化测试</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/%E4%B8%89%E6%96%B9%E5%BA%93/" title="分类于 三方库">三方库</a>
+<a href="/categories/ES6/" title="分类于 ES6">ES6</a>
 </div>
 
-    <span><a href="/2024/04/16/%E4%B8%89%E6%96%B9%E5%8C%85/" title="三方库">三方库</a></span>
+    <span><a href="/2023/08/02/ES6/" title="ES6">ES6</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/eslint/" title="分类于 eslint">eslint</a>
+<a href="/categories/react/" title="分类于 react">react</a>
 </div>
 
-    <span><a href="/2024/05/17/eslint%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90/" title="eslint源码">eslint源码</a></span>
+    <span><a href="/2024/01/29/react%E6%8A%80%E6%9C%AF%E6%8F%AD%E7%A7%98/" title="react技术揭秘">react技术揭秘</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/%E5%A4%8D%E6%9D%82%E4%B8%9A%E5%8A%A1%E9%83%A8%E7%BD%B2%E4%B8%8E%E4%BC%98%E5%8C%96/" title="分类于 复杂业务部署与优化">复杂业务部署与优化</a>
+<a href="/categories/%E7%AE%97%E6%B3%95/" title="分类于 算法">算法</a>
 </div>
 
-    <span><a href="/2024/04/12/%E5%A4%8D%E6%9D%82%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2%E4%B8%8A%E7%BA%BF/" title="复杂业务部署与优化">复杂业务部署与优化</a></span>
+    <span><a href="/2023/12/02/%E7%AE%97%E6%B3%95/" title="算法与数据结构">算法与数据结构</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/%E5%AE%B9%E5%99%A8%E5%8C%96%E8%BF%90%E7%BB%B4%E6%93%8D%E4%BD%9C/" title="分类于 容器化运维操作">容器化运维操作</a>
+<a href="/categories/three-js/" title="分类于 three.js">three.js</a>
 </div>
 
-    <span><a href="/2024/02/02/%E5%AE%B9%E5%99%A8%E5%8C%96%E8%BF%90%E7%BB%B4%E6%93%8D%E4%BD%9C/" title="容器化运维操作">容器化运维操作</a></span>
+    <span><a href="/2023/10/24/ThreeJS/" title="three.js">three.js</a></span>
   </li>
 
   </ul>
@@ -740,7 +752,7 @@ console.log(view)
 </script>
 
 <script src="https://polyfill.alicdn.com/polyfill.min.js?features=Promise%2CArray.prototype.includes"></script>
-
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.21.0/plugins/diff-highlight/prism-diff-highlight.min.js"></script>
 <script src="//gcore.jsdelivr.net/combine/npm/pace-js@1.0.2/pace.min.js,npm/pjax@0.2.8/pjax.min.js,npm/whatwg-fetch@3.4.0/dist/fetch.umd.min.js,npm/animejs@3.2.0/lib/anime.min.js,npm/algoliasearch@4/dist/algoliasearch-lite.umd.js,npm/instantsearch.js@4/dist/instantsearch.production.min.js,npm/lozad@1/dist/lozad.min.js,npm/quicklink@2/dist/quicklink.umd.js"></script>
 
 <script src="/js/app.js?v=0.2.5"></script>

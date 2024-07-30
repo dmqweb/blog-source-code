@@ -78,7 +78,7 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
       <i class="ic i-pen"></i>
     </span>
     <span class="text">本文字数</span>
-    <span>3.6k</span>
+    <span>3.4k</span>
     <span class="text">字</span>
   </span>
   <span class="item" title="阅读时长">
@@ -119,12 +119,12 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
       </div>
       <div id="imgs" class="pjax">
         <ul>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/05/8c79eda29fb3b505.jpg"></li>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/06/603b3532eacee81b.webp"></li>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/12/35b09cafcea9fd29.webp"></li>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/25/1b093314ebaab948.jpg"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/12/65788b6548e9e58f.jpg"></li>
           <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/15/d888a622df52afa7.webp"></li>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/06/a16303594a53d8d1.jpg"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/28/f7a6eb62965e0dec.webp"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/06/d8aa12b30683676e.jpg"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/06/ae2b485c961ddd62.jpg"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/25/15ba2d11a4dda9ca.jpg"></li>
         </ul>
       </div>
     </header>
@@ -170,64 +170,67 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
   <div class="body md" itemprop="articleBody">
     
 
-    <h1 id="modules模块化"><a href="#modules模块化" class="headerlink" title="modules模块化"></a>modules模块化</h1><h3 id="模块化的优点："><a href="#模块化的优点：" class="headerlink" title="模块化的优点："></a>模块化的优点：</h3><p>可维护性、可复用性。</p>
-<h4 id="模块化的发展"><a href="#模块化的发展" class="headerlink" title="模块化的发展"></a>模块化的发展</h4><p>1、ES6之前没有模块化时，浏览器环境需要使用script进行引入js文件<br>2、后来使用全局变量+命名空间（namespace）处理，就是使用IIFE自动执行函数创建一个函数作用域，赋值给一个全局变量。<br>这样做的缺点是：依赖于全局变量，污染全局变量，不安全。<br>    依赖于约定命名空间来避免冲突，可靠性不高。<br>    需要手动管理依赖并控制执行顺序，容易出错。<br>    需要在最终上线前手动合并所有用到的模块。<br>3、node端模块系统：Common.js，缺点是浏览器端无法使用<br>4、AMD(Asynchronous module definition)异步加载模块定义，CMD(模块标准)<br>    采用异步方式加载，需要全局环境定义require和define，不需要引入其他的变量。<br>5、ES6 modules、引入和暴露方式更加多样，支持复杂的静态分析和静态、动态导入。</p>
-<h1 id="Bundler打包工具"><a href="#Bundler打包工具" class="headerlink" title="Bundler打包工具"></a>Bundler打包工具</h1><h3 id="诞生原因："><a href="#诞生原因：" class="headerlink" title="诞生原因："></a>诞生原因：</h3><p>使用import export这种异步加载方式在大多数浏览器中无法使用。</p>
-<h3 id="常见工具"><a href="#常见工具" class="headerlink" title="常见工具"></a>常见工具</h3><p>一、<strong>Webpack</strong>（单JS文件入口），Webpack采用代码分割、异步加载等技术，可以将多个模块打包成一个或者多个bundle,，构建的产物是一个函数。Webpack主要用于构建复杂的前端项目，如Web应用、SPA单页面应用等，支持模块化开发、代码分割、资源优化和静态文件处理等功能。。</p>
-<p>二、<strong>rollup</strong>用静态的方式分析代码，对未使用的代码更加彻底的进行树摇优化，输出的bundle更加的精简。</p>
-<p>三、<strong>snowpack</strong>（使用于新版浏览器）<br>1、出现的原因（其他Bundler的问题）：<br>当资源越来越多时，打包的速度会越来越慢，大中型项目中，启动时间可能达到好几分钟。（vite的理念来源于snowpack，充分使用了新版浏览器支持es modules的特性。）<br>2、优势：<br>snowpack利用新版浏览器支持es modules的特性，开发模式不会被打包，每个文件编译一次，永久被缓存，当一个文件修改的时候就只需要重新build那一个文件。（适用于新版浏览器）<br>四、<strong>vite</strong><br>vite基于snowpack的理念（利用新版浏览器支持es modules的特性），基于es-modules，采用rollup进行构建 ，开发模式不会打包，每个文件当使用时才会去加载，修改时只需要重新build那一个文件。<br>五、<strong>vue-cli</strong><br>vue-cli底层基于webpack，webpack通过导入导出的语句分析整个项目，将目标代码转化成兼容浏览器的js代码，只有打包后的几个文件，这个过程需要耗费一些时间。</p>
-<h1 id="webpack配置支持ES-Module"><a href="#webpack配置支持ES-Module" class="headerlink" title="webpack配置支持ES Module"></a>webpack配置支持ES Module</h1><p>webpack默认只支持CommonJS规范，配置支持ES Module规范，需要进行如下配置：<br>一：将ES Module语法的js文件通过webpack进行打包即可。<br>二：webpack默认target为web，在使用node内置库时会报错，可以修改target属性。</p>
-<pre><code class="javascript">const path = require(&#39;path&#39;);
-module.exports = &#123;
-    entry: &#39;./bin/core.js&#39;,
-    output: &#123;
-        path:path.join(__dirname,&#39;/dist&#39;),
-        filename: &#39;core.js&#39;,
-    &#125;,
-    mode: &#39;production&#39;, //改变打包模式
-    target: &#39;node&#39; //进入node环境，默认是web
-&#125;
-</code></pre>
-<p>三、webpack配置babel-loader，兼容低版本node<br>方案一：安装babel-loader、@babel&#x2F;core、@babel&#x2F;preset-env（有时需要@babel&#x2F;plugin-transform-runtime插件）</p>
-<pre><code class="javascript">const path = require(&#39;path&#39;);
-module.exports = &#123;
-    entry: &#39;./bin/core.js&#39;,
-    output: &#123;
-        path:path.join(__dirname,&#39;/dist&#39;),
-        filename: &#39;core.js&#39;,
-    &#125;,
-    mode: &#39;production&#39;, //改变打包模式
-    target: &#39;node&#39;, //进入node环境，默认是web
-    module: &#123;
-        rules: [
-            &#123;
-                test: /\.js$/,
-                use: &#123;
-                    loader: &#39;babel-loader&#39;,  //使用babel-loader
-                    options: &#123;
-                        presets: [&#39;@babel/preset-env&#39;],
-                        plugins:[
-                            [
-                                &#39;@babel/plugin-transform-runtime&#39;,
-                                &#123;
-                                    corejs: 3,
-                                    regenerator: true,
-                                    useESModules: true,
-                                    helpers: true,
-                                &#125;,
-                            ],
-                        ]
-                    &#125;,
-                &#125;
-            &#125;
-        ]
-    &#125;
-&#125;
-</code></pre>
-<p>方案二：node.js实验功能<br>将js后缀更改为mjs后缀，即可（需要node版本为14以上）,小于14版本的时候，node执行时需要加上–experimental-modules参数，例如：<br><code>node --experimental-modules index.js</code></p>
-<h1 id="npm"><a href="#npm" class="headerlink" title="npm"></a>npm</h1><h2 id="冷知识"><a href="#冷知识" class="headerlink" title="冷知识"></a>冷知识</h2><p><code>npm dedupe</code>命令</p>
+    <h1 id="modules模块化"><a class="anchor" href="#modules模块化">#</a> modules 模块化</h1>
+<h3 id="模块化的优点"><a class="anchor" href="#模块化的优点">#</a> 模块化的优点：</h3>
+<p>可维护性、可复用性。</p>
+<h4 id="模块化的发展"><a class="anchor" href="#模块化的发展">#</a> 模块化的发展</h4>
+<p>1、ES6 之前没有模块化时，浏览器环境需要使用 script 进行引入 js 文件<br />
+ 2、后来使用全局变量 + 命名空间（namespace）处理，就是使用 IIFE 自动执行函数创建一个函数作用域，赋值给一个全局变量。<br />
+这样做的缺点是：依赖于全局变量，污染全局变量，不安全。<br />
+依赖于约定命名空间来避免冲突，可靠性不高。<br />
+需要手动管理依赖并控制执行顺序，容易出错。<br />
+需要在最终上线前手动合并所有用到的模块。<br />
+3、node 端模块系统：Common.js，缺点是浏览器端无法使用<br />
+ 4、AMD (Asynchronous module definition) 异步加载模块定义，CMD (模块标准)<br />
+ 采用异步方式加载，需要全局环境定义 require 和 define，不需要引入其他的变量。<br />
+5、ES6 modules、引入和暴露方式更加多样，支持复杂的静态分析和静态、动态导入。</p>
+<h1 id="bundler打包工具"><a class="anchor" href="#bundler打包工具">#</a> Bundler 打包工具</h1>
+<h3 id="诞生原因"><a class="anchor" href="#诞生原因">#</a> 诞生原因：</h3>
+<p>使用 import export 这种异步加载方式在大多数浏览器中无法使用。</p>
+<h3 id="常见工具"><a class="anchor" href="#常见工具">#</a> 常见工具</h3>
+<p>一、<strong>Webpack</strong>（单 JS 文件入口），Webpack 采用代码分割、异步加载等技术，可以将多个模块打包成一个或者多个 bundle,，构建的产物是一个函数。Webpack 主要用于构建复杂的前端项目，如 Web 应用、SPA 单页面应用等，支持模块化开发、代码分割、资源优化和静态文件处理等功能。。</p>
+<p>二、<strong>rollup</strong> 用静态的方式分析代码，对未使用的代码更加彻底的进行树摇优化，输出的 bundle 更加的精简。</p>
+<p>三、<strong>snowpack</strong>（使用于新版浏览器）<br />
+1、出现的原因（其他 Bundler 的问题）：<br />
+当资源越来越多时，打包的速度会越来越慢，大中型项目中，启动时间可能达到好几分钟。（vite 的理念来源于 snowpack，充分使用了新版浏览器支持 es modules 的特性。）<br />
+2、优势：<br />
+snowpack 利用新版浏览器支持 es modules 的特性，开发模式不会被打包，每个文件编译一次，永久被缓存，当一个文件修改的时候就只需要重新 build 那一个文件。（适用于新版浏览器）<br />
+四、<strong>vite</strong><br />
+vite 基于 snowpack 的理念（利用新版浏览器支持 es modules 的特性），基于 es-modules，采用 rollup 进行构建 ，开发模式不会打包，每个文件当使用时才会去加载，修改时只需要重新 build 那一个文件。<br />
+五、<strong>vue-cli</strong><br />
+vue-cli 底层基于 webpack，webpack 通过导入导出的语句分析整个项目，将目标代码转化成兼容浏览器的 js 代码，只有打包后的几个文件，这个过程需要耗费一些时间。</p>
+<h1 id="webpack配置支持es-module"><a class="anchor" href="#webpack配置支持es-module">#</a> webpack 配置支持 ES Module</h1>
+<p>webpack 默认只支持 CommonJS 规范，配置支持 ES Module 规范，需要进行如下配置：<br />
+一：将 ES Module 语法的 js 文件通过 webpack 进行打包即可。<br />
+二：webpack 默认 target 为 web，在使用 node 内置库时会报错，可以修改 target 属性。</p>
+<figure class="highlight javascript"><figcaption data-lang="javascript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">const</span> path <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'path'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="2"></td><td><pre>module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="3"></td><td><pre>    <span class="token literal-property property">entry</span><span class="token operator">:</span> <span class="token string">'./bin/core.js'</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="4"></td><td><pre>    <span class="token literal-property property">output</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="5"></td><td><pre>        <span class="token literal-property property">path</span><span class="token operator">:</span>path<span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span>__dirname<span class="token punctuation">,</span><span class="token string">'/dist'</span><span class="token punctuation">)</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="6"></td><td><pre>        <span class="token literal-property property">filename</span><span class="token operator">:</span> <span class="token string">'core.js'</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="7"></td><td><pre>    <span class="token punctuation">&#125;</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="8"></td><td><pre>    <span class="token literal-property property">mode</span><span class="token operator">:</span> <span class="token string">'production'</span><span class="token punctuation">,</span> <span class="token comment">// 改变打包模式</span></pre></td></tr><tr><td data-num="9"></td><td><pre>    <span class="token literal-property property">target</span><span class="token operator">:</span> <span class="token string">'node'</span> <span class="token comment">// 进入 node 环境，默认是 web</span></pre></td></tr><tr><td data-num="10"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr></table></figure><p>三、webpack 配置 babel-loader，兼容低版本 node<br />
+ 方案一：安装 babel-loader、@babel/core、@babel/preset-env（有时需要 @babel/plugin-transform-runtime 插件）</p>
+<figure class="highlight javascript"><figcaption data-lang="javascript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">const</span> path <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'path'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="2"></td><td><pre>module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="3"></td><td><pre>    <span class="token literal-property property">entry</span><span class="token operator">:</span> <span class="token string">'./bin/core.js'</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="4"></td><td><pre>    <span class="token literal-property property">output</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="5"></td><td><pre>        <span class="token literal-property property">path</span><span class="token operator">:</span>path<span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span>__dirname<span class="token punctuation">,</span><span class="token string">'/dist'</span><span class="token punctuation">)</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="6"></td><td><pre>        <span class="token literal-property property">filename</span><span class="token operator">:</span> <span class="token string">'core.js'</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="7"></td><td><pre>    <span class="token punctuation">&#125;</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="8"></td><td><pre>    <span class="token literal-property property">mode</span><span class="token operator">:</span> <span class="token string">'production'</span><span class="token punctuation">,</span> <span class="token comment">// 改变打包模式</span></pre></td></tr><tr><td data-num="9"></td><td><pre>    <span class="token literal-property property">target</span><span class="token operator">:</span> <span class="token string">'node'</span><span class="token punctuation">,</span> <span class="token comment">// 进入 node 环境，默认是 web</span></pre></td></tr><tr><td data-num="10"></td><td><pre>    <span class="token literal-property property">module</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="11"></td><td><pre>        <span class="token literal-property property">rules</span><span class="token operator">:</span> <span class="token punctuation">[</span></pre></td></tr><tr><td data-num="12"></td><td><pre>            <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="13"></td><td><pre>                <span class="token literal-property property">test</span><span class="token operator">:</span> <span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">\.js$</span><span class="token regex-delimiter">/</span></span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="14"></td><td><pre>                <span class="token literal-property property">use</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="15"></td><td><pre>                    <span class="token literal-property property">loader</span><span class="token operator">:</span> <span class="token string">'babel-loader'</span><span class="token punctuation">,</span>  <span class="token comment">// 使用 babel-loader</span></pre></td></tr><tr><td data-num="16"></td><td><pre>                    <span class="token literal-property property">options</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="17"></td><td><pre>                        <span class="token literal-property property">presets</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">'@babel/preset-env'</span><span class="token punctuation">]</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="18"></td><td><pre>                        <span class="token literal-property property">plugins</span><span class="token operator">:</span><span class="token punctuation">[</span></pre></td></tr><tr><td data-num="19"></td><td><pre>                            <span class="token punctuation">[</span></pre></td></tr><tr><td data-num="20"></td><td><pre>                                <span class="token string">'@babel/plugin-transform-runtime'</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="21"></td><td><pre>                                <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="22"></td><td><pre>                                    <span class="token literal-property property">corejs</span><span class="token operator">:</span> <span class="token number">3</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="23"></td><td><pre>                                    <span class="token literal-property property">regenerator</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="24"></td><td><pre>                                    <span class="token literal-property property">useESModules</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="25"></td><td><pre>                                    <span class="token literal-property property">helpers</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="26"></td><td><pre>                                <span class="token punctuation">&#125;</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="27"></td><td><pre>                            <span class="token punctuation">]</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="28"></td><td><pre>                        <span class="token punctuation">]</span></pre></td></tr><tr><td data-num="29"></td><td><pre>                    <span class="token punctuation">&#125;</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="30"></td><td><pre>                <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="31"></td><td><pre>            <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="32"></td><td><pre>        <span class="token punctuation">]</span></pre></td></tr><tr><td data-num="33"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="34"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr></table></figure><p>方案二：node.js 实验功能<br />
+将 js 后缀更改为 mjs 后缀，即可（需要 node 版本为 14 以上）, 小于 14 版本的时候，node 执行时需要加上 --experimental-modules 参数，例如：<br />
+ <code>node --experimental-modules index.js</code></p>
+<h1 id="npm"><a class="anchor" href="#npm">#</a> npm</h1>
+<h2 id="冷知识"><a class="anchor" href="#冷知识">#</a> 冷知识</h2>
+<p><code>npm dedupe</code>  命令</p>
 <blockquote>
-<p>该命令用于去重依赖和优化依赖树,<code>npm dedupe</code>命令会检查node_modules中的依赖树,并尝试将公共依赖上移,以减少冗余的副本,优化依赖树<br><code>package-lock.json</code>文件<br>默认的<code>package.json</code>文件中存在依赖版本兼容,导致后续依赖包升级或某些其他情况下,每一个环境中执行<code>npm install</code>命令时,安装的依赖版本不同,这时候就有了<code>package-lock.json</code>文件,它可以精确锁定版本号和依赖,并存储仓库地址信息,使得依赖安装更快.<br>最佳的实践方式是:把 package-lock.json 一起提交到代码库中，不需要 ignore。但是执行 npm publish 命令，发布一个库的时候，它应该被忽略而不是直接发布出去(库项目一般是给其他仓库安装使用,不使用lock文件就可以复用主项目加载过的包)。<br><code>npm ci</code>命令<br><code>npm ci</code>命令会完全根据 package-lock.json 安装依赖，这可以保证整个开发团队都使用版本完全一致的依赖;执行<code>npm ci</code>时,会先删除项目中所有的node_modules再安装.<code>npm ci</code>永远不会改变<code>package.json</code>和<code>package-lock.json</code>文件<br>依赖是否出现在最终打包后的代码中取决于该依赖是否被引用<br><code>devDependencies</code>开发依赖<br>用于指定生产依赖,该依赖不会被自动加载(被别的模块依赖时)<br>并不是只有在 dependencies 中的模块才会被一起打包，而在 devDependencies 中的依赖一定不会被打包。实际上，依赖是否被打包，完全取决于项目里是否被引入了该模块。dependencies 和 devDependencies 在业务中更多的只是一个规范作用，我们自己的应用项目中，使用 npm install 命令安装依赖时，dependencies 和 devDependencies 内容都会被下载。<br><code>peerDependencies</code>对等依赖<br>用于指定依赖于某些三方模块作为基础(被别的模块进行加载时)<br><code>peerDependencies</code>主要意义在于声明该模块无法脱离某个三方模块单独存在,而如果放在<code>devDependencies</code>字段中就无法共享主模块中已下载的三方模块<br>使用场景有: 插件不能单独运行 , 插件正确运行的前提是核心依赖库必须先下载安装 , 不希望核心依赖库被重复下载 等<br><code>npm pack</code>打包命令<br><code>npm pack</code>命令可以根据package.json中的<code>bundledDependencies</code>字段和其他信息,将当前仓库打包为一个.tgz格式的压缩文件,在发布到npm仓库之前可以用于本地功能测试、单文件离线下载、包的分发(离线分发给团队成员使用)等<br>通过npm安装此tgz包可以使用<code>npm install package_name-1.0.0.tgz</code>来安装tgz包<br><code>bundledDependencies</code>打包依赖<br><code>bundledDependencies</code>打包依赖字段会被<code>npm pack</code>命令所使用,当执行<code>npm pack</code>命令时,会根据此字段将项目打包为几个模块tgz包.</p>
+<p>该命令用于去重依赖和优化依赖树， <code>npm dedupe</code>  命令会检查 node_modules 中的依赖树，并尝试将公共依赖上移，以减少冗余的副本，优化依赖树<br />
+ <code>package-lock.json</code>  文件<br />
+默认的 <code>package.json</code>  文件中存在依赖版本兼容，导致后续依赖包升级或某些其他情况下，每一个环境中执行 <code>npm install</code>  命令时，安装的依赖版本不同，这时候就有了 <code>package-lock.json</code>  文件，它可以精确锁定版本号和依赖，并存储仓库地址信息，使得依赖安装更快.<br />
+ 最佳的实践方式是：把 package-lock.json 一起提交到代码库中，不需要 ignore。但是执行 npm publish 命令，发布一个库的时候，它应该被忽略而不是直接发布出去 (库项目一般是给其他仓库安装使用，不使用 lock 文件就可以复用主项目加载过的包)。<br />
+ <code>npm ci</code>  命令<br />
+ <code>npm ci</code>  命令会完全根据 package-lock.json 安装依赖，这可以保证整个开发团队都使用版本完全一致的依赖；执行 <code>npm ci</code>  时，会先删除项目中所有的 node_modules 再安装. <code>npm ci</code>  永远不会改变 <code>package.json</code>  和 <code>package-lock.json</code>  文件<br />
+依赖是否出现在最终打包后的代码中取决于该依赖是否被引用<br />
+ <code>devDependencies</code>  开发依赖<br />
+用于指定生产依赖，该依赖不会被自动加载 (被别的模块依赖时)<br />
+ 并不是只有在 dependencies 中的模块才会被一起打包，而在 devDependencies 中的依赖一定不会被打包。实际上，依赖是否被打包，完全取决于项目里是否被引入了该模块。dependencies 和 devDependencies 在业务中更多的只是一个规范作用，我们自己的应用项目中，使用 npm install 命令安装依赖时，dependencies 和 devDependencies 内容都会被下载。<br />
+ <code>peerDependencies</code>  对等依赖<br />
+用于指定依赖于某些三方模块作为基础 (被别的模块进行加载时)<br />
+ <code>peerDependencies</code>  主要意义在于声明该模块无法脱离某个三方模块单独存在，而如果放在 <code>devDependencies</code>  字段中就无法共享主模块中已下载的三方模块<br />
+使用场景有：插件不能单独运行，插件正确运行的前提是核心依赖库必须先下载安装，不希望核心依赖库被重复下载 等<br />
+ <code>npm pack</code>  打包命令<br />
+ <code>npm pack</code>  命令可以根据 package.json 中的 <code>bundledDependencies</code>  字段和其他信息，将当前仓库打包为一个.tgz 格式的压缩文件，在发布到 npm 仓库之前可以用于本地功能测试、单文件离线下载、包的分发 (离线分发给团队成员使用) 等<br />
+通过 npm 安装此 tgz 包可以使用 <code>npm install package_name-1.0.0.tgz</code>  来安装 tgz 包<br />
+ <code>bundledDependencies</code>  打包依赖<br />
+ <code>bundledDependencies</code>  打包依赖字段会被 <code>npm pack</code>  命令所使用，当执行 <code>npm pack</code>  命令时，会根据此字段将项目打包为几个模块 tgz 包.</p>
 </blockquote>
 
       <div class="tags">
@@ -301,7 +304,7 @@ module.exports = &#123;
     <div class="item left">
       
 
-  <a href="/2024/03/29/TDD/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;s3.uuu.ovh&#x2F;imgs&#x2F;2024&#x2F;04&#x2F;06&#x2F;936b9e7ccd02d444.jpg" title="TDD测试驱动开发">
+  <a href="/2024/03/29/TDD/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;s3.uuu.ovh&#x2F;imgs&#x2F;2024&#x2F;04&#x2F;13&#x2F;a7144f7fc5d49961.jpg" title="TDD测试驱动开发">
   <span class="type">上一篇</span>
   <span class="category"><i class="ic i-flag"></i> 开发模式</span>
   <h3>TDD测试驱动开发</h3>
@@ -311,7 +314,7 @@ module.exports = &#123;
     <div class="item right">
       
 
-  <a href="/2024/03/30/%E6%9C%AC%E5%9C%B0%E6%96%87%E4%BB%B6%E9%93%BE%E6%8E%A5/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;s3.uuu.ovh&#x2F;imgs&#x2F;2024&#x2F;04&#x2F;13&#x2F;a7144f7fc5d49961.jpg" title="本地文件链接">
+  <a href="/2024/03/30/%E6%9C%AC%E5%9C%B0%E6%96%87%E4%BB%B6%E9%93%BE%E6%8E%A5/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;s3.uuu.ovh&#x2F;imgs&#x2F;2024&#x2F;04&#x2F;28&#x2F;52565b5ee960b9b5.webp" title="本地文件链接">
   <span class="type">下一篇</span>
   <span class="category"><i class="ic i-flag"></i> 脚手架开发</span>
   <h3>本地文件链接</h3>
@@ -333,7 +336,7 @@ module.exports = &#123;
   <div class="panels">
     <div class="inner">
       <div class="contents panel pjax" data-title="文章目录">
-          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#modules%E6%A8%A1%E5%9D%97%E5%8C%96"><span class="toc-number">1.</span> <span class="toc-text">modules模块化</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A8%A1%E5%9D%97%E5%8C%96%E7%9A%84%E4%BC%98%E7%82%B9%EF%BC%9A"><span class="toc-number">1.0.1.</span> <span class="toc-text">模块化的优点：</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A8%A1%E5%9D%97%E5%8C%96%E7%9A%84%E5%8F%91%E5%B1%95"><span class="toc-number">1.0.1.1.</span> <span class="toc-text">模块化的发展</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Bundler%E6%89%93%E5%8C%85%E5%B7%A5%E5%85%B7"><span class="toc-number">2.</span> <span class="toc-text">Bundler打包工具</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%9E%E7%94%9F%E5%8E%9F%E5%9B%A0%EF%BC%9A"><span class="toc-number">2.0.1.</span> <span class="toc-text">诞生原因：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%B8%E8%A7%81%E5%B7%A5%E5%85%B7"><span class="toc-number">2.0.2.</span> <span class="toc-text">常见工具</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#webpack%E9%85%8D%E7%BD%AE%E6%94%AF%E6%8C%81ES-Module"><span class="toc-number">3.</span> <span class="toc-text">webpack配置支持ES Module</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#npm"><span class="toc-number">4.</span> <span class="toc-text">npm</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%86%B7%E7%9F%A5%E8%AF%86"><span class="toc-number">4.1.</span> <span class="toc-text">冷知识</span></a></li></ol></li></ol>
+          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#modules%E6%A8%A1%E5%9D%97%E5%8C%96"><span class="toc-number">1.</span> <span class="toc-text"> modules 模块化</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A8%A1%E5%9D%97%E5%8C%96%E7%9A%84%E4%BC%98%E7%82%B9"><span class="toc-number">1.0.1.</span> <span class="toc-text"> 模块化的优点：</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A8%A1%E5%9D%97%E5%8C%96%E7%9A%84%E5%8F%91%E5%B1%95"><span class="toc-number">1.0.1.1.</span> <span class="toc-text"> 模块化的发展</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#bundler%E6%89%93%E5%8C%85%E5%B7%A5%E5%85%B7"><span class="toc-number">2.</span> <span class="toc-text"> Bundler 打包工具</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%9E%E7%94%9F%E5%8E%9F%E5%9B%A0"><span class="toc-number">2.0.1.</span> <span class="toc-text"> 诞生原因：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%B8%E8%A7%81%E5%B7%A5%E5%85%B7"><span class="toc-number">2.0.2.</span> <span class="toc-text"> 常见工具</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#webpack%E9%85%8D%E7%BD%AE%E6%94%AF%E6%8C%81es-module"><span class="toc-number">3.</span> <span class="toc-text"> webpack 配置支持 ES Module</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#npm"><span class="toc-number">4.</span> <span class="toc-text"> npm</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%86%B7%E7%9F%A5%E8%AF%86"><span class="toc-number">4.1.</span> <span class="toc-text"> 冷知识</span></a></li></ol></li></ol>
       </div>
       <div class="related panel pjax" data-title="系列文章">
         <ul>
@@ -351,19 +354,19 @@ module.exports = &#123;
 <nav class="state">
     <div class="item posts">
       <a href="/archives/">
-        <span class="count">82</span>
+        <span class="count">81</span>
         <span class="name">文章</span>
       </a>
     </div>
     <div class="item categories">
       <a href="/categories/">
-        <span class="count">66</span>
+        <span class="count">65</span>
         <span class="name">分类</span>
       </a>
     </div>
     <div class="item tags">
       <a href="/tags/">
-        <span class="count">102</span>
+        <span class="count">101</span>
         <span class="name">标签</span>
       </a>
     </div>
@@ -451,40 +454,70 @@ module.exports = &#123;
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/Vue/" title="分类于 Vue">Vue</a>
+<a href="/categories/Docker/" title="分类于 Docker">Docker</a>
 </div>
 
-    <span><a href="/2023/01/12/Vue%E6%9D%82%E8%AE%B0/" title="Vue使用笔记">Vue使用笔记</a></span>
+    <span><a href="/2024/07/08/docker/" title="Docker">Docker</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/Node-js/" title="分类于 Node.js">Node.js</a>
+<a href="/categories/JS/" title="分类于 JS">JS</a>
 </div>
 
-    <span><a href="/2024/05/24/node/" title="Node学习笔记">Node学习笔记</a></span>
+    <span><a href="/2023/12/11/typedArray/" title="JS中类型化数组typedArray">JS中类型化数组typedArray</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/%E6%9D%82%E8%AE%B0/" title="分类于 杂记">杂记</a>
+<a href="/categories/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" title="分类于 正则表达式">正则表达式</a>
 </div>
 
-    <span><a href="/2023/01/01/%E6%9D%82%E8%AE%B0/" title="杂记">杂记</a></span>
+    <span><a href="/2023/02/12/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" title="正则表达式">正则表达式</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/" title="分类于 前端性能优化">前端性能优化</a>
+<a href="/categories/v8%E5%BC%95%E6%93%8E%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/" title="分类于 v8引擎编译原理">v8引擎编译原理</a>
 </div>
 
-    <span><a href="/2024/03/02/%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/" title="前端性能优化">前端性能优化</a></span>
+    <span><a href="/2024/05/21/v8%E5%BC%95%E6%93%8E%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/" title="v8引擎编译原理">v8引擎编译原理</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E6%9E%B6%E6%9E%84%E9%A3%8E%E6%A0%BC/" title="分类于 架构风格">架构风格</a>
+</div>
+
+    <span><a href="/2024/07/29/%E6%9E%B6%E6%9E%84%E9%A3%8E%E6%A0%BC/" title="架构风格">架构风格</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E6%B5%8F%E8%A7%88%E5%99%A8/" title="分类于 浏览器">浏览器</a>
+</div>
+
+    <span><a href="/2023/10/09/%E6%B5%8F%E8%A7%88%E5%99%A8%E6%B8%B2%E6%9F%93%E5%8E%9F%E7%90%86/" title="浏览器渲染原理">浏览器渲染原理</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Blob/" title="分类于 Blob">Blob</a>
+</div>
+
+    <span><a href="/2024/05/17/Blob%E5%92%8CFile/" title="Blob、File和FileReader">Blob、File和FileReader</a></span>
   </li>
 
       
@@ -501,50 +534,20 @@ module.exports = &#123;
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/%E4%B8%AD%E5%89%8D%E5%8F%B0%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" title="分类于 中前台解决方案">中前台解决方案</a>
+<a href="/categories/ajax/" title="分类于 ajax">ajax</a>
 </div>
 
-    <span><a href="/2023/02/12/%E4%B8%AD%E5%89%8D%E5%8F%B0%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" title="中前台解决方案">中前台解决方案</a></span>
+    <span><a href="/2023/01/08/ajax/" title="ajax">ajax</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/vue-router%E5%8E%9F%E7%90%86/" title="分类于 vue-router原理">vue-router原理</a>
+<a href="/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/" title="分类于 面试题">面试题</a>
 </div>
 
-    <span><a href="/2024/04/12/vue-router/" title="vue-router">vue-router</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/JS/" title="分类于 JS">JS</a>
-</div>
-
-    <span><a href="/2024/02/02/serviceWorker/" title="serviceWorker">serviceWorker</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/Travis%E5%92%8CDocker/" title="分类于 Travis和Docker">Travis和Docker</a>
-</div>
-
-    <span><a href="/2023/12/02/Travis%20CI%E5%92%8CDocker%E7%9A%84%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90/" title="Travis和Docker的持续集成">Travis和Docker的持续集成</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/vue/" title="分类于 vue">vue</a>
-</div>
-
-    <span><a href="/2023/11/02/vue%E5%8E%9F%E7%90%86/" title="vue源码解读">vue源码解读</a></span>
+    <span><a href="/2024/04/30/%E6%B7%B1%E6%8B%B7%E8%B4%9D/" title="深拷贝">深拷贝</a></span>
   </li>
 
   </ul>
@@ -611,7 +614,7 @@ module.exports = &#123;
 </script>
 
 <script src="https://polyfill.alicdn.com/polyfill.min.js?features=Promise%2CArray.prototype.includes"></script>
-
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.21.0/plugins/diff-highlight/prism-diff-highlight.min.js"></script>
 <script src="//gcore.jsdelivr.net/combine/npm/pace-js@1.0.2/pace.min.js,npm/pjax@0.2.8/pjax.min.js,npm/whatwg-fetch@3.4.0/dist/fetch.umd.min.js,npm/animejs@3.2.0/lib/anime.min.js,npm/algoliasearch@4/dist/algoliasearch-lite.umd.js,npm/instantsearch.js@4/dist/instantsearch.production.min.js,npm/lozad@1/dist/lozad.min.js,npm/quicklink@2/dist/quicklink.umd.js"></script>
 
 <script src="/js/app.js?v=0.2.5"></script>

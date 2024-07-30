@@ -119,12 +119,12 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
       </div>
       <div id="imgs" class="pjax">
         <ul>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/05/921096d78816dacc.jpg"></li>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/05/f09ce1d151936963.jpg"></li>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/06/a16303594a53d8d1.jpg"></li>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/28/6b39a7fcfcafff7b.webp"></li>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/07/2600bb35f2cdf6cf.jpg"></li>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/28/a34792f58e340f69.webp"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/06/d8aa12b30683676e.jpg"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/25/b4f20660104f3911.jpg"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/13/ba4d76fc0767aeef.jpg"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/12/65788b6548e9e58f.jpg"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/12/35b09cafcea9fd29.webp"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/05/5f5c15d0d8ceb4d1.jpg"></li>
         </ul>
       </div>
     </header>
@@ -170,84 +170,48 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
   <div class="body md" itemprop="articleBody">
     
 
-    <h1 id="深拷贝"><a href="#深拷贝" class="headerlink" title="深拷贝"></a>深拷贝</h1><h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>我们知道在javascript中有八种数据类型：其中number，string，undefined，null，boolean，symbol和bigint为基本数据类型，而object为复杂数据类型</p>
-<h2 id="存储"><a href="#存储" class="headerlink" title="存储"></a>存储</h2><ul>
+    <h1 id="深拷贝"><a class="anchor" href="#深拷贝">#</a> 深拷贝</h1>
+<h2 id="介绍"><a class="anchor" href="#介绍">#</a> 介绍</h2>
+<p>我们知道在 javascript 中有八种数据类型：其中 number，string，undefined，null，boolean，symbol 和 bigint 为基本数据类型，而 object 为复杂数据类型</p>
+<h2 id="存储"><a class="anchor" href="#存储">#</a> 存储</h2>
+<ul>
 <li>对于基本数据类型，其值直接存储于栈中。</li>
-<li>对于复杂数据类型，其值存储于堆中，而栈中只存储堆中的地址。这样做的好处有：<ul>
+<li>对于复杂数据类型，其值存储于堆中，而栈中只存储堆中的地址。这样做的好处有：
+<ul>
 <li>节省内存空间：存储在堆中的对象可以通过栈内的引用被访问和操作，意味着对象可以在不同的上下文中被共享和引用，从而节省内存。</li>
 <li>垃圾回收：堆内存中的对象不再被引用时，垃圾回收机制就会自动进行回收，从而避免了内存泄漏和资源浪费。</li>
-<li>动态分配内存：堆内存允许对象动态的增长和缩小，因此可以根据需要灵活地修改对象的结构和内容，使得js对象可以轻松地扩展以适应不同的应用需求。</li>
+<li>动态分配内存：堆内存允许对象动态的增长和缩小，因此可以根据需要灵活地修改对象的结构和内容，使得 js 对象可以轻松地扩展以适应不同的应用需求。</li>
 </ul>
 </li>
 </ul>
-<h2 id="深拷贝-1"><a href="#深拷贝-1" class="headerlink" title="深拷贝"></a><strong>深拷贝</strong></h2><p>而深拷贝和浅拷贝就是对于复杂数据类型object来说的，当拷贝了对象的一层（即堆的引用）时，就称之为浅拷贝，当拷贝了对象的两层（堆中创建新的对象）时，就称之为深拷贝。</p>
-<h2 id="实现方案"><a href="#实现方案" class="headerlink" title="实现方案"></a>实现方案</h2><ol>
-<li><p><code>JSON.parse(JSON.stringify(obj))</code>，第一种方法是使用JSON方法，但是这个方法有一些限制：JSON序列化时函数会被转为null，正则表达式会被转为空对象。</p>
+<h2 id="深拷贝-2"><a class="anchor" href="#深拷贝-2">#</a> <strong>深拷贝</strong></h2>
+<p>而深拷贝和浅拷贝就是对于复杂数据类型 object 来说的，当拷贝了对象的一层（即堆的引用）时，就称之为浅拷贝，当拷贝了对象的两层（堆中创建新的对象）时，就称之为深拷贝。</p>
+<h2 id="实现方案"><a class="anchor" href="#实现方案">#</a> 实现方案</h2>
+<ol>
+<li>
+<p><code>JSON.parse(JSON.stringify(obj))</code> ，第一种方法是使用 JSON 方法，但是这个方法有一些限制：JSON 序列化时函数会被转为 null，正则表达式会被转为空对象。</p>
 </li>
-<li><p>递归实现：</p>
-<pre><code class="js">
-
-```javascript
-function deepCopy(obj, parent = null) &#123;
-    // 创建一个新对象
-    let result = &#123;&#125;;
-    let keys = Object.keys(obj),
-        key = null,
-        temp = null,
-        _parent = parent;
-    // 该字段有父级则需要追溯该字段的父级
-    while (_parent) &#123;
-        // 如果该字段引用了它的父级则为循环引用
-        if (_parent.originalParent === obj) &#123;
-            // 循环引用直接返回同级的新对象
-            return _parent.currentParent;
-        &#125;
-        _parent = _parent.parent;
-    &#125;
-    for (let i = 0; i &lt; keys.length; i++) &#123;
-        key = keys[i];
-        temp = obj[key];
-        // 如果字段的值也是一个对象
-        if (temp &amp;&amp; typeof temp === &#39;object&#39;) &#123;
-            // 递归执行深拷贝 将同级的待拷贝对象与新对象传递给 parent 方便追溯循环引用
-            result[key] = DeepCopy(temp, &#123;
-                originalParent: obj,
-                currentParent: result,
-                parent: parent
-            &#125;);
-
-        &#125; else &#123;
-            result[key] = temp;
-        &#125;
-    &#125;
-    return result;
-&#125;
-```
-</code></pre>
-</li>
-<li><p>MessageChannel实现深克隆：由于浏览器不能将一个函数正确的复制到另一个线程中，所以不能支持函数的深克隆。</p>
-<pre><code class="javascript">function deepCopy(obj) &#123;
-  return new Promise((resolve) =&gt; &#123;
-    const &#123;port1, port2&#125; = new MessageChannel();
-    port2.onmessage = ev =&gt; resolve(ev.data);
-    port1.postMessage(obj);
-  &#125;);
-&#125;
-
-deepCopy(obj).then((copy) =&gt; &#123;// 异步的
-    let copyObj = copy;
-    console.log(copyObj, obj)
-    console.log(copyObj == obj)
-&#125;);
-</code></pre>
-</li>
-<li><p>H5新增structuredClone<br>结构化克隆解决了该JSON.stringify()技术的许多（尽管不是全部）缺点。结构化克隆可以处理循环依赖，支持许多内置数据类型，并且更健壮且速度更快。<br>但是，它仍然有一些限制：</p>
+<li>
+<p>递归实现：</p>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token template-punctuation string">`</span></span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">javascript</pre></td></tr><tr><td data-num="2"></td><td><pre>function deepCopy(obj, parent = null) &#123;</pre></td></tr><tr><td data-num="3"></td><td><pre>    // 创建一个新对象</pre></td></tr><tr><td data-num="4"></td><td><pre>    let result = &#123;&#125;;</pre></td></tr><tr><td data-num="5"></td><td><pre>    let keys = Object.keys(obj),</pre></td></tr><tr><td data-num="6"></td><td><pre>        key = null,</pre></td></tr><tr><td data-num="7"></td><td><pre>        temp = null,</pre></td></tr><tr><td data-num="8"></td><td><pre>        _parent = parent;</pre></td></tr><tr><td data-num="9"></td><td><pre>    // 该字段有父级则需要追溯该字段的父级</pre></td></tr><tr><td data-num="10"></td><td><pre>    while (_parent) &#123;</pre></td></tr><tr><td data-num="11"></td><td><pre>        // 如果该字段引用了它的父级则为循环引用</pre></td></tr><tr><td data-num="12"></td><td><pre>        if (_parent.originalParent === obj) &#123;</pre></td></tr><tr><td data-num="13"></td><td><pre>            // 循环引用直接返回同级的新对象</pre></td></tr><tr><td data-num="14"></td><td><pre>            return _parent.currentParent;</pre></td></tr><tr><td data-num="15"></td><td><pre>        &#125;</pre></td></tr><tr><td data-num="16"></td><td><pre>        _parent = _parent.parent;</pre></td></tr><tr><td data-num="17"></td><td><pre>    &#125;</pre></td></tr><tr><td data-num="18"></td><td><pre>    for (let i = 0; i &lt; keys.length; i++) &#123;</pre></td></tr><tr><td data-num="19"></td><td><pre>        key = keys[i];</pre></td></tr><tr><td data-num="20"></td><td><pre>        temp = obj[key];</pre></td></tr><tr><td data-num="21"></td><td><pre>        // 如果字段的值也是一个对象</pre></td></tr><tr><td data-num="22"></td><td><pre>        if (temp &amp;&amp; typeof temp === 'object') &#123;</pre></td></tr><tr><td data-num="23"></td><td><pre>            // 递归执行深拷贝 将同级的待拷贝对象与新对象传递给 parent 方便追溯循环引用</pre></td></tr><tr><td data-num="24"></td><td><pre>            result[key] = DeepCopy(temp, &#123;</pre></td></tr><tr><td data-num="25"></td><td><pre>                originalParent: obj,</pre></td></tr><tr><td data-num="26"></td><td><pre>                currentParent: result,</pre></td></tr><tr><td data-num="27"></td><td><pre>                parent: parent</pre></td></tr><tr><td data-num="28"></td><td><pre>            &#125;);</pre></td></tr><tr><td data-num="29"></td><td><pre></pre></td></tr><tr><td data-num="30"></td><td><pre>        &#125; else &#123;</pre></td></tr><tr><td data-num="31"></td><td><pre>            result[key] = temp;</pre></td></tr><tr><td data-num="32"></td><td><pre>        &#125;</pre></td></tr><tr><td data-num="33"></td><td><pre>    &#125;</pre></td></tr><tr><td data-num="34"></td><td><pre>    return result;</pre></td></tr><tr><td data-num="35"></td><td><pre>&#125;</pre></td></tr><tr><td data-num="36"></td><td><pre></span><span class="token template-punctuation string">`</span></span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token template-punctuation string">`</span></span></pre></td></tr></table></figure></li>
+<li>
+<p>MessageChannel 实现深克隆：由于浏览器不能将一个函数正确的复制到另一个线程中，所以不能支持函数的深克隆。</p>
+<figure class="highlight javascript"><figcaption data-lang="javascript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">function</span> <span class="token function">deepCopy</span><span class="token punctuation">(</span><span class="token parameter">obj</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="2"></td><td><pre>  <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Promise</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">resolve</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="3"></td><td><pre>    <span class="token keyword">const</span> <span class="token punctuation">&#123;</span>port1<span class="token punctuation">,</span> port2<span class="token punctuation">&#125;</span> <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">MessageChannel</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="4"></td><td><pre>    port2<span class="token punctuation">.</span><span class="token function-variable function">onmessage</span> <span class="token operator">=</span> <span class="token parameter">ev</span> <span class="token operator">=></span> <span class="token function">resolve</span><span class="token punctuation">(</span>ev<span class="token punctuation">.</span>data<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="5"></td><td><pre>    port1<span class="token punctuation">.</span><span class="token function">postMessage</span><span class="token punctuation">(</span>obj<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="6"></td><td><pre>  <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="7"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="8"></td><td><pre></pre></td></tr><tr><td data-num="9"></td><td><pre><span class="token function">deepCopy</span><span class="token punctuation">(</span>obj<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">copy</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span><span class="token comment">// 异步的</span></pre></td></tr><tr><td data-num="10"></td><td><pre>    <span class="token keyword">let</span> copyObj <span class="token operator">=</span> copy<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="11"></td><td><pre>    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>copyObj<span class="token punctuation">,</span> obj<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="12"></td><td><pre>    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>copyObj <span class="token operator">==</span> obj<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="13"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr></table></figure></li>
+<li>
+<p>H5 新增 structuredClone<br />
+ 结构化克隆解决了该 JSON.stringify () 技术的许多（尽管不是全部）缺点。结构化克隆可以处理循环依赖，支持许多内置数据类型，并且更健壮且速度更快。<br />
+但是，它仍然有一些限制：</p>
 </li>
 </ol>
-<p>原型：如果你使用structuredClone()类实例，你将获得一个普通对象作为返回值，因为结构化克隆会丢弃对象的原型链。<br>函数：如果你的对象包含函数，它们将被悄悄丢弃。<br>不可克隆：有些值不是结构化可克隆的，尤其是Error、 DOM 节点 和 Function。尝试这样做将引发 DataCloneError 异常。<br>属性描述符：setter和getter(以及类似元数据的功能)不会被复制。例如，如果使用属性描述符将对象标记为只读，则复制后的对象中是可读写(默认配置)。<br>RegExp：RegExp对象的lastIndex字段不会保留。</p>
-<h1 id="浅拷贝实现方案"><a href="#浅拷贝实现方案" class="headerlink" title="浅拷贝实现方案"></a>浅拷贝实现方案</h1><ol>
-<li><code>Object.assign(&#123;&#125;,obj)</code>，第二方法是使用Object.assign()</li>
-<li><code>const obj1 = &#123;...obj2&#125;</code>，使用扩展运算符</li>
+<p>原型：如果你使用 structuredClone () 类实例，你将获得一个普通对象作为返回值，因为结构化克隆会丢弃对象的原型链。<br />
+函数：如果你的对象包含函数，它们将被悄悄丢弃。<br />
+不可克隆：有些值不是结构化可克隆的，尤其是 Error、 DOM 节点 和 Function。尝试这样做将引发 DataCloneError 异常。<br />
+属性描述符：setter 和 getter (以及类似元数据的功能) 不会被复制。例如，如果使用属性描述符将对象标记为只读，则复制后的对象中是可读写 (默认配置)。<br />
+RegExp：RegExp 对象的 lastIndex 字段不会保留。</p>
+<h1 id="浅拷贝实现方案"><a class="anchor" href="#浅拷贝实现方案">#</a> 浅拷贝实现方案</h1>
+<ol>
+<li><code>Object.assign(&#123;&#125;,obj)</code> ，第二方法是使用 Object.assign ()</li>
+<li><code>const obj1 = &#123;...obj2&#125;</code> ，使用扩展运算符</li>
 </ol>
 
       <div class="tags">
@@ -321,7 +285,7 @@ deepCopy(obj).then((copy) =&gt; &#123;// 异步的
     <div class="item left">
       
 
-  <a href="/2024/04/29/%E5%89%8D%E7%AB%AF%E7%9B%91%E6%8E%A7/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;s3.uuu.ovh&#x2F;imgs&#x2F;2024&#x2F;04&#x2F;07&#x2F;a69a9d571bee6f0b.jpg" title="前端监控">
+  <a href="/2024/04/29/%E5%89%8D%E7%AB%AF%E7%9B%91%E6%8E%A7/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;s3.uuu.ovh&#x2F;imgs&#x2F;2024&#x2F;04&#x2F;06&#x2F;63e9f1e7097ba6fb.jpg" title="前端监控">
   <span class="type">上一篇</span>
   <span class="category"><i class="ic i-flag"></i> 前端监控</span>
   <h3>前端监控</h3>
@@ -331,7 +295,7 @@ deepCopy(obj).then((copy) =&gt; &#123;// 异步的
     <div class="item right">
       
 
-  <a href="/2024/05/08/%E5%87%BD%E6%95%B0%E9%87%8D%E8%BD%BD/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;s3.uuu.ovh&#x2F;imgs&#x2F;2024&#x2F;04&#x2F;15&#x2F;6d859d49c9d65157.jpg" title="函数重载">
+  <a href="/2024/05/08/%E5%87%BD%E6%95%B0%E9%87%8D%E8%BD%BD/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;s3.uuu.ovh&#x2F;imgs&#x2F;2024&#x2F;04&#x2F;12&#x2F;b04c50f26fdc9c19.jpg" title="函数重载">
   <span class="type">下一篇</span>
   <span class="category"><i class="ic i-flag"></i> JS</span>
   <h3>函数重载</h3>
@@ -353,7 +317,7 @@ deepCopy(obj).then((copy) =&gt; &#123;// 异步的
   <div class="panels">
     <div class="inner">
       <div class="contents panel pjax" data-title="文章目录">
-          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%B7%B1%E6%8B%B7%E8%B4%9D"><span class="toc-number">1.</span> <span class="toc-text">深拷贝</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%8B%E7%BB%8D"><span class="toc-number">1.1.</span> <span class="toc-text">介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AD%98%E5%82%A8"><span class="toc-number">1.2.</span> <span class="toc-text">存储</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B7%B1%E6%8B%B7%E8%B4%9D-1"><span class="toc-number">1.3.</span> <span class="toc-text">深拷贝</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%A1%88"><span class="toc-number">1.4.</span> <span class="toc-text">实现方案</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%B5%85%E6%8B%B7%E8%B4%9D%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%A1%88"><span class="toc-number">2.</span> <span class="toc-text">浅拷贝实现方案</span></a></li></ol>
+          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%B7%B1%E6%8B%B7%E8%B4%9D"><span class="toc-number">1.</span> <span class="toc-text"> 深拷贝</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%8B%E7%BB%8D"><span class="toc-number">1.1.</span> <span class="toc-text"> 介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AD%98%E5%82%A8"><span class="toc-number">1.2.</span> <span class="toc-text"> 存储</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B7%B1%E6%8B%B7%E8%B4%9D-2"><span class="toc-number">1.3.</span> <span class="toc-text"> 深拷贝</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%A1%88"><span class="toc-number">1.4.</span> <span class="toc-text"> 实现方案</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%B5%85%E6%8B%B7%E8%B4%9D%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%A1%88"><span class="toc-number">2.</span> <span class="toc-text"> 浅拷贝实现方案</span></a></li></ol>
       </div>
       <div class="related panel pjax" data-title="系列文章">
         <ul>
@@ -371,19 +335,19 @@ deepCopy(obj).then((copy) =&gt; &#123;// 异步的
 <nav class="state">
     <div class="item posts">
       <a href="/archives/">
-        <span class="count">82</span>
+        <span class="count">81</span>
         <span class="name">文章</span>
       </a>
     </div>
     <div class="item categories">
       <a href="/categories/">
-        <span class="count">66</span>
+        <span class="count">65</span>
         <span class="name">分类</span>
       </a>
     </div>
     <div class="item tags">
       <a href="/tags/">
-        <span class="count">102</span>
+        <span class="count">101</span>
         <span class="name">标签</span>
       </a>
     </div>
@@ -471,6 +435,26 @@ deepCopy(obj).then((copy) =&gt; &#123;// 异步的
   <li class="item">
     
 <div class="breadcrumb">
+<a href="/categories/Vue/" title="分类于 Vue">Vue</a>
+</div>
+
+    <span><a href="/2023/01/12/Vue%E6%9D%82%E8%AE%B0/" title="Vue使用笔记">Vue使用笔记</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/HTTP/" title="分类于 HTTP">HTTP</a>
+</div>
+
+    <span><a href="/2023/05/02/HTTP/" title="HTTP">HTTP</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
 <a href="/categories/json-server/" title="分类于 json-server">json-server</a>
 </div>
 
@@ -491,80 +475,60 @@ deepCopy(obj).then((copy) =&gt; &#123;// 异步的
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96/" title="分类于 前端工程化">前端工程化</a>
+<a href="/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/" title="分类于 面试题">面试题</a>
 </div>
 
-    <span><a href="/2024/03/29/%E5%89%8D%E7%AB%AF%E6%A8%A1%E5%9D%97%E5%8C%96/" title="前端模块化">前端模块化</a></span>
+    <span><a href="/2024/04/30/%E6%B7%B1%E6%8B%B7%E8%B4%9D/" title="深拷贝">深拷贝</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/TDD/" title="分类于 TDD">TDD</a>
+<a href="/categories/%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86/" title="分类于 版本管理">版本管理</a>
 </div>
 
-    <span><a href="/2024/03/30/jest/" title="jest">jest</a></span>
+    <span><a href="/2024/01/23/%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86/" title="版本管理">版本管理</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/%E4%B8%9A%E5%8A%A1%E5%A4%84%E7%90%86/" title="分类于 业务处理">业务处理</a>
+<a href="/categories/%E5%BE%AE%E5%89%8D%E7%AB%AF/" title="分类于 微前端">微前端</a>
 </div>
 
-    <span><a href="/2024/03/29/%E6%9C%AC%E5%9C%B0%E9%A2%84%E8%A7%88%E5%9B%BE%E7%89%87/" title="本地预览图片">本地预览图片</a></span>
+    <span><a href="/2024/05/24/%E5%BE%AE%E5%89%8D%E7%AB%AF/" title="微前端">微前端</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/Docker/" title="分类于 Docker">Docker</a>
+<a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" title="分类于 数据库">数据库</a>
 </div>
 
-    <span><a href="/2024/07/08/docker/" title="Docker">Docker</a></span>
+    <span><a href="/2023/12/02/%E6%95%B0%E6%8D%AE%E5%BA%93/" title="数据库">数据库</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/ajax/" title="分类于 ajax">ajax</a>
+<a href="/categories/react/" title="分类于 react">react</a>
 </div>
 
-    <span><a href="/2023/01/08/ajax/" title="ajax">ajax</a></span>
+    <span><a href="/2024/01/29/react%E6%8A%80%E6%9C%AF%E6%8F%AD%E7%A7%98/" title="react技术揭秘">react技术揭秘</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/%E6%B8%B2%E6%9F%93%E6%A8%A1%E5%BC%8F/" title="分类于 渲染模式">渲染模式</a>
+<a href="/categories/esbuild/" title="分类于 esbuild">esbuild</a>
 </div>
 
-    <span><a href="/2023/05/17/%E6%B8%B2%E6%9F%93%E6%A8%A1%E5%BC%8F/" title="渲染模式">渲染模式</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/git/" title="分类于 git">git</a>
-</div>
-
-    <span><a href="/2023/04/02/git%E5%92%8Cgithub/" title="git与github">git与github</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/" title="分类于 计算机组成原理">计算机组成原理</a>
-</div>
-
-    <span><a href="/2024/01/02/%E7%BC%93%E5%AD%98%E3%80%81%E5%86%85%E5%AD%98%E3%80%81CPU%E7%9F%A5%E8%AF%86%E7%82%B9%E8%A7%A3%E6%9E%90%E7%AC%94%E8%AE%B0/" title="计组知识点">计组知识点</a></span>
+    <span><a href="/2024/05/17/esbuild/" title="esbuild">esbuild</a></span>
   </li>
 
   </ul>
@@ -631,7 +595,7 @@ deepCopy(obj).then((copy) =&gt; &#123;// 异步的
 </script>
 
 <script src="https://polyfill.alicdn.com/polyfill.min.js?features=Promise%2CArray.prototype.includes"></script>
-
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.21.0/plugins/diff-highlight/prism-diff-highlight.min.js"></script>
 <script src="//gcore.jsdelivr.net/combine/npm/pace-js@1.0.2/pace.min.js,npm/pjax@0.2.8/pjax.min.js,npm/whatwg-fetch@3.4.0/dist/fetch.umd.min.js,npm/animejs@3.2.0/lib/anime.min.js,npm/algoliasearch@4/dist/algoliasearch-lite.umd.js,npm/instantsearch.js@4/dist/instantsearch.production.min.js,npm/lozad@1/dist/lozad.min.js,npm/quicklink@2/dist/quicklink.umd.js"></script>
 
 <script src="/js/app.js?v=0.2.5"></script>

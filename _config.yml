@@ -55,6 +55,8 @@ prismjs:
   preprocess: true
   line_number: true
   tab_replace: ''
+  # plugin:
+  #   diff: true # 启用diff插件
 
 autoprefixer:
   exclude:
