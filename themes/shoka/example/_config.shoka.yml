@@ -110,8 +110,19 @@ pangu: true
 # ---------------------------------------------------------------
 # analytics & SEO Settings
 # ---------------------------------------------------------------
-
-
+# 代码块高亮显示
+highlight:
+  enable: false
+  line_number: true
+  auto_detect: false
+  tab_replace: ""
+  wrap: true
+  hljs: false
+prismjs:
+  enable: false
+  preprocess: true
+  line_number: true
+  tab_replace: ""
 # Disable Baidu transformation on mobile devices.
 disable_baidu_transformation: true
 
