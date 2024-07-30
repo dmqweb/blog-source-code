@@ -12,7 +12,14 @@ type: "links"
   desc: w3查看前端概念
   image: https://picsum.photos/200/200?239
   color: ""
+# 多链接参考 yaml 列表格式
 
+- site: 可视化JS执行流程
+  owner: 
+  url: http://latentflip.com/loupe/?code=JC5vbignYnV0dG9uJywgJ2NsaWNrJywgZnVuY3Rpb24gb25DbGljaygpIHsKICAgIHNldFRpbWVvdXQoZnVuY3Rpb24gdGltZXIoKSB7CiAgICAgICAgY29uc29sZS5sb2coJ1lvdSBjbGlja2VkIHRoZSBidXR0b24hJyk7ICAgIAogICAgfSwgMjAwMCk7Cn0pOwoKY29uc29sZS5sb2coIkhpISIpOwoKc2V0VGltZW91dChmdW5jdGlvbiB0aW1lb3V0KCkgewogICAgY29uc29sZS5sb2coIkNsaWNrIHRoZSBidXR0b24hIik7Cn0sIDUwMDApOwoKY29uc29sZS5sb2coIldlbGNvbWUgdG8gbG91cGUuIik7!!!PGJ1dHRvbj5DbGljayBtZSE8L2J1dHRvbj4%3D
+  desc: 可视化JavaScript的执行过程
+  image: https://picsum.photos/200/200?241
+  color: "pink"
 # 多链接参考 yaml 列表格式
 
 - site: 走之底
@@ -21,6 +28,14 @@ type: "links"
   desc: 技术工具站
   image: https://picsum.photos/200/200?2
   color: "gray"
+  # 多链接参考 yaml 列表格式
+
+- site: 设计模式
+  owner: 
+  url: https://www.patterns.dev/vanilla/command-pattern
+  desc: 前端设计模式
+  image: https://picsum.photos/200/200?240
+  color: "aqua"
 # 多链接参考 yaml 列表格式
 
 - site: 打包构建工具比对

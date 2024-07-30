@@ -78,7 +78,7 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
       <i class="ic i-pen"></i>
     </span>
     <span class="text">本文字数</span>
-    <span>1.4k</span>
+    <span>1.5k</span>
     <span class="text">字</span>
   </span>
   <span class="item" title="阅读时长">
@@ -119,11 +119,11 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
       </div>
       <div id="imgs" class="pjax">
         <ul>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/25/15ba2d11a4dda9ca.jpg"></li>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/28/02824114036dc293.webp"></li>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/25/3fe84aea28b256c7.jpg"></li>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/06/603b3532eacee81b.webp"></li>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/25/0aebf75866635811.jpg"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/05/921096d78816dacc.jpg"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/07/517ddd40a038fa1b.jpg"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/05/d389418a13d92e24.jpg"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/04/025bf3f9fc1cf452.webp"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/12/35b09cafcea9fd29.webp"></li>
           <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/06/936b9e7ccd02d444.jpg"></li>
         </ul>
       </div>
@@ -170,35 +170,96 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
   <div class="body md" itemprop="articleBody">
     
 
-    <h1 id="diff-代码块"><a class="anchor" href="#diff-代码块">#</a> diff 代码块</h1>
-<figure class="highlight diff"><figcaption data-lang="diff"></figcaption><table><tr><td data-num="1"></td><td><pre>const unique = (arr)=>&#123;</pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token deleted-sign deleted"><span class="token prefix deleted">-</span> return Array.from(new Set(arr))</pre></td></tr><tr><td data-num="3"></td><td><pre></span><span class="token inserted-sign inserted"><span class="token prefix inserted">+</span> return [...new Set(arr)];</pre></td></tr><tr><td data-num="4"></td><td><pre></span>&#125;</pre></td></tr></table></figure><h1 id="待办ctrlshiftx"><a class="anchor" href="#待办ctrlshiftx">#</a> 待办 (ctrl+shift+x)</h1>
-<ul class="task-list">
-<li class="task-list-item"><input type="checkbox" id="cbx_0" disabled="true" /><label for="cbx_0"> [ ]</label></li>
+    <h1 id="diff-代码块"><a href="#diff-代码块" class="headerlink" title="diff 代码块"></a>diff 代码块</h1><pre><code class="diff">const unique = (arr)=&gt;&#123;
+- return Array.from(new Set(arr))
++ return [...new Set(arr)];
+&#125;
+</code></pre>
+<h1 id="待办-ctrl-shift-x"><a href="#待办-ctrl-shift-x" class="headerlink" title="待办(ctrl+shift+x)"></a>待办(ctrl+shift+x)</h1><ul>
+<li><input disabled="" type="checkbox"> [ ]</li>
 </ul>
-<h1 id="折叠"><a class="anchor" href="#折叠">#</a> 折叠</h1>
-<pre><code>&lt;details&gt;
+<h1 id="折叠"><a href="#折叠" class="headerlink" title="折叠"></a>折叠</h1><pre><code>&lt;details&gt;
 &lt;summary&gt;展开查看规范&lt;/summary&gt;
 这是展开后的内容1
 &lt;/details&gt;
 </code></pre>
-<p>&lt;details&gt; &lt;summary &gt; 展开查看规范 &lt;/summary&gt; 这是展开后的内容 1 &lt;/details&gt;</p>
-<h1 id="puml-画图需要插件"><a class="anchor" href="#puml-画图需要插件">#</a> puml 画图（需要插件）</h1>
-<pre><code class="language-puml">@startuml
+<details> <summary>展开查看规范</summary> 这是展开后的内容1 </details>
+
+<h1 id="puml-画图（需要插件）"><a href="#puml-画图（需要插件）" class="headerlink" title="puml 画图（需要插件）"></a>puml 画图（需要插件）</h1><pre><code class="puml">@startuml
 tank &lt;|-- PlayerTank
 tank &lt;|-- EnemyTank
 @enduml
 </code></pre>
-<h1 id="mermaid-流程图"><a class="anchor" href="#mermaid-流程图">#</a> mermaid 流程图</h1>
-<pre><code>sequenceDiagram
-	participant 老板L
-	participant 员工A
+<h1 id="mermaid-流程图"><a href="#mermaid-流程图" class="headerlink" title="mermaid 流程图"></a>mermaid 流程图</h1><pre><code>sequenceDiagram
+    participant 老板L
+    participant 员工A
 
-	老板L -&gt;&gt; 员工A : “在这里我们是兄弟！”
-	老板L -x 员工A : 画个饼
-	员工A --&gt;&gt; 老板L : 怯怯地鼓掌
+    老板L -&gt;&gt; 员工A : “在这里我们是兄弟！”
+    老板L -x 员工A : 画个饼
+    员工A --&gt;&gt; 老板L : 怯怯地鼓掌
 </code></pre>
-<figure class="highlight mermaid"><figcaption data-lang="mermaid"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">sequenceDiagram</span></pre></td></tr><tr><td data-num="2"></td><td><pre>	<span class="token keyword">participant</span> 老板L</pre></td></tr><tr><td data-num="3"></td><td><pre>	<span class="token keyword">participant</span> 员工A</pre></td></tr><tr><td data-num="4"></td><td><pre></pre></td></tr><tr><td data-num="5"></td><td><pre>	老板L <span class="token arrow operator">->></span> 员工A <span class="token operator">:</span> “在这里我们是兄弟！”</pre></td></tr><tr><td data-num="6"></td><td><pre>	老板L <span class="token arrow operator">-x</span> 员工A <span class="token operator">:</span> 画个饼</pre></td></tr><tr><td data-num="7"></td><td><pre>	员工A <span class="token arrow operator">-->></span> 老板L <span class="token operator">:</span> 怯怯地鼓掌</pre></td></tr></table></figure><figure class="highlight mermaid"><figcaption data-lang="mermaid"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">sequenceDiagram</span></pre></td></tr><tr><td data-num="2"></td><td><pre>	<span class="token keyword">Note left of</span> 老板L <span class="token operator">:</span> 对脸不感兴趣</pre></td></tr><tr><td data-num="3"></td><td><pre>	<span class="token keyword">Note right of</span> 老板M <span class="token operator">:</span> 对钱不感兴趣</pre></td></tr><tr><td data-num="4"></td><td><pre>	<span class="token keyword">Note over</span> 老板L,老板M <span class="token operator">:</span> 对996感兴趣</pre></td></tr><tr><td data-num="5"></td><td><pre>	<span class="token keyword">loop</span> 一天七次</pre></td></tr><tr><td data-num="6"></td><td><pre>		网友 <span class="token arrow operator">->></span> + X宝 <span class="token operator">:</span> 查看配送进度</pre></td></tr><tr><td data-num="7"></td><td><pre>		X宝 <span class="token arrow operator">-->></span> - 网友 <span class="token operator">:</span> 配送中</pre></td></tr><tr><td data-num="8"></td><td><pre>	<span class="token keyword">end</span></pre></td></tr></table></figure><figure class="highlight mermaid"><figcaption data-lang="mermaid"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">pie</span></pre></td></tr><tr><td data-num="2"></td><td><pre>        title 今天晚上吃什么？</pre></td></tr><tr><td data-num="3"></td><td><pre>        <span class="token string">"火锅"</span> <span class="token operator">:</span> 8</pre></td></tr><tr><td data-num="4"></td><td><pre>        <span class="token string">"外卖"</span> <span class="token operator">:</span> 60</pre></td></tr><tr><td data-num="5"></td><td><pre>        <span class="token string">"自己煮"</span> <span class="token operator">:</span> 8</pre></td></tr><tr><td data-num="6"></td><td><pre>        <span class="token string">"海底捞"</span> <span class="token operator">:</span> 9</pre></td></tr><tr><td data-num="7"></td><td><pre>        <span class="token string">"海鲜"</span> <span class="token operator">:</span> 5</pre></td></tr><tr><td data-num="8"></td><td><pre>        <span class="token string">"烧烤"</span> <span class="token operator">:</span> 5</pre></td></tr><tr><td data-num="9"></td><td><pre>        <span class="token string">"不吃"</span> <span class="token operator">:</span> 5</pre></td></tr></table></figure><figure class="highlight mermaid"><figcaption data-lang="mermaid"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">graph</span> RL</pre></td></tr><tr><td data-num="2"></td><td><pre></pre></td></tr><tr><td data-num="3"></td><td><pre>        User<span class="token text string">((用户))</span><span class="token arrow operator">--</span>1.用户登录<span class="token arrow operator">--></span>Login<span class="token text string">(登录)</span></pre></td></tr><tr><td data-num="4"></td><td><pre>        Login <span class="token arrow operator">--</span>2.查询<span class="token arrow operator">--></span>SERVER<span class="token text string">[服务器]</span></pre></td></tr><tr><td data-num="5"></td><td><pre> <span class="token keyword">subgraph</span> 查询数据库</pre></td></tr><tr><td data-num="6"></td><td><pre>        SERVER<span class="token arrow operator">--</span>3.查询数据<span class="token arrow operator">--></span>DB<span class="token text string">[(数据库)]</span></pre></td></tr><tr><td data-num="7"></td><td><pre>        DB<span class="token arrow operator">--</span>4.返回结果<span class="token arrow operator">--></span>SERVER</pre></td></tr><tr><td data-num="8"></td><td><pre> <span class="token keyword">end</span></pre></td></tr><tr><td data-num="9"></td><td><pre>        SERVER<span class="token arrow operator">--</span>5.校验数据<span class="token arrow operator">--></span>Condition<span class="token text string">&#123;判断&#125;</span></pre></td></tr><tr><td data-num="10"></td><td><pre>        Condition <span class="token arrow operator">--></span><span class="token label property">|校验成功|</span> OK<span class="token text string">[登录成功]</span></pre></td></tr><tr><td data-num="11"></td><td><pre>        Condition <span class="token arrow operator">--></span><span class="token label property">|校验失败|</span> ERR<span class="token text string">[登录失败]</span></pre></td></tr><tr><td data-num="12"></td><td><pre>        OK<span class="token arrow operator">--></span>SYS<span class="token text string">[进入系统]</span></pre></td></tr><tr><td data-num="13"></td><td><pre></pre></td></tr><tr><td data-num="14"></td><td><pre>        ERR <span class="token arrow operator">--></span><span class="token label property">|返回登录页面,重新登录|</span> Login</pre></td></tr></table></figure><h1 id="flow流程图"><a class="anchor" href="#flow流程图">#</a> flow 流程图</h1>
-<figure class="highlight flow"><figcaption data-lang="flow"></figcaption><table><tr><td data-num="1"></td><td><pre>\<span class="token template-string"><span class="token template-punctuation string">`</span><span class="token template-punctuation string">`</span></span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">mermaid</pre></td></tr><tr><td data-num="2"></td><td><pre>flowchat</pre></td></tr><tr><td data-num="3"></td><td><pre>st=>start: Start:>http://www.google.com[blank]</pre></td></tr><tr><td data-num="4"></td><td><pre>e=>end:>http://www.google.com</pre></td></tr><tr><td data-num="5"></td><td><pre>op1=>operation: My Operation</pre></td></tr><tr><td data-num="6"></td><td><pre>sub1=>subroutine: My Subroutine</pre></td></tr><tr><td data-num="7"></td><td><pre>cond=>condition: linear or polynomial :>http://www.google.com</pre></td></tr><tr><td data-num="8"></td><td><pre>io=>inputoutput: catch something...</pre></td></tr><tr><td data-num="9"></td><td><pre>para=>parallel: 3 possibilities</pre></td></tr><tr><td data-num="10"></td><td><pre></pre></td></tr><tr><td data-num="11"></td><td><pre>st->op1->cond</pre></td></tr><tr><td data-num="12"></td><td><pre>cond(true)->io->e</pre></td></tr><tr><td data-num="13"></td><td><pre>cond(false)->sub1(right)</pre></td></tr><tr><td data-num="14"></td><td><pre>sub1(right)->para</pre></td></tr><tr><td data-num="15"></td><td><pre>para(path1, top)->cond</pre></td></tr><tr><td data-num="16"></td><td><pre>para(path2, right)->op1</pre></td></tr><tr><td data-num="17"></td><td><pre>para(path3, bottom)->e</pre></td></tr><tr><td data-num="18"></td><td><pre>\`</span><span class="token template-punctuation string">`</span></span>`</pre></td></tr></table></figure>
+<pre><code class="mermaid">sequenceDiagram
+    participant 老板L
+    participant 员工A
+
+    老板L -&gt;&gt; 员工A : “在这里我们是兄弟！”
+    老板L -x 员工A : 画个饼
+    员工A --&gt;&gt; 老板L : 怯怯地鼓掌
+</code></pre>
+<pre><code class="mermaid">sequenceDiagram
+    Note left of 老板L : 对脸不感兴趣
+    Note right of 老板M : 对钱不感兴趣
+    Note over 老板L,老板M : 对996感兴趣
+    loop 一天七次
+        网友 -&gt;&gt; + X宝 : 查看配送进度
+        X宝 --&gt;&gt; - 网友 : 配送中
+    end
+</code></pre>
+<pre><code class="mermaid">    pie
+        title 今天晚上吃什么？
+        &quot;火锅&quot; : 8
+        &quot;外卖&quot; : 60
+        &quot;自己煮&quot; : 8
+        &quot;海底捞&quot; : 9
+        &quot;海鲜&quot; : 5
+        &quot;烧烤&quot; : 5
+        &quot;不吃&quot; : 5
+</code></pre>
+<pre><code class="mermaid">graph RL
+
+        User((用户))--1.用户登录--&gt;Login(登录)
+        Login --2.查询--&gt;SERVER[服务器]
+ subgraph 查询数据库
+        SERVER--3.查询数据--&gt;DB[(数据库)]
+        DB--4.返回结果--&gt;SERVER
+ end
+        SERVER--5.校验数据--&gt;Condition&#123;判断&#125;
+        Condition --&gt;|校验成功| OK[登录成功]
+        Condition --&gt;|校验失败| ERR[登录失败]
+        OK--&gt;SYS[进入系统]
+
+        ERR --&gt;|返回登录页面,重新登录| Login
+</code></pre>
+<h1 id="flow流程图"><a href="#flow流程图" class="headerlink" title="flow流程图"></a>flow流程图</h1><pre><code class="flow">\```mermaid
+flowchat
+st=&gt;start: Start:&gt;http://www.google.com[blank]
+e=&gt;end:&gt;http://www.google.com
+op1=&gt;operation: My Operation
+sub1=&gt;subroutine: My Subroutine
+cond=&gt;condition: linear or polynomial :&gt;http://www.google.com
+io=&gt;inputoutput: catch something...
+para=&gt;parallel: 3 possibilities
+
+st-&gt;op1-&gt;cond
+cond(true)-&gt;io-&gt;e
+cond(false)-&gt;sub1(right)
+sub1(right)-&gt;para
+para(path1, top)-&gt;cond
+para(path2, right)-&gt;op1
+para(path3, bottom)-&gt;e
+\```
+</code></pre>
+
       <div class="tags">
           <a href="/tags/markdown/" rel="tag"><i class="ic i-tag"></i> markdown</a>
       </div>
@@ -270,7 +331,7 @@ tank &lt;|-- EnemyTank
     <div class="item left">
       
 
-  <a href="/2023/02/02/%E5%BC%80%E6%BA%90%E5%8D%8F%E8%AE%AE/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;s3.uuu.ovh&#x2F;imgs&#x2F;2024&#x2F;04&#x2F;04&#x2F;cc0be7efc99ac89e.webp" title="常见开源协议">
+  <a href="/2023/02/02/%E5%BC%80%E6%BA%90%E5%8D%8F%E8%AE%AE/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;s3.uuu.ovh&#x2F;imgs&#x2F;2024&#x2F;04&#x2F;05&#x2F;f58f811a8b6cbdbb.jpg" title="常见开源协议">
   <span class="type">上一篇</span>
   <span class="category"><i class="ic i-flag"></i> 开源协议</span>
   <h3>常见开源协议</h3>
@@ -280,7 +341,7 @@ tank &lt;|-- EnemyTank
     <div class="item right">
       
 
-  <a href="/2023/02/12/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;s3.uuu.ovh&#x2F;imgs&#x2F;2024&#x2F;04&#x2F;07&#x2F;be4bd9184664725b.webp" title="正则表达式">
+  <a href="/2023/02/12/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;s3.uuu.ovh&#x2F;imgs&#x2F;2024&#x2F;04&#x2F;12&#x2F;8740e71363c6800c.jpg" title="正则表达式">
   <span class="type">下一篇</span>
   <span class="category"><i class="ic i-flag"></i> 正则表达式</span>
   <h3>正则表达式</h3>
@@ -302,7 +363,7 @@ tank &lt;|-- EnemyTank
   <div class="panels">
     <div class="inner">
       <div class="contents panel pjax" data-title="文章目录">
-          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#diff-%E4%BB%A3%E7%A0%81%E5%9D%97"><span class="toc-number">1.</span> <span class="toc-text"> diff 代码块</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%BE%85%E5%8A%9Ectrlshiftx"><span class="toc-number">2.</span> <span class="toc-text"> 待办 (ctrl+shift+x)</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%8A%98%E5%8F%A0"><span class="toc-number">3.</span> <span class="toc-text"> 折叠</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#puml-%E7%94%BB%E5%9B%BE%E9%9C%80%E8%A6%81%E6%8F%92%E4%BB%B6"><span class="toc-number">4.</span> <span class="toc-text"> puml 画图（需要插件）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#mermaid-%E6%B5%81%E7%A8%8B%E5%9B%BE"><span class="toc-number">5.</span> <span class="toc-text"> mermaid 流程图</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#flow%E6%B5%81%E7%A8%8B%E5%9B%BE"><span class="toc-number">6.</span> <span class="toc-text"> flow 流程图</span></a></li></ol>
+          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#diff-%E4%BB%A3%E7%A0%81%E5%9D%97"><span class="toc-number">1.</span> <span class="toc-text">diff 代码块</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%BE%85%E5%8A%9E-ctrl-shift-x"><span class="toc-number">2.</span> <span class="toc-text">待办(ctrl+shift+x)</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%8A%98%E5%8F%A0"><span class="toc-number">3.</span> <span class="toc-text">折叠</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#puml-%E7%94%BB%E5%9B%BE%EF%BC%88%E9%9C%80%E8%A6%81%E6%8F%92%E4%BB%B6%EF%BC%89"><span class="toc-number">4.</span> <span class="toc-text">puml 画图（需要插件）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#mermaid-%E6%B5%81%E7%A8%8B%E5%9B%BE"><span class="toc-number">5.</span> <span class="toc-text">mermaid 流程图</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#flow%E6%B5%81%E7%A8%8B%E5%9B%BE"><span class="toc-number">6.</span> <span class="toc-text">flow流程图</span></a></li></ol>
       </div>
       <div class="related panel pjax" data-title="系列文章">
         <ul>
@@ -320,19 +381,19 @@ tank &lt;|-- EnemyTank
 <nav class="state">
     <div class="item posts">
       <a href="/archives/">
-        <span class="count">80</span>
+        <span class="count">82</span>
         <span class="name">文章</span>
       </a>
     </div>
     <div class="item categories">
       <a href="/categories/">
-        <span class="count">64</span>
+        <span class="count">66</span>
         <span class="name">分类</span>
       </a>
     </div>
     <div class="item tags">
       <a href="/tags/">
-        <span class="count">100</span>
+        <span class="count">102</span>
         <span class="name">标签</span>
       </a>
     </div>
@@ -420,30 +481,60 @@ tank &lt;|-- EnemyTank
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/react/" title="分类于 react">react</a>
+<a href="/categories/jenkins%E9%85%8D%E5%90%88git-hook%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90/" title="分类于 jenkins配合git hook持续集成">jenkins配合git hook持续集成</a>
 </div>
 
-    <span><a href="/2024/01/29/react%E6%8A%80%E6%9C%AF%E6%8F%AD%E7%A7%98/" title="react技术揭秘">react技术揭秘</a></span>
+    <span><a href="/2024/02/02/%E4%BD%BF%E7%94%A8Jenkins%E9%85%8D%E5%90%88github%20hook%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90/" title="jenkins配合git hook持续集成">jenkins配合git hook持续集成</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/" title="分类于 计算机组成原理">计算机组成原理</a>
+<a href="/categories/%E6%9E%B6%E6%9E%84%E9%A3%8E%E6%A0%BC/" title="分类于 架构风格">架构风格</a>
 </div>
 
-    <span><a href="/2023/07/02/%E6%B5%AE%E7%82%B9%E6%95%B0%E5%AD%98%E5%82%A8/" title="浮点数存储">浮点数存储</a></span>
+    <span><a href="/2024/07/29/%E6%9E%B6%E6%9E%84%E9%A3%8E%E6%A0%BC/" title="架构风格">架构风格</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/%E8%84%9A%E6%89%8B%E6%9E%B6%E5%BC%80%E5%8F%91/" title="分类于 脚手架开发">脚手架开发</a>
+<a href="/categories/%E5%BC%80%E6%BA%90%E5%8D%8F%E8%AE%AE/" title="分类于 开源协议">开源协议</a>
 </div>
 
-    <span><a href="/2024/03/30/%E6%9C%AC%E5%9C%B0%E6%96%87%E4%BB%B6%E9%93%BE%E6%8E%A5/" title="本地文件链接">本地文件链接</a></span>
+    <span><a href="/2023/02/02/%E5%BC%80%E6%BA%90%E5%8D%8F%E8%AE%AE/" title="常见开源协议">常见开源协议</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/" title="分类于 自动化测试">自动化测试</a>
+</div>
+
+    <span><a href="/2024/03/02/%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/" title="自动化测试">自动化测试</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86/" title="分类于 版本管理">版本管理</a>
+</div>
+
+    <span><a href="/2024/01/23/%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86/" title="版本管理">版本管理</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E4%B8%AD%E5%89%8D%E5%8F%B0%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" title="分类于 中前台解决方案">中前台解决方案</a>
+</div>
+
+    <span><a href="/2023/02/12/%E4%B8%AD%E5%89%8D%E5%8F%B0%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" title="中前台解决方案">中前台解决方案</a></span>
   </li>
 
       
@@ -453,7 +544,17 @@ tank &lt;|-- EnemyTank
 <a href="/categories/JS/" title="分类于 JS">JS</a>
 </div>
 
-    <span><a href="/2023/12/11/typedArray/" title="JS中类型化数组typedArray">JS中类型化数组typedArray</a></span>
+    <span><a href="/2024/01/11/webworker/" title="webWorker">webWorker</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" title="分类于 解决方案">解决方案</a>
+</div>
+
+    <span><a href="/2023/06/02/%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" title="解决方案">解决方案</a></span>
   </li>
 
       
@@ -463,57 +564,17 @@ tank &lt;|-- EnemyTank
 <a href="/categories/JS/" title="分类于 JS">JS</a>
 </div>
 
-    <span><a href="/2023/07/02/forEach/" title="forEach">forEach</a></span>
+    <span><a href="/2023/12/21/%E6%9C%80%E5%A4%A7%E5%AE%89%E5%85%A8%E6%95%B0/" title="最大安全数与最大安全整数">最大安全数与最大安全整数</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/JS/" title="分类于 JS">JS</a>
+<a href="/categories/webpack/" title="分类于 webpack">webpack</a>
 </div>
 
-    <span><a href="/2023/09/02/ArrayBuffer/" title="ArrayBuffer">ArrayBuffer</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/react/" title="分类于 react">react</a>
-</div>
-
-    <span><a href="/2023/12/02/react/" title="react笔记">react笔记</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" title="分类于 操作系统">操作系统</a>
-</div>
-
-    <span><a href="/2024/07/23/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" title="操作系统">操作系统</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/node-js/" title="分类于 node.js">node.js</a>
-</div>
-
-    <span><a href="/2024/01/02/node.js%E5%86%85%E7%BD%AE%E6%A8%A1%E5%9D%97/" title="node.js内置模块">node.js内置模块</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/%E5%BE%AE%E5%89%8D%E7%AB%AF/" title="分类于 微前端">微前端</a>
-</div>
-
-    <span><a href="/2024/05/24/%E5%BE%AE%E5%89%8D%E7%AB%AF/" title="微前端">微前端</a></span>
+    <span><a href="/2023/10/21/webpack/" title="webpack笔记">webpack笔记</a></span>
   </li>
 
   </ul>
@@ -538,13 +599,13 @@ tank &lt;|-- EnemyTank
     <span class="post-meta-item-icon">
       <i class="ic i-chart-area"></i>
     </span>
-    <span title="站点总字数">944k 字</span>
+    <span title="站点总字数">953k 字</span>
 
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="ic i-coffee"></i>
     </span>
-    <span title="站点阅读时长">14:18</span>
+    <span title="站点阅读时长">14:26</span>
   </div>
   <div class="powered-by">
     基于 <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & Theme.<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Shoka</span>

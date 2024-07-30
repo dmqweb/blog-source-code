@@ -78,7 +78,7 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
       <i class="ic i-pen"></i>
     </span>
     <span class="text">本文字数</span>
-    <span>2.7k</span>
+    <span>2.6k</span>
     <span class="text">字</span>
   </span>
   <span class="item" title="阅读时长">
@@ -119,12 +119,12 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
       </div>
       <div id="imgs" class="pjax">
         <ul>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/15/6cedcb364082ed12.webp"></li>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/04/cc0be7efc99ac89e.webp"></li>
           <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/07/971b0200f59eab4c.jpg"></li>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/15/6d859d49c9d65157.jpg"></li>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/05/8c79eda29fb3b505.jpg"></li>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/05/f09ce1d151936963.jpg"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/12/b04c50f26fdc9c19.jpg"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/25/1276fcec5eb7990e.webp"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/15/229ca07a8d7b6e02.jpg"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/13/7056b573eacc540d.jpg"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/25/37c45c250c8e6e2b.jpg"></li>
         </ul>
       </div>
     </header>
@@ -170,115 +170,53 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
   <div class="body md" itemprop="articleBody">
     
 
-    <h1 id="-git"><a class="anchor" href="#-git">#</a> -----------------------------------git</h1>
-<h2 id="httpszhuanlanzhihucomp389814854"><a class="anchor" href="#httpszhuanlanzhihucomp389814854">#</a> <span class="exturl" data-url="aHR0cHM6Ly96aHVhbmxhbi56aGlodS5jb20vcC8zODk4MTQ4NTQ=">https://zhuanlan.zhihu.com/p/389814854</span></h2>
-<p>网址：git 命令大全</p>
-<h4 id="git全局配置文件配置一次即可生效"><a class="anchor" href="#git全局配置文件配置一次即可生效">#</a> git 全局配置文件，配置一次即可生效</h4>
-<p>（C:user / 用户名文件夹 /.gitconfig）</p>
-<h3 id="一-git-init"><a class="anchor" href="#一-git-init">#</a> 一、 <code>git init</code></h3>
-<h4 id="初始化创建本地仓库"><a class="anchor" href="#初始化创建本地仓库">#</a> （初始化，创建本地仓库）</h4>
-<h3 id="二-git-add"><a class="anchor" href="#二-git-add">#</a> 二、 <code>git add</code></h3>
-<h4 id="添加到本地仓库"><a class="anchor" href="#添加到本地仓库">#</a> （添加到本地仓库）</h4>
-<h3 id="三-git-commit-m-注释"><a class="anchor" href="#三-git-commit-m-注释">#</a> 三、 <code>git commit -m</code>  &quot;注释&quot;</h3>
-<h4 id="添加注释"><a class="anchor" href="#添加注释">#</a> （添加注释）</h4>
-<h3 id="四-git-remote-add-origin-仓库地址"><a class="anchor" href="#四-git-remote-add-origin-仓库地址">#</a> 四、 <code>git remote add origin</code>  仓库地址</h3>
-<h4 id="连接远程仓库"><a class="anchor" href="#连接远程仓库">#</a> （连接远程仓库）</h4>
-<h3 id="五-git-pull-rebase-origin-master"><a class="anchor" href="#五-git-pull-rebase-origin-master">#</a> 五、 <code>git pull --rebase origin master</code></h3>
-<h4 id="仓库地址同步仓库内容"><a class="anchor" href="#仓库地址同步仓库内容">#</a> 仓库地址（同步仓库内容）</h4>
-<h3 id="六-git-push-u-origin-master"><a class="anchor" href="#六-git-push-u-origin-master">#</a> 六、 <code>git push -u origin master</code></h3>
-<h4 id="上传到远程仓库"><a class="anchor" href="#上传到远程仓库">#</a> （上传到远程仓库）</h4>
-<h3 id="1获得git帮助命令浏览器中"><a class="anchor" href="#1获得git帮助命令浏览器中">#</a> ①获得 git 帮助命令（浏览器中）</h3>
-<p><code>git help config</code> （获取参考）<br />
- <code>git config -h</code> （获取更简明的快速参考）</p>
-<h3 id="2获得git配置信息"><a class="anchor" href="#2获得git配置信息">#</a> ②获得 git 配置信息</h3>
-<p><code>git config --list --global</code> （查看全局配置项）<br />
- <code>git config user.name</code>  (查看某一项)</p>
-<h3 id="3配置用户信息"><a class="anchor" href="#3配置用户信息">#</a> ③配置用户信息</h3>
-<p><code>git config --global user.name 'name'</code> <br />
- <code>git config --global user.email 'email'</code> <br />
-（使用了 --global 选项，那么该命令只需要运行一次即可永久生效）</p>
-<h3 id="4获取帮助信息"><a class="anchor" href="#4获取帮助信息">#</a> ④获取帮助信息</h3>
-<p>git help &lt;verb&gt;(获取某个命令的帮助手册)</p>
-<h3 id="5将目录转换成git仓库项目的git-bash中使用git-init"><a class="anchor" href="#5将目录转换成git仓库项目的git-bash中使用git-init">#</a> ⑤将目录转换成 Git 仓库（项目的 git Bash 中使用 git init）</h3>
-<h3 id="6从其他服务器上克隆一个仓库"><a class="anchor" href="#6从其他服务器上克隆一个仓库">#</a> ⑥从其他服务器上克隆一个仓库</h3>
-<h3 id="7四种状态工作区未修改暂存区已修改仓库已暂存"><a class="anchor" href="#7四种状态工作区未修改暂存区已修改仓库已暂存">#</a> ⑦四种状态：：工作区（未修改），暂存区（已修改），仓库（已暂存）</h3>
-<h3 id="8git目标将工作区的文件都处于未修改的状态"><a class="anchor" href="#8git目标将工作区的文件都处于未修改的状态">#</a> ⑧git 目标：将工作区的文件都处于未修改的状态</h3>
-<h3 id="9查看文件出于什么状态git-status命令git-status-s-精简显示查看那些文件被跟踪哪些没有"><a class="anchor" href="#9查看文件出于什么状态git-status命令git-status-s-精简显示查看那些文件被跟踪哪些没有">#</a> ⑨查看文件出于什么状态：（git status 命令（git status -s 精简显示），查看那些文件被跟踪，哪些没有）</h3>
-<p>??：未被 Git 跟踪的新文件。<br />
-A：新增文件。<br />
-M：文件已被修改。<br />
-D：文件已被删除。<br />
-R：文件已被重命名。<br />
-C：文件已被拷贝。<br />
-X：文件状态没有更改。<br />
-M：文件被修改并且已经暂存。<br />
-A：文件已经添加到 Git 并且还没有被暂存。<br />
-D：文件被删除了。<br />
-R：文件被重命名了。<br />
-C：文件被拷贝（复制）了。</p>
-<h3 id="10跟踪文件跟踪后git会记录文件的所有变化并管理和恢复git-add-文件名"><a class="anchor" href="#10跟踪文件跟踪后git会记录文件的所有变化并管理和恢复git-add-文件名">#</a> ⑩跟踪文件，跟踪后 Git 会记录文件的所有变化，并管理和恢复（git add 文件名 ）</h3>
-<p>取消跟踪文件： <code>git rm --cached &lt;file&gt;</code>   （需要执行一次提交才生效）</p>
-<h3 id="十一-提交到git仓库中"><a class="anchor" href="#十一-提交到git仓库中">#</a> 十一、提交到 git 仓库中</h3>
-<p>（ <code>git commit -m</code>  ' 描述信息 '）</p>
-<h3 id="十二-修改已提交的文件其状态为红色m"><a class="anchor" href="#十二-修改已提交的文件其状态为红色m">#</a> 十二、修改已提交的文件，其状态为红色 M</h3>
-<h3 id="十三-git-add命令的三个功能1跟踪新文件2将已跟踪且修改的文件放到暂存区3将有冲突的文件标记为以解决状态"><a class="anchor" href="#十三-git-add命令的三个功能1跟踪新文件2将已跟踪且修改的文件放到暂存区3将有冲突的文件标记为以解决状态">#</a> 十三、git add 命令的三个功能：①跟踪新文件②将已跟踪且修改的文件放到暂存区③将有冲突的文件标记为以解决状态</h3>
-<h3 id="十四-撤销对文件的修改谨慎操作"><a class="anchor" href="#十四-撤销对文件的修改谨慎操作">#</a> 十四、撤销对文件的修改<em>谨慎操作</em></h3>
-<p>*（ <code>git checkout -- 文件名</code> ），本质是 Git 仓库中保存的文件，覆盖工作区中指定的文件</p>
-<h3 id="十五-向暂存区中一次性添加目录下所有文件"><a class="anchor" href="#十五-向暂存区中一次性添加目录下所有文件">#</a> 十五、向暂存区中一次性添加目录下所有文件</h3>
-<p>*（ <code>git add .</code> ）</p>
-<h3 id="十六-从暂存区移除暂存的文件"><a class="anchor" href="#十六-从暂存区移除暂存的文件">#</a> 十六、从暂存区移除暂存的文件</h3>
-<p>*（ <code>git reset HEAD 文件名</code> ）文件名为。号表明移除全部</p>
-<h3 id="十七-git工作流程工作区-暂存区-git仓库"><a class="anchor" href="#十七-git工作流程工作区-暂存区-git仓库">#</a> 十七、Git 工作流程：工作区 ---- 暂存区 ----Git 仓库</h3>
-<h3 id="十八-跳过使用暂存区"><a class="anchor" href="#十八-跳过使用暂存区">#</a> 十八、跳过使用暂存区</h3>
-<p>*（ <code>git commit -a -m</code>  &quot;描述消息&quot;）</p>
-<h3 id="十九-从git仓库中移除文件"><a class="anchor" href="#十九-从git仓库中移除文件">#</a> 十九、从 Git 仓库中移除文件</h3>
-<p>*（ <code>git rm -f</code>  文件名   ，从 Git 仓库和工作区中同时移除 index.js 文件②git rm --cached 文件名  ， 只从 Git 仓库中移除文件，用于不用更改的固定文件不用记录）</p>
-<h3 id="二十-忽略文件"><a class="anchor" href="#二十-忽略文件">#</a> 二十、忽略文件</h3>
-<p>*（新建一个名为.gitignore 配置文件，列出要忽略的文件的匹配模式）①以 #开头的是注释②以 / 结尾的是目录③以 / 开头防止递归④以！开头表示取反⑤可以使用 glob 模式进行文件和文件夹的匹配（glob 指简化了的正则表达式）</p>
-<h3 id="二十一-glob模式"><a class="anchor" href="#二十一-glob模式">#</a> 二十一、glob 模式：</h3>
-<p><em>①</em>: 匹配零个或多个任意字符</p>
-<p>②[abc] 匹配任何一个列在方括号中的字符</p>
+    <h1 id="———————————–git"><a href="#———————————–git" class="headerlink" title="———————————–git"></a>———————————–git</h1><h2 id="https-zhuanlan-zhihu-com-p-389814854"><a href="#https-zhuanlan-zhihu-com-p-389814854" class="headerlink" title="https://zhuanlan.zhihu.com/p/389814854"></a><span class="exturl" data-url="aHR0cHM6Ly96aHVhbmxhbi56aGlodS5jb20vcC8zODk4MTQ4NTQ=">https://zhuanlan.zhihu.com/p/389814854</span></h2><p>网址：git命令大全</p>
+<h4 id="git全局配置文件，配置一次即可生效"><a href="#git全局配置文件，配置一次即可生效" class="headerlink" title="git全局配置文件，配置一次即可生效"></a>git全局配置文件，配置一次即可生效</h4><p>（C:user&#x2F;用户名文件夹&#x2F;.gitconfig）</p>
+<h3 id="一、git-init"><a href="#一、git-init" class="headerlink" title="一、git init"></a>一、<code>git init</code></h3><h4 id="（初始化，创建本地仓库）"><a href="#（初始化，创建本地仓库）" class="headerlink" title="（初始化，创建本地仓库）"></a>（初始化，创建本地仓库）</h4><h3 id="二、git-add"><a href="#二、git-add" class="headerlink" title="二、git add"></a>二、<code>git add</code></h3><h4 id="（添加到本地仓库）"><a href="#（添加到本地仓库）" class="headerlink" title="（添加到本地仓库）"></a>（添加到本地仓库）</h4><h3 id="三、git-commit-m-“注释”"><a href="#三、git-commit-m-“注释”" class="headerlink" title="三、git commit -m “注释”"></a>三、<code>git commit -m</code> “注释”</h3><h4 id="（添加注释）"><a href="#（添加注释）" class="headerlink" title="（添加注释）"></a>（添加注释）</h4><h3 id="四、git-remote-add-origin-仓库地址"><a href="#四、git-remote-add-origin-仓库地址" class="headerlink" title="四、git remote add origin 仓库地址"></a>四、<code>git remote add origin</code> 仓库地址</h3><h4 id="（连接远程仓库）"><a href="#（连接远程仓库）" class="headerlink" title="（连接远程仓库）"></a>（连接远程仓库）</h4><h3 id="五、git-pull-rebase-origin-master"><a href="#五、git-pull-rebase-origin-master" class="headerlink" title="五、git pull --rebase origin master"></a>五、<code>git pull --rebase origin master</code></h3><h4 id="仓库地址（同步仓库内容）"><a href="#仓库地址（同步仓库内容）" class="headerlink" title="仓库地址（同步仓库内容）"></a>仓库地址（同步仓库内容）</h4><h3 id="六、git-push-u-origin-master"><a href="#六、git-push-u-origin-master" class="headerlink" title="六、git push -u origin master"></a>六、<code>git push -u origin master</code></h3><h4 id="（上传到远程仓库）"><a href="#（上传到远程仓库）" class="headerlink" title="（上传到远程仓库）"></a>（上传到远程仓库）</h4><h3 id="①获得git帮助命令（浏览器中）"><a href="#①获得git帮助命令（浏览器中）" class="headerlink" title="①获得git帮助命令（浏览器中）"></a>①获得git帮助命令（浏览器中）</h3><p><code>git help config</code>（获取参考）<br><code>git config -h</code>（获取更简明的快速参考）</p>
+<h3 id="②获得git配置信息"><a href="#②获得git配置信息" class="headerlink" title="②获得git配置信息"></a>②获得git配置信息</h3><p> <code>git config --list --global</code>（查看全局配置项）<br><code>git config user.name</code>(查看某一项)</p>
+<h3 id="③配置用户信息"><a href="#③配置用户信息" class="headerlink" title="③配置用户信息"></a>③配置用户信息</h3><p><code>git config --global user.name &#39;name&#39;</code><br><code>git config --global user.email &#39;email&#39;</code><br>（使用了–global选项，那么该命令只需要运行一次即可永久生效）</p>
+<h3 id="④获取帮助信息"><a href="#④获取帮助信息" class="headerlink" title="④获取帮助信息"></a>④获取帮助信息</h3><p>git help <verb>(获取某个命令的帮助手册)</p>
+<h3 id="⑤将目录转换成Git仓库（项目的git-Bash中使用git-init）"><a href="#⑤将目录转换成Git仓库（项目的git-Bash中使用git-init）" class="headerlink" title="⑤将目录转换成Git仓库（项目的git Bash中使用git init）"></a>⑤将目录转换成Git仓库（项目的git Bash中使用git init）</h3><h3 id="⑥从其他服务器上克隆一个仓库"><a href="#⑥从其他服务器上克隆一个仓库" class="headerlink" title="⑥从其他服务器上克隆一个仓库"></a>⑥从其他服务器上克隆一个仓库</h3><h3 id="⑦四种状态：：工作区（未修改），暂存区（已修改），仓库（已暂存）"><a href="#⑦四种状态：：工作区（未修改），暂存区（已修改），仓库（已暂存）" class="headerlink" title="⑦四种状态：：工作区（未修改），暂存区（已修改），仓库（已暂存）"></a>⑦四种状态：：工作区（未修改），暂存区（已修改），仓库（已暂存）</h3><h3 id="⑧git目标：将工作区的文件都处于未修改的状态"><a href="#⑧git目标：将工作区的文件都处于未修改的状态" class="headerlink" title="⑧git目标：将工作区的文件都处于未修改的状态"></a>⑧git目标：将工作区的文件都处于未修改的状态</h3><h3 id="⑨查看文件出于什么状态：（git-status命令（git-status-s-精简显示），查看那些文件被跟踪，哪些没有）"><a href="#⑨查看文件出于什么状态：（git-status命令（git-status-s-精简显示），查看那些文件被跟踪，哪些没有）" class="headerlink" title="⑨查看文件出于什么状态：（git status命令（git status -s 精简显示），查看那些文件被跟踪，哪些没有）"></a>⑨查看文件出于什么状态：（git status命令（git status -s 精简显示），查看那些文件被跟踪，哪些没有）</h3><p>??：未被 Git 跟踪的新文件。<br>A：新增文件。<br>M：文件已被修改。<br>D：文件已被删除。<br>R：文件已被重命名。<br>C：文件已被拷贝。<br>X：文件状态没有更改。<br>M：文件被修改并且已经暂存。<br>A：文件已经添加到 Git 并且还没有被暂存。<br>D：文件被删除了。<br>R：文件被重命名了。<br>C：文件被拷贝（复制）了。</p>
+<h3 id="⑩跟踪文件，跟踪后Git会记录文件的所有变化，并管理和恢复（git-add-文件名-）"><a href="#⑩跟踪文件，跟踪后Git会记录文件的所有变化，并管理和恢复（git-add-文件名-）" class="headerlink" title="⑩跟踪文件，跟踪后Git会记录文件的所有变化，并管理和恢复（git add 文件名 ）"></a>⑩跟踪文件，跟踪后Git会记录文件的所有变化，并管理和恢复（git add 文件名 ）</h3><p>取消跟踪文件：<code>git rm --cached &lt;file&gt;</code>  （需要执行一次提交才生效）</p>
+<h3 id="十一、提交到git仓库中"><a href="#十一、提交到git仓库中" class="headerlink" title="十一、提交到git仓库中"></a>十一、提交到git仓库中</h3><p>（<code>git commit -m</code> ‘描述信息’）</p>
+<h3 id="十二、修改已提交的文件，其状态为红色M"><a href="#十二、修改已提交的文件，其状态为红色M" class="headerlink" title="十二、修改已提交的文件，其状态为红色M"></a>十二、修改已提交的文件，其状态为红色M</h3><h3 id="十三、git-add命令的三个功能：①跟踪新文件②将已跟踪且修改的文件放到暂存区③将有冲突的文件标记为以解决状态"><a href="#十三、git-add命令的三个功能：①跟踪新文件②将已跟踪且修改的文件放到暂存区③将有冲突的文件标记为以解决状态" class="headerlink" title="十三、git add命令的三个功能：①跟踪新文件②将已跟踪且修改的文件放到暂存区③将有冲突的文件标记为以解决状态"></a>十三、git add命令的三个功能：①跟踪新文件②将已跟踪且修改的文件放到暂存区③将有冲突的文件标记为以解决状态</h3><h3 id="十四、撤销对文件的修改谨慎操作"><a href="#十四、撤销对文件的修改谨慎操作" class="headerlink" title="十四、撤销对文件的修改谨慎操作"></a>十四、撤销对文件的修改<em>谨慎操作</em></h3><p>*（<code>git checkout -- 文件名</code>），本质是Git仓库中保存的文件，覆盖工作区中指定的文件</p>
+<h3 id="十五、向暂存区中一次性添加目录下所有文件"><a href="#十五、向暂存区中一次性添加目录下所有文件" class="headerlink" title="十五、向暂存区中一次性添加目录下所有文件"></a>十五、向暂存区中一次性添加目录下所有文件</h3><p>*（<code>git add .</code>）</p>
+<h3 id="十六、从暂存区移除暂存的文件"><a href="#十六、从暂存区移除暂存的文件" class="headerlink" title="十六、从暂存区移除暂存的文件"></a>十六、从暂存区移除暂存的文件</h3><p>*（<code>git reset HEAD 文件名</code>）文件名为 .号表明移除全部</p>
+<h3 id="十七、Git工作流程：工作区—-暂存区—-Git仓库"><a href="#十七、Git工作流程：工作区—-暂存区—-Git仓库" class="headerlink" title="十七、Git工作流程：工作区—-暂存区—-Git仓库"></a>十七、Git工作流程：工作区—-暂存区—-Git仓库</h3><h3 id="十八、跳过使用暂存区"><a href="#十八、跳过使用暂存区" class="headerlink" title="十八、跳过使用暂存区"></a>十八、跳过使用暂存区</h3><p>*（<code>git commit -a -m</code> “描述消息”）</p>
+<h3 id="十九、从Git仓库中移除文件"><a href="#十九、从Git仓库中移除文件" class="headerlink" title="十九、从Git仓库中移除文件"></a>十九、从Git仓库中移除文件</h3><p>*（<code>git rm -f</code> 文件名   ，从Git仓库和工作区中同时移除index.js文件②git rm –cached 文件名  ， 只从Git仓库中移除文件，用于不用更改的固定文件不用记录）</p>
+<h3 id="二十、忽略文件"><a href="#二十、忽略文件" class="headerlink" title="二十、忽略文件"></a>二十、忽略文件</h3><p>*（新建一个名为.gitignore配置文件，列出要忽略的文件的匹配模式）①以#开头的是注释②以&#x2F;结尾的是目录③以&#x2F;开头防止递归④以！开头表示取反⑤可以使用glob模式进行文件和文件夹的匹配（glob指简化了的正则表达式）</p>
+<h3 id="二十一、glob模式："><a href="#二十一、glob模式：" class="headerlink" title="二十一、glob模式："></a>二十一、glob模式：</h3><p><em>①</em>:匹配零个或多个任意字符</p>
+<p>②[abc]匹配任何一个列在方括号中的字符</p>
 <p>③？：匹配一个任意字符</p>
-<p>④[0-9] 匹配所有 0 到 9 的数字</p>
-<p>⑤** 表示匹配任意中间目录</p>
-<h3 id="二十二-输出git提交日志"><a class="anchor" href="#二十二-输出git提交日志">#</a> 二十二、输出 Git 提交日志</h3>
-<p><code>（git log）git log -n</code>  提交最近 n 条历史信息</p>
-<h3 id="二十三-回退指定版本"><a class="anchor" href="#二十三-回退指定版本">#</a> 二十三、回退指定版本：</h3>
-<p>（ <code>git log --pretty=onlin</code>  查看提交历史，获得对应标识 id 、</p>
-<p><code>git reset --hard &lt;CommitID&gt;</code>  根据指定的提交 ID 回退到指定版本 、</p>
-<p><code>git reflog --pretty=online</code>  旧版本中使用，查看命令操作的历史 、</p>
-<p><code>git reset --hard &lt;CommitID&gt;</code>  再次根据最新的提交 ID，跳转到最新的版本）</p>
-<h1 id="-github"><a class="anchor" href="#-github">#</a> ----------------------------------------github</h1>
-<h2 id="一-远程仓库使用"><a class="anchor" href="#一-远程仓库使用">#</a> 一、远程仓库使用</h2>
-<p>HTTPS: 零配置，每次范围问需要重新输入密码</p>
-<p>SSH: 需要额外配置，配置后不必重复输入密码（推荐使用）</p>
-<h2 id="二-基于https-ssh将本地仓库上传到github"><a class="anchor" href="#二-基于https-ssh将本地仓库上传到github">#</a> 二、基于 HTTPS、SSH 将本地仓库上传到 Github</h2>
-<p><code>echo &quot;# project 02&quot; &gt;&gt; README.md</code>        使用终端创建内容为 #project 02 的 md 文件</p>
-<p><code>git init</code>  初始化本地仓库（git 打开）</p>
+<p>④[0-9]匹配所有0到9的数字</p>
+<p>⑤**表示匹配任意中间目录</p>
+<h3 id="二十二、输出Git提交日志"><a href="#二十二、输出Git提交日志" class="headerlink" title="二十二、输出Git提交日志"></a>二十二、输出Git提交日志</h3><p><code>（git log）git log -n</code>提交最近n条历史信息</p>
+<h3 id="二十三、回退指定版本："><a href="#二十三、回退指定版本：" class="headerlink" title="二十三、回退指定版本："></a>二十三、回退指定版本：</h3><p>（<code>git log --pretty=onlin</code>查看提交历史，获得对应标识id 、</p>
+<p> <code>git reset --hard &lt;CommitID&gt;</code>根据指定的提交ID回退到指定版本 、</p>
+<p><code>git reflog --pretty=online</code>旧版本中使用，查看命令操作的历史 、</p>
+<p> <code>git reset --hard &lt;CommitID&gt;</code>再次根据最新的提交ID，跳转到最新的版本）</p>
+<h1 id="—————————————-github"><a href="#—————————————-github" class="headerlink" title="—————————————-github"></a>—————————————-github</h1><h2 id="一、远程仓库使用"><a href="#一、远程仓库使用" class="headerlink" title="一、远程仓库使用"></a>一、远程仓库使用</h2><p>HTTPS:零配置，每次范围问需要重新输入密码</p>
+<p>SSH:需要额外配置,配置后不必重复输入密码（推荐使用）</p>
+<h2 id="二、基于HTTPS、SSH将本地仓库上传到Github"><a href="#二、基于HTTPS、SSH将本地仓库上传到Github" class="headerlink" title="二、基于HTTPS、SSH将本地仓库上传到Github"></a>二、基于HTTPS、SSH将本地仓库上传到Github</h2><p><code>echo &quot;# project 02&quot; &gt;&gt; README.md</code>       使用终端创建内容为#project 02的md文件</p>
+<p><code>git init</code>初始化本地仓库（git打开）</p>
 <p><code>git add README.md</code></p>
-<p><code>git commit -m &quot;first commit&quot;</code>  文件修改并提交到本地仓库</p>
-<p><code>git remote add </code>  仓库地址（HTTP 或 SSH） 链接远程仓库</p>
-<p><code>git push -u 仓库地址 master</code>  将本地仓库推送到远程仓库（第一次推送 以后直接 <code>git push</code> ）</p>
-<h2 id="三-生成ssh-key"><a class="anchor" href="#三-生成ssh-key">#</a> 三、生成 SSH key</h2>
-<p>git Bash 中 使用：  <code>ssh-keygen -t rsa -b 4096  -C &quot;邮箱地址&quot;</code></p>
-<p>连续三次回车，即可在 C:\Users\dmq \ .ssh 目录中生成 id_rsa 和 id_rsa.pub 两个文件</p>
-<h4 id="ssh-key的好处"><a class="anchor" href="#ssh-key的好处">#</a> SSH key 的好处</h4>
-<p>实现本地仓库和 Github 之间免登录的加密数据传输</p>
-<h4 id="ssh-key两部分"><a class="anchor" href="#ssh-key两部分">#</a> SSH key 两部分</h4>
-<p>①id_rsa (私钥文件，存放于客户端的电脑中)</p>
-<p>②id_rsa.pub (公钥文件，需要配置到 Github 中)</p>
-<h4 id="配置ssh-key"><a class="anchor" href="#配置ssh-key">#</a> 配置 SSH key</h4>
-<p>①记事本打开 id_rsa.pub 文件，复制里面的内容</p>
-<p>②在浏览器中登录 Github，点击头像 -&gt;Settings -&gt;SSH and GPG Keys -&gt; New SSH key</p>
-<p>③将 id_rsa.pub 文件中的内容，粘贴到 Key 对应的文本框中</p>
-<p>④在 Title 文本框中任意填写一个名称，来标识这个 Key 从何而来</p>
-<h4 id="检测远程仓库中ssh是否配置成功"><a class="anchor" href="#检测远程仓库中ssh是否配置成功">#</a> 检测远程仓库中 SSH 是否配置成功</h4>
-<p>Git Bash 中：</p>
-<p><code>ssh -T git@github.com </code> (github)</p>
-<p><code>ssh -T git@gitee.com</code>  (gitee)</p>
-<p>输入 yes</p>
-<h2 id="四-将远程仓库克隆到本地"><a class="anchor" href="#四-将远程仓库克隆到本地">#</a> 四、将远程仓库克隆到本地</h2>
-<p>Git Bash 中输入  <code>git clone  远程仓库地址</code></p>
+<p><code>git commit -m &quot;first commit&quot;</code> 文件修改并提交到本地仓库</p>
+<p><code>git remote add </code> 仓库地址（HTTP或SSH） 链接远程仓库</p>
+<p><code>git push -u 仓库地址 master</code> 将本地仓库推送到远程仓库（第一次推送 以后直接<code>git push</code>）</p>
+<h2 id="三、生成SSH-key"><a href="#三、生成SSH-key" class="headerlink" title="三、生成SSH key"></a>三、生成SSH key</h2><p>git Bash中 使用： <code>ssh-keygen -t rsa -b 4096  -C &quot;邮箱地址&quot;</code></p>
+<p>连续三次回车，即可在C:\Users\dmq \ .ssh目录中生成id_rsa 和 id_rsa.pub两个文件</p>
+<h4 id="SSH-key的好处"><a href="#SSH-key的好处" class="headerlink" title="SSH key的好处"></a>SSH key的好处</h4><p>实现本地仓库和Github之间免登录的加密数据传输</p>
+<h4 id="SSH-key两部分"><a href="#SSH-key两部分" class="headerlink" title="SSH key两部分"></a>SSH key两部分</h4><p>①id_rsa(私钥文件，存放于客户端的电脑中)</p>
+<p>②id_rsa.pub(公钥文件，需要配置到Github中)</p>
+<h4 id="配置SSH-key"><a href="#配置SSH-key" class="headerlink" title="配置SSH key"></a>配置SSH key</h4><p>①记事本打开id_rsa.pub 文件，复制里面的内容</p>
+<p>②在浏览器中登录Github，点击头像 -&gt;Settings -&gt;SSH and GPG Keys -&gt; New SSH key</p>
+<p>③将id_rsa.pub文件中的内容，粘贴到Key对应的文本框中</p>
+<p>④在Title文本框中任意填写一个名称，来标识这个Key从何而来</p>
+<h4 id="检测远程仓库中SSH是否配置成功"><a href="#检测远程仓库中SSH是否配置成功" class="headerlink" title="检测远程仓库中SSH是否配置成功"></a>检测远程仓库中SSH是否配置成功</h4><p>Git Bash中：</p>
+<p> <code>ssh -T git@github.com </code>(github)</p>
+<p><code>ssh -T git@gitee.com</code> (gitee)</p>
+<p>输入yes</p>
+<h2 id="四、将远程仓库克隆到本地"><a href="#四、将远程仓库克隆到本地" class="headerlink" title="四、将远程仓库克隆到本地"></a>四、将远程仓库克隆到本地</h2><p>Git Bash 中输入 <code>git clone  远程仓库地址</code></p>
 
       <div class="tags">
           <a href="/tags/git/" rel="tag"><i class="ic i-tag"></i> git</a>
@@ -352,7 +290,7 @@ C：文件被拷贝（复制）了。</p>
     <div class="item left">
       
 
-  <a href="/2023/02/12/%E4%B8%AD%E5%89%8D%E5%8F%B0%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;s3.uuu.ovh&#x2F;imgs&#x2F;2024&#x2F;04&#x2F;07&#x2F;d94cad8780c8c094.jpg" title="中前台解决方案">
+  <a href="/2023/02/12/%E4%B8%AD%E5%89%8D%E5%8F%B0%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;s3.uuu.ovh&#x2F;imgs&#x2F;2024&#x2F;04&#x2F;12&#x2F;35b09cafcea9fd29.webp" title="中前台解决方案">
   <span class="type">上一篇</span>
   <span class="category"><i class="ic i-flag"></i> 中前台解决方案</span>
   <h3>中前台解决方案</h3>
@@ -362,7 +300,7 @@ C：文件被拷贝（复制）了。</p>
     <div class="item right">
       
 
-  <a href="/2023/05/02/HTTP/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;s3.uuu.ovh&#x2F;imgs&#x2F;2024&#x2F;04&#x2F;28&#x2F;02824114036dc293.webp" title="HTTP">
+  <a href="/2023/05/02/HTTP/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;s3.uuu.ovh&#x2F;imgs&#x2F;2024&#x2F;04&#x2F;07&#x2F;6e43985af4997748.jpg" title="HTTP">
   <span class="type">下一篇</span>
   <span class="category"><i class="ic i-flag"></i> HTTP</span>
   <h3>HTTP</h3>
@@ -384,7 +322,7 @@ C：文件被拷贝（复制）了。</p>
   <div class="panels">
     <div class="inner">
       <div class="contents panel pjax" data-title="文章目录">
-          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#-git"><span class="toc-number">1.</span> <span class="toc-text"> -----------------------------------git</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#httpszhuanlanzhihucomp389814854"><span class="toc-number">1.1.</span> <span class="toc-text"> https:&#x2F;&#x2F;zhuanlan.zhihu.com&#x2F;p&#x2F;389814854</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#git%E5%85%A8%E5%B1%80%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E9%85%8D%E7%BD%AE%E4%B8%80%E6%AC%A1%E5%8D%B3%E5%8F%AF%E7%94%9F%E6%95%88"><span class="toc-number">1.1.0.1.</span> <span class="toc-text"> git 全局配置文件，配置一次即可生效</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80-git-init"><span class="toc-number">1.1.1.</span> <span class="toc-text"> 一、 git init</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%9D%E5%A7%8B%E5%8C%96%E5%88%9B%E5%BB%BA%E6%9C%AC%E5%9C%B0%E4%BB%93%E5%BA%93"><span class="toc-number">1.1.1.1.</span> <span class="toc-text"> （初始化，创建本地仓库）</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C-git-add"><span class="toc-number">1.1.2.</span> <span class="toc-text"> 二、 git add</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B7%BB%E5%8A%A0%E5%88%B0%E6%9C%AC%E5%9C%B0%E4%BB%93%E5%BA%93"><span class="toc-number">1.1.2.1.</span> <span class="toc-text"> （添加到本地仓库）</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%89-git-commit-m-%E6%B3%A8%E9%87%8A"><span class="toc-number">1.1.3.</span> <span class="toc-text"> 三、 git commit -m  &quot;注释&quot;</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B7%BB%E5%8A%A0%E6%B3%A8%E9%87%8A"><span class="toc-number">1.1.3.1.</span> <span class="toc-text"> （添加注释）</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%9B-git-remote-add-origin-%E4%BB%93%E5%BA%93%E5%9C%B0%E5%9D%80"><span class="toc-number">1.1.4.</span> <span class="toc-text"> 四、 git remote add origin  仓库地址</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%BF%9E%E6%8E%A5%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93"><span class="toc-number">1.1.4.1.</span> <span class="toc-text"> （连接远程仓库）</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%94-git-pull-rebase-origin-master"><span class="toc-number">1.1.5.</span> <span class="toc-text"> 五、 git pull --rebase origin master</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BB%93%E5%BA%93%E5%9C%B0%E5%9D%80%E5%90%8C%E6%AD%A5%E4%BB%93%E5%BA%93%E5%86%85%E5%AE%B9"><span class="toc-number">1.1.5.1.</span> <span class="toc-text"> 仓库地址（同步仓库内容）</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%AD-git-push-u-origin-master"><span class="toc-number">1.1.6.</span> <span class="toc-text"> 六、 git push -u origin master</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%8A%E4%BC%A0%E5%88%B0%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93"><span class="toc-number">1.1.6.1.</span> <span class="toc-text"> （上传到远程仓库）</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1%E8%8E%B7%E5%BE%97git%E5%B8%AE%E5%8A%A9%E5%91%BD%E4%BB%A4%E6%B5%8F%E8%A7%88%E5%99%A8%E4%B8%AD"><span class="toc-number">1.1.7.</span> <span class="toc-text"> ①获得 git 帮助命令（浏览器中）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2%E8%8E%B7%E5%BE%97git%E9%85%8D%E7%BD%AE%E4%BF%A1%E6%81%AF"><span class="toc-number">1.1.8.</span> <span class="toc-text"> ②获得 git 配置信息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3%E9%85%8D%E7%BD%AE%E7%94%A8%E6%88%B7%E4%BF%A1%E6%81%AF"><span class="toc-number">1.1.9.</span> <span class="toc-text"> ③配置用户信息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4%E8%8E%B7%E5%8F%96%E5%B8%AE%E5%8A%A9%E4%BF%A1%E6%81%AF"><span class="toc-number">1.1.10.</span> <span class="toc-text"> ④获取帮助信息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5%E5%B0%86%E7%9B%AE%E5%BD%95%E8%BD%AC%E6%8D%A2%E6%88%90git%E4%BB%93%E5%BA%93%E9%A1%B9%E7%9B%AE%E7%9A%84git-bash%E4%B8%AD%E4%BD%BF%E7%94%A8git-init"><span class="toc-number">1.1.11.</span> <span class="toc-text"> ⑤将目录转换成 Git 仓库（项目的 git Bash 中使用 git init）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6%E4%BB%8E%E5%85%B6%E4%BB%96%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A%E5%85%8B%E9%9A%86%E4%B8%80%E4%B8%AA%E4%BB%93%E5%BA%93"><span class="toc-number">1.1.12.</span> <span class="toc-text"> ⑥从其他服务器上克隆一个仓库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7%E5%9B%9B%E7%A7%8D%E7%8A%B6%E6%80%81%E5%B7%A5%E4%BD%9C%E5%8C%BA%E6%9C%AA%E4%BF%AE%E6%94%B9%E6%9A%82%E5%AD%98%E5%8C%BA%E5%B7%B2%E4%BF%AE%E6%94%B9%E4%BB%93%E5%BA%93%E5%B7%B2%E6%9A%82%E5%AD%98"><span class="toc-number">1.1.13.</span> <span class="toc-text"> ⑦四种状态：：工作区（未修改），暂存区（已修改），仓库（已暂存）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8git%E7%9B%AE%E6%A0%87%E5%B0%86%E5%B7%A5%E4%BD%9C%E5%8C%BA%E7%9A%84%E6%96%87%E4%BB%B6%E9%83%BD%E5%A4%84%E4%BA%8E%E6%9C%AA%E4%BF%AE%E6%94%B9%E7%9A%84%E7%8A%B6%E6%80%81"><span class="toc-number">1.1.14.</span> <span class="toc-text"> ⑧git 目标：将工作区的文件都处于未修改的状态</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#9%E6%9F%A5%E7%9C%8B%E6%96%87%E4%BB%B6%E5%87%BA%E4%BA%8E%E4%BB%80%E4%B9%88%E7%8A%B6%E6%80%81git-status%E5%91%BD%E4%BB%A4git-status-s-%E7%B2%BE%E7%AE%80%E6%98%BE%E7%A4%BA%E6%9F%A5%E7%9C%8B%E9%82%A3%E4%BA%9B%E6%96%87%E4%BB%B6%E8%A2%AB%E8%B7%9F%E8%B8%AA%E5%93%AA%E4%BA%9B%E6%B2%A1%E6%9C%89"><span class="toc-number">1.1.15.</span> <span class="toc-text"> ⑨查看文件出于什么状态：（git status 命令（git status -s 精简显示），查看那些文件被跟踪，哪些没有）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10%E8%B7%9F%E8%B8%AA%E6%96%87%E4%BB%B6%E8%B7%9F%E8%B8%AA%E5%90%8Egit%E4%BC%9A%E8%AE%B0%E5%BD%95%E6%96%87%E4%BB%B6%E7%9A%84%E6%89%80%E6%9C%89%E5%8F%98%E5%8C%96%E5%B9%B6%E7%AE%A1%E7%90%86%E5%92%8C%E6%81%A2%E5%A4%8Dgit-add-%E6%96%87%E4%BB%B6%E5%90%8D"><span class="toc-number">1.1.16.</span> <span class="toc-text"> ⑩跟踪文件，跟踪后 Git 会记录文件的所有变化，并管理和恢复（git add 文件名 ）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%81%E4%B8%80-%E6%8F%90%E4%BA%A4%E5%88%B0git%E4%BB%93%E5%BA%93%E4%B8%AD"><span class="toc-number">1.1.17.</span> <span class="toc-text"> 十一、提交到 git 仓库中</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%81%E4%BA%8C-%E4%BF%AE%E6%94%B9%E5%B7%B2%E6%8F%90%E4%BA%A4%E7%9A%84%E6%96%87%E4%BB%B6%E5%85%B6%E7%8A%B6%E6%80%81%E4%B8%BA%E7%BA%A2%E8%89%B2m"><span class="toc-number">1.1.18.</span> <span class="toc-text"> 十二、修改已提交的文件，其状态为红色 M</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%81%E4%B8%89-git-add%E5%91%BD%E4%BB%A4%E7%9A%84%E4%B8%89%E4%B8%AA%E5%8A%9F%E8%83%BD1%E8%B7%9F%E8%B8%AA%E6%96%B0%E6%96%87%E4%BB%B62%E5%B0%86%E5%B7%B2%E8%B7%9F%E8%B8%AA%E4%B8%94%E4%BF%AE%E6%94%B9%E7%9A%84%E6%96%87%E4%BB%B6%E6%94%BE%E5%88%B0%E6%9A%82%E5%AD%98%E5%8C%BA3%E5%B0%86%E6%9C%89%E5%86%B2%E7%AA%81%E7%9A%84%E6%96%87%E4%BB%B6%E6%A0%87%E8%AE%B0%E4%B8%BA%E4%BB%A5%E8%A7%A3%E5%86%B3%E7%8A%B6%E6%80%81"><span class="toc-number">1.1.19.</span> <span class="toc-text"> 十三、git add 命令的三个功能：①跟踪新文件②将已跟踪且修改的文件放到暂存区③将有冲突的文件标记为以解决状态</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%81%E5%9B%9B-%E6%92%A4%E9%94%80%E5%AF%B9%E6%96%87%E4%BB%B6%E7%9A%84%E4%BF%AE%E6%94%B9%E8%B0%A8%E6%85%8E%E6%93%8D%E4%BD%9C"><span class="toc-number">1.1.20.</span> <span class="toc-text"> 十四、撤销对文件的修改谨慎操作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%81%E4%BA%94-%E5%90%91%E6%9A%82%E5%AD%98%E5%8C%BA%E4%B8%AD%E4%B8%80%E6%AC%A1%E6%80%A7%E6%B7%BB%E5%8A%A0%E7%9B%AE%E5%BD%95%E4%B8%8B%E6%89%80%E6%9C%89%E6%96%87%E4%BB%B6"><span class="toc-number">1.1.21.</span> <span class="toc-text"> 十五、向暂存区中一次性添加目录下所有文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%81%E5%85%AD-%E4%BB%8E%E6%9A%82%E5%AD%98%E5%8C%BA%E7%A7%BB%E9%99%A4%E6%9A%82%E5%AD%98%E7%9A%84%E6%96%87%E4%BB%B6"><span class="toc-number">1.1.22.</span> <span class="toc-text"> 十六、从暂存区移除暂存的文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%81%E4%B8%83-git%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B%E5%B7%A5%E4%BD%9C%E5%8C%BA-%E6%9A%82%E5%AD%98%E5%8C%BA-git%E4%BB%93%E5%BA%93"><span class="toc-number">1.1.23.</span> <span class="toc-text"> 十七、Git 工作流程：工作区 ---- 暂存区 ----Git 仓库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%81%E5%85%AB-%E8%B7%B3%E8%BF%87%E4%BD%BF%E7%94%A8%E6%9A%82%E5%AD%98%E5%8C%BA"><span class="toc-number">1.1.24.</span> <span class="toc-text"> 十八、跳过使用暂存区</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%81%E4%B9%9D-%E4%BB%8Egit%E4%BB%93%E5%BA%93%E4%B8%AD%E7%A7%BB%E9%99%A4%E6%96%87%E4%BB%B6"><span class="toc-number">1.1.25.</span> <span class="toc-text"> 十九、从 Git 仓库中移除文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C%E5%8D%81-%E5%BF%BD%E7%95%A5%E6%96%87%E4%BB%B6"><span class="toc-number">1.1.26.</span> <span class="toc-text"> 二十、忽略文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C%E5%8D%81%E4%B8%80-glob%E6%A8%A1%E5%BC%8F"><span class="toc-number">1.1.27.</span> <span class="toc-text"> 二十一、glob 模式：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C%E5%8D%81%E4%BA%8C-%E8%BE%93%E5%87%BAgit%E6%8F%90%E4%BA%A4%E6%97%A5%E5%BF%97"><span class="toc-number">1.1.28.</span> <span class="toc-text"> 二十二、输出 Git 提交日志</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C%E5%8D%81%E4%B8%89-%E5%9B%9E%E9%80%80%E6%8C%87%E5%AE%9A%E7%89%88%E6%9C%AC"><span class="toc-number">1.1.29.</span> <span class="toc-text"> 二十三、回退指定版本：</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#-github"><span class="toc-number">2.</span> <span class="toc-text"> ----------------------------------------github</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80-%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%E4%BD%BF%E7%94%A8"><span class="toc-number">2.1.</span> <span class="toc-text"> 一、远程仓库使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C-%E5%9F%BA%E4%BA%8Ehttps-ssh%E5%B0%86%E6%9C%AC%E5%9C%B0%E4%BB%93%E5%BA%93%E4%B8%8A%E4%BC%A0%E5%88%B0github"><span class="toc-number">2.2.</span> <span class="toc-text"> 二、基于 HTTPS、SSH 将本地仓库上传到 Github</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89-%E7%94%9F%E6%88%90ssh-key"><span class="toc-number">2.3.</span> <span class="toc-text"> 三、生成 SSH key</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#ssh-key%E7%9A%84%E5%A5%BD%E5%A4%84"><span class="toc-number">2.3.0.1.</span> <span class="toc-text"> SSH key 的好处</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ssh-key%E4%B8%A4%E9%83%A8%E5%88%86"><span class="toc-number">2.3.0.2.</span> <span class="toc-text"> SSH key 两部分</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%85%8D%E7%BD%AEssh-key"><span class="toc-number">2.3.0.3.</span> <span class="toc-text"> 配置 SSH key</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A3%80%E6%B5%8B%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%E4%B8%ADssh%E6%98%AF%E5%90%A6%E9%85%8D%E7%BD%AE%E6%88%90%E5%8A%9F"><span class="toc-number">2.3.0.4.</span> <span class="toc-text"> 检测远程仓库中 SSH 是否配置成功</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B-%E5%B0%86%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%E5%85%8B%E9%9A%86%E5%88%B0%E6%9C%AC%E5%9C%B0"><span class="toc-number">2.4.</span> <span class="toc-text"> 四、将远程仓库克隆到本地</span></a></li></ol></li></ol>
+          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E2%80%94%E2%80%94%E2%80%94%E2%80%94%E2%80%94%E2%80%94%E2%80%94%E2%80%94%E2%80%94%E2%80%94%E2%80%94%E2%80%93git"><span class="toc-number">1.</span> <span class="toc-text">———————————–git</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#https-zhuanlan-zhihu-com-p-389814854"><span class="toc-number">1.1.</span> <span class="toc-text">https:&#x2F;&#x2F;zhuanlan.zhihu.com&#x2F;p&#x2F;389814854</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#git%E5%85%A8%E5%B1%80%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%EF%BC%8C%E9%85%8D%E7%BD%AE%E4%B8%80%E6%AC%A1%E5%8D%B3%E5%8F%AF%E7%94%9F%E6%95%88"><span class="toc-number">1.1.0.1.</span> <span class="toc-text">git全局配置文件，配置一次即可生效</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80%E3%80%81git-init"><span class="toc-number">1.1.1.</span> <span class="toc-text">一、git init</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%EF%BC%88%E5%88%9D%E5%A7%8B%E5%8C%96%EF%BC%8C%E5%88%9B%E5%BB%BA%E6%9C%AC%E5%9C%B0%E4%BB%93%E5%BA%93%EF%BC%89"><span class="toc-number">1.1.1.1.</span> <span class="toc-text">（初始化，创建本地仓库）</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C%E3%80%81git-add"><span class="toc-number">1.1.2.</span> <span class="toc-text">二、git add</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%EF%BC%88%E6%B7%BB%E5%8A%A0%E5%88%B0%E6%9C%AC%E5%9C%B0%E4%BB%93%E5%BA%93%EF%BC%89"><span class="toc-number">1.1.2.1.</span> <span class="toc-text">（添加到本地仓库）</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%89%E3%80%81git-commit-m-%E2%80%9C%E6%B3%A8%E9%87%8A%E2%80%9D"><span class="toc-number">1.1.3.</span> <span class="toc-text">三、git commit -m “注释”</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%EF%BC%88%E6%B7%BB%E5%8A%A0%E6%B3%A8%E9%87%8A%EF%BC%89"><span class="toc-number">1.1.3.1.</span> <span class="toc-text">（添加注释）</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%9B%E3%80%81git-remote-add-origin-%E4%BB%93%E5%BA%93%E5%9C%B0%E5%9D%80"><span class="toc-number">1.1.4.</span> <span class="toc-text">四、git remote add origin 仓库地址</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%EF%BC%88%E8%BF%9E%E6%8E%A5%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%EF%BC%89"><span class="toc-number">1.1.4.1.</span> <span class="toc-text">（连接远程仓库）</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%94%E3%80%81git-pull-rebase-origin-master"><span class="toc-number">1.1.5.</span> <span class="toc-text">五、git pull --rebase origin master</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BB%93%E5%BA%93%E5%9C%B0%E5%9D%80%EF%BC%88%E5%90%8C%E6%AD%A5%E4%BB%93%E5%BA%93%E5%86%85%E5%AE%B9%EF%BC%89"><span class="toc-number">1.1.5.1.</span> <span class="toc-text">仓库地址（同步仓库内容）</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%AD%E3%80%81git-push-u-origin-master"><span class="toc-number">1.1.6.</span> <span class="toc-text">六、git push -u origin master</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%EF%BC%88%E4%B8%8A%E4%BC%A0%E5%88%B0%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%EF%BC%89"><span class="toc-number">1.1.6.1.</span> <span class="toc-text">（上传到远程仓库）</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E2%91%A0%E8%8E%B7%E5%BE%97git%E5%B8%AE%E5%8A%A9%E5%91%BD%E4%BB%A4%EF%BC%88%E6%B5%8F%E8%A7%88%E5%99%A8%E4%B8%AD%EF%BC%89"><span class="toc-number">1.1.7.</span> <span class="toc-text">①获得git帮助命令（浏览器中）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E2%91%A1%E8%8E%B7%E5%BE%97git%E9%85%8D%E7%BD%AE%E4%BF%A1%E6%81%AF"><span class="toc-number">1.1.8.</span> <span class="toc-text">②获得git配置信息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E2%91%A2%E9%85%8D%E7%BD%AE%E7%94%A8%E6%88%B7%E4%BF%A1%E6%81%AF"><span class="toc-number">1.1.9.</span> <span class="toc-text">③配置用户信息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E2%91%A3%E8%8E%B7%E5%8F%96%E5%B8%AE%E5%8A%A9%E4%BF%A1%E6%81%AF"><span class="toc-number">1.1.10.</span> <span class="toc-text">④获取帮助信息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E2%91%A4%E5%B0%86%E7%9B%AE%E5%BD%95%E8%BD%AC%E6%8D%A2%E6%88%90Git%E4%BB%93%E5%BA%93%EF%BC%88%E9%A1%B9%E7%9B%AE%E7%9A%84git-Bash%E4%B8%AD%E4%BD%BF%E7%94%A8git-init%EF%BC%89"><span class="toc-number">1.1.11.</span> <span class="toc-text">⑤将目录转换成Git仓库（项目的git Bash中使用git init）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E2%91%A5%E4%BB%8E%E5%85%B6%E4%BB%96%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A%E5%85%8B%E9%9A%86%E4%B8%80%E4%B8%AA%E4%BB%93%E5%BA%93"><span class="toc-number">1.1.12.</span> <span class="toc-text">⑥从其他服务器上克隆一个仓库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E2%91%A6%E5%9B%9B%E7%A7%8D%E7%8A%B6%E6%80%81%EF%BC%9A%EF%BC%9A%E5%B7%A5%E4%BD%9C%E5%8C%BA%EF%BC%88%E6%9C%AA%E4%BF%AE%E6%94%B9%EF%BC%89%EF%BC%8C%E6%9A%82%E5%AD%98%E5%8C%BA%EF%BC%88%E5%B7%B2%E4%BF%AE%E6%94%B9%EF%BC%89%EF%BC%8C%E4%BB%93%E5%BA%93%EF%BC%88%E5%B7%B2%E6%9A%82%E5%AD%98%EF%BC%89"><span class="toc-number">1.1.13.</span> <span class="toc-text">⑦四种状态：：工作区（未修改），暂存区（已修改），仓库（已暂存）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E2%91%A7git%E7%9B%AE%E6%A0%87%EF%BC%9A%E5%B0%86%E5%B7%A5%E4%BD%9C%E5%8C%BA%E7%9A%84%E6%96%87%E4%BB%B6%E9%83%BD%E5%A4%84%E4%BA%8E%E6%9C%AA%E4%BF%AE%E6%94%B9%E7%9A%84%E7%8A%B6%E6%80%81"><span class="toc-number">1.1.14.</span> <span class="toc-text">⑧git目标：将工作区的文件都处于未修改的状态</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E2%91%A8%E6%9F%A5%E7%9C%8B%E6%96%87%E4%BB%B6%E5%87%BA%E4%BA%8E%E4%BB%80%E4%B9%88%E7%8A%B6%E6%80%81%EF%BC%9A%EF%BC%88git-status%E5%91%BD%E4%BB%A4%EF%BC%88git-status-s-%E7%B2%BE%E7%AE%80%E6%98%BE%E7%A4%BA%EF%BC%89%EF%BC%8C%E6%9F%A5%E7%9C%8B%E9%82%A3%E4%BA%9B%E6%96%87%E4%BB%B6%E8%A2%AB%E8%B7%9F%E8%B8%AA%EF%BC%8C%E5%93%AA%E4%BA%9B%E6%B2%A1%E6%9C%89%EF%BC%89"><span class="toc-number">1.1.15.</span> <span class="toc-text">⑨查看文件出于什么状态：（git status命令（git status -s 精简显示），查看那些文件被跟踪，哪些没有）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E2%91%A9%E8%B7%9F%E8%B8%AA%E6%96%87%E4%BB%B6%EF%BC%8C%E8%B7%9F%E8%B8%AA%E5%90%8EGit%E4%BC%9A%E8%AE%B0%E5%BD%95%E6%96%87%E4%BB%B6%E7%9A%84%E6%89%80%E6%9C%89%E5%8F%98%E5%8C%96%EF%BC%8C%E5%B9%B6%E7%AE%A1%E7%90%86%E5%92%8C%E6%81%A2%E5%A4%8D%EF%BC%88git-add-%E6%96%87%E4%BB%B6%E5%90%8D-%EF%BC%89"><span class="toc-number">1.1.16.</span> <span class="toc-text">⑩跟踪文件，跟踪后Git会记录文件的所有变化，并管理和恢复（git add 文件名 ）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%81%E4%B8%80%E3%80%81%E6%8F%90%E4%BA%A4%E5%88%B0git%E4%BB%93%E5%BA%93%E4%B8%AD"><span class="toc-number">1.1.17.</span> <span class="toc-text">十一、提交到git仓库中</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%81%E4%BA%8C%E3%80%81%E4%BF%AE%E6%94%B9%E5%B7%B2%E6%8F%90%E4%BA%A4%E7%9A%84%E6%96%87%E4%BB%B6%EF%BC%8C%E5%85%B6%E7%8A%B6%E6%80%81%E4%B8%BA%E7%BA%A2%E8%89%B2M"><span class="toc-number">1.1.18.</span> <span class="toc-text">十二、修改已提交的文件，其状态为红色M</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%81%E4%B8%89%E3%80%81git-add%E5%91%BD%E4%BB%A4%E7%9A%84%E4%B8%89%E4%B8%AA%E5%8A%9F%E8%83%BD%EF%BC%9A%E2%91%A0%E8%B7%9F%E8%B8%AA%E6%96%B0%E6%96%87%E4%BB%B6%E2%91%A1%E5%B0%86%E5%B7%B2%E8%B7%9F%E8%B8%AA%E4%B8%94%E4%BF%AE%E6%94%B9%E7%9A%84%E6%96%87%E4%BB%B6%E6%94%BE%E5%88%B0%E6%9A%82%E5%AD%98%E5%8C%BA%E2%91%A2%E5%B0%86%E6%9C%89%E5%86%B2%E7%AA%81%E7%9A%84%E6%96%87%E4%BB%B6%E6%A0%87%E8%AE%B0%E4%B8%BA%E4%BB%A5%E8%A7%A3%E5%86%B3%E7%8A%B6%E6%80%81"><span class="toc-number">1.1.19.</span> <span class="toc-text">十三、git add命令的三个功能：①跟踪新文件②将已跟踪且修改的文件放到暂存区③将有冲突的文件标记为以解决状态</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%81%E5%9B%9B%E3%80%81%E6%92%A4%E9%94%80%E5%AF%B9%E6%96%87%E4%BB%B6%E7%9A%84%E4%BF%AE%E6%94%B9%E8%B0%A8%E6%85%8E%E6%93%8D%E4%BD%9C"><span class="toc-number">1.1.20.</span> <span class="toc-text">十四、撤销对文件的修改谨慎操作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%81%E4%BA%94%E3%80%81%E5%90%91%E6%9A%82%E5%AD%98%E5%8C%BA%E4%B8%AD%E4%B8%80%E6%AC%A1%E6%80%A7%E6%B7%BB%E5%8A%A0%E7%9B%AE%E5%BD%95%E4%B8%8B%E6%89%80%E6%9C%89%E6%96%87%E4%BB%B6"><span class="toc-number">1.1.21.</span> <span class="toc-text">十五、向暂存区中一次性添加目录下所有文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%81%E5%85%AD%E3%80%81%E4%BB%8E%E6%9A%82%E5%AD%98%E5%8C%BA%E7%A7%BB%E9%99%A4%E6%9A%82%E5%AD%98%E7%9A%84%E6%96%87%E4%BB%B6"><span class="toc-number">1.1.22.</span> <span class="toc-text">十六、从暂存区移除暂存的文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%81%E4%B8%83%E3%80%81Git%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B%EF%BC%9A%E5%B7%A5%E4%BD%9C%E5%8C%BA%E2%80%94-%E6%9A%82%E5%AD%98%E5%8C%BA%E2%80%94-Git%E4%BB%93%E5%BA%93"><span class="toc-number">1.1.23.</span> <span class="toc-text">十七、Git工作流程：工作区—-暂存区—-Git仓库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%81%E5%85%AB%E3%80%81%E8%B7%B3%E8%BF%87%E4%BD%BF%E7%94%A8%E6%9A%82%E5%AD%98%E5%8C%BA"><span class="toc-number">1.1.24.</span> <span class="toc-text">十八、跳过使用暂存区</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%81%E4%B9%9D%E3%80%81%E4%BB%8EGit%E4%BB%93%E5%BA%93%E4%B8%AD%E7%A7%BB%E9%99%A4%E6%96%87%E4%BB%B6"><span class="toc-number">1.1.25.</span> <span class="toc-text">十九、从Git仓库中移除文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C%E5%8D%81%E3%80%81%E5%BF%BD%E7%95%A5%E6%96%87%E4%BB%B6"><span class="toc-number">1.1.26.</span> <span class="toc-text">二十、忽略文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C%E5%8D%81%E4%B8%80%E3%80%81glob%E6%A8%A1%E5%BC%8F%EF%BC%9A"><span class="toc-number">1.1.27.</span> <span class="toc-text">二十一、glob模式：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C%E5%8D%81%E4%BA%8C%E3%80%81%E8%BE%93%E5%87%BAGit%E6%8F%90%E4%BA%A4%E6%97%A5%E5%BF%97"><span class="toc-number">1.1.28.</span> <span class="toc-text">二十二、输出Git提交日志</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C%E5%8D%81%E4%B8%89%E3%80%81%E5%9B%9E%E9%80%80%E6%8C%87%E5%AE%9A%E7%89%88%E6%9C%AC%EF%BC%9A"><span class="toc-number">1.1.29.</span> <span class="toc-text">二十三、回退指定版本：</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E2%80%94%E2%80%94%E2%80%94%E2%80%94%E2%80%94%E2%80%94%E2%80%94%E2%80%94%E2%80%94%E2%80%94%E2%80%94%E2%80%94%E2%80%94-github"><span class="toc-number">2.</span> <span class="toc-text">—————————————-github</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%E4%BD%BF%E7%94%A8"><span class="toc-number">2.1.</span> <span class="toc-text">一、远程仓库使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E5%9F%BA%E4%BA%8EHTTPS%E3%80%81SSH%E5%B0%86%E6%9C%AC%E5%9C%B0%E4%BB%93%E5%BA%93%E4%B8%8A%E4%BC%A0%E5%88%B0Github"><span class="toc-number">2.2.</span> <span class="toc-text">二、基于HTTPS、SSH将本地仓库上传到Github</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E7%94%9F%E6%88%90SSH-key"><span class="toc-number">2.3.</span> <span class="toc-text">三、生成SSH key</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#SSH-key%E7%9A%84%E5%A5%BD%E5%A4%84"><span class="toc-number">2.3.0.1.</span> <span class="toc-text">SSH key的好处</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#SSH-key%E4%B8%A4%E9%83%A8%E5%88%86"><span class="toc-number">2.3.0.2.</span> <span class="toc-text">SSH key两部分</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%85%8D%E7%BD%AESSH-key"><span class="toc-number">2.3.0.3.</span> <span class="toc-text">配置SSH key</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A3%80%E6%B5%8B%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%E4%B8%ADSSH%E6%98%AF%E5%90%A6%E9%85%8D%E7%BD%AE%E6%88%90%E5%8A%9F"><span class="toc-number">2.3.0.4.</span> <span class="toc-text">检测远程仓库中SSH是否配置成功</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B%E3%80%81%E5%B0%86%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%E5%85%8B%E9%9A%86%E5%88%B0%E6%9C%AC%E5%9C%B0"><span class="toc-number">2.4.</span> <span class="toc-text">四、将远程仓库克隆到本地</span></a></li></ol></li></ol>
       </div>
       <div class="related panel pjax" data-title="系列文章">
         <ul>
@@ -402,19 +340,19 @@ C：文件被拷贝（复制）了。</p>
 <nav class="state">
     <div class="item posts">
       <a href="/archives/">
-        <span class="count">80</span>
+        <span class="count">82</span>
         <span class="name">文章</span>
       </a>
     </div>
     <div class="item categories">
       <a href="/categories/">
-        <span class="count">64</span>
+        <span class="count">66</span>
         <span class="name">分类</span>
       </a>
     </div>
     <div class="item tags">
       <a href="/tags/">
-        <span class="count">100</span>
+        <span class="count">102</span>
         <span class="name">标签</span>
       </a>
     </div>
@@ -502,10 +440,80 @@ C：文件被拷贝（复制）了。</p>
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/%E6%B8%B2%E6%9F%93%E6%A8%A1%E5%BC%8F/" title="分类于 渲染模式">渲染模式</a>
+<a href="/categories/%E6%9E%B6%E6%9E%84%E9%A3%8E%E6%A0%BC/" title="分类于 架构风格">架构风格</a>
 </div>
 
-    <span><a href="/2023/05/17/%E6%B8%B2%E6%9F%93%E6%A8%A1%E5%BC%8F/" title="渲染模式">渲染模式</a></span>
+    <span><a href="/2024/07/29/%E6%9E%B6%E6%9E%84%E9%A3%8E%E6%A0%BC/" title="架构风格">架构风格</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86/" title="分类于 版本管理">版本管理</a>
+</div>
+
+    <span><a href="/2024/01/23/%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86/" title="版本管理">版本管理</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/git/" title="分类于 git">git</a>
+</div>
+
+    <span><a href="/2023/05/02/git%20github%E7%AC%94%E8%AE%B0%EF%BC%88%E6%A6%82%E5%BF%B5%EF%BC%89/" title="git笔记">git笔记</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/vue/" title="分类于 vue">vue</a>
+</div>
+
+    <span><a href="/2023/09/02/vue3%E6%BA%90%E7%A0%81%E4%BD%8D%E8%BF%90%E7%AE%97/" title="vue3源码中的位运算">vue3源码中的位运算</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/node-js/" title="分类于 node.js">node.js</a>
+</div>
+
+    <span><a href="/2024/01/02/node.js%E5%86%85%E7%BD%AE%E6%A8%A1%E5%9D%97/" title="node.js内置模块">node.js内置模块</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/JS/" title="分类于 JS">JS</a>
+</div>
+
+    <span><a href="/2023/10/02/33%E4%B8%AAJavascript%E6%A6%82%E5%BF%B5/" title="33个JavaScript概念">33个JavaScript概念</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90%E4%B8%8E%E9%83%A8%E7%BD%B2/" title="分类于 持续集成与部署">持续集成与部署</a>
+</div>
+
+    <span><a href="/2024/02/03/%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90%E4%B8%8E%E6%8C%81%E7%BB%AD%E9%83%A8%E7%BD%B2/" title="持续集成与持续部署">持续集成与持续部署</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" title="分类于 正则表达式">正则表达式</a>
+</div>
+
+    <span><a href="/2024/01/10/%E6%AD%A3%E5%88%99/" title="正则理念">正则理念</a></span>
   </li>
 
       
@@ -522,80 +530,10 @@ C：文件被拷贝（复制）了。</p>
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/JS%E6%89%8B%E5%86%99%E9%A2%98/" title="分类于 JS手写题">JS手写题</a>
-</div>
-
-    <span><a href="/2023/06/02/JS%E6%89%8B%E5%86%99%E9%A2%98/" title="JS手写题">JS手写题</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
 <a href="/categories/JS/" title="分类于 JS">JS</a>
 </div>
 
     <span><a href="/2024/02/02/serviceWorker/" title="serviceWorker">serviceWorker</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/JS/" title="分类于 JS">JS</a>
-</div>
-
-    <span><a href="/2024/01/11/webworker/" title="webWorker">webWorker</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/Blob/" title="分类于 Blob">Blob</a>
-</div>
-
-    <span><a href="/2024/05/17/Blob%E5%92%8CFile/" title="Blob、File和FileReader">Blob、File和FileReader</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/JS/" title="分类于 JS">JS</a>
-</div>
-
-    <span><a href="/2023/12/11/typedArray/" title="JS中类型化数组typedArray">JS中类型化数组typedArray</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/" title="分类于 面试题">面试题</a>
-</div>
-
-    <span><a href="/2024/04/30/%E6%B7%B1%E6%8B%B7%E8%B4%9D/" title="深拷贝">深拷贝</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B8%8E%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99/" title="分类于 设计模式与设计原则">设计模式与设计原则</a>
-</div>
-
-    <span><a href="/2024/07/07/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E5%8E%9F%E5%88%99/" title="设计模式与设计原则">设计模式与设计原则</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/JS/" title="分类于 JS">JS</a>
-</div>
-
-    <span><a href="/2023/07/02/forEach/" title="forEach">forEach</a></span>
   </li>
 
   </ul>
@@ -620,13 +558,13 @@ C：文件被拷贝（复制）了。</p>
     <span class="post-meta-item-icon">
       <i class="ic i-chart-area"></i>
     </span>
-    <span title="站点总字数">944k 字</span>
+    <span title="站点总字数">953k 字</span>
 
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="ic i-coffee"></i>
     </span>
-    <span title="站点阅读时长">14:18</span>
+    <span title="站点阅读时长">14:26</span>
   </div>
   <div class="powered-by">
     基于 <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & Theme.<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Shoka</span>

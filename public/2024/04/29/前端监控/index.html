@@ -78,7 +78,7 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
       <i class="ic i-pen"></i>
     </span>
     <span class="text">本文字数</span>
-    <span>8.1k</span>
+    <span>8.8k</span>
     <span class="text">字</span>
   </span>
   <span class="item" title="阅读时长">
@@ -86,7 +86,7 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
       <i class="ic i-clock"></i>
     </span>
     <span class="text">阅读时长</span>
-    <span>7 分钟</span>
+    <span>8 分钟</span>
   </span>
 </div>
 
@@ -119,12 +119,12 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
       </div>
       <div id="imgs" class="pjax">
         <ul>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/28/6b39a7fcfcafff7b.webp"></li>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/13/a7144f7fc5d49961.jpg"></li>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/03/29/4e134f025ae53f2b.jpg"></li>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/15/9d4994abd78e2f72.jpg"></li>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/28/f7a6eb62965e0dec.webp"></li>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/13/9404a557b00200f4.jpg"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/04/f480d741324d8eb5.jpg"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/28/dc01f095118914ac.webp"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/25/37c45c250c8e6e2b.jpg"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/07/be4bd9184664725b.webp"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/03/29/5c162f03529c2f38.jpg"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/12/3368de466b008234.webp"></li>
         </ul>
       </div>
     </header>
@@ -170,9 +170,7 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
   <div class="body md" itemprop="articleBody">
     
 
-    <h1 id="前端监控"><a class="anchor" href="#前端监控">#</a> 前端监控</h1>
-<h1 id="介绍"><a class="anchor" href="#介绍">#</a> 介绍</h1>
-<p><strong>为什么要进行前端监控：</strong></p>
+    <h1 id="前端监控"><a href="#前端监控" class="headerlink" title="前端监控"></a>前端监控</h1><h1 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h1><p><strong>为什么要进行前端监控：</strong></p>
 <ul>
 <li>页面的访问行为，PV、UV、IP、PV 点击率、UV 点击率、停留时长</li>
 <li>用户的操作行为，模块曝光、</li>
@@ -204,8 +202,7 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
 <li>中阶：自研前端监控库，缺乏完整的监控体系</li>
 <li>高阶：自研前端监控平台，具备完整的监控体系</li>
 </ul>
-<h1 id="百度统计接入"><a class="anchor" href="#百度统计接入">#</a> <span class="exturl" data-url="aHR0cHM6Ly90b25namkuYmFpZHUuY29tLw==">百度统计接入</span></h1>
-<p><strong>流量分析免费，行为分析需要付费。</strong></p>
+<h1 id="百度统计接入"><a href="#百度统计接入" class="headerlink" title="百度统计接入"></a><span class="exturl" data-url="aHR0cHM6Ly90b25namkuYmFpZHUuY29tLw==">百度统计接入</span></h1><p><strong>流量分析免费，行为分析需要付费。</strong></p>
 <ol>
 <li>官网创建网站，设置域名和首页</li>
 <li>保证域名公共可读</li>
@@ -218,72 +215,203 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
 <li>自建成本小于或等于平台付费</li>
 <li>希望网站监控数据能存到自己数据库中，并且数据隐私化。</li>
 </ol>
-<h1 id="监控平台架构"><a class="anchor" href="#监控平台架构">#</a> 监控平台架构</h1>
-<p><strong>前端监控平台的分层：</strong></p>
+<h1 id="监控平台架构"><a href="#监控平台架构" class="headerlink" title="监控平台架构"></a>监控平台架构</h1><p><strong>前端监控平台的分层：</strong></p>
 <ul>
-<li>
-<p>前端监控 JSSDK</p>
+<li><p>前端监控 JSSDK</p>
 <ul>
 <li>采集</li>
-<li>上报
-<ul>
+<li>上报<ul>
 <li>默认上报：页面 PV、性能等</li>
 <li>手动上报：页面操作行为</li>
 </ul>
 </li>
 </ul>
 </li>
-<li>
-<p>前端监控 API 和大数据仓库</p>
+<li><p>前端监控 API 和大数据仓库</p>
 <ul>
 <li>接收上报的数据</li>
-<li>数据仓库：MaxCompute
-<ul>
+<li>数据仓库：MaxCompute<ul>
 <li>数据查询</li>
 <li>数据存储</li>
 </ul>
 </li>
 </ul>
 </li>
-<li>
-<p>前端监控数据可视化</p>
+<li><p>前端监控数据可视化</p>
 <ul>
 <li>日志大数据清洗</li>
-<li>大数据回流 RDS（非结构化数据 =&gt; 结构化数据）</li>
+<li>大数据回流 RDS（非结构化数据 &#x3D;&gt; 结构化数据）</li>
 </ul>
 </li>
 </ul>
 <p><strong>监控平台架构说明：</strong></p>
-<p><img data-src="/images/Snipaste_2024-04-29_08-11-46.jpg" alt="监控平台架构" /></p>
-<h2 id="js-库的开发"><a class="anchor" href="#js-库的开发">#</a> JS 库的开发</h2>
-<h4 id="js-sdk"><a class="anchor" href="#js-sdk">#</a> JS SDK</h4>
-<p>monitor.js：</p>
-<figure class="highlight javascript"><figcaption data-lang="javascript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">function</span> <span class="token function">collect</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="2"></td><td><pre>  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"collect"</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token keyword">function</span> <span class="token function">upload</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="5"></td><td><pre>  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"upload"</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="6"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="7"></td><td><pre>window<span class="token punctuation">.</span>testMonitor <span class="token operator">=</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="8"></td><td><pre>  collect<span class="token punctuation">,</span></pre></td></tr><tr><td data-num="9"></td><td><pre>  upload<span class="token punctuation">,</span></pre></td></tr><tr><td data-num="10"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">;</span></pre></td></tr></table></figure><p>上传到服务器，在需要监控的页面引入脚本。</p>
+<p><img data-src="/images/Snipaste_2024-04-29_08-11-46.jpg" alt="监控平台架构"></p>
+<h2 id="JS-库的开发"><a href="#JS-库的开发" class="headerlink" title="JS 库的开发"></a>JS 库的开发</h2><h4 id="JS-SDK"><a href="#JS-SDK" class="headerlink" title="JS SDK"></a>JS SDK</h4><p>monitor.js：</p>
+<pre><code class="javascript">function collect() &#123;
+  console.log(&quot;collect&quot;);
+&#125;
+function upload() &#123;
+  console.log(&quot;upload&quot;);
+&#125;
+window.testMonitor = &#123;
+  collect,
+  upload,
+&#125;;
+</code></pre>
+<p>上传到服务器，在需要监控的页面引入脚本。</p>
 <p><strong>一、直接引入脚本：</strong></p>
 <p>直接使用 script 标签引入在线地址。</p>
 <p><strong>二、异步加载（确保脚本加载完成后再使用 api）：</strong></p>
-<figure class="highlight html"><figcaption data-lang="HTML"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript"></pre></td></tr><tr><td data-num="2"></td><td><pre>  <span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="3"></td><td><pre>      <span class="token keyword">const</span> script <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">createElement</span><span class="token punctuation">(</span><span class="token string">'script'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="4"></td><td><pre>      script<span class="token punctuation">.</span>src <span class="token operator">=</span> <span class="token string">'https://imooc.youbaobao.xyz/imooc-cli-monitor.js'</span></pre></td></tr><tr><td data-num="5"></td><td><pre>      <span class="token keyword">const</span> body <span class="token operator">=</span> document<span class="token punctuation">.</span>body<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="6"></td><td><pre>      body<span class="token punctuation">.</span><span class="token function">insertBefore</span><span class="token punctuation">(</span>script<span class="token punctuation">,</span>body<span class="token punctuation">.</span>firstChild<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="7"></td><td><pre>      script<span class="token punctuation">.</span><span class="token function-variable function">onload</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="8"></td><td><pre>      <span class="token keyword">var</span> event <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">CustomEvent</span><span class="token punctuation">(</span><span class="token string">'onMonitorScriptLoad'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="9"></td><td><pre>      window<span class="token punctuation">.</span><span class="token function">dispatchEvent</span><span class="token punctuation">(</span>event<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="10"></td><td><pre>  <span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="11"></td><td><pre></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span></pre></td></tr><tr><td data-num="12"></td><td><pre><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript"></pre></td></tr><tr><td data-num="13"></td><td><pre>      window<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">'onMonitorScriptLoad'</span><span class="token punctuation">,</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="14"></td><td><pre>      window<span class="token punctuation">.</span>testMonitor<span class="token punctuation">.</span><span class="token function">collect</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="15"></td><td><pre>      window<span class="token punctuation">.</span>testMonitor<span class="token punctuation">.</span><span class="token function">upload</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="16"></td><td><pre>  <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token operator">:</span></pre></td></tr><tr><td data-num="17"></td><td><pre></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span></pre></td></tr></table></figure><h4 id="pv-埋点"><a class="anchor" href="#pv-埋点">#</a> PV 埋点</h4>
-<p><strong>一、分包便于代码书写和维护</strong></p>
+<pre><code class="html">&lt;script&gt;
+  (function()
+      const script = document.createElement(&#39;script&#39;);
+      script.src = &#39;https://imooc.youbaobao.xyz/imooc-cli-monitor.js&#39;
+      const body = document.body;
+      body.insertBefore(script,body.firstChild);
+      script.onload = function()&#123;
+      var event = new CustomEvent(&#39;onMonitorScriptLoad&#39;);
+      window.dispatchEvent(event);
+  )()
+&lt;/script&gt;
+&lt;script&gt;
+      window.addEventListener(&#39;onMonitorScriptLoad&#39;,function()&#123;
+      window.testMonitor.collect();
+      window.testMonitor.upload();
+  &#125;):
+&lt;/script&gt;
+</code></pre>
+<h4 id="PV-埋点"><a href="#PV-埋点" class="headerlink" title="PV 埋点"></a>PV 埋点</h4><p><strong>一、分包便于代码书写和维护</strong></p>
 <p>假设将项目分为：index.js、collect.js 和 upload.js 三个 js 文件，分别用于整合、收集和上报。</p>
 <p><strong>二、设置页面基本信息</strong></p>
 <p>在 meta 标签中设置变量，假设为：test-app-id，在 body 标签中设置 test-page-id，此变量用于区分不同的站点。</p>
 <p><strong>三、collect.js</strong></p>
-<figure class="highlight javascript"><figcaption data-lang="javascript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">import</span> <span class="token punctuation">&#123;</span> upload <span class="token punctuation">&#125;</span> <span class="token keyword">from</span> <span class="token string">"./upload"</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token comment">// 自定义一些钩子函数</span></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token keyword">let</span> beforeCreateParams<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token keyword">let</span> beforeUpload<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token keyword">let</span> afterUpload<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="6"></td><td><pre><span class="token keyword">let</span> <span class="token function-variable function">onError</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">err</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="7"></td><td><pre>  console<span class="token punctuation">.</span><span class="token function">error</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="8"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="9"></td><td><pre></pre></td></tr><tr><td data-num="10"></td><td><pre><span class="token keyword">export</span> <span class="token keyword">function</span> <span class="token function">collect</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="11"></td><td><pre>  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"收集开始..."</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="12"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="13"></td><td><pre><span class="token comment">// 采集信息</span></pre></td></tr><tr><td data-num="14"></td><td><pre><span class="token keyword">function</span> <span class="token function">collection</span><span class="token punctuation">(</span><span class="token parameter">customData<span class="token punctuation">,</span> eventType</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="15"></td><td><pre>  <span class="token keyword">let</span> appId<span class="token punctuation">,</span> pageId<span class="token punctuation">,</span> timeStamp<span class="token punctuation">,</span> ua<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="16"></td><td><pre>  beforeCreateParams <span class="token operator">&amp;&amp;</span> <span class="token function">beforeCreateParams</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="17"></td><td><pre>  <span class="token keyword">const</span> metaList <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementsByTagName</span><span class="token punctuation">(</span><span class="token string">"meta"</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="18"></td><td><pre>  <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> metaList<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="19"></td><td><pre>    <span class="token keyword">const</span> meta <span class="token operator">=</span> metaList<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="20"></td><td><pre>    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>meta<span class="token punctuation">.</span><span class="token function">getAttribute</span><span class="token punctuation">(</span><span class="token string">"test-app-id"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="21"></td><td><pre>    <span class="token keyword">if</span> <span class="token punctuation">(</span>meta<span class="token punctuation">.</span><span class="token function">getAttribute</span><span class="token punctuation">(</span><span class="token string">"test-app-id"</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="22"></td><td><pre>      appId <span class="token operator">=</span> meta<span class="token punctuation">.</span><span class="token function">getAttribute</span><span class="token punctuation">(</span><span class="token string">"test-app-id"</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="23"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="24"></td><td><pre>  <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="25"></td><td><pre>  <span class="token keyword">const</span> body <span class="token operator">=</span> document<span class="token punctuation">.</span>body<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="26"></td><td><pre>  pageId <span class="token operator">=</span> body<span class="token punctuation">.</span><span class="token function">getAttribute</span><span class="token punctuation">(</span><span class="token string">"test-page-id"</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="27"></td><td><pre>  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>appId <span class="token operator">||</span> <span class="token operator">!</span>pageId<span class="token punctuation">)</span> <span class="token keyword">return</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="28"></td><td><pre>  timeStamp <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getTime</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="29"></td><td><pre>  ua <span class="token operator">=</span> window<span class="token punctuation">.</span>navigator<span class="token punctuation">.</span>userAgent<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="30"></td><td><pre>  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>appId<span class="token punctuation">,</span> pageId<span class="token punctuation">,</span> timeStamp<span class="token punctuation">,</span> ua<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="31"></td><td><pre>  <span class="token keyword">let</span> data <span class="token operator">=</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">appId=</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>appId<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string">&amp;pageId=</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>pageId<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string">&amp;timeStamp=</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>timeStamp<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string">&amp;ua=</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>ua<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="32"></td><td><pre>  <span class="token keyword">if</span> <span class="token punctuation">(</span>beforeUpload<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="33"></td><td><pre>    data <span class="token operator">=</span> <span class="token function">beforeUpload</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 允许定制数据</span></pre></td></tr><tr><td data-num="34"></td><td><pre>  <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="35"></td><td><pre>  <span class="token comment">// 日志上报</span></pre></td></tr><tr><td data-num="36"></td><td><pre>  <span class="token comment">//upload (&#123;appId,pageId,timeStamp,ua&#125;)  不常用</span></pre></td></tr><tr><td data-num="37"></td><td><pre>  <span class="token keyword">let</span> url<span class="token punctuation">,</span> uploadData<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="38"></td><td><pre>  <span class="token keyword">try</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="39"></td><td><pre>    data <span class="token operator">=</span> <span class="token punctuation">&#123;</span> <span class="token operator">...</span>customData<span class="token punctuation">,</span> <span class="token operator">...</span>data <span class="token punctuation">&#125;</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="40"></td><td><pre>    <span class="token keyword">const</span> ret <span class="token operator">=</span> <span class="token function">upload</span><span class="token punctuation">(</span>data<span class="token punctuation">,</span> <span class="token punctuation">&#123;</span> eventType <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="41"></td><td><pre>    url <span class="token operator">=</span> ret<span class="token punctuation">.</span>url<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="42"></td><td><pre>    uploadData <span class="token operator">=</span> ret<span class="token punctuation">.</span>data<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="43"></td><td><pre>  <span class="token punctuation">&#125;</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span>e<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="44"></td><td><pre>    <span class="token function">onError</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="45"></td><td><pre>  <span class="token punctuation">&#125;</span> <span class="token keyword">finally</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="46"></td><td><pre>    afterUpload <span class="token operator">&amp;&amp;</span> <span class="token function">afterUpload</span><span class="token punctuation">(</span>url<span class="token punctuation">,</span> uploadData<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="47"></td><td><pre>  <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="48"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="49"></td><td><pre><span class="token comment">// 发送 PV 日志</span></pre></td></tr><tr><td data-num="50"></td><td><pre><span class="token keyword">export</span> <span class="token keyword">function</span> <span class="token function">sendPV</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="51"></td><td><pre>  <span class="token function">collection</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span><span class="token punctuation">,</span> <span class="token string">"PV"</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="52"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="53"></td><td><pre><span class="token comment">// 上报曝光埋点</span></pre></td></tr><tr><td data-num="54"></td><td><pre><span class="token keyword">export</span> <span class="token keyword">function</span> <span class="token function">sendExp</span><span class="token punctuation">(</span><span class="token parameter">data <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span></span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="55"></td><td><pre>  <span class="token function">collection</span><span class="token punctuation">(</span>data<span class="token punctuation">,</span> <span class="token string">"EXP"</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="56"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="57"></td><td><pre><span class="token comment">// 注册钩子函数</span></pre></td></tr><tr><td data-num="58"></td><td><pre><span class="token keyword">export</span> <span class="token keyword">function</span> <span class="token function">registerBeforeCreateParams</span><span class="token punctuation">(</span><span class="token parameter">fn</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="59"></td><td><pre>  beforeCreateParams <span class="token operator">=</span> fn<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="60"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="61"></td><td><pre><span class="token keyword">export</span> <span class="token keyword">function</span> <span class="token function">registerBeforeUpload</span><span class="token punctuation">(</span><span class="token parameter">fn</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="62"></td><td><pre>  beforeUpload <span class="token operator">=</span> fn<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="63"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="64"></td><td><pre><span class="token keyword">export</span> <span class="token keyword">function</span> <span class="token function">registerAfterUpload</span><span class="token punctuation">(</span><span class="token parameter">fn</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="65"></td><td><pre>  afterUpload <span class="token operator">=</span> fn<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="66"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="67"></td><td><pre><span class="token keyword">export</span> <span class="token keyword">function</span> <span class="token function">registerOnError</span><span class="token punctuation">(</span><span class="token parameter">fn</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="68"></td><td><pre>  onError <span class="token operator">=</span> fn<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="69"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="70"></td><td><pre><span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span><span class="token punctuation">;</span></pre></td></tr></table></figure><p><strong>四、upload.js</strong></p>
-<figure class="highlight javascript"><figcaption data-lang="javascript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">export</span> <span class="token keyword">function</span> <span class="token function">upload</span><span class="token punctuation">(</span><span class="token parameter">data</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="2"></td><td><pre>  <span class="token keyword">const</span> img <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Image</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 利用 image 标签跨域特性</span></pre></td></tr><tr><td data-num="3"></td><td><pre>  <span class="token keyword">const</span> <span class="token punctuation">&#123;</span> eventType <span class="token operator">=</span> <span class="token string">"PV"</span> <span class="token punctuation">&#125;</span> <span class="token operator">=</span> options<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="4"></td><td><pre>  <span class="token keyword">const</span> params <span class="token operator">=</span> <span class="token function">encodeURIComponent</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">"&amp;eventType="</span> <span class="token operator">+</span> eventType<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="5"></td><td><pre>  <span class="token keyword">const</span> src <span class="token operator">=</span> <span class="token string">"http://dmqtest.com?data="</span> <span class="token operator">+</span> params<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="6"></td><td><pre>  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>params<span class="token punctuation">,</span> src<span class="token punctuation">,</span> eventType<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="7"></td><td><pre>  img<span class="token punctuation">.</span>src <span class="token operator">=</span> src<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="8"></td><td><pre>  img <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span> <span class="token comment">// 注意内存释放</span></pre></td></tr><tr><td data-num="9"></td><td><pre>  <span class="token keyword">return</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="10"></td><td><pre>    <span class="token literal-property property">url</span><span class="token operator">:</span> src<span class="token punctuation">,</span></pre></td></tr><tr><td data-num="11"></td><td><pre>    <span class="token literal-property property">data</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="12"></td><td><pre>      params<span class="token punctuation">,</span></pre></td></tr><tr><td data-num="13"></td><td><pre>    <span class="token punctuation">&#125;</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="14"></td><td><pre>  <span class="token punctuation">&#125;</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="15"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="16"></td><td><pre><span class="token keyword">export</span> <span class="token keyword">default</span> upload<span class="token punctuation">;</span></pre></td></tr></table></figure><p><strong>五、index.js</strong></p>
-<pre><code>import &#123; sendPV , registerBeforeCreateParams,registerBeforeUpload,registerAfterUpload &#125; from './collect';
-import &#123; upload &#125; from './upload';
+<pre><code class="javascript">import &#123; upload &#125; from &quot;./upload&quot;;
+//自定义一些钩子函数
+let beforeCreateParams;
+let beforeUpload;
+let afterUpload;
+let onError = (err) =&gt; &#123;
+  console.error(err);
+&#125;;
+
+export function collect() &#123;
+  console.log(&quot;收集开始...&quot;);
+&#125;
+// 采集信息
+function collection(customData, eventType) &#123;
+  let appId, pageId, timeStamp, ua;
+  beforeCreateParams &amp;&amp; beforeCreateParams();
+  const metaList = document.getElementsByTagName(&quot;meta&quot;);
+  for (let i = 0; i &lt; metaList.length; i++) &#123;
+    const meta = metaList[i];
+    console.log(meta.getAttribute(&quot;test-app-id&quot;));
+    if (meta.getAttribute(&quot;test-app-id&quot;)) &#123;
+      appId = meta.getAttribute(&quot;test-app-id&quot;);
+    &#125;
+  &#125;
+  const body = document.body;
+  pageId = body.getAttribute(&quot;test-page-id&quot;);
+  if (!appId || !pageId) return;
+  timeStamp = new Date().getTime();
+  ua = window.navigator.userAgent;
+  console.log(appId, pageId, timeStamp, ua);
+  let data = `appId=$&#123;appId&#125;&amp;pageId=$&#123;pageId&#125;&amp;timeStamp=$&#123;timeStamp&#125;&amp;ua=$&#123;ua&#125;`;
+  if (beforeUpload) &#123;
+    data = beforeUpload(data); //允许定制数据
+  &#125;
+  //日志上报
+  // upload(&#123; appId,pageId,timeStamp,ua &#125;)  不常用
+  let url, uploadData;
+  try &#123;
+    data = &#123; ...customData, ...data &#125;;
+    const ret = upload(data, &#123; eventType &#125;);
+    url = ret.url;
+    uploadData = ret.data;
+  &#125; catch (e) &#123;
+    onError(e);
+  &#125; finally &#123;
+    afterUpload &amp;&amp; afterUpload(url, uploadData);
+  &#125;
+&#125;
+//发送PV日志
+export function sendPV() &#123;
+  collection(&#123;&#125;, &quot;PV&quot;);
+&#125;
+// 上报曝光埋点
+export function sendExp(data = &#123;&#125;) &#123;
+  collection(data, &quot;EXP&quot;);
+&#125;
+//注册钩子函数
+export function registerBeforeCreateParams(fn) &#123;
+  beforeCreateParams = fn;
+&#125;
+export function registerBeforeUpload(fn) &#123;
+  beforeUpload = fn;
+&#125;
+export function registerAfterUpload(fn) &#123;
+  afterUpload = fn;
+&#125;
+export function registerOnError(fn) &#123;
+  onError = fn;
+&#125;
+export default &#123;&#125;;
+</code></pre>
+<p><strong>四、upload.js</strong></p>
+<pre><code class="javascript">export function upload(data) &#123;
+  const img = new Image(); //利用image标签跨域特性
+  const &#123; eventType = &quot;PV&quot; &#125; = options;
+  const params = encodeURIComponent(data) + &quot;&amp;eventType=&quot; + eventType;
+  const src = &quot;http://dmqtest.com?data=&quot; + params;
+  console.log(params, src, eventType);
+  img.src = src;
+  img = null; //注意内存释放
+  return &#123;
+    url: src,
+    data: &#123;
+      params,
+    &#125;,
+  &#125;;
+&#125;
+export default upload;
+</code></pre>
+<p><strong>五、index.js</strong></p>
+<pre><code>import &#123; sendPV , registerBeforeCreateParams,registerBeforeUpload,registerAfterUpload &#125; from &#39;./collect&#39;;
+import &#123; upload &#125; from &#39;./upload&#39;;
 window.testMonitor = &#123;
-	upload,
-	sendPV,
-	registerBeforeCreateParams,
-	registerBeforeUpload,
-	registerAfterUpload,
-	registerOnError
+    upload,
+    sendPV,
+    registerBeforeCreateParams,
+    registerBeforeUpload,
+    registerAfterUpload,
+    registerOnError
 &#125;
 </code></pre>
 <p><strong>六、index.html</strong></p>
-<figure class="highlight html"><figcaption data-lang="HTML"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token doctype"><span class="token punctuation">&lt;!</span><span class="token doctype-tag">DOCTYPE</span> <span class="token name">html</span><span class="token punctuation">></span></span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>en<span class="token punctuation">"</span></span><span class="token punctuation">></span></span></pre></td></tr><tr><td data-num="3"></td><td><pre>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">></span></span></pre></td></tr><tr><td data-num="4"></td><td><pre>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>UTF-8<span class="token punctuation">"</span></span> <span class="token attr-name">test-app-id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>app123456<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span></pre></td></tr><tr><td data-num="5"></td><td><pre>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>viewport<span class="token punctuation">"</span></span> <span class="token attr-name">content</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>width=device-width, initial-scale=1.0<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span></pre></td></tr><tr><td data-num="6"></td><td><pre>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>title</span><span class="token punctuation">></span></span>Document<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>title</span><span class="token punctuation">></span></span></pre></td></tr><tr><td data-num="7"></td><td><pre>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">></span></span></pre></td></tr><tr><td data-num="8"></td><td><pre>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>https://dmqtest.com/index.js<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token script"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span></pre></td></tr><tr><td data-num="9"></td><td><pre>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span> <span class="token attr-name">test-page-id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>page123456<span class="token punctuation">"</span></span><span class="token punctuation">></span></span></pre></td></tr><tr><td data-num="10"></td><td><pre>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript"></pre></td></tr><tr><td data-num="11"></td><td><pre>      window<span class="token punctuation">.</span><span class="token function-variable function">onload</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="12"></td><td><pre>        window<span class="token punctuation">.</span>testMonitor<span class="token punctuation">.</span><span class="token function">registerBeforeCreateParams</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="13"></td><td><pre>          console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"创建之前"</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="14"></td><td><pre>        <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="15"></td><td><pre>        window<span class="token punctuation">.</span>testMonitor<span class="token punctuation">.</span><span class="token function">registerBrforeUpload</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">params</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="16"></td><td><pre>          <span class="token keyword">return</span> params <span class="token operator">+</span> <span class="token string">"&amp;custom=1"</span><span class="token punctuation">;</span> <span class="token comment">// 添加自定义数据</span></pre></td></tr><tr><td data-num="17"></td><td><pre>        <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="18"></td><td><pre>        window<span class="token punctuation">.</span>testMonitor<span class="token punctuation">.</span><span class="token function">registerAfterUpload</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">url<span class="token punctuation">,</span> data</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="19"></td><td><pre>        window<span class="token punctuation">.</span>testMonitor<span class="token punctuation">.</span><span class="token function">sendPV</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="20"></td><td><pre>      <span class="token punctuation">&#125;</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="21"></td><td><pre>    </span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span></pre></td></tr><tr><td data-num="22"></td><td><pre>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">></span></span></pre></td></tr><tr><td data-num="23"></td><td><pre><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">></span></span></pre></td></tr></table></figure><h4 id="曝光埋点"><a class="anchor" href="#曝光埋点">#</a> 曝光埋点</h4>
-<p>曝光埋点记录元素由不可变到可变的过程，需要浏览器 IntersectionObserver 这个 API 的支持。</p>
+<pre><code class="html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+  &lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot; test-app-id=&quot;app123456&quot; /&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot; /&gt;
+    &lt;title&gt;Document&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;script src=&quot;https://dmqtest.com/index.js&quot;&gt;&lt;/script&gt;
+  &lt;body test-page-id=&quot;page123456&quot;&gt;
+    &lt;script&gt;
+      window.onload = function () &#123;
+        window.testMonitor.registerBeforeCreateParams(() =&gt; &#123;
+          console.log(&quot;创建之前&quot;);
+        &#125;);
+        window.testMonitor.registerBrforeUpload((params) =&gt; &#123;
+          return params + &quot;&amp;custom=1&quot;; //添加自定义数据
+        &#125;);
+        window.testMonitor.registerAfterUpload((url, data) =&gt; &#123;&#125;);
+        window.testMonitor.sendPV();
+      &#125;;
+    &lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<h4 id="曝光埋点"><a href="#曝光埋点" class="headerlink" title="曝光埋点"></a>曝光埋点</h4><p>曝光埋点记录元素由不可变到可变的过程，需要浏览器 IntersectionObserver 这个 API 的支持。</p>
 <p><strong>浏览器 5 种 Observer：</strong></p>
 <ul>
 <li>MutationObserver（用于监听 DOM 树的变化，一般为属性、子节点的增删改）</li>
@@ -295,21 +423,17 @@ window.testMonitor = &#123;
 <p><strong>IntersectionObserver：</strong></p>
 <p><strong>方法：</strong></p>
 <ul>
-<li>
-<p>observe：开始监听一个目标元素</p>
-<p>语法：IntersectionObserver.disconnect ();</p>
+<li><p>observe：开始监听一个目标元素</p>
+<p>语法：IntersectionObserver.disconnect();</p>
 </li>
-<li>
-<p>disconnect：停止监听</p>
-<p>语法：IntersectionObserver.observe (targetElement);</p>
+<li><p>disconnect：停止监听</p>
+<p>语法：IntersectionObserver.observe(targetElement);</p>
 </li>
-<li>
-<p>takeRecords: 返回所有观察目标的 IntersectionObserverEntry 对象数组。</p>
-<p>语法：intersectionObserverEntries = intersectionObserver.takeRecords ();</p>
+<li><p>takeRecords:返回所有观察目标的 IntersectionObserverEntry 对象数组。</p>
+<p>语法：intersectionObserverEntries &#x3D; intersectionObserver.takeRecords();</p>
 </li>
-<li>
-<p>unobserve: 使 IntersectionObserver 停止监听特定目标元素</p>
-<p>语法：IntersectionObserver.unobserve (targetElement);</p>
+<li><p>unobserve:使 IntersectionObserver 停止监听特定目标元素</p>
+<p>语法：IntersectionObserver.unobserve(targetElement);</p>
 </li>
 </ul>
 <p><strong>配置项：</strong></p>
@@ -321,42 +445,113 @@ window.testMonitor = &#123;
 </ul>
 <p><strong>返回参数：</strong></p>
 <ul>
-<li>tIme: 可见性发生变化的时间，是一个高精度时间戳，单位为毫秒</li>
-<li>rootBounds: 是在根元素矩形区域的信息</li>
-<li>intersectionRatio: 目标元素的可见比例</li>
-<li>intersectionRect: 目标元素与根元素交叉区域的信息</li>
-<li>isIntersecting: 判断元素是否符合 options 中的可见条件</li>
-<li>boundingClientRect: 目标元素的矩形区域的信息</li>
-<li>target: 被观察的目标元素</li>
+<li>tIme:可见性发生变化的时间，是一个高精度时间戳，单位为毫秒</li>
+<li>rootBounds:是在根元素矩形区域的信息</li>
+<li>intersectionRatio:目标元素的可见比例</li>
+<li>intersectionRect:目标元素与根元素交叉区域的信息</li>
+<li>isIntersecting:判断元素是否符合 options 中的可见条件</li>
+<li>boundingClientRect:目标元素的矩形区域的信息</li>
+<li>target:被观察的目标元素</li>
 </ul>
 <p><strong>upload.js 文件中添加：</strong></p>
-<figure class="highlight javascript"><figcaption data-lang="javascript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token comment">//.... 省略</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token comment">// 上报曝光埋点</span></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token keyword">export</span> <span class="token keyword">function</span> <span class="token function">sendExp</span><span class="token punctuation">(</span><span class="token parameter">data <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span></span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="4"></td><td><pre>  <span class="token function">collection</span><span class="token punctuation">(</span>data<span class="token punctuation">,</span> <span class="token string">"EXP"</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="6"></td><td><pre><span class="token comment">// 最后在 index.js 中暴露出去。</span></pre></td></tr></table></figure><p><strong>collect.js 文件中添加：</strong></p>
-<figure class="highlight javascript"><figcaption data-lang="javascript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token comment">//.... 省略</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token keyword">export</span> <span class="token keyword">function</span> <span class="token function">collectAppear</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="3"></td><td><pre>  <span class="token keyword">const</span> appearEvent <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">CustomEvent</span><span class="token punctuation">(</span><span class="token string">"onAppear"</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="4"></td><td><pre>  <span class="token keyword">const</span> disappearEvent <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">CustomEvent</span><span class="token punctuation">(</span><span class="token string">"onDisappear"</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="5"></td><td><pre>  <span class="token keyword">let</span> ob<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="6"></td><td><pre>  <span class="token keyword">if</span> <span class="token punctuation">(</span>window<span class="token punctuation">.</span>testMonitorObserver<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="7"></td><td><pre>    ob <span class="token operator">=</span> window<span class="token punctuation">.</span>testMonitorObserver<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="8"></td><td><pre>  <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="9"></td><td><pre>    ob <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">IntersectionObserver</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">e</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="10"></td><td><pre>      e<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">item</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="11"></td><td><pre>        <span class="token keyword">if</span> <span class="token punctuation">(</span>item<span class="token punctuation">.</span>intersectionRatio <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="12"></td><td><pre>          console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>item<span class="token punctuation">.</span>target<span class="token punctuation">.</span>className <span class="token operator">+</span> <span class="token string">"appear"</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="13"></td><td><pre>          item<span class="token punctuation">.</span>target<span class="token punctuation">.</span><span class="token function">dispatchEvent</span><span class="token punctuation">(</span>appearEvent<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="14"></td><td><pre>        <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="15"></td><td><pre>          console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>item<span class="token punctuation">.</span>target<span class="token punctuation">.</span>className <span class="token operator">+</span> <span class="token string">"disappear"</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="16"></td><td><pre>          item<span class="token punctuation">.</span>target<span class="token punctuation">.</span><span class="token function">dispatchEvent</span><span class="token punctuation">(</span>disappearEvent<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="17"></td><td><pre>        <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="18"></td><td><pre>      <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="19"></td><td><pre>    <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="20"></td><td><pre>  <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="21"></td><td><pre>  <span class="token keyword">let</span> obList <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="22"></td><td><pre>  <span class="token keyword">const</span> appear <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">querySelectorAll</span><span class="token punctuation">(</span><span class="token string">"[appear]"</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="23"></td><td><pre>  <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> appear<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="24"></td><td><pre>    <span class="token keyword">if</span> <span class="token punctuation">(</span>obList<span class="token punctuation">.</span><span class="token function">includes</span><span class="token punctuation">(</span>appear<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="25"></td><td><pre>      ob<span class="token punctuation">.</span><span class="token function">observe</span><span class="token punctuation">(</span>appear<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="26"></td><td><pre>      obList<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>appear<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="27"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="28"></td><td><pre>  <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="29"></td><td><pre>  window<span class="token punctuation">.</span>testMonitorObserver <span class="token operator">=</span> ob<span class="token punctuation">;</span> <span class="token comment">// 存起来防止重复</span></pre></td></tr><tr><td data-num="30"></td><td><pre>  window<span class="token punctuation">.</span>monitorObserverList <span class="token operator">=</span> obList<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="31"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr></table></figure><p><strong>index.js 中使用：</strong></p>
-<figure class="highlight javascript"><figcaption data-lang="javascript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token comment">//... 省略</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token comment">//import 引入 collectAppear 函数。</span></pre></td></tr><tr><td data-num="3"></td><td><pre>window<span class="token punctuation">.</span><span class="token function-variable function">onload</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="4"></td><td><pre>  <span class="token function">collectAppear</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">;</span></pre></td></tr></table></figure><h4 id="点击埋点"><a class="anchor" href="#点击埋点">#</a> <strong>点击埋点</strong></h4>
-<p><strong>collect.js 中添加：</strong></p>
-<figure class="highlight javascript"><figcaption data-lang="javascript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token comment">//... 省略</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token comment">// 上报点击埋点</span></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token keyword">export</span> <span class="token keyword">function</span> <span class="token function">sendClick</span><span class="token punctuation">(</span><span class="token parameter">data <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span></span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="4"></td><td><pre>  <span class="token function">collection</span><span class="token punctuation">(</span>data<span class="token punctuation">,</span> <span class="token string">"CLICK"</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="6"></td><td><pre><span class="token comment">// 暴露出去，index.js 导入该方法并暴露出去。</span></pre></td></tr></table></figure><h4 id="自定义埋点"><a class="anchor" href="#自定义埋点">#</a> 自定义埋点</h4>
-<p><strong>collect.js 中添加：</strong></p>
+<pre><code class="javascript">// ....省略
+// 上报曝光埋点
+export function sendExp(data = &#123;&#125;) &#123;
+  collection(data, &quot;EXP&quot;);
+&#125;
+// 最后在index.js中暴露出去。
+</code></pre>
+<p><strong>collect.js 文件中添加：</strong></p>
+<pre><code class="javascript">//....省略
+export function collectAppear() &#123;
+  const appearEvent = new CustomEvent(&quot;onAppear&quot;);
+  const disappearEvent = new CustomEvent(&quot;onDisappear&quot;);
+  let ob;
+  if (window.testMonitorObserver) &#123;
+    ob = window.testMonitorObserver;
+  &#125; else &#123;
+    ob = new IntersectionObserver(function (e) &#123;
+      e.forEach((item) =&gt; &#123;
+        if (item.intersectionRatio &gt; 0) &#123;
+          console.log(item.target.className + &quot;appear&quot;);
+          item.target.dispatchEvent(appearEvent);
+        &#125; else &#123;
+          console.log(item.target.className + &quot;disappear&quot;);
+          item.target.dispatchEvent(disappearEvent);
+        &#125;
+      &#125;);
+    &#125;);
+  &#125;
+  let obList = [];
+  const appear = document.querySelectorAll(&quot;[appear]&quot;);
+  for (let i = 0; i &lt; appear.length; i++) &#123;
+    if (obList.includes(appear[i])) &#123;
+      ob.observe(appear[i]);
+      obList.push(appear[i]);
+    &#125;
+  &#125;
+  window.testMonitorObserver = ob; //存起来防止重复
+  window.monitorObserverList = obList;
+&#125;
+</code></pre>
+<p><strong>index.js 中使用：</strong></p>
+<pre><code class="javascript">//...省略
+// import引入collectAppear函数。
+window.onload = function () &#123;
+  collectAppear();
+&#125;;
+</code></pre>
+<h4 id="点击埋点"><a href="#点击埋点" class="headerlink" title="点击埋点"></a><strong>点击埋点</strong></h4><p><strong>collect.js 中添加：</strong></p>
+<pre><code class="javascript">//...省略
+//上报点击埋点
+export function sendClick(data = &#123;&#125;) &#123;
+  collection(data, &quot;CLICK&quot;);
+&#125;
+//暴露出去，index.js导入该方法并暴露出去。
+</code></pre>
+<h4 id="自定义埋点"><a href="#自定义埋点" class="headerlink" title="自定义埋点"></a>自定义埋点</h4><p><strong>collect.js 中添加：</strong></p>
 <p>自定义埋点行为就直接在内部添加 CUSTOM 对应的处理逻辑，可以使用其他的 Observer 实现更多功能。</p>
-<figure class="highlight javascript"><figcaption data-lang="javascript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token comment">//... 省略</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token comment">// 上报自定义埋点</span></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token keyword">export</span> <span class="token keyword">function</span> <span class="token function">sendCustom</span><span class="token punctuation">(</span><span class="token parameter">data <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span></span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="4"></td><td><pre>  <span class="token function">collection</span><span class="token punctuation">(</span>data<span class="token punctuation">,</span> <span class="token string">"CUSTOM"</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="6"></td><td><pre><span class="token comment">// 暴露出去，index.js 导入该方法并暴露出去。</span></pre></td></tr></table></figure><h2 id="大数据平台开发"><a class="anchor" href="#大数据平台开发">#</a> 大数据平台开发</h2>
-<p><strong><span class="exturl" data-url="aHR0cHM6Ly9oZWxwLmFsaXl1bi5jb20vemgvbWF4Y29tcHV0ZS8jOn46dGV4dD0lRTQlQkElOTElRTUlOEUlOUYlRTclOTQlOUYlRTUlQTQlQTclRTYlOTUlQjAlRTYlOEQlQUUlRTglQUUlQTElRTclQUUlOTclRTYlOUMlOEQlRTUlOEElQTEsJTI4TWF4Q29tcHV0ZSUyOSVFNiU5OCVBRiVFNCVCOCU4MCVFNyVBNyU4RCVFNSVCRiVBQiVFOSU4MCU5RiVFMyU4MCU4MSVFNSVBRSU4QyVFNSU4NSVBOCVFNiU4OSU5OCVFNyVBRSVBMSVFNyU5QSU4NFRCJTJGUEIlRTclQkElQTclRTYlOTUlQjAlRTYlOEQlQUUlRTQlQkIlOTMlRTUlQkElOTMlRTglQTclQTMlRTUlODYlQjMlRTYlOTYlQjklRTYlQTElODglRTMlODAlODIlMjBNYXhDb21wdXRlJUU1JTkwJTkxJUU3JTk0JUE4JUU2JTg4JUI3JUU2JThGJTkwJUU0JUJFJTlCJUU0JUJBJTg2JUU1JUFFJThDJUU1JTk2JTg0JUU3JTlBJTg0JUU2JTk1JUIwJUU2JThEJUFFJUU1JUFGJUJDJUU1JTg1JUE1JUU2JTk2JUI5JUU2JUExJTg4JUU0JUJCJUE1JUU1JThGJThBJUU1JUE0JTlBJUU3JUE3JThEJUU3JUJCJThGJUU1JTg1JUI4JUU3JTlBJTg0JUU1JTg4JTg2JUU1JUI4JTgzJUU1JUJDJThGJUU4JUFFJUExJUU3JUFFJTk3JUU2JUE4JUExJUU1JTlFJThCJUVGJUJDJThDJUU4JTgzJUJEJUU1JUE0JTlGJUU2JTlCJUI0JUU1JUJGJUFCJUU5JTgwJTlGJUU3JTlBJTg0JUU4JUE3JUEzJUU1JTg2JUIzJUU3JTk0JUE4JUU2JTg4JUI3JUU2JUI1JUI3JUU5JTg3JThGJUU2JTk1JUIwJUU2JThEJUFFJUU4JUFFJUExJUU3JUFFJTk3JUU5JTk3JUFFJUU5JUEyJTk4JUVGJUJDJThDJUU2JTlDJTg5JUU2JTk1JTg4JUU5JTk5JThEJUU0JUJEJThFJUU0JUJDJTgxJUU0JUI4JTlBJUU2JTg4JTkwJUU2JTlDJUFDJUVGJUJDJThDJUU1JUI5JUI2JUU0JUJGJTlEJUU5JTlBJTlDJUU2JTk1JUIwJUU2JThEJUFFJUU1JUFFJTg5JUU1JTg1JUE4JUUzJTgwJTgy">MaxCompute 阿里云原生大数据计算服务</span>：</strong></p>
+<pre><code class="javascript">//...省略
+//上报自定义埋点
+export function sendCustom(data = &#123;&#125;) &#123;
+  collection(data, &quot;CUSTOM&quot;);
+&#125;
+//暴露出去，index.js导入该方法并暴露出去。
+</code></pre>
+<h2 id="大数据平台开发"><a href="#大数据平台开发" class="headerlink" title="大数据平台开发"></a>大数据平台开发</h2><p><strong><span class="exturl" data-url="aHR0cHM6Ly9oZWxwLmFsaXl1bi5jb20vemgvbWF4Y29tcHV0ZS8jOn46dGV4dD0lRTQlQkElOTElRTUlOEUlOUYlRTclOTQlOUYlRTUlQTQlQTclRTYlOTUlQjAlRTYlOEQlQUUlRTglQUUlQTElRTclQUUlOTclRTYlOUMlOEQlRTUlOEElQTEsJTI4TWF4Q29tcHV0ZSUyOSVFNiU5OCVBRiVFNCVCOCU4MCVFNyVBNyU4RCVFNSVCRiVBQiVFOSU4MCU5RiVFMyU4MCU4MSVFNSVBRSU4QyVFNSU4NSVBOCVFNiU4OSU5OCVFNyVBRSVBMSVFNyU5QSU4NFRCJTJGUEIlRTclQkElQTclRTYlOTUlQjAlRTYlOEQlQUUlRTQlQkIlOTMlRTUlQkElOTMlRTglQTclQTMlRTUlODYlQjMlRTYlOTYlQjklRTYlQTElODglRTMlODAlODIlMjBNYXhDb21wdXRlJUU1JTkwJTkxJUU3JTk0JUE4JUU2JTg4JUI3JUU2JThGJTkwJUU0JUJFJTlCJUU0JUJBJTg2JUU1JUFFJThDJUU1JTk2JTg0JUU3JTlBJTg0JUU2JTk1JUIwJUU2JThEJUFFJUU1JUFGJUJDJUU1JTg1JUE1JUU2JTk2JUI5JUU2JUExJTg4JUU0JUJCJUE1JUU1JThGJThBJUU1JUE0JTlBJUU3JUE3JThEJUU3JUJCJThGJUU1JTg1JUI4JUU3JTlBJTg0JUU1JTg4JTg2JUU1JUI4JTgzJUU1JUJDJThGJUU4JUFFJUExJUU3JUFFJTk3JUU2JUE4JUExJUU1JTlFJThCJUVGJUJDJThDJUU4JTgzJUJEJUU1JUE0JTlGJUU2JTlCJUI0JUU1JUJGJUFCJUU5JTgwJTlGJUU3JTlBJTg0JUU4JUE3JUEzJUU1JTg2JUIzJUU3JTk0JUE4JUU2JTg4JUI3JUU2JUI1JUI3JUU5JTg3JThGJUU2JTk1JUIwJUU2JThEJUFFJUU4JUFFJUExJUU3JUFFJTk3JUU5JTk3JUFFJUU5JUEyJTk4JUVGJUJDJThDJUU2JTlDJTg5JUU2JTk1JTg4JUU5JTk5JThEJUU0JUJEJThFJUU0JUJDJTgxJUU0JUI4JTlBJUU2JTg4JTkwJUU2JTlDJUFDJUVGJUJDJThDJUU1JUI5JUI2JUU0JUJGJTlEJUU5JTlBJTlDJUU2JTk1JUIwJUU2JThEJUFFJUU1JUFFJTg5JUU1JTg1JUE4JUUzJTgwJTgy">MaxCompute 阿里云原生大数据计算服务</span>：</strong></p>
 <p>MaxCompute 是基于数据分析场景的企业级 SaaS 模式云数据仓库，以 Serverless 架构提供快速、全托管的在线数据仓库服务，消除了传统数据平台在资源扩展性和弹性方面的限制，最小化用户运维投入。</p>
 <p><strong>使用：</strong></p>
 <ol>
-<li>
-<p>使用 MaxCompute 创建数据库，在数据开发页面创建表进行记录前端监控数据</p>
+<li><p>使用 MaxCompute 创建数据库，在数据开发页面创建表进行记录前端监控数据</p>
 </li>
-<li>
-<p>使用 py 脚本对接（暂时没有 js 包），需要安装 python 和 pip（包管理工具）</p>
+<li><p>使用 py 脚本对接（暂时没有 js 包），需要安装 python 和 pip（包管理工具）</p>
 </li>
-<li>
-<p>安装 pyodps： <code>pip install pyodps</code></p>
+<li><p>安装 pyodps：<code>pip install pyodps</code></p>
 </li>
-<li>
-<p><span class="exturl" data-url="aHR0cDovL2Nvbm5lY3QucHk=">connect.py</span> 文件中写入示例：</p>
-<figure class="highlight python"><figcaption data-lang="python"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">from</span> odps <span class="token keyword">import</span> ODPS<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="2"></td><td><pre></pre></td></tr><tr><td data-num="3"></td><td><pre>odps <span class="token operator">=</span> ODPS<span class="token punctuation">(</span><span class="token string">'LTAI5tBDj3HajwRVhc6me5KR'</span><span class="token punctuation">,</span><span class="token string">'DJqWAI1IWUBZnZGE#FKDSFJDEJLet'</span><span class="token punctuation">,</span><span class="token string">'test_monitor'</span><span class="token punctuation">,</span>endpoint<span class="token operator">=</span><span class="token string">'https://service-cn-hangzhou.odps.aliyun-inc.com'</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="4"></td><td><pre></pre></td></tr><tr><td data-num="5"></td><td><pre>result <span class="token operator">=</span> odps<span class="token punctuation">.</span>executexecute_sql<span class="token punctuation">(</span><span class="token string">'select * from test_monitor where datetime="20240325"'</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="6"></td><td><pre></pre></td></tr><tr><td data-num="7"></td><td><pre><span class="token keyword">with</span> result<span class="token punctuation">.</span>open_reader<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">as</span> reader<span class="token punctuation">:</span></pre></td></tr><tr><td data-num="8"></td><td><pre>    <span class="token keyword">for</span> record <span class="token keyword">in</span> reader<span class="token punctuation">:</span></pre></td></tr><tr><td data-num="9"></td><td><pre>        <span class="token keyword">print</span><span class="token punctuation">(</span>record<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span>record<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="10"></td><td><pre><span class="token comment"># 打印表名</span></pre></td></tr><tr><td data-num="11"></td><td><pre><span class="token keyword">for</span> table <span class="token keyword">in</span> odps<span class="token punctuation">.</span>list_tables<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span></pre></td></tr><tr><td data-num="12"></td><td><pre>    <span class="token keyword">print</span><span class="token punctuation">(</span>table<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="13"></td><td><pre>data <span class="token operator">=</span> <span class="token punctuation">[</span></pre></td></tr><tr><td data-num="14"></td><td><pre>    <span class="token punctuation">[</span><span class="token string">'appid123'</span><span class="token punctuation">,</span><span class="token string">'pageid123'</span><span class="token punctuation">,</span><span class="token string">'123456'</span><span class="token punctuation">,</span><span class="token string">'ua123'</span><span class="token punctuation">,</span><span class="token string">'http://www.baidu.com'</span><span class="token punctuation">,</span><span class="token string">'20240325'</span><span class="token punctuation">,</span><span class="token string">'20240325'</span><span class="token punctuation">,</span><span class="token string">'20240325'</span><span class="token punctuation">,</span><span class="token string">'20240325'</span><span class="token punctuation">,</span><span class="token string">'20240325'</span><span class="token punctuation">,</span><span class="token string">'20240325'</span><span class="token punctuation">,</span><span class="token string">'20240325'</span><span class="token punctuation">,</span><span class="token string">'20240325'</span><span class="token punctuation">,</span><span class="token string">'20240325'</span><span class="token punctuation">,</span><span class="token string">'20240325'</span><span class="token punctuation">,</span><span class="token string">'20240325'</span><span class="token punctuation">,</span><span class="token string">'20240325'</span><span class="token punctuation">,</span><span class="token string">'20240325'</span><span class="token punctuation">,</span><span class="token string">'20240325'</span><span class="token punctuation">,</span><span class="token string">'20240325'</span><span class="token punctuation">,</span><span class="token string">'20240325'</span><span class="token punctuation">,</span><span class="token string">'20240325'</span><span class="token punctuation">,</span><span class="token string">'20240325'</span><span class="token punctuation">,</span><span class="token string">'20240325'</span><span class="token punctuation">,</span><span class="token string">'20240325'</span><span class="token punctuation">,</span><span class="token string">'20240325'</span><span class="token punctuation">,</span><span class="token string">'20240325'</span><span class="token punctuation">,</span><span class="token string">'20240325'</span><span class="token punctuation">,</span><span class="token string">'20240325'</span><span class="token punctuation">,</span><span class="token string">'20240325'</span><span class="token punctuation">,</span><span class="token string">'20240325'</span><span class="token punctuation">,</span><span class="token string">'20240325'</span><span class="token punctuation">,</span><span class="token string">'202403'</span><span class="token punctuation">]</span></pre></td></tr><tr><td data-num="15"></td><td><pre><span class="token punctuation">]</span></pre></td></tr><tr><td data-num="16"></td><td><pre><span class="token comment"># 写入数据</span></pre></td></tr><tr><td data-num="17"></td><td><pre>odps<span class="token punctuation">.</span>write_table<span class="token punctuation">(</span><span class="token string">'test_table'</span><span class="token punctuation">,</span> data<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="18"></td><td><pre><span class="token comment"># .... 等等后续操作</span></pre></td></tr></table></figure></li>
+<li><p>connect.py 文件中写入示例：</p>
+<pre><code class="python">from odps import ODPS;
+
+odps = ODPS(&#39;LTAI5tBDj3HajwRVhc6me5KR&#39;,&#39;DJqWAI1IWUBZnZGE#FKDSFJDEJLet&#39;,&#39;test_monitor&#39;,endpoint=&#39;https://service-cn-hangzhou.odps.aliyun-inc.com&#39;)
+
+result = odps.executexecute_sql(&#39;select * from test_monitor where datetime=&quot;20240325&quot;&#39;)
+
+with result.open_reader() as reader:
+    for record in reader:
+        print(record[0],record[1])
+# 打印表名
+for table in odps.list_tables():
+    print(table)
+data = [
+    [&#39;appid123&#39;,&#39;pageid123&#39;,&#39;123456&#39;,&#39;ua123&#39;,&#39;http://www.baidu.com&#39;,&#39;20240325&#39;,&#39;20240325&#39;,&#39;20240325&#39;,&#39;20240325&#39;,&#39;20240325&#39;,&#39;20240325&#39;,&#39;20240325&#39;,&#39;20240325&#39;,&#39;20240325&#39;,&#39;20240325&#39;,&#39;20240325&#39;,&#39;20240325&#39;,&#39;20240325&#39;,&#39;20240325&#39;,&#39;20240325&#39;,&#39;20240325&#39;,&#39;20240325&#39;,&#39;20240325&#39;,&#39;20240325&#39;,&#39;20240325&#39;,&#39;20240325&#39;,&#39;20240325&#39;,&#39;20240325&#39;,&#39;20240325&#39;,&#39;20240325&#39;,&#39;20240325&#39;,&#39;20240325&#39;,&#39;202403&#39;]
+]
+# 写入数据
+odps.write_table(&#39;test_table&#39;, data)
+# ....等等后续操作
+</code></pre>
+</li>
 </ol>
 <p><strong>前端监控平台可视化架构图：</strong></p>
-<p><img data-src="/images/Snipaste_2024-04-30_15-14-09.jpg" alt="前端监控流程架构" /></p>
+<p><img data-src="/images/Snipaste_2024-04-30_15-14-09.jpg" alt="前端监控流程架构"></p>
 
       <div class="tags">
           <a href="/tags/%E5%89%8D%E7%AB%AF%E7%9B%91%E6%8E%A7/" rel="tag"><i class="ic i-tag"></i> 前端监控</a>
@@ -429,7 +624,7 @@ window.testMonitor = &#123;
     <div class="item left">
       
 
-  <a href="/2024/04/16/%E4%B8%89%E6%96%B9%E5%8C%85/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;s3.uuu.ovh&#x2F;imgs&#x2F;2024&#x2F;04&#x2F;07&#x2F;5a293b82670a4885.webp" title="三方库">
+  <a href="/2024/04/16/%E4%B8%89%E6%96%B9%E5%8C%85/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;s3.uuu.ovh&#x2F;imgs&#x2F;2024&#x2F;03&#x2F;29&#x2F;a93636ae09845d36.jpg" title="三方库">
   <span class="type">上一篇</span>
   <span class="category"><i class="ic i-flag"></i> 三方库</span>
   <h3>三方库</h3>
@@ -439,7 +634,7 @@ window.testMonitor = &#123;
     <div class="item right">
       
 
-  <a href="/2024/04/30/%E6%B7%B1%E6%8B%B7%E8%B4%9D/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;s3.uuu.ovh&#x2F;imgs&#x2F;2024&#x2F;03&#x2F;29&#x2F;5c162f03529c2f38.jpg" title="深拷贝">
+  <a href="/2024/04/30/%E6%B7%B1%E6%8B%B7%E8%B4%9D/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;s3.uuu.ovh&#x2F;imgs&#x2F;2024&#x2F;04&#x2F;04&#x2F;f480d741324d8eb5.jpg" title="深拷贝">
   <span class="type">下一篇</span>
   <span class="category"><i class="ic i-flag"></i> 面试题</span>
   <h3>深拷贝</h3>
@@ -461,7 +656,7 @@ window.testMonitor = &#123;
   <div class="panels">
     <div class="inner">
       <div class="contents panel pjax" data-title="文章目录">
-          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%89%8D%E7%AB%AF%E7%9B%91%E6%8E%A7"><span class="toc-number">1.</span> <span class="toc-text"> 前端监控</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BB%8B%E7%BB%8D"><span class="toc-number">2.</span> <span class="toc-text"> 介绍</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%99%BE%E5%BA%A6%E7%BB%9F%E8%AE%A1%E6%8E%A5%E5%85%A5"><span class="toc-number">3.</span> <span class="toc-text"> 百度统计接入</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%9B%91%E6%8E%A7%E5%B9%B3%E5%8F%B0%E6%9E%B6%E6%9E%84"><span class="toc-number">4.</span> <span class="toc-text"> 监控平台架构</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#js-%E5%BA%93%E7%9A%84%E5%BC%80%E5%8F%91"><span class="toc-number">4.1.</span> <span class="toc-text"> JS 库的开发</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#js-sdk"><span class="toc-number">4.1.0.1.</span> <span class="toc-text"> JS SDK</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#pv-%E5%9F%8B%E7%82%B9"><span class="toc-number">4.1.0.2.</span> <span class="toc-text"> PV 埋点</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9B%9D%E5%85%89%E5%9F%8B%E7%82%B9"><span class="toc-number">4.1.0.3.</span> <span class="toc-text"> 曝光埋点</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%82%B9%E5%87%BB%E5%9F%8B%E7%82%B9"><span class="toc-number">4.1.0.4.</span> <span class="toc-text"> 点击埋点</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E5%9F%8B%E7%82%B9"><span class="toc-number">4.1.0.5.</span> <span class="toc-text"> 自定义埋点</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%B9%B3%E5%8F%B0%E5%BC%80%E5%8F%91"><span class="toc-number">4.2.</span> <span class="toc-text"> 大数据平台开发</span></a></li></ol></li></ol>
+          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%89%8D%E7%AB%AF%E7%9B%91%E6%8E%A7"><span class="toc-number">1.</span> <span class="toc-text">前端监控</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BB%8B%E7%BB%8D"><span class="toc-number">2.</span> <span class="toc-text">介绍</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%99%BE%E5%BA%A6%E7%BB%9F%E8%AE%A1%E6%8E%A5%E5%85%A5"><span class="toc-number">3.</span> <span class="toc-text">百度统计接入</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%9B%91%E6%8E%A7%E5%B9%B3%E5%8F%B0%E6%9E%B6%E6%9E%84"><span class="toc-number">4.</span> <span class="toc-text">监控平台架构</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#JS-%E5%BA%93%E7%9A%84%E5%BC%80%E5%8F%91"><span class="toc-number">4.1.</span> <span class="toc-text">JS 库的开发</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#JS-SDK"><span class="toc-number">4.1.0.1.</span> <span class="toc-text">JS SDK</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#PV-%E5%9F%8B%E7%82%B9"><span class="toc-number">4.1.0.2.</span> <span class="toc-text">PV 埋点</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9B%9D%E5%85%89%E5%9F%8B%E7%82%B9"><span class="toc-number">4.1.0.3.</span> <span class="toc-text">曝光埋点</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%82%B9%E5%87%BB%E5%9F%8B%E7%82%B9"><span class="toc-number">4.1.0.4.</span> <span class="toc-text">点击埋点</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E5%9F%8B%E7%82%B9"><span class="toc-number">4.1.0.5.</span> <span class="toc-text">自定义埋点</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%B9%B3%E5%8F%B0%E5%BC%80%E5%8F%91"><span class="toc-number">4.2.</span> <span class="toc-text">大数据平台开发</span></a></li></ol></li></ol>
       </div>
       <div class="related panel pjax" data-title="系列文章">
         <ul>
@@ -479,19 +674,19 @@ window.testMonitor = &#123;
 <nav class="state">
     <div class="item posts">
       <a href="/archives/">
-        <span class="count">80</span>
+        <span class="count">82</span>
         <span class="name">文章</span>
       </a>
     </div>
     <div class="item categories">
       <a href="/categories/">
-        <span class="count">64</span>
+        <span class="count">66</span>
         <span class="name">分类</span>
       </a>
     </div>
     <div class="item tags">
       <a href="/tags/">
-        <span class="count">100</span>
+        <span class="count">102</span>
         <span class="name">标签</span>
       </a>
     </div>
@@ -579,90 +774,62 @@ window.testMonitor = &#123;
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/gitlab-cicd/" title="分类于 gitlab cicd">gitlab cicd</a>
+<a href="/categories/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/" title="分类于 性能优化">性能优化</a>
 </div>
 
-    <span><a href="/2024/07/07/gitlab-cicd/" title="gitlab cicd">gitlab cicd</a></span>
+    <span><a href="/2024/05/11/%E6%80%A7%E8%83%BD%E6%8C%87%E6%A0%87/" title="性能指标">性能指标</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/Blob/" title="分类于 Blob">Blob</a>
+<a href="/categories/Docker/" title="分类于 Docker">Docker</a>
 </div>
 
-    <span><a href="/2024/05/17/Blob%E5%92%8CFile/" title="Blob、File和FileReader">Blob、File和FileReader</a></span>
+    <span><a href="/2024/07/08/docker/" title="Docker">Docker</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/JS%E6%89%8B%E5%86%99%E9%A2%98/" title="分类于 JS手写题">JS手写题</a>
+<a href="/categories/%E5%BA%95%E5%B1%82%E6%9D%82%E8%AE%B0/" title="分类于 底层杂记">底层杂记</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/%E5%BA%95%E5%B1%82%E6%9D%82%E8%AE%B0/%E5%B7%A5%E5%85%B7%E5%87%BD%E6%95%B0/" title="分类于 工具函数">工具函数</a>
 </div>
 
-    <span><a href="/2023/06/02/JS%E6%89%8B%E5%86%99%E9%A2%98/" title="JS手写题">JS手写题</a></span>
+    <span><a href="/2023/06/02/%E5%BA%95%E5%B1%82%E6%9D%82%E8%AE%B0/" title="底层杂记与工具库函数">底层杂记与工具库函数</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/" title="分类于 前端性能优化">前端性能优化</a>
+<a href="/categories/%E6%9D%82%E8%AE%B0/" title="分类于 杂记">杂记</a>
 </div>
 
-    <span><a href="/2024/03/02/%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/" title="前端性能优化">前端性能优化</a></span>
+    <span><a href="/2023/01/01/%E6%9D%82%E8%AE%B0/" title="杂记">杂记</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/JS%E8%BF%9B%E9%98%B6/" title="分类于 JS进阶">JS进阶</a>
+<a href="/categories/typeScript/" title="分类于 typeScript">typeScript</a>
 </div>
 
-    <span><a href="/2023/08/02/JS/" title="JS进阶">JS进阶</a></span>
+    <span><a href="/2023/12/11/TS/" title="typeScript笔记">typeScript笔记</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/%E4%B8%AD%E5%89%8D%E5%8F%B0%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" title="分类于 中前台解决方案">中前台解决方案</a>
+<a href="/categories/%E5%BC%80%E6%BA%90%E5%8D%8F%E8%AE%AE/" title="分类于 开源协议">开源协议</a>
 </div>
 
-    <span><a href="/2023/02/12/%E4%B8%AD%E5%89%8D%E5%8F%B0%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" title="中前台解决方案">中前台解决方案</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/%E5%AE%B9%E5%99%A8%E5%8C%96%E8%BF%90%E7%BB%B4%E6%93%8D%E4%BD%9C/" title="分类于 容器化运维操作">容器化运维操作</a>
-</div>
-
-    <span><a href="/2024/02/02/%E5%AE%B9%E5%99%A8%E5%8C%96%E8%BF%90%E7%BB%B4%E6%93%8D%E4%BD%9C/" title="容器化运维操作">容器化运维操作</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/ajax/" title="分类于 ajax">ajax</a>
-</div>
-
-    <span><a href="/2023/01/08/ajax/" title="ajax">ajax</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/%E6%B5%8F%E8%A7%88%E5%99%A8/" title="分类于 浏览器">浏览器</a>
-</div>
-
-    <span><a href="/2023/10/09/%E6%B5%8F%E8%A7%88%E5%99%A8%E6%B8%B2%E6%9F%93%E5%8E%9F%E7%90%86/" title="浏览器渲染原理">浏览器渲染原理</a></span>
+    <span><a href="/2023/02/02/%E5%BC%80%E6%BA%90%E5%8D%8F%E8%AE%AE/" title="常见开源协议">常见开源协议</a></span>
   </li>
 
       
@@ -672,7 +839,37 @@ window.testMonitor = &#123;
 <a href="/categories/JS/" title="分类于 JS">JS</a>
 </div>
 
-    <span><a href="/2023/12/07/Blob/" title="Blob">Blob</a></span>
+    <span><a href="/2023/07/02/forEach/" title="forEach">forEach</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Travis%E5%92%8CDocker/" title="分类于 Travis和Docker">Travis和Docker</a>
+</div>
+
+    <span><a href="/2023/12/02/Travis%20CI%E5%92%8CDocker%E7%9A%84%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90/" title="Travis和Docker的持续集成">Travis和Docker的持续集成</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E5%89%8D%E7%AB%AF%E7%9B%91%E6%8E%A7/" title="分类于 前端监控">前端监控</a>
+</div>
+
+    <span><a href="/2024/04/29/%E5%89%8D%E7%AB%AF%E7%9B%91%E6%8E%A7/" title="前端监控">前端监控</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/" title="分类于 面试题">面试题</a>
+</div>
+
+    <span><a href="/2024/04/30/%E6%B7%B1%E6%8B%B7%E8%B4%9D/" title="深拷贝">深拷贝</a></span>
   </li>
 
   </ul>
@@ -697,13 +894,13 @@ window.testMonitor = &#123;
     <span class="post-meta-item-icon">
       <i class="ic i-chart-area"></i>
     </span>
-    <span title="站点总字数">944k 字</span>
+    <span title="站点总字数">953k 字</span>
 
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="ic i-coffee"></i>
     </span>
-    <span title="站点阅读时长">14:18</span>
+    <span title="站点阅读时长">14:26</span>
   </div>
   <div class="powered-by">
     基于 <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & Theme.<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Shoka</span>

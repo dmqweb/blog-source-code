@@ -119,12 +119,12 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
       </div>
       <div id="imgs" class="pjax">
         <ul>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/04/eff89867286d822f.webp"></li>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/28/f7a6eb62965e0dec.webp"></li>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/15/21b7a3f222ccbcb6.jpg"></li>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/25/0aebf75866635811.jpg"></li>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/04/61e9f78d997bc7c9.webp"></li>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/07/6e43985af4997748.jpg"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/07/5a293b82670a4885.webp"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/07/517ddd40a038fa1b.jpg"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/15/6cedcb364082ed12.webp"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/07/a69a9d571bee6f0b.jpg"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/06/d8aa12b30683676e.jpg"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/15/229ca07a8d7b6e02.jpg"></li>
         </ul>
       </div>
     </header>
@@ -170,61 +170,59 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
   <div class="body md" itemprop="articleBody">
     
 
-    <h1 id="whistle简单使用"><a class="anchor" href="#whistle简单使用">#</a> whistle 简单使用</h1>
-<h3 id="whistle安装启动"><a class="anchor" href="#whistle安装启动">#</a> whistle 安装启动</h3>
-<p>安装：npm i -g whistle</p>
+    <h1 id="whistle简单使用"><a href="#whistle简单使用" class="headerlink" title="whistle简单使用"></a>whistle简单使用</h1><h3 id="whistle安装启动"><a href="#whistle安装启动" class="headerlink" title="whistle安装启动"></a>whistle安装启动</h3><p>安装：npm i -g whistle</p>
 <p>使用：w2 start</p>
 <p>访问：访问对应的页面</p>
 <p>作用：</p>
 <ul>
 <li>任何的链接都会经过工具转发一下，并记录下来</li>
-<li>使用前需要配置代理到 whistle 服务的地址和端口上（设置代理如下）</li>
+<li>使用前需要配置代理到whistle服务的地址和端口上（设置代理如下）</li>
 </ul>
-<h3 id="使用步骤"><a class="anchor" href="#使用步骤">#</a> 使用步骤</h3>
-<p>设置代理：</p>
+<h3 id="使用步骤"><a href="#使用步骤" class="headerlink" title="使用步骤"></a>使用步骤</h3><p>设置代理：</p>
 <ul>
 <li>手机端省略</li>
-<li>电脑端：
-<ul>
-<li>网络偏好设置 --- 高级 --- 代理 --- 网页代理、安全网页代理</li>
-<li>配置代理的 ip 地址和端口号（8899）</li>
+<li>电脑端：<ul>
+<li>网络偏好设置—高级—代理—网页代理、安全网页代理</li>
+<li>配置代理的ip地址和端口号（8899）</li>
 </ul>
 </li>
 </ul>
 <p>确认证书：</p>
-<p>一般会自动下载，也可以打开 8899 端口找到证书下载并确认信任</p>
+<p>一般会自动下载，也可以打开8899端口找到证书下载并确认信任</p>
 <p><strong>查看抓包情况和设置代理转发：</strong></p>
-<p>打开 127.0.0.1:8899 端口进行设置</p>
-<h1 id="whistle高级"><a class="anchor" href="#whistle高级">#</a> whistle 高级</h1>
-<h3 id="mock数据"><a class="anchor" href="#mock数据">#</a> mock 数据</h3>
-<p>设置线上地址转发到本地 json 文件（使用 file 路径），模拟请求数据。</p>
-<h3 id="部分文件请求转发重要"><a class="anchor" href="#部分文件请求转发重要">#</a> 部分文件请求转发（重要）</h3>
-<p>例如线上环境有某个文件报错，生产环境无法复现，可以将该文件地址转发到本地的 js 文件（使用 file 路径），方便进行调试，提高调试效率。</p>
-<h3 id="请求转发"><a class="anchor" href="#请求转发">#</a> 请求转发</h3>
-<p>可以作为跨域的一种方案，将本地的请求转发到线上的路径，这样就不会发生跨域问题</p>
-<h3 id="注入html-css和-js"><a class="anchor" href="#注入html-css和-js">#</a> 注入 html、css 和 js</h3>
-<p>whistle 会自动根据响应内容的类型，判断是否注入相应的文本以及如何注入（是否用标签包裹）</p>
+<p>打开127.0.0.1:8899端口进行设置</p>
+<h1 id="whistle高级"><a href="#whistle高级" class="headerlink" title="whistle高级"></a>whistle高级</h1><h3 id="mock数据"><a href="#mock数据" class="headerlink" title="mock数据"></a>mock数据</h3><p>设置线上地址转发到本地json文件（使用file路径），模拟请求数据。</p>
+<h3 id="部分文件请求转发（重要）"><a href="#部分文件请求转发（重要）" class="headerlink" title="部分文件请求转发（重要）"></a>部分文件请求转发（重要）</h3><p>例如线上环境有某个文件报错，生产环境无法复现，可以将该文件地址转发到本地的js文件（使用file路径），方便进行调试，提高调试效率。</p>
+<h3 id="请求转发"><a href="#请求转发" class="headerlink" title="请求转发"></a>请求转发</h3><p>可以作为跨域的一种方案，将本地的请求转发到线上的路径，这样就不会发生跨域问题</p>
+<h3 id="注入html、css和-js"><a href="#注入html、css和-js" class="headerlink" title="注入html、css和 js"></a>注入html、css和 js</h3><p>whistle会自动根据响应内容的类型，判断是否注入相应的文本以及如何注入（是否用标签包裹）</p>
 <p>例如：</p>
-<figure class="highlight yaml"><figcaption data-lang="YAML"></figcaption><table><tr><td data-num="1"></td><td><pre>https<span class="token punctuation">:</span>//www.baidu.com  css<span class="token punctuation">:</span>///Users/dmq/Desktop/test.css</pre></td></tr></table></figure><p>这将会在百度的官网注入自定义的 css 样式。</p>
-<h6 id="举例"><a class="anchor" href="#举例">#</a> 举例：</h6>
-<p>向百度网站注入 vconsole.js 源码，方便调试打印日志。</p>
+<pre><code class="yaml">https://www.baidu.com  css:///Users/dmq/Desktop/test.css
+</code></pre>
+<p>这将会在百度的官网注入自定义的css样式。</p>
+<h6 id="举例："><a href="#举例：" class="headerlink" title="举例："></a>举例：</h6><p>向百度网站注入vconsole.js源码，方便调试打印日志。</p>
 <ol>
-<li>
-<p>下载 vconsole 到本地或者直接复制源码到 whistle 中的 values 中</p>
+<li><p>下载vconsole到本地或者直接复制源码到whistle中的values中</p>
 </li>
-<li>
-<p>本地 js 文件创建 VConsole 实例，或者直接在 whistle 的 values 中创建 js 文件，文件中创建 vconsole 实例。</p>
+<li><p>本地js文件创建VConsole实例，或者直接在whistle的values中创建js文件，文件中创建vconsole实例。</p>
 </li>
-<li>
-<p>在 rules 中向百度网站注入两个 js 文件（以 whistle 中配置 values 为示例）</p>
-<figure class="highlight yaml"><figcaption data-lang="YAML"></figcaption><table><tr><td data-num="1"></td><td><pre>www.baidu.com  jsPrepend<span class="token punctuation">:</span>//<span class="token punctuation">&#123;</span>vConsole.min.js<span class="token punctuation">&#125;</span>  <span class="token comment">#引入源码</span></pre></td></tr><tr><td data-num="2"></td><td><pre>www.baidu.com  jsPrepend<span class="token punctuation">:</span>//<span class="token punctuation">&#123;</span>vconsole.js<span class="token punctuation">&#125;</span>  <span class="token comment">#引入实例化 js</span></pre></td></tr><tr><td data-num="3"></td><td><pre>www.baidu.com  log<span class="token punctuation">:</span>//  <span class="token comment">#在 whistle 中也打印 log</span></pre></td></tr></table></figure></li>
+<li><p>在rules中向百度网站注入两个js文件（以whistle中配置values为示例）</p>
+<pre><code class="yaml">www.baidu.com  jsPrepend://&#123;vConsole.min.js&#125;  #引入源码
+www.baidu.com  jsPrepend://&#123;vconsole.js&#125;  #引入实例化js
+www.baidu.com  log://  #在whistle中也打印log
+</code></pre>
+</li>
 </ol>
-<h3 id="同步抓包日志"><a class="anchor" href="#同步抓包日志">#</a> 同步抓包日志</h3>
-<p>在 rules 中配置网站的输出，可以将抓包的 log 日志同步到 whistle 中的 log 面板，配置例如：</p>
-<figure class="highlight yaml"><figcaption data-lang="YAML"></figcaption><table><tr><td data-num="1"></td><td><pre>www.baidu.com   log<span class="token punctuation">:</span>// <span class="token comment">#同步日志</span></pre></td></tr></table></figure><h3 id="解决跨域问题"><a class="anchor" href="#解决跨域问题">#</a> 解决跨域问题</h3>
-<p>可以单独设置网站允许跨域访问，例如在 rules 中配置：</p>
-<figure class="highlight yaml"><figcaption data-lang="YAML"></figcaption><table><tr><td data-num="1"></td><td><pre>https<span class="token punctuation">:</span>//localhost<span class="token punctuation">:</span>5500/list   resCors<span class="token punctuation">:</span>//*  <span class="token comment">#表示该网站允许跨域访问</span></pre></td></tr></table></figure><p>或者使用前端转发代理来处理跨域：</p>
-<figure class="highlight yaml"><figcaption data-lang="YAML"></figcaption><table><tr><td data-num="1"></td><td><pre>https<span class="token punctuation">:</span>//localhost<span class="token punctuation">:</span>8080/list   https<span class="token punctuation">:</span>//localhost<span class="token punctuation">:</span>5500/list  </pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token comment">#将请求的网址代理到同域名同端口的网址，就不会发生跨域。</span></pre></td></tr></table></figure><p><span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM1NTc3NjU1L2FydGljbGUvZGV0YWlscy8xMTkyODMwMjg=">本文学习自 b 站，原文档地址</span></p>
+<h3 id="同步抓包日志"><a href="#同步抓包日志" class="headerlink" title="同步抓包日志"></a>同步抓包日志</h3><p>在rules中配置网站的输出，可以将抓包的log日志同步到whistle中的log面板，配置例如：</p>
+<pre><code class="yaml">www.baidu.com   log:// #同步日志
+</code></pre>
+<h3 id="解决跨域问题"><a href="#解决跨域问题" class="headerlink" title="解决跨域问题"></a>解决跨域问题</h3><p>可以单独设置网站允许跨域访问，例如在rules中配置：</p>
+<pre><code class="yaml">https://localhost:5500/list   resCors://*  #表示该网站允许跨域访问
+</code></pre>
+<p>或者使用前端转发代理来处理跨域：</p>
+<pre><code class="yaml">https://localhost:8080/list   https://localhost:5500/list  
+#将请求的网址代理到同域名同端口的网址，就不会发生跨域。
+</code></pre>
+<p><span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM1NTc3NjU1L2FydGljbGUvZGV0YWlscy8xMTkyODMwMjg=">本文学习自b站，原文档地址</span></p>
 
       <div class="tags">
           <a href="/tags/whistle/" rel="tag"><i class="ic i-tag"></i> whistle</a>
@@ -298,7 +296,7 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
     <div class="item left">
       
 
-  <a href="/2024/05/11/%E6%80%A7%E8%83%BD%E6%8C%87%E6%A0%87/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;s3.uuu.ovh&#x2F;imgs&#x2F;2024&#x2F;04&#x2F;04&#x2F;f480d741324d8eb5.jpg" title="性能指标">
+  <a href="/2024/05/11/%E6%80%A7%E8%83%BD%E6%8C%87%E6%A0%87/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;s3.uuu.ovh&#x2F;imgs&#x2F;2024&#x2F;04&#x2F;06&#x2F;ae2b485c961ddd62.jpg" title="性能指标">
   <span class="type">上一篇</span>
   <span class="category"><i class="ic i-flag"></i> 性能优化</span>
   <h3>性能指标</h3>
@@ -308,10 +306,10 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
     <div class="item right">
       
 
-  <a href="/2024/05/17/esbuild/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;s3.uuu.ovh&#x2F;imgs&#x2F;2024&#x2F;04&#x2F;15&#x2F;807885ba1421e9b4.jpg" title="esbuild">
+  <a href="/2024/05/17/eslint%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;s3.uuu.ovh&#x2F;imgs&#x2F;2024&#x2F;04&#x2F;25&#x2F;0edddbac6c1e1908.webp" title="eslint源码">
   <span class="type">下一篇</span>
-  <span class="category"><i class="ic i-flag"></i> esbuild</span>
-  <h3>esbuild</h3>
+  <span class="category"><i class="ic i-flag"></i> eslint</span>
+  <h3>eslint源码</h3>
   </a>
 
     </div>
@@ -330,7 +328,7 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
   <div class="panels">
     <div class="inner">
       <div class="contents panel pjax" data-title="文章目录">
-          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#whistle%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8"><span class="toc-number">1.</span> <span class="toc-text"> whistle 简单使用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#whistle%E5%AE%89%E8%A3%85%E5%90%AF%E5%8A%A8"><span class="toc-number">1.0.1.</span> <span class="toc-text"> whistle 安装启动</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E6%AD%A5%E9%AA%A4"><span class="toc-number">1.0.2.</span> <span class="toc-text"> 使用步骤</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#whistle%E9%AB%98%E7%BA%A7"><span class="toc-number">2.</span> <span class="toc-text"> whistle 高级</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#mock%E6%95%B0%E6%8D%AE"><span class="toc-number">2.0.1.</span> <span class="toc-text"> mock 数据</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%83%A8%E5%88%86%E6%96%87%E4%BB%B6%E8%AF%B7%E6%B1%82%E8%BD%AC%E5%8F%91%E9%87%8D%E8%A6%81"><span class="toc-number">2.0.2.</span> <span class="toc-text"> 部分文件请求转发（重要）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%B7%E6%B1%82%E8%BD%AC%E5%8F%91"><span class="toc-number">2.0.3.</span> <span class="toc-text"> 请求转发</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B3%A8%E5%85%A5html-css%E5%92%8C-js"><span class="toc-number">2.0.4.</span> <span class="toc-text"> 注入 html、css 和 js</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E4%B8%BE%E4%BE%8B"><span class="toc-number">2.0.4.0.0.1.</span> <span class="toc-text"> 举例：</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%8C%E6%AD%A5%E6%8A%93%E5%8C%85%E6%97%A5%E5%BF%97"><span class="toc-number">2.0.5.</span> <span class="toc-text"> 同步抓包日志</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%A3%E5%86%B3%E8%B7%A8%E5%9F%9F%E9%97%AE%E9%A2%98"><span class="toc-number">2.0.6.</span> <span class="toc-text"> 解决跨域问题</span></a></li></ol></li></ol></li></ol>
+          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#whistle%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8"><span class="toc-number">1.</span> <span class="toc-text">whistle简单使用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#whistle%E5%AE%89%E8%A3%85%E5%90%AF%E5%8A%A8"><span class="toc-number">1.0.1.</span> <span class="toc-text">whistle安装启动</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E6%AD%A5%E9%AA%A4"><span class="toc-number">1.0.2.</span> <span class="toc-text">使用步骤</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#whistle%E9%AB%98%E7%BA%A7"><span class="toc-number">2.</span> <span class="toc-text">whistle高级</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#mock%E6%95%B0%E6%8D%AE"><span class="toc-number">2.0.1.</span> <span class="toc-text">mock数据</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%83%A8%E5%88%86%E6%96%87%E4%BB%B6%E8%AF%B7%E6%B1%82%E8%BD%AC%E5%8F%91%EF%BC%88%E9%87%8D%E8%A6%81%EF%BC%89"><span class="toc-number">2.0.2.</span> <span class="toc-text">部分文件请求转发（重要）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%B7%E6%B1%82%E8%BD%AC%E5%8F%91"><span class="toc-number">2.0.3.</span> <span class="toc-text">请求转发</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B3%A8%E5%85%A5html%E3%80%81css%E5%92%8C-js"><span class="toc-number">2.0.4.</span> <span class="toc-text">注入html、css和 js</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E4%B8%BE%E4%BE%8B%EF%BC%9A"><span class="toc-number">2.0.4.0.0.1.</span> <span class="toc-text">举例：</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%8C%E6%AD%A5%E6%8A%93%E5%8C%85%E6%97%A5%E5%BF%97"><span class="toc-number">2.0.5.</span> <span class="toc-text">同步抓包日志</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%A3%E5%86%B3%E8%B7%A8%E5%9F%9F%E9%97%AE%E9%A2%98"><span class="toc-number">2.0.6.</span> <span class="toc-text">解决跨域问题</span></a></li></ol></li></ol></li></ol>
       </div>
       <div class="related panel pjax" data-title="系列文章">
         <ul>
@@ -348,19 +346,19 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
 <nav class="state">
     <div class="item posts">
       <a href="/archives/">
-        <span class="count">80</span>
+        <span class="count">82</span>
         <span class="name">文章</span>
       </a>
     </div>
     <div class="item categories">
       <a href="/categories/">
-        <span class="count">64</span>
+        <span class="count">66</span>
         <span class="name">分类</span>
       </a>
     </div>
     <div class="item tags">
       <a href="/tags/">
-        <span class="count">100</span>
+        <span class="count">102</span>
         <span class="name">标签</span>
       </a>
     </div>
@@ -426,7 +424,7 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
     <li class="up"><i class="ic i-arrow-up"></i></li>
     <li class="down"><i class="ic i-arrow-down"></i></li>
     <li class="next pjax">
-        <a href="/2024/05/17/esbuild/" rel="next" title="下一篇"><i class="ic i-chevron-right"></i></a>
+        <a href="/2024/05/17/eslint%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90/" rel="next" title="下一篇"><i class="ic i-chevron-right"></i></a>
     </li>
     <li class="percent"></li>
   </ul>
@@ -448,50 +446,30 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/Travis%E5%92%8CDocker/" title="分类于 Travis和Docker">Travis和Docker</a>
+<a href="/categories/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" title="分类于 正则表达式">正则表达式</a>
 </div>
 
-    <span><a href="/2023/12/02/Travis%20CI%E5%92%8CDocker%E7%9A%84%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90/" title="Travis和Docker的持续集成">Travis和Docker的持续集成</a></span>
+    <span><a href="/2023/02/12/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" title="正则表达式">正则表达式</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/" title="分类于 性能优化">性能优化</a>
+<a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/" title="分类于 计算机组成原理">计算机组成原理</a>
 </div>
 
-    <span><a href="/2024/05/11/%E6%80%A7%E8%83%BD%E6%8C%87%E6%A0%87/" title="性能指标">性能指标</a></span>
+    <span><a href="/2024/01/02/%E7%BC%93%E5%AD%98%E3%80%81%E5%86%85%E5%AD%98%E3%80%81CPU%E7%9F%A5%E8%AF%86%E7%82%B9%E8%A7%A3%E6%9E%90%E7%AC%94%E8%AE%B0/" title="计组知识点">计组知识点</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/vue/" title="分类于 vue">vue</a>
+<a href="/categories/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%BC%8F/" title="分类于 开发模式">开发模式</a>
 </div>
 
-    <span><a href="/2023/11/02/vue%E5%8E%9F%E7%90%86/" title="vue源码解读">vue源码解读</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/ajax/" title="分类于 ajax">ajax</a>
-</div>
-
-    <span><a href="/2023/01/08/ajax/" title="ajax">ajax</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/Sass/" title="分类于 Sass">Sass</a>
-</div>
-
-    <span><a href="/2023/01/10/Sass/" title="Sass笔记">Sass笔记</a></span>
+    <span><a href="/2024/03/29/TDD/" title="TDD测试驱动开发">TDD测试驱动开发</a></span>
   </li>
 
       
@@ -501,27 +479,7 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
 <a href="/categories/JS/" title="分类于 JS">JS</a>
 </div>
 
-    <span><a href="/2023/12/11/typedArray/" title="JS中类型化数组typedArray">JS中类型化数组typedArray</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" title="分类于 操作系统">操作系统</a>
-</div>
-
-    <span><a href="/2024/07/23/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" title="操作系统">操作系统</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/vue/" title="分类于 vue">vue</a>
-</div>
-
-    <span><a href="/2023/09/02/vue3%E6%BA%90%E7%A0%81%E4%BD%8D%E8%BF%90%E7%AE%97/" title="vue3源码中的位运算">vue3源码中的位运算</a></span>
+    <span><a href="/2023/12/08/DataView/" title="DataView">DataView</a></span>
   </li>
 
       
@@ -538,10 +496,50 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/gitlab-cicd/" title="分类于 gitlab cicd">gitlab cicd</a>
+<a href="/categories/%E6%9E%B6%E6%9E%84%E9%A3%8E%E6%A0%BC/" title="分类于 架构风格">架构风格</a>
 </div>
 
-    <span><a href="/2024/07/07/gitlab-cicd/" title="gitlab cicd">gitlab cicd</a></span>
+    <span><a href="/2024/07/29/%E6%9E%B6%E6%9E%84%E9%A3%8E%E6%A0%BC/" title="架构风格">架构风格</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/jenkins%E9%85%8D%E5%90%88git-hook%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90/" title="分类于 jenkins配合git hook持续集成">jenkins配合git hook持续集成</a>
+</div>
+
+    <span><a href="/2024/02/02/%E4%BD%BF%E7%94%A8Jenkins%E9%85%8D%E5%90%88github%20hook%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90/" title="jenkins配合git hook持续集成">jenkins配合git hook持续集成</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" title="分类于 数据库">数据库</a>
+</div>
+
+    <span><a href="/2023/12/02/%E6%95%B0%E6%8D%AE%E5%BA%93/" title="数据库">数据库</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E5%89%8D%E7%AB%AF%E7%9B%91%E6%8E%A7/" title="分类于 前端监控">前端监控</a>
+</div>
+
+    <span><a href="/2024/04/29/%E5%89%8D%E7%AB%AF%E7%9B%91%E6%8E%A7/" title="前端监控">前端监控</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/vue/" title="分类于 vue">vue</a>
+</div>
+
+    <span><a href="/2023/11/02/vue%E5%8E%9F%E7%90%86/" title="vue源码解读">vue源码解读</a></span>
   </li>
 
   </ul>
@@ -566,13 +564,13 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
     <span class="post-meta-item-icon">
       <i class="ic i-chart-area"></i>
     </span>
-    <span title="站点总字数">944k 字</span>
+    <span title="站点总字数">953k 字</span>
 
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="ic i-coffee"></i>
     </span>
-    <span title="站点阅读时长">14:18</span>
+    <span title="站点阅读时长">14:26</span>
   </div>
   <div class="powered-by">
     基于 <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & Theme.<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Shoka</span>

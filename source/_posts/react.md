@@ -182,8 +182,6 @@ react 组件的生命周期：
 
 # [react 项目学习]()
 
-#
-
 # react 笔记
 
 # 状态管理工具
@@ -194,7 +192,7 @@ react 组件的生命周期：
 
 将 store 实例进行订阅，则当 store 实例通过 dispatch 进行发布时，就触发订阅函数的执行。
 
-```react
+```js
   // 1. 定义reducer函数
   // 作用: 根据不同的action对象，返回不同的新的state
   // state: 管理的数据初始状态
@@ -238,36 +236,26 @@ react 组件的生命周期：
   })
   // 5. 通过store实例的getState方法获取最新状态更新到视图中
 ```
-
 ## Mobx
-
 声明式的修改数据，类似于 Vue。
-
 # react 中 css 使用
-
 ### 出现问题
 
 react 组件中使用样式时，需要引入对应的 css 文件，但是如果两个 css 文件中有相同的 class 命名，这时就会造成样式冲突（相互影响）。
 
 ### 解决方案
-
 **CSS Module**
-
 - 每个 CSS 文件都当作单独的模块，命名 xxx.module.css
 - 引入时：`import styles from 'xxx.module.css'`
 - 使用时：`className = {styles['test-style']}`
 - 这样使用后组件中对应的 class 就会被命名为组件名称和样式名称的拼接
 
 create-react-app 中内置了 CSS Module 功能，直接使用即可。
-
 ### 使用 sass
-
 create-react-app 中内置了 cass 语法的支持，安装 sass 直接使用即可
 
 ## CSS-in-JS
-
 ##### 介绍
-
 - css-in-js 是一种解决方案，包含很多工具
 - 在 JS 中书写 CSS，带来极大的灵活性
 - 它和内联的 style 完全不同，也不会有内联 style 的问题
@@ -305,8 +293,6 @@ create-react-app 中内置了 cass 语法的支持，安装 sass 直接使用即
 - useNavigate 钩子函数（用于路由跳转）
 - useSearchParams 钩子函数（用于获取路由参数）
 - useLocation 钩子函数（用于获取当前路由的信息）
-
-#
 
 # ----------------
 
@@ -349,7 +335,7 @@ create-react-app 中内置了 cass 语法的支持，安装 sass 直接使用即
 
 用 React
 
-```javascriptx
+```jsx
 <ul>
   {list.map((todo) => (
     <li>{todo}</li>
@@ -489,7 +475,7 @@ npm install prettier eslint-config-prettier eslint-plugin-prettier -save-dev
 
 设置 vscode `.vscode/settings.json` 自动保存格式，可以在文件保存时，自动保留格式
 
-```javascripton
+```json
 {
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true

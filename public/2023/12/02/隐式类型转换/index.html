@@ -78,7 +78,7 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
       <i class="ic i-pen"></i>
     </span>
     <span class="text">本文字数</span>
-    <span>1.5k</span>
+    <span>1.7k</span>
     <span class="text">字</span>
   </span>
   <span class="item" title="阅读时长">
@@ -86,7 +86,7 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
       <i class="ic i-clock"></i>
     </span>
     <span class="text">阅读时长</span>
-    <span>1 分钟</span>
+    <span>2 分钟</span>
   </span>
 </div>
 
@@ -119,12 +119,12 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
       </div>
       <div id="imgs" class="pjax">
         <ul>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/04/4b93d7d24397b567.jpg"></li>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/15/9d4994abd78e2f72.jpg"></li>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/25/1276fcec5eb7990e.webp"></li>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/12/35b09cafcea9fd29.webp"></li>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/05/8c79eda29fb3b505.jpg"></li>
-          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/15/66e62db68b7b65eb.webp"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/05/d389418a13d92e24.jpg"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/28/02824114036dc293.webp"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/12/b04c50f26fdc9c19.jpg"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/07/5804c6f23029288b.jpg"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/05/f0ab0ce587c99d2f.webp"></li>
+          <li class="item" data-background-image="https://s3.uuu.ovh/imgs/2024/04/28/a34792f58e340f69.webp"></li>
         </ul>
       </div>
     </header>
@@ -170,56 +170,65 @@ Web blog = 杜明清的个人博客 = 👻欢迎一起交流学习👻</title>
   <div class="body md" itemprop="articleBody">
     
 
-    <h1 id="隐式类型转换过程"><a class="anchor" href="#隐式类型转换过程">#</a> 隐式类型转换过程</h1>
-<p><img data-src="/images/%E9%9A%90%E5%BC%8F%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2.png" alt="隐式类型转换" /></p>
+    <h1 id="隐式类型转换过程"><a href="#隐式类型转换过程" class="headerlink" title="隐式类型转换过程"></a>隐式类型转换过程</h1><p><img data-src="/images/%E9%9A%90%E5%BC%8F%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2.png" alt="隐式类型转换"></p>
 <ul>
-<li>当进行一些操作时，JS 会自动调用内部的函数进行隐式类型转换，例如： <code>==判断</code> ，数据类型不同的 <code>加减法操作</code> ，数据前加 + 或 -（ <code>+new Date()</code> ）或 <code>$&#123;obj&#125;</code>  等</li>
-<li>两个引用数据类型（对象）之间不会发生隐式类型转换，双等符号（==）也会判断其栈中的地址</li>
+<li>当进行一些操作时，JS会自动调用内部的函数进行隐式类型转换，例如：<code>==判断</code>，数据类型不同的<code>加减法操作</code>，数据前加+或-（<code>+new Date()</code>）或<code>$&#123;obj&#125;</code>等</li>
+<li>两个引用数据类型（对象）之间不会发生隐式类型转换，双等符号（&#x3D;&#x3D;）也会判断其栈中的地址</li>
 <li>隐式类型转换内部使用的函数有：ToNumber、ToString、ToBoolean、ToPrimitive（底层）等</li>
-<li>ToNumber 对 <code>引用数据类型</code> 会先使用 <code>ToPrimitive('number')</code> ，然后使用 <code>Number()</code>  进行转换</li>
-<li>ToString 对 <code>引用数据类型</code> 会先使用 <code>ToPrimitive('string')</code> ，然后使用 <code>String()</code>  进行转换</li>
-<li>ToBoolean 对 <code>null</code> ， <code>undefined</code> ， <code>false</code> ， <code>NaN</code> ， <code>''</code>  ， <code>0</code> ， <code>-0</code>  转换为 <code>false</code> ，其余都转换为 <code>true</code></li>
+<li>ToNumber对<code>引用数据类型</code>会先使用<code>ToPrimitive(&#39;number&#39;)</code>，然后使用<code>Number()</code>进行转换</li>
+<li>ToString对<code>引用数据类型</code>会先使用<code>ToPrimitive(&#39;string&#39;)</code>，然后使用<code>String()</code>进行转换</li>
+<li>ToBoolean对<code>null</code>，<code>undefined</code>，<code>false</code>，<code>NaN</code>，<code>&#39;&#39;</code> ，<code>0</code>，<code>-0</code>转换为<code>false</code>，其余都转换为<code>true</code></li>
 </ul>
 <blockquote>
-<p>当进行条件判断时，会调用 <code>ToBoolean</code>  方法。<br />
-当引用数据类型（对象）转换到 <code>number</code>  和 <code>string</code>  时，使用的 <code>ToNumber</code>  和 <code>ToString</code>  都会使用 <code>ToPrimitive</code>  算法，将对象尝试转为原始数据类型（转换失败会报错）<br />
-ToPrimitive 接收一个 <code>hint</code>  参数，该参数只能取值： <code>string</code> 、 <code>number</code>  或 <code>default</code> 。转换流程如下：</p>
+<p>当进行条件判断时，会调用<code>ToBoolean</code>方法。<br>当引用数据类型（对象）转换到<code>number</code>和<code>string</code>时，使用的<code>ToNumber</code>和<code>ToString</code>都会使用<code>ToPrimitive</code>算法，将对象尝试转为原始数据类型（转换失败会报错）<br>ToPrimitive接收一个<code>hint</code>参数，该参数只能取值：<code>string</code>、<code>number</code>或<code>default</code>。转换流程如下：</p>
 </blockquote>
 <ul>
-<li>存在 [Symbol.toPrimitive]，则直接调用，不存在则走如下流程</li>
-<li>如果 <code>hint</code>  是 <code>number</code>  或者 <code>default</code> ，则先调用该对象的 <code>valueOf</code>  和 <code>toString</code> ，直到返回基本类型</li>
-<li>如果 <code>hint</code>  是 <code>string</code> ，则会依次调用该对象的 <code>toString</code>  和 <code>valueOf</code> ，直到返回基本类型</li>
+<li>存在[Symbol.toPrimitive]，则直接调用，不存在则走如下流程</li>
+<li>如果<code>hint</code>是<code>number</code>或者<code>default</code>，则先调用该对象的<code>valueOf</code>和<code>toString</code>，直到返回基本类型</li>
+<li>如果<code>hint</code>是<code>string</code>，则会依次调用该对象的<code>toString</code>和<code>valueOf</code>，直到返回基本类型</li>
 </ul>
-<h3 id="对象的symboltoprimitive方法"><a class="anchor" href="#对象的symboltoprimitive方法">#</a> 对象的 [Symbol.toPrimitive] 方法</h3>
-<figure class="highlight javascript"><figcaption data-lang="javascript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token comment">// 修改 Symbol.toPrimitive 方法，改变其隐式类型转换</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token keyword">const</span> obj1 <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="3"></td><td><pre>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token operator">+</span>obj1<span class="token punctuation">)</span><span class="token punctuation">;</span>     <span class="token comment">// NaN</span></pre></td></tr><tr><td data-num="4"></td><td><pre>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>obj1<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// "[object Object]"</span></pre></td></tr><tr><td data-num="5"></td><td><pre>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>obj1 <span class="token operator">+</span> <span class="token string">""</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// "[object Object]"</span></pre></td></tr><tr><td data-num="6"></td><td><pre><span class="token comment">// 接下面声明一个对象，手动赋予了 Symbol.toPrimitive 属性，再来查看输出结果</span></pre></td></tr><tr><td data-num="7"></td><td><pre><span class="token keyword">const</span> obj2 <span class="token operator">=</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="8"></td><td><pre>  <span class="token punctuation">[</span>Symbol<span class="token punctuation">.</span>toPrimitive<span class="token punctuation">]</span><span class="token punctuation">(</span><span class="token parameter">hint</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="9"></td><td><pre>    <span class="token keyword">if</span> <span class="token punctuation">(</span>hint <span class="token operator">==</span> <span class="token string">"number"</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="10"></td><td><pre>      <span class="token keyword">return</span> <span class="token number">10</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="11"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="12"></td><td><pre>    <span class="token keyword">if</span> <span class="token punctuation">(</span>hint <span class="token operator">==</span> <span class="token string">"string"</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="13"></td><td><pre>      <span class="token keyword">return</span> <span class="token string">"hello"</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="14"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="15"></td><td><pre>    <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="16"></td><td><pre>  <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="17"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="18"></td><td><pre>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token operator">+</span>obj2<span class="token punctuation">)</span><span class="token punctuation">;</span>     <span class="token comment">// 10      -- hint 参数值是 "number"</span></pre></td></tr><tr><td data-num="19"></td><td><pre>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>obj2<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// "hello" -- hint 参数值是 "string"</span></pre></td></tr><tr><td data-num="20"></td><td><pre>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>obj2 <span class="token operator">+</span> <span class="token string">""</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// "true"  -- hint 参数值是 "default"</span></pre></td></tr></table></figure><h3 id=""><a class="anchor" href="#">#</a> []</h3>
-<h1 id="快速记忆流程"><a class="anchor" href="#快速记忆流程">#</a> 快速记忆流程</h1>
-<p>一、原始类型 -&gt; 数字：</p>
-<p><img data-src="/images/1.png" alt="" /></p>
-<p>二、所有转 boolean</p>
-<p><img data-src="/images/2.png" alt="" /></p>
+<h3 id="对象的-Symbol-toPrimitive-方法"><a href="#对象的-Symbol-toPrimitive-方法" class="headerlink" title="对象的[Symbol.toPrimitive]方法"></a>对象的[Symbol.toPrimitive]方法</h3><pre><code class="javascript">//修改Symbol.toPrimitive方法，改变其隐式类型转换
+const obj1 = &#123;&#125;;
+console.log(+obj1);     // NaN
+console.log(`$&#123;obj1&#125;`); // &quot;[object Object]&quot;
+console.log(obj1 + &quot;&quot;); // &quot;[object Object]&quot;
+// 接下面声明一个对象，手动赋予了Symbol.toPrimitive属性，再来查看输出结果
+const obj2 = &#123;
+  [Symbol.toPrimitive](hint) &#123;
+    if (hint == &quot;number&quot;) &#123;
+      return 10;
+    &#125;
+    if (hint == &quot;string&quot;) &#123;
+      return &quot;hello&quot;;
+    &#125;
+    return true;
+  &#125;
+&#125;;
+console.log(+obj2);     // 10      -- hint 参数值是 &quot;number&quot;
+console.log(`$&#123;obj2&#125;`); // &quot;hello&quot; -- hint 参数值是 &quot;string&quot;
+console.log(obj2 + &quot;&quot;); // &quot;true&quot;  -- hint 参数值是 &quot;default&quot;
+</code></pre>
+<h3 id=""><a href="#" class="headerlink" title="[]"></a>[]</h3><h1 id="快速记忆流程"><a href="#快速记忆流程" class="headerlink" title="快速记忆流程"></a>快速记忆流程</h1><p>一、原始类型 -&gt; 数字：</p>
+<p><img data-src="/images/1.png"></p>
+<p>二、所有转boolean</p>
+<p><img data-src="/images/2.png"></p>
 <p>三、原始类型</p>
-<p><img data-src="/images/3.png" alt="" /></p>
+<p><img data-src="/images/3.png"></p>
 <p>四、对象转原始类型</p>
-<p><img data-src="/images/4.png" alt="四、对象转原始类型" /></p>
-<h2 id="具体转换规则为"><a class="anchor" href="#具体转换规则为">#</a> 具体转换规则为：</h2>
-<ul>
-<li>
-<p>如果该值已经是原始数据类型（string、number、boolean），则直接返回该值。</p>
+<p><img data-src="/images/4.png" alt="四、对象转原始类型"></p>
+<h2 id="具体转换规则为："><a href="#具体转换规则为：" class="headerlink" title="具体转换规则为："></a>具体转换规则为：</h2><ul>
+<li><p>如果该值已经是原始数据类型（string、number、boolean），则直接返回该值。</p>
 </li>
-<li>
-<p>如果其中一项是字符串，那另一项值就会转换成对应的字符串类型。</p>
+<li><p>如果其中一项是字符串，那另一项值就会转换成对应的字符串类型。</p>
 </li>
-<li>
-<p>如果该值是对象（Object），则调用该对象的 valueOf () 方法，如果返回的结果是原始数据类型，则直接返回该值。</p>
+<li><p>如果该值是对象（Object），则调用该对象的 valueOf() 方法，如果返回的结果是原始数据类型，则直接返回该值。</p>
 </li>
-<li>
-<p>如果 <code>valueOf()</code>  方法的返回结果不是原始数据类型，则调用该对象的 toString () 方法，如果返回的结果是原始数据类型，则直接返回该值。</p>
+<li><p>如果<code>valueOf()</code>方法的返回结果不是原始数据类型，则调用该对象的 toString() 方法，如果返回的结果是原始数据类型，则直接返回该值。</p>
 </li>
-<li>
-<p>如果 <code>toString()</code>  方法的返回结果不是原始数据类型，则抛出 TypeError 异常。</p>
+<li><p>如果<code>toString()</code>方法的返回结果不是原始数据类型，则抛出 TypeError 异常。</p>
 </li>
 </ul>
-<p><img data-src="/images/Snipaste_2024-05-28_22-08-50.png" alt="images" /></p>
+<p><img data-src="/images/Snipaste_2024-05-28_22-08-50.png" alt="images"></p>
 
       <div class="tags">
           <a href="/tags/JS%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2/" rel="tag"><i class="ic i-tag"></i> JS类型转换</a>
@@ -292,7 +301,7 @@ ToPrimitive 接收一个 <code>hint</code>  参数，该参数只能取值： <c
     <div class="item left">
       
 
-  <a href="/2023/12/02/%E7%AE%97%E6%B3%95/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;s3.uuu.ovh&#x2F;imgs&#x2F;2024&#x2F;04&#x2F;05&#x2F;5f5c15d0d8ceb4d1.jpg" title="算法与数据结构">
+  <a href="/2023/12/02/%E7%AE%97%E6%B3%95/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;s3.uuu.ovh&#x2F;imgs&#x2F;2024&#x2F;03&#x2F;29&#x2F;a93636ae09845d36.jpg" title="算法与数据结构">
   <span class="type">上一篇</span>
   <span class="category"><i class="ic i-flag"></i> 算法</span>
   <h3>算法与数据结构</h3>
@@ -302,7 +311,7 @@ ToPrimitive 接收一个 <code>hint</code>  参数，该参数只能取值： <c
     <div class="item right">
       
 
-  <a href="/2023/12/02/%E6%95%B0%E6%8D%AE%E5%BA%93/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;s3.uuu.ovh&#x2F;imgs&#x2F;2024&#x2F;04&#x2F;06&#x2F;ba62f09d8f302a0f.jpg" title="数据库">
+  <a href="/2023/12/02/%E6%95%B0%E6%8D%AE%E5%BA%93/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;s3.uuu.ovh&#x2F;imgs&#x2F;2024&#x2F;04&#x2F;12&#x2F;b04c50f26fdc9c19.jpg" title="数据库">
   <span class="type">下一篇</span>
   <span class="category"><i class="ic i-flag"></i> 数据库</span>
   <h3>数据库</h3>
@@ -324,7 +333,7 @@ ToPrimitive 接收一个 <code>hint</code>  参数，该参数只能取值： <c
   <div class="panels">
     <div class="inner">
       <div class="contents panel pjax" data-title="文章目录">
-          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%9A%90%E5%BC%8F%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2%E8%BF%87%E7%A8%8B"><span class="toc-number">1.</span> <span class="toc-text"> 隐式类型转换过程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AF%B9%E8%B1%A1%E7%9A%84symboltoprimitive%E6%96%B9%E6%B3%95"><span class="toc-number">1.0.1.</span> <span class="toc-text"> 对象的 [Symbol.toPrimitive] 方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">1.0.2.</span> <span class="toc-text"> []</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%BF%AB%E9%80%9F%E8%AE%B0%E5%BF%86%E6%B5%81%E7%A8%8B"><span class="toc-number">2.</span> <span class="toc-text"> 快速记忆流程</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B7%E4%BD%93%E8%BD%AC%E6%8D%A2%E8%A7%84%E5%88%99%E4%B8%BA"><span class="toc-number">2.1.</span> <span class="toc-text"> 具体转换规则为：</span></a></li></ol></li></ol>
+          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%9A%90%E5%BC%8F%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2%E8%BF%87%E7%A8%8B"><span class="toc-number">1.</span> <span class="toc-text">隐式类型转换过程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AF%B9%E8%B1%A1%E7%9A%84-Symbol-toPrimitive-%E6%96%B9%E6%B3%95"><span class="toc-number">1.0.1.</span> <span class="toc-text">对象的[Symbol.toPrimitive]方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">1.0.2.</span> <span class="toc-text">[]</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%BF%AB%E9%80%9F%E8%AE%B0%E5%BF%86%E6%B5%81%E7%A8%8B"><span class="toc-number">2.</span> <span class="toc-text">快速记忆流程</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B7%E4%BD%93%E8%BD%AC%E6%8D%A2%E8%A7%84%E5%88%99%E4%B8%BA%EF%BC%9A"><span class="toc-number">2.1.</span> <span class="toc-text">具体转换规则为：</span></a></li></ol></li></ol>
       </div>
       <div class="related panel pjax" data-title="系列文章">
         <ul>
@@ -342,19 +351,19 @@ ToPrimitive 接收一个 <code>hint</code>  参数，该参数只能取值： <c
 <nav class="state">
     <div class="item posts">
       <a href="/archives/">
-        <span class="count">80</span>
+        <span class="count">82</span>
         <span class="name">文章</span>
       </a>
     </div>
     <div class="item categories">
       <a href="/categories/">
-        <span class="count">64</span>
+        <span class="count">66</span>
         <span class="name">分类</span>
       </a>
     </div>
     <div class="item tags">
       <a href="/tags/">
-        <span class="count">100</span>
+        <span class="count">102</span>
         <span class="name">标签</span>
       </a>
     </div>
@@ -442,60 +451,30 @@ ToPrimitive 接收一个 <code>hint</code>  参数，该参数只能取值： <c
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" title="分类于 解决方案">解决方案</a>
+<a href="/categories/%E7%AE%97%E6%B3%95/" title="分类于 算法">算法</a>
 </div>
 
-    <span><a href="/2023/06/02/%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" title="解决方案">解决方案</a></span>
+    <span><a href="/2023/12/02/%E7%AE%97%E6%B3%95/" title="算法与数据结构">算法与数据结构</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/webpack/" title="分类于 webpack">webpack</a>
+<a href="/categories/Blob/" title="分类于 Blob">Blob</a>
 </div>
 
-    <span><a href="/2023/10/21/webpack/" title="webpack笔记">webpack笔记</a></span>
+    <span><a href="/2024/05/17/Blob%E5%92%8CFile/" title="Blob、File和FileReader">Blob、File和FileReader</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/" title="分类于 面试题">面试题</a>
+<a href="/categories/TDD/" title="分类于 TDD">TDD</a>
 </div>
 
-    <span><a href="/2024/04/30/%E6%B7%B1%E6%8B%B7%E8%B4%9D/" title="深拷贝">深拷贝</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/Vue/" title="分类于 Vue">Vue</a>
-</div>
-
-    <span><a href="/2023/01/12/Vue%E6%9D%82%E8%AE%B0/" title="Vue使用笔记">Vue使用笔记</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/three-js/" title="分类于 three.js">three.js</a>
-</div>
-
-    <span><a href="/2023/10/24/ThreeJS/" title="three.js">three.js</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/JS%E6%89%8B%E5%86%99%E9%A2%98/" title="分类于 JS手写题">JS手写题</a>
-</div>
-
-    <span><a href="/2023/06/02/JS%E6%89%8B%E5%86%99%E9%A2%98/" title="JS手写题">JS手写题</a></span>
+    <span><a href="/2024/03/30/jest/" title="jest">jest</a></span>
   </li>
 
       
@@ -505,37 +484,69 @@ ToPrimitive 接收一个 <code>hint</code>  参数，该参数只能取值： <c
 <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/" title="分类于 计算机组成原理">计算机组成原理</a>
 </div>
 
-    <span><a href="/2024/01/02/%E7%BC%93%E5%AD%98%E3%80%81%E5%86%85%E5%AD%98%E3%80%81CPU%E7%9F%A5%E8%AF%86%E7%82%B9%E8%A7%A3%E6%9E%90%E7%AC%94%E8%AE%B0/" title="计组知识点">计组知识点</a></span>
+    <span><a href="/2023/07/02/%E6%B5%AE%E7%82%B9%E6%95%B0%E5%AD%98%E5%82%A8/" title="浮点数存储">浮点数存储</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/git/" title="分类于 git">git</a>
+<a href="/categories/Travis%E5%92%8CDocker/" title="分类于 Travis和Docker">Travis和Docker</a>
 </div>
 
-    <span><a href="/2023/04/02/git%E5%92%8Cgithub/" title="git与github">git与github</a></span>
+    <span><a href="/2023/12/02/Travis%20CI%E5%92%8CDocker%E7%9A%84%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90/" title="Travis和Docker的持续集成">Travis和Docker的持续集成</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/" title="分类于 前端性能优化">前端性能优化</a>
+<a href="/categories/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/" title="分类于 性能优化">性能优化</a>
 </div>
 
-    <span><a href="/2024/03/02/%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/" title="前端性能优化">前端性能优化</a></span>
+    <span><a href="/2024/05/11/%E6%80%A7%E8%83%BD%E6%8C%87%E6%A0%87/" title="性能指标">性能指标</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/JS/" title="分类于 JS">JS</a>
+<a href="/categories/ES6/" title="分类于 ES6">ES6</a>
 </div>
 
-    <span><a href="/2023/12/07/Blob/" title="Blob">Blob</a></span>
+    <span><a href="/2023/08/02/ES6/" title="ES6">ES6</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E5%BA%95%E5%B1%82%E6%9D%82%E8%AE%B0/" title="分类于 底层杂记">底层杂记</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/%E5%BA%95%E5%B1%82%E6%9D%82%E8%AE%B0/%E5%B7%A5%E5%85%B7%E5%87%BD%E6%95%B0/" title="分类于 工具函数">工具函数</a>
+</div>
+
+    <span><a href="/2023/06/02/%E5%BA%95%E5%B1%82%E6%9D%82%E8%AE%B0/" title="底层杂记与工具库函数">底层杂记与工具库函数</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90%E4%B8%8E%E9%83%A8%E7%BD%B2/" title="分类于 持续集成与部署">持续集成与部署</a>
+</div>
+
+    <span><a href="/2024/02/03/%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90%E4%B8%8E%E6%8C%81%E7%BB%AD%E9%83%A8%E7%BD%B2/" title="持续集成与持续部署">持续集成与持续部署</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/OSI%E4%B8%83%E5%B1%82%E7%BD%91%E7%BB%9C%E6%A8%A1%E5%9E%8B/" title="分类于 OSI七层网络模型">OSI七层网络模型</a>
+</div>
+
+    <span><a href="/2024/05/27/OSI%E4%B8%83%E5%B1%82%E7%BD%91%E7%BB%9C%E6%A8%A1%E5%9E%8B/" title="OSI七层网络模型">OSI七层网络模型</a></span>
   </li>
 
   </ul>
@@ -560,13 +571,13 @@ ToPrimitive 接收一个 <code>hint</code>  参数，该参数只能取值： <c
     <span class="post-meta-item-icon">
       <i class="ic i-chart-area"></i>
     </span>
-    <span title="站点总字数">944k 字</span>
+    <span title="站点总字数">953k 字</span>
 
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="ic i-coffee"></i>
     </span>
-    <span title="站点阅读时长">14:18</span>
+    <span title="站点阅读时长">14:26</span>
   </div>
   <div class="powered-by">
     基于 <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & Theme.<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Shoka</span>
