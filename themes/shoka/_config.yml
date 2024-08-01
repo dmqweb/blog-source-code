@@ -303,6 +303,26 @@ yandex_site_verification:
 # Baidu Webmaster tools verification.
 # See: https://ziyuan.baidu.com/site
 baidu_site_verification:
+# 压缩文件
+minify:
+  html:
+    enable: true
+    exclude: # 排除 hexo-feed 用到的模板文件
+      - "**/json.ejs"
+      - "**/atom.ejs"
+      - "**/rss.ejs"
+  css:
+    enable: true
+    exclude:
+      - "**/*.min.css"
+  js:
+    enable: true
+    mangle:
+      toplevel: true
+    output:
+    compress:
+    exclude:
+      - "**/*.min.js"
 
 # Enable baidu push so that the blog will push the url to baidu automatically which is very helpful for SEO.
 baidu_push: false
