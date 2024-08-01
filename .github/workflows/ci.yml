@@ -1,0 +1,27 @@
+name: Hexo CI
+on: [push]
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+    - name: Set up Node.js
+      uses: actions/setup-node@v2
+      # with:
+        # node-version: '14' # 您可以根据需要设置 Node.js 的版本
+    # - name: Install Hexo and dependencies
+      # run: |
+        # npm install -g hexo-cli
+        # npm install
+
+    - name: Clean public directory
+      run: hexo clean
+
+    - name: Generate static files
+      run: hexo g --debug
+
+    - name: Deploy to GitHub Pages
+      run: hexo d --debug
+      env:
+        # 如果您使用自定义的部署脚本或需要环境变量，请在这里设置

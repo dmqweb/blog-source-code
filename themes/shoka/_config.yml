@@ -344,4 +344,3 @@ vendors:
     valine: gh/amehime/MiniValine@4.2.2-beta10/dist/MiniValine.min.js
     copy_tex: npm/katex@0.12.0/dist/contrib/copy-tex.min.js
     chart: npm/frappe-charts@1.5.0/dist/frappe-charts.min.iife.min.js
-    prism-diff: npm/prismjs@1.21.0/plugins/diff-highlight/prism-diff-highlight.min.js

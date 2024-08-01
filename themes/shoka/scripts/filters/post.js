@@ -3,7 +3,8 @@
 'use strict';
 
 hexo.extend.filter.register('after_post_render', data => {
-  const { config } = hexo;
+  try{
+    const { config } = hexo;
   const theme = hexo.theme.config;
 
   data.content = data.content.replace(/(<img[^>]*) src=/img, '$1 data-src=');
@@ -20,5 +21,9 @@ hexo.extend.filter.register('after_post_render', data => {
 
     return `<span class="exturl" data-url="${Buffer.from(href).toString('base64')}">${html}</span>`;
   });
+  }catch(e){
+    console.error(e);
+    return match;
+  }
 
 }, 0);
