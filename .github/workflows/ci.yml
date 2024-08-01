@@ -23,5 +23,5 @@ jobs:
 
     - name: Deploy to GitHub Pages
       run: hexo d --debug
-      env:
+      # env:
         # 如果您使用自定义的部署脚本或需要环境变量，请在这里设置
