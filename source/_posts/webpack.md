@@ -1,5 +1,5 @@
 ---
-title: webpack笔记
+title: webpack
 date: 2023-10-21 12:24:4
 categories:
 - webpack
@@ -9,7 +9,7 @@ tags:
 ---
 # [babel](*https://babeljs.io/setup*)
 
-######   1执行编译的命令
+###  1执行编译的命令
 
 在package.json文件中添加执行babel的命令
 
@@ -17,7 +17,7 @@ tags:
 
 * `babel src --out-dir dist*`
 
-###### 2.Babel的配置文件
+### 2.Babel的配置文件
 
 * 安装配置文件  `npm install @babel/preset-env@7.11.0--save-dev`
 
@@ -29,11 +29,11 @@ tags:
 
 `}`
 
-###### 3 .npm run build进行打包
+### 3 .npm run build进行打包
 
 # webpack
 
-## 【1】 webpack是什么
+##  webpack是什么
 
 `const { webpack } = require("webpack")`
 
@@ -41,7 +41,7 @@ tags:
 
 处理  js  css  图片  图标字体  静态文件
 
-## 【2】使用webpack
+## 使用webpack
 
 1  初始化项目   `npm init`
 
@@ -59,7 +59,7 @@ tags:
 
 5  npm run webpack
 
-## 【3】output 和 entry(webpack.config.js中配置)
+## output 和 entry(webpack.config.js中配置)
 
 1  entry指定入口文件
 
@@ -97,7 +97,7 @@ entry中配置多个入口文件 :
 
  `}`
 
-## 【4】loader （ 将webpack和其他工具进行联通 ）
+## loader （ 将webpack和其他工具进行联通 ）
 
 1  什么是loader (加载器,webpack本身是用来打包js ,要想打包css 图片等静态资源和模块 ,必须要使用loader)
 
@@ -145,7 +145,7 @@ entry中配置多个入口文件 :
 
 *// 这也就是babel/polyfill的作用*
 
-## 【6】 使用babel/polyfill （ core-js ）
+##  使用babel/polyfill （ core-js ）
 
 (1)  安装
 
@@ -157,7 +157,7 @@ npm install --save-dev core-js@3.6.5
 
 （3）npm run webpack 进行打包处理
 
-## 【7】plugins
+## plugins
 
 1  plugins介绍，插件，loader被用于转成某些类型的模块，而插件则可以用于执行范围更广的任务
 
@@ -219,7 +219,7 @@ module.exports = {
 
 
 
-## 【8】webpack处理css文件 （可以在js中引入css文件 ，webpack将css文件当成模块）
+## webpack处理css文件 （可以在js中引入css文件 ，webpack将css文件当成模块）
 
 ####  一  css-loader
 
@@ -603,6 +603,7 @@ module.exports = {
         assetModuleFilename: "static/assets/[hash:10][ext]",
         clean: true
     },
+    devtool: "source-map",
     module: {
         rules: [
             {
@@ -777,9 +778,6 @@ module.exports = {
     }
 }
 ```
-
-# 
-
 # 实现miniwebpack
 
 ### 前置知识
