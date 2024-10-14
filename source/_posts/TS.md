@@ -9,7 +9,7 @@ sticky: true
 ---
 
 # TS
-
+> `赋值时，父集合类型可以赋值给子集合类型，extends时，父集合类型可以继承自子集合类型`
 ### 定义数据类型
 
 ```ts
@@ -42,13 +42,13 @@ let arr6: any[] = [1, "ds", false];
 ```
 
 ### 元组
-
+> 元组类型用于精确数组每一项的类型，并且可以定义可选
 ```ts
 /**
  * 元组（类型写在数组外面，元组类型写在数组里面）
  */
 // 一旦定义了元组，其类型和固定顺序位置的数据类型就确定了
-let arr7: [number, boolean] = [1, false];
+let arr7: [number, boolean?] = [1, false]; //可定义可选类型，用于控制元素个数
 // 但是其长度可以通过push方法改变，但不能直接赋值改变
 arr7.push(2);
 // arr7 =[1,false,2]  //报错
@@ -70,6 +70,22 @@ let a: number | string = 0;
  * 字面量类型（字面量类型声明的值中只能赋值为指定的）
  */
 let a1: 1 | 0 = 0;
+// 字面量类型可以使用模板字符串进行传参
+type Name = "小猫" | "小狗";
+type Age = 10 | 100
+type Say = `${Name}叫` //小猫叫 | 小狗叫
+type Info = `${Name}-${Age}` //小猫10 | 小猫100 | 小狗10 | 小狗100
+//泛型用法
+type T1<T extends string> = `${T}喜欢你`;
+type T2 = T1<"小猫" | "小狗"> //小猫喜欢你 | 小狗喜欢你
+// 字面量类型配合as关键字重新起名字
+interface Person{
+  name:string
+  age:number
+}
+type NewPerson = {
+  [P in keyof Person as `get${P}`]:Person[P]
+}
 ```
 
 ### 枚举类型
@@ -86,6 +102,7 @@ enum STATUS {
   const clickSwitch = (current: STATUS) => { //限制只能传入
     return '测试'
   }
+  // 枚举类型参与值得获取
   clickSwitch(STATUS.OPEN)
 ```
 
@@ -114,6 +131,7 @@ enum Color {
   blue2 = "blue",
 }
 console.log(Color.blue2); //赋值给其中一项的如果不是可迭代的（number），则需要为每一个都赋值
+console.log(Color); //相同枚举类型会合并，不能重复赋值相同枚举属性
 ```
 
 ### any 和 unknown 类型
@@ -126,7 +144,7 @@ console.log(Color.blue2); //赋值给其中一项的如果不是可迭代的（n
  */
 let a3: unknown = 1;
 a3 = "1";
-a3 = { a1: "dsf" };
+a3 = { a1: "dsf" }; //类型为unknown时，没确定类型时不能使用对应的方法
 // a3.a1
 // a3()
 // a3.toString() 当定义unknown未知类型时，在类型未知的情况下不能使用方法
@@ -152,11 +170,11 @@ function a4(): undefined {
   console.log("a4");
   return;
 }
-// 2 void类型，表示变量本身就不存在，当函数没有返回值时，返回值就是void
-function a5() {
-  console.log("a5");
+// 2 void类型，表示函数没有返回值，返回值是void.
+function a5(target:{name:string}):void {
+  console.log({name:"d"});
 }
-// 2 never类型，表示一个函数永远执行不完（报错或无限循环）
+// 2 never类型，表示永远执行不完的函数的类型（报错或无限循环），当变量接收never类型函数返回值或这个函数可以执行完时就会报错
 function throwErr(message: string, errCode: number): never {
   throw {
     message,
@@ -206,7 +224,6 @@ a10("嗨");
 ```
 
 ### 具体对象类型
-
 ```ts
 /**
  * 具体对象类型
@@ -226,7 +243,6 @@ let person2 = {
 let person3: any = { name: "王五", age: 22 };
 console.log(person3.nickname); //如果将对象的类型改为any，则可以使用任意类型（相当于原生js对象）
 ```
-
 ### 接口 interface
 
 ```ts
@@ -244,7 +260,8 @@ let drawPoint = (point: Point) => {
 interface Person {
   age: number;
   name: string;
-  say: () => void; //用接口表示对应的类型生命，讲函数和接口放在一起提高代码的高内聚低耦合
+  say: () => void; //用接口表示对应的类型生命，将函数和接口放在一起提高代码的高内聚低耦合
+  say2():void; //定义普通函数类型
 }
 ```
 
@@ -252,7 +269,8 @@ interface Person {
 
 ```ts
 /**
- * 类 class （ES6中也有类的概念）
+ * 类 class （ES6类的概念）,类使用implements关键字去实现interface
+ * 注意类继承的接口中不能包含可选属性！！
  */
 class PersonClass implements Person {
   //使用类实现接口
@@ -271,7 +289,7 @@ const person4 = new PersonClass();
 person4.say();
 ```
 
-### 类的访问修饰符
+### 类的访问修饰符 public、protected和private
 
 ```ts
 /**
@@ -302,7 +320,7 @@ interface pp {
   setName: (val: string) => void;
 }
 class PersonClass3 implements pp {
-  //使用类实现接口
+  //使用类实现接口，private属性不能在接口上
   constructor(private age: number, private name: string) {
     //js中的函数不可以重载，一个类中有且只能有一个构造函数
     // 使用private访问修饰符后，同样不用自动注册
@@ -397,8 +415,8 @@ function area(shape: Shape) {
 }
 ```
 
-### 类型守护 is
-
+### 类型保护（类型收缩）
+> 常见的类型保护有：typeof、instanceof、in和is，当结果已知时，可以去收缩和精确具体类型
 类型守护的意义就在于`类型的倒推`，由结果推导出变量的具体类型（收缩变量的类型范围），这样当结果已经知道时，就可以推导出变量为 unknow 或其他等一些未知的类型。
 
 例如：
@@ -494,6 +512,7 @@ function area1(shape1: Shape1) {
 ```ts
 /**
  * 函数重载（TS的函数重载发生在编译时而不是运行时，因为js不支持函数重载）
+ * 函数实现的参数个数（包含可选参数）不能大于函数签名的最大参数个数
  */
 // 使用函数重载将会明确函数的签名，大大提升对函数使用的准确性
 function makeDate(timeStamp: number): Date;
@@ -535,9 +554,9 @@ type Poit = {
 const point = class {
   constructor(public x: number, public y: number, public z?: number) {}
 };
-/**
- * 索引签名
- */
+```
+### 索引签名 []
+```ts
 // 定义字典类型
 type Dictionary = {
   [key: string]: any;
@@ -640,10 +659,10 @@ king[2]; //字符串通过索引可以访问到对应字母
 ```
 
 ### 常量断言 as const
-
+> 常量断言常用于只读数组，保证每一项不可变
 ```ts
 /**
- * 常量断言（js中对象类型的值可以修改）
+ * 常量断言（将变量每一项变为readonly只读）
  */
 const obj = {
   name: "张三",
@@ -703,7 +722,7 @@ const valid2 = {
 ```
 
 ### declare 关键字
-
+> 在.d.ts文件中使用declare关键字声明的变量和函数等，将会作为全局变量使用
 ts 中 declare 关键字就是用于告诉编译器，某个类型存在，并且在当前页面可以使用。
 
 declare 关键字可以描述：
@@ -748,7 +767,7 @@ declare module "url";
 ```
 
 ### typeof 操作符
-
+> typeof操作符只能提取变量或字面量，不能提取表达式或类型
 ```ts
 /**
  * typeof操作符，提取已有变量的类型
@@ -770,7 +789,7 @@ const unit: position = {
 ```
 
 ### keyof 操作符
-
+keyof any 返回的是：number | string | symbol,因为只有这三个值可以作为属性名
 ```ts
 /**
  * keyof操作符，拿到全部的成员变量作为联合类型
@@ -833,6 +852,13 @@ export type Readonly<T> = {
   //使用export的原因是Readonly是TS内置好的函数
   readonly [item in keyof T]: T[item];
 };
+type Test1<T> = {
+  [P in keyof T]?:T[P]  //?所有属性添加可选
+  [P in keyof T]-?:T[P]  //-?所有属性取消可选
+  readonly [P in keyof T]:T[P]  //readonly所有属性添加只读
+  -readonly [P in keyof T]:T[P]  //-readonly所有属性取消只读
+
+}
 const center2: Readonly<Point2> = {
   x: 1,
   y: 1,
@@ -840,13 +866,22 @@ const center2: Readonly<Point2> = {
 };
 // center2.x = 100  此时会报错
 ```
-
+### 值映射
+```ts
+type Test<T> = {
+  [P in T[number]]: P
+}
+type Test2<T> = {
+  [P in keyof T]: T[P]
+}
+```
 ### 类型修饰符
 
 ```ts
 /**
  * 映射修饰符，readonly、?等
  */
+// readonly和数组泛型一起使用就会报错，ts中有：ReadonlyArray和Readonly两个泛型可以表示readonly数组
 type Point3 = {
   readonly x: number;
   y?: number;
@@ -935,8 +970,6 @@ export default Config2;
 
 # --------------------------------
 
-#
-
 # ts 进阶
 
 > 类型系统
@@ -985,8 +1018,6 @@ type User = {
 ```
 
 ## 函数重载
-
->
 
 ```ts
 function combine(a: number, b: number): number;
@@ -1205,7 +1236,7 @@ const a = new Person<string>("str");
 ```
 
 ### 泛型继承
-
+extends关键字常用于泛型约束
 > 使用泛型约束函数时，某些时候泛型的类型未知，但是函数内部又要使用泛型参数对应的方法，这个时候就要对泛型的形状进行声明，可以使用该泛型去继承 interface 接口。
 > 或者当需要对泛型的类型进一步约束时，可以使用泛型去继承 interface 接口。
 
@@ -1232,11 +1263,23 @@ function minxinArray<T, K>(arr1: T[], arr2: K[]): (T | K)[] {
   return result;
 }
 ```
+### infer占位符
+> infer占位符，只能用于条件表达式中
+```ts
+type T1 = "小猫喜欢你" | "小狗喜欢你";
+type T2<T> = T extends `${infer R}喜欢你` ? R : never;
+type T3 = T2<T1> // "小猫" | "小狗"
+```
+### 装饰器
+
+### nameSpace
+> 自从ES6的模块化规范出现之后，官方就不推荐使用nameSpace了
 # --------------------------------------
+
 # 项目中使用 ts
 
 ## 注意事项
-
+- .d.ts声明文件中默认全部导出使用，一旦使用import或者export关键字之后，就需要使用export进行导出才能使用
 - 直接在类型定义文件.d.ts 中书写类型，任意文件夹中直接使用，ts 会自动找对应类型
 - declare namespace 定义命名空间，这样可以防止使用混乱，还可以防止变量命名冲突
 - - ```ts

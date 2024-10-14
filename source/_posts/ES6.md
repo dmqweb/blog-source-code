@@ -167,11 +167,15 @@ let htmlTel = `<ul>
     <p>name:${name}</p>
     </li>
 </ul>`;
- 
+
 ```
 
 ## 解构赋值
-
+> **对象的解构赋值依赖于`可枚举`，数组的解构赋值依赖于`可迭代`**
+```javascript
+const [a,b] = {a:1,b:2} //报错：数组的解构赋值依赖于可迭代协议
+const {a,b} = [1,2] //a，b都是undefined，因为对象的解构赋值枚举出来没有a,b属性
+```
 解构赋值是对赋值运算符的一种扩展。它通常针对数组和对象进行操作。
 
 > 优点：代码书写简洁且易读性高
@@ -718,11 +722,9 @@ let p = new Promise((resolve,reject)=>{
 		}else{
 			reject(res.error.message)
 		}
-
 	}, 1000)
 })
 
- 
 ```
 
 ### Promise的状态和值
@@ -776,7 +778,7 @@ function timeout(ms) {
 timeout(1000).then((value) => {
     console.log(value);
 })
- 
+
 ```
 
 ### then方法的规则
@@ -819,7 +821,6 @@ getJSON('https://free-api.heweather.net/s6/weather/now?location=beijing&key=4693
 
 }, function (error) {
     console.error(error);
-
 })
 
 //then方法的链式调用
@@ -877,7 +878,7 @@ let p2 = Promise.reject(new Error('出错了'));
 p2.catch(err => {
     console.log(err);
 })
- 
+
 ```
 
 ### all()方法
@@ -964,7 +965,7 @@ Promise.race([requestImg('images/2.png'), timeout()]).then((data) => {
 - async/await使得异步代码看起来像同步代码，再也没有回调函数。但是改变不了JS单线程、异步的本质。(**异步代码同步化**)
 
 ### Async/await的使用规则
-
+> async函数的返回值一定是一个Promise
 - **凡是在前面添加了async的函数在执行后都会自动返回一个Promise对象**
 
   ```javascript
@@ -977,7 +978,7 @@ Promise.race([requestImg('images/2.png'), timeout()]).then((data) => {
   ```
 
 - **await必须在async函数里使用，不能单独使用**
-
+> await后面必须是一个Promise(不是Promise的会被封装为一个Promise) , 等Promise被resolved之后会返回resolved的值。
   ```javascript
   async test() {
       let result = await Promise.resolve('success')
@@ -987,7 +988,7 @@ Promise.race([requestImg('images/2.png'), timeout()]).then((data) => {
   ```
   
 - **await后面需要跟Promise对象，不然就没有意义，而且await后面的Promise对象不必写then，因为await的作用之一就是获取后面Promise对象成功状态传递出来的参数。**
-
+> await后面的全部语句都会被作为该Promise的回调、被放在微任务队列中去执行。
   ```javascript
   function fn() {
       return new Promise((resolve, reject) => {
@@ -1038,6 +1039,7 @@ load()
 **当函数执行的时候，一旦遇到 await 就会先返回，等到触发的异步操作完成，再接着执行函数体内后面的语句。**
 
 ### async/await的错误处理
+> 如果await后面的任务被reject，其自封装的Promise.reject中就会throw一个Error，这时我们可以通过try catch进行捕获。
 
 关于错误处理，如规则三所说，await可以直接获取到后面Promise成功状态传递的参数，但是却捕捉不到失败状态。在这里，我们通过给包裹await的async函数添加then/catch方法来解决，因为根据规则一，async函数本身就会返回一个Promise对象。
 

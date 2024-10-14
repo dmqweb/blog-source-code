@@ -134,7 +134,7 @@ Effect 允许指定由渲染本身而不是特定事件引起的副作用。（�
   })
   ```
 
-- useEffect 第二个参数不传代表**每次渲染组件后都执行一次**，传空数组代表**只会在第一次挂载后执行**，传依赖项代表在**依赖项变化时执行。**
+- useEffect 第二个参数不传代表： **每次渲染组件后都执行一次**，传空数组代表： **只会在第一次挂载后执行**，传依赖项代表在：**依赖项变化时执行。**
 - useEffect 依赖项中传入 ref 通常是无效的，因为 ref 相当于不使用渲染赋值的 state 状态，传递过去的 ref 引用始终相同（不随着快照的渲染而变化）。
 - 某些逻辑不能放在 effect 中执行，因为 effect 的执行是和组件渲染强绑定的（例如不能在 effect 中写购买商品的逻辑，这样会导致组件以任何方式被渲染都会执行购买逻辑，这样是不对的）
 - effect 中 return 的函数会在下一次 effect 执行前被执行，常用于执行清理函数（清除定时器等）
@@ -178,8 +178,6 @@ react 组件的生命周期：
 
 # ------------------------------------
 
-#
-
 # [react 项目学习]()
 
 # react 笔记
@@ -207,17 +205,14 @@ react 组件的生命周期：
     }
     return state
   }
-
   // 2. 使用reducer函数生成store实例
   const store = Redux.createStore(reducer)
-
   // 3. 通过store实例的subscribe订阅数据变化
   // 回调函数可以在每次state发生变化的时候自动执行
   store.subscribe(() => {
     console.log('state变化了', store.getState())
     document.getElementById('count').innerText = store.getState().count
   })
-
   // 4. 通过store实例的dispatch函数提交action更改状态
   const inBtn = document.getElementById('increment')
   inBtn.addEventListener('click', () => {
@@ -226,7 +221,6 @@ react 组件的生命周期：
       type: 'INCREMENT'
     })
   })
-
   const dBtn = document.getElementById('decrement')
   dBtn.addEventListener('click', () => {
     // 减
@@ -428,7 +422,6 @@ npm run dev
 ## 两者区别
 
 eslint prettier
-
 - eslint 编码规范，如变量未定义（语法语义）
 - prettier 编码风格，如末尾是否用 `;`
 - eslint 也有编码风格的功能，两者可能会有冲突
@@ -585,12 +578,10 @@ function clickHandler(event: React.MouseEvent<HTMLParagraphElement>) {
   event.preventDefault();
   console.log("clicked");
 }
-
 return <p onClick={clickHandler}>hello world</p>;
 ```
 
 如果要想**传递参数**，可以通过如下方式
-
 ```javascriptx
 function clickHandler(
   event: React.MouseEvent<HTMLParagraphElement>,
@@ -599,7 +590,6 @@ function clickHandler(
   event.preventDefault();
   console.log("clicked", x);
 }
-
 return (
   <p
     onClick={(e: React.MouseEvent<HTMLParagraphElement>) =>
@@ -662,7 +652,6 @@ const list = [
   { username: "lisi", name: "李四" },
   { username: "shuangyue", name: "双越" },
 ];
-
 const ul = (
   <ul>
     {list.map((user) => {
@@ -775,7 +764,6 @@ Immer 简化了不可变数据结构的处理。特别是对于 JS 语法没那�
   - 修改 isPublish
 
 代码参考 `pages/List2.tsx`
-
 ---
 
 最重要的就是：不可变数据 —— 这是 React state 的核心
@@ -827,7 +815,7 @@ React18 开始，`useEffect` 在开发环境下执行两次 <br>
 
 ## useRef
 
-useRef 是基于 useState 疯转而来，区别在于没有向外暴露设置响应性数据的函数，一般用于操作 DOM 元素，也可以用来持久化缓存数据
+useRef 是基于 useState 封装而来，区别在于没有向外暴露设置响应性数据的函数，一般用于操作 DOM 元素，也可以用来持久化缓存数据
 
 PS：useRef 也可以传入 JS 值，但更新时不会触发 rerender ，需替换为 useState
 
@@ -844,7 +832,7 @@ PS：useRef 也可以传入 JS 值，但更新时不会触发 rerender ，需替
 
 ## useCallback
 
-useCallback 就是 useMemo 的语法糖，和 useMemo 一样。用于缓存函数。
+useCallback用于缓存函数，useMemo用于缓存计算结果
 
 # 自定义 Hooks
 
@@ -1471,8 +1459,6 @@ https://git.hust.cc/echarts-for-react/
 ## 结论
 
 最终选择了 recharts
-
-#
 
 # --------------------------------------
 

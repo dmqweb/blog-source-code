@@ -150,7 +150,7 @@ document.querySelector('#progress').innerText = `${(event.loaded / event.total *
 # 
 
 # Fetch
-
+> fetch最大的优势在于：①使用Promise进行封装，使用简洁，②允许数据流处理数据，可以分块读取，有利于提升网站性能表现
 ### 使用
 
 **fetch返回格式：**

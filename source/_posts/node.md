@@ -204,8 +204,8 @@ Node环境中无法操作DOM和BOM，不过可以借助一些工具进行模拟�
 const fs = require('node:fs')
 const { JSDOM } = require('jsdom') // jsdom模拟浏览器环境
 const dom = new JSDOM(`<!DOCTYPE html><div id='app'></div>`)
-const document = dom.window.document
-const window = dom.window
+const document = dom.window.document;
+const window = dom.window;
 fetch('https://api.thecatapi.com/v1/images/search?limit=10&page=1').then(res => res.json()).then(data => {
     const app = document.getElementById('app')
     data.forEach(item=>{
@@ -260,8 +260,6 @@ path.basename('C:/fs/dmq/MI/index.html') //返回index.html
 
 ## process模块
 
-
-
 - `process.argv`
   - 第一个参数是当前执行环境的路径
   - 第二个参数是当前执行的文件的路径
@@ -308,7 +306,7 @@ FFmpeg 是一个开源的跨平台多媒体处理工具，可以用于处理音�
 
 ## events模块
 
-Node.js的事件模型采用发布订阅的设计思想，将发布者和订阅者之间解耦合，使得双方能够独立地扩展自己。
+Node.js的事件模型采用观察者模式的设计思想，使得双方能够独立地扩展自己。
 
 ```javascript
 const EventEmitter = require('events');

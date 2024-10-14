@@ -518,7 +518,7 @@ JS中`内存`的分配和回收都是`自动完成`的，内存在不使用的�
 
 箭头函数中没有 `arguments`，只能使用 `...` 动态获取实参
 
-~~~html
+```html
 <body>
   <script>
     // 1. 利用箭头函数来求和
@@ -532,13 +532,13 @@ JS中`内存`的分配和回收都是`自动完成`的，内存在不使用的�
     const result = getSum(2, 3, 4)
     console.log(result) // 9
   </script>
-~~~
+```
 
 #### 箭头函数 this
 
 箭头函数不会创建自己的this，它只会从自己的作用域链的上一层沿用this。
 
-~~~html
+```html
  <script>
     // 以前this的指向：  谁调用的这个函数，this 就指向谁
     // console.log(this)  // window
@@ -584,11 +584,15 @@ JS中`内存`的分配和回收都是`自动完成`的，内存在不使用的�
     obj.sayHi()
 
   </script>
-~~~
+```
 
 ## 解构赋值
 
-> 知道解构的语法及分类，使用解构简洁语法快速为变量赋值。
+> **对象的解构赋值依赖于`可枚举`，数组的解构赋值依赖于`可迭代`**
+```javascript
+const [a,b] = {a:1,b:2} //报错：数组的解构赋值依赖于可迭代协议
+const {a,b} = [1,2] //a，b都是undefined，因为对象的解构赋值枚举出来没有a,b属性
+```
 
 解构赋值是一种快速为变量赋值的简洁语法，本质上仍然是为变量赋值，分为数组解构、对象解构两大类型。
 
@@ -648,7 +652,7 @@ JS中`内存`的分配和回收都是`自动完成`的，内存在不使用的�
 
 注：支持多维解构赋值
 
-~~~html
+```html
 <body>
   <script>
     // 1. 这是后台传递过来的数据
@@ -700,7 +704,7 @@ JS中`内存`的分配和回收都是`自动完成`的，内存在不使用的�
     render(msg)
 
   </script>
-~~~
+```
 
 ## 综合案例
 
@@ -722,7 +726,7 @@ forEach() 方法用于调用数组的每个元素，并将元素传递给回调�
 >
 >2. 参数当前数组元素是必须要写的， 索引号可选。
 
-~~~html
+```html
 <body>
   <script>
     // forEach 就是遍历  加强版的for循环  适合于遍历数组对象
@@ -734,7 +738,7 @@ forEach() 方法用于调用数组的每个元素，并将元素传递给回调�
     // console.log(result)
   </script>
 </body>
-~~~
+```
 
 ### filter筛选数组
 
@@ -742,7 +746,7 @@ filter() 方法创建一个新的数组，新数组中的元素是通过检查�
 
 主要使用场景： `筛选数组符合条件的元素`，**并返回筛选之后元素的新数组**
 
-~~~html
+```html
 <body>
   <script>
     const arr = [10, 20, 30]
@@ -757,7 +761,7 @@ filter() 方法创建一个新的数组，新数组中的元素是通过检查�
     console.log(newArr)
   </script>
 </body>
-~~~
+```
 
 
 
@@ -1663,7 +1667,7 @@ JSON.stringify() 会直接返回其对应的JSON表示，而不会将其包装�
 - 递归函数的作用和循环效果类似
 - 由于递归很容易发生“栈溢出”错误（stack overflow），所以`必须要加退出条件 return`
 
-~~~html
+```html
 <body>
   <script>
     const obj = {
@@ -1720,11 +1724,11 @@ JSON.stringify() 会直接返回其对应的JSON表示，而不会将其包装�
     // }
   </script>
 </body>
-~~~
+```
 
 #### js库lodash里面cloneDeep内部实现了深拷贝
 
-~~~html
+```html
 <body>
   <!-- 先引用 -->
   <script src="./lodash.min.js"></script>
@@ -1743,7 +1747,7 @@ JSON.stringify() 会直接返回其对应的JSON表示，而不会将其包装�
     console.log(obj)
   </script>
 </body>
-~~~
+```
 #### H5新增structuredClone
 结构化克隆解决了该JSON.stringify()技术的许多（尽管不是全部）缺点。结构化克隆可以处理循环依赖，支持许多内置数据类型，并且更健壮且速度更快。
 但是，它仍然有一些限制：
@@ -1756,7 +1760,7 @@ RegExp：RegExp对象的lastIndex字段不会保留。
 
 #### JSON序列化
 
-~~~html
+```html
 <body>
   <script>
     const obj = {
@@ -1775,7 +1779,7 @@ RegExp：RegExp对象的lastIndex字段不会保留。
     console.log(obj)
   </script>
 </body>
-~~~
+```
 
 ## 异常处理
 

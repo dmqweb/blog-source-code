@@ -7,13 +7,10 @@ tags:
 - git
 - github
 ---
-
-<!--Ctrl+[ 提升列表等级；Ctrl+1 一级标题-->
-
-
-
-![/images/image-20220202212355012](https://gitee.com/meng-xuemeng/git-and---github-notes/raw/master/img/20220203003049.png)
-
+# 命令
+![git命令](/images/git.png)
+# 介绍
+> Git:分布式版本控制系统,
 # 一、用于版本控制
 
 1. 版本控制工具需要的功能
@@ -28,18 +25,11 @@ tags:
 
    ![](https://gitee.com/meng-xuemeng/git-and---github-notes/raw/master/img/20220203003434.png)
 
-   
-
-
 # 二、Git简介
 
 1. ![/images/image-20220130112357773](https://gitee.com/meng-xuemeng/git-and---github-notes/raw/master/img/20220203003455.png)
 
-
-
 2. 本地库和远程库
-
-   
 
    - ![](https://gitee.com/meng-xuemeng/git-and---github-notes/raw/master/img/20220203003509.png)
 
@@ -48,8 +38,6 @@ tags:
    - 想找不是团队内的成员 东方不败 来帮忙，那就需要他fork一下，这样对于修改可以进行pull request，经过审核后可以merge到原来的远程仓库
 
      ![/images/image-20220130113228007](https://gitee.com/meng-xuemeng/git-and---github-notes/raw/master/img/20220203003535.png)
-
-   
 
 # 三、Git命令行操作
 
@@ -169,8 +157,6 @@ tags:
 
      - n代表后退n步
 
-       
-
    - reset命令的三个参数对比
 
      - --soft 参数  仅仅在本地库移动HEAD指针
@@ -178,8 +164,6 @@ tags:
      - --mixed参数 在本地库移动HEAD指针；重置暂存区
 
      - --hard参数   在本地库移动HEAD指针；重置暂存区；重置工作区
-
-       
 
 6. `git help 命令`
 
@@ -251,8 +235,6 @@ tags:
    1. Hash
 
       ![/images/image-20220202184334597](https://gitee.com/meng-xuemeng/git-and---github-notes/raw/master/img/20220203003934.png)
-
-      
       
       ![/images/image-20220202184638546](https://gitee.com/meng-xuemeng/git-and---github-notes/raw/master/img/20220203003941.png)
 
@@ -300,15 +282,11 @@ tags:
    - pull requestes
 
 6. Eclipse 中Git使用 
-
    介绍了在Eclipse使用Git 。 应该pycharm或者VSCode也可以？
 
 # 六、Git工作流
 
 ![/images/image-20220202210632324](https://gitee.com/meng-xuemeng/git-and---github-notes/raw/master/img/20220203003050.png)
-
-这里安装Gitlab为啥？？？？
-
 
 
 # 七、Gitee

@@ -21,7 +21,7 @@ date: 2024-01-29 00:26:56
 
   遇到大量计算操作时，页面掉帧导致卡顿
 
-  - ```javascriptx
+  - ```jsx
     function App() {
       const len = 3000;
       return (
@@ -44,7 +44,7 @@ date: 2024-01-29 00:26:56
 
     - > 这种将长任务拆分到每一帧中，每次执行一小段任务的操作成为时间切片
 
-    - ```javascriptx
+    - ```jsx
       // 通过使用ReactDOM.unstable_createRoot开启Concurrent Mode,启用时间切片
       // ReactDOM.render(<App/>, rootEl);
       ReactDOM.unstable_createRoot(rootEl).render(<App />);
@@ -73,7 +73,7 @@ React15 的架构分为协调器和渲染器
   - 调用函数组件或者类组件的`render`方法，将返回的 JSX 转化为虚拟 DOM
   - 将虚拟 DOM 和上次更新时的虚拟 DOM 比对
   - 通过比对找出本次更新中变化的虚拟 DOM
-  - 通知渲染器将比那花的虚拟 DOM 渲染到页面上
+  - 通知渲染器将变化的虚拟 DOM 渲染到页面上
 
 ### 渲染器
 

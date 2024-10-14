@@ -4,6 +4,7 @@ tags: Docker
 categories: Docker
 date: 2024-07-08 10:26:39
 ---
+
 ![Docker](https://dmqweb.cn/images/Docker.pdf)
 ![Docker文档](https://dmqweb.cn/images/Docker文档.pdf)
 ![Docker大纲](https://dmqweb.cn/images/Docker大纲.pdf)
@@ -27,7 +28,7 @@ date: 2024-07-08 10:26:39
 
 ## image 镜像
 
-> image 镜像就相当于是一个菜谱，对应用程序的执行进行模板化。参照同一个 image 镜像运行的应用程序是相同的。它包含了运行容器所需的所有那日容（代码、运行时、库、环境变量和配置文件）
+> image 镜像就相当于是一个菜谱，对应用程序的执行进行模板化。参照同一个 image 镜像运行的应用程序是相同的。它包含了运行容器所需的所有内容（代码、运行时、库、环境变量和配置文件）
 > image 镜像打包了：
 
 - 配置文件、启动命令
