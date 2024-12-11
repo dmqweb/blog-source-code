@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue</title>
+</head>
+
+<body>
+    <div id="app">{{count}}</div>
+    <script>
+        const AppComponent = {
+            template: `
+                <div class="my-component">
+                <div class="container">
+                <p class="message">Count: {{ count }}</p>
+                <div class="buttons">
+                <button data-action="increment">Increment</button>
+                <button data-action="decrement">Decrease</button>
+                </div>
+                </div>
+                </div>
+                `,
+            data() {
+                return {
+                    count: 0,
+                };
+            },
+            methods: {
+                increment() {
+                    this.count += 1;
+                },
+                decrement() {
+                    this.count -= 1;
+                },
+            },
+            style: `
+                .my-component {
+                    font-family: Arial, sans-serif;
+                    text-align: center;
+                    padding: 50px;
+                    background: #f0f0f0;
+                }
+                .my-component .container {
+                    background: white;
+                    padding: 20px;
+                    border-radius: 10px;
+                    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+                }
+                .my-component .message {
+                    font-size: 24px;
+                    margin-bottom: 20px;
+                }
+                .my-component .buttons button {
+                    font-size: 16px;
+                    padding: 10px 20px;
+                    margin: 5px;
+                    cursor: pointer;
+                    border: none;
+                    border-radius: 5px;
+                    transition: background 0.3s;
+                }
+                .my-component .buttons button:hover {
+                    background: #ddd;
+                }
+                .my-component .buttons button:active {
+                    background: #ccc;
+                }
+                `,
+            rootId: 'root'
+        }
+    </script>
+    <script>
+        const App = new Component(AppComponent);
+        class Component{
+            constructor(options){
+                this.template = options.template;
+                this.data = reactive(options.data());
+                this.methods = options.methods;
+                this.style = options.style;
+                this.rootId = options.rootId;
+                if(!document.getElementById(this.rootId)){
+                    const rootElement = document.createElement('div');
+                    rootElement.id = this.rootId;
+                    document.body.appendChild(rootElement);
+                }
+            }
+        }
+        App.render();
+    </script>
+</body>
+
+</html>

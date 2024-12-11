@@ -1,28 +1,57 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-        .outer{
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        .inner{
-            background-color: black;
-            width: 200px;
-            aspect-ratio: 2 / 1;
-        }
-    </style>
-</head>
-<body>
-    <div class="outer">
-        <div class="inner"></div>
-    </div>
-</body>
-<script>
+<html>
 
-</script>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    [dg-cloak] {
+      display: none !important;
+    }
+  </style>
+  <!-- 使用文件 -->
+  <script type="module" crossorigin="anonymous" src="https://cdn.jsdelivr.net/npm/@peakman/dagger.js@0.9.17/dagger.release.js" defer></script><!-- dagger.js script -->
+  <!-- 定义dagger的配置项 -->
+  <script type="dagger/configs">
+    {
+    "view_module": {
+      "uri": "https://codepen.io/dagger8224/pen/OJQQdgv.html",
+      "style": ["style1", "style2"]
+    },
+    "style1": {
+      "uri": "#style1",
+      "scoped": false
+    },
+    "style2": "#style2"
+  }
+  </script>
+  <title>dagger使用</title>
+  <style id="style1" type="dagger/style">
+    button {
+        color: #00aaaa;
+        width: 160px;
+        height: 40px;
+        margin: 10px;
+    }
+   </style>
+  <style id="style2" type="dagger/style">
+    button {
+        border: 2px dashed #00aaaa;
+        border-radius: 5px;
+    }
+   </style>
+</head>
+
+<body>
+    <button +click="alert('这是没有scoped样式的按钮')">点击按钮</button>
+<view_module dg-cloak +loading="{ message: 'Hello dagger!', html: '<button +click=alert(message)>dynamic button</button>' }">
+  You should not see me.
+</view_module>
+<div +loading="{ message: 'You can set $scope here', text: 'Some content' }">
+  <view_module dg-cloak>
+    You should not see me, too.
+  </view_module>
+</div>
+</body>
+
 </html>

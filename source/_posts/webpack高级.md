@@ -88,11 +88,11 @@ module.exports = {
 ### 最佳实践
 - 开发阶段: 推荐使用source-map或者cheap-module-source-map,方便本地调试
 - 测试阶段: 推荐使用source-map或者cheap-module-source-map,方便定位错误
-- 生成阶段: 推荐不生成source-map(配置为false或缺省不写),因为多余的source-map文件加载消耗资源,并且通过source-map文件,别人可以还原我们的代码
+- 生成阶段: 推荐不生成source-map(配置为false或缺省不写),因为多余的source-map文件加载消耗资源,并且通过source-map文件,别人可以还原我们的代码。
 # optimization优化
-> optimization字段用于配置优化项 , 主要有minimizer压缩、splitChunks分包、mergeDuplicateChunks合并相同模块的chunk等选项
+> optimization字段用于配置优化项 , 主要有minimizer压缩、splitChunks分包、mergeDuplicateChunks合并相同模块的chunk等选项。
 # resolve解析
-> 设置模块如何配解析,主要包括: alias别名、extensions后缀、fallback重定向模块等选项
+> 设置模块如何配解析,主要包括: alias别名、extensions后缀、fallback重定向模块等选项。
 # devServer开发服务器
 > 内部使用webpack-dev-server,开发服务器,用于快速开发应用程序,主要包括: static静态文件、compress压缩、port端口、devMiddleware资源配置项、http2开启http2等选项
 # cache缓存
@@ -119,13 +119,13 @@ module.exports = {
 # plugin插件
 > plugin字段用于配置插件
 # stats显示
-> stats 选项让你更精确地控制 bundle 信息该怎么显示。 如果你不希望使用 quiet 或 noInfo 这样的不显示信息，而是又不想得到全部的信息，只是想要获取某部分 bundle 的信息，使用 stats 选项是比较好的折衷方式。
+> stats 选项让你更精确地控制 bundle 信息该怎么显示。 如果你不希望使用 quiet 或 noInfo 这样的不显示信息，而是又不想得到全部的信息，只是想要获取某部分 bundle 的信息，使用 stats 选项是比较好的折中方式。
 # 深入源码
 # eval函数
 > webpack当mode为`development`模式下的`devtool`默认是`eval`,这将导致打包后的文件中,JS代码是通过eval函数进行执行的,而不是直接执行的,原因是: 通过eval函数执行可以`添加上source-map对应的魔法注释`,这样当出现报错时就能准确定位到对应的文件位置
 # 知识点
-> 开发模式下,只要引入模块就会将模块打包进构建结果
-> 生产模式下,会进行tree-shaking,如果引入了但不使用就不会被打包进构建结果
+> 开发模式下,只要引入模块就会将模块打包进构建结果。
+> 生产模式下,会进行tree-shaking,如果引入了但不使用就不会被打包进构建结果。
 
 # webpack.config.js配置示例
 ```js

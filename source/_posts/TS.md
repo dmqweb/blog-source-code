@@ -42,7 +42,7 @@ let arr6: any[] = [1, "ds", false];
 ```
 
 ### 元组
-> 元组类型用于精确数组每一项的类型，并且可以定义可选
+> 元组类型用于精确数组每一项的类型，并且可以定义可选。
 ```ts
 /**
  * 元组（类型写在数组外面，元组类型写在数组里面）
@@ -75,7 +75,7 @@ type Name = "小猫" | "小狗";
 type Age = 10 | 100
 type Say = `${Name}叫` //小猫叫 | 小狗叫
 type Info = `${Name}-${Age}` //小猫10 | 小猫100 | 小狗10 | 小狗100
-//泛型用法
+// 泛型用法
 type T1<T extends string> = `${T}喜欢你`;
 type T2 = T1<"小猫" | "小狗"> //小猫喜欢你 | 小狗喜欢你
 // 字面量类型配合as关键字重新起名字
@@ -133,7 +133,6 @@ enum Color {
 console.log(Color.blue2); //赋值给其中一项的如果不是可迭代的（number），则需要为每一个都赋值
 console.log(Color); //相同枚举类型会合并，不能重复赋值相同枚举属性
 ```
-
 ### any 和 unknown 类型
 
 ```ts
@@ -511,11 +510,12 @@ function area1(shape1: Shape1) {
 
 ```ts
 /**
- * 函数重载（TS的函数重载发生在编译时而不是运行时，因为js不支持函数重载）
- * 函数实现的参数个数（包含可选参数）不能大于函数签名的最大参数个数
+ * 函数重载
+ * 函数实现的参数个数（包含可选参数）不能大于函数签名的最大参数个数，注意ts多个函数签名需要写在一起
  */
 // 使用函数重载将会明确函数的签名，大大提升对函数使用的准确性
 function makeDate(timeStamp: number): Date;
+// console.log(); 报错,ts函数签名需要写在一起
 function makeDate(year: number, month: number, day: number): Date;
 function makeDate(timeStampOrYear: number, month?: number, day?: number) {
   if (month != null && day != null) {
@@ -967,6 +967,10 @@ export default Config2;
 //   在选择使用 type 还是 interface 时，你可以根据具体情况来决定。通常来说，如果你需要定义对象的结构，或者要求类实现某个结构，使用 interface 是一个不错的选择。
 //   而如果你需要复杂的联合类型或交叉类型，或者仅仅是为了给某个类型起一个别名以提高可读性，那么使用 type 是更合适的
 ```
+### 何时使用
+- 定义公共API时使用interface，方便使用者进行继承扩展
+- 定义组件属性和状态时使用type，其约束性更强
+- type类型不能二次编辑，而interface可以随时扩展
 
 # --------------------------------
 
@@ -1162,7 +1166,8 @@ const a: Duck = b; //可将宽泛类型的变量赋值给部分类型变量
 > 访问修饰符用于 class 类中定义属性列表时使用
 
 - public：默认的访问修饰符，公开的，所有代码均可访问
-- static：私有的，只有在类中可以访问
+- private：私有的，只有在类中可以访问
+- static：静态的，在类上使用
 - protected：受保护的，不能在外部使用，但是可以在子类中使用
 
 ## 类 class
@@ -1193,9 +1198,9 @@ class User {
 
 ## 泛型
 
-> 有时，书写某个函数时，会丢失一些类型信息（多个位置的类型应该保持一致或者有关联的信息），例如参数的类型未知，但是该类型又和返回值的类型相关联，这时就要使用到泛型
-> 泛型是指附属于函数、类、接口、类型别名之上的类型。泛型相当于是一个类型变量，在定义时，无法预先知道具体的类型时，可以用该变量来代替，只有调用时，才会确定他的类型
-> 很多时候，TS 会智能的根据传递的参数，推导出泛型的类型（前提是该参数使用了该泛型），也可以给泛型设置默认值
+> 有时，书写某个函数时，会丢失一些类型信息（多个位置的类型应该保持一致或者有关联的信息），例如参数的类型未知，但是该类型又和返回值的类型相关联，这时就要使用到泛型。
+> 泛型是指附属于函数、类、接口、类型别名之上的类型。泛型相当于是一个类型变量，在定义时，无法预先知道具体的类型时，可以用该变量来代替，只有调用时，才会确定他的类型。
+> 很多时候，TS 会智能的根据传递的参数，推导出泛型的类型（前提是该参数使用了该泛型），也可以给泛型设置默认值。
 
 ### 函数中使用泛型
 
@@ -1254,15 +1259,35 @@ function nameToUpperCase<T extends hasNameProperty>(obj: T): T {
 
 ```ts
 function minxinArray<T, K>(arr1: T[], arr2: K[]): (T | K)[] {
-  if (arr1.length !== arr2.length) throw Error("长度");
-  let result: (T | K)[] = [];
-  for (let i = 0; i < arr1.length; i++) {
-    result.push(arr1[i]);
-    result.push(arr2[i]);
-  }
-  return result;
+    if (arr1.length !== arr2.length) throw Error("长度");
+    let result: (T | K)[] = [];
+    for (let i = 0; i < arr1.length; i++) {
+        result.push(arr1[i]);
+        result.push(arr2[i]);
+    }
+    return result;
 }
+console.log(minxinArray<number, string>([1, 2, 3], ['1', '2', '3']));
 ```
+### 泛型约束的局限性
+```ts
+interface hasNameProperty {
+    name: string;
+}
+function nameToUpperCase<T>(obj: T): T {
+    obj.name;
+    return obj;
+}
+const a = {
+    name: "a"
+};
+const b = {};
+console.log(nameToUpperCase<hasNameProperty>(a)); //函数调用没有报错，函数执行报错
+console.log(nameToUpperCase<hasNameProperty>(b)); //函数调用报错
+```
+- 例如上述示例，当传入泛型时，仅仅约束了函数传入参数时，必须是T类型，但是函数内部并不知道T的具体类型
+- 即使调用函数时，传入了类型，函数内部仍然不能将参数判定为该确切的类型
+- 可以使用一些类型判定的api进行推导，如：as、typeof、isInstnceOf、Array.isArray等
 ### infer占位符
 > infer占位符，只能用于条件表达式中
 ```ts
@@ -1274,6 +1299,25 @@ type T3 = T2<T1> // "小猫" | "小狗"
 
 ### nameSpace
 > 自从ES6的模块化规范出现之后，官方就不推荐使用nameSpace了
+### 协变（变量类型赋值）
+子类型对象可以赋值给父类型对象
+> ts协变意思是:如果不同类型的变量之间不能相互赋值,但是使用ts协变允许子类型对象赋值给父类型对象,子类型对象的属性更多,更加具体。
+### 逆变（函数类型赋值）
+> ts中,父类参数约束的函数可以赋值给子类参数约束的函数。
+```ts
+interface Parent{
+    a:1
+}
+interface Child extends Parent{
+    b:2
+}
+type FunParent = (arg: Parent) => any;
+type FunChildren = (arg: Child) => any;
+let fnParent: FunParent = () => true;
+let funChild: FunChildren = () => 1;
+funChild = fnParent; //逆变时,父类约束的函数可以赋值给子类约束的函数
+```
+
 # --------------------------------------
 
 # 项目中使用 ts

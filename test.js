@@ -1,60 +1,8 @@
-function Dictionary(){
-	var items = {};
-	
-	this.has = function(key){
-		return key in items;
-	}
-	
-	this.set = function(key,value){
-		items[key] = value;
-	}
-	
-	this.remove = function(key){
-		if(this.has(key)){
-			delete items[key];
-			return true;
-		}
-		return false;
-	}
-	
-	this.get = function(key){
-		return this.has(key) ? items[key] : undefined;
-	}
-	
-	this.values = function(){
-		var values = {};
-		for(var k in items){
-			 if(this.has(k)){
-				 values.push(items[k]);
-			 }
-		}
-		return values;
-	}
-	
-	this.getItems = function(){
-		return items;
-	}
-	
-	this.clear = function(){
-		items = {};
-	}
-	
-	this.size = function(){
-		return Object.keys(items).length;
-	}
-	
-	this.keys = function(){
-		return Object.keys(items);
-	}
-}
-
-var dictionary = new Dictionary();
-dictionary.set('a','a.com');
-dictionary.set('b','b.com');
-dictionary.set('c','c.com');
-console.log(dictionary.has('a'));
-console.log(dictionary.get('a'));
-console.log(dictionary.size());
-console.log(dictionary.keys());
-dictionary.remove('a');
-console.log(dictionary.getItems());
+// linux和windows的区别，应用程序可以跑吗
+// 遇到的难点和问题
+// 在调试过程中，后端给不到想要的数据，自己使用抓包工具代理网络请求，模拟出想要的数据
+// 在页面1比1还原的过程中，添加半透明的原设计稿位于决定定位的方式立于图层上，方便1：1还原。
+// 项目排期
+// - 项目排期不仅关系到自己的时间是否符合要求,还要看合作方是否有空闲时间
+// - 预留一定时间进行全面复盘,避免返工等原因导致自己的任务过重
+// 实习技术提升

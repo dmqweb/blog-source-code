@@ -135,7 +135,7 @@ const fnWorker = createWorker((e)=>{
 // const worker = new Worker()
 //创建一个worker
 const worker = new Worker('./worker.js')
-    console.log(worker);
+console.log(worker);
 worker.postMessage('sdfj');
 worker.postMessage({method:'echo',argus:[1,2,3,4]})
 //主线程关闭worker
