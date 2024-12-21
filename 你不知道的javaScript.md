@@ -23,13 +23,13 @@
 - js中数据类型设计为:类型二进制表示如果前三位都是0的话会被判断为object类型,null的二进制表示全是0,所以会被判断为object类型。
 - 部分内建函数:Number、String和Boolean等当作为函数调用时会返回字面量,当使用new调用时会返回对应类型的对象,其余内建函数如:Object、Array、Function、RegExp和Error,无论怎么调用都是返回对象,null和undefined只有文字形式,没有构造方法。
 - 内建函数Array传递一个参数时,会被当作数组的长度而非一个元素。
-- 对象中的属性名永远都是字符串,即使是数字也不例外,不过数字字符串会被作为排序属性。
+- 对象中的属性名永远都是字符串,即使是数字也不例外,不过数字字符串会被作为排序属性。（Symbol也可以作为属性名）
 - 数组中仍然可以像对象一样存其他类型的属性。
 > 对象的属性描述符
 - ES5开始,所有的对象上的属性都具备了属性描述符,可以通过Object.getOwnPropertyDescriptors获取,有:
 - - value(值)、
 - - writable(是否可以被赋值)、
-- - configurable(是否可以被赋值:-----可以使用Object.defineProperty或delete)
+- - configurable(是否可以被配置:-----可以使用Object.defineProperty或delete)
 - - enumerable(是否可以被枚举) 四个属性描述符
 > 对象的不可变设置
 - 对象不可变设置
@@ -43,16 +43,16 @@
 - 对象默认没有内置迭代器（Symbol.iterator属性），数组和Map、Set等集合内置了迭代器属性
 > 面向对象
 - 面向对象强调的是数据和操作数据的行为本质上是相互关联的，类并不是编程的继承，而是一个可选的代码抽象
-- js中有近似类的语法，但是js的机制似乎一致在阻止我们使用类设计模式
+- js中有近似类的语法，但是js的机制似乎一直在阻止我们使用类设计模式
 > 原型链
 - 构造函数的prototype是其实例的原型、父类的实例
 - 使用new调用构造函数产生的实例,其原型链继承于父类,而直接调用构造函数所产生的实例,其原型链指向Object,相当于由Object所构造(this.key=value的形式)
 > 改变原型链
 - 内置的构造函数改变prototype无效，其实例改变__proto__会改变原型链，但仍然可以使用原来的方法，不过原型链新的同名方法会进行覆盖；
-- 自己写的构造函数改变prototype会导致：实例的constructor指向其原型的constructor,其实例改变__proto__会改变原型链，但原来方法仍然可以使用，不过同名方法不会覆盖原来的方法
+- 自己写的构造函数改变prototype会导致：实例的constructor指向其原型的constructor,其实例改变__proto__会改变原型链，但原来方法仍然可以使用，不过同名方法不会覆盖原来的方法。
 > constructor
 - 实例的constructor根据调用方式和构造函数的prototype有关，但是一旦实例构造出来之后，其constructor便不会再被更改
-- 构造函数不使用new调用时,其实例的constructor是Object,使用new调用时,其实例的cosntructor是构造函数prototype的constructor
+- 构造函数不使用new调用时,其实例的constructor是Object,使用new调用时,其实例的constructor是构造函数prototype的constructor
 ```js
 function Foo() {
     this.name = ""
